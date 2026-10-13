@@ -1,0 +1,26 @@
+{
+  "name": "967-initiative",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .js,.jsx"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "lucide-react": "^0.468.0",
+    "@supabase/supabase-js": "^2.57.0",
+    "pdfjs-dist": "^5.4.149"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
