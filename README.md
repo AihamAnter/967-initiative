@@ -83,3 +83,7 @@ All program descriptions are drafts for the initiative's own review. The media c
 - The editor dashboard supports creating, editing, publishing/unpublishing and deleting works and issues.
 - A PDF with text as selectable text is needed for reliable in-reader keyword search; scanned/image-only PDFs generally won't be searchable.
 - Web fonts are loaded from Google Fonts; fallback system fonts are available when offline.
+
+### Work detail / embedded video viewer
+
+Each published work now opens at `/works/[slug]`. The library cards are accessible links, and public embeds for YouTube (including Shorts), Instagram posts/Reels, TikTok, Vimeo, supported Facebook video links, and direct MP4 files are attempted via allowlisted providers. Videos load only when the visitor opts to play, and there is always a link to the source. When a platform blocks embedding or a URL is not recognised, the external source link remains available. No DB migration required.

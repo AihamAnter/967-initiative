@@ -1,0 +1,32 @@
+/* 967 magazine: three-dimensional RTL paper turning (no additional dependencies). */
+.pdf-paper-view{background:radial-gradient(ellipse at center,#55514c 0%,#373431 68%,#282725 100%);scrollbar-color:#797067 #282725}
+.pdf-book-viewport{width:max-content;min-width:100%;min-height:440px;display:flex;justify-content:center;align-items:flex-start;flex-direction:column;padding:26px 24px 16px;position:relative;outline-offset:-3px;perspective:2000px}
+.pdf-book-scene{position:relative;flex:0 0 auto;transform-style:preserve-3d;isolation:isolate;margin-inline:auto;filter:drop-shadow(0 22px 26px rgba(0,0,0,.4))}
+.paper-static{position:absolute;top:0;height:100%;background:#fefcf7;overflow:hidden;box-shadow:inset 0 0 12px rgba(0,0,0,.12)}
+.paper-static img,.paper-leaf-face img{display:block;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}
+.paper-left{left:0;width:50%}.paper-right{right:0;width:50%}.paper-single{left:0;width:100%}
+.paper-edge{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.02),transparent 13%,transparent 88%,rgba(0,0,0,.095));box-shadow:inset 0 0 1px #ddd}
+.paper-left .paper-edge{background:linear-gradient(90deg,transparent 74%,rgba(0,0,0,.13) 100%)}
+.paper-right .paper-edge{background:linear-gradient(90deg,rgba(0,0,0,.17),transparent 26%)}
+.pdf-book-spine{position:absolute;top:0;bottom:0;left:calc(50% - 2px);z-index:3;width:4px;background:linear-gradient(90deg,#4f473f55,#11111177,#4f473f55);box-shadow:0 0 14px #16120e77;pointer-events:none}
+.paper-loading,.paper-blank{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#faf8f3;color:#96928a}
+.paper-turn-leaf{position:absolute;z-index:5;top:0;height:100%;width:50%;transform-style:preserve-3d;will-change:transform}
+.pdf-book-single .paper-turn-leaf{width:100%}
+.paper-turn-next{left:0;transform-origin:right center;animation:arabic-page-next .86s cubic-bezier(.25,.08,.25,1) both}
+.paper-turn-previous{right:0;transform-origin:left center;animation:arabic-page-prev .86s cubic-bezier(.25,.08,.25,1) both}
+.pdf-book-single .paper-turn-next{transform-origin:right center}
+.pdf-book-single .paper-turn-previous{transform-origin:left center}
+.paper-leaf-face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fffefc;box-shadow:0 3px 17px #0003}
+.paper-leaf-back{transform:rotateY(180deg)}
+.paper-leaf-front::after,.paper-leaf-back::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.1),transparent 35%,rgba(255,255,255,.2) 72%,rgba(0,0,0,.09));mix-blend-mode:multiply}
+.paper-turn-next .paper-leaf-front{box-shadow:inset -5px 0 18px #0002,9px 13px 22px #0003}
+.paper-turn-previous .paper-leaf-front{box-shadow:inset 5px 0 18px #0002,-9px 13px 22px #0003}
+@keyframes arabic-page-next{0%{transform:rotateY(0deg)}20%{transform:rotateY(18deg)}50%{transform:rotateY(89deg)}80%{transform:rotateY(158deg)}100%{transform:rotateY(180deg)}}
+@keyframes arabic-page-prev{0%{transform:rotateY(0deg)}20%{transform:rotateY(-18deg)}50%{transform:rotateY(-89deg)}80%{transform:rotateY(-158deg)}100%{transform:rotateY(-180deg)}}
+.flip-label{white-space:nowrap;font-size:11px;margin-right:3px}.pdf-controls button:has(.flip-label){width:auto;padding-inline:10px;display:flex;align-items:center;gap:5px}
+.pdf-turn-state{height:19px;margin:6px auto 0;color:#ddd5c7;font-size:11px;text-align:center}
+.pdf-book-viewport:focus-visible{outline:2px solid var(--red2)}
+.pdf-reader:fullscreen .pdf-view-area{max-height:none;min-height:70vh}
+@media(max-width:760px){.pdf-book-viewport{min-height:360px;padding:12px 10px 5px;perspective:1400px}.pdf-book-scene{filter:drop-shadow(0 13px 15px rgba(0,0,0,.38))}.pdf-turn-state{font-size:10px}}
+@media(max-width:580px){.pdf-controls button:has(.flip-label){padding-inline:5px}.flip-label{display:none}.pdf-book-viewport{padding:10px 8px 0}}
+@media(prefers-reduced-motion:reduce){.paper-turn-next,.paper-turn-previous{animation:none}}

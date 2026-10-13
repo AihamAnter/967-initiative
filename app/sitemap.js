@@ -1,0 +1,2 @@
+import {getIssues} from '@/lib/data';
+export default async function sitemap(){const base=process.env.NEXT_PUBLIC_SITE_URL||'http://localhost:3000';const issues=await getIssues();return [{url:base,changeFrequency:'weekly',priority:1},{url:base+'/works',changeFrequency:'weekly',priority:.8},{url:base+'/magazine',changeFrequency:'weekly',priority:.9},...issues.map(i=>({url:base+'/magazine/'+i.slug,lastModified:i.issue_date,changeFrequency:'monthly',priority:.75}))]}
