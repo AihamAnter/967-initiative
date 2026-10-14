@@ -3,6 +3,7 @@ import {useMemo, useState} from 'react';
 import {Search} from 'lucide-react';
 import {categories, platforms, demoWorks} from '@/lib/config';
 import WorkCard from '@/components/WorkCard';
+import {formatNumber} from '@/lib/format';
 
 export default function WorkExplorer({works}) {
   const [topic, setTopic] = useState('الكل');
@@ -22,7 +23,7 @@ export default function WorkExplorer({works}) {
       <select aria-label="تصفية حسب المنصة" value={platform} onChange={e => setPlatform(e.target.value)}>{platforms.map(p => <option key={p}>{p}</option>)}</select>
     </div>
     <div className="filter-tabs">{categories.map(c => <button key={c} onClick={() => setTopic(c)} className={topic === c ? 'selected' : ''}>{c}</button>)}</div>
-    <div className="results-line"><span>{isDemo ? 'أمثلة توضيحية لأقسام المكتبة — ليست منشورات فعلية' : 'الأعمال المنشورة'}</span><span>{matches.length} {isDemo ? 'أمثلة' : 'عمل'}</span></div>
+    <div className="results-line"><span>{isDemo ? 'أمثلة توضيحية لأقسام المكتبة — ليست منشورات فعلية' : 'الأعمال المنشورة'}</span><span>{formatNumber(matches.length)} {isDemo ? 'أمثلة' : 'عمل'}</span></div>
     <div className="work-grid">{matches.map((work, i) => <WorkCard key={work.id} work={work} index={i}/>)}</div>
     {!matches.length && <div className="empty-state"><Search size={28}/><h3>لا توجد أعمال تطابق البحث</h3><p>جرّب كلمات أخرى أو غيّر التصنيف.</p><button onClick={() => {setTopic('الكل'); setPlatform('الكل'); setSearch('');}} className="text-link">إزالة الفلاتر</button></div>}
   </div>;

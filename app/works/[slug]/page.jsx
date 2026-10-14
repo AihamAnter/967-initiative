@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {ArrowRight, CalendarDays, ArrowUpLeft, ExternalLink} from 'lucide-react';
 import {getWorks} from '@/lib/data';
+import {formatArabicDate} from '@/lib/format';
 import {safeExternalUrl, workThumbnail} from '@/lib/media';
 import MediaViewer from '@/components/MediaViewer';
 import WorkCard from '@/components/WorkCard';
@@ -36,7 +37,7 @@ export default async function WorkDetails({params}) {
       <h1>{work.title}</h1>
       <div className="work-detail-subhead">
         <p>من أعمال مبادرة 967 الإعلامية والمجتمعية</p>
-        {date && !Number.isNaN(date.getTime()) && <span><CalendarDays size={16}/>{date.toLocaleDateString('ar-YE', {day:'numeric', month:'long', year:'numeric'})}</span>}
+        {date && !Number.isNaN(date.getTime()) && <span><CalendarDays size={16}/>{formatArabicDate(date)}</span>}
       </div>
     </div></section>
     <section className="work-detail-body"><div className="container">
