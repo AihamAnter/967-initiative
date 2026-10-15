@@ -7,6 +7,7 @@ const roleLabels = {admin: 'أدمن تحرير', management: 'إدارة'};
 
 export default function AdminUsersPanel({db}) {
   const [editors, setEditors] = useState([]);
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('admin');
   const [busy, setBusy] = useState(false);
@@ -48,8 +49,9 @@ export default function AdminUsersPanel({db}) {
     setBusy(true);
     setNotice('');
     try {
-      const result = await request('POST', {email, role});
-      setNotice(result.invited ? 'تمت إضافة الحساب وإرسال دعوة إلى بريده.' : 'تم تحديث صلاحية الحساب بنجاح.');
+      const result = await request('POST', {full_name: fullName, email, role});
+      setNotice(result.delivery === 'invite' ? 'تمت إضافة الحساب وإرسال دعوة من Supabase إلى بريده.' : 'تم تحديث الصلاحية وإرسال رابط إنشاء أو تغيير كلمة المرور إلى البريد.');
+      setFullName('');
       setEmail('');
       setRole('admin');
       await loadEditors();
@@ -96,6 +98,7 @@ export default function AdminUsersPanel({db}) {
       <p className="small-muted">أدخل البريد وحدد الصلاحية. إذا لم يكن الحساب موجودًا، ستصله دعوة لإنشاء كلمة المرور.</p>
       {notice && <p className={'feedback ' + (notice.startsWith('خطأ') ? 'error' : 'success')} role="status">{notice}</p>}
       <form className="admin-form" onSubmit={addEditor}>
+        <label>الاسم الكامل<input required minLength="2" autoComplete="name" value={fullName} onChange={event => setFullName(event.target.value)} placeholder="اسم المشرف"/></label>
         <label>البريد الإلكتروني<input required type="email" dir="ltr" value={email} onChange={event => setEmail(event.target.value)} placeholder="editor@example.com"/></label>
         <label>مستوى الصلاحية<select value={role} onChange={event => setRole(event.target.value)}><option value="admin">أدمن تحرير</option><option value="management">إدارة</option></select></label>
         <div className="admin-role-help">
@@ -111,7 +114,7 @@ export default function AdminUsersPanel({db}) {
       {loading && <p className="small-muted">جارٍ تحميل الحسابات...</p>}
       {!loading && !editors.length && <p className="small-muted">لا توجد حسابات مسجلة.</p>}
       {editors.map(editor => <div className="admin-user-row" key={editor.user_id}>
-        <div><strong dir="ltr">{editor.email}</strong><small>{roleLabels[editor.role] || editor.role}{editor.is_current ? ' · حسابك الحالي' : ''}</small></div>
+        <div><strong>{editor.full_name || 'اسم غير مسجل'}</strong><small><span dir="ltr">{editor.email}</span> · {roleLabels[editor.role] || editor.role}{editor.is_current ? ' · حسابك الحالي' : ''}</small></div>
         <div>
           <select aria-label={`صلاحية ${editor.email}`} value={editor.role} disabled={busy} onChange={event => changeRole(editor, event.target.value)}><option value="admin">أدمن تحرير</option><option value="management">إدارة</option></select>
           <button className="admin-danger-button" disabled={busy || editor.is_current} onClick={() => removeEditor(editor)} title={editor.is_current ? 'لا يمكن إزالة الحساب الحالي' : 'إزالة الصلاحية'}><Trash2 size={17}/></button>

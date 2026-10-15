@@ -63,6 +63,7 @@ export async function GET(request) {
       editors: (editors || []).map(editor => ({
         ...editor,
         email: users.get(editor.user_id)?.email || 'بريد غير متاح',
+        full_name: users.get(editor.user_id)?.user_metadata?.full_name || '',
         is_current: editor.user_id === auth.user.id,
       })),
     });
@@ -77,21 +78,29 @@ export async function POST(request) {
   if (auth.error) return auth.error;
   try {
     const body = await request.json();
+    const fullName = String(body.full_name || '').trim();
     const email = String(body.email || '').trim().toLowerCase();
     const role = String(body.role || 'admin');
+    if (fullName.length < 2 || fullName.length > 100) return fail('أدخل الاسم الكامل للمشرف.');
     if (!/^\S+@\S+\.\S+$/.test(email) || email.length > 250) return fail('أدخل بريدًا إلكترونيًا صالحًا.');
     if (!validRoles.has(role)) return fail('مستوى الصلاحية غير صالح.');
 
     let target = await findAuthUserByEmail(auth.db, email);
-    let invited = false;
+    let delivery = 'password_reset';
+    const origin = request.headers.get('origin');
+    const configuredSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || '').replace(/\/$/, '');
+    const siteUrl = (origin || configuredSiteUrl).replace(/\/$/, '');
+    const redirectTo = `${siteUrl}/admin`;
     if (!target) {
-      const origin = request.headers.get('origin');
-      const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || origin || '').replace(/\/$/, '');
-      const redirectTo = `${siteUrl}/admin`;
-      const {data, error} = await auth.db.auth.admin.inviteUserByEmail(email, {redirectTo});
+      const {data, error} = await auth.db.auth.admin.inviteUserByEmail(email, {redirectTo, data: {full_name: fullName}});
       if (error) throw error;
       target = data.user;
-      invited = true;
+      delivery = 'invite';
+    } else {
+      const {error: metadataError} = await auth.db.auth.admin.updateUserById(target.id, {user_metadata: {...(target.user_metadata || {}), full_name: fullName}});
+      if (metadataError) throw metadataError;
+      const {error} = await auth.db.auth.resetPasswordForEmail(email, {redirectTo});
+      if (error) throw error;
     }
 
     const {error} = await auth.db.from('editors').upsert({
@@ -100,7 +109,7 @@ export async function POST(request) {
       added_by: auth.user.id,
     }, {onConflict: 'user_id'});
     if (error) throw error;
-    return NextResponse.json({ok: true, invited});
+    return NextResponse.json({ok: true, delivery});
   } catch (error) {
     console.error('assign editor failed', error);
     return fail(error.message || 'تعذرت إضافة المشرف.', 503);
