@@ -1,0 +1,253 @@
+'use client';
+
+import {useCallback, useEffect, useMemo, useState} from 'react';
+import Papa from 'papaparse';
+import {
+  AlertTriangle, BarChart3, Check, Database, Eye, EyeOff, FileSpreadsheet,
+  Link2, Pencil, Plus, RefreshCw, Save, Search, Trash2, X,
+} from 'lucide-react';
+import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
+import {formatNumber, toLatinDigits} from '@/lib/format';
+
+const emptyIndicator = {
+  name: '', slug: '', domain_id: '', short_description: '', definition: '', unit: '',
+  improvement_direction: 'contextual', measurement_method: '', data_status: 'partial',
+  chart_type: 'line', adopted_source_id: '', source_ids: [], is_published: false,
+  hide_when_incomplete: true,
+};
+const emptySource = {name: '', publisher: '', url: '', description: '', is_active: true};
+const newValueRow = () => ({clientId: crypto.randomUUID(), year: '', value: '', source_id: '', document_url: '', publication_date: '', methodology_note: '', value_status: 'official', is_published: false});
+const slugify = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
+
+export default function StatisticsAdminPanel({db}) {
+  const [view, setView] = useState('indicators');
+  const [sections, setSections] = useState([]);
+  const [domains, setDomains] = useState([]);
+  const [sources, setSources] = useState([]);
+  const [indicators, setIndicators] = useState([]);
+  const [links, setLinks] = useState([]);
+  const [values, setValues] = useState([]);
+  const [indicator, setIndicator] = useState(emptyIndicator);
+  const [source, setSource] = useState(emptySource);
+  const [valueRows, setValueRows] = useState([newValueRow()]);
+  const [editingIndicator, setEditingIndicator] = useState(null);
+  const [editingSource, setEditingSource] = useState(null);
+  const [selectedIndicatorId, setSelectedIndicatorId] = useState('');
+  const [search, setSearch] = useState('');
+  const [domainFilter, setDomainFilter] = useState('all');
+  const [busy, setBusy] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [notice, setNotice] = useState('');
+  const [schemaMissing, setSchemaMissing] = useState(false);
+  const [replaceDuplicates, setReplaceDuplicates] = useState(false);
+  const [csvRows, setCsvRows] = useState([]);
+  const [showPreview, setShowPreview] = useState(false);
+
+  const loadAll = useCallback(async () => {
+    setLoading(true); setSchemaMissing(false);
+    const [sectionResult, domainResult, sourceResult, indicatorResult, linkResult, valueResult] = await Promise.all([
+      db.from('stat_sections').select('*').order('display_order'),
+      db.from('stat_domains').select('*,section:stat_sections(*)').order('display_order'),
+      db.from('stat_sources').select('*').order('name'),
+      db.from('stat_indicators').select('*,domain:stat_domains(*),adopted_source:stat_sources!stat_indicators_adopted_source_id_fkey(*)').order('updated_at', {ascending: false}),
+      db.from('stat_indicator_sources').select('*'),
+      db.from('stat_values').select('*,source:stat_sources(*)').order('year', {ascending: false}),
+    ]);
+    const error = sectionResult.error || domainResult.error || sourceResult.error || indicatorResult.error || linkResult.error || valueResult.error;
+    if (error) {
+      setNotice('خطأ: ' + error.message);
+      setSchemaMissing(error.code === '42P01' || error.code === 'PGRST205' || /could not find.*stat_/i.test(error.message || ''));
+    } else {
+      setSections(sectionResult.data || []); setDomains(domainResult.data || []); setSources(sourceResult.data || []);
+      setIndicators(indicatorResult.data || []); setLinks(linkResult.data || []); setValues(valueResult.data || []);
+    }
+    setLoading(false);
+  }, [db]);
+
+  useEffect(() => { loadAll(); }, [loadAll]);
+
+  const filteredIndicators = useMemo(() => indicators.filter(item => {
+    const needle = search.trim().toLocaleLowerCase('ar');
+    return (!needle || [item.name, item.slug, item.unit, item.domain?.name].join(' ').toLocaleLowerCase('ar').includes(needle))
+      && (domainFilter === 'all' || item.domain_id === domainFilter);
+  }), [domainFilter, indicators, search]);
+  const selectedIndicator = indicators.find(item => item.id === selectedIndicatorId);
+  const selectedValues = values.filter(item => item.indicator_id === selectedIndicatorId);
+
+  function resetIndicator() { setIndicator(emptyIndicator); setEditingIndicator(null); setShowPreview(false); }
+  function editIndicator(item) {
+    const sourceIds = links.filter(link => link.indicator_id === item.id).map(link => link.source_id);
+    setIndicator({...emptyIndicator, ...item, adopted_source_id: item.adopted_source_id || '', source_ids: sourceIds});
+    setEditingIndicator(item.id); setShowPreview(false); window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+  async function saveIndicator(event) {
+    event.preventDefault(); setBusy(true); setNotice('');
+    try {
+      const payload = {
+        domain_id: indicator.domain_id, name: indicator.name.trim(), slug: slugify(indicator.slug),
+        short_description: indicator.short_description.trim(), definition: indicator.definition.trim(), unit: indicator.unit.trim(),
+        improvement_direction: indicator.improvement_direction, measurement_method: indicator.measurement_method.trim(),
+        data_status: indicator.data_status, chart_type: indicator.chart_type,
+        adopted_source_id: indicator.adopted_source_id || null, is_published: indicator.is_published,
+        hide_when_incomplete: indicator.hide_when_incomplete,
+      };
+      if (!payload.name || !payload.slug || !payload.domain_id || !payload.unit) throw Error('الاسم والرابط والمجال والوحدة حقول إلزامية.');
+      if (payload.is_published && payload.hide_when_incomplete && payload.data_status !== 'complete') throw Error('المؤشر مخفي عند عدم اكتمال البيانات. غيّر الحالة إلى مكتملة أو ألغِ خيار الإخفاء قبل النشر.');
+      const result = editingIndicator
+        ? await db.from('stat_indicators').update(payload).eq('id', editingIndicator).select().single()
+        : await db.from('stat_indicators').insert(payload).select().single();
+      if (result.error) throw Error(result.error.message);
+      const id = result.data.id;
+      const sourceIds = [...new Set([...indicator.source_ids, indicator.adopted_source_id].filter(Boolean))];
+      const deleted = await db.from('stat_indicator_sources').delete().eq('indicator_id', id);
+      if (deleted.error) throw Error(deleted.error.message);
+      if (sourceIds.length) {
+        const linked = await db.from('stat_indicator_sources').insert(sourceIds.map(sourceId => ({indicator_id: id, source_id: sourceId, is_adopted: sourceId === indicator.adopted_source_id})));
+        if (linked.error) throw Error(linked.error.message);
+      }
+      setNotice('تم حفظ المؤشر ومصادره.'); resetIndicator(); await loadAll();
+    } catch (error) { setNotice('خطأ: ' + error.message); }
+    setBusy(false);
+  }
+  async function toggleIndicator(item) {
+    setBusy(true); const {error} = await db.from('stat_indicators').update({is_published: !item.is_published}).eq('id', item.id);
+    setNotice(error ? 'خطأ: ' + error.message : item.is_published ? 'أُعيد المؤشر إلى المسودة.' : 'تم نشر المؤشر.'); await loadAll(); setBusy(false);
+  }
+  async function deleteIndicator(item) {
+    if (!confirm(`حذف مؤشر «${item.name}» وكل قيمه نهائياً؟`)) return;
+    setBusy(true); const {error} = await db.from('stat_indicators').delete().eq('id', item.id);
+    setNotice(error ? 'خطأ: ' + error.message : 'تم حذف المؤشر.'); if (selectedIndicatorId === item.id) setSelectedIndicatorId(''); await loadAll(); setBusy(false);
+  }
+
+  function toggleSourceForIndicator(sourceId) {
+    setIndicator(current => ({...current, source_ids: current.source_ids.includes(sourceId) ? current.source_ids.filter(id => id !== sourceId) : [...current.source_ids, sourceId]}));
+  }
+  async function saveSource(event) {
+    event.preventDefault(); setBusy(true); setNotice('');
+    try {
+      const payload = {...source, name: source.name.trim(), publisher: source.publisher.trim(), url: source.url.trim() || null, description: source.description.trim()};
+      if (!payload.name) throw Error('اسم المصدر مطلوب.');
+      const result = editingSource ? await db.from('stat_sources').update(payload).eq('id', editingSource) : await db.from('stat_sources').insert(payload);
+      if (result.error) throw Error(result.error.message);
+      setSource(emptySource); setEditingSource(null); setNotice('تم حفظ المصدر.'); await loadAll();
+    } catch (error) { setNotice('خطأ: ' + error.message); }
+    setBusy(false);
+  }
+  function editSource(item) { setSource({...item, url: item.url || ''}); setEditingSource(item.id); }
+  async function deleteSource(item) {
+    if (!confirm(`حذف المصدر «${item.name}»؟ لن ينجح الحذف إذا كانت له قيم مرتبطة.`)) return;
+    setBusy(true); const {error} = await db.from('stat_sources').delete().eq('id', item.id);
+    setNotice(error ? 'خطأ: ' + error.message : 'تم حذف المصدر.'); await loadAll(); setBusy(false);
+  }
+
+  function updateValueRow(clientId, field, value) { setValueRows(rows => rows.map(row => row.clientId === clientId ? {...row, [field]: value} : row)); }
+  async function saveValues(event) {
+    event.preventDefault(); setBusy(true); setNotice('');
+    try {
+      if (!selectedIndicatorId) throw Error('اختر المؤشر أولاً.');
+      const payloads = valueRows.map(row => ({
+        indicator_id: selectedIndicatorId, source_id: row.source_id, year: Number(toLatinDigits(row.year)), value: Number(toLatinDigits(row.value)),
+        document_url: row.document_url.trim() || null, publication_date: row.publication_date || null,
+        national_scope: true, methodology_note: row.methodology_note.trim(), value_status: row.value_status,
+        is_published: row.is_published,
+      }));
+      for (const row of payloads) if (!row.source_id || !Number.isInteger(row.year) || row.year < 1990 || row.year > 2100 || !Number.isFinite(row.value)) throw Error('راجع السنة والقيمة والمصدر في جميع الصفوف.');
+      const ownKeys = new Set();
+      for (const row of payloads) { const key = `${row.year}:${row.source_id}`; if (ownKeys.has(key)) throw Error(`تكررت السنة والمصدر داخل النموذج: ${row.year}`); ownKeys.add(key); }
+      const duplicate = payloads.find(row => selectedValues.some(old => old.year === row.year && old.source_id === row.source_id));
+      if (duplicate && !replaceDuplicates) throw Error(`توجد قيمة محفوظة للسنة ${duplicate.year} والمصدر نفسه. فعّل الاستبدال للتحديث الصريح.`);
+      const result = replaceDuplicates
+        ? await db.from('stat_values').upsert(payloads, {onConflict: 'indicator_id,year,source_id'})
+        : await db.from('stat_values').insert(payloads);
+      if (result.error) throw Error(result.error.message);
+      setNotice(`تم حفظ ${payloads.length} قيمة وطنية.`); setValueRows([newValueRow()]); await loadAll();
+    } catch (error) { setNotice('خطأ: ' + error.message); }
+    setBusy(false);
+  }
+  async function toggleValue(item) {
+    setBusy(true); const {error} = await db.from('stat_values').update({is_published: !item.is_published}).eq('id', item.id);
+    setNotice(error ? 'خطأ: ' + error.message : 'تم تحديث حالة القيمة.'); await loadAll(); setBusy(false);
+  }
+  async function deleteValue(item) {
+    if (!confirm(`حذف قيمة سنة ${item.year}؟`)) return;
+    setBusy(true); const {error} = await db.from('stat_values').delete().eq('id', item.id);
+    setNotice(error ? 'خطأ: ' + error.message : 'تم حذف القيمة.'); await loadAll(); setBusy(false);
+  }
+
+  function parseCsv(file) {
+    setCsvRows([]); setNotice('');
+    if (!file) return;
+    Papa.parse(file, {header: true, skipEmptyLines: true, transformHeader: header => header.trim().toLowerCase(), complete: result => {
+      const seen = new Set();
+      const rows = result.data.map((row, index) => {
+        const sourceMatch = sources.find(item => item.id === row.source || item.name.trim().toLowerCase() === String(row.source || '').trim().toLowerCase()) || sources.find(item => item.id === row.source_id);
+        const year = Number(toLatinDigits(row.year)); const value = Number(toLatinDigits(row.value));
+        const errors = [];
+        if (!Number.isInteger(year) || year < 1990 || year > 2100) errors.push('سنة غير صالحة');
+        if (!String(row.value ?? '').trim() || !Number.isFinite(value)) errors.push('قيمة غير صالحة');
+        if (!sourceMatch) errors.push('المصدر غير معروف');
+        const key = `${year}:${sourceMatch?.id}`;
+        if (seen.has(key)) errors.push('مكرر داخل الملف'); seen.add(key);
+        const duplicate = selectedValues.some(old => old.year === year && old.source_id === sourceMatch?.id);
+        if (duplicate && !replaceDuplicates) errors.push('موجود مسبقاً');
+        const status = String(row.value_status || 'official').toLowerCase();
+        if (!['official', 'estimated'].includes(status)) errors.push('حالة القيمة غير صالحة');
+        return {rowNumber: index + 2, year, value, source_id: sourceMatch?.id || '', sourceName: sourceMatch?.name || row.source || '', document_url: row.document_url || '', publication_date: row.publication_date || '', methodology_note: row.methodology_note || '', value_status: status, is_published: ['true', '1', 'yes', 'نعم'].includes(String(row.is_published).toLowerCase()), errors};
+      });
+      if (result.errors.length) setNotice('خطأ: تعذر قراءة بعض صفوف CSV. راجع تنسيق الملف.');
+      setCsvRows(rows);
+    }});
+  }
+  async function importCsv() {
+    setBusy(true); setNotice('');
+    try {
+      if (!selectedIndicatorId) throw Error('اختر المؤشر أولاً.');
+      if (!csvRows.length || csvRows.some(row => row.errors.length)) throw Error('أصلح أخطاء المعاينة قبل الاستيراد.');
+      const payload = csvRows.map(({rowNumber, sourceName, errors, ...row}) => ({...row, indicator_id: selectedIndicatorId, national_scope: true, document_url: row.document_url || null, publication_date: row.publication_date || null}));
+      const result = replaceDuplicates ? await db.from('stat_values').upsert(payload, {onConflict: 'indicator_id,year,source_id'}) : await db.from('stat_values').insert(payload);
+      if (result.error) throw Error(result.error.message);
+      setNotice(`تم استيراد ${payload.length} صفاً بعد المعاينة.`); setCsvRows([]); await loadAll();
+    } catch (error) { setNotice('خطأ: ' + error.message); }
+    setBusy(false);
+  }
+
+  if (loading) return <div className="admin-panel"><p className="small-muted">جارٍ تحميل إدارة الإحصائيات...</p></div>;
+  if (schemaMissing) return <div className="admin-panel stats-schema-message"><AlertTriangle size={28}/><h2>جداول اليمن بالأرقام غير موجودة</h2><p>شغّل الملف <code>supabase/yemen-in-numbers.sql</code> مرة واحدة في Supabase SQL Editor، ثم اضغط تحديث.</p><button className="btn btn-outline" onClick={loadAll}><RefreshCw size={17}/> تحديث</button></div>;
+
+  return <div className="stats-admin">
+    <div className="stats-admin-nav">{[
+      ['indicators', 'المؤشرات والمجالات', BarChart3], ['values', 'القيم وCSV', FileSpreadsheet], ['sources', 'المصادر', Link2],
+    ].map(([id, label, Icon]) => <button key={id} className={view === id ? 'selected' : ''} onClick={() => {setView(id); setNotice('');}}><Icon size={17}/>{label}</button>)}</div>
+    {notice && <p className={'feedback ' + (notice.startsWith('خطأ') ? 'error' : 'success')} role="status">{notice}</p>}
+
+    {view === 'indicators' && <div className="stats-admin-layout">
+      <section className="admin-panel"><h2><Plus size={20}/> {editingIndicator ? 'تعديل المؤشر' : 'إضافة مؤشر وطني'}</h2>
+        <form className="admin-form stats-indicator-form" onSubmit={saveIndicator}>
+          <div className="form-row"><label>اسم المؤشر<input required value={indicator.name} onChange={event => setIndicator({...indicator, name: event.target.value})}/></label><label>الرابط المختصر بالإنجليزية<input required dir="ltr" placeholder="population-growth" value={indicator.slug} onChange={event => setIndicator({...indicator, slug: event.target.value})}/></label></div>
+          <label>المجال<select required value={indicator.domain_id} onChange={event => setIndicator({...indicator, domain_id: event.target.value})}><option value="">اختر المجال</option>{sections.map(section => <optgroup key={section.id} label={section.name}>{domains.filter(domain => domain.section_id === section.id).map(domain => <option key={domain.id} value={domain.id}>{domain.name}</option>)}</optgroup>)}</select></label>
+          <label>وصف قصير<textarea rows="2" value={indicator.short_description} onChange={event => setIndicator({...indicator, short_description: event.target.value})}/></label>
+          <label>تعريف المؤشر<textarea rows="3" value={indicator.definition} onChange={event => setIndicator({...indicator, definition: event.target.value})}/></label>
+          <div className="form-row"><label>الوحدة<input required placeholder="%، شخص، مليون دولار..." value={indicator.unit} onChange={event => setIndicator({...indicator, unit: event.target.value})}/></label><label>اتجاه التحسن<select value={indicator.improvement_direction} onChange={event => setIndicator({...indicator, improvement_direction: event.target.value})}>{Object.entries(directionLabels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label></div>
+          <label>طريقة القياس والمنهجية<textarea rows="3" value={indicator.measurement_method} onChange={event => setIndicator({...indicator, measurement_method: event.target.value})}/></label>
+          <div className="form-row"><label>حالة البيانات<select value={indicator.data_status} onChange={event => setIndicator({...indicator, data_status: event.target.value})}>{Object.entries(statusLabels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label><label>نوع الرسم<select value={indicator.chart_type} onChange={event => setIndicator({...indicator, chart_type: event.target.value})}><option value="line">خطي</option><option value="bar">أعمدة</option><option value="area">مساحة</option></select></label></div>
+          <fieldset className="stats-source-picker"><legend>مصادر المؤشر</legend>{sources.length ? sources.map(item => <label key={item.id}><input type="checkbox" checked={indicator.source_ids.includes(item.id)} onChange={() => toggleSourceForIndicator(item.id)}/><span>{item.name}</span></label>) : <p className="small-muted">أضف مصدراً من تبويب المصادر أولاً.</p>}</fieldset>
+          <label>السلسلة المعتمدة<select value={indicator.adopted_source_id} onChange={event => setIndicator({...indicator, adopted_source_id: event.target.value})}><option value="">لم تُحدد</option>{sources.filter(item => indicator.source_ids.includes(item.id)).map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
+          <div className="stats-publish-options"><label className="checkline"><input type="checkbox" checked={indicator.hide_when_incomplete} onChange={event => setIndicator({...indicator, hide_when_incomplete: event.target.checked})}/> إخفاء المؤشر إذا كانت بياناته غير مكتملة</label><label className="checkline"><input type="checkbox" checked={indicator.is_published} onChange={event => setIndicator({...indicator, is_published: event.target.checked})}/> نشر المؤشر</label></div>
+          <div className="company-admin-actions"><button className="btn btn-red" disabled={busy}><Save size={17}/>{editingIndicator ? 'حفظ التعديلات' : 'إضافة المؤشر'}</button><button type="button" className="btn btn-outline" onClick={() => setShowPreview(value => !value)}><Eye size={17}/> معاينة</button>{editingIndicator && <button type="button" className="btn btn-outline" onClick={resetIndicator}><X size={17}/> إلغاء</button>}</div>
+          {showPreview && <div className="stat-admin-preview"><span>{domains.find(item => item.id === indicator.domain_id)?.name || 'المجال'}</span><h3>{indicator.name || 'اسم المؤشر'}</h3><p>{indicator.short_description || 'سيظهر الوصف المختصر هنا.'}</p><strong>{indicator.unit || 'الوحدة'}</strong><small>{indicator.is_published ? 'جاهز للنشر' : 'مسودة'}</small></div>}
+        </form>
+      </section>
+      <section className="admin-panel"><h2>المؤشرات ({formatNumber(filteredIndicators.length)})</h2><div className="stats-admin-filters"><label><Search size={16}/><input placeholder="بحث..." value={search} onChange={event => setSearch(event.target.value)}/></label><select value={domainFilter} onChange={event => setDomainFilter(event.target.value)}><option value="all">كل المجالات</option>{domains.map(domain => <option value={domain.id} key={domain.id}>{domain.name}</option>)}</select></div>{filteredIndicators.map(item => <div className="admin-list-item" key={item.id}><div><strong>{item.name}</strong><small>{item.domain?.name} · {item.unit} · {item.is_published ? 'منشور' : 'مسودة'}</small></div><div><button title="تعديل" onClick={() => editIndicator(item)}><Pencil size={17}/></button><button title={item.is_published ? 'إلغاء النشر' : 'نشر'} onClick={() => toggleIndicator(item)}>{item.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button><button title="حذف" onClick={() => deleteIndicator(item)}><Trash2 size={17}/></button></div></div>)}{!filteredIndicators.length && <p className="small-muted">لا توجد مؤشرات مطابقة.</p>}</section>
+    </div>}
+
+    {view === 'values' && <div className="stats-values-admin">
+      <section className="admin-panel"><div className="stats-value-head"><div><h2><Database size={20}/> قيم المؤشر</h2><p>كل القيم وطنية على مستوى الجمهورية اليمنية حصراً.</p></div><label>المؤشر<select value={selectedIndicatorId} onChange={event => {setSelectedIndicatorId(event.target.value); setCsvRows([]);}}><option value="">اختر مؤشراً</option>{indicators.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label></div>
+        <form className="admin-form" onSubmit={saveValues}><div className="stats-value-rows">{valueRows.map((row, index) => <div className="stats-value-row" key={row.clientId}><div className="stats-value-row-head"><strong>القيمة {formatNumber(index + 1)}</strong>{valueRows.length > 1 && <button type="button" title="حذف الصف" onClick={() => setValueRows(rows => rows.filter(item => item.clientId !== row.clientId))}><Trash2 size={16}/></button>}</div><div className="stats-value-grid"><label>السنة<input required type="number" min="1990" max="2100" dir="ltr" value={row.year} onChange={event => updateValueRow(row.clientId, 'year', event.target.value)}/></label><label>القيمة<input required inputMode="decimal" dir="ltr" value={row.value} onChange={event => updateValueRow(row.clientId, 'value', event.target.value)}/></label><label>المصدر<select required value={row.source_id} onChange={event => updateValueRow(row.clientId, 'source_id', event.target.value)}><option value="">اختر</option>{sources.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label><label>نوع القيمة<select value={row.value_status} onChange={event => updateValueRow(row.clientId, 'value_status', event.target.value)}>{Object.entries(valueStatusLabels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label><label>تاريخ النشر<input type="date" value={row.publication_date} onChange={event => updateValueRow(row.clientId, 'publication_date', event.target.value)}/></label><label>رابط الوثيقة<input type="url" dir="ltr" placeholder="https://..." value={row.document_url} onChange={event => updateValueRow(row.clientId, 'document_url', event.target.value)}/></label></div><label>ملاحظة منهجية<input value={row.methodology_note} onChange={event => updateValueRow(row.clientId, 'methodology_note', event.target.value)}/></label><label className="checkline"><input type="checkbox" checked={row.is_published} onChange={event => updateValueRow(row.clientId, 'is_published', event.target.checked)}/> نشر هذه القيمة</label></div>)}</div><div className="company-admin-actions"><button type="button" className="btn btn-outline" onClick={() => setValueRows(rows => [...rows, newValueRow()])}><Plus size={17}/> سنة أخرى</button><button className="btn btn-red" disabled={busy || !selectedIndicatorId}><Save size={17}/> حفظ القيم</button></div><label className="checkline stats-replace"><input type="checkbox" checked={replaceDuplicates} onChange={event => {setReplaceDuplicates(event.target.checked); setCsvRows([]);}}/> استبدال القيم المتكررة صراحةً بدلاً من رفضها</label></form>
+      </section>
+      <section className="admin-panel stats-csv-panel"><h2><FileSpreadsheet size={20}/> استيراد CSV</h2><p>الرؤوس المطلوبة: <code>year,value,source</code>. الاختيارية: <code>document_url,publication_date,methodology_note,value_status,is_published</code>.</p><input type="file" accept=".csv,text/csv" onChange={event => parseCsv(event.target.files?.[0])} disabled={!selectedIndicatorId}/>{csvRows.length > 0 && <><div className="stats-csv-table"><table><thead><tr><th>الصف</th><th>السنة</th><th>القيمة</th><th>المصدر</th><th>الفحص</th></tr></thead><tbody>{csvRows.map(row => <tr className={row.errors.length ? 'has-error' : ''} key={row.rowNumber}><td>{formatNumber(row.rowNumber)}</td><td>{formatNumber(row.year)}</td><td dir="ltr">{row.value}</td><td>{row.sourceName}</td><td>{row.errors.length ? row.errors.join('، ') : <span className="csv-valid"><Check size={15}/> صالح</span>}</td></tr>)}</tbody></table></div><button className="btn btn-red" disabled={busy || csvRows.some(row => row.errors.length)} onClick={importCsv}>استيراد بعد المعاينة <FileSpreadsheet size={17}/></button></>}</section>
+      <section className="admin-panel"><h2>القيم المحفوظة {selectedIndicator && `· ${selectedIndicator.name}`}</h2>{selectedValues.map(item => <div className="admin-list-item" key={item.id}><div><strong>{formatNumber(item.year)} · {formatNumber(item.value, {maximumFractionDigits: 4})} {selectedIndicator?.unit}</strong><small>{item.source?.name} · {valueStatusLabels[item.value_status]} · {item.is_published ? 'منشورة' : 'مسودة'}</small></div><div><button title={item.is_published ? 'إلغاء النشر' : 'نشر'} onClick={() => toggleValue(item)}>{item.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button><button title="حذف" onClick={() => deleteValue(item)}><Trash2 size={17}/></button></div></div>)}{selectedIndicatorId && !selectedValues.length && <p className="small-muted">لم تُحفظ قيم لهذا المؤشر بعد.</p>}{!selectedIndicatorId && <p className="small-muted">اختر مؤشراً لعرض قيمه.</p>}</section>
+    </div>}
+
+    {view === 'sources' && <div className="stats-admin-layout"><section className="admin-panel"><h2><Plus size={20}/> {editingSource ? 'تعديل المصدر' : 'إضافة مصدر'}</h2><form className="admin-form" onSubmit={saveSource}><label>اسم المصدر<input required value={source.name} onChange={event => setSource({...source, name: event.target.value})}/></label><label>الجهة الناشرة<input value={source.publisher} onChange={event => setSource({...source, publisher: event.target.value})}/></label><label>رابط المصدر<input type="url" dir="ltr" placeholder="https://..." value={source.url} onChange={event => setSource({...source, url: event.target.value})}/></label><label>وصف وملاحظات<textarea rows="4" value={source.description} onChange={event => setSource({...source, description: event.target.value})}/></label><label className="checkline"><input type="checkbox" checked={source.is_active} onChange={event => setSource({...source, is_active: event.target.checked})}/> مصدر نشط</label><div className="company-admin-actions"><button className="btn btn-red" disabled={busy}><Save size={17}/> حفظ المصدر</button>{editingSource && <button type="button" className="btn btn-outline" onClick={() => {setSource(emptySource); setEditingSource(null);}}><X size={17}/> إلغاء</button>}</div></form></section><section className="admin-panel"><h2>المصادر ({formatNumber(sources.length)})</h2>{sources.map(item => <div className="admin-list-item" key={item.id}><div><strong>{item.name}</strong><small>{item.publisher || 'دون جهة ناشرة'} · {item.is_active ? 'نشط' : 'مخفي'}</small></div><div><button title="تعديل" onClick={() => editSource(item)}><Pencil size={17}/></button><button title="حذف" onClick={() => deleteSource(item)}><Trash2 size={17}/></button></div></div>)}{!sources.length && <p className="small-muted">لم تُضف مصادر بعد.</p>}</section></div>}
+  </div>;
+}

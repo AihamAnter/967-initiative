@@ -4,7 +4,7 @@ import Image from 'next/image';
 import {usePathname} from 'next/navigation';
 import {useState} from 'react';
 import {ArrowUpLeft,Menu,X} from 'lucide-react';
-const links=[{href:'/',label:'الرئيسية'},{href:'/works',label:'أعمالنا'},{href:'/magazine',label:'مجلة 967'},{href:'/yemen-map',label:'اكتشف اليمن'},{href:'/yemeni-products',label:'منتجات يمنية'},{href:'/professionals',label:'مهنيون'}];
+const links=[{href:'/',label:'الرئيسية'},{href:'/works',label:'أعمالنا'},{href:'/magazine',label:'مجلة 967'},{href:'/yemen-in-numbers',label:'اليمن بالأرقام'},{href:'/yemen-map',label:'اكتشف اليمن'},{href:'/yemeni-products',label:'منتجات يمنية'},{href:'/professionals',label:'مهنيون'}];
 export default function Header(){
  const path=usePathname(),[open,setOpen]=useState(false);
  return <header className="site-header"><div className="container header-inner">
