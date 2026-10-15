@@ -14,7 +14,7 @@ const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+
 const splitList = value => String(value || '').split(/\r?\n|،|,/).map(item => item.trim()).filter(Boolean);
 const joinList = value => Array.isArray(value) ? value.join('\n') : '';
 
-export default function ProfessionalAdminPanel({db}) {
+export default function ProfessionalAdminPanel({db, canDelete = false}) {
   const [professionals, setProfessionals] = useState([]);
   const [professional, setProfessional] = useState(emptyProfessional);
   const [editingId, setEditingId] = useState(null);
@@ -112,6 +112,7 @@ export default function ProfessionalAdminPanel({db}) {
   }
 
   async function removeProfessional(row) {
+    if (!canDelete) { setNotice('خطأ: الحذف متاح لحساب الإدارة فقط.'); return; }
     if (!window.confirm('هل تريد حذف ملف "' + row.full_name + '" نهائياً؟')) return;
     setBusy(true);
     const {error} = await db.from('professionals').delete().eq('id', row.id);
@@ -157,7 +158,7 @@ export default function ProfessionalAdminPanel({db}) {
     <section className="admin-panel company-admin-list"><h2>المهنيون ({professionals.length})</h2>
       {loading && <p className="small-muted">جارٍ تحميل الملفات...</p>}
       {!loading && !professionals.length && !schemaMissing && <p className="small-muted">لم تُضف أي ملفات مهنية بعد.</p>}
-      {professionals.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong><small>{row.profession_title} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editProfessional(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button><button disabled={busy} onClick={() => removeProfessional(row)} title="حذف"><Trash2 size={17}/></button></div></div>)}
+      {professionals.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong><small>{row.profession_title} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editProfessional(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeProfessional(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
     </section>
   </div>;
 }

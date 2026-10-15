@@ -23,7 +23,7 @@ const splitList = value => String(value || '').split(/\r?\n|،|,/).map(item => i
 const joinList = value => Array.isArray(value) ? value.join('\n') : '';
 const optionalNumber = value => value === '' || value === null || value === undefined ? null : Number(value);
 
-export default function CompanyAdminPanel({db}) {
+export default function CompanyAdminPanel({db, canDelete = false}) {
   const [companies, setCompanies] = useState([]);
   const [company, setCompany] = useState(emptyCompany);
   const [editingId, setEditingId] = useState(null);
@@ -181,6 +181,7 @@ export default function CompanyAdminPanel({db}) {
   }
 
   async function deleteCompany(row) {
+    if (!canDelete) { setNotice('خطأ: الحذف متاح لحساب الإدارة فقط.'); return; }
     if (!window.confirm('هل تريد حذف شركة "' + row.name + '" نهائياً؟')) return;
     setBusy(true);
     setNotice('');
@@ -255,7 +256,7 @@ export default function CompanyAdminPanel({db}) {
       <h2>الشركات والمصانع ({companies.length})</h2>
       {loading && <p className="small-muted">جارٍ تحميل البيانات...</p>}
       {!loading && !companies.length && !schemaMissing && <p className="small-muted">لم تُضف أي شركة بعد. ستظل البيانات التجريبية ظاهرة للزوار حتى تنشر أول شركة.</p>}
-      {companies.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.name}</strong><small>{row.category} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editCompany(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button><button disabled={busy} onClick={() => deleteCompany(row)} title="حذف"><Trash2 size={17}/></button></div></div>)}
+      {companies.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.name}</strong><small>{row.category} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editCompany(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => deleteCompany(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
     </section>
   </div>;
 }

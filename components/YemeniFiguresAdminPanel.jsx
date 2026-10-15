@@ -12,7 +12,7 @@ const emptyFigure = () => ({
 const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
 const isUrl = value => !value || /^https?:\/\//i.test(value);
 
-export default function YemeniFiguresAdminPanel({db}) {
+export default function YemeniFiguresAdminPanel({db, canDelete = false}) {
   const [figures, setFigures] = useState([]);
   const [figure, setFigure] = useState(emptyFigure);
   const [editingId, setEditingId] = useState(null);
@@ -120,6 +120,7 @@ export default function YemeniFiguresAdminPanel({db}) {
   }
 
   async function removeFigure(row) {
+    if (!canDelete) { setNotice('خطأ: الحذف متاح لحساب الإدارة فقط.'); return; }
     if (!window.confirm('هل تريد حذف شخصية "' + row.full_name + '" نهائيًا؟')) return;
     setBusy(true);
     const {error} = await db.from('yemeni_figures').delete().eq('id', row.id);
@@ -162,7 +163,7 @@ export default function YemeniFiguresAdminPanel({db}) {
     <section className="admin-panel company-admin-list"><h2>الشخصيات ({figures.length})</h2>
       {loading && <p className="small-muted">جارٍ تحميل الشخصيات...</p>}
       {!loading && !figures.length && !schemaMissing && <p className="small-muted">لم تُضف أي شخصيات بعد.</p>}
-      {figures.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong><small>{row.field} · {row.governorate_name} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editFigure(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button><button disabled={busy} onClick={() => removeFigure(row)} title="حذف"><Trash2 size={17}/></button></div></div>)}
+      {figures.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong><small>{row.field} · {row.governorate_name} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editFigure(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeFigure(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
     </section>
   </div>;
 }
