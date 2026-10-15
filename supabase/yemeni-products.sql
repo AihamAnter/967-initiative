@@ -16,6 +16,7 @@ create table if not exists public.yemeni_companies (
   founded text not null default '',
   team_size text not null default '',
   address text not null default '',
+  google_maps_url text check (google_maps_url is null or google_maps_url ~ '^https?://'),
   website text check (website is null or website ~ '^https?://'),
   email text,
   phone text,

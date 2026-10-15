@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {ArrowRight, ArrowUpLeft, BadgeCheck, BriefcaseBusiness, CalendarDays, ExternalLink, Globe2, Languages, Mail, MapPin, MessageCircle, Phone, UserRoundCheck} from 'lucide-react';
@@ -30,7 +29,6 @@ export default async function ProfessionalProfilePage({params}) {
 
   return <>
     <section className="professional-profile-hero">
-      <div className="professional-profile-photo"><Image src={person.imageUrl || '/images/professionals-hero.png'} alt={person.fullName} fill priority sizes="(max-width: 820px) 100vw, 48vw" style={{objectPosition: person.imagePosition}}/></div>
       <div className="professional-profile-copy">
         <Link href="/professionals#professionals-directory" className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>
         <div className="professional-profile-labels"><span>{person.category}</span><span><MapPin size={13}/>{person.location}</span>{person.isVerified && <span className="verified"><BadgeCheck size={14}/> ملف موثق</span>}</div>

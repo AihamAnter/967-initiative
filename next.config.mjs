@@ -4,6 +4,10 @@ import {fileURLToPath} from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const remotePatterns = [];
+remotePatterns.push(
+  {protocol: 'https', hostname: 'commons.wikimedia.org', pathname: '/wiki/Special:FilePath/**'},
+  {protocol: 'https', hostname: 'upload.wikimedia.org', pathname: '/wikipedia/commons/**'},
+);
 if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
   const supabaseUrl = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL);
   remotePatterns.push({

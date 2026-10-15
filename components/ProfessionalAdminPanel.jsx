@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Eye, EyeOff, Pencil, Save, Trash2, UserRound, X} from 'lucide-react';
 import {professionalCategories, serviceModes} from '@/lib/professionals';
@@ -9,7 +8,7 @@ const emptyProfessional = () => ({
   full_name: '', slug: '', profession_title: '', category: 'البناء والصيانة', location: '',
   service_areas: '', service_mode: 'حضوري', years_experience: '', availability: '', bio: '',
   services: '', skills: '', languages: 'العربية', phone: '', whatsapp: '', email: '', website: '', instagram: '',
-  profile_image_url: '', image_position: 'center', is_verified: false, is_published: true,
+  is_verified: false, is_published: true,
 });
 const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
 const splitList = value => String(value || '').split(/\r?\n|،|,/).map(item => item.trim()).filter(Boolean);
@@ -62,23 +61,10 @@ export default function ProfessionalAdminPanel({db}) {
       service_mode: row.service_mode || 'حضوري', years_experience: row.years_experience ?? '', availability: row.availability || '',
       bio: row.bio || '', services: joinList(row.services), skills: joinList(row.skills), languages: joinList(row.languages) || 'العربية',
       phone: row.phone || '', whatsapp: row.whatsapp || '', email: row.email || '', website: row.website || '',
-      instagram: row.instagram || '', profile_image_url: row.profile_image_url || '', image_position: row.image_position || 'center',
-      is_verified: Boolean(row.is_verified), is_published: Boolean(row.is_published),
+      instagram: row.instagram || '', is_verified: Boolean(row.is_verified), is_published: Boolean(row.is_published),
     });
     setNotice('تعدّل الآن ملف: ' + row.full_name);
     window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-
-  async function uploadPhoto(file) {
-    if (!file?.size) return professional.profile_image_url || null;
-    const extension = (file.name.split('.').pop() || '').toLowerCase();
-    if (!['jpg', 'jpeg', 'png', 'webp'].includes(extension)) throw Error('صيغة الصورة غير مدعومة. استخدم JPG أو PNG أو WEBP.');
-    if (file.size > 5 * 1024 * 1024) throw Error('حجم الصورة يجب ألا يتجاوز 5MB.');
-    const filename = (globalThis.crypto?.randomUUID?.() || Date.now().toString(36)) + '.' + extension;
-    const path = 'professionals/' + filename;
-    const {error} = await db.storage.from('media').upload(path, file, {contentType: file.type || undefined, upsert: false});
-    if (error) throw Error(error.message);
-    return db.storage.from('media').getPublicUrl(path).data.publicUrl;
   }
 
   async function saveProfessional(event) {
@@ -91,10 +77,8 @@ export default function ProfessionalAdminPanel({db}) {
       const services = splitList(professional.services);
       if (!professional.full_name.trim() || !slug || !professional.profession_title.trim() || !professional.category.trim() || !professional.location.trim()) throw Error('الاسم والرابط المختصر والمهنة والتصنيف والمحافظة حقول إلزامية.');
       if (!services.length) throw Error('أضف خدمة واحدة على الأقل.');
-      if (!professional.profile_image_url && !new FormData(form).get('profile_photo')?.size) throw Error('أضف صورة شخصية أو صورة مهنية واضحة.');
       if (professional.website && !/^https?:\/\//i.test(professional.website)) throw Error('رابط الموقع يجب أن يبدأ بـ http:// أو https://');
       if (professional.instagram && !/^https?:\/\//i.test(professional.instagram)) throw Error('رابط إنستغرام يجب أن يبدأ بـ http:// أو https://');
-      const imageUrl = await uploadPhoto(new FormData(form).get('profile_photo'));
       const payload = {
         slug, full_name: professional.full_name.trim(), profession_title: professional.profession_title.trim(),
         category: professional.category.trim(), location: professional.location.trim(), service_areas: splitList(professional.service_areas),
@@ -102,8 +86,7 @@ export default function ProfessionalAdminPanel({db}) {
         availability: professional.availability.trim(), bio: professional.bio.trim(), services, skills: splitList(professional.skills),
         languages: splitList(professional.languages), phone: professional.phone.trim() || null, whatsapp: professional.whatsapp.trim() || null,
         email: professional.email.trim() || null, website: professional.website.trim() || null, instagram: professional.instagram.trim() || null,
-        profile_image_url: imageUrl, image_position: professional.image_position, is_verified: professional.is_verified,
-        is_published: professional.is_published, updated_at: new Date().toISOString(),
+        is_verified: professional.is_verified, is_published: professional.is_published, updated_at: new Date().toISOString(),
       };
       const query = editingId ? db.from('professionals').update(payload).eq('id', editingId) : db.from('professionals').insert(payload);
       const {error} = await query;
@@ -162,10 +145,7 @@ export default function ProfessionalAdminPanel({db}) {
           <label>رابط إنستغرام<input type="url" dir="ltr" placeholder="https://instagram.com/..." value={professional.instagram} onChange={event => setField('instagram', event.target.value)}/></label>
         </div>
 
-        <div className="company-admin-group"><h3>الصورة والنشر</h3>
-          <label>الصورة الشخصية أو المهنية (حتى 5MB)<input required={!professional.profile_image_url} type="file" name="profile_photo" accept="image/png,image/jpeg,image/webp"/></label>
-          {professional.profile_image_url && <div className="professional-admin-photo"><Image src={professional.profile_image_url} alt={professional.full_name || 'الصورة المهنية'} width={86} height={86}/><span>الصورة الحالية محفوظة، واختيار صورة جديدة سيستبدلها.</span></div>}
-          <label>موضع الصورة<select value={professional.image_position} onChange={event => setField('image_position', event.target.value)}><option value="center">الوسط</option><option value="center top">الأعلى</option><option value="center bottom">الأسفل</option><option value="left center">اليسار</option><option value="right center">اليمين</option></select></label>
+        <div className="company-admin-group"><h3>النشر</h3>
           <label className="checkline"><input type="checkbox" checked={professional.is_verified} onChange={event => setField('is_verified', event.target.checked)}/> تمييز الملف بأنه موثق</label>
           <label className="checkline"><input type="checkbox" checked={professional.is_published} onChange={event => setField('is_published', event.target.checked)}/> نشر الملف فور الحفظ</label>
         </div>

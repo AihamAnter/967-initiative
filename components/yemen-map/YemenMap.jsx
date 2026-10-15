@@ -16,7 +16,7 @@ import {
 
 const DATA_URL = '/data/yemen-map/yemen-boundaries.json';
 
-export default function YemenMap() {
+export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
   const canvasRef = useRef(null);
   const svgRef = useRef(null);
   const pointers = useRef(new Map());
@@ -89,7 +89,8 @@ export default function YemenMap() {
     setSelectedDistrict(null);
     setDistrictsVisible(true);
     fitBounds(governorate.bounds, 0.12);
-  }, [fitBounds]);
+    onGovernorateChange?.(governorate.id);
+  }, [fitBounds, onGovernorateChange]);
 
   const selectDistrict = useCallback((district) => {
     const governorate = data?.governorates.find(item => item.id === district.governorateId);
@@ -97,7 +98,8 @@ export default function YemenMap() {
     setSelectedDistrict(district);
     setDistrictsVisible(true);
     fitBounds(district.bounds, 0.18);
-  }, [data, fitBounds]);
+    onGovernorateChange?.(district.governorateId);
+  }, [data, fitBounds, onGovernorateChange]);
 
   const resetMap = useCallback(() => {
     if (!data) return;
@@ -105,7 +107,27 @@ export default function YemenMap() {
     setSelectedDistrict(null);
     setDistrictsVisible(false);
     fitBounds(data.country.bounds, 0.1);
-  }, [data, fitBounds]);
+    onGovernorateChange?.(null);
+  }, [data, fitBounds, onGovernorateChange]);
+
+  useEffect(() => {
+    if (!data || focusedGovernorateId === undefined) return;
+    if (!focusedGovernorateId) {
+      if (!selectedGovernorate && !selectedDistrict) return;
+      setSelectedGovernorate(null);
+      setSelectedDistrict(null);
+      setDistrictsVisible(false);
+      fitBounds(data.country.bounds, 0.1);
+      return;
+    }
+    if (selectedGovernorate?.id === focusedGovernorateId) return;
+    const governorate = data.governorates.find(item => item.id === focusedGovernorateId);
+    if (!governorate) return;
+    setSelectedGovernorate(governorate);
+    setSelectedDistrict(null);
+    setDistrictsVisible(true);
+    fitBounds(governorate.bounds, 0.12);
+  }, [data, fitBounds, focusedGovernorateId, selectedDistrict, selectedGovernorate]);
 
   const goBack = useCallback(() => {
     if (selectedDistrict && selectedGovernorate) {
@@ -228,10 +250,10 @@ export default function YemenMap() {
   const focusedBounds = selectedGovernorate ? selectedGovernorate.bounds : data.country.bounds;
   const labelItems = selectedDistrict ? [selectedDistrict] : selectedGovernorate && viewBox.width < 2.8 ? visibleDistricts : data.governorates;
   const selectedType = selectedDistrict ? 'district' : selectedGovernorate ? 'governorate' : null;
-  const labelSizeScale = {small: 0.72, medium: 1, large: 1.45}[labelSizeMode];
-  const governorateLabelSize = Math.min(0.32, Math.max(0.012, viewBox.width * 0.015 * labelSizeScale));
-  const districtLabelSize = Math.min(0.145, Math.max(0.0022, viewBox.width * 0.02 * labelSizeScale));
-  const labelStrokeWidth = Math.min(0.032, Math.max(0.0004, viewBox.width * 0.0017 * Math.sqrt(labelSizeScale)));
+  const labelSizeScale = {small: 0.75, medium: 1, large: 1.5}[labelSizeMode];
+  const governorateLabelSize = Math.min(0.48, Math.max(0.018, viewBox.width * 0.022 * labelSizeScale));
+  const districtLabelSize = Math.min(0.2, Math.max(0.007, viewBox.width * 0.022 * labelSizeScale));
+  const labelStrokeWidth = Math.min(0.055, Math.max(0.0008, viewBox.width * 0.0023 * Math.sqrt(labelSizeScale)));
 
   return <div className="ymap-app">
     <div className="ymap-toolbar">
@@ -348,6 +370,8 @@ export default function YemenMap() {
         onClose={() => {
           setSelectedDistrict(null);
           setSelectedGovernorate(null);
+          setDistrictsVisible(false);
+          onGovernorateChange?.(null);
         }}
         onDistrictSelect={selectDistrict}
         onGovernorateBack={() => {

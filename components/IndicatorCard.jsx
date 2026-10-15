@@ -5,7 +5,7 @@ import {statusLabels} from '@/lib/yemenNumbers';
 
 export default function IndicatorCard({indicator}) {
   const latest = indicator.latestValue;
-  return <article className="stat-indicator-card">
+  return <Link className="stat-indicator-card" href={'/yemen-in-numbers/indicator/' + indicator.slug} aria-label={'عرض تفاصيل مؤشر ' + indicator.name}>
     <div className="stat-card-top">
       <span>{indicator.domain?.name || 'مؤشر وطني'}</span>
       <span className={'stat-status stat-status-' + indicator.data_status}>{statusLabels[indicator.data_status] || indicator.data_status}</span>
@@ -20,6 +20,6 @@ export default function IndicatorCard({indicator}) {
       {latest && <span><CalendarDays size={15}/> {formatNumber(latest.year)}</span>}
       <span>{latest?.source?.name || indicator.adopted_source?.name || 'المصدر قيد التوثيق'}</span>
     </div>
-    <Link href={'/yemen-in-numbers/indicator/' + indicator.slug}>عرض تفاصيل المؤشر <ArrowUpLeft size={16}/></Link>
-  </article>;
+    <span className="stat-card-open">عرض تفاصيل المؤشر <ArrowUpLeft size={16}/></span>
+  </Link>;
 }

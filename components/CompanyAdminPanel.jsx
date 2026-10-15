@@ -13,7 +13,7 @@ const emptyProduct = () => ({
 const emptyCompany = () => ({
   name: '', slug: '', legal_name: '', category: 'أغذية ومشروبات', location: '', scale: 'ناشئ',
   entity_type: 'شركة', ownership: '', owner_name: '', ceo_name: '', founded: '', team_size: '1-2',
-  address: '', website: '', email: '', phone: '', summary: '', story: '', impact: '',
+  address: '', google_maps_url: '', website: '', email: '', phone: '', summary: '', story: '', impact: '',
   strengths: '', markets: '', products: [emptyProduct()], image_url: '', image_position: 'center',
   is_published: false,
 });
@@ -87,7 +87,7 @@ export default function CompanyAdminPanel({db}) {
       name: row.name || '', slug: row.slug || '', legal_name: row.legal_name || '', category: row.category || 'أغذية ومشروبات',
       location: row.location || '', scale: row.scale || '', entity_type: row.entity_type || '', ownership: row.ownership || '',
       owner_name: row.owner_name || '', ceo_name: row.ceo_name || '', founded: row.founded || '', team_size: row.team_size || '',
-      address: row.address || '', website: row.website || '', email: row.email || '', phone: row.phone || '', summary: row.summary || '',
+      address: row.address || '', google_maps_url: row.google_maps_url || '', website: row.website || '', email: row.email || '', phone: row.phone || '', summary: row.summary || '',
       story: row.story || '', impact: row.impact || '', strengths: joinList(row.strengths), markets: joinList(row.markets),
       products: Array.isArray(row.products) && row.products.length ? row.products.map(product => ({
         clientKey: globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2),
@@ -132,6 +132,7 @@ export default function CompanyAdminPanel({db}) {
       if (!productDrafts.length || productDrafts.some(product => !product.name)) throw Error('أضف منتجاً واحداً على الأقل، واكتب اسم كل منتج.');
       if (productDrafts.some((product, index) => !product.image_url && !formData.get('product_image_' + index)?.size)) throw Error('أضف صورة لكل منتج قبل الحفظ.');
       if (company.website && !/^https?:\/\//i.test(company.website)) throw Error('رابط الموقع يجب أن يبدأ بـ http:// أو https://');
+      if (company.google_maps_url && !/^https?:\/\//i.test(company.google_maps_url)) throw Error('رابط خرائط Google يجب أن يبدأ بـ http:// أو https://');
       const imageUrl = await uploadImage(formData.get('company_image'), 'companies', company.image_url || null);
       const products = await Promise.all(productDrafts.map(async (product, index) => ({
         ...product,
@@ -142,6 +143,7 @@ export default function CompanyAdminPanel({db}) {
         location: company.location.trim(), scale: company.scale.trim(), entity_type: company.entity_type.trim(),
         ownership: company.ownership.trim(), owner_name: company.owner_name.trim(), ceo_name: company.ceo_name.trim(),
         founded: company.founded.trim(), team_size: company.team_size.trim(), address: company.address.trim(),
+        google_maps_url: company.google_maps_url.trim() || null,
         website: company.website.trim() || null, email: company.email.trim() || null, phone: company.phone.trim() || null,
         summary: company.summary.trim(), story: company.story.trim(), impact: company.impact.trim(),
         strengths: splitList(company.strengths), markets: splitList(company.markets), products,
@@ -157,7 +159,10 @@ export default function CompanyAdminPanel({db}) {
       form.reset();
       await loadCompanies();
     } catch (error) {
-      setNotice('خطأ: ' + error.message);
+      const message = /google_maps_url/i.test(error.message)
+        ? 'شغّل الملف supabase/add-company-google-maps-url.sql مرة واحدة في Supabase SQL Editor، ثم أعد المحاولة.'
+        : error.message;
+      setNotice('خطأ: ' + message);
     } finally {
       setBusy(false);
     }
@@ -209,6 +214,7 @@ export default function CompanyAdminPanel({db}) {
           <div className="form-row"><label>نوع الملكية<input value={company.ownership} onChange={event => setField('ownership', event.target.value)}/></label><label>سنة التأسيس<input dir="ltr" inputMode="numeric" value={company.founded} onChange={event => setField('founded', event.target.value)}/></label></div>
           <div className="form-row"><label>حجم الفريق<select value={company.team_size} onChange={event => setField('team_size', event.target.value)}>{company.team_size && !companyTeamSizeOptions.includes(company.team_size) && <option value={company.team_size}>{company.team_size}</option>}{companyTeamSizeOptions.map(value => <option value={value} key={value}>{value}</option>)}</select></label><label>رقم الهاتف<input dir="ltr" value={company.phone} onChange={event => setField('phone', event.target.value)}/></label></div>
           <label>العنوان<textarea rows="2" value={company.address} onChange={event => setField('address', event.target.value)}/></label>
+          <label>رابط الموقع على Google Maps<input type="url" dir="ltr" placeholder="https://maps.app.goo.gl/..." value={company.google_maps_url} onChange={event => setField('google_maps_url', event.target.value)}/><small className="field-hint">الصق رابط المكان أو الدبوس من خرائط Google للحصول على موقع دقيق.</small></label>
           <div className="form-row"><label>الموقع الإلكتروني<input type="url" dir="ltr" placeholder="https://..." value={company.website} onChange={event => setField('website', event.target.value)}/></label><label>البريد الإلكتروني<input type="email" dir="ltr" value={company.email} onChange={event => setField('email', event.target.value)}/></label></div>
         </div>
 

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import {useMemo, useState} from 'react';
 import {ArrowUpLeft, BadgeCheck, ChevronDown, Mail, MapPin, MessageCircle, Phone, Search, SlidersHorizontal, UserSearch, X} from 'lucide-react';
@@ -51,19 +50,17 @@ export default function ProfessionalDirectory({professionals}) {
     <div className="professionals-results"><span>المهنيون المطابقون لبحثك</span><strong>{formatNumber(results.length)} نتيجة</strong></div>
 
     {results.length ? <div className="professional-grid">{results.map(person => <article className="professional-card" key={person.id}>
-      <Link className="professional-card-image" href={'/professionals/' + person.id} aria-label={'عرض ملف ' + person.fullName}>
-        <Image src={person.imageUrl || '/images/professionals-hero.png'} alt={person.fullName} fill sizes="(max-width: 620px) 100vw, (max-width: 1050px) 50vw, 33vw" style={{objectPosition: person.imagePosition}}/>
-        <span>{person.serviceMode}</span>
-      </Link>
+      <Link className="professional-card-hitarea" href={'/professionals/' + person.id} aria-label={'عرض ملف ' + person.fullName}><span className="sr-only">عرض ملف {person.fullName}</span></Link>
       <div className="professional-card-body">
+        <div className="professional-card-kicker"><span>{person.category}</span><span>{person.serviceMode}</span></div>
         <div className="professional-card-meta"><span><MapPin size={13}/>{person.location}</span>{person.isVerified && <span className="professional-verified"><BadgeCheck size={14}/> موثق</span>}</div>
-        <h2><Link href={'/professionals/' + person.id}>{person.fullName}</Link></h2>
+        <h2>{person.fullName}</h2>
         <strong>{person.professionTitle}</strong>
         <p>{person.bio}</p>
         <div className="professional-service-tags">{person.services.slice(0, 3).map(service => <span key={service}>{service}</span>)}</div>
         <div className="professional-card-footer">
-          <Link href={'/professionals/' + person.id}>عرض الملف <ArrowUpLeft size={16}/></Link>
-          <div>{person.phone && <a href={'tel:' + person.phone} title="اتصال"><Phone size={16}/></a>}{person.whatsapp && <a href={whatsappLink(person.whatsapp)} target="_blank" rel="noopener noreferrer" title="واتساب"><MessageCircle size={16}/></a>}{person.email && <a href={'mailto:' + person.email} title="بريد إلكتروني"><Mail size={16}/></a>}</div>
+          <span className="professional-card-profile-link">عرض الملف <ArrowUpLeft size={16}/></span>
+          <div className="professional-card-contact">{person.phone && <a href={'tel:' + person.phone} title="اتصال" aria-label={'الاتصال بـ ' + person.fullName}><Phone size={16}/></a>}{person.whatsapp && <a href={whatsappLink(person.whatsapp)} target="_blank" rel="noopener noreferrer" title="واتساب" aria-label={'مراسلة ' + person.fullName + ' عبر واتساب'}><MessageCircle size={16}/></a>}{person.email && <a href={'mailto:' + person.email} title="بريد إلكتروني" aria-label={'مراسلة ' + person.fullName + ' بالبريد الإلكتروني'}><Mail size={16}/></a>}</div>
         </div>
       </div>
     </article>)}</div> : <div className="professionals-empty"><UserSearch size={38}/><h2>لا توجد نتائج مطابقة</h2><p>جرّب مهنة أو محافظة أخرى، أو أزل عوامل التصفية.</p><button type="button" className="btn btn-outline" onClick={clearFilters}>عرض جميع المهنيين</button></div>}

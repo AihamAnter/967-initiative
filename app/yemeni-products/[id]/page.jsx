@@ -13,6 +13,7 @@ import {
   Globe2,
   Mail,
   MapPin,
+  MapPinned,
   Boxes,
   PackageCheck,
   Phone,
@@ -52,6 +53,8 @@ export default async function YemeniCompanyPage({params}) {
   if (!company) notFound();
   const companies = await getYemeniCompanies();
   const related = companies.filter(item => item.id !== company.id && item.category === company.category).slice(0, 2);
+  const mapQuery = [company.address, company.location, 'اليمن'].filter(Boolean).join('، ');
+  const googleMapsUrl = company.googleMapsUrl || (mapQuery ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}` : null);
 
   return <>
     <section className="company-profile-hero">
@@ -128,7 +131,10 @@ export default async function YemeniCompanyPage({params}) {
             <ProfileFact icon={Globe2} label="الموقع الإلكتروني" value={company.website} ltr/>
             <ProfileFact icon={Mail} label="البريد الإلكتروني" value={company.email} ltr/>
             <ProfileFact icon={Phone} label="الهاتف" value={company.phone} ltr/>
-            {company.website && <a className="company-website-link" href={company.website} target="_blank" rel="noopener noreferrer">زيارة الموقع الإلكتروني <ExternalLink size={15}/></a>}
+            {(company.website || googleMapsUrl) && <div className="company-contact-links">
+              {googleMapsUrl && <a className="company-website-link company-maps-link" href={googleMapsUrl} target="_blank" rel="noopener noreferrer">فتح الموقع في خرائط Google <MapPinned size={16}/></a>}
+              {company.website && <a className="company-website-link" href={company.website} target="_blank" rel="noopener noreferrer">زيارة الموقع الإلكتروني <ExternalLink size={15}/></a>}
+            </div>}
           </div>
 
           <div className="company-correction">

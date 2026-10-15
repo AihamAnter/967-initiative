@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import {ArrowUpLeft, BadgeCheck, Handshake, SearchCheck, ShieldCheck} from 'lucide-react';
 import ProfessionalDirectory from '@/components/ProfessionalDirectory';
@@ -17,8 +16,6 @@ export default async function ProfessionalsPage() {
   const isDemo = professionals.every(person => person.isDemo);
   return <>
     <section className="professionals-hero">
-      <Image src="/images/professionals-hero.png" alt="مهنيون وحرفيون يمنيون في بيئة عمل" fill priority sizes="100vw"/>
-      <div className="professionals-hero-shade"/>
       <div className="container professionals-hero-content">
         <span className="eyebrow">دليل الحرف والخدمات / 06</span>
         <h1>مهنيون<span>.</span></h1>
