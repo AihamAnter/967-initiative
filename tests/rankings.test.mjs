@@ -171,19 +171,32 @@ const defaultIndicator = defaultRankingIndicators.find(item=>item.code===code);
 const published = {...defaultIndicator,id:'00000000-0000-4000-8000-000000000001',updated_at:'2026-10-17T00:00:00Z',is_published:true};
 function repository(db, readBundledDataset=async()=>dataset()) { return createRankingRepository({getDb:()=>db,defaultIndicators:[defaultIndicator],readBundledDataset}); }
 
-test('missing schema falls back, while an existing empty or draft-only DB catalog remains authoritative', async () => {
+test('missing schema and an uninitialized table use bundles, while hidden rows stay authoritative', async () => {
   const missing=await repository(mockDb({indicatorError:{code:'PGRST205'}})).getRankingCatalog();
   assert.equal(missing.setupRequired,true);assert.equal(missing.mode,'bundled');assert.equal(missing.indicators.length,1);
-  const empty=await repository(mockDb()).getRankingCatalog();assert.deepEqual(empty.indicators,[]);assert.equal(empty.setupRequired,false);assert.equal(empty.mode,'database');
+  const empty=await repository(mockDb()).getRankingCatalog();assert.equal(empty.indicators.length,1);assert.equal(empty.setupRequired,true);assert.equal(empty.initializationRequired,true);assert.equal(empty.mode,'bundled');
   const db=mockDb({indicators:[{...published,is_published:false}]});
   assert.deepEqual((await repository(db).getRankingCatalog()).indicators,[]);
   assert.equal((await repository(db).getRankingCatalog({includeDrafts:true})).indicators.length,1);
 });
 
+test('an empty production table serves all shipped published metrics without inserting rows', async () => {
+  const reads=[];
+  const repo=createRankingRepository({getDb:()=>mockDb(),defaultIndicators:defaultRankingIndicators,readBundledDataset:async slug=>{reads.push(slug);return dataset();}});
+  const catalog=await repo.getRankingCatalog();
+  assert.equal(catalog.indicators.length,39);
+  assert.ok(catalog.indicators.every(row=>row.is_published&&!row.id));
+  assert.ok(!catalog.indicators.some(row=>row.slug==='literacy'));
+  const matching=catalog.indicators.find(row=>row.code===code);
+  assert.equal((await repo.getRankingDataset(matching)).indicatorCode,code);
+  assert.deepEqual(reads,[matching.slug]);
+  assert.equal((await repo.getRankingCatalog({includeDrafts:true})).indicators.length,40);
+});
+
 test('permission failures, missing columns and connection failures never masquerade as missing setup', async () => {
   for (const code of ['42501','PGRST204','08006']) {
     await assert.rejects(repository(mockDb({indicatorError:{code,message:'unavailable'}})).getRankingCatalog(),error=>error.code===code);
-    await assert.rejects(repository(mockDb({snapshotError:{code}})).getRankingCatalog());
+    await assert.rejects(repository(mockDb({indicators:[published],snapshotError:{code}})).getRankingCatalog());
     await assert.rejects(repository(mockDb({snapshotError:{code}})).getRankingDataset(published));
   }
 });

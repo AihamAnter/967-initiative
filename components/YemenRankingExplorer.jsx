@@ -167,7 +167,7 @@ export default function YemenRankingExplorer({indicators = [], initialIndicator,
     let cached=retry===0?cache.current.get(selection.indicator):null;
     if(cached){try{validateRankingDataset(cached.dataset,indicator?.code);}catch{cache.current.delete(selection.indicator);cached=null;}}
     if(cached){setDataState({slug:selection.indicator,...cached});setLoading(false);return()=>controller.abort();}
-    if(!selection.indicator){setError('لا توجد مؤشرات متاحة للعرض حالياً.');setLoading(false);return()=>controller.abort();}
+    if(!selection.indicator){setLoading(false);return()=>controller.abort();}
     setLoading(true);
     (async()=>{
       try{
@@ -231,6 +231,8 @@ export default function YemenRankingExplorer({indicators = [], initialIndicator,
     const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'})),link=document.createElement('a');
     link.href=url;link.download=`yemen-${indicator.slug}-${selection.year}-${selection.scope}.csv`;document.body.appendChild(link);link.click();link.remove();window.setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
+
+  if(!indicators.length)return <div className="yr-explorer"><div className="yr-state" role="status"><Info size={28}/><h2>لا توجد معايير منشورة حالياً</h2><p>ستظهر المقارنات هنا عند نشر معايير الترتيب.</p></div></div>;
 
   return <div className="yr-explorer">
     <section className="yr-controls" aria-label="اختيار المؤشر والمقارنة">
