@@ -4,7 +4,7 @@ import TimelineExplorer from '@/components/TimelineExplorer';
 import {getTimelineIndicators} from '@/lib/data';
 
 export const dynamic = 'force-dynamic';
-export const metadata = {title: 'اليمن عبر الزمن', description: 'مقارنة السلاسل الزمنية الوطنية المنشورة عن اليمن منذ 1990.'};
+export const metadata = {title: 'اليمن عبر الزمن', description: 'مقارنة السلاسل الزمنية الوطنية المنشورة عن اليمن منذ 1990.',alternates:{canonical:'/yemen-in-numbers/timeline'}};
 
 export default async function TimelinePage() {
   const indicators = await getTimelineIndicators();

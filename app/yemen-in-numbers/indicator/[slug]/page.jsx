@@ -4,7 +4,7 @@ import {AlertTriangle, ArrowRight, CalendarDays, ExternalLink, Info, Ruler, Shie
 import IndicatorActions from '@/components/IndicatorActions';
 import IndicatorChart from '@/components/IndicatorChart';
 import {getStatIndicator} from '@/lib/data';
-import {formatArabicDate, formatNumber} from '@/lib/format';
+import {formatArabicDate, formatNumber, formatYear} from '@/lib/format';
 import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
 
 export const dynamic = 'force-dynamic';
@@ -26,8 +26,9 @@ export default async function IndicatorPage({params}) {
     <section className="stat-indicator-head"><div className="container">
       <Link className="back-link" href={'/yemen-in-numbers/' + indicator.domain.slug}><ArrowRight size={17}/> {indicator.domain.name}</Link>
       <span className="eyebrow">{indicator.domain.section?.name} / مؤشر وطني</span>
-      <div className="stat-indicator-title"><div><h1>{indicator.name}</h1><p>{indicator.short_description || indicator.definition}</p></div>{latest ? <div className="stat-latest"><span>أحدث قيمة منشورة</span><strong dir="ltr">{formatNumber(latest.value, {maximumFractionDigits: 3})}</strong><b>{indicator.unit}</b><small>{formatNumber(latest.year)}</small></div> : <div className="stat-latest stat-no-latest"><span>لا توجد قيمة منشورة</span></div>}</div>
+      <div className="stat-indicator-title"><div><h1>{indicator.name}</h1><p>{indicator.short_description || indicator.definition}</p></div>{latest ? <div className="stat-latest"><span>أحدث قيمة منشورة</span><strong dir="ltr">{formatNumber(latest.value, {maximumFractionDigits: 3})}</strong><b>{indicator.unit}</b><small>{formatYear(latest.year)}</small></div> : <div className="stat-latest stat-no-latest"><span>لا توجد قيمة منشورة</span></div>}</div>
       <IndicatorActions indicator={indicator}/>
+      {indicator.updated_at && <p className="record-update">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
     </div></section>
     <section className="section stat-indicator-body"><div className="container">
       <div className="stat-detail-layout"><div className="stat-chart-panel"><div className="stat-panel-head"><div><span>السلسلة الزمنية</span><h2>التغير السنوي</h2></div><span>{indicator.unit}</span></div><IndicatorChart values={indicator.values} unit={indicator.unit} type={indicator.chart_type}/>{sourceIds.size > 1 && !indicator.adopted_source_id && <p className="stat-warning"><AlertTriangle size={17}/> توجد قيم من أكثر من مصدر ولم تُحدّد سلسلة معتمدة، لذلك أوقف الرسم حتى لا يخلط سلاسل غير متوافقة. القيم الأصلية متاحة في ملف CSV.</p>}</div>

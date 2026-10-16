@@ -38,6 +38,8 @@ export async function generateMetadata({params}) {
   return {
     title: `${company.name} | منتجات يمنية`,
     description: company.summary,
+    alternates:{canonical:'/yemeni-products/'+company.id},
+    ...(company.isDemo ? {robots:{index:false,follow:false}} : {}),
   };
 }
 
@@ -58,9 +60,7 @@ export default async function YemeniCompanyPage({params}) {
 
   return <>
     <section className="company-profile-hero">
-      <div className="company-profile-image">
-        <Image src={company.imageUrl || '/images/yemeni-products-hero.png'} alt={company.products.join('، ')} fill priority sizes="(max-width: 800px) 100vw, 52vw" style={{objectPosition: company.imagePosition}}/>
-      </div>
+      {company.imageUrl && <div className="company-profile-image"><Image src={company.imageUrl} alt={'صورة '+company.name} fill priority sizes="(max-width: 800px) 100vw, 52vw" style={{objectPosition: company.imagePosition}}/></div>}
       <div className="company-profile-copy">
         <Link href="/yemeni-products#directory" className="back-link"><ArrowRight size={17}/> العودة إلى دليل المنتجات</Link>
         <div className="company-profile-tags"><span>{company.category}</span><span>{company.scale}</span><span><MapPin size={13}/>{company.location}</span></div>
@@ -72,7 +72,7 @@ export default async function YemeniCompanyPage({params}) {
 
     <section className="company-profile-body">
       <div className="container company-profile-layout">
-        <main className="company-profile-main">
+        <div className="company-profile-main">
           <section>
             <span className="eyebrow">قصة المنشأة</span>
             <h2>عن {company.name}</h2>
@@ -80,7 +80,7 @@ export default async function YemeniCompanyPage({params}) {
           </section>
 
           <section>
-            <div className="company-section-heading"><div><span className="eyebrow">المنتجات</span><h2>ماذا تقدم المنشأة؟</h2></div><strong>{company.productDetails.length} منتجات</strong></div>
+            <div className="company-section-heading"><div><span className="eyebrow">المنتجات</span><h2>ماذا تقدم المنشأة؟</h2></div><strong>عدد المنتجات: {formatNumber(company.productDetails.length)}</strong></div>
             <div className="company-product-list">{company.productDetails.map((product, index) => <article className={product.imageUrl ? 'has-image' : ''} key={product.name}>
               <span>{String(index + 1).padStart(2, '0')}</span>
               {product.imageUrl && <div className="company-product-image"><Image src={product.imageUrl} alt={product.name} fill sizes="(max-width: 580px) 100vw, 170px"/></div>}
@@ -111,7 +111,7 @@ export default async function YemeniCompanyPage({params}) {
             <h2>الأسواق التي تخدمها</h2>
             <div className="company-markets">{company.markets.map(item => <span key={item}><Store size={17}/>{item}</span>)}</div>
           </section>
-        </main>
+        </div>
 
         <aside className="company-profile-aside">
           <div className="company-profile-panel">

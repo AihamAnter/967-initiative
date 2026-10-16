@@ -3,12 +3,13 @@
 import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Eye, EyeOff, Pencil, Save, Trash2, UserRound, X} from 'lucide-react';
 import {professionalCategories, serviceModes} from '@/lib/professionals';
+import {mapProfessional} from '@/lib/professionals';
 
 const emptyProfessional = () => ({
   full_name: '', slug: '', profession_title: '', category: 'البناء والصيانة', location: '',
   service_areas: '', service_mode: 'حضوري', years_experience: '', availability: '', bio: '',
   services: '', skills: '', languages: 'العربية', phone: '', whatsapp: '', email: '', website: '', instagram: '',
-  is_verified: false, is_published: true,
+  is_verified: false, is_published: false,
 });
 const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
 const splitList = value => String(value || '').split(/\r?\n|،|,/).map(item => item.trim()).filter(Boolean);
@@ -77,6 +78,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
       const services = splitList(professional.services);
       if (!professional.full_name.trim() || !slug || !professional.profession_title.trim() || !professional.category.trim() || !professional.location.trim()) throw Error('الاسم والرابط المختصر والمهنة والتصنيف والمحافظة حقول إلزامية.');
       if (!services.length) throw Error('أضف خدمة واحدة على الأقل.');
+      if (professional.is_verified && /@example\.(com|org|net)$/i.test(professional.email.trim())) throw Error('استبدل البريد التجريبي قبل توثيق الملف.');
       if (professional.website && !/^https?:\/\//i.test(professional.website)) throw Error('رابط الموقع يجب أن يبدأ بـ http:// أو https://');
       if (professional.instagram && !/^https?:\/\//i.test(professional.instagram)) throw Error('رابط إنستغرام يجب أن يبدأ بـ http:// أو https://');
       const payload = {
@@ -147,7 +149,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
         </div>
 
         <div className="company-admin-group"><h3>النشر</h3>
-          <label className="checkline"><input type="checkbox" checked={professional.is_verified} onChange={event => setField('is_verified', event.target.checked)}/> تمييز الملف بأنه موثق</label>
+          <p className="small-muted">تحقق من هوية صاحب الملف وموافقته على نشر وسائل الاتصال قبل التوثيق والنشر. عناوين example.com بيانات توضيحية وتتطلب المراجعة.</p><label className="checkline"><input type="checkbox" checked={professional.is_verified} onChange={event => setField('is_verified', event.target.checked)}/> تأكيد التحقق من الملف وموافقة صاحبه</label>
           <label className="checkline"><input type="checkbox" checked={professional.is_published} onChange={event => setField('is_published', event.target.checked)}/> نشر الملف فور الحفظ</label>
         </div>
 
@@ -158,7 +160,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
     <section className="admin-panel company-admin-list"><h2>المهنيون ({professionals.length})</h2>
       {loading && <p className="small-muted">جارٍ تحميل الملفات...</p>}
       {!loading && !professionals.length && !schemaMissing && <p className="small-muted">لم تُضف أي ملفات مهنية بعد.</p>}
-      {professionals.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong><small>{row.profession_title} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editProfessional(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeProfessional(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
+      {professionals.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong>{mapProfessional(row).needsReview && <span className="status-badge">بحاجة إلى مراجعة — بيانات تجريبية</span>}<small>{row.profession_title} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editProfessional(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeProfessional(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
     </section>
   </div>;
 }

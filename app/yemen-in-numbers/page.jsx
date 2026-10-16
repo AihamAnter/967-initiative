@@ -1,59 +1,22 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import {
-  ArrowUpLeft, BarChart3, BookOpen, BriefcaseBusiness, Building2, GraduationCap,
-  HeartPulse, Landmark, Leaf, Network, ShieldAlert, Users,
-} from 'lucide-react';
+import {ArrowUpLeft, BarChart3, Database} from 'lucide-react';
+import PageIntro from '@/components/PageIntro';
 import StatisticsExplorer from '@/components/StatisticsExplorer';
 import IndicatorCard from '@/components/IndicatorCard';
-import {getStatIndicators, getStatSections, getWorks} from '@/lib/data';
+import {getStatIndicators, getStatSections} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
-
 export const dynamic = 'force-dynamic';
-export const metadata = {
-  title: 'اليمن بالأرقام',
-  description: 'مرصد وطني للمؤشرات الموثقة عن اليمن، مع مصادرها وسلاسلها الزمنية.',
-};
-
-const icons = [BriefcaseBusiness, Users, GraduationCap, HeartPulse, Network, Building2, Leaf, ShieldAlert, Landmark, BookOpen];
-
+export const metadata = {title:'اليمن بالأرقام',description:'مؤشرات وطنية موثقة عن اليمن مع المصدر وسنة القياس والمنهجية والسلسلة الزمنية.',alternates:{canonical:'/yemen-in-numbers'}};
 export default async function YemenInNumbersPage() {
-  const [sections, indicators, works] = await Promise.all([getStatSections(), getStatIndicators(), getWorks()]);
-  const domainCount = sections.reduce((sum, section) => sum + section.domains.length, 0);
-  return <>
-    <section className="stats-hero">
-      <Image src="/images/red%20map.png" alt="خريطة اليمن" fill priority sizes="100vw"/>
-      <div className="stats-hero-overlay"/>
-      <div className="container stats-hero-content">
-        <span className="eyebrow">مرصد 967 الوطني</span>
-        <h1>اليمن<br/><span>بالأرقام.</span></h1>
-        <p>مؤشرات موثقة تضع الرقم في سياقه، وتوضح مصدره وسنة قياسه ومنهجيته. جميع البيانات هنا وطنية على مستوى الجمهورية اليمنية.</p>
-        <div className="stats-hero-actions"><a className="btn btn-red" href="#indicators">استكشف المؤشرات <ArrowUpLeft size={18}/></a><Link className="btn btn-ghost" href="/yemen-in-numbers/timeline">اليمن عبر الزمن <BarChart3 size={18}/></Link></div>
-        <div className="stats-hero-meta"><span><strong>{formatNumber(sections.length)}</strong> أقسام رئيسية</span><span><strong>{formatNumber(domainCount)}</strong> مجالاً وطنياً</span><span><strong>{formatNumber(indicators.length)}</strong> مؤشراً منشوراً</span></div>
-      </div>
-    </section>
-
-    {indicators.length > 0 && <section className="stats-latest section"><div className="container"><div className="stats-section-heading"><div><span className="eyebrow">آخر ما تم تحديثه</span><h2>أحدث المؤشرات المنشورة.</h2></div><a className="text-link" href="#indicators">جميع المؤشرات <ArrowUpLeft size={16}/></a></div><div className="stat-indicator-grid">{indicators.slice(0, 3).map(indicator => <IndicatorCard indicator={indicator} key={indicator.id}/>)}</div></div></section>}
-
-    <section className="stats-catalog section"><div className="container">
-      <div className="stats-section-heading"><div><span className="eyebrow">خريطة البيانات</span><h2>من الاقتصاد إلى الثقافة.</h2></div><p>ابدأ من المجال الذي يهمك. لا توجد تصفية حسب المحافظات أو المديريات؛ كل مؤشر يمثل اليمن على المستوى الوطني.</p></div>
-      <div className="stats-section-grid">{sections.map((section, index) => {
-        const Icon = icons[index] || BarChart3;
-        return <article className="stats-section-item" key={section.id}>
-          <div className="stats-section-title"><Icon size={24}/><div><span>{formatNumber(index + 1).padStart(2, '0')}</span><h3>{section.name}</h3></div></div>
-          <p>{section.description}</p>
-          <div className="stats-domain-links">{section.domains.map(domain => <Link key={domain.id} href={'/yemen-in-numbers/' + domain.slug}>{domain.name}<ArrowUpLeft size={14}/></Link>)}</div>
-        </article>;
-      })}</div>
-    </div></section>
-
-    <section className="stats-directory section section-alt" id="indicators"><div className="container">
-      <div className="stats-section-heading"><div><span className="eyebrow">قاعدة المؤشرات</span><h2>ابحث. افهم. تحقّق.</h2></div><p>اعثر على المؤشر، اقرأ تعريفه، ثم راجع السلسلة والمصدر ووثيقة النشر قبل استخدام الرقم.</p></div>
-      <StatisticsExplorer indicators={indicators} sections={sections}/>
-    </div></section>
-
-    <section className="stats-timeline-callout"><div className="container"><div><span>من 1990 حتى أحدث سنة منشورة</span><h2>كيف تغيّر اليمن عبر الزمن؟</h2><p>قارن مؤشرات متوافقة، وشاهد الفجوات كما هي، ونزّل البيانات أو الرسم لاستخدامه في عملك.</p></div><Link className="btn btn-white" href="/yemen-in-numbers/timeline">افتح المقارنة <ArrowUpLeft size={18}/></Link></div></section>
-
-    {works.length > 0 && <section className="stats-related section"><div className="container"><div className="stats-section-heading"><div><span className="eyebrow">سياق أوسع</span><h2>من مكتبة 967.</h2></div><Link className="text-link" href="/works">جميع الأعمال <ArrowUpLeft size={16}/></Link></div><div className="stats-media-grid">{works.slice(0, 3).map(work => <Link href={'/works/' + work.slug} key={work.id}><span>{work.category}</span><h3>{work.title}</h3><p>{work.summary}</p><ArrowUpLeft size={18}/></Link>)}</div></div></section>}
-  </>;
+ const [sections, indicators] = await Promise.all([getStatSections(), getStatIndicators()]);
+ const withValues = indicators.filter(x => x.allValues.length > 0);
+ const highlights = indicators.filter(x=>x.latestValue).sort((a,b) => Number(b.latestValue.year) - Number(a.latestValue.year)).slice(0,3);
+ return <><PageIntro title="اليمن بالأرقام." category="مرصد 967 الوطني" description="وراء كل رقم سياق. استكشف المؤشرات، راجع مصدرها وسنة قياسها، وافهم كيف تغيّرت عبر الزمن. جميع البيانات على مستوى الجمهورية اليمنية.">
+ <div className="directory-summary"><span>المؤشرات المعرّفة والمنشورة: <strong>{formatNumber(indicators.length)}</strong></span><span>ذات قيم منشورة: <strong>{formatNumber(withValues.length)}</strong></span><span>دون قيم منشورة: <strong>{formatNumber(indicators.length - withValues.length)}</strong></span>{indicators.some(x=>x.hasSourceConflict)&&<span>بانتظار اعتماد المصدر: <strong>{formatNumber(indicators.filter(x=>x.hasSourceConflict).length)}</strong></span>}<Link href="/yemen-in-numbers/timeline">قارن عبر الزمن <BarChart3 size={16}/></Link></div>
+ </PageIntro>
+ {highlights.length > 0 && <section className="section stats-latest"><div className="container"><div className="stats-section-heading"><div><span className="eyebrow">أحدث سنوات القياس المتاحة</span><h2>أرقام تضعك في الصورة.</h2></div><a className="text-link" href="#indicators">تصفح المؤشرات <ArrowUpLeft size={16}/></a></div><div className="stat-indicator-grid">{highlights.map(item => <IndicatorCard indicator={item} key={item.id}/>)}</div></div></section>}
+ <section className="section section-alt" id="indicators"><div className="container"><div className="stats-section-heading"><div><span className="eyebrow">قاعدة المؤشرات</span><h2>اعثر على الرقم الذي تحتاجه.</h2></div></div><StatisticsExplorer indicators={indicators} sections={sections}/></div></section>
+ <section className="section stats-catalog"><div className="container"><div className="stats-section-heading"><div><span className="eyebrow">مجالات المعرفة</span><h2>تصفح بحسب ما يهمك.</h2></div></div><div className="domain-accordion">{sections.map(section => <details key={section.id}><summary><Database size={18}/>{section.name}<span>{formatNumber(section.domains.length)} مجالات</span></summary><p>{section.description}</p><div className="stats-domain-links">{section.domains.map(domain => <Link href={'/yemen-in-numbers/' + domain.slug} key={domain.id}>{domain.name}<ArrowUpLeft size={14}/></Link>)}</div></details>)}</div>
+ <aside className="methodology-note"><span className="eyebrow">المصادر والمنهجية</span><h2>ماذا تعني الأرقام المعروضة؟</h2><p>تعرض البطاقة أحدث قيمة فعلية في السلسلة المعتمدة، مع سنة القياس، وليست سنة تحديث السجل. الصفر قيمة صحيحة، والقيم المفقودة لا تُعوّض بتقديرات. تُميّز القيم التقديرية عن الرسمية. عند تعارض المصادر دون اعتماد سلسلة، يتوقف العرض الرقمي حتى المراجعة.</p><p>العدادات تخص المؤشرات المنشورة المتاحة للزائر. لا تُعد المؤشرات الفارغة أو المتعارضة ذات سلسلة معتمدة. راجع صفحة كل مؤشر للتعريف والمنهجية والمراجع. جميع المؤشرات وطنية ولا تمثل إحصاءات المحافظات.</p></aside></div></section>
+ <section className="participate-banner"><div className="container"><div><span>البيانات أفضل حين نفهمها معاً</span><h2>كيف تغيّر اليمن عبر الزمن؟</h2></div><Link className="btn btn-white" href="/yemen-in-numbers/timeline">افتح المقارنة <ArrowUpLeft size={18}/></Link></div></section></>;
 }

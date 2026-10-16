@@ -4,9 +4,9 @@ import {useMemo, useRef, useState} from 'react';
 import {AlertTriangle, Check, Download, ImageDown, SlidersHorizontal} from 'lucide-react';
 import {CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
 import {csvEscape} from '@/lib/yemenNumbers';
-import {formatNumber} from '@/lib/format';
+import {formatNumber, formatYear} from '@/lib/format';
 
-const colors = ['#e84b44', '#f1b84b', '#60b8a3', '#78a7e8'];
+const colors = ['#176b75', '#f1b84b', '#60b8a3', '#78a7e8'];
 
 function downloadBlob(content, type, name) {
   const link = document.createElement('a');
@@ -100,7 +100,7 @@ export default function TimelineExplorer({indicators}) {
       </div>
       {!percentageValid && selected.length > 0 && <p className="stat-warning"><AlertTriangle size={17}/> لا تتاح نسبة التغير عندما تكون قيمة الأساس صفراً أو غير موجودة.</p>}
       <div className="timeline-chart" ref={chartRef}>
-        {selected.length ? <ResponsiveContainer width="100%" height={460}><LineChart data={chartData}><CartesianGrid stroke="#343431" vertical={false}/><XAxis dataKey="year" tickFormatter={formatNumber} stroke="#8d8a83"/><YAxis tickFormatter={value => formatNumber(value, {notation: 'compact', maximumFractionDigits: 1})} stroke="#8d8a83" width={70}/><Tooltip labelFormatter={formatNumber} formatter={value => [formatNumber(value, {maximumFractionDigits: 2}) + (mode === 'percent' ? '%' : ` ${activeUnit}`), '']}/><Legend/>{selected.map((indicator, index) => <Line key={indicator.id} dataKey={indicator.id} name={indicator.name} stroke={colors[index]} strokeWidth={2.5} connectNulls={false} dot={{r: 3}}/>)}</LineChart></ResponsiveContainer> : <div className="stat-chart-empty"><p>اختر مؤشراً واحداً على الأقل.</p></div>}
+        {selected.length ? <ResponsiveContainer width="100%" height={460}><LineChart data={chartData}><CartesianGrid stroke="#d9dfd9" vertical={false}/><XAxis dataKey="year" tickFormatter={formatYear} stroke="#5e6b6d"/><YAxis tickFormatter={value => formatNumber(value, {notation: 'compact', maximumFractionDigits: 1})} stroke="#5e6b6d" width={70}/><Tooltip labelFormatter={formatYear} formatter={value => [formatNumber(value, {maximumFractionDigits: 2}) + (mode === 'percent' ? '%' : ` ${activeUnit}`), '']}/><Legend/>{selected.map((indicator, index) => <Line key={indicator.id} dataKey={indicator.id} name={indicator.name} stroke={colors[index]} strokeWidth={2.5} connectNulls={false} dot={{r: 3}}/>)}</LineChart></ResponsiveContainer> : <div className="stat-chart-empty"><p>اختر مؤشراً واحداً على الأقل.</p></div>}
       </div>
       <div className="timeline-sources">{selected.map(item => <span key={item.id}><b>{item.name}:</b> {item.adopted_source?.name || item.latestValue?.source?.name || 'المصدر غير محدد'}</span>)}</div>
       <p className="timeline-note">الفراغات في الخط الزمني تعني عدم وجود قيمة منشورة. لا تُستكمل السنوات المفقودة ولا تُقدّر آلياً.</p>

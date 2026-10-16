@@ -1,10 +1,17 @@
 'use client';
 import {useState} from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import {canOptimizeImage} from '@/lib/media';
 import {Search,ArrowUpLeft,CalendarDays,BookOpen} from 'lucide-react';
 import {formatArabicDate,formatNumber} from '@/lib/format';
-export default function IssueGrid({issues}){
- const [search,setSearch]=useState('');
- const results=issues.filter(i=>[i.title,i.summary,String(i.number)].join(' ').includes(search.trim()));
- return <><div className="archive-tools"><h2>أرشيف الأعداد <span>({formatNumber(issues.length)})</span></h2><div className="filter-search"><Search size={17}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="ابحث في الأعداد..." aria-label="البحث في الأعداد"/></div></div><div className="issue-grid">{results.map(i=><Link href={'/magazine/'+i.slug} className="issue-card" key={i.id}><div className="issue-cover"><img src={i.cover_url||'/images/demo-cover.svg'} alt={'غلاف '+i.title}/>{i.is_demo&&<span className="demo-label">تجريبي</span>}</div><div className="issue-card-content"><span className="issue-date"><CalendarDays size={14}/>{formatArabicDate(i.issue_date+'T12:00:00')}</span><h3>{i.title}</h3><span className="issue-open">قراءة العدد <ArrowUpLeft size={17}/></span></div></Link>)}</div>{!results.length&&<div className="empty-state"><BookOpen size={28}/><p>لا توجد أعداد مطابقة لبحثك.</p></div>}</>
+import {matchesSearch} from '@/lib/search';
+import Pagination from './Pagination';
+export default function IssueGrid({issues}) {
+ const [search,setSearch]=useState(''),[page,setPage]=useState(1);
+ const results=issues.filter(x=>matchesSearch(search,[x.title,x.summary,x.number]));
+ return <><div className="archive-tools"><h2>أرشيف الأعداد <span>({formatNumber(issues.length)})</span></h2><label className="filter-search"><Search size={17}/><input value={search} onChange={e=>{setSearch(e.target.value);setPage(1);}} placeholder="ابحث بالعنوان أو رقم العدد..." aria-label="البحث في الأعداد"/></label></div>
+ <div className="results-line" aria-live="polite"><span>الأعداد المطابقة: {formatNumber(results.length)}</span>{search&&<button type="button" className="filter-reset" onClick={()=>{setSearch('');setPage(1);}}>إعادة الضبط</button>}</div>
+ <div className="issue-grid">{results.slice((page-1)*12,page*12).map(x=><Link href={'/magazine/'+x.slug} className="issue-card" key={x.id}><div className="issue-cover">{x.cover_url?<Image src={x.cover_url} alt={'غلاف '+x.title} fill sizes="(max-width:760px) 45vw, 25vw" unoptimized={!canOptimizeImage(x.cover_url)}/>:<BookOpen size={40}/>}</div><div className="issue-card-content"><time className="issue-date" dateTime={x.issue_date}><CalendarDays size={14}/>{formatArabicDate(x.issue_date)}</time><h3>{x.title}</h3><span className="issue-open">قراءة العدد <ArrowUpLeft size={17}/></span></div></Link>)}</div>
+ {!results.length&&<div className="empty-state"><BookOpen size={28}/><h3>لا توجد أعداد مطابقة لبحثك.</h3><button className="btn btn-outline" onClick={()=>{setSearch('');setPage(1);}}>مسح البحث</button></div>}<Pagination page={page} count={results.length} onChange={setPage}/></>;
 }

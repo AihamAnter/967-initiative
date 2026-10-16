@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx",
+    "test": "node --test tests/platform.test.mjs",
     "data:stats": "node --env-file=.env.local scripts/seed-yemen-statistics.mjs"
   },
   "dependencies": {

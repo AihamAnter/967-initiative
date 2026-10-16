@@ -1,4 +1,5 @@
 import './globals.css';
+import './design-system.css';
 import {site} from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -11,5 +12,5 @@ export const metadata = {
  robots:{index:true,follow:true}
 };
 export default function RootLayout({children}){
- return <html lang="ar" dir="rtl"><body><Header/><main id="content">{children}</main><Footer/></body></html>;
+ return <html lang="ar" dir="rtl"><body><a className="skip-link" href="#content">انتقل إلى المحتوى</a><Header/><main id="content">{children}</main><Footer/></body></html>;
 }

@@ -12,7 +12,7 @@ export async function generateMetadata({params}) {
   const {slug} = await params;
   const person = await getProfessional(slug);
   if (!person) return {title: 'المهني غير موجود'};
-  return {title: `${person.fullName} | مهنيون`, description: person.bio};
+  return {title: `${person.fullName} | المهنيون`, description: person.bio, alternates:{canonical:'/professionals/'+person.id}, ...(person.isDemo ? {robots:{index:false,follow:false}} : {})};
 }
 
 function ContactLink({href, icon: Icon, label, external = false}) {
@@ -32,29 +32,29 @@ export default async function ProfessionalProfilePage({params}) {
       <div className="professional-profile-copy">
         <Link href="/professionals#professionals-directory" className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>
         <div className="professional-profile-labels"><span>{person.category}</span><span><MapPin size={13}/>{person.location}</span>{person.isVerified && <span className="verified"><BadgeCheck size={14}/> ملف موثق</span>}</div>
-        <h1>{person.fullName}</h1>
+        <h1>{person.fullName}</h1>{person.isDemo && <span className="status-badge">نموذج تجريبي — ليس ملفاً موثقاً</span>}{person.needsReview && !person.isDemo && <span className="status-badge">بيانات بحاجة إلى مراجعة إدارية</span>}
         <strong>{person.professionTitle}</strong>
         <p>{person.bio}</p>
         <div className="professional-profile-actions">
           {person.whatsapp && <ContactLink href={whatsappLink(person.whatsapp)} icon={MessageCircle} label="تواصل عبر واتساب" external/>}
           {person.phone && <ContactLink href={'tel:' + person.phone} icon={Phone} label="اتصال مباشر"/>}
-          {!person.whatsapp && !person.phone && <span className="professional-no-contact">بيانات الاتصال غير متاحة في هذا الملف التجريبي.</span>}
+          {!person.whatsapp && !person.phone && <span className="professional-no-contact">لا توجد أرقام اتصال منشورة لهذا الملف.</span>}
         </div>
       </div>
     </section>
 
     <section className="professional-profile-body"><div className="container professional-profile-layout">
-      <main className="professional-profile-main">
+      <div className="professional-profile-main">
         <section><span className="eyebrow">الخدمات</span><h2>ما الذي يقدمه؟</h2><div className="professional-services-list">{person.services.map((service, index) => <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><strong>{service}</strong></div>)}</div></section>
         <section><span className="eyebrow">المهارات</span><h2>خبرات ومهارات عملية</h2><div className="professional-skills">{person.skills.map(skill => <span key={skill}><UserRoundCheck size={16}/>{skill}</span>)}</div></section>
         <section><span className="eyebrow">نطاق الخدمة</span><h2>أين يمكن طلب الخدمة؟</h2><div className="professional-areas">{person.serviceAreas.map(area => <span key={area}><MapPin size={16}/>{area}</span>)}</div></section>
-      </main>
+      </div>
 
       <aside className="professional-profile-aside">
         <div className="professional-facts">
           <h2>بيانات مهنية</h2>
           <div><BriefcaseBusiness size={18}/><span>المهنة<strong>{person.professionTitle}</strong></span></div>
-          <div><CalendarDays size={18}/><span>سنوات الخبرة<strong>{person.yearsExperience === null || person.yearsExperience === undefined ? 'غير محدد' : formatNumber(person.yearsExperience) + ' سنوات'}</strong></span></div>
+          <div><CalendarDays size={18}/><span>الخبرة بالسنوات<strong>{person.yearsExperience === null || person.yearsExperience === undefined ? 'غير محدد' : formatNumber(person.yearsExperience)}</strong></span></div>
           <div><UserRoundCheck size={18}/><span>طريقة الخدمة<strong>{person.serviceMode}</strong></span></div>
           <div><BadgeCheck size={18}/><span>التوفر<strong>{person.availability || 'حسب الاتفاق'}</strong></span></div>
           <div><Languages size={18}/><span>اللغات<strong>{person.languages.length ? person.languages.join('، ') : 'العربية'}</strong></span></div>

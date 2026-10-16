@@ -16,6 +16,7 @@ export async function generateMetadata({params}) {
   return {
     title: work.title,
     description: work.summary || 'عمل من إنتاج مبادرة 967',
+    alternates:{canonical:'/works/'+work.slug},
     openGraph: {title: work.title, description: work.summary || 'مبادرة 967', ...(image ? {images: [image]} : {})},
   };
 }

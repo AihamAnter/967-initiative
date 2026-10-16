@@ -58,6 +58,7 @@ export async function generateMetadata({params}) {
     description,
     keywords: [figure.fullName, figure.knownFor, figure.field, figure.governorateName, 'شخصيات يمنية', 'اليمن'],
     alternates: {canonical},
+    ...(figure.isDemo ? {robots:{index:false,follow:false}} : {}),
     openGraph: {
       title,
       description,
@@ -90,7 +91,7 @@ export default async function YemeniFigureProfilePage({params}) {
 
   const links = socialLinks(figure);
   const related = figures
-    .filter(item => item.id !== figure.id)
+    .filter(item => item.id !== figure.id && (item.field === figure.field || (figure.governorateId && item.governorateId === figure.governorateId)))
     .sort((a, b) => {
       const aScore = Number(a.field === figure.field) * 2 + Number(a.governorateId === figure.governorateId);
       const bScore = Number(b.field === figure.field) * 2 + Number(b.governorateId === figure.governorateId);
@@ -132,6 +133,7 @@ export default async function YemeniFigureProfilePage({params}) {
             <span><MapPinned size={14}/>{figure.governorateName}</span>
           </div>
           <h1>{figure.fullName}</h1>
+          {figure.isDemo && <p className="data-disclosure">ملف توضيحي من الكتالوج التجريبي للمشروع. يحتاج إلى مراجعة المصادر والبيانات قبل اعتماده؛ لا يمثل ملفاً موثقاً منشوراً.</p>}
           <strong>{figure.knownFor}</strong>
           <p>شخصية يمنية مرتبطة بمحافظة {figure.governorateName}، ضمن مجال {figure.field}.</p>
           {links.length > 0 && <nav className="figure-profile-socials" aria-label={`روابط ${figure.fullName}`}>
@@ -150,18 +152,26 @@ export default async function YemeniFigureProfilePage({params}) {
 
     <section className="figure-profile-body">
       <div className="container figure-profile-layout">
-        <main className="figure-profile-main">
+        <div className="figure-profile-main">
           <section>
             <span className="eyebrow">السيرة والتعريف</span>
             <h2>عن {figure.fullName}</h2>
             <p className="figure-profile-biography">{figure.shortBio}</p>
           </section>
 
+          {(figure.birthYear || figure.deathYear || figure.timeline?.length > 0) && <section><span className="eyebrow">محطات من السيرة</span><h2>التسلسل الزمني</h2><ol className="figure-timeline">{[
+            ...(figure.birthYear ? [{year:figure.birthYear,title:'الميلاد'}] : []),
+            ...(figure.timeline || []),
+            ...(figure.deathYear ? [{year:figure.deathYear,title:'الوفاة'}] : []),
+          ].sort((a,b)=>Number(a.year)-Number(b.year)).map((item,index)=><li key={index}><time>{item.year}</time><div><strong>{item.title}</strong>{item.description&&<p>{item.description}</p>}</div></li>)}</ol></section>}
+
+          <section><span className="eyebrow">المراجع</span><h2>مصادر الملف</h2>{figure.sources?.length ? <ul>{figure.sources.map(item=><li key={item.url}><a className="text-link" href={item.url} target="_blank" rel="noopener noreferrer">{item.title}<ExternalLink size={14}/></a></li>)}</ul> : <p className="small-muted">لم تُرفق مراجع تفصيلية بهذا الملف بعد. <Link className="text-link" href="/contribute?type=اقتراح%20شخصية%20أو%20معلومة%20تاريخية">ساهم بمصدر أو تصحيح</Link></p>}</section>
+
           <section className="figure-profile-significance">
             <BookOpenText size={27}/>
             <div><span className="eyebrow">معروف بـ</span><h2>{figure.knownFor}</h2><p>يُصنّف هذا الملف ضمن {figure.field} ويرتبط بمحافظة {figure.governorateName} في دليل شخصيات يمنية.</p></div>
           </section>
-        </main>
+        </div>
 
         <aside className="figure-profile-aside">
           <div className="figure-profile-facts">
@@ -175,6 +185,7 @@ export default async function YemeniFigureProfilePage({params}) {
             </dl>
           </div>
           <Link className="figure-profile-directory-link" href="/yemen-map#yemeni-figures">استعراض جميع الشخصيات <ArrowUpLeft size={17}/></Link>
+          {figure.governorateId && <Link className="figure-profile-directory-link" href={'/yemen-map?region='+encodeURIComponent(figure.governorateId)+'#map'}>استكشف {figure.governorateName} على الخريطة <MapPinned size={17}/></Link>}
         </aside>
       </div>
     </section>

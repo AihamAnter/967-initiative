@@ -74,6 +74,8 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
         <p>تعرّف على شخصيات يمنية معاصرة وتاريخية، وابحث بحسب الاسم أو المجال أو المحافظة.</p>
       </header>
 
+      {figures.some(figure=>figure.isDemo) && <p className="data-disclosure">يتضمن العرض ملفات من الكتالوج التجريبي للمشروع. هذه الملفات موسومة كتوضيحية وتحتاج مراجعة مصادرها قبل اعتمادها كمحتوى منشور.</p>}
+
       <div className="yfigures-filters" aria-label="البحث وتصفية الشخصيات">
         <label className="yfigures-search"><Search size={19}/><span className="sr-only">ابحث بالاسم</span><input value={query} onChange={event => setQuery(event.target.value)} placeholder="ابحث باسم الشخصية..."/></label>
         <label><span>المجال</span><select value={field} onChange={event => setField(event.target.value)}><option>الكل</option>{fields.map(item => <option key={item}>{item}</option>)}</select></label>
@@ -97,6 +99,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
             <div className="yfigure-content">
               <div className="yfigure-meta"><span>{figure.field}</span>{lifeYears(figure) && <span dir="ltr">{lifeYears(figure)}</span>}</div>
               <h3>{figure.fullName}</h3>
+              {figure.isDemo && <span className="status-badge">ملف توضيحي — يحتاج مراجعة</span>}
               <strong>{figure.knownFor}</strong>
               <p>{figure.shortBio}</p>
               <div className="yfigure-footer">

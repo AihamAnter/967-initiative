@@ -1,30 +1,19 @@
 'use client';
 import {useMemo, useState} from 'react';
-import {Search} from 'lucide-react';
-import {categories, platforms, demoWorks} from '@/lib/config';
-import WorkCard from '@/components/WorkCard';
+import Link from 'next/link';
+import {Search, X} from 'lucide-react';
+import WorkCard from './WorkCard';
+import Pagination from './Pagination';
+import {matchesSearch} from '@/lib/search';
 import {formatNumber} from '@/lib/format';
-
 export default function WorkExplorer({works}) {
-  const [topic, setTopic] = useState('الكل');
-  const [platform, setPlatform] = useState('الكل');
-  const [search, setSearch] = useState('');
-  const isDemo = !works.length;
-  const items = isDemo ? demoWorks : works;
-  const matches = useMemo(() => items.filter(x =>
-    (topic === 'الكل' || x.category === topic) &&
-    (platform === 'الكل' || x.platform === platform) &&
-    [x.title, x.summary, x.category].join(' ').toLowerCase().includes(search.trim().toLowerCase())
-  ), [items, topic, platform, search]);
-
-  return <div>
-    <div className="filter-bar">
-      <div className="filter-search"><Search size={19}/><input aria-label="البحث في الأعمال" placeholder="ابحث عن عمل أو موضوع..." value={search} onChange={e => setSearch(e.target.value)}/></div>
-      <select aria-label="تصفية حسب المنصة" value={platform} onChange={e => setPlatform(e.target.value)}>{platforms.map(p => <option key={p}>{p}</option>)}</select>
-    </div>
-    <div className="filter-tabs">{categories.map(c => <button key={c} onClick={() => setTopic(c)} className={topic === c ? 'selected' : ''}>{c}</button>)}</div>
-    <div className="results-line"><span>{isDemo ? 'أمثلة توضيحية لأقسام المكتبة — ليست منشورات فعلية' : 'الأعمال المنشورة'}</span><span>{formatNumber(matches.length)} {isDemo ? 'أمثلة' : 'عمل'}</span></div>
-    <div className="work-grid">{matches.map((work, i) => <WorkCard key={work.id} work={work} index={i}/>)}</div>
-    {!matches.length && <div className="empty-state"><Search size={28}/><h3>لا توجد أعمال تطابق البحث</h3><p>جرّب كلمات أخرى أو غيّر التصنيف.</p><button onClick={() => {setTopic('الكل'); setPlatform('الكل'); setSearch('');}} className="text-link">إزالة الفلاتر</button></div>}
-  </div>;
+ const [topic,setTopic]=useState('الكل'),[platform,setPlatform]=useState('الكل'),[search,setSearch]=useState(''),[page,setPage]=useState(1);
+ const categories=['الكل',...new Set(works.map(x=>x.category).filter(Boolean))], platforms=['الكل',...new Set(works.map(x=>x.platform).filter(Boolean))];
+ const matches=useMemo(()=>works.filter(x=>(topic==='الكل'||x.category===topic)&&(platform==='الكل'||x.platform===platform)&&matchesSearch(search,[x.title,x.summary,x.category,x.platform])),[works,topic,platform,search]);
+ const reset=()=>{setTopic('الكل');setPlatform('الكل');setSearch('');setPage(1);};
+ return <div><div className="filter-bar"><label className="filter-search"><Search size={19}/><input aria-label="البحث في الأعمال" placeholder="ابحث عن عمل أو موضوع..." value={search} onChange={e=>{setSearch(e.target.value);setPage(1);}}/></label><select aria-label="تصفية حسب المنصة" value={platform} onChange={e=>{setPlatform(e.target.value);setPage(1);}}>{platforms.map(x=><option key={x} value={x}>{x==='الكل'?'كل المنصات':x}</option>)}</select></div>
+ <div className="filter-tabs" role="group" aria-label="موضوع العمل">{categories.map(x=><button key={x} onClick={()=>{setTopic(x);setPage(1);}} aria-pressed={topic===x} className={topic===x?'selected':''}>{x}</button>)}</div>
+ <div className="results-line" aria-live="polite"><span>عدد الأعمال المنشورة: {formatNumber(matches.length)}</span>{(search||topic!=='الكل'||platform!=='الكل')&&<button className="filter-reset" onClick={reset}><X size={15}/>إعادة الضبط</button>}</div>
+ {matches.length?<div className="work-grid">{matches.slice((page-1)*12,page*12).map((work,index)=><WorkCard work={work} index={index} key={work.id}/>)}</div>:<div className="empty-state"><Search size={28}/><h2>{works.length?'لا توجد أعمال تطابق بحثك':'المكتبة تستعد لحكاياتها القادمة'}</h2><p>{works.length?'جرّب كلمات أخرى أو أعد ضبط الفلاتر.':'ستظهر هنا الأعمال بعد نشرها. يمكنك المساهمة باقتراح موضوع.'}</p>{works.length?<button className="btn btn-outline" onClick={reset}>إعادة ضبط الفلاتر</button>:<Link href="/contribute?type=اقتراح%20موضوع" className="btn btn-outline">اقترح موضوعاً</Link>}</div>}
+ <Pagination page={page} count={matches.length} onChange={setPage}/></div>;
 }

@@ -1,0 +1,33 @@
+import Link from 'next/link';
+import {ArrowUpLeft, Search} from 'lucide-react';
+import PageIntro from '@/components/PageIntro';
+import SearchForm from '@/components/SearchForm';
+import {getSearchData} from '@/lib/searchData';
+import {matchesSearchResult, searchTypes} from '@/lib/search';
+import {formatNumber} from '@/lib/format';
+
+export const dynamic = 'force-dynamic';
+export const metadata = {title: 'البحث في منصة 967', description: 'ابحث في الأعمال والمجلة والمؤشرات والشخصيات والأدلة المنشورة.', robots: {index:false, follow:true}, alternates: {canonical:'/search'}};
+export default async function SearchPage({searchParams}) {
+  const params = await searchParams;
+  const query = typeof params.q === 'string' ? params.q.slice(0, 150).trim() : '';
+  const type = Object.hasOwn(searchTypes, params.type) ? params.type : 'all';
+  const requested = Math.max(1, Math.floor(Number(params.page) || 1));
+  const {items, unavailable} = query ? await getSearchData() : {items: [], unavailable: []};
+  const matches = items.filter(item => matchesSearchResult(query, item));
+  const results = matches.filter(item => type === 'all' || item.type === type);
+  const pages = Math.max(1, Math.ceil(results.length / 12));
+  const page = Math.min(requested, pages);
+  const url = (nextType, nextPage = 1) => '/search?' + new URLSearchParams({q: query, type: nextType, ...(nextPage > 1 ? {page: String(nextPage)} : {})}).toString();
+  return <>
+    <PageIntro title="ابحث. واكتشف أكثر." category="بحث واحد، أبواب كثيرة" description="ابحث في المحتوى العام للمنصة: الأعمال والمجلة والمؤشرات والشخصيات والأدلة والمحافظات والمديريات ومجالات المرصد والصفحات. لا يشمل البحث النص الكامل داخل ملفات PDF."><SearchForm query={query}/></PageIntro>
+    <section className="platform-search-body"><div className="container">
+      {unavailable.length > 0 && <p className="stat-warning" role="status">تعذر تحميل بعض الأقسام: {unavailable.join('، ')}. النتائج الحالية جزئية. <Link href={url(type)}>إعادة المحاولة</Link></p>}
+      <p className="small-muted">يشمل البحث المحتوى الظاهر للزائر، بما فيه الملفات التوضيحية مع بيان حالتها. لا يشمل المسودات أو بيانات الاتصال الخاصة.</p>
+      <nav className="search-filters" aria-label="نوع نتائج البحث">{Object.entries(searchTypes).map(([key, label]) => <Link href={url(key)} key={key} aria-current={key === type ? 'page' : undefined}>{label}{query && <span> · {formatNumber(key === 'all' ? matches.length : matches.filter(x => x.type === key).length)}</span>}</Link>)}</nav>
+      {query && <div className="results-line" aria-live="polite"><span>نتائج البحث عن «{query}»</span><strong>عدد النتائج: {formatNumber(results.length)}</strong></div>}
+      {results.length > 0 ? <div className="search-results">{results.slice((page - 1) * 12, page * 12).map(item => <Link href={item.href} className="search-result" key={item.href}><span>{searchTypes[item.type]} <ArrowUpLeft size={13}/></span><h2>{item.title}</h2>{item.isDemo&&<span className="status-badge">ملف توضيحي — يحتاج مراجعة</span>}<p>{item.description}</p>{item.meta && <small>{item.meta}</small>}</Link>)}</div> : <div className="empty-state"><Search size={30}/><h2>{query ? 'لم نجد نتائج مطابقة' : 'عمّ تبحث اليوم؟'}</h2><p>{query ? 'جرّب كلمات أقصر أو اختر نوعاً آخر من المحتوى.' : 'اكتب اسم مكان، موضوع، شخصية، مؤشر، أو مهنة للبدء.'}</p>{query && <Link href="/search" className="btn btn-outline">مسح البحث والفلاتر</Link>}</div>}
+      {pages > 1 && <nav className="server-pagination" aria-label="صفحات نتائج البحث">{page > 1 && <Link href={url(type, page - 1)}>السابق</Link>}<span>الصفحة {formatNumber(page)} من {formatNumber(pages)}</span>{page < pages && <Link href={url(type, page + 1)}>التالي</Link>}</nav>}
+    </div></section>
+  </>;
+}

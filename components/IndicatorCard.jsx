@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Database} from 'lucide-react';
-import {formatNumber} from '@/lib/format';
-import {statusLabels} from '@/lib/yemenNumbers';
+import {formatNumber, formatYear} from '@/lib/format';
+import {statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
 
 export default function IndicatorCard({indicator}) {
   const latest = indicator.latestValue;
@@ -17,7 +17,7 @@ export default function IndicatorCard({indicator}) {
       <span>{indicator.unit}</span>
     </div> : <div className="stat-card-empty"><Database size={18}/><span>{indicator.hasSourceConflict ? 'يجب تحديد السلسلة المعتمدة' : 'لم تُنشر قيم لهذا المؤشر بعد'}</span></div>}
     <div className="stat-card-meta">
-      {latest && <span><CalendarDays size={15}/> {formatNumber(latest.year)}</span>}
+      {latest && <span><CalendarDays size={15}/> {formatYear(latest.year)} · {valueStatusLabels[latest.value_status] || 'نوع القيمة غير محدد'}</span>}
       <span>{latest?.source?.name || indicator.adopted_source?.name || 'المصدر قيد التوثيق'}</span>
     </div>
     <span className="stat-card-open">عرض تفاصيل المؤشر <ArrowUpLeft size={16}/></span>

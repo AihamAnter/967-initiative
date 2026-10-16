@@ -16,12 +16,15 @@ import {
 
 const DATA_URL = '/data/yemen-map/yemen-boundaries.json';
 
-export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
+export default function YemenMap({focusedGovernorateId, onGovernorateChange, initialDistrictId = null}) {
   const canvasRef = useRef(null);
   const svgRef = useRef(null);
   const pointers = useRef(new Map());
   const gesture = useRef(null);
+  const appliedDistrict = useRef(null);
   const [data, setData] = useState(null);
+  const [loadError, setLoadError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   const [profiles, setProfiles] = useState({});
   const [query, setQuery] = useState('');
   const [viewBox, setViewBox] = useState(null);
@@ -34,13 +37,14 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
 
   useEffect(() => {
     let active = true;
-    fetch(DATA_URL).then(response => response.json()).then(payload => {
+    setLoadError(false);
+    fetch(DATA_URL).then(response => {if (!response.ok) throw new Error('Map unavailable'); return response.json();}).then(payload => {
       if (!active) return;
       setData(payload);
       setViewBox(boundsToViewBox(payload.country.bounds, 0.1));
-    });
+    }).catch(() => {if (active) setLoadError(true);});
     return () => { active = false; };
-  }, []);
+  }, [attempt]);
 
   useEffect(() => {
     const db = browserDb();
@@ -128,6 +132,13 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
     setDistrictsVisible(true);
     fitBounds(governorate.bounds, 0.12);
   }, [data, fitBounds, focusedGovernorateId, selectedDistrict, selectedGovernorate]);
+
+  useEffect(()=>{
+    if(!data || !initialDistrictId || appliedDistrict.current===initialDistrictId)return;
+    appliedDistrict.current=initialDistrictId;
+    const district=data.districts.find(item=>item.id===initialDistrictId);
+    if(district)selectDistrict(district);
+  },[data,initialDistrictId,selectDistrict]);
 
   const goBack = useCallback(() => {
     if (selectedDistrict && selectedGovernorate) {
@@ -245,7 +256,8 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
     }
   };
 
-  if (!data || !viewBox) return <div className="ymap-loading">جاري تحميل بيانات الخريطة...</div>;
+  if (loadError) return <div className="empty-state" role="alert"><h2>تعذر تحميل الخريطة</h2><p>تحقق من الاتصال وأعد المحاولة.</p><button className="btn btn-outline" onClick={()=>setAttempt(value=>value+1)}>إعادة المحاولة</button></div>;
+  if (!data || !viewBox) return <div className="ymap-loading" role="status">جارٍ تحميل بيانات الخريطة…</div>;
 
   const focusedBounds = selectedGovernorate ? selectedGovernorate.bounds : data.country.bounds;
   const labelItems = selectedDistrict ? [selectedDistrict] : selectedGovernorate && viewBox.width < 2.8 ? visibleDistricts : data.governorates;
@@ -294,7 +306,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
         >
           <defs>
             <filter id="ymap-red-glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="0" stdDeviation=".025" floodColor="#e84b44" floodOpacity=".7"/>
+              <feDropShadow dx="0" dy="0" stdDeviation=".025" floodColor="#176B75" floodOpacity=".35"/>
             </filter>
           </defs>
           <path className="ymap-country" d={geometryToPath(data.country.geometry)}/>
@@ -302,6 +314,11 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
             key={item.id}
             data-region-type="governorate"
             data-region-id={item.id}
+            tabIndex={0}
+            role="button"
+            aria-label={'استكشاف محافظة ' + item.nameAr}
+            aria-pressed={selectedGovernorate?.id === item.id}
+            onKeyDown={event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectGovernorate(item);}}}
             d={geometryToPath(item.geometry)}
             className={[
               'ymap-governorate',
@@ -317,6 +334,11 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange}) {
             key={item.id}
             data-region-type="district"
             data-region-id={item.id}
+            tabIndex={0}
+            role="button"
+            aria-label={'استكشاف مديرية ' + item.nameAr}
+            aria-pressed={selectedDistrict?.id === item.id}
+            onKeyDown={event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDistrict(item);}}}
             d={geometryToPath(item.geometry)}
             className={[
               'ymap-district',

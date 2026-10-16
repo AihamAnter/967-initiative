@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata({params}) {
   const {slug} = await params;
   const domain = await getStatDomain(slug);
-  return domain ? {title: domain.name, description: domain.description} : {title: 'المجال غير موجود'};
+  return domain ? {title: domain.name, description: domain.description,alternates:{canonical:'/yemen-in-numbers/'+domain.slug}} : {title: 'المجال غير موجود'};
 }
 
 export default async function StatDomainPage({params}) {
@@ -21,7 +21,7 @@ export default async function StatDomainPage({params}) {
     <section className="stat-page-head"><div className="container">
       <Link className="back-link" href="/yemen-in-numbers"><ArrowRight size={17}/> العودة إلى اليمن بالأرقام</Link>
       <span className="eyebrow">{domain.section?.name || 'مجال وطني'}</span>
-      <div className="stat-page-title"><div><h1>{domain.name}</h1><p>{domain.description}</p></div><strong>{formatNumber(domain.indicators.length)}<span>مؤشر منشور</span></strong></div>
+      <div className="stat-page-title"><div><h1>{domain.name}</h1><p>{domain.description}</p></div><strong>{formatNumber(domain.indicators.filter(x=>x.latestValue).length)}<span>ذات قيم متاحة من {formatNumber(domain.indicators.length)} مؤشر معرّف</span></strong></div>
     </div></section>
     <section className="section stat-domain-body"><div className="container">
       <div className="stat-scope-note"><Database size={18}/><span>النطاق الجغرافي لكل البيانات في هذه الصفحة: الجمهورية اليمنية.</span></div>
