@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-10-16T23:06:32.213Z",
+  "base": "http://127.0.0.1:3000",
+  "mode": "fully intercepted browser fixtures",
+  "productionWrites": 0,
+  "tests": [
+    {
+      "name": "Synthetic local admin session; no real auth or writes; 39 published plus one draft",
+      "pass": true
+    },
+    {
+      "name": "Search, domain filters, empty results and recovery work",
+      "pass": true
+    },
+    {
+      "name": "Editor saves all fields through protected API with optimistic version",
+      "pass": true
+    },
+    {
+      "name": "Create draft and publish/unpublish without direct database writes",
+      "pass": true
+    },
+    {
+      "name": "Single refresh displays saved coverage and Yemen year after confirmed response",
+      "pass": true
+    },
+    {
+      "name": "409 retains unsaved edits and explicit reload adopts stored version",
+      "pass": true
+    },
+    {
+      "name": "Sequential refresh continues after upstream failure and cancellation stops future requests",
+      "pass": true
+    },
+    {
+      "name": "503 keeps draft; missing schema preview disables writes with accurate setup banner",
+      "pass": true
+    },
+    {
+      "name": "Library selection creates an unsaved draft; mobile layout stays within viewport",
+      "pass": true
+    },
+    {
+      "name": "Authenticated editor has no serious or critical automated accessibility violations",
+      "pass": true
+    }
+  ],
+  "accessibility": {
+    "violations": [],
+    "passes": 18
+  },
+  "noImplicitWrites": true,
+  "directDatabaseWrites": 0,
+  "maximumConcurrentRefreshRequests": 1,
+  "completedAt": "2026-10-16T23:06:41.699Z",
+  "passed": 10,
+  "failed": 0
+}

@@ -7,18 +7,19 @@ import {formatArabicDate} from '@/lib/format';
 import {safeExternalUrl, workThumbnail} from '@/lib/media';
 import MediaViewer from '@/components/MediaViewer';
 import WorkCard from '@/components/WorkCard';
+import {detailPath, pageMetadata} from '@/lib/seo';
+import {breadcrumbSchema, JsonLd, workSchema} from '@/lib/seo-schema';
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
   const work = (await getWorks()).find(item => item.slug === slug);
-  if (!work) return {title: 'العمل غير موجود'};
+  if (!work) notFound();
   const image = workThumbnail(work);
-  return {
+  return pageMetadata({
     title: work.title,
     description: work.summary || 'عمل من إنتاج مبادرة 967',
-    alternates:{canonical:'/works/'+work.slug},
-    openGraph: {title: work.title, description: work.summary || 'مبادرة 967', ...(image ? {images: [image]} : {})},
-  };
+    path:detailPath('works', work.slug), image, noindex:work.is_demo || work.isDemo,
+  });
 }
 
 export default async function WorkDetails({params}) {
@@ -32,6 +33,8 @@ export default async function WorkDetails({params}) {
   const external = safeExternalUrl(work.external_url);
 
   return <>
+    <JsonLd data={workSchema(work)}/>
+    <JsonLd data={breadcrumbSchema([{name:'الأعمال الإعلامية', path:'/works'}, {name:work.title, path:detailPath('works', work.slug)}])}/>
     <section className="work-detail-head"><div className="container">
       <Link href="/works" className="back-link"><ArrowRight size={17}/> العودة إلى الأعمال</Link>
       <div className="work-detail-taxonomy"><span>{work.category}</span><span className="work-detail-dot"/><span>{work.platform}</span></div>

@@ -1,0 +1,86 @@
+{
+  "source": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap",
+  "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsansarabic/OFL.txt",
+  "assets": [
+    {
+      "file": "ibm-plex-arabic-1.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3CZRtWPQCuHme67tEYUIx3Kh0PHR9N6Ys43PWrfQ.woff2",
+      "bytes": 42848
+    },
+    {
+      "file": "ibm-plex-arabic-2.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3CZRtWPQCuHme67tEYUIx3Kh0PHR9N6Ysw3PWrfQ.woff2",
+      "bytes": 1448
+    },
+    {
+      "file": "ibm-plex-arabic-3.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3CZRtWPQCuHme67tEYUIx3Kh0PHR9N6Ysz3PWrfQ.woff2",
+      "bytes": 6656
+    },
+    {
+      "file": "ibm-plex-arabic-4.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3CZRtWPQCuHme67tEYUIx3Kh0PHR9N6Ys93PU.woff2",
+      "bytes": 19164
+    },
+    {
+      "file": "ibm-plex-arabic-5.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPO_-CRXMR5Kw.woff2",
+      "bytes": 45296
+    },
+    {
+      "file": "ibm-plex-arabic-6.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPO_-CZXMR5Kw.woff2",
+      "bytes": 1456
+    },
+    {
+      "file": "ibm-plex-arabic-7.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPO_-CaXMR5Kw.woff2",
+      "bytes": 6540
+    },
+    {
+      "file": "ibm-plex-arabic-8.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPO_-CUXMQ.woff2",
+      "bytes": 20088
+    },
+    {
+      "file": "ibm-plex-arabic-9.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPi-OCRXMR5Kw.woff2",
+      "bytes": 45688
+    },
+    {
+      "file": "ibm-plex-arabic-10.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPi-OCZXMR5Kw.woff2",
+      "bytes": 1476
+    },
+    {
+      "file": "ibm-plex-arabic-11.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPi-OCaXMR5Kw.woff2",
+      "bytes": 6680
+    },
+    {
+      "file": "ibm-plex-arabic-12.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YPi-OCUXMQ.woff2",
+      "bytes": 20500
+    },
+    {
+      "file": "ibm-plex-arabic-13.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YOG-eCRXMR5Kw.woff2",
+      "bytes": 44280
+    },
+    {
+      "file": "ibm-plex-arabic-14.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YOG-eCZXMR5Kw.woff2",
+      "bytes": 1476
+    },
+    {
+      "file": "ibm-plex-arabic-15.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YOG-eCaXMR5Kw.woff2",
+      "bytes": 6564
+    },
+    {
+      "file": "ibm-plex-arabic-16.woff2",
+      "source": "https://fonts.gstatic.com/s/ibmplexsansarabic/v15/Qw3NZRtWPQCuHme67tEYUIx3Kh0PHR9N6YOG-eCUXMQ.woff2",
+      "bytes": 19504
+    }
+  ]
+}

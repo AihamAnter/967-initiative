@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {pageMetadata} from '@/lib/seo';
 import {ArrowUpLeft, Search} from 'lucide-react';
 import PageIntro from '@/components/PageIntro';
 import SearchForm from '@/components/SearchForm';
@@ -7,7 +8,7 @@ import {matchesSearchResult, searchTypes} from '@/lib/search';
 import {formatNumber} from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
-export const metadata = {title: 'البحث في منصة 967', description: 'ابحث في الأعمال والمجلة والمؤشرات والشخصيات والأدلة المنشورة.', robots: {index:false, follow:true}, alternates: {canonical:'/search'}};
+export const metadata = pageMetadata({title:'البحث في منصة 967', description:'ابحث في الأعمال والمجلة والمؤشرات والشخصيات والأدلة المنشورة.', path:'/search', noindex:true});
 export default async function SearchPage({searchParams}) {
   const params = await searchParams;
   const query = typeof params.q === 'string' ? params.q.slice(0, 150).trim() : '';

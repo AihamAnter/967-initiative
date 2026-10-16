@@ -25,6 +25,6 @@ export default function WorkCard({work, index = 0}) {
   </>;
   return <article className="work-card">
     {work.is_demo ? <div className="work-card-static">{content}</div> :
-      <Link className="work-card-click" href={'/works/' + encodeURIComponent(work.slug)} aria-label={'عرض العمل: ' + work.title}>{content}</Link>}
+      <Link className="work-card-click" href={'/works/' + encodeURIComponent(work.slug)}>{content}</Link>}
   </article>;
 }

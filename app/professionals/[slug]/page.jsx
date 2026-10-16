@@ -3,6 +3,8 @@ import {notFound} from 'next/navigation';
 import {ArrowRight, ArrowUpLeft, BadgeCheck, BriefcaseBusiness, CalendarDays, ExternalLink, Globe2, Languages, Mail, MapPin, MessageCircle, Phone, UserRoundCheck} from 'lucide-react';
 import {getProfessional, getProfessionals} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
+import {detailPath, pageMetadata} from '@/lib/seo';
+import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,8 +13,8 @@ const whatsappLink = number => 'https://wa.me/' + String(number || '').replace(/
 export async function generateMetadata({params}) {
   const {slug} = await params;
   const person = await getProfessional(slug);
-  if (!person) return {title: 'المهني غير موجود'};
-  return {title: `${person.fullName} | المهنيون`, description: person.bio, alternates:{canonical:'/professionals/'+person.id}, ...(person.isDemo ? {robots:{index:false,follow:false}} : {})};
+  if (!person) notFound();
+  return pageMetadata({title:`${person.fullName} | المهنيون`, description:person.bio, path:detailPath('professionals', person.id), noindex:person.isDemo});
 }
 
 function ContactLink({href, icon: Icon, label, external = false}) {
@@ -28,6 +30,7 @@ export default async function ProfessionalProfilePage({params}) {
   const related = professionals.filter(item => item.id !== person.id && item.category === person.category).slice(0, 3);
 
   return <>
+    <JsonLd data={breadcrumbSchema([{name:'المهنيون', path:'/professionals'}, {name:person.fullName, path:detailPath('professionals', person.id)}])}/>
     <section className="professional-profile-hero">
       <div className="professional-profile-copy">
         <Link href="/professionals#professionals-directory" className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>

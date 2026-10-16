@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-16T17:31:26.230Z",
+  "status": "NOT READY",
+  "issues": {
+    "total": 51,
+    "fixedLocal": 42,
+    "remaining": 9
+  },
+  "unitTests": {
+    "passed": 42,
+    "failed": 0
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 3
+  },
+  "productionBuild": {
+    "checkedAt": "2026-10-16T17:24:38.368Z",
+    "buildId": "dojqd2RRZo-w3QP78Abfa",
+    "nextVersion": "15.5.28",
+    "nodeVersion": "v24.18.0",
+    "result": "Production next build exited 0; lint 0 errors, 3 native-image warnings",
+    "distDir": ".next-validation",
+    "fullRegressionBuildId": "4If9FfPoeA0ED_oNUN2hD",
+    "finalIncrement": "Standalone PNG tick font size preserved after visual QA; application export smoke retested",
+    "passed": true
+  },
+  "publicHTTP": {
+    "pages": 159,
+    "additionalLinks": 44,
+    "notFound": 8,
+    "failed": 0
+  },
+  "browser": {
+    "routes": 19,
+    "layouts": 152,
+    "layoutFailures": 0,
+    "axeScans": 38,
+    "axeViolations": 0,
+    "scenarios": 13,
+    "scenarioFailures": 0,
+    "runtimeErrors": 0
+  },
+  "filters": {
+    "passed": 11,
+    "failed": 0
+  },
+  "seo": {
+    "passed": 132,
+    "failed": 0
+  },
+  "securityHTTP": {
+    "passed": 27,
+    "failed": 0
+  },
+  "exportFinalBuild": {
+    "checkedAt": "2026-10-16T17:26:55.546Z",
+    "buildId": "dojqd2RRZo-w3QP78Abfa",
+    "downloaded": true,
+    "status": "تم تجهيز صورة الرسم مع الفترة والوحدة والمصادر.",
+    "pngBytes": 96337,
+    "chartAxes": 2,
+    "chartSeries": 1,
+    "pass": true
+  },
+  "brokenReportLinks": []
+}

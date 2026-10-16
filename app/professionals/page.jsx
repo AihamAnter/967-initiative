@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import {pageMetadata} from '@/lib/seo';
 import {ArrowUpLeft} from 'lucide-react';
 import PageIntro from '@/components/PageIntro';
 import ProfessionalDirectory from '@/components/ProfessionalDirectory';
 import {getProfessionals} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
 export const dynamic = 'force-dynamic';
-export const metadata = {title:'المهنيون',description:'ابحث عن مهني أو مقدم خدمة بالاسم والتخصص والمحافظة وطريقة الخدمة.',alternates:{canonical:'/professionals'}};
+export const metadata = pageMetadata({title:'المهنيون', description:'ابحث عن مهني أو مقدم خدمة بالاسم والتخصص والمحافظة وطريقة الخدمة.', path:'/professionals'});
 export default async function ProfessionalsPage() {
  const professionals = await getProfessionals(), demos = professionals.filter(x => x.isDemo).length;
  return <><PageIntro title="المهارة أقرب إليك." category="دليل المهنيين" description="اعثر على صاحب المهارة المناسب. تعرّف على خدماته، نطاق عمله، ووسائل الاتصال المنشورة بإذنه.">

@@ -1,53 +1,42 @@
 'use client';
 
-import {useMemo, useRef, useState} from 'react';
+import {useEffect, useMemo, useRef, useState} from 'react';
 import {AlertTriangle, Check, Download, ImageDown, SlidersHorizontal} from 'lucide-react';
 import {CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
 import {csvEscape} from '@/lib/yemenNumbers';
 import {formatNumber, formatYear} from '@/lib/format';
+import {canComparePercent, timelineRows} from '@/lib/timeline';
+import {timelineChartPng} from '@/lib/timelineExport';
 
-const colors = ['#176b75', '#f1b84b', '#60b8a3', '#78a7e8'];
+const colors = ['#176b75', '#a56c12', '#287e62', '#3e70af'];
 
 function downloadBlob(content, type, name) {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(new Blob([content], {type}));
   link.download = name;
-  link.click();
-  URL.revokeObjectURL(link.href);
+  document.body.appendChild(link);link.click();link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
 }
 
 export default function TimelineExplorer({indicators}) {
-  const available = indicators.filter(item => item.values.length);
+  const available = useMemo(() => indicators.filter(item => item.values?.length), [indicators]);
   const initial = available.length ? [available[0].id] : [];
   const [selectedIds, setSelectedIds] = useState(initial);
   const [mode, setMode] = useState('actual');
-  const allYears = [...new Set(available.flatMap(item => item.values.map(value => Number(value.year))))].sort((a, b) => a - b);
+  const allYears = [...new Set(available.flatMap(item => item.values.map(value => Number(value.year))).filter(Number.isInteger))].sort((a, b) => a - b);
   const latestYear = allYears.at(-1) || new Date().getFullYear();
-  const earliestYear = Math.max(1990, allYears[0] || 1990);
+  const earliestYear = allYears[0] || 1990;
   const [fromYear, setFromYear] = useState(earliestYear);
   const [toYear, setToYear] = useState(latestYear);
   const chartRef = useRef(null);
-  const selected = available.filter(item => selectedIds.includes(item.id));
+  const [exportMessage,setExportMessage] = useState('');
+  const [exporting,setExporting] = useState(false);
+  const selected = useMemo(() => available.filter(item => selectedIds.includes(item.id)), [available,selectedIds]);
   const activeUnit = selected[0]?.unit || '';
-  const percentageValid = selected.length > 0 && selected.every(item => {
-    const baseline = item.values.find(value => value.year >= fromYear && value.year <= toYear);
-    return baseline && Number(baseline.value) !== 0;
-  });
-  const chartData = useMemo(() => {
-    const years = Array.from({length: Math.max(0, toYear - fromYear + 1)}, (_, index) => fromYear + index);
-    return years.map(year => {
-      const row = {year};
-      for (const indicator of selected) {
-        const value = indicator.values.find(item => Number(item.year) === year);
-        if (!value) { row[indicator.id] = null; continue; }
-        if (mode === 'percent') {
-          const baseline = indicator.values.find(item => item.year >= fromYear && item.year <= toYear);
-          row[indicator.id] = baseline && Number(baseline.value) !== 0 ? ((Number(value.value) - Number(baseline.value)) / Math.abs(Number(baseline.value))) * 100 : null;
-        } else row[indicator.id] = Number(value.value);
-      }
-      return row;
-    });
-  }, [fromYear, mode, selected, toYear]);
+  const percentageValid = canComparePercent(selected, fromYear, toYear);
+  const effectiveMode = mode === 'percent' && percentageValid ? 'percent' : 'actual';
+  useEffect(() => {if(!percentageValid)setMode('actual');}, [percentageValid]);
+  const chartData = useMemo(() => timelineRows(selected, fromYear, toYear, effectiveMode), [fromYear,effectiveMode,selected,toYear]);
 
   function toggleIndicator(indicator) {
     setSelectedIds(current => {
@@ -57,26 +46,20 @@ export default function TimelineExplorer({indicators}) {
     });
   }
   function exportCsv() {
-    const header = ['year', ...selected.map(item => item.name)];
+    const header = ['year', ...selected.map(item => `${item.name} (${effectiveMode==='percent'?'%':item.unit})`)];
     const csv = '\ufeff' + [header, ...chartData.map(row => [row.year, ...selected.map(item => row[item.id] ?? '')])].map(row => row.map(csvEscape).join(',')).join('\n');
     downloadBlob(csv, 'text/csv;charset=utf-8', 'yemen-across-time.csv');
   }
-  function exportImage() {
-    const svg = chartRef.current?.querySelector('svg');
-    if (!svg) return;
-    const markup = new XMLSerializer().serializeToString(svg);
-    const image = new Image();
-    const source = URL.createObjectURL(new Blob([markup], {type: 'image/svg+xml;charset=utf-8'}));
-    image.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = Math.max(1200, image.width * 2); canvas.height = Math.max(700, image.height * 2);
-      const context = canvas.getContext('2d');
-      context.fillStyle = '#171716'; context.fillRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(image, 0, 0, canvas.width, canvas.height);
-      canvas.toBlob(blob => { if (blob) downloadBlob(blob, 'image/png', 'yemen-across-time.png'); });
-      URL.revokeObjectURL(source);
-    };
-    image.src = source;
+  async function exportImage() {
+    if(exporting)return;
+    setExporting(true);setExportMessage('جارٍ تجهيز صورة الرسم…');
+    try{
+      const blob=await timelineChartPng({chartElement:chartRef.current,fromYear,toYear,unit:activeUnit,percent:effectiveMode==='percent',series:selected.map((item,index)=>({name:item.name,source:item.adopted_source?.name||item.latestValue?.source?.name,color:colors[index]}))});
+      downloadBlob(blob,'image/png','yemen-across-time.png');
+      setExportMessage('تم تجهيز صورة الرسم مع الفترة والوحدة والمصادر.');
+    }catch{
+      setExportMessage('تعذر تصدير الصورة في هذا المتصفح. يمكنك تنزيل CSV.');
+    }finally{setExporting(false);}
   }
 
   if (!available.length) return <div className="stat-empty"><SlidersHorizontal size={30}/><h3>لا توجد سلاسل زمنية منشورة بعد</h3><p>ستصبح المقارنة متاحة تلقائياً بعد نشر قيم سنوية لمؤشر واحد على الأقل.</p></div>;
@@ -92,16 +75,18 @@ export default function TimelineExplorer({indicators}) {
     </aside>
     <section className="timeline-stage">
       <div className="timeline-toolbar">
-        <label>من<select value={fromYear} onChange={event => {const next = Number(event.target.value); setFromYear(next); if (next > toYear) setToYear(next);}}>{Array.from({length: latestYear - 1990 + 1}, (_, index) => 1990 + index).map(year => <option key={year}>{year}</option>)}</select></label>
-        <label>إلى<select value={toYear} onChange={event => {const next = Number(event.target.value); setToYear(next); if (next < fromYear) setFromYear(next);}}>{Array.from({length: latestYear - 1990 + 1}, (_, index) => 1990 + index).map(year => <option key={year}>{year}</option>)}</select></label>
-        <div className="stat-segmented" aria-label="طريقة المقارنة"><button className={mode === 'actual' ? 'selected' : ''} onClick={() => setMode('actual')}>القيمة الفعلية</button><button disabled={!percentageValid} className={mode === 'percent' ? 'selected' : ''} onClick={() => setMode('percent')}>نسبة التغير</button></div>
-        <button title="تنزيل CSV" onClick={exportCsv} disabled={!selected.length}><Download size={18}/></button>
-        <button title="تنزيل الرسم كصورة" onClick={exportImage} disabled={!selected.length}><ImageDown size={18}/></button>
+        <label>من<select value={fromYear} onChange={event => {const next = Number(event.target.value); setFromYear(next); if (next > toYear) setToYear(next);}}>{Array.from({length: latestYear - earliestYear + 1}, (_, index) => earliestYear + index).map(year => <option key={year}>{year}</option>)}</select></label>
+        <label>إلى<select value={toYear} onChange={event => {const next = Number(event.target.value); setToYear(next); if (next < fromYear) setFromYear(next);}}>{Array.from({length: latestYear - earliestYear + 1}, (_, index) => earliestYear + index).map(year => <option key={year}>{year}</option>)}</select></label>
+        <div className="stat-segmented" role="group" aria-label="طريقة المقارنة"><button className={effectiveMode === 'actual' ? 'selected' : ''} aria-pressed={effectiveMode==='actual'} onClick={() => setMode('actual')}>القيمة الفعلية</button><button disabled={!percentageValid} className={effectiveMode === 'percent' ? 'selected' : ''} aria-pressed={effectiveMode==='percent'} onClick={() => setMode('percent')}>نسبة التغير</button></div>
+        <button title="تنزيل CSV" aria-label="تنزيل CSV" onClick={exportCsv} disabled={!selected.length}><Download size={18}/></button>
+        <button title="تنزيل الرسم كصورة" aria-label="تنزيل الرسم كصورة" onClick={exportImage} disabled={!selected.length||exporting} aria-busy={exporting}><ImageDown size={18}/></button>
       </div>
       {!percentageValid && selected.length > 0 && <p className="stat-warning"><AlertTriangle size={17}/> لا تتاح نسبة التغير عندما تكون قيمة الأساس صفراً أو غير موجودة.</p>}
-      <div className="timeline-chart" ref={chartRef}>
-        {selected.length ? <ResponsiveContainer width="100%" height={460}><LineChart data={chartData}><CartesianGrid stroke="#d9dfd9" vertical={false}/><XAxis dataKey="year" tickFormatter={formatYear} stroke="#5e6b6d"/><YAxis tickFormatter={value => formatNumber(value, {notation: 'compact', maximumFractionDigits: 1})} stroke="#5e6b6d" width={70}/><Tooltip labelFormatter={formatYear} formatter={value => [formatNumber(value, {maximumFractionDigits: 2}) + (mode === 'percent' ? '%' : ` ${activeUnit}`), '']}/><Legend/>{selected.map((indicator, index) => <Line key={indicator.id} dataKey={indicator.id} name={indicator.name} stroke={colors[index]} strokeWidth={2.5} connectNulls={false} dot={{r: 3}}/>)}</LineChart></ResponsiveContainer> : <div className="stat-chart-empty"><p>اختر مؤشراً واحداً على الأقل.</p></div>}
+      <div className="timeline-chart" ref={chartRef} role="group" aria-label="رسم مقارنة المؤشرات عبر السنوات">
+        {selected.length ? <ResponsiveContainer width="100%" height={460}><LineChart data={chartData}><CartesianGrid stroke="#d9dfd9" vertical={false}/><XAxis dataKey="year" tickFormatter={formatYear} stroke="#5e6b6d"/><YAxis tickFormatter={value => formatNumber(value, {notation: 'compact', maximumFractionDigits: 1})} stroke="#5e6b6d" width={70}/><Tooltip labelFormatter={formatYear} formatter={value => [formatNumber(value, {maximumFractionDigits: 2}) + (effectiveMode === 'percent' ? '%' : ` ${activeUnit}`), '']}/><Legend/>{selected.map((indicator, index) => <Line key={indicator.id} dataKey={indicator.id} name={indicator.name} stroke={colors[index]} strokeWidth={2.5} connectNulls={false} dot={{r: 3}}/>)}</LineChart></ResponsiveContainer> : <div className="stat-chart-empty"><p>اختر مؤشراً واحداً على الأقل.</p></div>}
       </div>
+      {exportMessage&&<p role="status" className="stat-warning">{exportMessage}</p>}
+      {selected.length>0&&<details className="timeline-data"><summary>عرض بيانات المقارنة في جدول</summary><div className="table-scroll"><table><caption>القيم المعروضة ({effectiveMode==='percent'?'نسبة التغير من أول قيمة متاحة في الفترة':activeUnit})</caption><thead><tr><th scope="col">السنة</th>{selected.map(item=><th scope="col" key={item.id}>{item.name}</th>)}</tr></thead><tbody>{chartData.map(row=><tr key={row.year}><th scope="row">{formatYear(row.year)}</th>{selected.map(item=><td key={item.id}>{row[item.id]===null?'غير متوفر':formatNumber(row[item.id],{maximumFractionDigits:3})}</td>)}</tr>)}</tbody></table></div></details>}
       <div className="timeline-sources">{selected.map(item => <span key={item.id}><b>{item.name}:</b> {item.adopted_source?.name || item.latestValue?.source?.name || 'المصدر غير محدد'}</span>)}</div>
       <p className="timeline-note">الفراغات في الخط الزمني تعني عدم وجود قيمة منشورة. لا تُستكمل السنوات المفقودة ولا تُقدّر آلياً.</p>
     </section>

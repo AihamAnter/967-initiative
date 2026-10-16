@@ -1,0 +1,160 @@
+{
+  "checkedAt": "2026-10-16T23:06:53.777Z",
+  "base": "http://127.0.0.1:3000",
+  "checks": 27,
+  "passed": 27,
+  "failed": 0,
+  "results": [
+    {
+      "name": "malformed JSON",
+      "status": 400,
+      "expected": 400,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "array JSON",
+      "status": 400,
+      "expected": 400,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "null JSON",
+      "status": 400,
+      "expected": 400,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "foreign origin",
+      "status": 403,
+      "expected": 403,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "malformed origin",
+      "status": 403,
+      "expected": 403,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "cross-site request",
+      "status": 403,
+      "expected": 403,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "unsupported media",
+      "status": 415,
+      "expected": 415,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "oversized body",
+      "status": 413,
+      "expected": 413,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "invalid fields",
+      "status": 400,
+      "expected": 400,
+      "pass": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "name": "unauthenticated admin GET",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "cacheControl": "no-store, private"
+    },
+    {
+      "name": "unauthenticated admin POST",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "cacheControl": "no-store, private"
+    },
+    {
+      "name": "unauthenticated admin PATCH",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "cacheControl": "no-store, private"
+    },
+    {
+      "name": "unauthenticated admin DELETE",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "cacheControl": "no-store, private"
+    },
+    {
+      "name": "admin foreign origin",
+      "status": 403,
+      "expected": 403,
+      "pass": true,
+      "cacheControl": "no-store, private"
+    },
+    {
+      "name": "per-process rate limit",
+      "status": 429,
+      "pass": true
+    },
+    {
+      "name": "/ x-content-type-options",
+      "pass": true
+    },
+    {
+      "name": "/ x-frame-options",
+      "pass": true
+    },
+    {
+      "name": "/ referrer-policy",
+      "pass": true
+    },
+    {
+      "name": "/ CSP",
+      "pass": true
+    },
+    {
+      "name": "/admin x-content-type-options",
+      "pass": true
+    },
+    {
+      "name": "/admin x-frame-options",
+      "pass": true
+    },
+    {
+      "name": "/admin referrer-policy",
+      "pass": true
+    },
+    {
+      "name": "/admin CSP",
+      "pass": true
+    },
+    {
+      "name": "/demo/967-demo.pdf x-content-type-options",
+      "pass": true
+    },
+    {
+      "name": "/demo/967-demo.pdf x-frame-options",
+      "pass": true
+    },
+    {
+      "name": "/demo/967-demo.pdf referrer-policy",
+      "pass": true
+    },
+    {
+      "name": "/demo/967-demo.pdf CSP",
+      "pass": true
+    }
+  ]
+}

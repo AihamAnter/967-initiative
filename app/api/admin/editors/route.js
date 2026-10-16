@@ -1,24 +1,24 @@
 import {NextResponse} from 'next/server';
 import {serverDb} from '@/lib/supabase-server';
+import {isSameOrigin, readJsonObject, RequestValidationError} from '@/lib/requestSecurity';
+import {checkRoleChange} from '@/lib/adminAuthorization';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const validRoles = new Set(['admin', 'management']);
-const fail = (message, status = 400) => NextResponse.json({error: message}, {status});
-
-function sameOrigin(request) {
-  const origin = request.headers.get('origin');
-  const host = request.headers.get('host');
-  return !origin || !host || new URL(origin).host === host;
-}
+const json = (body, status = 200) => NextResponse.json(body, {status, headers: {'Cache-Control': 'no-store, private'}});
+const fail = (message, status = 400) => json({error: message}, status);
+const requestFailure = (error, message) => error instanceof RequestValidationError ? fail(error.message, error.status) : fail(message, 503);
 
 async function authorize(request) {
-  if (!sameOrigin(request)) return {error: fail('طلب غير مسموح.', 403)};
-  const token = request.headers.get('authorization')?.replace(/^Bearer\s+/i, '');
+  if (!isSameOrigin(request)) return {error: fail('طلب غير مسموح.', 403)};
+  const token = request.headers.get('authorization')?.match(/^Bearer\s+([^\s]+)$/i)?.[1];
   const db = serverDb();
-  if (!db || !token) return {error: fail('تعذر التحقق من الجلسة.', 401)};
+  if (!token) return {error: fail('تعذر التحقق من الجلسة.', 401)};
+  if (!db) return {error: fail('خدمة إدارة الحسابات غير متاحة حالياً.', 503)};
 
+  try {
   const {data: authData, error: authError} = await db.auth.getUser(token);
   if (authError || !authData.user) return {error: fail('انتهت الجلسة. سجّل الدخول مجددًا.', 401)};
 
@@ -30,6 +30,7 @@ async function authorize(request) {
   if (editorError) return {error: fail('شغّل ملف supabase/admin-roles.sql أولًا.', 503)};
   if (editor?.role !== 'management') return {error: fail('هذه العملية متاحة للإدارة فقط.', 403)};
   return {db, user: authData.user};
+  } catch { return {error: fail('تعذر التحقق من الجلسة حالياً.', 503)}; }
 }
 
 async function authUsersById(db) {
@@ -42,6 +43,7 @@ async function authUsersById(db) {
     if (data.users.length < 1000) break;
     page += 1;
   }
+  if (page > 10) throw new Error('Account lookup exceeded its safety limit');
   return users;
 }
 
@@ -59,7 +61,7 @@ export async function GET(request) {
       authUsersById(auth.db),
     ]);
     if (error) throw error;
-    return NextResponse.json({
+    return json({
       editors: (editors || []).map(editor => ({
         ...editor,
         email: users.get(editor.user_id)?.email || 'بريد غير متاح',
@@ -77,7 +79,7 @@ export async function POST(request) {
   const auth = await authorize(request);
   if (auth.error) return auth.error;
   try {
-    const body = await request.json();
+    const body = await readJsonObject(request, 4000);
     const fullName = String(body.full_name || '').trim();
     const email = String(body.email || '').trim().toLowerCase();
     const role = String(body.role || 'admin');
@@ -87,9 +89,8 @@ export async function POST(request) {
 
     let target = await findAuthUserByEmail(auth.db, email);
     let delivery = 'password_reset';
-    const origin = request.headers.get('origin');
     const configuredSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || '').replace(/\/$/, '');
-    const siteUrl = (origin || configuredSiteUrl).replace(/\/$/, '');
+    const siteUrl = new URL(configuredSiteUrl || request.url).origin;
     const redirectTo = `${siteUrl}/admin`;
     if (!target) {
       const {data, error} = await auth.db.auth.admin.inviteUserByEmail(email, {redirectTo, data: {full_name: fullName}});
@@ -97,6 +98,7 @@ export async function POST(request) {
       target = data.user;
       delivery = 'invite';
     } else {
+      await checkRoleChange(auth.db, target.id, role, auth.user.id);
       const {error: metadataError} = await auth.db.auth.admin.updateUserById(target.id, {user_metadata: {...(target.user_metadata || {}), full_name: fullName}});
       if (metadataError) throw metadataError;
       const {error} = await auth.db.auth.resetPasswordForEmail(email, {redirectTo});
@@ -109,10 +111,10 @@ export async function POST(request) {
       added_by: auth.user.id,
     }, {onConflict: 'user_id'});
     if (error) throw error;
-    return NextResponse.json({ok: true, delivery});
+    return json({ok: true, delivery});
   } catch (error) {
     console.error('assign editor failed', error);
-    return fail(error.message || 'تعذرت إضافة المشرف.', 503);
+    return requestFailure(error, 'تعذرت إضافة المشرف.');
   }
 }
 
@@ -120,23 +122,19 @@ export async function PATCH(request) {
   const auth = await authorize(request);
   if (auth.error) return auth.error;
   try {
-    const body = await request.json();
+    const body = await readJsonObject(request, 4000);
     const userId = String(body.user_id || '');
     const role = String(body.role || '');
     if (!userId || !validRoles.has(role)) return fail('بيانات الصلاحية غير مكتملة.');
 
-    const {data: current} = await auth.db.from('editors').select('role').eq('user_id', userId).maybeSingle();
+    const current = await checkRoleChange(auth.db, userId, role, auth.user.id);
     if (!current) return fail('الحساب غير موجود.', 404);
-    if (current.role === 'management' && role !== 'management') {
-      const {count} = await auth.db.from('editors').select('*', {count: 'exact', head: true}).eq('role', 'management');
-      if ((count || 0) <= 1) return fail('لا يمكن تخفيض صلاحية آخر حساب إدارة.');
-    }
     const {error} = await auth.db.from('editors').update({role, added_by: auth.user.id}).eq('user_id', userId);
     if (error) throw error;
-    return NextResponse.json({ok: true});
+    return json({ok: true});
   } catch (error) {
     console.error('update editor failed', error);
-    return fail(error.message || 'تعذر تغيير الصلاحية.', 503);
+    return requestFailure(error, 'تعذر تغيير الصلاحية.');
   }
 }
 
@@ -144,21 +142,17 @@ export async function DELETE(request) {
   const auth = await authorize(request);
   if (auth.error) return auth.error;
   try {
-    const {user_id: userId} = await request.json();
+    const {user_id: userId} = await readJsonObject(request, 4000);
     if (!userId) return fail('الحساب غير محدد.');
     if (userId === auth.user.id) return fail('لا يمكنك إزالة صلاحيتك من الحساب الحالي.');
 
-    const {data: target} = await auth.db.from('editors').select('role').eq('user_id', userId).maybeSingle();
+    const target = await checkRoleChange(auth.db, userId, null, auth.user.id);
     if (!target) return fail('الحساب غير موجود.', 404);
-    if (target.role === 'management') {
-      const {count} = await auth.db.from('editors').select('*', {count: 'exact', head: true}).eq('role', 'management');
-      if ((count || 0) <= 1) return fail('لا يمكن حذف آخر حساب إدارة.');
-    }
     const {error} = await auth.db.from('editors').delete().eq('user_id', userId);
     if (error) throw error;
-    return NextResponse.json({ok: true});
+    return json({ok: true});
   } catch (error) {
     console.error('remove editor failed', error);
-    return fail(error.message || 'تعذرت إزالة المشرف.', 503);
+    return requestFailure(error, 'تعذرت إزالة المشرف.');
   }
 }

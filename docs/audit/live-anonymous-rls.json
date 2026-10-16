@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-10-16T16:50:18.523Z",
+  "credentials": "anonymous key only",
+  "methods": [
+    "GET"
+  ],
+  "note": "Negative visibility only. No account or record data included. No write-permission claim.",
+  "results": [
+    {
+      "table": "messages",
+      "status": 401,
+      "visibleRows": null,
+      "safe": true
+    },
+    {
+      "table": "editors",
+      "status": 401,
+      "visibleRows": null,
+      "safe": true
+    },
+    {
+      "table": "works",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "issues",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "yemeni_companies",
+      "status": 401,
+      "visibleRows": null,
+      "safe": true
+    },
+    {
+      "table": "professionals",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "yemeni_figures",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "stat_sections",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "stat_domains",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "stat_indicators",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "stat_values",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    },
+    {
+      "table": "stat_sources",
+      "status": 200,
+      "visibleRows": 0,
+      "safe": true
+    }
+  ]
+}

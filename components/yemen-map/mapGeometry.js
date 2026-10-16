@@ -54,24 +54,10 @@ export function formatNumber(value) {
 }
 
 export function screenToSvgPoint(svg, event, viewBox) {
-  const rect = svg.getBoundingClientRect();
-  return {
-    x: viewBox.x + ((event.clientX - rect.left) / rect.width) * viewBox.width,
-    y: viewBox.y + ((event.clientY - rect.top) / rect.height) * viewBox.height,
-  };
+  return mapScreenPoint(svg.getBoundingClientRect(), event, viewBox);
 }
 
-export function zoomViewBox(viewBox, factor, anchor) {
-  const width = viewBox.width * factor;
-  const height = viewBox.height * factor;
-  const ratioX = (anchor.x - viewBox.x) / viewBox.width;
-  const ratioY = (anchor.y - viewBox.y) / viewBox.height;
-  return {
-    x: anchor.x - width * ratioX,
-    y: anchor.y - height * ratioY,
-    width,
-    height,
-  };
-}
+export {zoomMapViewport as zoomViewBox} from '@/lib/mapViewport';
 import {formatNumber as formatLatinNumber} from '@/lib/format';
+import {mapScreenPoint} from '@/lib/mapViewport';
 

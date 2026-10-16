@@ -3,14 +3,16 @@
 import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Eye, EyeOff, Landmark, Pencil, Save, Trash2, X} from 'lucide-react';
 import {yemenGovernorates, yemeniFigureEras, yemeniFigureFields} from '@/lib/yemeniFigures';
+import {validateMediaUpload} from '@/lib/uploads';
+import {safeExternalUrl} from '@/lib/media';
 
 const emptyFigure = () => ({
   full_name: '', slug: '', known_for: '', field: 'الأدب والشعر', governorate_id: 'YE13', era: 'معاصرة',
   birth_year: '', death_year: '', short_bio: '', image_url: '', website: '', facebook_url: '', instagram_url: '',
-  x_url: '', youtube_url: '', display_order: 0, is_published: true,
+  x_url: '', youtube_url: '', display_order: 0, is_published: false,
 });
 const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
-const isUrl = value => !value || /^https?:\/\//i.test(value);
+const isUrl = value => !value || Boolean(safeExternalUrl(value));
 
 export default function YemeniFiguresAdminPanel({db, canDelete = false}) {
   const [figures, setFigures] = useState([]);
@@ -63,12 +65,10 @@ export default function YemeniFiguresAdminPanel({db, canDelete = false}) {
   }
 
   async function uploadPortrait(file) {
-    const extension = (file.name.split('.').pop() || '').toLowerCase();
-    if (!['jpg', 'jpeg', 'png', 'webp'].includes(extension)) throw Error('صيغة الصورة غير مدعومة. استخدم JPG أو PNG أو WebP.');
-    if (file.size > 5 * 1024 * 1024) throw Error('حجم الصورة أكبر من 5MB.');
+    const {extension, contentType} = await validateMediaUpload(file);
     const filename = (globalThis.crypto?.randomUUID?.() || Date.now().toString(36)) + '.' + extension;
     const path = 'yemeni-figures/' + filename;
-    const {error} = await db.storage.from('media').upload(path, file, {contentType: file.type || undefined, upsert: false});
+    const {error} = await db.storage.from('media').upload(path, file, {contentType, upsert: false});
     if (error) throw Error(error.message);
     return db.storage.from('media').getPublicUrl(path).data.publicUrl;
   }

@@ -25,6 +25,8 @@ import {
 } from 'lucide-react';
 import {getYemeniCompanies, getYemeniCompany} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
+import {detailPath, pageMetadata} from '@/lib/seo';
+import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,13 +36,14 @@ const hasValue = value => value !== null && value !== undefined && value !== '';
 export async function generateMetadata({params}) {
   const {id} = await params;
   const company = await getYemeniCompany(id);
-  if (!company) return {title: 'الشركة غير موجودة'};
-  return {
+  if (!company) notFound();
+  return pageMetadata({
     title: `${company.name} | منتجات يمنية`,
     description: company.summary,
-    alternates:{canonical:'/yemeni-products/'+company.id},
-    ...(company.isDemo ? {robots:{index:false,follow:false}} : {}),
-  };
+    path:detailPath('yemeni-products', company.id),
+    noindex:company.isDemo,
+    image:company.imageUrl,
+  });
 }
 
 function ProfileFact({icon: Icon, label, value, ltr = false}) {
@@ -59,6 +62,7 @@ export default async function YemeniCompanyPage({params}) {
   const googleMapsUrl = company.googleMapsUrl || (mapQuery ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}` : null);
 
   return <>
+    <JsonLd data={breadcrumbSchema([{name:'منتجات يمنية', path:'/yemeni-products'}, {name:company.name, path:detailPath('yemeni-products', company.id)}])}/>
     <section className="company-profile-hero">
       {company.imageUrl && <div className="company-profile-image"><Image src={company.imageUrl} alt={'صورة '+company.name} fill priority sizes="(max-width: 800px) 100vw, 52vw" style={{objectPosition: company.imagePosition}}/></div>}
       <div className="company-profile-copy">

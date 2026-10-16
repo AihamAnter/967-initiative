@@ -4,13 +4,16 @@ import {ArrowRight, ArrowUpLeft, Database} from 'lucide-react';
 import IndicatorCard from '@/components/IndicatorCard';
 import {getStatDomain} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
+import {detailPath, pageMetadata} from '@/lib/seo';
+import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
   const domain = await getStatDomain(slug);
-  return domain ? {title: domain.name, description: domain.description,alternates:{canonical:'/yemen-in-numbers/'+domain.slug}} : {title: 'المجال غير موجود'};
+  if (!domain) notFound();
+  return pageMetadata({title:domain.name, description:domain.description, path:detailPath('yemen-in-numbers', domain.slug), noindex:!domain.indicators.length});
 }
 
 export default async function StatDomainPage({params}) {
@@ -18,6 +21,7 @@ export default async function StatDomainPage({params}) {
   const domain = await getStatDomain(slug);
   if (!domain) notFound();
   return <>
+    <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:domain.name, path:detailPath('yemen-in-numbers', domain.slug)}])}/>
     <section className="stat-page-head"><div className="container">
       <Link className="back-link" href="/yemen-in-numbers"><ArrowRight size={17}/> العودة إلى اليمن بالأرقام</Link>
       <span className="eyebrow">{domain.section?.name || 'مجال وطني'}</span>

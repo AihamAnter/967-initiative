@@ -1,0 +1,1539 @@
+{
+  "checkedAt": "2026-10-16T17:19:20.487Z",
+  "base": "http://127.0.0.1:3000",
+  "definitions": [
+    {
+      "route": "/admin",
+      "file": "admin/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/api/admin/editors",
+      "file": "api/admin/editors/route.js",
+      "kind": "endpoint",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ]
+    },
+    {
+      "route": "/api/contact",
+      "file": "api/contact/route.js",
+      "kind": "endpoint",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "route": "/contribute",
+      "file": "contribute/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/llms.txt",
+      "file": "llms.txt/route.js",
+      "kind": "endpoint",
+      "methods": []
+    },
+    {
+      "route": "/magazine",
+      "file": "magazine/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/magazine/[slug]",
+      "file": "magazine/[slug]/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/",
+      "file": "page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/professionals",
+      "file": "professionals/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/professionals/[slug]",
+      "file": "professionals/[slug]/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/robots.txt",
+      "file": "robots.js",
+      "kind": "endpoint",
+      "methods": []
+    },
+    {
+      "route": "/search",
+      "file": "search/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/sitemap.xml",
+      "file": "sitemap.js",
+      "kind": "endpoint",
+      "methods": []
+    },
+    {
+      "route": "/works",
+      "file": "works/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/works/[slug]",
+      "file": "works/[slug]/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/[slug]",
+      "file": "yemen-in-numbers/indicator/[slug]/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "file": "yemen-in-numbers/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "file": "yemen-in-numbers/timeline/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemen-in-numbers/[slug]",
+      "file": "yemen-in-numbers/[slug]/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemen-map/figures/[slug]",
+      "file": "yemen-map/figures/[slug]/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemen-map",
+      "file": "yemen-map/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemeni-products",
+      "file": "yemeni-products/page.jsx",
+      "kind": "page",
+      "methods": []
+    },
+    {
+      "route": "/yemeni-products/[id]",
+      "file": "yemeni-products/[id]/page.jsx",
+      "kind": "page",
+      "methods": []
+    }
+  ],
+  "publishedCount": 155,
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "h1": 1,
+      "title": "967 | اليمن، أقرب إليك",
+      "pass": true
+    },
+    {
+      "route": "/admin",
+      "status": 200,
+      "h1": 0,
+      "title": "تسجيل الدخول | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "status": 200,
+      "h1": 1,
+      "title": "تواصل وشارك | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "status": 200,
+      "h1": 1,
+      "title": "مجلة 967 | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/magazine/demo",
+      "status": 200,
+      "h1": 1,
+      "title": "نموذج تجريبي لقراءة مجلة 967 | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/magazine/issue-2",
+      "status": 200,
+      "h1": 1,
+      "title": "اليمن خلف عناوين الحرب والسلام | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "status": 200,
+      "h1": 1,
+      "title": "المهنيون | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "status": 200,
+      "h1": 1,
+      "title": "علي سعيد الكروني | المهنيون | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "status": 200,
+      "h1": 1,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "status": 200,
+      "h1": 1,
+      "title": "الأعمال الإعلامية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "status": 200,
+      "h1": 1,
+      "title": "مناظرة بين احمد و فتحي حول العزلة اليمنية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6uhecd",
+      "status": 200,
+      "h1": 1,
+      "title": "من انا | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "status": 200,
+      "h1": 1,
+      "title": "اليمن بالأرقام | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/age-structure",
+      "status": 200,
+      "h1": 1,
+      "title": "التركيب العمري | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/agriculture",
+      "status": 200,
+      "h1": 1,
+      "title": "الزراعة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/banking",
+      "status": 200,
+      "h1": 1,
+      "title": "القطاع المصرفي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/biodiversity",
+      "status": 200,
+      "h1": 1,
+      "title": "التنوع الحيوي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/births-deaths",
+      "status": 200,
+      "h1": 1,
+      "title": "المواليد والوفيات | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/climate",
+      "status": 200,
+      "h1": 1,
+      "title": "المناخ | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/corruption-transparency",
+      "status": 200,
+      "h1": 1,
+      "title": "الفساد والشفافية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/currency-monetary",
+      "status": 200,
+      "h1": 1,
+      "title": "العملة والسياسة النقدية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/desertification",
+      "status": 200,
+      "h1": 1,
+      "title": "التصحر | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/digital-skills",
+      "status": 200,
+      "h1": 1,
+      "title": "المهارات الرقمية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/diseases-epidemics",
+      "status": 200,
+      "h1": 1,
+      "title": "الأمراض والأوبئة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/displacement-refugees",
+      "status": 200,
+      "h1": 1,
+      "title": "النزوح واللجوء | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/electricity",
+      "status": 200,
+      "h1": 1,
+      "title": "الكهرباء | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/entrepreneurship-tech",
+      "status": 200,
+      "h1": 1,
+      "title": "ريادة الأعمال والتقنية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/family-marriage",
+      "status": 200,
+      "h1": 1,
+      "title": "الأسرة والزواج | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/fisheries",
+      "status": 200,
+      "h1": 1,
+      "title": "الثروة السمكية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/foreign-trade",
+      "status": 200,
+      "h1": 1,
+      "title": "التجارة الخارجية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "status": 200,
+      "h1": 1,
+      "title": "الناتج المحلي الإجمالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/governance",
+      "status": 200,
+      "h1": 1,
+      "title": "الحوكمة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/higher-education",
+      "status": 200,
+      "h1": 1,
+      "title": "التعليم العالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/hospitals-services",
+      "status": 200,
+      "h1": 1,
+      "title": "المستشفيات والخدمات الصحية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/household-water",
+      "status": 200,
+      "h1": 1,
+      "title": "مياه الأسر | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/housing",
+      "status": 200,
+      "h1": 1,
+      "title": "الإسكان | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/access-to-electricity",
+      "status": 200,
+      "h1": 1,
+      "title": "نسبة السكان الذين تصلهم الكهرباء | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/adult-literacy-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل معرفة القراءة والكتابة لدى البالغين | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/agricultural-water-withdrawals-share",
+      "status": 200,
+      "h1": 1,
+      "title": "حصة الزراعة من سحب المياه العذبة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/agriculture-value-added-share",
+      "status": 200,
+      "h1": 1,
+      "title": "مساهمة الزراعة والغابات والصيد في الناتج المحلي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/air-transport-freight",
+      "status": 200,
+      "h1": 1,
+      "title": "الشحن الجوي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/air-transport-passengers",
+      "status": 200,
+      "h1": 1,
+      "title": "المسافرون عبر النقل الجوي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/arable-land-share",
+      "status": 200,
+      "h1": 1,
+      "title": "الأراضي الصالحة للزراعة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/average-annual-precipitation",
+      "status": 200,
+      "h1": 1,
+      "title": "متوسط الهطول السنوي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/basic-drinking-water-services",
+      "status": 200,
+      "h1": 1,
+      "title": "الوصول إلى خدمات مياه الشرب الأساسية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/basic-sanitation-services",
+      "status": 200,
+      "h1": 1,
+      "title": "الوصول إلى خدمات الصرف الصحي الأساسية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/battle-related-deaths",
+      "status": 200,
+      "h1": 1,
+      "title": "الوفيات المرتبطة بالمعارك | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/broad-money-share-gdp",
+      "status": 200,
+      "h1": 1,
+      "title": "عرض النقد الواسع إلى الناتج المحلي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/cereal-yield",
+      "status": 200,
+      "h1": 1,
+      "title": "غلة الحبوب | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/child-stunting-prevalence",
+      "status": 200,
+      "h1": 1,
+      "title": "انتشار التقزم بين الأطفال | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/consumer-price-inflation",
+      "status": 200,
+      "h1": 1,
+      "title": "التضخم في أسعار المستهلك | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/container-port-traffic",
+      "status": 200,
+      "h1": 1,
+      "title": "حركة الحاويات في الموانئ | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/control-of-corruption-score",
+      "status": 200,
+      "h1": 1,
+      "title": "درجة السيطرة على الفساد | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/crop-production-index",
+      "status": 200,
+      "h1": 1,
+      "title": "مؤشر إنتاج المحاصيل | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/crude-birth-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل المواليد الخام | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/crude-death-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل الوفيات الخام | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/current-health-expenditure-share-gdp",
+      "status": 200,
+      "h1": 1,
+      "title": "الإنفاق الصحي الجاري | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/domestic-credit-private-sector",
+      "status": 200,
+      "h1": 1,
+      "title": "الائتمان المحلي المقدم للقطاع الخاص | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/dpt-immunization-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "التحصين ضد الدفتيريا والسعال الديكي والكزاز | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/electric-power-losses",
+      "status": 200,
+      "h1": 1,
+      "title": "فاقد نقل وتوزيع الكهرباء | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/external-debt-share-gni",
+      "status": 200,
+      "h1": 1,
+      "title": "الدين الخارجي إلى الدخل القومي الإجمالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/external-debt-stocks-total",
+      "status": 200,
+      "h1": 1,
+      "title": "إجمالي رصيد الدين الخارجي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/female-population-share",
+      "status": 200,
+      "h1": 1,
+      "title": "نسبة الإناث من السكان | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/fertility-rate-total",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل الخصوبة الكلي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "status": 200,
+      "h1": 1,
+      "title": "المنشآت التي تشارك النساء في ملكيتها | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/fixed-telephone-subscriptions",
+      "status": 200,
+      "h1": 1,
+      "title": "اشتراكات الهاتف الثابت | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/forest-area-share",
+      "status": 200,
+      "h1": 1,
+      "title": "مساحة الغابات من مساحة اليابسة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/gdp-annual-growth",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل نمو الناتج المحلي الإجمالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/gdp-current-usd",
+      "status": 200,
+      "h1": 1,
+      "title": "الناتج المحلي الإجمالي بالأسعار الجارية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/gdp-per-capita-current-usd",
+      "status": 200,
+      "h1": 1,
+      "title": "نصيب الفرد من الناتج المحلي الإجمالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/government-education-expenditure",
+      "status": 200,
+      "h1": 1,
+      "title": "الإنفاق الحكومي على التعليم | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/government-effectiveness-score",
+      "status": 200,
+      "h1": 1,
+      "title": "درجة فاعلية الحكومة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/gross-fixed-capital-formation",
+      "status": 200,
+      "h1": 1,
+      "title": "تكوين رأس المال الثابت الإجمالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/high-technology-exports",
+      "status": 200,
+      "h1": 1,
+      "title": "صادرات المنتجات عالية التقنية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/hospital-beds-per-thousand",
+      "status": 200,
+      "h1": 1,
+      "title": "أسرة المستشفيات | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/intentional-homicide-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل جرائم القتل العمد | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/international-tourism-arrivals",
+      "status": 200,
+      "h1": 1,
+      "title": "عدد السياح الدوليين الوافدين | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/international-tourism-receipts",
+      "status": 200,
+      "h1": 1,
+      "title": "إيرادات السياحة الدولية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/internet-users-share",
+      "status": 200,
+      "h1": 1,
+      "title": "مستخدمو الإنترنت | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/life-expectancy-at-birth",
+      "status": 200,
+      "h1": 1,
+      "title": "متوسط العمر المتوقع عند الميلاد | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/livestock-production-index",
+      "status": 200,
+      "h1": 1,
+      "title": "مؤشر الإنتاج الحيواني | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/marine-protected-areas",
+      "status": 200,
+      "h1": 1,
+      "title": "المناطق البحرية المحمية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/maternal-mortality-ratio",
+      "status": 200,
+      "h1": 1,
+      "title": "نسبة وفيات الأمهات | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/military-expenditure-current-usd",
+      "status": 200,
+      "h1": 1,
+      "title": "الإنفاق العسكري بالقيمة الجارية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/military-expenditure-share-gdp",
+      "status": 200,
+      "h1": 1,
+      "title": "الإنفاق العسكري من الناتج المحلي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/mineral-rents-share-gdp",
+      "status": 200,
+      "h1": 1,
+      "title": "ريع المعادن من الناتج المحلي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/mobile-cellular-subscriptions",
+      "status": 200,
+      "h1": 1,
+      "title": "اشتراكات الهاتف المحمول | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/national-poverty-headcount",
+      "status": 200,
+      "h1": 1,
+      "title": "نسبة السكان تحت خط الفقر الوطني | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/net-migration",
+      "status": 200,
+      "h1": 1,
+      "title": "صافي الهجرة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/net-official-development-assistance",
+      "status": 200,
+      "h1": 1,
+      "title": "صافي المساعدات الإنمائية الرسمية المستلمة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/new-conflict-displacements",
+      "status": 200,
+      "h1": 1,
+      "title": "حالات النزوح الجديدة بسبب الصراع والعنف | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/new-disaster-displacements",
+      "status": 200,
+      "h1": 1,
+      "title": "حالات النزوح الجديدة بسبب الكوارث | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/official-exchange-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "سعر الصرف الرسمي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/oil-rents-share-gdp",
+      "status": 200,
+      "h1": 1,
+      "title": "ريع النفط من الناتج المحلي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/personal-remittances-received",
+      "status": 200,
+      "h1": 1,
+      "title": "تحويلات العاملين الشخصية الواردة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/physicians-per-thousand",
+      "status": 200,
+      "h1": 1,
+      "title": "الأطباء | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/pm25-air-pollution",
+      "status": 200,
+      "h1": 1,
+      "title": "متوسط التعرض لتلوث الهواء بالجسيمات الدقيقة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/political-stability-score",
+      "status": 200,
+      "h1": 1,
+      "title": "درجة الاستقرار السياسي وغياب العنف | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/population-age-0-14",
+      "status": 200,
+      "h1": 1,
+      "title": "السكان بعمر 0 إلى 14 سنة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/population-age-15-64",
+      "status": 200,
+      "h1": 1,
+      "title": "السكان بعمر 15 إلى 64 سنة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/population-age-65-plus",
+      "status": 200,
+      "h1": 1,
+      "title": "السكان بعمر 65 سنة فأكثر | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/primary-completion-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل إكمال المرحلة الابتدائية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/primary-school-enrollment-gross",
+      "status": 200,
+      "h1": 1,
+      "title": "نسبة الالتحاق الإجمالية بالتعليم الابتدائي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/renewable-energy-consumption-share",
+      "status": 200,
+      "h1": 1,
+      "title": "استهلاك الطاقة المتجددة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/renewable-internal-freshwater-per-capita",
+      "status": 200,
+      "h1": 1,
+      "title": "موارد المياه العذبة الداخلية المتجددة للفرد | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/resident-patent-applications",
+      "status": 200,
+      "h1": 1,
+      "title": "طلبات براءات الاختراع للمقيمين | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/road-traffic-mortality-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل الوفيات بسبب حوادث الطرق | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/rule-of-law-score",
+      "status": 200,
+      "h1": 1,
+      "title": "درجة سيادة القانون | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/scientific-technical-journal-articles",
+      "status": 200,
+      "h1": 1,
+      "title": "المقالات العلمية والتقنية المنشورة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/secondary-school-enrollment-gross",
+      "status": 200,
+      "h1": 1,
+      "title": "نسبة الالتحاق الإجمالية بالتعليم الثانوي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/secure-internet-servers",
+      "status": 200,
+      "h1": 1,
+      "title": "خوادم الإنترنت الآمنة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/terrestrial-protected-areas",
+      "status": 200,
+      "h1": 1,
+      "title": "المناطق البرية المحمية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/tertiary-enrollment-gross",
+      "status": 200,
+      "h1": 1,
+      "title": "نسبة الالتحاق الإجمالية بالتعليم العالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/total-fisheries-production",
+      "status": 200,
+      "h1": 1,
+      "title": "إجمالي إنتاج الثروة السمكية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/trade-share-gdp",
+      "status": 200,
+      "h1": 1,
+      "title": "التجارة الخارجية من الناتج المحلي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/tuberculosis-incidence",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل الإصابة بالسل | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/under-five-mortality-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل وفيات الأطفال دون الخامسة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/unemployment-rate-total",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل البطالة الإجمالي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/urban-population-living-in-slums",
+      "status": 200,
+      "h1": 1,
+      "title": "سكان الحضر المقيمون في أحياء عشوائية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/vocational-secondary-enrollment-share",
+      "status": 200,
+      "h1": 1,
+      "title": "حصة التعليم المهني من طلاب المرحلة الثانوية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/voice-accountability-score",
+      "status": 200,
+      "h1": 1,
+      "title": "درجة المشاركة والمساءلة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "status": 200,
+      "h1": 1,
+      "title": "عدد سكان اليمن | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/youth-unemployment-rate",
+      "status": 200,
+      "h1": 1,
+      "title": "معدل بطالة الشباب | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/inflation-prices",
+      "status": 200,
+      "h1": 1,
+      "title": "التضخم والأسعار | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/international-aid",
+      "status": 200,
+      "h1": 1,
+      "title": "المساعدات الدولية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/internet-telecom",
+      "status": 200,
+      "h1": 1,
+      "title": "الإنترنت والاتصالات | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/investment",
+      "status": 200,
+      "h1": 1,
+      "title": "الاستثمار | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/labor-unemployment",
+      "status": 200,
+      "h1": 1,
+      "title": "سوق العمل والبطالة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/literacy",
+      "status": 200,
+      "h1": 1,
+      "title": "محو الأمية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/livestock",
+      "status": 200,
+      "h1": 1,
+      "title": "الثروة الحيوانية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/maternal-child-health",
+      "status": 200,
+      "h1": 1,
+      "title": "صحة الأم والطفل | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/migration-diaspora",
+      "status": 200,
+      "h1": 1,
+      "title": "الهجرة والاغتراب | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/mining",
+      "status": 200,
+      "h1": 1,
+      "title": "التعدين | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/natural-disasters",
+      "status": 200,
+      "h1": 1,
+      "title": "الكوارث الطبيعية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/nutrition",
+      "status": 200,
+      "h1": 1,
+      "title": "التغذية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/oil-gas",
+      "status": 200,
+      "h1": 1,
+      "title": "النفط والغاز | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/population",
+      "status": 200,
+      "h1": 1,
+      "title": "السكان | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/ports-airports",
+      "status": 200,
+      "h1": 1,
+      "title": "الموانئ والمطارات | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/poverty",
+      "status": 200,
+      "h1": 1,
+      "title": "الفقر | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/public-debt",
+      "status": 200,
+      "h1": 1,
+      "title": "الدين العام | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/public-finance",
+      "status": 200,
+      "h1": 1,
+      "title": "المالية العامة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/public-health",
+      "status": 200,
+      "h1": 1,
+      "title": "الصحة العامة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/remittances",
+      "status": 200,
+      "h1": 1,
+      "title": "تحويلات المغتربين | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/renewable-energy",
+      "status": 200,
+      "h1": 1,
+      "title": "الطاقة المتجددة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/research",
+      "status": 200,
+      "h1": 1,
+      "title": "البحث العلمي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/roads-transport",
+      "status": 200,
+      "h1": 1,
+      "title": "الطرق والنقل | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/sanitation",
+      "status": 200,
+      "h1": 1,
+      "title": "الصرف الصحي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/schools",
+      "status": 200,
+      "h1": 1,
+      "title": "التعليم المدرسي | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "status": 200,
+      "h1": 1,
+      "title": "اليمن عبر الزمن | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/tourism-heritage",
+      "status": 200,
+      "h1": 1,
+      "title": "السياحة والتراث | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/vocational-education",
+      "status": 200,
+      "h1": 1,
+      "title": "التعليم الفني والمهني | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/war-impact",
+      "status": 200,
+      "h1": 1,
+      "title": "آثار الحرب | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/water-resources",
+      "status": 200,
+      "h1": 1,
+      "title": "الموارد المائية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/women",
+      "status": 200,
+      "h1": 1,
+      "title": "المرأة | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/youth",
+      "status": 200,
+      "h1": 1,
+      "title": "الشباب | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "status": 200,
+      "h1": 1,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "status": 200,
+      "h1": 1,
+      "title": "الملكة أروى بنت أحمد الصليحي | شخصيات يمنية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "status": 200,
+      "h1": 1,
+      "title": "منتجات يمنية | مبادرة 967",
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "status": 200,
+      "h1": 1,
+      "title": "رحيق اليمن | منتجات يمنية | مبادرة 967",
+      "pass": true
+    }
+  ],
+  "internalLinks": [
+    {
+      "route": "/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%85%D9%88%D8%B6%D9%88%D8%B9",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9+%D8%A3%D9%88+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9+%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%B1%D9%83%D8%A9+%D8%A3%D9%88+%D9%85%D9%86%D8%AA%D8%AC",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%B7%D9%84%D8%A8+%D8%A5%D8%B6%D8%A7%D9%81%D8%A9+%D9%85%D9%84%D9%81+%D9%85%D9%87%D9%86%D9%8A",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%86%D8%B4%D8%A7%D8%B7+%D9%85%D8%AC%D8%AA%D9%85%D8%B9%D9%8A",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D8%B9+%D9%88%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%83%D8%A9",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=all",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=works",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=issues",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=indicators",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=figures",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=companies",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=professionals",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=places",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=domains",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/search?q=&type=pages",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%B7%D9%84%D8%A8%20%D8%A5%D8%B6%D8%A7%D9%81%D8%A9%20%D9%85%D9%84%D9%81%20%D9%85%D9%87%D9%86%D9%8A",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/taxes-customs",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/disability",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/food-security",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/waste-cleanliness",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/qat",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/manufacturing",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/humanitarian-needs",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/mines-erw",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/sports",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/culture-media",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%A3%D9%88%20%D9%85%D9%86%D8%AA%D8%AC",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/ali-al-sulayhi",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/asma-bint-shihab",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/al-hamdani",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/nashwan-al-himyari",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/al-shawkani",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/wahb-ibn-munabbih",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/abd-al-razzaq-al-sannani",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/sayf-ibn-dhi-yazan",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/dhu-nuwas",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/karib-il-watar",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/shammar-yuharish",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD%20%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9%20%D8%A3%D9%88%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map?region=YE11",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/q4665499",
+      "status": 200,
+      "pass": true
+    }
+  ],
+  "notFound": [
+    {
+      "route": "/this-page-does-not-exist",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "route": "/magazine/missing-audit-record",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "route": "/professionals/missing-audit-record",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "route": "/works/missing-audit-record",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/missing-audit-record",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/missing-audit-record",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "route": "/yemen-map/figures/missing-audit-record",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/missing-audit-record",
+      "status": 404,
+      "pass": true
+    }
+  ],
+  "assets": [
+    {
+      "route": "/demo/967-demo.pdf",
+      "status": 200,
+      "pass": true
+    }
+  ],
+  "failures": []
+}

@@ -1,12 +1,14 @@
 import {NextResponse} from 'next/server';
-import {createClient} from '@supabase/supabase-js';
+import {serverDb} from '@/lib/supabase-server';
 import {contributionTypes} from '@/lib/contributions';
+import {isSameOrigin, readJsonObject, RequestValidationError} from '@/lib/requestSecurity';
 export const runtime='nodejs';
-const fail=(message,status=400)=>NextResponse.json({error:message},{status});
+const fail=(message,status=400)=>NextResponse.json({error:message},{status,headers:{'Cache-Control':'no-store',...(status===429?{'Retry-After':'600'}:{})}});
 const requests=new Map();
 function rateLimited(request){
- const ip=request.headers.get('x-real-ip')||request.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
- if(!ip)return false;
+ // Vercel replaces x-vercel-forwarded-for at its trusted edge. In-memory limits
+ // are a best-effort fallback only; Turnstile / edge limits handle many instances.
+ const ip=request.headers.get('x-vercel-forwarded-for')?.split(',')[0]?.trim()||request.headers.get('x-real-ip')||request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()||'unknown';
  const now=Date.now();
  for(const [key,value] of requests)if(value.expires<now)requests.delete(key);
  const current=requests.get(ip)||{count:0,expires:now+600000};
@@ -16,30 +18,28 @@ function rateLimited(request){
 }
 export async function POST(request){
  try{
-  const origin=request.headers.get('origin');const host=request.headers.get('host');
-  if(origin&&host&&new URL(origin).host!==host)return fail('طلب غير مسموح',403);
-  if(Number(request.headers.get('content-length')||0)>12000)return fail('الرسالة طويلة جداً',413);
+  if(!isSameOrigin(request))return fail('طلب غير مسموح',403);
   if(rateLimited(request))return fail('وصلت إلى حد الإرسال. حاول بعد عدة دقائق.',429);
-  const body=await request.text();
-  if(Buffer.byteLength(body,'utf8')>12000)return fail('الرسالة طويلة جداً',413);
-  const data=JSON.parse(body);
+  const data=await readJsonObject(request);
   if(data.website)return NextResponse.json({ok:true});
-  const name=String(data.name||'').trim().slice(0,101);
-  const email=String(data.email||'').trim().toLowerCase().slice(0,251);
-  const type=String(data.type||'').trim();
-  const message=String(data.message||'').trim();
+  if(['name','email','type','message'].some(field=>typeof data[field]!=='string'))return fail('تحقق من الحقول وحاول مرة أخرى');
+  const name=data.name.trim();
+  const email=data.email.trim().toLowerCase();
+  const type=data.type.trim();
+  const message=data.message.trim();
   const types=contributionTypes;
   if(name.length<2||name.length>100||!/^\S+@\S+\.\S+$/.test(email)||email.length>250||!types.includes(type)||message.length<10||message.length>4000)return fail('تحقق من الحقول وحاول مرة أخرى');
+  if(Boolean(process.env.TURNSTILE_SECRET_KEY)!==Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY))return fail('التحقق البشري غير متاح حالياً. حاول لاحقاً.',503);
   if(process.env.TURNSTILE_SECRET_KEY){
-   const token=String(data['cf-turnstile-response']||'');if(!token)return fail('يرجى إكمال التحقق البشري');
-   const verify=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{method:'POST',body:new URLSearchParams({secret:process.env.TURNSTILE_SECRET_KEY,response:token}),cache:'no-store'});
+   const token=typeof data['cf-turnstile-response']==='string'?data['cf-turnstile-response']:'';if(!token||token.length>2048)return fail('يرجى إكمال التحقق البشري');
+   const verify=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{method:'POST',body:new URLSearchParams({secret:process.env.TURNSTILE_SECRET_KEY,response:token}),cache:'no-store',signal:AbortSignal.timeout(8000)});
+   if(!verify.ok)return fail('تعذر التحقق البشري حالياً. حاول لاحقاً.',503);
    if(!(await verify.json()).success)return fail('فشل التحقق البشري');
   }
-  const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if(!url||!key)return fail('التواصل غير مفعّل بعد. حاول لاحقاً.',503);
-  const db=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
+  const db=serverDb();
+  if(!db)return fail('التواصل غير مفعّل بعد. حاول لاحقاً.',503);
   const {error}=await db.from('messages').insert({name,email,type,message});
   if(error){console.error('contact save failed',error.message);return fail('تعذر حفظ الرسالة حالياً',503)}
-  return NextResponse.json({ok:true},{status:201});
- }catch(err){console.error('contact error',err);return fail('تعذر معالجة الطلب',400)}
+  return NextResponse.json({ok:true},{status:201,headers:{'Cache-Control':'no-store'}});
+ }catch(err){if(err instanceof RequestValidationError)return fail(err.message,err.status);console.error('contact service failed',err?.name);return fail('تعذر إرسال الرسالة حالياً. حاول لاحقاً.',503)}
 }

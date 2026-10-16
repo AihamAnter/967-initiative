@@ -1,0 +1,1010 @@
+{
+  "checkedOn": "2026-10-16",
+  "branch": "audit/launch-readiness",
+  "rawFindings": [
+    {
+      "id": "SEO-01",
+      "severity": "P1",
+      "description": "عنوان الموقع الاحتياطي localhost في Canonical وSitemap وبيانات الشخصيات",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-01 | P1 | عنوان الموقع الاحتياطي localhost في Canonical وSitemap وبيانات الشخصيات | layout، sitemap، صفحات التفاصيل | مُصلح: أصل إنتاج مركزي معروف، رفض URL المحلي/غير HTTPS/ذي الاعتمادات أو المسار، ترميز slugs وإزالة query/hash ومنع تغيير الأصل بشرطات عكسية أو محارف تحكم | اختبارات أصل الموقع والمسارات؛ فحص HTTP بعد البناء |"
+    },
+    {
+      "id": "SEO-02",
+      "severity": "P1",
+      "description": "المعاينات وبيئة التطوير ترث السماح بالفهرسة",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-02 | P1 | المعاينات وبيئة التطوير ترث السماح بالفهرسة | seo، robots، sitemap، ترويسات Next بالتنسيق مع الهندسة | مُصلح: noindex في Metadata، منع الزحف، عدم نشر URLs في Sitemap خارج الإنتاج، ترويسة noindex للمعاينات | اختبارات بيئات منفصلة؛ تحتاج إعادة فحص معاينة Vercel بعد النشر المصرح |"
+    },
+    {
+      "id": "SEO-03",
+      "severity": "P2",
+      "description": "صفحات عديدة ترث بيانات مشاركة الصفحة الرئيسية ولا تملك بطاقة X مستقلة، مع احتمال وصف فارغ في سجل ناقص",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-03 | P2 | صفحات عديدة ترث بيانات مشاركة الصفحة الرئيسية ولا تملك بطاقة X مستقلة، مع احتمال وصف فارغ في سجل ناقص | جميع صفحات الموقع | مُصلح: `pageMetadata` ينشئ Title/Description/Canonical/OG URL/OG Title/OG Description/Image/Twitter لكل صفحة ويستبدل العنوان/الوصف الفارغين بتعريف المبادرة الحقيقي | اختبارات Metadata والقيم الناقصة؛ فحص الرأس في HTTP |"
+    },
+    {
+      "id": "SEO-04",
+      "severity": "P1",
+      "description": "Person JSON-LD يُنشر للكتالوج التجريبي، وتواريخ السنوات فقط ونسبة الجنسية لا تدعمها حقول تاريخ ISO ومحتوى موثق",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-04 | P1 | Person JSON-LD يُنشر للكتالوج التجريبي، وتواريخ السنوات فقط ونسبة الجنسية لا تدعمها حقول تاريخ ISO ومحتوى موثق | تفاصيل الشخصيات | مُصلح: لا Person للنماذج، حذف birthDate/deathDate المصطنعين والجنسية المفترضة؛ روابط هوية عامة فقط؛ JSON-LD آمن من إغلاق script | اختبارات النماذج والسنوات وحقن النصوص |"
+    },
+    {
+      "id": "SEO-05",
+      "severity": "P2",
+      "description": "غياب تعريف منظم للمبادرة والموقع والإصدارات ومسارات التنقل",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-05 | P2 | غياب تعريف منظم للمبادرة والموقع والإصدارات ومسارات التنقل | layout، تفاصيل المجلة والأعمال والأدلة والمؤشرات | مُصلح: Organization/WebSite من الإعدادات الحالية، BreadcrumbList من المسارات الحقيقية، PublicationIssue للأعداد الحقيقية، VideoObject للفيديو المكتمل فقط | JSON parse واختبارات شروط البيانات؛ لا ادعاء اجتياز Rich Results الخارجي |"
+    },
+    {
+      "id": "SEO-06",
+      "severity": "P2",
+      "description": "Sitemap يضم مجالات فارغة ويقبل تواريخ غير صالحة، وتغطية الاستثناءات غير موحدة",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-06 | P2 | Sitemap يضم مجالات فارغة ويقبل تواريخ غير صالحة، وتغطية الاستثناءات غير موحدة | sitemap، تفاصيل مجال الإحصاءات | مُصلح: استبعاد المجال دون مؤشر مفيد، النماذج والمسودات والبحث والإدارة؛ noindex للمجال الفارغ؛ lastmod من حقل حقيقي صالح؛ تجديد ديناميكي عند النشر | اختبار إدراج/استبعاد سجلات متعددة والترميز وعدم التكرار |"
+    },
+    {
+      "id": "SEO-07",
+      "severity": "P1",
+      "description": "السلسلة الزمنية معروضة أساساً برسم عميل وCSV، بلا جدول HTML كامل يمكن قراءته واستشهاده",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-07 | P1 | السلسلة الزمنية معروضة أساساً برسم عميل وCSV، بلا جدول HTML كامل يمكن قراءته واستشهاده | تفاصيل المؤشر | مُصلح: جدول يُعرض من الخادم لسلسلة القياس المعتمدة، سنة/قيمة/حالة/مصدر، الوحدة والنطاق في caption؛ Dataset مشروط بمصدر لكل قيمة وتعريف ومنهجية ووحدة وعدم تعارض | اختبار شروط Dataset، وفحص HTTP الفعلي دون JavaScript لمؤشر المنشآت ذات الملكية النسائية: صفان للقيم ووحدة % ونطاق الجمهورية مع Dataset مطابق |"
+    },
+    {
+      "id": "SEO-08",
+      "severity": "P1",
+      "description": "قائمة Next الافتراضية لا تشمل بعض برامج بحث/استرجاع الذكاء الاصطناعي وقد ترسل Metadata لاحقاً خارج الرأس",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-08 | P1 | قائمة Next الافتراضية لا تشمل بعض برامج بحث/استرجاع الذكاء الاصطناعي وقد ترسل Metadata لاحقاً خارج الرأس | next.config عبر خبير الهندسة | مُصلح بالتنسيق: الاحتفاظ بقائمة Next وإضافة OAI-SearchBot وPerplexityBot وChatGPT-User وPerplexity-User | فحص تهيئة Next؛ اختبار HTTP للرأس بأسماء الوكلاء |"
+    },
+    {
+      "id": "SEO-09",
+      "severity": "P2",
+      "description": "ملف PDF التوضيحي يمكن فهرسته مستقلاً عن صفحة القارئ ذات noindex",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-09 | P2 | ملف PDF التوضيحي يمكن فهرسته مستقلاً عن صفحة القارئ ذات noindex | `/demo/967-demo.pdf` وترويسات Next | مُصلح بالتنسيق: X-Robots-Tag noindex للملفات التوضيحية | تحقق ترويسة HTTP في اختبار SEO |"
+    },
+    {
+      "id": "SEO-10",
+      "severity": "P2",
+      "description": "لا دليل متاح على الفهرسة أو الظهور أو الاستشهاد الفعلي",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "remaining",
+      "sourceRow": "| SEO-10 | P2 | لا دليل متاح على الفهرسة أو الظهور أو الاستشهاد الفعلي | خدمات البحث ولوحات مالك الموقع | متبقٍ خارجي: توثيق الملكية، إرسال Sitemap، فحص URLs والأداء والاستشهادات بعد النشر | لم يُدع نجاحه؛ البحث العام لا يكفي لإثبات غياب/وجود جميع URLs في الفهارس |"
+    },
+    {
+      "id": "SEO-11",
+      "severity": "P1",
+      "description": "نقص المحتوى التحريري الحقيقي والمراجع في بعض الأقسام؛ ملفات الكتالوج ليست محتوى معتمداً",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "remaining",
+      "sourceRow": "| SEO-11 | P1 | نقص المحتوى التحريري الحقيقي والمراجع في بعض الأقسام؛ ملفات الكتالوج ليست محتوى معتمداً | المجلة، الأعمال، الشخصيات والأدلة والمرصد بحسب البيانات المنشورة | متبقٍ تحريري: نشر محتوى حقيقي ومراجعة مصادره بإدارة المشروع؛ الإصلاح البرمجي لا يختلق محتوى أو توثيقاً أو شراكات | البيانات التجريبية مميزة وغير قابلة للفهرسة؛ لم نكتب في قاعدة الإنتاج |"
+    },
+    {
+      "id": "SEO-12",
+      "severity": "P1",
+      "description": "الصفحات الديناميكية غير الموجودة ترجع 200 بدلاً من 404 بعد بدء بث حدود التحميل العامة",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-12 | P1 | الصفحات الديناميكية غير الموجودة ترجع 200 بدلاً من 404 بعد بدء بث حدود التحميل العامة | app/loading وyemen-in-numbers/loading وحدود Suspense الموروثة | مُصلح بواسطة المدير: نقل هيكل التحميل إلى مكون قابل لإعادة الاستخدام وحصر حدود loading في أوراق البحث/المشاركة/timeline التي لا تحتوي تفاصيل ديناميكية؛ إبقاء notFound قبل الاستجابة | أعاد الاختبار النهائي 404 حقيقية لكل مسار مفقود في الأعمال والمجلة والمهنيين والمنتجات والمؤشرات والشخصيات، بالإضافة إلى المسار غير المطابق |"
+    },
+    {
+      "id": "UX-01",
+      "severity": "P1",
+      "description": "صور صفحات PDF مخفية عن قارئ الشاشة دون بديل نصي داخل القارئ؛ `components/PdfReader.jsx`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-01 | P1 | صور صفحات PDF مخفية عن قارئ الشاشة دون بديل نصي داخل القارئ؛ `components/PdfReader.jsx` | قسم قابل للفتح لاستخراج نص الصفحات الحالية خارج لوحة الرسم، مع توضيح الصفحات المصورة غير القابلة للاستخراج وإبقاء فتح الملف الأصلي | مراجعة المصدر وESLint؛ جودة ترتيب النص داخل ملفات PDF تتوقف على بنية الملف، ولم يُختبر قارئ شاشة فعلي |"
+    },
+    {
+      "id": "UX-02",
+      "severity": "P1",
+      "description": "القفز إلى صفحة PDF عند كل ضغطة يمنع كتابة أرقام متعددة ويقبل كسوراً؛ القارئ و`lib/pdfNavigation.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-02 | P1 | القفز إلى صفحة PDF عند كل ضغطة يمنع كتابة أرقام متعددة ويقبل كسوراً؛ القارئ و`lib/pdfNavigation.js` | إدخال مستقل ثم انتقال عند التأكيد/الخروج، دعم الأرقام العربية والفارسية واللاتينية، رفض الكسور وضبط الحدود | اختبارات Node ناجحة للأرقام والحدود والكسور والقيم الفارغة؛ اختبار التفاعل في المتصفح مطلوب |"
+    },
+    {
+      "id": "UX-03",
+      "severity": "P1",
+      "description": "تغيير عرض القارئ من صفحة مفردة فردية إلى زوج قد يمنع بلوغ الصفحة الأخيرة في ملف ذي عدد زوجي",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-03 | P1 | تغيير عرض القارئ من صفحة مفردة فردية إلى زوج قد يمنع بلوغ الصفحة الأخيرة في ملف ذي عدد زوجي | توحيد بداية الزوج عند تغيير الوضع/العرض؛ بقاء الغلاف مفرداً ثم 2/3 و4/5 | اختبار شامل لكل عدد صفحات من 1 إلى 40 يؤكد بلوغ كل صفحة دون صفحات وهمية |"
+    },
+    {
+      "id": "UX-04",
+      "severity": "P2",
+      "description": "فشل PDF دون إعادة محاولة، أعمال بحث قديمة تستمر بعد تغيير الملف، وملء شاشة يفشل بصمت",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-04 | P2 | فشل PDF دون إعادة محاولة، أعمال بحث قديمة تستمر بعد تغيير الملف، وملء شاشة يفشل بصمت | زر إعادة محاولة، إلغاء مهمة التحميل عند التفكيك، منع نتائج البحث القديمة، رسائل خطأ/تحميل معلنة، رد واضح عند تعذر ملء الشاشة، إنهاء التقليب إذا انقطعت الحركة | مراجعة المصدر وESLint؛ محاكاة تعطل الملف وإعادة المحاولة مطلوبة في المتصفح |"
+    },
+    {
+      "id": "UX-05",
+      "severity": "P2",
+      "description": "زر إخفاء المديريات لا يعمل بعد اختيار محافظة؛ `components/yemen-map/YemenMap.jsx`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-05 | P2 | زر إخفاء المديريات لا يعمل بعد اختيار محافظة؛ `components/yemen-map/YemenMap.jsx` | احترام `districtsVisible` قبل اشتقاق المسارات المعروضة | مراجعة مسار الحالة في المصدر؛ اختبار إظهار/إخفاء بعد الاختيار مطلوب |"
+    },
+    {
+      "id": "UX-06",
+      "severity": "P2",
+      "description": "تكبير غير محدود قد يصل إلى قيم غير صالحة، وتحويل موضع المؤشر يهمل هوامش SVG؛ `lib/mapViewport.js` و`mapGeometry.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-06 | P2 | تكبير غير محدود قد يصل إلى قيم غير صالحة، وتحويل موضع المؤشر يهمل هوامش SVG؛ `lib/mapViewport.js` و`mapGeometry.js` | حدود آمنة للتكبير/التصغير لجميع الأزرار والعجلة واللمس، رفض عوامل غير صالحة، تحويل إحداثيات يراعي `xMidYMid meet` وتصحيح سحب الخريطة | 4000 خطوة تكبير/تصغير باختبارات Node، تحقق ثبات نسبة الأبعاد ونقطة الارتكاز وتحويل هوامش SVG |"
+    },
+    {
+      "id": "UX-07",
+      "severity": "P1",
+      "description": "`role=img` على SVG يضم أزرار مناطق قابلة للتركيز؛ axe: `nested-interactive`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-07 | P1 | `role=img` على SVG يضم أزرار مناطق قابلة للتركيز؛ axe: `nested-interactive` | دور مجموعة بدلاً من صورة، الإبقاء على أزرار المحافظات والمديريات وأسمائها وحالاتها، وعدم اختيار منطقة عند `pointercancel` | مثبت قبل الإصلاح بفحص axe على الهاتف والحاسوب؛ التحقق من غياب المخالفة بعد الإصلاح مطلوب |"
+    },
+    {
+      "id": "UX-08",
+      "severity": "P2",
+      "description": "اختيار المحافظة لا يظهر في القائمة، اقتراحات البحث تفتقر لتنقل الأسهم/Escape، وإغلاق اللوحة يبقي التكبير القديم",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-08 | P2 | اختيار المحافظة لا يظهر في القائمة، اقتراحات البحث تفتقر لتنقل الأسهم/Escape، وإغلاق اللوحة يبقي التكبير القديم | ربط القائمة بالمحافظة المختارة، تنظيف البحث بعد الاختيار، ArrowDown/ArrowUp/Escape، عدد نتائج معلن، إعادة الخريطة كاملة عند الإغلاق | مراجعة المصدر وESLint؛ يلزم سيناريو الخريطة في المتصفح |"
+    },
+    {
+      "id": "UX-09",
+      "severity": "P1",
+      "description": "رفض الحافظة يولّد Promise مرفوضة دون مسار مشاركة بديل؛ `components/IndicatorActions.jsx`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-09 | P1 | رفض الحافظة يولّد Promise مرفوضة دون مسار مشاركة بديل؛ `components/IndicatorActions.jsx` | معالجة رفض/غياب clipboard، احترام إلغاء نافذة المشاركة، عرض رابط قابل للتحديد والنسخ يدوياً | مراجعة المصدر وESLint؛ محاكاة رفض الحافظة مطلوبة |"
+    },
+    {
+      "id": "UX-10",
+      "severity": "P2",
+      "description": "أساس النسبة قد يعتمد على ترتيب القيم، ووضع النسبة يبقى مفعلاً عندما يصير الأساس صفراً/مفقوداً؛ `TimelineExplorer.jsx` و`lib/timeline.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-10 | P2 | أساس النسبة قد يعتمد على ترتيب القيم، ووضع النسبة يبقى مفعلاً عندما يصير الأساس صفراً/مفقوداً؛ `TimelineExplorer.jsx` و`lib/timeline.js` | أول قيمة زمنية صالحة أساساً، رجوع للقيمة الفعلية عند عدم صلاحية النسبة، الحفاظ على الصفر والسنوات المفقودة، إظهار الفترة الحقيقية بما فيها ما قبل 1990 | اختبارات Node لأساس غير مرتب وصفر وفجوات وفترة فارغة ونسب التغير؛ لا تقدير للقيم المفقودة |"
+    },
+    {
+      "id": "UX-11",
+      "severity": "P1",
+      "description": "لا يوجد جدول مقروء للمقارنة، وتركيز مربعات اختيارها المخفية غير ظاهر",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-11 | P1 | لا يوجد جدول مقروء للمقارنة، وتركيز مربعات اختيارها المخفية غير ظاهر | جدول قابل للفتح مطابق للبيانات المعروضة، رؤوس وصفوف معنونة ووحدة/طريقة المقارنة، حلقة تركيز على المربع المرئي، أسماء للأزرار وأدوار المجموعات، ألوان خطوط أوضح | مراجعة المصدر وESLint؛ الجدول الرئيسي لصفحة المؤشر نفّذه SEO ويملك تغطيته؛ CSS استجابة الجدولين هنا |"
+    },
+    {
+      "id": "UX-12",
+      "severity": "P2",
+      "description": "تصدير PNG بخلفية داكنة يطمس نص المحاور الداكن، وCSV للمقارنة دون وحدات",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-12 | P2 | تصدير PNG بخلفية داكنة يطمس نص المحاور الداكن، وCSV للمقارنة دون وحدات | خلفية فاتحة متسقة، أسماء أعمدة CSV تشمل الوحدة أو %، تنظيف روابط التنزيل وإظهار فشل تحميل صورة التصدير | مراجعة المصدر؛ لم يُفحص الملف النهائي بصرياً بعد الإصلاح |"
+    },
+    {
+      "id": "UX-13",
+      "severity": "P1",
+      "description": "الأسماء المخصصة لبطاقات المؤشرات/المنتجات تخفي نصوصها الظاهرة؛ axe: `label-content-name-mismatch`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-13 | P1 | الأسماء المخصصة لبطاقات المؤشرات/المنتجات تخفي نصوصها الظاهرة؛ axe: `label-content-name-mismatch` | الاعتماد على النص الفعلي داخل الرابط في المؤشرات والمنتجات والأعمال؛ تطابق اسم البحث وتشغيل الوسائط مع النص الظاهر | المخالفات مثبتة في baseline بالصفحة الرئيسية والمؤشرات والمجال والمنتجات؛ إعادة axe مطلوبة |"
+    },
+    {
+      "id": "UX-14",
+      "severity": "P1",
+      "description": "اقتطاع زر قائمة الهاتف عند 320px رغم نجاح فحص عرض الوثيقة",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-14 | P1 | اقتطاع زر قائمة الهاتف عند 320px رغم نجاح فحص عرض الوثيقة | تقليل فراغات الشريط وعرض الشعار وحجم زر الدخول عند ≤360px دون إنقاص مساحة زر القائمة | عناصر الاقتطاع مثبتة في baseline؛ إعادة قياس حدود العناصر ورؤية الزر مطلوبة |"
+    },
+    {
+      "id": "UX-15",
+      "severity": "P2",
+      "description": "Escape على قائمة الحاسوب ينقل التركيز إلى زر هاتف مخفي؛ والقائمة المتنقلة تأتي قبل زر فتحها بترتيب DOM",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-15 | P2 | Escape على قائمة الحاسوب ينقل التركيز إلى زر هاتف مخفي؛ والقائمة المتنقلة تأتي قبل زر فتحها بترتيب DOM | إرجاع التركيز إلى summary المفتوح على الحاسوب وإلى زر الهاتف عند استخدامه، نقل التركيز لأول رابط بعد الفتح، إغلاق القوائم عند مغادرة الشريط/المسار | مراجعة المصدر وESLint؛ اختبار Tab/Escape على الهاتف والحاسوب مطلوب |"
+    },
+    {
+      "id": "UX-16",
+      "severity": "P2",
+      "description": "نموذج التواصل يعرض أخطاء JSON/شبكة تقنية، لا يضع مهلة، ولا يعيد captcha المستهلكة بعد الفشل",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-16 | P2 | نموذج التواصل يعرض أخطاء JSON/شبكة تقنية، لا يضع مهلة، ولا يعيد captcha المستهلكة بعد الفشل | رسائل عربية مفهومة للاستجابة غير JSON/الاتصال/المهلة مع حفظ النص، guard لمنع الإرسال المكرر، `aria-busy` ورسائل alert، إعادة ضبط captcha بعد كل محاولة، إكمال تلقائي للاسم والبريد واتجاه LTR للبريد | مراجعة المصدر وESLint؛ نجاح mock كان مثبتاً قبل الإصلاح؛ حالات النجاح والفشل بعد الإصلاح مطلوبة ولا تثبت استلام الخادم الحقيقي |"
+    },
+    {
+      "id": "UX-17",
+      "severity": "P2",
+      "description": "ملف فيديو معطل بلا معالجة داخل المشغّل، ووصف رابط غير موجود يوحي بتوفر مشاهدة",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-17 | P2 | ملف فيديو معطل بلا معالجة داخل المشغّل، ووصف رابط غير موجود يوحي بتوفر مشاهدة | حالة تحميل معلنة، فشل واضح للملف المباشر وزر إعادة محاولة/المصدر؛ وصف صادق عند غياب الرابط؛ إخفاء صورة غلاف معطلة | مراجعة المصدر وESLint؛ تشغيل تضمين مزود خارجي لا يُثبت من حدث iframe load وحده |"
+    },
+    {
+      "id": "UX-18",
+      "severity": "P2",
+      "description": "صور الأعمال المحلية لا تُقبل، وروابط صور تبدأ بـ// تعامل كأنها محلية، وروابط ببيانات اعتماد مقبولة؛ `lib/media.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-18 | P2 | صور الأعمال المحلية لا تُقبل، وروابط صور تبدأ بـ// تعامل كأنها محلية، وروابط ببيانات اعتماد مقبولة؛ `lib/media.js` | قبول مسار صورة محلي آمن، رفض credential URLs والمسارات المتجاوزة، الحفاظ على بناء iframe للمزودين المعروفين فقط | اختبارات Node لروابط تنفيذية/اعتمادات/مضيف مزيف/مسارات محلية وروابط YouTube صحيحة؛ التنسيق مع مسار الأمن |"
+    },
+    {
+      "id": "UX-19",
+      "severity": "P2",
+      "description": "مسح بحث الأدلة يبقي رقم الصفحة، مدخل محافظة فارغ محتمل، وعدد نتائج الشخصيات لا يُعلن",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-19 | P2 | مسح بحث الأدلة يبقي رقم الصفحة، مدخل محافظة فارغ محتمل، وعدد نتائج الشخصيات لا يُعلن | إعادة الصفحة الأولى عند مسح البحث، استبعاد محافظة فارغة، live region لعدد الشخصيات؛ لف الأسماء الطويلة وحدود عرض المدخلات | مراجعة المصدر وESLint؛ البحث/الفلاتر وحالات الفراغ بعد الإصلاح ضمن اختبار المدير |"
+    },
+    {
+      "id": "UX-20",
+      "severity": "P1",
+      "description": "اقتطاع فلاتر المنتجات عند 320px بسبب الحجم الأدنى الضمني لـgrid والقائمة؛ `app/design-system.css`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-20 | P1 | اقتطاع فلاتر المنتجات عند 320px بسبب الحجم الأدنى الضمني لـgrid والقائمة؛ `app/design-system.css` | عمود `minmax(0,1fr)` للدليل والفلتر المتنقل، والسماح للـselect والحاويات بالتقلص دون ضغط الأيقونات | إعادة إنتاج فعلية بـPlaywright على البناء المحلي: الفلتر يمتد من x=-9 إلى304 بعرض313 داخل حاوية288؛ تطبيق CSS المقترح في المتصفح أعاده إلى x=16..304 بعرض288. نُقل الإصلاح للمصدر؛ يلزم تأكيد البناء النهائي |"
+    },
+    {
+      "id": "UX-21",
+      "severity": "P1",
+      "description": "PNG يصدر رمز وسيلة الإيضاح 14×14 بدلاً من الرسم الفعلي لأن `querySelector('svg')` يلتقطه أولاً؛ `TimelineExplorer.jsx` و`lib/timelineExport.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-21 | P1 | PNG يصدر رمز وسيلة الإيضاح 14×14 بدلاً من الرسم الفعلي لأن `querySelector('svg')` يلتقطه أولاً؛ `TimelineExplorer.jsx` و`lib/timelineExport.js` | اختيار `.recharts-wrapper > svg.recharts-surface`، تحقق وجود محاور، تصدير الرسم مع عنوان عربي وفترة ووحدة وطريقة مقارنة ومفتاح ألوان ومصادر ونطاق وملاحظة الفجوات؛ حالة تقدم/فشل وتنظيف موارد الصورة | DOM فعلي يثبت رمز14px قبل رسم837×460 بمحورين وسلسلة؛ اختبار انحدار بالمتصفح مع مساعد المصدر ولد صورة1674×1129 فُحصت بصرياً وفيها محاور ونقطتا2010/2013 مع فجوات وعنوان ومصدر صحيحان. إعادة البناء النهائي قيد تحقق المدير |"
+    },
+    {
+      "id": "ENG-01",
+      "severity": "P1",
+      "description": "PDF.js 5.7.284 متأثر بتنفيذ JavaScript عند فتح PDF ضار؛ PostCSS 8.4.31 متأثر بثغرات قراءة ملفات وXSS. `package*.json`",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-01 | P1 | PDF.js 5.7.284 متأثر بتنفيذ JavaScript عند فتح PDF ضار؛ PostCSS 8.4.31 متأثر بثغرات قراءة ملفات وXSS. `package*.json` | **أصلح محلياً**: Next/eslint-config-next إلى 15.5.28؛ PDF.js إلى 6.4.299 المحلول من `^6.2.108`؛ override PostCSS 8.5.30. أضاف وكيل UX تعطيل scripting/eval في `PdfReader`. | تدقيق الإنتاج النهائي: 0. يلزم اعتماد نتيجة تشغيل PDF/البناء من اختبارات المدير. |"
+    },
+    {
+      "id": "ENG-02",
+      "severity": "P2",
+      "description": "`braces` 3.0.3 في سلسلة ESLint معرض لاستنفاد stack.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-02 | P2 | `braces` 3.0.3 في سلسلة ESLint معرض لاستنفاد stack. | **مفتوح — أدوات التطوير**: npm يسجل خمسة package nodes عالية. أحدث `braces` المعروض 3.0.3 ولا يوجد إصدار مصحح في التنبيه؛ لا تنزيل قسري إلى Next ESLint 14 ولا كتم للتنبيه. | `npm-audit-after.json`، إصدار registry والتنبيه الرسمي. تجنب أنماط glob غير موثوقة؛ متابعة إصلاح upstream. |"
+    },
+    {
+      "id": "ENG-03",
+      "severity": "P1",
+      "description": "contact يقرأ الجسم بالكامل قبل فحص حجمه، ويقبل أشكال JSON غير مناسبة؛ origin المشوه قد يرمي استثناء. admin يفتقر لحد جسم مماثل.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-03 | P1 | contact يقرأ الجسم بالكامل قبل فحص حجمه، ويقبل أشكال JSON غير مناسبة؛ origin المشوه قد يرمي استثناء. admin يفتقر لحد جسم مماثل. | **أصلح محلياً**: `lib/requestSecurity.js` قارئ streaming محدود بالبايت يلغي stream المتجاوز؛ 12KB للتواصل و4KB للإدارة؛ رفض JSON غير الكائن وUTF-8 التالف ونوع المحتوى الخاطئ؛ مقارنة origin كاملة آمنة ورفض cross-site. | ثلاثة اختبارات للمنشأ/JSON/stream، بما فيها العربية وعدم وجود Content-Length. اختبارات HTTP النهائية عند المدير. |"
+    },
+    {
+      "id": "ENG-04",
+      "severity": "P1",
+      "description": "مسار POST لإعادة تعيين حساب موجود يتجاوز حماية آخر مدير الموجودة في PATCH.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-04 | P1 | مسار POST لإعادة تعيين حساب موجود يتجاوز حماية آخر مدير الموجودة في PATCH. | **أصلح محلياً**: `lib/adminAuthorization.js` تحقق موحد في POST/PATCH/DELETE؛ منع تخفيض إدارة الحساب الحالي؛ فشل مغلق عند تعذر عد المديرين؛ UUID صحيح؛ رسائل خدمة عامة. | اختبار محاكاة مدير واحد ومديرين وفشل العد والترقية والمنع الذاتي. لا تعديل لحساب حقيقي. |"
+    },
+    {
+      "id": "ENG-05",
+      "severity": "P2",
+      "description": "سباق طلبين متزامنين لإزالة مديرين لا يعالجه عد التطبيق وحده.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-05 | P2 | سباق طلبين متزامنين لإزالة مديرين لا يعالجه عد التطبيق وحده. | **مفتوح — SQL مقترح**: `supabase/launch-hardening-proposed.sql` يضيف trigger بقفل transaction لحماية آخر مدير. لم يُطبّق ولم يُختبر على Postgres. | يلزم اختبار معاملات متزامنة في قاعدة معزولة ثم مراجعة واعتماد migration. |"
+    },
+    {
+      "id": "ENG-06",
+      "severity": "P2",
+      "description": "طلبات Supabase/Turnstile قد تبقى معلقة؛ اتصالات متصفح متعددة تنشئ عملاء auth مكررين.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-06 | P2 | طلبات Supabase/Turnstile قد تبقى معلقة؛ اتصالات متصفح متعددة تنشئ عملاء auth مكررين. | **أصلح محلياً**: fetch محدود 10 ثوان للخادم والقراءات العامة، 60 ثانية للعميل/رفع الملفات و8 ثوان للتحقق البشري؛ حفظ إشارة إلغاء المستدعي؛ singleton لعميل المتصفح. `lib/supabase*.js`, `app/api/contact/route.js`. | اختبار timeout وAbortError مع upstream معلق. أحجام الرفع الفعلية لم تُختبر. |"
+    },
+    {
+      "id": "ENG-07",
+      "severity": "P2",
+      "description": "نتيجة تحقق auth قد تصل بعد الخروج وتعيد بيانات الإدارة القديمة إلى الحالة؛ الرسائل لا تُمسح عند انتهاء الجلسة.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-07 | P2 | نتيجة تحقق auth قد تصل بعد الخروج وتعيد بيانات الإدارة القديمة إلى الحالة؛ الرسائل لا تُمسح عند انتهاء الجلسة. | **أصلح محلياً**: generation token وحارس هوية المستخدم للتحميل؛ مسح بيانات الإدارة وكلمات المرور ومعرّفات التحرير عند الخروج؛ رفض دور غير معروف وفشل تحميل الصلاحية. `AdminDashboard.jsx`. في إعادة المراجعة صُحح زر التحديث ليستدعي `load()` صراحة ولا يمرر حدث React إلى حارس هوية المستخدم. | مراجعة تدفق async وESLint خاص بالمكون ناجح دون تحذيرات؛ دورة دخول/خروج فعلية بحساب اختبار **غير متحققة**. |"
+    },
+    {
+      "id": "ENG-08",
+      "severity": "P2",
+      "description": "الرفع يفحص الاسم والحجم فقط، وروابط عدة نماذج إدارة تقبل regex ضعيفاً.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-08 | P2 | الرفع يفحص الاسم والحجم فقط، وروابط عدة نماذج إدارة تقبل regex ضعيفاً. | **أصلح محلياً**: فحص signature وMIME والامتداد والحجم للـPDF/PNG/JPEG/WebP، أسماء عشوائية وContent-Type معروف؛ رفض SVG/HTML المسمى صورة؛ استخدام محلل URL الآمن. ملفات `lib/uploads.js` ومكونات الإدارة للشركات والشخصيات والمهنيين والأعمال والمجلة. الشخصية الجديدة تبدأ مسودة. | اختبار PDF/PNG صالحين، HTML متنكر، SVG وMIME غير متطابق. هذا تحسين عميل ولا يستبدل bucket policies أو فحص المحتوى على الخادم. |"
+    },
+    {
+      "id": "ENG-09",
+      "severity": "P1",
+      "description": "غياب رؤوس دفاع مناسبة، وإمكان فهرسة ملفات demo/معاينة مستقلة عن HTML.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-09 | P2 | غياب رؤوس دفاع مناسبة، وإمكان فهرسة ملفات demo/معاينة مستقلة عن HTML. | **أصلح محلياً**: nosniff، منع framing، سياسة referrer وصلاحيات، CSP أساسي وHSTS في production؛ noindex للإدارة/API/demo ولبيئات Vercel preview/development. `next.config.mjs`. توسعة htmlLimitedBots تحفظ القائمة الأصلية وتضيف زواحف البحث المحددة بالتنسيق مع SEO. | تحميل config ناجح واختبار بقاء bot الافتراضي وإضافة OAI؛ يتأكد المدير من الرؤوس الفعلية. CSP هنا دفاع أساسي وليس سياسة script-src كاملة. |",
+      "related": [
+        "SEO-08",
+        "SEO-09"
+      ]
+    },
+    {
+      "id": "ENG-10",
+      "severity": "P2",
+      "description": "تعطيل مصدر إحصائي يخفي تعريفه لكنه يترك قيمه في آخر قيمة والرسم.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-10 | P2 | تعطيل مصدر إحصائي يخفي تعريفه لكنه يترك قيمه في آخر قيمة والرسم. | **أصلح محلياً للعرض العام**: تحميل القيم في `lib/data.js` يستبعد القيم ذات المصدر غير النشط، بدلاً من ترك القيمة دون مصدر. أصلحت أيضاً مسارات الخطأ الوهمية `error=null` في تحميل الأعمال والأعداد. | مراجعة استعلام/filter ومرشحات النشر والوالدين؛ لا ادعاء اختبار تعطيل مصدر إنتاجي. جانب REST في ENG-11. |"
+    },
+    {
+      "id": "ENG-11",
+      "severity": "P1",
+      "description": "anon إلى `yemeni_companies` يعيد401؛ SQL الإحصاءات الأصلي لا يربط رؤية جميع الأبناء بنشر الوالد/نشاط المصدر.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-11 | P1 | anon إلى `yemeni_companies` يعيد401؛ SQL الإحصاءات الأصلي لا يربط رؤية جميع الأبناء بنشر الوالد/نشاط المصدر. | **مفتوح — تطبيق SQL والتحقق**: migration مقترح يفصل public/editor policies ويقيد نشر الأصول والمصادر ويمنع تعديل editors المباشر. صفحة الشركات الحالية تستخدم قراءة الخادم فلا يثبت401 تعطلها؛ لكنه يمنع الاعتماد على REST المجهول أو الانتقال إلى قراءة أقل صلاحية. لم يُثبت تسريب فعلي لبيانات متداخلة مخفية. | دليل GET المجهول في `live-anonymous-rls.json`؛ يلزم اختبار parent/draft وauthenticated/editor/management في قاعدة معزولة. |"
+    },
+    {
+      "id": "ENG-12",
+      "severity": "P2",
+      "description": "bucket `media` عام؛ الملفات المرفوعة كمسودة قابلة للوصول لمن يعرف URL.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-12 | P2 | bucket `media` عام؛ الملفات المرفوعة كمسودة قابلة للوصول لمن يعرف URL. | **مفتوح — قيد معماري**: لم أغيّر public bucket أو أحذف ملفات/أكسر روابط. عشوائية الاسم وعدم إظهار مسودة في الصفحة لا يجعلان المرفق سرياً. | سياسة bucket في `schema.sql`؛ لم يُختبر الوصول لملف مسودة حقيقي. استخدم private bucket وروابط موقعة إذا كانت السرية مطلوبة قبل النشر، بخطة ترحيل معتمدة. |"
+    },
+    {
+      "id": "ENG-13",
+      "severity": "P2",
+      "description": "rate limit داخل ذاكرة العملية لا يمتد إلى جميع نسخ serverless، وTurnstile اختياري.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-13 | P2 | rate limit داخل ذاكرة العملية لا يمتد إلى جميع نسخ serverless، وTurnstile اختياري. | **مفتوح جزئياً**: أضيف مسار محدود للهوية المفقودة، وأولوية عنوان Vercel وRetry-After؛ عدم تطابق مفتاحي Turnstile يفشل بوضوح503؛ يبقى تفعيل المفتاحين/حماية edge مشتركة خطوة تشغيلية. | مراجعة الكود؛ لا ادعاء اجتياز CAPTCHA حقيقي أو اختبار حمل متعدد النسخ. |"
+    },
+    {
+      "id": "ENG-14",
+      "severity": "P1",
+      "description": "سيناريو الإدارة وإرسال الرسائل وحفظ المحتوى غير متحقق في بيئة آمنة.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-14 | P1 | سيناريو الإدارة وإرسال الرسائل وحفظ المحتوى غير متحقق في بيئة آمنة. | **مفتوح — فجوة تحقق أساسية**: المستخدم يؤكد عدم وجود staging أو حساب اختبار؛ لم ننشئ حسابات أو ندعو أشخاصاً أو نرسل رسائل أو نكتب في الإنتاج. | يلزم حسابان تجريبيان admin/management واختبارات CRUD والرفع والاستعادة والخروج والصلاحيات الفعلية في بيئة معزولة قبل اعتماد الجاهزية الكاملة. |"
+    },
+    {
+      "id": "ENG-15",
+      "severity": "P1",
+      "description": "root engines القديم يسمح Node20.9 رغم أن PDF.js6.4.299 يتطلب>=22.13 وSupabase المثبت يتطلب>=22.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-15 | P1 | root engines القديم يسمح Node20.9 رغم أن PDF.js6.4.299 يتطلب>=22.13 وSupabase المثبت يتطلب>=22. | **أصلح محلياً بالتنسيق مع المدير**: engines أصبح `^22.13.0 \\|\\| >=24.0.0`؛ Node الفحص24.18.0 متوافق. إعداد إصدار Vercel الفعلي خطوة تشغيلية لم نفترض تحققها. | قراءة `engines` للحزم المثبتة وpackage.json النهائي؛ البناء على Node24 لدى المدير. |"
+    },
+    {
+      "id": "ENG-16",
+      "severity": "P2",
+      "description": "تسميات CMS المصدّرة إلى CSV قد تبدأ بصيغة جدول بيانات وتُفسر عند فتح الملف؛ CR منفرد لا يُقتبس. `lib/yemenNumbers.js`.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-16 | P2 | تسميات CMS المصدّرة إلى CSV قد تبدأ بصيغة جدول بيانات وتُفسر عند فتح الملف؛ CR منفرد لا يُقتبس. `lib/yemenNumbers.js`. | **أصلح محلياً وراجعه المدير**: `csvEscape` يحيّد التسميات الشبيهة بالصيغ مع إبقاء القياسات الرقمية السالبة أرقاماً، ويقتبس CR/LF والفواصل وعلامات الاقتباس. | اختبار regression لصيغ `=1+1` و`@SUM` مع فراغ أولي، وقيم سالبة رقمية/نصية، وCR والاقتباسات. فحص الوكيل للتغيير مكتمل؛ نتائج التشغيل النهائي عند المدير. |"
+    },
+    {
+      "id": "PERF-01",
+      "severity": "P2",
+      "description": "طلب خط خارجي حاجب للعرض واعتماد على Google Fonts وقت الزيارة",
+      "files": [
+        "app/fonts.css",
+        "app/globals.css",
+        "app/layout.jsx",
+        "public/fonts/"
+      ],
+      "status": "fixed_local",
+      "verification": "Self-hosted WOFF2 with original license and source manifest; no Google Fonts stylesheet on final page",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    },
+    {
+      "id": "PERF-02",
+      "severity": "P1",
+      "description": "قفزة كبيرة في التخطيط عند وصول المحتوى المؤجل وتحرك التذييل",
+      "files": [
+        "components/PageLoading.jsx",
+        "app/layout.jsx",
+        "app/search/loading.jsx",
+        "app/contribute/loading.jsx",
+        "app/yemen-in-numbers/timeline/loading.jsx"
+      ],
+      "status": "fixed_local",
+      "related": [
+        "SEO-12"
+      ],
+      "verification": "Local lab CLS 0.525 to 0.0035407455176914428",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    },
+    {
+      "id": "PERF-03",
+      "severity": "P2",
+      "description": "طلب فارغ إضافي في نهاية كل قائمة Supabase يزيد زمن انتظار الخادم",
+      "files": [
+        "lib/pagination.js",
+        "lib/data.js",
+        "tests/platform.test.mjs"
+      ],
+      "status": "fixed_local",
+      "verification": "Exact count terminates pagination without truncating lower server caps; 1203 rows with cap200 uses7 calls vs8; small1-row list1 call vs2",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    },
+    {
+      "id": "PERF-04",
+      "severity": "P2",
+      "description": "LCP المختبري ما زال فوق هدف2.5 ثانية مع تأخر استجابة البيانات من بيئة الفحص",
+      "files": [
+        "lib/data.js",
+        "lib/supabase-server.js"
+      ],
+      "status": "remaining",
+      "verification": "Measured 4019.309999999999 ms; remeasure real deployment/region before deciding cache architecture; no stale-data cache introduced",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    }
+  ],
+  "duplicateAliases": {
+    "SEO-08": "ENG-09",
+    "SEO-09": "ENG-09"
+  },
+  "total": 51,
+  "fixedLocal": 42,
+  "remaining": 9,
+  "productionChangesApplied": false,
+  "issues": [
+    {
+      "id": "SEO-01",
+      "severity": "P1",
+      "description": "عنوان الموقع الاحتياطي localhost في Canonical وSitemap وبيانات الشخصيات",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-01 | P1 | عنوان الموقع الاحتياطي localhost في Canonical وSitemap وبيانات الشخصيات | layout، sitemap، صفحات التفاصيل | مُصلح: أصل إنتاج مركزي معروف، رفض URL المحلي/غير HTTPS/ذي الاعتمادات أو المسار، ترميز slugs وإزالة query/hash ومنع تغيير الأصل بشرطات عكسية أو محارف تحكم | اختبارات أصل الموقع والمسارات؛ فحص HTTP بعد البناء |"
+    },
+    {
+      "id": "SEO-02",
+      "severity": "P1",
+      "description": "المعاينات وبيئة التطوير ترث السماح بالفهرسة",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-02 | P1 | المعاينات وبيئة التطوير ترث السماح بالفهرسة | seo، robots، sitemap، ترويسات Next بالتنسيق مع الهندسة | مُصلح: noindex في Metadata، منع الزحف، عدم نشر URLs في Sitemap خارج الإنتاج، ترويسة noindex للمعاينات | اختبارات بيئات منفصلة؛ تحتاج إعادة فحص معاينة Vercel بعد النشر المصرح |"
+    },
+    {
+      "id": "SEO-03",
+      "severity": "P2",
+      "description": "صفحات عديدة ترث بيانات مشاركة الصفحة الرئيسية ولا تملك بطاقة X مستقلة، مع احتمال وصف فارغ في سجل ناقص",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-03 | P2 | صفحات عديدة ترث بيانات مشاركة الصفحة الرئيسية ولا تملك بطاقة X مستقلة، مع احتمال وصف فارغ في سجل ناقص | جميع صفحات الموقع | مُصلح: `pageMetadata` ينشئ Title/Description/Canonical/OG URL/OG Title/OG Description/Image/Twitter لكل صفحة ويستبدل العنوان/الوصف الفارغين بتعريف المبادرة الحقيقي | اختبارات Metadata والقيم الناقصة؛ فحص الرأس في HTTP |"
+    },
+    {
+      "id": "SEO-04",
+      "severity": "P1",
+      "description": "Person JSON-LD يُنشر للكتالوج التجريبي، وتواريخ السنوات فقط ونسبة الجنسية لا تدعمها حقول تاريخ ISO ومحتوى موثق",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-04 | P1 | Person JSON-LD يُنشر للكتالوج التجريبي، وتواريخ السنوات فقط ونسبة الجنسية لا تدعمها حقول تاريخ ISO ومحتوى موثق | تفاصيل الشخصيات | مُصلح: لا Person للنماذج، حذف birthDate/deathDate المصطنعين والجنسية المفترضة؛ روابط هوية عامة فقط؛ JSON-LD آمن من إغلاق script | اختبارات النماذج والسنوات وحقن النصوص |"
+    },
+    {
+      "id": "SEO-05",
+      "severity": "P2",
+      "description": "غياب تعريف منظم للمبادرة والموقع والإصدارات ومسارات التنقل",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-05 | P2 | غياب تعريف منظم للمبادرة والموقع والإصدارات ومسارات التنقل | layout، تفاصيل المجلة والأعمال والأدلة والمؤشرات | مُصلح: Organization/WebSite من الإعدادات الحالية، BreadcrumbList من المسارات الحقيقية، PublicationIssue للأعداد الحقيقية، VideoObject للفيديو المكتمل فقط | JSON parse واختبارات شروط البيانات؛ لا ادعاء اجتياز Rich Results الخارجي |"
+    },
+    {
+      "id": "SEO-06",
+      "severity": "P2",
+      "description": "Sitemap يضم مجالات فارغة ويقبل تواريخ غير صالحة، وتغطية الاستثناءات غير موحدة",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-06 | P2 | Sitemap يضم مجالات فارغة ويقبل تواريخ غير صالحة، وتغطية الاستثناءات غير موحدة | sitemap، تفاصيل مجال الإحصاءات | مُصلح: استبعاد المجال دون مؤشر مفيد، النماذج والمسودات والبحث والإدارة؛ noindex للمجال الفارغ؛ lastmod من حقل حقيقي صالح؛ تجديد ديناميكي عند النشر | اختبار إدراج/استبعاد سجلات متعددة والترميز وعدم التكرار |"
+    },
+    {
+      "id": "SEO-07",
+      "severity": "P1",
+      "description": "السلسلة الزمنية معروضة أساساً برسم عميل وCSV، بلا جدول HTML كامل يمكن قراءته واستشهاده",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-07 | P1 | السلسلة الزمنية معروضة أساساً برسم عميل وCSV، بلا جدول HTML كامل يمكن قراءته واستشهاده | تفاصيل المؤشر | مُصلح: جدول يُعرض من الخادم لسلسلة القياس المعتمدة، سنة/قيمة/حالة/مصدر، الوحدة والنطاق في caption؛ Dataset مشروط بمصدر لكل قيمة وتعريف ومنهجية ووحدة وعدم تعارض | اختبار شروط Dataset، وفحص HTTP الفعلي دون JavaScript لمؤشر المنشآت ذات الملكية النسائية: صفان للقيم ووحدة % ونطاق الجمهورية مع Dataset مطابق |"
+    },
+    {
+      "id": "SEO-10",
+      "severity": "P2",
+      "description": "لا دليل متاح على الفهرسة أو الظهور أو الاستشهاد الفعلي",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "remaining",
+      "sourceRow": "| SEO-10 | P2 | لا دليل متاح على الفهرسة أو الظهور أو الاستشهاد الفعلي | خدمات البحث ولوحات مالك الموقع | متبقٍ خارجي: توثيق الملكية، إرسال Sitemap، فحص URLs والأداء والاستشهادات بعد النشر | لم يُدع نجاحه؛ البحث العام لا يكفي لإثبات غياب/وجود جميع URLs في الفهارس |"
+    },
+    {
+      "id": "SEO-11",
+      "severity": "P1",
+      "description": "نقص المحتوى التحريري الحقيقي والمراجع في بعض الأقسام؛ ملفات الكتالوج ليست محتوى معتمداً",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "remaining",
+      "sourceRow": "| SEO-11 | P1 | نقص المحتوى التحريري الحقيقي والمراجع في بعض الأقسام؛ ملفات الكتالوج ليست محتوى معتمداً | المجلة، الأعمال، الشخصيات والأدلة والمرصد بحسب البيانات المنشورة | متبقٍ تحريري: نشر محتوى حقيقي ومراجعة مصادره بإدارة المشروع؛ الإصلاح البرمجي لا يختلق محتوى أو توثيقاً أو شراكات | البيانات التجريبية مميزة وغير قابلة للفهرسة؛ لم نكتب في قاعدة الإنتاج |"
+    },
+    {
+      "id": "SEO-12",
+      "severity": "P1",
+      "description": "الصفحات الديناميكية غير الموجودة ترجع 200 بدلاً من 404 بعد بدء بث حدود التحميل العامة",
+      "owner": "SEO",
+      "sourceReport": "seo-ai-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| SEO-12 | P1 | الصفحات الديناميكية غير الموجودة ترجع 200 بدلاً من 404 بعد بدء بث حدود التحميل العامة | app/loading وyemen-in-numbers/loading وحدود Suspense الموروثة | مُصلح بواسطة المدير: نقل هيكل التحميل إلى مكون قابل لإعادة الاستخدام وحصر حدود loading في أوراق البحث/المشاركة/timeline التي لا تحتوي تفاصيل ديناميكية؛ إبقاء notFound قبل الاستجابة | أعاد الاختبار النهائي 404 حقيقية لكل مسار مفقود في الأعمال والمجلة والمهنيين والمنتجات والمؤشرات والشخصيات، بالإضافة إلى المسار غير المطابق |"
+    },
+    {
+      "id": "UX-01",
+      "severity": "P1",
+      "description": "صور صفحات PDF مخفية عن قارئ الشاشة دون بديل نصي داخل القارئ؛ `components/PdfReader.jsx`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-01 | P1 | صور صفحات PDF مخفية عن قارئ الشاشة دون بديل نصي داخل القارئ؛ `components/PdfReader.jsx` | قسم قابل للفتح لاستخراج نص الصفحات الحالية خارج لوحة الرسم، مع توضيح الصفحات المصورة غير القابلة للاستخراج وإبقاء فتح الملف الأصلي | مراجعة المصدر وESLint؛ جودة ترتيب النص داخل ملفات PDF تتوقف على بنية الملف، ولم يُختبر قارئ شاشة فعلي |"
+    },
+    {
+      "id": "UX-02",
+      "severity": "P1",
+      "description": "القفز إلى صفحة PDF عند كل ضغطة يمنع كتابة أرقام متعددة ويقبل كسوراً؛ القارئ و`lib/pdfNavigation.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-02 | P1 | القفز إلى صفحة PDF عند كل ضغطة يمنع كتابة أرقام متعددة ويقبل كسوراً؛ القارئ و`lib/pdfNavigation.js` | إدخال مستقل ثم انتقال عند التأكيد/الخروج، دعم الأرقام العربية والفارسية واللاتينية، رفض الكسور وضبط الحدود | اختبارات Node ناجحة للأرقام والحدود والكسور والقيم الفارغة؛ اختبار التفاعل في المتصفح مطلوب |"
+    },
+    {
+      "id": "UX-03",
+      "severity": "P1",
+      "description": "تغيير عرض القارئ من صفحة مفردة فردية إلى زوج قد يمنع بلوغ الصفحة الأخيرة في ملف ذي عدد زوجي",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-03 | P1 | تغيير عرض القارئ من صفحة مفردة فردية إلى زوج قد يمنع بلوغ الصفحة الأخيرة في ملف ذي عدد زوجي | توحيد بداية الزوج عند تغيير الوضع/العرض؛ بقاء الغلاف مفرداً ثم 2/3 و4/5 | اختبار شامل لكل عدد صفحات من 1 إلى 40 يؤكد بلوغ كل صفحة دون صفحات وهمية |"
+    },
+    {
+      "id": "UX-04",
+      "severity": "P2",
+      "description": "فشل PDF دون إعادة محاولة، أعمال بحث قديمة تستمر بعد تغيير الملف، وملء شاشة يفشل بصمت",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-04 | P2 | فشل PDF دون إعادة محاولة، أعمال بحث قديمة تستمر بعد تغيير الملف، وملء شاشة يفشل بصمت | زر إعادة محاولة، إلغاء مهمة التحميل عند التفكيك، منع نتائج البحث القديمة، رسائل خطأ/تحميل معلنة، رد واضح عند تعذر ملء الشاشة، إنهاء التقليب إذا انقطعت الحركة | مراجعة المصدر وESLint؛ محاكاة تعطل الملف وإعادة المحاولة مطلوبة في المتصفح |"
+    },
+    {
+      "id": "UX-05",
+      "severity": "P2",
+      "description": "زر إخفاء المديريات لا يعمل بعد اختيار محافظة؛ `components/yemen-map/YemenMap.jsx`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-05 | P2 | زر إخفاء المديريات لا يعمل بعد اختيار محافظة؛ `components/yemen-map/YemenMap.jsx` | احترام `districtsVisible` قبل اشتقاق المسارات المعروضة | مراجعة مسار الحالة في المصدر؛ اختبار إظهار/إخفاء بعد الاختيار مطلوب |"
+    },
+    {
+      "id": "UX-06",
+      "severity": "P2",
+      "description": "تكبير غير محدود قد يصل إلى قيم غير صالحة، وتحويل موضع المؤشر يهمل هوامش SVG؛ `lib/mapViewport.js` و`mapGeometry.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-06 | P2 | تكبير غير محدود قد يصل إلى قيم غير صالحة، وتحويل موضع المؤشر يهمل هوامش SVG؛ `lib/mapViewport.js` و`mapGeometry.js` | حدود آمنة للتكبير/التصغير لجميع الأزرار والعجلة واللمس، رفض عوامل غير صالحة، تحويل إحداثيات يراعي `xMidYMid meet` وتصحيح سحب الخريطة | 4000 خطوة تكبير/تصغير باختبارات Node، تحقق ثبات نسبة الأبعاد ونقطة الارتكاز وتحويل هوامش SVG |"
+    },
+    {
+      "id": "UX-07",
+      "severity": "P1",
+      "description": "`role=img` على SVG يضم أزرار مناطق قابلة للتركيز؛ axe: `nested-interactive`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-07 | P1 | `role=img` على SVG يضم أزرار مناطق قابلة للتركيز؛ axe: `nested-interactive` | دور مجموعة بدلاً من صورة، الإبقاء على أزرار المحافظات والمديريات وأسمائها وحالاتها، وعدم اختيار منطقة عند `pointercancel` | مثبت قبل الإصلاح بفحص axe على الهاتف والحاسوب؛ التحقق من غياب المخالفة بعد الإصلاح مطلوب |"
+    },
+    {
+      "id": "UX-08",
+      "severity": "P2",
+      "description": "اختيار المحافظة لا يظهر في القائمة، اقتراحات البحث تفتقر لتنقل الأسهم/Escape، وإغلاق اللوحة يبقي التكبير القديم",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-08 | P2 | اختيار المحافظة لا يظهر في القائمة، اقتراحات البحث تفتقر لتنقل الأسهم/Escape، وإغلاق اللوحة يبقي التكبير القديم | ربط القائمة بالمحافظة المختارة، تنظيف البحث بعد الاختيار، ArrowDown/ArrowUp/Escape، عدد نتائج معلن، إعادة الخريطة كاملة عند الإغلاق | مراجعة المصدر وESLint؛ يلزم سيناريو الخريطة في المتصفح |"
+    },
+    {
+      "id": "UX-09",
+      "severity": "P1",
+      "description": "رفض الحافظة يولّد Promise مرفوضة دون مسار مشاركة بديل؛ `components/IndicatorActions.jsx`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-09 | P1 | رفض الحافظة يولّد Promise مرفوضة دون مسار مشاركة بديل؛ `components/IndicatorActions.jsx` | معالجة رفض/غياب clipboard، احترام إلغاء نافذة المشاركة، عرض رابط قابل للتحديد والنسخ يدوياً | مراجعة المصدر وESLint؛ محاكاة رفض الحافظة مطلوبة |"
+    },
+    {
+      "id": "UX-10",
+      "severity": "P2",
+      "description": "أساس النسبة قد يعتمد على ترتيب القيم، ووضع النسبة يبقى مفعلاً عندما يصير الأساس صفراً/مفقوداً؛ `TimelineExplorer.jsx` و`lib/timeline.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-10 | P2 | أساس النسبة قد يعتمد على ترتيب القيم، ووضع النسبة يبقى مفعلاً عندما يصير الأساس صفراً/مفقوداً؛ `TimelineExplorer.jsx` و`lib/timeline.js` | أول قيمة زمنية صالحة أساساً، رجوع للقيمة الفعلية عند عدم صلاحية النسبة، الحفاظ على الصفر والسنوات المفقودة، إظهار الفترة الحقيقية بما فيها ما قبل 1990 | اختبارات Node لأساس غير مرتب وصفر وفجوات وفترة فارغة ونسب التغير؛ لا تقدير للقيم المفقودة |"
+    },
+    {
+      "id": "UX-11",
+      "severity": "P1",
+      "description": "لا يوجد جدول مقروء للمقارنة، وتركيز مربعات اختيارها المخفية غير ظاهر",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-11 | P1 | لا يوجد جدول مقروء للمقارنة، وتركيز مربعات اختيارها المخفية غير ظاهر | جدول قابل للفتح مطابق للبيانات المعروضة، رؤوس وصفوف معنونة ووحدة/طريقة المقارنة، حلقة تركيز على المربع المرئي، أسماء للأزرار وأدوار المجموعات، ألوان خطوط أوضح | مراجعة المصدر وESLint؛ الجدول الرئيسي لصفحة المؤشر نفّذه SEO ويملك تغطيته؛ CSS استجابة الجدولين هنا |"
+    },
+    {
+      "id": "UX-12",
+      "severity": "P2",
+      "description": "تصدير PNG بخلفية داكنة يطمس نص المحاور الداكن، وCSV للمقارنة دون وحدات",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-12 | P2 | تصدير PNG بخلفية داكنة يطمس نص المحاور الداكن، وCSV للمقارنة دون وحدات | خلفية فاتحة متسقة، أسماء أعمدة CSV تشمل الوحدة أو %، تنظيف روابط التنزيل وإظهار فشل تحميل صورة التصدير | مراجعة المصدر؛ لم يُفحص الملف النهائي بصرياً بعد الإصلاح |"
+    },
+    {
+      "id": "UX-13",
+      "severity": "P1",
+      "description": "الأسماء المخصصة لبطاقات المؤشرات/المنتجات تخفي نصوصها الظاهرة؛ axe: `label-content-name-mismatch`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-13 | P1 | الأسماء المخصصة لبطاقات المؤشرات/المنتجات تخفي نصوصها الظاهرة؛ axe: `label-content-name-mismatch` | الاعتماد على النص الفعلي داخل الرابط في المؤشرات والمنتجات والأعمال؛ تطابق اسم البحث وتشغيل الوسائط مع النص الظاهر | المخالفات مثبتة في baseline بالصفحة الرئيسية والمؤشرات والمجال والمنتجات؛ إعادة axe مطلوبة |"
+    },
+    {
+      "id": "UX-14",
+      "severity": "P1",
+      "description": "اقتطاع زر قائمة الهاتف عند 320px رغم نجاح فحص عرض الوثيقة",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-14 | P1 | اقتطاع زر قائمة الهاتف عند 320px رغم نجاح فحص عرض الوثيقة | تقليل فراغات الشريط وعرض الشعار وحجم زر الدخول عند ≤360px دون إنقاص مساحة زر القائمة | عناصر الاقتطاع مثبتة في baseline؛ إعادة قياس حدود العناصر ورؤية الزر مطلوبة |"
+    },
+    {
+      "id": "UX-15",
+      "severity": "P2",
+      "description": "Escape على قائمة الحاسوب ينقل التركيز إلى زر هاتف مخفي؛ والقائمة المتنقلة تأتي قبل زر فتحها بترتيب DOM",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-15 | P2 | Escape على قائمة الحاسوب ينقل التركيز إلى زر هاتف مخفي؛ والقائمة المتنقلة تأتي قبل زر فتحها بترتيب DOM | إرجاع التركيز إلى summary المفتوح على الحاسوب وإلى زر الهاتف عند استخدامه، نقل التركيز لأول رابط بعد الفتح، إغلاق القوائم عند مغادرة الشريط/المسار | مراجعة المصدر وESLint؛ اختبار Tab/Escape على الهاتف والحاسوب مطلوب |"
+    },
+    {
+      "id": "UX-16",
+      "severity": "P2",
+      "description": "نموذج التواصل يعرض أخطاء JSON/شبكة تقنية، لا يضع مهلة، ولا يعيد captcha المستهلكة بعد الفشل",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-16 | P2 | نموذج التواصل يعرض أخطاء JSON/شبكة تقنية، لا يضع مهلة، ولا يعيد captcha المستهلكة بعد الفشل | رسائل عربية مفهومة للاستجابة غير JSON/الاتصال/المهلة مع حفظ النص، guard لمنع الإرسال المكرر، `aria-busy` ورسائل alert، إعادة ضبط captcha بعد كل محاولة، إكمال تلقائي للاسم والبريد واتجاه LTR للبريد | مراجعة المصدر وESLint؛ نجاح mock كان مثبتاً قبل الإصلاح؛ حالات النجاح والفشل بعد الإصلاح مطلوبة ولا تثبت استلام الخادم الحقيقي |"
+    },
+    {
+      "id": "UX-17",
+      "severity": "P2",
+      "description": "ملف فيديو معطل بلا معالجة داخل المشغّل، ووصف رابط غير موجود يوحي بتوفر مشاهدة",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-17 | P2 | ملف فيديو معطل بلا معالجة داخل المشغّل، ووصف رابط غير موجود يوحي بتوفر مشاهدة | حالة تحميل معلنة، فشل واضح للملف المباشر وزر إعادة محاولة/المصدر؛ وصف صادق عند غياب الرابط؛ إخفاء صورة غلاف معطلة | مراجعة المصدر وESLint؛ تشغيل تضمين مزود خارجي لا يُثبت من حدث iframe load وحده |"
+    },
+    {
+      "id": "UX-18",
+      "severity": "P2",
+      "description": "صور الأعمال المحلية لا تُقبل، وروابط صور تبدأ بـ// تعامل كأنها محلية، وروابط ببيانات اعتماد مقبولة؛ `lib/media.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-18 | P2 | صور الأعمال المحلية لا تُقبل، وروابط صور تبدأ بـ// تعامل كأنها محلية، وروابط ببيانات اعتماد مقبولة؛ `lib/media.js` | قبول مسار صورة محلي آمن، رفض credential URLs والمسارات المتجاوزة، الحفاظ على بناء iframe للمزودين المعروفين فقط | اختبارات Node لروابط تنفيذية/اعتمادات/مضيف مزيف/مسارات محلية وروابط YouTube صحيحة؛ التنسيق مع مسار الأمن |"
+    },
+    {
+      "id": "UX-19",
+      "severity": "P2",
+      "description": "مسح بحث الأدلة يبقي رقم الصفحة، مدخل محافظة فارغ محتمل، وعدد نتائج الشخصيات لا يُعلن",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-19 | P2 | مسح بحث الأدلة يبقي رقم الصفحة، مدخل محافظة فارغ محتمل، وعدد نتائج الشخصيات لا يُعلن | إعادة الصفحة الأولى عند مسح البحث، استبعاد محافظة فارغة، live region لعدد الشخصيات؛ لف الأسماء الطويلة وحدود عرض المدخلات | مراجعة المصدر وESLint؛ البحث/الفلاتر وحالات الفراغ بعد الإصلاح ضمن اختبار المدير |"
+    },
+    {
+      "id": "UX-20",
+      "severity": "P1",
+      "description": "اقتطاع فلاتر المنتجات عند 320px بسبب الحجم الأدنى الضمني لـgrid والقائمة؛ `app/design-system.css`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-20 | P1 | اقتطاع فلاتر المنتجات عند 320px بسبب الحجم الأدنى الضمني لـgrid والقائمة؛ `app/design-system.css` | عمود `minmax(0,1fr)` للدليل والفلتر المتنقل، والسماح للـselect والحاويات بالتقلص دون ضغط الأيقونات | إعادة إنتاج فعلية بـPlaywright على البناء المحلي: الفلتر يمتد من x=-9 إلى304 بعرض313 داخل حاوية288؛ تطبيق CSS المقترح في المتصفح أعاده إلى x=16..304 بعرض288. نُقل الإصلاح للمصدر؛ يلزم تأكيد البناء النهائي |"
+    },
+    {
+      "id": "UX-21",
+      "severity": "P1",
+      "description": "PNG يصدر رمز وسيلة الإيضاح 14×14 بدلاً من الرسم الفعلي لأن `querySelector('svg')` يلتقطه أولاً؛ `TimelineExplorer.jsx` و`lib/timelineExport.js`",
+      "owner": "UX",
+      "sourceReport": "ux-qa-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| UX-21 | P1 | PNG يصدر رمز وسيلة الإيضاح 14×14 بدلاً من الرسم الفعلي لأن `querySelector('svg')` يلتقطه أولاً؛ `TimelineExplorer.jsx` و`lib/timelineExport.js` | اختيار `.recharts-wrapper > svg.recharts-surface`، تحقق وجود محاور، تصدير الرسم مع عنوان عربي وفترة ووحدة وطريقة مقارنة ومفتاح ألوان ومصادر ونطاق وملاحظة الفجوات؛ حالة تقدم/فشل وتنظيف موارد الصورة | DOM فعلي يثبت رمز14px قبل رسم837×460 بمحورين وسلسلة؛ اختبار انحدار بالمتصفح مع مساعد المصدر ولد صورة1674×1129 فُحصت بصرياً وفيها محاور ونقطتا2010/2013 مع فجوات وعنوان ومصدر صحيحان. إعادة البناء النهائي قيد تحقق المدير |"
+    },
+    {
+      "id": "ENG-01",
+      "severity": "P1",
+      "description": "PDF.js 5.7.284 متأثر بتنفيذ JavaScript عند فتح PDF ضار؛ PostCSS 8.4.31 متأثر بثغرات قراءة ملفات وXSS. `package*.json`",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-01 | P1 | PDF.js 5.7.284 متأثر بتنفيذ JavaScript عند فتح PDF ضار؛ PostCSS 8.4.31 متأثر بثغرات قراءة ملفات وXSS. `package*.json` | **أصلح محلياً**: Next/eslint-config-next إلى 15.5.28؛ PDF.js إلى 6.4.299 المحلول من `^6.2.108`؛ override PostCSS 8.5.30. أضاف وكيل UX تعطيل scripting/eval في `PdfReader`. | تدقيق الإنتاج النهائي: 0. يلزم اعتماد نتيجة تشغيل PDF/البناء من اختبارات المدير. |"
+    },
+    {
+      "id": "ENG-02",
+      "severity": "P2",
+      "description": "`braces` 3.0.3 في سلسلة ESLint معرض لاستنفاد stack.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-02 | P2 | `braces` 3.0.3 في سلسلة ESLint معرض لاستنفاد stack. | **مفتوح — أدوات التطوير**: npm يسجل خمسة package nodes عالية. أحدث `braces` المعروض 3.0.3 ولا يوجد إصدار مصحح في التنبيه؛ لا تنزيل قسري إلى Next ESLint 14 ولا كتم للتنبيه. | `npm-audit-after.json`، إصدار registry والتنبيه الرسمي. تجنب أنماط glob غير موثوقة؛ متابعة إصلاح upstream. |"
+    },
+    {
+      "id": "ENG-03",
+      "severity": "P1",
+      "description": "contact يقرأ الجسم بالكامل قبل فحص حجمه، ويقبل أشكال JSON غير مناسبة؛ origin المشوه قد يرمي استثناء. admin يفتقر لحد جسم مماثل.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-03 | P1 | contact يقرأ الجسم بالكامل قبل فحص حجمه، ويقبل أشكال JSON غير مناسبة؛ origin المشوه قد يرمي استثناء. admin يفتقر لحد جسم مماثل. | **أصلح محلياً**: `lib/requestSecurity.js` قارئ streaming محدود بالبايت يلغي stream المتجاوز؛ 12KB للتواصل و4KB للإدارة؛ رفض JSON غير الكائن وUTF-8 التالف ونوع المحتوى الخاطئ؛ مقارنة origin كاملة آمنة ورفض cross-site. | ثلاثة اختبارات للمنشأ/JSON/stream، بما فيها العربية وعدم وجود Content-Length. اختبارات HTTP النهائية عند المدير. |"
+    },
+    {
+      "id": "ENG-04",
+      "severity": "P1",
+      "description": "مسار POST لإعادة تعيين حساب موجود يتجاوز حماية آخر مدير الموجودة في PATCH.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-04 | P1 | مسار POST لإعادة تعيين حساب موجود يتجاوز حماية آخر مدير الموجودة في PATCH. | **أصلح محلياً**: `lib/adminAuthorization.js` تحقق موحد في POST/PATCH/DELETE؛ منع تخفيض إدارة الحساب الحالي؛ فشل مغلق عند تعذر عد المديرين؛ UUID صحيح؛ رسائل خدمة عامة. | اختبار محاكاة مدير واحد ومديرين وفشل العد والترقية والمنع الذاتي. لا تعديل لحساب حقيقي. |"
+    },
+    {
+      "id": "ENG-05",
+      "severity": "P2",
+      "description": "سباق طلبين متزامنين لإزالة مديرين لا يعالجه عد التطبيق وحده.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-05 | P2 | سباق طلبين متزامنين لإزالة مديرين لا يعالجه عد التطبيق وحده. | **مفتوح — SQL مقترح**: `supabase/launch-hardening-proposed.sql` يضيف trigger بقفل transaction لحماية آخر مدير. لم يُطبّق ولم يُختبر على Postgres. | يلزم اختبار معاملات متزامنة في قاعدة معزولة ثم مراجعة واعتماد migration. |"
+    },
+    {
+      "id": "ENG-06",
+      "severity": "P2",
+      "description": "طلبات Supabase/Turnstile قد تبقى معلقة؛ اتصالات متصفح متعددة تنشئ عملاء auth مكررين.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-06 | P2 | طلبات Supabase/Turnstile قد تبقى معلقة؛ اتصالات متصفح متعددة تنشئ عملاء auth مكررين. | **أصلح محلياً**: fetch محدود 10 ثوان للخادم والقراءات العامة، 60 ثانية للعميل/رفع الملفات و8 ثوان للتحقق البشري؛ حفظ إشارة إلغاء المستدعي؛ singleton لعميل المتصفح. `lib/supabase*.js`, `app/api/contact/route.js`. | اختبار timeout وAbortError مع upstream معلق. أحجام الرفع الفعلية لم تُختبر. |"
+    },
+    {
+      "id": "ENG-07",
+      "severity": "P2",
+      "description": "نتيجة تحقق auth قد تصل بعد الخروج وتعيد بيانات الإدارة القديمة إلى الحالة؛ الرسائل لا تُمسح عند انتهاء الجلسة.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-07 | P2 | نتيجة تحقق auth قد تصل بعد الخروج وتعيد بيانات الإدارة القديمة إلى الحالة؛ الرسائل لا تُمسح عند انتهاء الجلسة. | **أصلح محلياً**: generation token وحارس هوية المستخدم للتحميل؛ مسح بيانات الإدارة وكلمات المرور ومعرّفات التحرير عند الخروج؛ رفض دور غير معروف وفشل تحميل الصلاحية. `AdminDashboard.jsx`. في إعادة المراجعة صُحح زر التحديث ليستدعي `load()` صراحة ولا يمرر حدث React إلى حارس هوية المستخدم. | مراجعة تدفق async وESLint خاص بالمكون ناجح دون تحذيرات؛ دورة دخول/خروج فعلية بحساب اختبار **غير متحققة**. |"
+    },
+    {
+      "id": "ENG-08",
+      "severity": "P2",
+      "description": "الرفع يفحص الاسم والحجم فقط، وروابط عدة نماذج إدارة تقبل regex ضعيفاً.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-08 | P2 | الرفع يفحص الاسم والحجم فقط، وروابط عدة نماذج إدارة تقبل regex ضعيفاً. | **أصلح محلياً**: فحص signature وMIME والامتداد والحجم للـPDF/PNG/JPEG/WebP، أسماء عشوائية وContent-Type معروف؛ رفض SVG/HTML المسمى صورة؛ استخدام محلل URL الآمن. ملفات `lib/uploads.js` ومكونات الإدارة للشركات والشخصيات والمهنيين والأعمال والمجلة. الشخصية الجديدة تبدأ مسودة. | اختبار PDF/PNG صالحين، HTML متنكر، SVG وMIME غير متطابق. هذا تحسين عميل ولا يستبدل bucket policies أو فحص المحتوى على الخادم. |"
+    },
+    {
+      "id": "ENG-09",
+      "severity": "P1",
+      "description": "غياب رؤوس دفاع مناسبة، وإمكان فهرسة ملفات demo/معاينة مستقلة عن HTML.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-09 | P2 | غياب رؤوس دفاع مناسبة، وإمكان فهرسة ملفات demo/معاينة مستقلة عن HTML. | **أصلح محلياً**: nosniff، منع framing، سياسة referrer وصلاحيات، CSP أساسي وHSTS في production؛ noindex للإدارة/API/demo ولبيئات Vercel preview/development. `next.config.mjs`. توسعة htmlLimitedBots تحفظ القائمة الأصلية وتضيف زواحف البحث المحددة بالتنسيق مع SEO. | تحميل config ناجح واختبار بقاء bot الافتراضي وإضافة OAI؛ يتأكد المدير من الرؤوس الفعلية. CSP هنا دفاع أساسي وليس سياسة script-src كاملة. |",
+      "related": [
+        "SEO-08",
+        "SEO-09"
+      ]
+    },
+    {
+      "id": "ENG-10",
+      "severity": "P2",
+      "description": "تعطيل مصدر إحصائي يخفي تعريفه لكنه يترك قيمه في آخر قيمة والرسم.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-10 | P2 | تعطيل مصدر إحصائي يخفي تعريفه لكنه يترك قيمه في آخر قيمة والرسم. | **أصلح محلياً للعرض العام**: تحميل القيم في `lib/data.js` يستبعد القيم ذات المصدر غير النشط، بدلاً من ترك القيمة دون مصدر. أصلحت أيضاً مسارات الخطأ الوهمية `error=null` في تحميل الأعمال والأعداد. | مراجعة استعلام/filter ومرشحات النشر والوالدين؛ لا ادعاء اختبار تعطيل مصدر إنتاجي. جانب REST في ENG-11. |"
+    },
+    {
+      "id": "ENG-11",
+      "severity": "P1",
+      "description": "anon إلى `yemeni_companies` يعيد401؛ SQL الإحصاءات الأصلي لا يربط رؤية جميع الأبناء بنشر الوالد/نشاط المصدر.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-11 | P1 | anon إلى `yemeni_companies` يعيد401؛ SQL الإحصاءات الأصلي لا يربط رؤية جميع الأبناء بنشر الوالد/نشاط المصدر. | **مفتوح — تطبيق SQL والتحقق**: migration مقترح يفصل public/editor policies ويقيد نشر الأصول والمصادر ويمنع تعديل editors المباشر. صفحة الشركات الحالية تستخدم قراءة الخادم فلا يثبت401 تعطلها؛ لكنه يمنع الاعتماد على REST المجهول أو الانتقال إلى قراءة أقل صلاحية. لم يُثبت تسريب فعلي لبيانات متداخلة مخفية. | دليل GET المجهول في `live-anonymous-rls.json`؛ يلزم اختبار parent/draft وauthenticated/editor/management في قاعدة معزولة. |"
+    },
+    {
+      "id": "ENG-12",
+      "severity": "P2",
+      "description": "bucket `media` عام؛ الملفات المرفوعة كمسودة قابلة للوصول لمن يعرف URL.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-12 | P2 | bucket `media` عام؛ الملفات المرفوعة كمسودة قابلة للوصول لمن يعرف URL. | **مفتوح — قيد معماري**: لم أغيّر public bucket أو أحذف ملفات/أكسر روابط. عشوائية الاسم وعدم إظهار مسودة في الصفحة لا يجعلان المرفق سرياً. | سياسة bucket في `schema.sql`؛ لم يُختبر الوصول لملف مسودة حقيقي. استخدم private bucket وروابط موقعة إذا كانت السرية مطلوبة قبل النشر، بخطة ترحيل معتمدة. |"
+    },
+    {
+      "id": "ENG-13",
+      "severity": "P2",
+      "description": "rate limit داخل ذاكرة العملية لا يمتد إلى جميع نسخ serverless، وTurnstile اختياري.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-13 | P2 | rate limit داخل ذاكرة العملية لا يمتد إلى جميع نسخ serverless، وTurnstile اختياري. | **مفتوح جزئياً**: أضيف مسار محدود للهوية المفقودة، وأولوية عنوان Vercel وRetry-After؛ عدم تطابق مفتاحي Turnstile يفشل بوضوح503؛ يبقى تفعيل المفتاحين/حماية edge مشتركة خطوة تشغيلية. | مراجعة الكود؛ لا ادعاء اجتياز CAPTCHA حقيقي أو اختبار حمل متعدد النسخ. |"
+    },
+    {
+      "id": "ENG-14",
+      "severity": "P1",
+      "description": "سيناريو الإدارة وإرسال الرسائل وحفظ المحتوى غير متحقق في بيئة آمنة.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "remaining",
+      "sourceRow": "| ENG-14 | P1 | سيناريو الإدارة وإرسال الرسائل وحفظ المحتوى غير متحقق في بيئة آمنة. | **مفتوح — فجوة تحقق أساسية**: المستخدم يؤكد عدم وجود staging أو حساب اختبار؛ لم ننشئ حسابات أو ندعو أشخاصاً أو نرسل رسائل أو نكتب في الإنتاج. | يلزم حسابان تجريبيان admin/management واختبارات CRUD والرفع والاستعادة والخروج والصلاحيات الفعلية في بيئة معزولة قبل اعتماد الجاهزية الكاملة. |"
+    },
+    {
+      "id": "ENG-15",
+      "severity": "P1",
+      "description": "root engines القديم يسمح Node20.9 رغم أن PDF.js6.4.299 يتطلب>=22.13 وSupabase المثبت يتطلب>=22.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-15 | P1 | root engines القديم يسمح Node20.9 رغم أن PDF.js6.4.299 يتطلب>=22.13 وSupabase المثبت يتطلب>=22. | **أصلح محلياً بالتنسيق مع المدير**: engines أصبح `^22.13.0 \\|\\| >=24.0.0`؛ Node الفحص24.18.0 متوافق. إعداد إصدار Vercel الفعلي خطوة تشغيلية لم نفترض تحققها. | قراءة `engines` للحزم المثبتة وpackage.json النهائي؛ البناء على Node24 لدى المدير. |"
+    },
+    {
+      "id": "ENG-16",
+      "severity": "P2",
+      "description": "تسميات CMS المصدّرة إلى CSV قد تبدأ بصيغة جدول بيانات وتُفسر عند فتح الملف؛ CR منفرد لا يُقتبس. `lib/yemenNumbers.js`.",
+      "owner": "ENG",
+      "sourceReport": "engineering-security-report.md",
+      "status": "fixed_local",
+      "sourceRow": "| ENG-16 | P2 | تسميات CMS المصدّرة إلى CSV قد تبدأ بصيغة جدول بيانات وتُفسر عند فتح الملف؛ CR منفرد لا يُقتبس. `lib/yemenNumbers.js`. | **أصلح محلياً وراجعه المدير**: `csvEscape` يحيّد التسميات الشبيهة بالصيغ مع إبقاء القياسات الرقمية السالبة أرقاماً، ويقتبس CR/LF والفواصل وعلامات الاقتباس. | اختبار regression لصيغ `=1+1` و`@SUM` مع فراغ أولي، وقيم سالبة رقمية/نصية، وCR والاقتباسات. فحص الوكيل للتغيير مكتمل؛ نتائج التشغيل النهائي عند المدير. |"
+    },
+    {
+      "id": "PERF-01",
+      "severity": "P2",
+      "description": "طلب خط خارجي حاجب للعرض واعتماد على Google Fonts وقت الزيارة",
+      "files": [
+        "app/fonts.css",
+        "app/globals.css",
+        "app/layout.jsx",
+        "public/fonts/"
+      ],
+      "status": "fixed_local",
+      "verification": "Self-hosted WOFF2 with original license and source manifest; no Google Fonts stylesheet on final page",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    },
+    {
+      "id": "PERF-02",
+      "severity": "P1",
+      "description": "قفزة كبيرة في التخطيط عند وصول المحتوى المؤجل وتحرك التذييل",
+      "files": [
+        "components/PageLoading.jsx",
+        "app/layout.jsx",
+        "app/search/loading.jsx",
+        "app/contribute/loading.jsx",
+        "app/yemen-in-numbers/timeline/loading.jsx"
+      ],
+      "status": "fixed_local",
+      "related": [
+        "SEO-12"
+      ],
+      "verification": "Local lab CLS 0.525 to 0.0035407455176914428",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    },
+    {
+      "id": "PERF-03",
+      "severity": "P2",
+      "description": "طلب فارغ إضافي في نهاية كل قائمة Supabase يزيد زمن انتظار الخادم",
+      "files": [
+        "lib/pagination.js",
+        "lib/data.js",
+        "tests/platform.test.mjs"
+      ],
+      "status": "fixed_local",
+      "verification": "Exact count terminates pagination without truncating lower server caps; 1203 rows with cap200 uses7 calls vs8; small1-row list1 call vs2",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    },
+    {
+      "id": "PERF-04",
+      "severity": "P2",
+      "description": "LCP المختبري ما زال فوق هدف2.5 ثانية مع تأخر استجابة البيانات من بيئة الفحص",
+      "files": [
+        "lib/data.js",
+        "lib/supabase-server.js"
+      ],
+      "status": "remaining",
+      "verification": "Measured 4019.309999999999 ms; remeasure real deployment/region before deciding cache architecture; no stale-data cache introduced",
+      "owner": "Lead",
+      "sourceReport": "performance-report.md"
+    }
+  ]
+}

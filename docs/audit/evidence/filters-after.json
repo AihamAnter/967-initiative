@@ -1,0 +1,92 @@
+{
+  "checkedAt": "2026-10-16T17:25:47.532Z",
+  "base": "http://127.0.0.1:3000",
+  "checks": 11,
+  "passed": 11,
+  "failed": 0,
+  "results": [
+    {
+      "name": "/works filter 1",
+      "pass": true,
+      "option": "يوتيوب",
+      "before": 2,
+      "filtered": 1,
+      "restored": 2
+    },
+    {
+      "name": "/professionals filter 1",
+      "pass": true,
+      "option": "نجارة وأثاث",
+      "before": 1,
+      "filtered": 1,
+      "restored": 1
+    },
+    {
+      "name": "/professionals filter 2",
+      "pass": true,
+      "option": "سقطرى",
+      "before": 1,
+      "filtered": 1,
+      "restored": 1
+    },
+    {
+      "name": "/professionals filter 3",
+      "pass": true,
+      "option": "حضوري",
+      "before": 1,
+      "filtered": 1,
+      "restored": 1
+    },
+    {
+      "name": "/yemeni-products filter 1",
+      "pass": true,
+      "option": "صنعاء",
+      "before": 1,
+      "filtered": 1,
+      "restored": 1
+    },
+    {
+      "name": "/yemeni-products filter 2",
+      "pass": true,
+      "option": "أغذية ومشروبات",
+      "before": 1,
+      "filtered": 1,
+      "restored": 1
+    },
+    {
+      "name": "/yemen-in-numbers filter 1",
+      "pass": true,
+      "option": "الناتج المحلي الإجمالي",
+      "before": 87,
+      "filtered": 3,
+      "restored": 87
+    },
+    {
+      "name": "/yemen-in-numbers filter 2",
+      "pass": true,
+      "option": "2026",
+      "before": 87,
+      "filtered": 1,
+      "restored": 87
+    },
+    {
+      "name": "work topic buttons filter and reset",
+      "pass": true,
+      "topic": "المناظرات",
+      "matched": 1
+    },
+    {
+      "name": "statistics next/previous and filter page reset",
+      "pass": true,
+      "firstPageRestored": true,
+      "filterStartsFirstPage": true
+    },
+    {
+      "name": "timeline units, selection limit and comparison mode",
+      "pass": true,
+      "selected": 1,
+      "unit": "% من المنشآت",
+      "incompatibleDisabled": 86
+    }
+  ]
+}

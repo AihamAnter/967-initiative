@@ -1,0 +1,23 @@
+﻿rank,country_code,country,year,value,unit,scope,direction,tie_count,source,source_url
+1,EGY,مصر,2025,118365995,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+2,SDN,السودان,2025,51662147,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+3,DZA,الجزائر,2025,47435312,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+4,IRQ,العراق,2025,47020774,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+5,YEM,اليمن,2025,41773878,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+6,MAR,المغرب,2025,38430770,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+7,SAU,المملكة العربية السعودية,2025,36973555,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+8,SYR,سوريا,2025,25620427,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+9,SOM,الصومال,2025,19654739,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+10,TUN,تونس,2025,12348573,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+11,JOR,الأردن,2025,11520684,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+12,ARE,الإمارات العربية المتحدة,2025,11513149,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+13,LBY,ليبيا,2025,7458555,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+14,LBN,لبنان,2025,5849421,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+15,OMN,عُمان,2025,5494691,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+16,PSE,الأراضي الفلسطينية,2025,5413596,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+17,MRT,موريتانيا,2025,5315065,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+18,KWT,الكويت,2025,4865298,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+19,QAT,قطر,2025,2972215,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+20,BHR,البحرين,2025,1600366,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+21,DJI,جيبوتي,2025,1184076,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL
+22,COM,جزر القمر,2025,882847,نسمة,arab,desc,1,البنك الدولي — مؤشرات التنمية العالمية (WDI),https://data.worldbank.org/indicator/SP.POP.TOTL

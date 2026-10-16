@@ -1,0 +1,14 @@
+{
+  "checkedOn": "2026-10-16",
+  "base": "http://127.0.0.1:3000",
+  "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+  "userAgent": "OAI-SearchBot/1.4",
+  "status": 200,
+  "javascriptExecuted": false,
+  "tablePresent": true,
+  "headerRows": 1,
+  "dataRows": 2,
+  "captionIncludesNationalScopeAndUnit": true,
+  "datasetSchemaPresent": true,
+  "note": "Read-only HTTP verification of the actual published indicator. A declared user-agent is not evidence of a genuine crawler visit or search indexing."
+}

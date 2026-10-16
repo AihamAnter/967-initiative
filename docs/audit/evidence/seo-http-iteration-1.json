@@ -1,0 +1,495 @@
+{
+  "checkedAt": "2026-10-16T17:01:14.715Z",
+  "base": "http://127.0.0.1:3000",
+  "preview": false,
+  "checks": 102,
+  "passed": 94,
+  "failed": 8,
+  "results": [
+    {
+      "name": "/ server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/ head metadata",
+      "passed": true,
+      "title": "967 | اليمن، أقرب إليك",
+      "canonical": "https://967-initiative.vercel.app"
+    },
+    {
+      "name": "/ production canonical",
+      "passed": false
+    },
+    {
+      "name": "/ indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/ distinct title",
+      "passed": true
+    },
+    {
+      "name": "/ structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/works server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/works head metadata",
+      "passed": true,
+      "title": "الأعمال الإعلامية | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/works"
+    },
+    {
+      "name": "/works production canonical",
+      "passed": true
+    },
+    {
+      "name": "/works indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/works distinct title",
+      "passed": true
+    },
+    {
+      "name": "/works structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/magazine server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/magazine head metadata",
+      "passed": true,
+      "title": "مجلة 967 | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/magazine"
+    },
+    {
+      "name": "/magazine production canonical",
+      "passed": true
+    },
+    {
+      "name": "/magazine indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/magazine distinct title",
+      "passed": true
+    },
+    {
+      "name": "/magazine structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/contribute server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/contribute head metadata",
+      "passed": true,
+      "title": "تواصل وشارك | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/contribute"
+    },
+    {
+      "name": "/contribute production canonical",
+      "passed": true
+    },
+    {
+      "name": "/contribute indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/contribute distinct title",
+      "passed": true
+    },
+    {
+      "name": "/contribute structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/yemen-map head metadata",
+      "passed": true,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/yemen-map"
+    },
+    {
+      "name": "/yemen-map production canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/yemen-map distinct title",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/professionals server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/professionals head metadata",
+      "passed": true,
+      "title": "المهنيون | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/professionals"
+    },
+    {
+      "name": "/professionals production canonical",
+      "passed": true
+    },
+    {
+      "name": "/professionals indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/professionals distinct title",
+      "passed": true
+    },
+    {
+      "name": "/professionals structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/yemeni-products head metadata",
+      "passed": true,
+      "title": "منتجات يمنية | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/yemeni-products"
+    },
+    {
+      "name": "/yemeni-products production canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/yemeni-products distinct title",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/yemen-in-numbers head metadata",
+      "passed": true,
+      "title": "اليمن بالأرقام | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/yemen-in-numbers"
+    },
+    {
+      "name": "/yemen-in-numbers production canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/yemen-in-numbers distinct title",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers/timeline server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/yemen-in-numbers/timeline head metadata",
+      "passed": true,
+      "title": "اليمن عبر الزمن | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/yemen-in-numbers/timeline"
+    },
+    {
+      "name": "/yemen-in-numbers/timeline production canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers/timeline indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/yemen-in-numbers/timeline distinct title",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers/timeline structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/search server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/search head metadata",
+      "passed": true,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/search"
+    },
+    {
+      "name": "/search production canonical",
+      "passed": true
+    },
+    {
+      "name": "/search indexing policy",
+      "passed": true,
+      "robots": "noindex, follow"
+    },
+    {
+      "name": "/search distinct title",
+      "passed": true
+    },
+    {
+      "name": "/search structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/admin server HTML",
+      "passed": false,
+      "status": 200,
+      "h1Count": 0
+    },
+    {
+      "name": "/admin head metadata",
+      "passed": true,
+      "title": "تسجيل الدخول | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/admin"
+    },
+    {
+      "name": "/admin production canonical",
+      "passed": true
+    },
+    {
+      "name": "/admin indexing policy",
+      "passed": true,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "name": "/admin distinct title",
+      "passed": true
+    },
+    {
+      "name": "/admin structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/magazine/demo server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/magazine/demo head metadata",
+      "passed": true,
+      "title": "نموذج تجريبي لقراءة مجلة 967 | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/magazine/demo"
+    },
+    {
+      "name": "/magazine/demo production canonical",
+      "passed": true
+    },
+    {
+      "name": "/magazine/demo indexing policy",
+      "passed": true,
+      "robots": "noindex, follow"
+    },
+    {
+      "name": "/magazine/demo distinct title",
+      "passed": true
+    },
+    {
+      "name": "/magazine/demo structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/arwa-al-sulayhi server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/yemen-map/figures/arwa-al-sulayhi head metadata",
+      "passed": true,
+      "title": "الملكة أروى بنت أحمد الصليحي | شخصيات يمنية | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/yemen-map/figures/arwa-al-sulayhi"
+    },
+    {
+      "name": "/yemen-map/figures/arwa-al-sulayhi production canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/arwa-al-sulayhi indexing policy",
+      "passed": true,
+      "robots": "noindex, follow"
+    },
+    {
+      "name": "/yemen-map/figures/arwa-al-sulayhi distinct title",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/arwa-al-sulayhi structured data parses",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/arwa-al-sulayhi demo has no Person assertion",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers/gdp server HTML",
+      "passed": true,
+      "status": 200,
+      "h1Count": 1
+    },
+    {
+      "name": "/yemen-in-numbers/gdp head metadata",
+      "passed": true,
+      "title": "الناتج المحلي الإجمالي | مبادرة 967",
+      "canonical": "https://967-initiative.vercel.app/yemen-in-numbers/gdp"
+    },
+    {
+      "name": "/yemen-in-numbers/gdp production canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers/gdp indexing policy",
+      "passed": true,
+      "robots": "index, follow"
+    },
+    {
+      "name": "/yemen-in-numbers/gdp distinct title",
+      "passed": true
+    },
+    {
+      "name": "/yemen-in-numbers/gdp structured data parses",
+      "passed": true
+    },
+    {
+      "name": "Bingbot/2.0 blocking metadata",
+      "passed": true
+    },
+    {
+      "name": "PerplexityBot/1.0 blocking metadata",
+      "passed": true
+    },
+    {
+      "name": "ChatGPT-User/1.0 blocking metadata",
+      "passed": true
+    },
+    {
+      "name": "Perplexity-User/1.0 blocking metadata",
+      "passed": true
+    },
+    {
+      "name": "robots.txt serves text",
+      "passed": true
+    },
+    {
+      "name": "robots deployment policy",
+      "passed": true
+    },
+    {
+      "name": "sitemap serves XML",
+      "passed": true
+    },
+    {
+      "name": "sitemap canonical and excludes examples/private routes",
+      "passed": true
+    },
+    {
+      "name": "optional AI reading guide",
+      "passed": true
+    },
+    {
+      "name": "demo PDF noindex header",
+      "passed": true
+    },
+    {
+      "name": "/missing-seo-test-route genuine 404",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "/works/missing-seo-test genuine 404",
+      "passed": false,
+      "status": 200
+    },
+    {
+      "name": "/magazine/missing-seo-test genuine 404",
+      "passed": false,
+      "status": 200
+    },
+    {
+      "name": "/professionals/missing-seo-test genuine 404",
+      "passed": false,
+      "status": 200
+    },
+    {
+      "name": "/yemeni-products/missing-seo-test genuine 404",
+      "passed": false,
+      "status": 200
+    },
+    {
+      "name": "/yemen-in-numbers/indicator/missing-seo-test genuine 404",
+      "passed": false,
+      "status": 200
+    },
+    {
+      "name": "/yemen-map/figures/missing-seo-test genuine 404",
+      "passed": false,
+      "status": 200
+    }
+  ]
+}

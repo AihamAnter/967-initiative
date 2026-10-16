@@ -36,6 +36,14 @@ test('pagination gets every row despite a lower server row cap', async () => {
 test('pagination surfaces connection failure instead of returning a partial series', async () => {
   await assert.rejects(fetchAllRows(()=>({range:async()=>({data:null,error:{message:'offline'}})})),/offline/);
 });
+test('exact row counts avoid empty requests without truncating lower-cap responses', async () => {
+  const expected=Array.from({length:1203},(_,id)=>({id}));let calls=0;
+  const rows=await fetchAllRows(()=>({range:async(start,end)=>{calls++;return {data:expected.slice(start,Math.min(start+200,end+1)),count:expected.length,error:null};}}));
+  assert.deepEqual(rows,expected);assert.equal(calls,7);
+  let smallCalls=0;
+  assert.deepEqual(await fetchAllRows(()=>({range:async()=>{smallCalls++;return {data:[{id:1}],count:1,error:null};}})),[{id:1}]);
+  assert.equal(smallCalls,1);
+});
 test('Arabic search ignores diacritics, hamza variants, and numeral differences', () => {
   assert.equal(normalizeSearch('إِنْتَاج ٩٦٧'),normalizeSearch('انتاج 967'));
   assert.ok(matchesSearch('امراه يمنيه',['امرأة يَمَنيّة']));

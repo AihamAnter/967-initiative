@@ -6,6 +6,7 @@ import {useEffect, useMemo, useState} from 'react';
 import {ArrowUpLeft, AtSign, Facebook, Globe2, MapPinned, RotateCcw, Search, Youtube} from 'lucide-react';
 import {normalizeArabic} from './mapGeometry';
 import {yemenGovernorates, yemeniFigureEras, yemeniFigureFields} from '@/lib/yemeniFigures';
+import {formatNumber} from '@/lib/format';
 
 const socialLinks = figure => [
   {url: figure.website, label: 'الموقع الإلكتروني', icon: Globe2},
@@ -76,7 +77,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
 
       {figures.some(figure=>figure.isDemo) && <p className="data-disclosure">يتضمن العرض ملفات من الكتالوج التجريبي للمشروع. هذه الملفات موسومة كتوضيحية وتحتاج مراجعة مصادرها قبل اعتمادها كمحتوى منشور.</p>}
 
-      <div className="yfigures-filters" aria-label="البحث وتصفية الشخصيات">
+      <div className="yfigures-filters" role="search" aria-label="البحث وتصفية الشخصيات">
         <label className="yfigures-search"><Search size={19}/><span className="sr-only">ابحث بالاسم</span><input value={query} onChange={event => setQuery(event.target.value)} placeholder="ابحث باسم الشخصية..."/></label>
         <label><span>المجال</span><select value={field} onChange={event => setField(event.target.value)}><option>الكل</option>{fields.map(item => <option key={item}>{item}</option>)}</select></label>
         <label><span>المحافظة</span><select value={selectedGovernorateId || ''} onChange={event => onGovernorateChange(event.target.value || null)}><option value="">كل المحافظات</option>{governorates.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
@@ -85,7 +86,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
         <button type="button" className="yfigures-reset" onClick={resetFilters} disabled={!hasFilters} title="مسح الفلاتر"><RotateCcw size={18}/><span>مسح</span></button>
       </div>
 
-      <div className="yfigures-results-bar"><strong>{filteredFigures.length}</strong><span>شخصية مطابقة</span>{selectedGovernorateId && <small>الخريطة والدليل يعرضان المحافظة نفسها</small>}</div>
+      <div className="yfigures-results-bar" aria-live="polite"><strong>{formatNumber(filteredFigures.length)}</strong><span>شخصية مطابقة</span>{selectedGovernorateId && <small>الخريطة والدليل يعرضان المحافظة نفسها</small>}</div>
 
       {filteredFigures.length ? <div className="yfigures-grid">
         {visibleFigures.map(figure => {

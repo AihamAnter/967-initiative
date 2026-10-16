@@ -8,7 +8,7 @@ import {browserDb} from '@/lib/supabase';
 
 const groups = [
   {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967']]},
-  {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-map', 'اكتشف اليمن']]},
+  {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-ranking', 'ترتيب اليمن'], ['/yemen-map', 'اكتشف اليمن']]},
   {label: 'الأدلة', links: [['/yemeni-products', 'منتجات يمنية'], ['/professionals', 'المهنيون']]},
   {label: 'المبادرة', links: [['/#about', 'من نحن'], ['/#projects', 'مشاريعنا'], ['/contribute', 'تواصل وشارك']]},
 ];
@@ -20,7 +20,10 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
   const header = useRef(null);
   const toggle = useRef(null);
   const close = () => {setOpen(false); header.current?.querySelectorAll('details[open]').forEach(item => item.removeAttribute('open'));};
-  useEffect(() => {setOpen(false);}, [path]);
+  useEffect(() => {setOpen(false);header.current?.querySelectorAll('details[open]').forEach(item => item.removeAttribute('open'));}, [path]);
+  useEffect(() => {
+    if (open) header.current?.querySelector('#main-navigation a')?.focus();
+  }, [open]);
   useEffect(() => {
     const db = browserDb();
     if (!db) {setSignedIn(false); return;}
@@ -65,11 +68,20 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
     return () => {active = false; requestId++; timers.forEach(timer => window.clearTimeout(timer)); subscription.unsubscribe();};
   }, []);
   useEffect(() => {
-    const onKey = event => {if (event.key === 'Escape' && (toggle.current?.getAttribute('aria-expanded') === 'true' || header.current?.querySelector('details[open]'))) {close(); toggle.current?.focus();}};
+    const onKey = event => {
+      const disclosure=header.current?.querySelector('details[open]');
+      const mobileOpen=toggle.current?.getAttribute('aria-expanded') === 'true';
+      if (event.key === 'Escape' && (mobileOpen || disclosure)) {
+        close();
+        if(mobileOpen)toggle.current?.focus();else disclosure?.querySelector('summary')?.focus();
+      }
+    };
     const onClick = event => {if (!header.current?.contains(event.target)) close();};
+    const onFocus = event => {if (!header.current?.contains(event.target)) close();};
     document.addEventListener('keydown', onKey);
     document.addEventListener('pointerdown', onClick);
-    return () => {document.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onClick);};
+    document.addEventListener('focusin', onFocus);
+    return () => {document.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onClick);document.removeEventListener('focusin', onFocus);};
   }, []);
   const active = href => href !== '/' && !href.includes('#') && (path === href || path.startsWith(href + '/'));
   return <header className="site-header" ref={header}><div className="container header-inner">

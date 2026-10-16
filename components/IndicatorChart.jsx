@@ -27,7 +27,7 @@ export default function IndicatorChart({values, unit, type = 'line', height = 36
     <YAxis tickFormatter={value => formatNumber(value, {notation: 'compact', maximumFractionDigits: 1})} stroke="#5e6b6d" tickLine={false} width={64}/>
     <Tooltip content={<StatTooltip unit={unit}/>}/>
   </>;
-  return <div className="stat-chart" style={{height}} role="img" aria-label={`رسم زمني للمؤشر بوحدة ${unit}`}>
+  return <div className="stat-chart" style={{height}} role="group" aria-label={`رسم زمني للمؤشر بوحدة ${unit}`}>
     <ResponsiveContainer width="100%" height="100%">
       {type === 'bar' ? <BarChart data={data}>{common}<Bar dataKey="value" fill="#176b75" radius={[3, 3, 0, 0]}/></BarChart>
         : type === 'area' ? <AreaChart data={data}>{common}<Area dataKey="value" type="monotone" stroke="#176b75" fill="#176b7525" strokeWidth={2.5} connectNulls={false}/></AreaChart>

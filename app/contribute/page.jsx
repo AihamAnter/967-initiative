@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import {pageMetadata} from '@/lib/seo';
 import {ArrowUpLeft} from 'lucide-react';
 import PageIntro from '@/components/PageIntro';
 import ContactForm from '@/components/ContactForm';
 import {contributionTypes} from '@/lib/contributions';
 
-export const metadata = {title:'تواصل وشارك', description:'اقترح موضوعاً، أرسل تصحيحاً، أو ساهم في أدلة ومشاريع مبادرة 967.', alternates:{canonical:'/contribute'}};
+export const metadata = pageMetadata({title:'تواصل وشارك', description:'اقترح موضوعاً، أرسل تصحيحاً، أو ساهم في أدلة ومشاريع مبادرة 967.', path:'/contribute'});
 export default async function ContributePage({searchParams}) {
   const params = await searchParams;
   const type = contributionTypes.includes(params.type) ? params.type : '';

@@ -1,0 +1,10 @@
+{
+  "checkedOn": "2026-10-16",
+  "source": "Successful npm audit --json tool transcript before dependency installation; raw output was not saved. npm-audit-before.json records an earlier failed sandbox attempt, not this result.",
+  "metadata": {
+    "vulnerabilities": {"info": 0, "low": 0, "moderate": 1, "high": 7, "critical": 0, "total": 8}
+  },
+  "vulnerablePackageNodes": ["@next/eslint-plugin-next", "braces", "eslint-config-next", "fast-glob", "micromatch", "next", "pdfjs-dist", "postcss"],
+  "originalVersions": {"next": "15.5.27", "pdfjs-dist": "5.7.284", "postcss": "8.4.31", "braces": "3.0.3"},
+  "note": "Counts are affected package nodes, not eight independent exploitable vulnerabilities. The complete successful baseline remains in the task tool log. A later attempt to reconstruct a raw baseline was not executed because automatic approval review hit its usage limit."
+}

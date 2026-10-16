@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {pageMetadata} from '@/lib/seo';
 import {ArrowUpLeft, BarChart3, Database} from 'lucide-react';
 import PageIntro from '@/components/PageIntro';
 import StatisticsExplorer from '@/components/StatisticsExplorer';
@@ -6,7 +7,7 @@ import IndicatorCard from '@/components/IndicatorCard';
 import {getStatIndicators, getStatSections} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
 export const dynamic = 'force-dynamic';
-export const metadata = {title:'اليمن بالأرقام',description:'مؤشرات وطنية موثقة عن اليمن مع المصدر وسنة القياس والمنهجية والسلسلة الزمنية.',alternates:{canonical:'/yemen-in-numbers'}};
+export const metadata = pageMetadata({title:'اليمن بالأرقام', description:'مؤشرات وطنية عن اليمن مع المصدر وسنة القياس والمنهجية والسلسلة الزمنية عند توفر البيانات.', path:'/yemen-in-numbers'});
 export default async function YemenInNumbersPage() {
  const [sections, indicators] = await Promise.all([getStatSections(), getStatIndicators()]);
  const withValues = indicators.filter(x => x.allValues.length > 0);

@@ -4,6 +4,7 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Eye, EyeOff, Pencil, Save, Trash2, UserRound, X} from 'lucide-react';
 import {professionalCategories, serviceModes} from '@/lib/professionals';
 import {mapProfessional} from '@/lib/professionals';
+import {safeExternalUrl} from '@/lib/media';
 
 const emptyProfessional = () => ({
   full_name: '', slug: '', profession_title: '', category: 'البناء والصيانة', location: '',
@@ -79,8 +80,8 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
       if (!professional.full_name.trim() || !slug || !professional.profession_title.trim() || !professional.category.trim() || !professional.location.trim()) throw Error('الاسم والرابط المختصر والمهنة والتصنيف والمحافظة حقول إلزامية.');
       if (!services.length) throw Error('أضف خدمة واحدة على الأقل.');
       if (professional.is_verified && /@example\.(com|org|net)$/i.test(professional.email.trim())) throw Error('استبدل البريد التجريبي قبل توثيق الملف.');
-      if (professional.website && !/^https?:\/\//i.test(professional.website)) throw Error('رابط الموقع يجب أن يبدأ بـ http:// أو https://');
-      if (professional.instagram && !/^https?:\/\//i.test(professional.instagram)) throw Error('رابط إنستغرام يجب أن يبدأ بـ http:// أو https://');
+      if (professional.website && !safeExternalUrl(professional.website)) throw Error('رابط الموقع غير صالح. استخدم HTTP أو HTTPS دون بيانات دخول.');
+      if (professional.instagram && !safeExternalUrl(professional.instagram)) throw Error('رابط إنستغرام غير صالح.');
       const payload = {
         slug, full_name: professional.full_name.trim(), profession_title: professional.profession_title.trim(),
         category: professional.category.trim(), location: professional.location.trim(), service_areas: splitList(professional.service_areas),

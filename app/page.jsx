@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {pageMetadata} from '@/lib/seo';
 import Image from 'next/image';
 import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, Compass, Film, Handshake, MapPin, MessagesSquare, Package, PenLine, UsersRound} from 'lucide-react';
 import BrandLogo from '@/components/BrandLogo';
@@ -11,7 +12,7 @@ import {formatArabicDate} from '@/lib/format';
 import {canOptimizeImage} from '@/lib/media';
 
 export const dynamic = 'force-dynamic';
-export const metadata = {title: '967 | اليمن، أقرب إليك', description: 'مساحة يمنية مفتوحة للمعرفة والإعلام والثقافة والبيانات والمشاركة المجتمعية.', alternates: {canonical: '/'}};
+export const metadata = pageMetadata({title:'967 | اليمن، أقرب إليك', description:'مساحة يمنية مفتوحة للمعرفة والإعلام والثقافة والبيانات والمشاركة المجتمعية.', path:'/'});
 const destinations = [
   {href: '/magazine', title: 'مجلة 967', text: 'مساحة للقراءة والتأمل', icon: BookOpen},
   {href: '/works', title: 'الأعمال الإعلامية', text: 'حكايات من زوايا مختلفة', icon: Film},

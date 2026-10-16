@@ -5,7 +5,7 @@ import {statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
 
 export default function IndicatorCard({indicator}) {
   const latest = indicator.latestValue;
-  return <Link className="stat-indicator-card" href={'/yemen-in-numbers/indicator/' + indicator.slug} aria-label={'عرض تفاصيل مؤشر ' + indicator.name}>
+  return <Link className="stat-indicator-card" href={'/yemen-in-numbers/indicator/' + indicator.slug}>
     <div className="stat-card-top">
       <span>{indicator.domain?.name || 'مؤشر وطني'}</span>
       <span className={'stat-status stat-status-' + indicator.data_status}>{statusLabels[indicator.data_status] || indicator.data_status}</span>

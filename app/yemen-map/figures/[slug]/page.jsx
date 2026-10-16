@@ -15,10 +15,10 @@ import {
   Youtube,
 } from 'lucide-react';
 import {getYemeniFigure, getYemeniFigures} from '@/lib/data';
+import {detailPath, pageMetadata} from '@/lib/seo';
+import {breadcrumbSchema, figureSchema, JsonLd} from '@/lib/seo-schema';
 
 export const dynamic = 'force-dynamic';
-
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, '');
 
 function figureInitials(name) {
   return String(name || '').split(/\s+/).filter(word => !['الملكة', 'الملك', 'بن', 'بنت'].includes(word)).slice(0, 2)
@@ -35,52 +35,20 @@ function socialLinks(figure) {
   ].filter(item => item.url);
 }
 
-function absoluteUrl(value) {
-  if (!value) return undefined;
-  try {
-    return new URL(value, siteUrl).toString();
-  } catch {
-    return undefined;
-  }
-}
-
 export async function generateMetadata({params}) {
   const {slug} = await params;
   const figure = await getYemeniFigure(slug);
-  if (!figure) return {title: 'الشخصية غير موجودة'};
+  if (!figure) notFound();
 
   const title = `${figure.fullName} | شخصيات يمنية`;
   const description = figure.shortBio || figure.knownFor;
-  const canonical = `/yemen-map/figures/${figure.slug}`;
-
-  return {
-    title,
-    description,
-    keywords: [figure.fullName, figure.knownFor, figure.field, figure.governorateName, 'شخصيات يمنية', 'اليمن'],
-    alternates: {canonical},
-    ...(figure.isDemo ? {robots:{index:false,follow:false}} : {}),
-    openGraph: {
-      title,
-      description,
-      type: 'profile',
-      url: canonical,
-      locale: 'ar_YE',
-      images: figure.imageUrl ? [{url: figure.imageUrl, alt: figure.fullName}] : undefined,
-    },
-    twitter: {
-      card: figure.imageUrl ? 'summary_large_image' : 'summary',
-      title,
-      description,
-      images: figure.imageUrl ? [figure.imageUrl] : undefined,
-    },
-  };
+  return pageMetadata({title, description, path:detailPath('yemen-map/figures', figure.slug), noindex:figure.isDemo, image:figure.imageUrl, type:'profile'});
 }
 
 function ProfileFact({icon: Icon, label, value, ltr = false}) {
   if (!value) return null;
   return <div className="figure-profile-fact">
-    <Icon size={18}/>
-    <div><dt>{label}</dt><dd dir={ltr ? 'ltr' : undefined}>{value}</dd></div>
+    <dt><Icon size={18}/>{label}</dt><dd dir={ltr ? 'ltr' : undefined}>{value}</dd>
   </div>;
 }
 
@@ -99,29 +67,9 @@ export default async function YemeniFigureProfilePage({params}) {
     })
     .slice(0, 3);
 
-  const profileUrl = `${siteUrl}/yemen-map/figures/${figure.slug}`;
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${profileUrl}#person`,
-    name: figure.fullName,
-    url: profileUrl,
-    description: figure.shortBio || figure.knownFor,
-    image: absoluteUrl(figure.imageUrl),
-    birthDate: figure.birthYear ? String(figure.birthYear) : undefined,
-    deathDate: figure.deathYear ? String(figure.deathYear) : undefined,
-    nationality: {'@type': 'Country', name: 'اليمن'},
-    knowsAbout: [figure.field, figure.knownFor].filter(Boolean),
-    sameAs: links.map(link => link.url),
-    additionalProperty: [
-      {'@type': 'PropertyValue', name: 'المجال', value: figure.field},
-      {'@type': 'PropertyValue', name: 'المحافظة المرتبطة', value: figure.governorateName},
-      {'@type': 'PropertyValue', name: 'الفترة', value: figure.era},
-    ].filter(item => item.value),
-  };
-
   return <div className="figure-profile-page">
-    <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(structuredData).replace(/</g, '\\u003c')}}/>
+    <JsonLd data={figureSchema(figure)}/>
+    <JsonLd data={breadcrumbSchema([{name:'اكتشف اليمن', path:'/yemen-map'}, {name:figure.fullName, path:detailPath('yemen-map/figures', figure.slug)}])}/>
 
     <section className="figure-profile-hero">
       <div className="container figure-profile-hero-grid">

@@ -24,7 +24,7 @@ export default function YemeniProductDirectory({companies}) {
     });
   }, [category, companies, location, query]);
 
-  const locations = ['كل المحافظات', ...new Set(companies.map(company => company.location))];
+  const locations = ['كل المحافظات', ...new Set(companies.map(company => company.location).filter(Boolean))];
   const categories = useMemo(() => [
     'الكل',
     ...new Set([
@@ -43,7 +43,7 @@ export default function YemeniProductDirectory({companies}) {
       <label className="products-search">
         <Search size={19}/>
         <input value={query} onChange={event => {setQuery(event.target.value);setPage(1);}} placeholder="ابحث عن شركة، منتج أو مدينة..." aria-label="البحث في المنتجات اليمنية"/>
-        {query && <button type="button" onClick={() => setQuery('')} title="مسح البحث" aria-label="مسح البحث"><X size={17}/></button>}
+        {query && <button type="button" onClick={() => {setQuery('');setPage(1);}} title="مسح البحث" aria-label="مسح البحث"><X size={17}/></button>}
       </label>
       <label className="products-location">
         <MapPin size={18}/>
@@ -70,7 +70,7 @@ export default function YemeniProductDirectory({companies}) {
     </div>
 
     {results.length ? <div className="company-grid">{results.slice((page-1)*12,page*12).map(company =>
-      <Link className="company-card" href={'/yemeni-products/' + company.id} key={company.id} aria-label={'عرض ملف ' + company.name}>
+      <Link className="company-card" href={'/yemeni-products/' + company.id} key={company.id}>
         <div className="company-media">
           {company.imageUrl ? <Image src={company.imageUrl || '/images/yemeni-products-hero.png'} alt={company.products.join('، ')} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" style={{objectPosition: company.imagePosition}}/> : <div className="company-placeholder"><Package size={42} strokeWidth={1}/></div>}
           <span>{company.scale}</span>
@@ -79,7 +79,7 @@ export default function YemeniProductDirectory({companies}) {
           <div className="company-overline"><span>{company.category}</span><span><MapPin size={13}/>{company.location}</span></div>
           <h2>{company.name}</h2>{company.isDemo&&<span className="status-badge">نموذج تجريبي</span>}{company.isVerified&&<span className="status-badge">شركة موثقة</span>}
           <p>{company.summary}</p>
-          <div className="company-products" aria-label="المنتجات">{company.products.map(product => <span key={product}>{product}</span>)}</div>
+          <div className="company-products" role="group" aria-label="المنتجات">{company.products.map(product => <span key={product}>{product}</span>)}</div>
           <span className="company-expand">عرض ملف الشركة والتفاصيل <ArrowUpLeft size={17}/></span>
         </div>
       </Link>

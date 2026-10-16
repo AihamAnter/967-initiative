@@ -1,0 +1,52 @@
+{
+  "checkedOn": "2026-10-16",
+  "note": "Single Lighthouse lab run per snapshot; no field INP or deployed-after claim",
+  "localBefore": {
+    "scores": {
+      "performance": 56.00000000000001,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": 2830.7064999999993,
+      "largest-contentful-paint": 4140.236999999999,
+      "cumulative-layout-shift": 0.5249088699878494,
+      "total-blocking-time": 47,
+      "server-response-time": 2261,
+      "total-byte-weight": 546330
+    }
+  },
+  "localAfter": {
+    "scores": {
+      "performance": 84,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": 1965.54,
+      "largest-contentful-paint": 4019.309999999999,
+      "cumulative-layout-shift": 0.0035407455176914428,
+      "total-blocking-time": 73,
+      "server-response-time": 1845,
+      "total-byte-weight": 602491
+    }
+  },
+  "productionBefore": {
+    "scores": {
+      "performance": 60,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": 1901.659,
+      "largest-contentful-paint": 4493.548000000001,
+      "cumulative-layout-shift": 0.5249088699878494,
+      "total-blocking-time": 59,
+      "server-response-time": 43,
+      "total-byte-weight": 534557
+    }
+  }
+}

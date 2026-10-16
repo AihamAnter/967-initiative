@@ -65,9 +65,9 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
 
   const selectedRegion = selectedDistrict || selectedGovernorate;
   const visibleDistricts = useMemo(() => {
-    if (!data) return [];
+    if (!data || !districtsVisible) return [];
     if (selectedGovernorate) return data.districts.filter(item => item.governorateId === selectedGovernorate.id);
-    return districtsVisible ? data.districts : [];
+    return data.districts;
   }, [data, selectedGovernorate, districtsVisible]);
 
   const searchResults = useMemo(() => {
@@ -198,7 +198,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
   }, [data, selectDistrict, selectGovernorate]);
 
   const handlePointerDown = event => {
-    if (!svgRef.current || !viewBox) return;
+    if (!svgRef.current || !viewBox || (event.pointerType === 'mouse' && event.button !== 0)) return;
     svgRef.current.setPointerCapture(event.pointerId);
     pointers.current.set(event.pointerId, {x: event.clientX, y: event.clientY});
     if (pointers.current.size === 1) {
@@ -224,10 +224,12 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
       const dx = event.clientX - gesture.current.start.x;
       const dy = event.clientY - gesture.current.start.y;
       if (Math.hypot(dx, dy) > 6) gesture.current.moved = true;
+      const scale = Math.min(rect.width / gesture.current.viewBox.width, rect.height / gesture.current.viewBox.height);
+      if (!Number.isFinite(scale) || scale <= 0) return;
       setViewBox({
         ...gesture.current.viewBox,
-        x: gesture.current.viewBox.x - (dx / rect.width) * gesture.current.viewBox.width,
-        y: gesture.current.viewBox.y - (dy / rect.height) * gesture.current.viewBox.height,
+        x: gesture.current.viewBox.x - dx / scale,
+        y: gesture.current.viewBox.y - dy / scale,
       });
     }
     if (gesture.current.type === 'pinch' && pointers.current.size >= 2) {
@@ -241,7 +243,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
 
   const handlePointerUp = event => {
     const activeGesture = gesture.current;
-    if (activeGesture?.type === 'pan' && pointers.current.size === 1) {
+    if (event.type !== 'pointercancel' && activeGesture?.type === 'pan' && pointers.current.size === 1) {
       const distance = Math.hypot(event.clientX - activeGesture.start.x, event.clientY - activeGesture.start.y);
       if (!activeGesture.moved && distance <= 6) selectRegionTarget(activeGesture.target);
     }
@@ -273,6 +275,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
         query={query}
         setQuery={setQuery}
         governorates={data.governorates}
+        selectedGovernorateId={selectedGovernorate?.id || ''}
         results={searchResults}
         onSelect={handleSearchSelect}
         onGovernoratePick={selectGovernorate}
@@ -297,7 +300,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
         <svg
           ref={svgRef}
           viewBox={viewBoxToString(viewBox)}
-          role="img"
+          role="group"
           aria-label="خريطة تفاعلية لليمن"
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -384,12 +387,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
         districts={data.districts}
         profiles={profiles}
         source={data.source}
-        onClose={() => {
-          setSelectedDistrict(null);
-          setSelectedGovernorate(null);
-          setDistrictsVisible(false);
-          onGovernorateChange?.(null);
-        }}
+        onClose={resetMap}
         onDistrictSelect={selectDistrict}
         onGovernorateBack={() => {
           if (selectedGovernorate) {

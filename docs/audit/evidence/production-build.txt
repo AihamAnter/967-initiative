@@ -1,0 +1,58 @@
+﻿
+> 967-initiative@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.28
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.8s
+   Linting and checking validity of types ...
+
+./components/MediaViewer.jsx
+17:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/PdfReader.jsx
+15:18  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+21:18  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/3) ...
+ ✓ Generating static pages (3/3)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ƒ /                                      177 B         112 kB
+├ ƒ /_not-found                            154 B         103 kB
+├ ƒ /admin                               40.5 kB         217 kB
+├ ƒ /api/admin/editors                     154 B         103 kB
+├ ƒ /api/contact                           154 B         103 kB
+├ ƒ /contribute                           2.9 kB         109 kB
+├ ƒ /llms.txt                              154 B         103 kB
+├ ƒ /magazine                            4.28 kB         116 kB
+├ ƒ /magazine/[slug]                     6.57 kB         113 kB
+├ ƒ /professionals                       4.73 kB         111 kB
+├ ƒ /professionals/[slug]                  170 B         106 kB
+├ ƒ /robots.txt                            154 B         103 kB
+├ ƒ /search                                170 B         106 kB
+├ ƒ /sitemap.xml                           154 B         103 kB
+├ ƒ /works                                4.9 kB         116 kB
+├ ƒ /works/[slug]                         3.7 kB         115 kB
+├ ƒ /yemen-in-numbers                    5.96 kB         112 kB
+├ ƒ /yemen-in-numbers/[slug]               170 B         106 kB
+├ ƒ /yemen-in-numbers/indicator/[slug]   15.7 kB         233 kB
+├ ƒ /yemen-in-numbers/timeline           12.5 kB         229 kB
+├ ƒ /yemen-map                           6.96 kB         118 kB
+├ ƒ /yemen-map/figures/[slug]              182 B         112 kB
+├ ƒ /yemeni-products                     3.96 kB         115 kB
+└ ƒ /yemeni-products/[id]                  182 B         112 kB
++ First Load JS shared by all             103 kB
+  ├ chunks/1255-60d8dc7c8c9309a1.js      46.3 kB
+  ├ chunks/4bd1b696-100b9d70ed4e49c1.js  54.2 kB
+  └ other shared chunks (total)          2.29 kB
+
+
+ƒ  (Dynamic)  server-rendered on demand
+

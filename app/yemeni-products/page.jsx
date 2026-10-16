@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import {pageMetadata} from '@/lib/seo';
 import {ArrowUpLeft} from 'lucide-react';
 import PageIntro from '@/components/PageIntro';
 import YemeniProductDirectory from '@/components/YemeniProductDirectory';
 import {getYemeniCompanies} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
 export const dynamic = 'force-dynamic';
-export const metadata = {title:'منتجات يمنية',description:'اكتشف الشركات والمنتجات اليمنية وابحث بالاسم أو القطاع أو المحافظة.',alternates:{canonical:'/yemeni-products'}};
+export const metadata = pageMetadata({title:'منتجات يمنية', description:'اكتشف الشركات والمنتجات اليمنية وابحث بالاسم أو القطاع أو المحافظة.', path:'/yemeni-products'});
 export default async function ProductsPage() {
  const companies = await getYemeniCompanies(), demos = companies.filter(x => x.isDemo).length;
  return <><PageIntro title="صُنع هنا، في اليمن." category="دليل الشركات والمنتجات" description="تعرّف على المنتج المحلي، ومن يصنعه، وأين تجده. دليل ينمو بمعلومات واضحة ومساهمات المجتمع.">

@@ -6,14 +6,16 @@ import IndicatorChart from '@/components/IndicatorChart';
 import {getStatIndicator} from '@/lib/data';
 import {formatArabicDate, formatNumber, formatYear} from '@/lib/format';
 import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
+import {detailPath, hasIndexableIndicator, pageMetadata} from '@/lib/seo';
+import {breadcrumbSchema, indicatorSchema, JsonLd} from '@/lib/seo-schema';
 
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
   const indicator = await getStatIndicator(slug);
-  if (!indicator) return {title: 'المؤشر غير موجود'};
-  return {title: indicator.name, description: indicator.short_description || indicator.definition, alternates: {canonical: `/yemen-in-numbers/indicator/${indicator.slug}`}};
+  if (!indicator) notFound();
+  return pageMetadata({title:indicator.name, description:indicator.short_description || indicator.definition, path:detailPath('yemen-in-numbers/indicator', indicator.slug), noindex:!hasIndexableIndicator(indicator)});
 }
 
 export default async function IndicatorPage({params}) {
@@ -23,6 +25,8 @@ export default async function IndicatorPage({params}) {
   const latest = indicator.latestValue;
   const sourceIds = new Set(indicator.allValues.map(value => value.source_id));
   return <>
+    <JsonLd data={indicatorSchema(indicator)}/>
+    <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:indicator.domain.name, path:detailPath('yemen-in-numbers', indicator.domain.slug)}, {name:indicator.name, path:detailPath('yemen-in-numbers/indicator', indicator.slug)}])}/>
     <section className="stat-indicator-head"><div className="container">
       <Link className="back-link" href={'/yemen-in-numbers/' + indicator.domain.slug}><ArrowRight size={17}/> {indicator.domain.name}</Link>
       <span className="eyebrow">{indicator.domain.section?.name} / مؤشر وطني</span>
@@ -33,6 +37,7 @@ export default async function IndicatorPage({params}) {
     <section className="section stat-indicator-body"><div className="container">
       <div className="stat-detail-layout"><div className="stat-chart-panel"><div className="stat-panel-head"><div><span>السلسلة الزمنية</span><h2>التغير السنوي</h2></div><span>{indicator.unit}</span></div><IndicatorChart values={indicator.values} unit={indicator.unit} type={indicator.chart_type}/>{sourceIds.size > 1 && !indicator.adopted_source_id && <p className="stat-warning"><AlertTriangle size={17}/> توجد قيم من أكثر من مصدر ولم تُحدّد سلسلة معتمدة، لذلك أوقف الرسم حتى لا يخلط سلاسل غير متوافقة. القيم الأصلية متاحة في ملف CSV.</p>}</div>
       <aside className="stat-facts"><h2>بطاقة المؤشر</h2><dl><div><dt><Ruler size={16}/> الوحدة</dt><dd>{indicator.unit}</dd></div><div><dt><ShieldCheck size={16}/> حالة البيانات</dt><dd>{statusLabels[indicator.data_status]}</dd></div><div><dt><Info size={16}/> اتجاه التحسن</dt><dd>{directionLabels[indicator.improvement_direction]}</dd></div>{latest && <div><dt><CalendarDays size={16}/> طبيعة أحدث قيمة</dt><dd>{valueStatusLabels[latest.value_status]}</dd></div>}</dl></aside></div>
+      {indicator.values.length > 0 && <section className="stat-series-section"><h2>البيانات المنشورة للسلسلة المعتمدة</h2><div className="stat-series-table-scroll" role="region" aria-label="الجدول الزمني للمؤشر" tabIndex={0}><table className="stat-series-table"><caption>{indicator.name} — النطاق الوطني: الجمهورية اليمنية؛ الوحدة: {indicator.unit}</caption><thead><tr><th scope="col">سنة القياس</th><th scope="col">القيمة</th><th scope="col">حالة القيمة</th><th scope="col">المصدر</th></tr></thead><tbody>{indicator.values.map((value, index) => <tr key={value.id || `${value.year}-${index}`}><th scope="row">{formatYear(value.year)}</th><td dir="ltr">{formatNumber(value.value, {maximumFractionDigits:3})}</td><td>{valueStatusLabels[value.value_status] || 'غير محددة'}</td><td>{value.source?.url ? <a href={value.source.url} target="_blank" rel="noopener noreferrer">{value.source.name || 'رابط المصدر'}</a> : value.source?.name || 'لم يُرفق مصدر'}</td></tr>)}</tbody></table></div></section>}
       <div className="stat-explanation-grid"><section><span className="eyebrow">ما الذي يقيسه؟</span><h2>التعريف</h2><p>{indicator.definition || 'لم يُضف تعريف تفصيلي لهذا المؤشر بعد.'}</p></section><section><span className="eyebrow">كيف نقرأه؟</span><h2>المعنى والمنهجية</h2><p>{indicator.measurement_method || 'راجع المصدر ووثيقة النشر لفهم طريقة القياس وحدود المقارنة.'}</p></section></div>
       <section className="stat-sources"><div className="stat-panel-head"><div><span>التوثيق</span><h2>المصادر والوثائق</h2></div></div>{indicator.sources.length ? <div className="stat-source-list">{indicator.sources.map(item => <article key={item.source_id}><div><strong>{item.source?.name}</strong>{item.is_adopted && <span>السلسلة المعتمدة</span>}<p>{item.methodology || item.source?.description || 'مصدر مستخدم في توثيق هذا المؤشر.'}</p></div>{item.source?.url && <a href={item.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15}/></a>}</article>)}</div> : latest?.source ? <div className="stat-source-list"><article><div><strong>{latest.source.name}</strong><p>{latest.methodology_note || 'مصدر أحدث قيمة منشورة.'}</p></div>{latest.source.url && <a href={latest.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15}/></a>}</article></div> : <p className="small-muted">لم تُضف تفاصيل المصدر بعد.</p>}
       {latest?.document_url && <a className="stat-document-link" href={latest.document_url} target="_blank" rel="noopener noreferrer">وثيقة أحدث قيمة <ExternalLink size={16}/></a>}{latest?.publication_date && <small>تاريخ النشر: {formatArabicDate(latest.publication_date)}</small>}</section>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {pageMetadata} from '@/lib/seo';
 import Image from 'next/image';
 import {canOptimizeImage} from '@/lib/media';
 import {BookOpen, Download, CalendarDays} from 'lucide-react';
@@ -7,7 +8,7 @@ import IssueGrid from '@/components/IssueGrid';
 import {getIssues} from '@/lib/data';
 import {formatArabicDate,formatNumber} from '@/lib/format';
 export const dynamic='force-dynamic';
-export const metadata={title:'مجلة 967',description:'اقرأ أحدث إصدارات مجلة 967 واستكشف أرشيف الأعداد أو حمّل نسختك بصيغة PDF.',alternates:{canonical:'/magazine'}};
+export const metadata = pageMetadata({title:'مجلة 967', description:'اقرأ أحدث إصدارات مجلة 967 واستكشف أرشيف الأعداد أو حمّل نسختك بصيغة PDF.', path:'/magazine'});
 export default async function Magazine() {
  const issues=await getIssues(),latest=issues[0];
  return <><PageIntro title="صفحات من الحكاية اليمنية." category="مجلة 967" description="ملفات وقصص وأفكار تقرأها في وقتك. افتح العدد من المتصفح أو احتفظ بنسختك بصيغة PDF."/>

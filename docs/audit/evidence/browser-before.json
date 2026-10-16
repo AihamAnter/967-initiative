@@ -1,0 +1,2509 @@
+{
+  "base": "http://127.0.0.1:3000",
+  "label": "before",
+  "startedAt": "2026-10-16T16:49:55.647Z",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "title": "967 | اليمن، أقرب إليك",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/works",
+      "status": 200,
+      "title": "الأعمال الإعلامية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/works",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/magazine",
+      "status": 200,
+      "title": "مجلة 967 | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/magazine",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/magazine/demo",
+      "status": 200,
+      "title": "نموذج تجريبي لقراءة مجلة 967 | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/magazine/demo",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "status": 200,
+      "title": "اليمن بالأرقام | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemen-in-numbers",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "status": 200,
+      "title": "اليمن عبر الزمن | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemen-in-numbers/timeline",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-map",
+      "status": 200,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemen-map",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemeni-products",
+      "status": 200,
+      "title": "منتجات يمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemeni-products",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/professionals",
+      "status": 200,
+      "title": "المهنيون | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/professionals",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/search",
+      "status": 200,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/search",
+      "robots": "noindex, follow"
+    },
+    {
+      "route": "/contribute",
+      "status": 200,
+      "title": "تواصل وشارك | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/contribute",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/admin",
+      "status": 200,
+      "title": "تسجيل الدخول | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "status": 200,
+      "title": "مناظرة بين احمد و فتحي حول العزلة اليمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/works/work-mv6tx5yo",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/magazine/issue-2",
+      "status": 200,
+      "title": "اليمن خلف عناوين الحرب والسلام | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/magazine/issue-2",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "status": 200,
+      "title": "علي سعيد الكروني | المهنيون | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/professionals/ali-carpenter",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "status": 200,
+      "title": "رحيق اليمن | منتجات يمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemeni-products/yemen-nectar",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "status": 200,
+      "title": "المنشآت التي تشارك النساء في ملكيتها | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "status": 200,
+      "title": "الناتج المحلي الإجمالي | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemen-in-numbers/gdp",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "status": 200,
+      "title": "الملكة أروى بنت أحمد الصليحي | شخصيات يمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "http://localhost:3000/yemen-map/figures/arwa-al-sulayhi",
+      "robots": "noindex, nofollow"
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/works",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/works",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/works",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/works",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/works",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/works",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/magazine",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/magazine",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/magazine",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/magazine",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        },
+        {
+          "tag": "STRONG",
+          "cls": ""
+        },
+        {
+          "tag": "SPAN",
+          "cls": ""
+        },
+        {
+          "tag": "STRONG",
+          "cls": ""
+        },
+        {
+          "tag": "SPAN",
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [
+        {
+          "tag": "SPAN",
+          "cls": ""
+        },
+        {
+          "tag": "SPAN",
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        },
+        {
+          "tag": "DIV",
+          "cls": "products-filter-bar"
+        },
+        {
+          "tag": "LABEL",
+          "cls": "products-search"
+        },
+        {
+          "tag": "LABEL",
+          "cls": "products-location"
+        },
+        {
+          "tag": "LABEL",
+          "cls": "products-category-select"
+        },
+        {
+          "tag": "DIV",
+          "cls": "products-results-line"
+        }
+      ]
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/professionals",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/professionals",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/professionals",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/professionals",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/search",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/search",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/search",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/search",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/search",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/search",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/search",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/search",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/contribute",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/contribute",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/contribute",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/contribute",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/admin",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/admin",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/admin",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/admin",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/admin",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/admin",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/admin",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/admin",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        },
+        {
+          "tag": "STRONG",
+          "cls": ""
+        },
+        {
+          "tag": "SPAN",
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [
+        {
+          "tag": "SPAN",
+          "cls": ""
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "header-tools"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "menu-toggle"
+        },
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-menu"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": []
+    }
+  ],
+  "accessibility": [
+    {
+      "route": "/",
+      "width": 390,
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "a[aria-label=\"عرض تفاصيل مؤشر عدد سكان اليمن\"]"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "a[aria-label=\"عرض تفاصيل مؤشر عدد سكان اليمن\"]"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "a[aria-label=\"عرض تفاصيل مؤشر عدد سكان اليمن\"]"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".container > .stat-indicator-grid > .stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".container > .stat-indicator-grid > .stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-explorer > .stat-indicator-grid > .stat-indicator-card:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-explorer > .stat-indicator-grid > .stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-explorer > .stat-indicator-grid > .stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(4)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(5)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(6)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(7)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(8)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(9)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(10)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(11)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(12)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "a[aria-label=\"عرض تفاصيل مؤشر عدد سكان اليمن\"]"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".container > .stat-indicator-grid > .stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".container > .stat-indicator-grid > .stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-explorer > .stat-indicator-grid > .stat-indicator-card:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-explorer > .stat-indicator-grid > .stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-explorer > .stat-indicator-grid > .stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(4)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(5)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(6)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(7)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(8)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(9)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(10)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(11)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(12)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "violations": [
+        {
+          "id": "nested-interactive",
+          "impact": "serious",
+          "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/nested-interactive?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "svg[role=\"img\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has focusable descendants. Move them outside of the element, or remove them."
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        "aria-prohibited-attr"
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "violations": [
+        {
+          "id": "nested-interactive",
+          "impact": "serious",
+          "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/nested-interactive?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "svg[role=\"img\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has focusable descendants. Move them outside of the element, or remove them."
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        "aria-prohibited-attr"
+      ]
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".company-card"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/admin",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/admin",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 390,
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1440,
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".stat-indicator-card:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 390,
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "description": "Ensure <dl> elements are structured correctly",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/definition-list?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "dl"
+              ],
+              "summary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > svg, div > div"
+            }
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "description": "Ensure <dt> and <dd> elements are contained by a <dl>",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/dlitem?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(1) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(1) > div > dd"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(2) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(2) > div > dd"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(3) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(3) > div > dd"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(4) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(4) > div > dd[dir=\"ltr\"]"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(5) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(5) > div > dd[dir=\"ltr\"]"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1440,
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "description": "Ensure <dl> elements are structured correctly",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/definition-list?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "dl"
+              ],
+              "summary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > svg, div > div"
+            }
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "description": "Ensure <dt> and <dd> elements are contained by a <dl>",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/dlitem?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(1) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(1) > div > dd"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(2) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(2) > div > dd"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(3) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(3) > div > dd"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(4) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(4) > div > dd[dir=\"ltr\"]"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(5) > div > dt"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [
+                ".figure-profile-fact:nth-child(5) > div > dd[dir=\"ltr\"]"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "mobile menu opens, Escape closes, keyboard focus returns",
+      "pass": true
+    },
+    {
+      "name": "Arabic search finds figure and empty search recovers",
+      "pass": true
+    },
+    {
+      "name": "PDF loads, navigation works and page input accepts a complete number",
+      "pass": true
+    },
+    {
+      "name": "map loads, zoom/reset and governorate selection work",
+      "pass": false,
+      "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('svg.ymap-svg') to be visible\u001b[22m\n"
+    },
+    {
+      "name": "contact UI reports mocked success without sending a message",
+      "pass": true
+    }
+  ],
+  "runtimeErrors": [],
+  "completedAt": "2026-10-16T16:51:26.994Z"
+}

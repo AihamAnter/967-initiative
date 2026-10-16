@@ -4,6 +4,8 @@ import Image from 'next/image';
 import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Building2, Eye, EyeOff, ImagePlus, Pencil, Plus, Save, Trash2, X} from 'lucide-react';
 import {companyEntityTypes, companyScaleOptions, companyTeamSizeOptions, productCategories} from '@/lib/yemeniProducts';
+import {validateMediaUpload} from '@/lib/uploads';
+import {safeExternalUrl} from '@/lib/media';
 
 const emptyProduct = () => ({
   clientKey: globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2),
@@ -104,12 +106,10 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
 
   async function uploadImage(file, folder, fallbackUrl = null) {
     if (!file?.size) return fallbackUrl;
-    const extension = (file.name.split('.').pop() || '').toLowerCase();
-    if (!['jpg', 'jpeg', 'png', 'webp'].includes(extension)) throw Error('صيغة الصورة غير مدعومة. استخدم JPG أو PNG أو WEBP.');
-    if (file.size > 5 * 1024 * 1024) throw Error('حجم الصورة يجب ألا يتجاوز 5MB.');
+    const {extension, contentType} = await validateMediaUpload(file);
     const filename = (globalThis.crypto?.randomUUID?.() || Date.now().toString(36)) + '.' + extension;
     const path = folder + '/' + filename;
-    const {error} = await db.storage.from('media').upload(path, file, {contentType: file.type || undefined, upsert: false});
+    const {error} = await db.storage.from('media').upload(path, file, {contentType, upsert: false});
     if (error) throw Error(error.message);
     return db.storage.from('media').getPublicUrl(path).data.publicUrl;
   }
@@ -131,8 +131,8 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
       if (!company.name.trim() || !slug || !company.category || !company.location.trim()) throw Error('الاسم والرابط المختصر والتصنيف والمحافظة حقول إلزامية. استخدم أحرفاً إنجليزية للرابط المختصر.');
       if (!productDrafts.length || productDrafts.some(product => !product.name)) throw Error('أضف منتجاً واحداً على الأقل، واكتب اسم كل منتج.');
       if (productDrafts.some((product, index) => !product.image_url && !formData.get('product_image_' + index)?.size)) throw Error('أضف صورة لكل منتج قبل الحفظ.');
-      if (company.website && !/^https?:\/\//i.test(company.website)) throw Error('رابط الموقع يجب أن يبدأ بـ http:// أو https://');
-      if (company.google_maps_url && !/^https?:\/\//i.test(company.google_maps_url)) throw Error('رابط خرائط Google يجب أن يبدأ بـ http:// أو https://');
+      if (company.website && !safeExternalUrl(company.website)) throw Error('رابط الموقع غير صالح. استخدم HTTP أو HTTPS دون بيانات دخول.');
+      if (company.google_maps_url && !safeExternalUrl(company.google_maps_url)) throw Error('رابط خرائط Google غير صالح.');
       const imageUrl = await uploadImage(formData.get('company_image'), 'companies', company.image_url || null);
       const products = await Promise.all(productDrafts.map(async (product, index) => ({
         ...product,

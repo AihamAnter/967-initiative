@@ -1,12 +1,13 @@
 import YemenDiscovery from '@/components/yemen-map/YemenDiscovery';
+import {pageMetadata} from '@/lib/seo';
 import {getYemeniFigures} from '@/lib/data';
 import {yemenGovernorates} from '@/lib/yemeniFigures';
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'اكتشف اليمن',
   description: 'أطلس تفاعلي لمحافظات اليمن ومديرياتها ودليل لشخصيات يمنية معاصرة وتاريخية.',
-  alternates:{canonical:'/yemen-map'},
-};
+  path:'/yemen-map',
+});
 
 export default async function YemenMapPage({searchParams}) {
   const figures = await getYemeniFigures();
