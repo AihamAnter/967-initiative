@@ -19,6 +19,7 @@ if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
 }
 
 const nextConfig = {
+  distDir: process.env.NEXT_VALIDATION_BUILD === '1' ? '.next-validation' : '.next',
   reactStrictMode: true,
   poweredByHeader: false,
   outputFileTracingRoot: __dirname,

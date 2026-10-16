@@ -1,4 +1,5 @@
--- Run this once in Supabase SQL Editor to enable editable homepage marquee settings.
+-- Run once to enable site settings. The legacy home_marquee_items key now stores
+-- the about-section keywords; site_content is created on the first settings save.
 
 create table if not exists public.site_settings (
  key text primary key,

@@ -7,6 +7,8 @@ import {yemeniFiguresCatalog} from '../lib/yemeniFiguresCatalog.js';
 import {formatNumber, formatYear, formatArabicDate} from '../lib/format.js';
 import {mapProfessional} from '../lib/professionals.js';
 import {mergePublicFigures} from '../lib/yemeniFigures.js';
+import {ABOUT_TAGS_KEY, SITE_CONTENT_KEY, defaultSiteSettings, resolveSiteSettings, validateSiteSettings, buildSiteSettingsRows} from '../lib/siteSettings.js';
+import {getSettingsSearchPages} from '../lib/searchPages.js';
 
 test('latest indicator uses measurement year, skips missing values and preserves zero', () => {
   const indicator = normalizeIndicator({updated_at:'2026-10-16'}, [
@@ -97,4 +99,44 @@ test('catalog preserves existing profiles while CMS drafts and overrides remain 
  const catalog=[{slug:'draft',fullName:'hidden'},{slug:'published',fullName:'old'},{slug:'catalog-only',fullName:'retained'}];
  const merged=mergePublicFigures([{slug:'published',fullName:'new'}],catalog,[{slug:'draft',is_published:false},{slug:'published',is_published:true}]);
  assert.deepEqual(merged.map(x=>x.fullName),['new','retained']);
+});
+
+test('site settings preserve legacy about words and default missing content',()=>{
+ const settings=resolveSiteSettings([{key:ABOUT_TAGS_KEY,value:['معرفة محفوظة','حوار محفوظ']}]);
+ assert.deepEqual(settings.aboutTags,['معرفة محفوظة','حوار محفوظ']);
+ assert.equal(settings.heroTitle,defaultSiteSettings.heroTitle);
+ settings.aboutTags.push('new');
+ assert.ok(!defaultSiteSettings.aboutTags.includes('new'));
+});
+
+test('site settings only accept known public fields and safe social links',()=>{
+ const settings=resolveSiteSettings([{key:SITE_CONTENT_KEY,value:{heroTitle:'عنوان جديد',instagram:'javascript:alert(1)',youtube:'',privateKey:'SECRET'}}]);
+ assert.equal(settings.heroTitle,'عنوان جديد');
+ assert.equal(settings.instagram,defaultSiteSettings.instagram);
+ assert.equal(settings.youtube,'');
+ assert.ok(!('privateKey' in settings));
+ for(const url of ['javascript:alert(1)','data:text/html,test','https://user:password@example.com']){
+  assert.ok(validateSiteSettings({...defaultSiteSettings,instagram:url}).errors.length);
+ }
+ assert.ok(validateSiteSettings({...defaultSiteSettings,heroTitle:' '.repeat(3)}).errors.length);
+ assert.ok(validateSiteSettings({...defaultSiteSettings,aboutTags:['x'.repeat(41)]}).errors.length);
+});
+
+test('saving settings round trips all fields and keeps existing word key',()=>{
+ const input={...defaultSiteSettings,heroTitle:'مقدمة محدثة',aboutTags:'ثقافة\nمعرفة\nثقافة',instagram:'',youtube:'https://www.youtube.com/@yemen967',unknown:'private'};
+ const rows=buildSiteSettingsRows(input,'2026-10-16T12:00:00Z');
+ assert.deepEqual(rows.map(x=>x.key),[SITE_CONTENT_KEY,ABOUT_TAGS_KEY]);
+ assert.ok(!('unknown' in rows[0].value));
+ const loaded=resolveSiteSettings(rows);
+ assert.equal(loaded.heroTitle,input.heroTitle);
+ assert.equal(loaded.instagram,'');
+ assert.equal(loaded.youtube,input.youtube);
+ assert.deepEqual(loaded.aboutTags,['ثقافة','معرفة']);
+ assert.throws(()=>buildSiteSettingsRows({...input,facebook:'javascript:alert(1)'}));
+});
+
+test('modified public site text stays searchable after settings changes',()=>{
+ const settings={...defaultSiteSettings,heroDescription:'مقدمة متغيرة فريدة',aboutVision:'رؤية جديدة فريدة',footerDescription:'وصف تذييل محدث',participationTitle:'دعوة مشاركة محدثة'};
+ const index=buildSearchIndex({pages:getSettingsSearchPages(settings)});
+ for(const query of [settings.heroDescription,settings.aboutVision,settings.footerDescription,settings.participationTitle])assert.ok(index.some(item=>matchesSearchResult(query,item)),query);
 });

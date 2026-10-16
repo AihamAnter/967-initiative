@@ -304,11 +304,6 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerUp}
         >
-          <defs>
-            <filter id="ymap-red-glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="0" stdDeviation=".025" floodColor="#176B75" floodOpacity=".35"/>
-            </filter>
-          </defs>
           <path className="ymap-country" d={geometryToPath(data.country.geometry)}/>
           {data.governorates.map(item => <path
             key={item.id}
