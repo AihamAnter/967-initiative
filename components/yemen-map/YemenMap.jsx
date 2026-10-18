@@ -398,9 +398,6 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
       />
     </div>
 
-    <div className="ymap-data-note">
-      <strong>دقة البيانات:</strong> الحدود من OCHA/HDX COD-AB لليمن، وليست مرسومة يدويًا. المعلومات النصية التفصيلية تُقرأ من Supabase عند توفرها، وإلا تظهر كغير متوفرة.
-      <span>نطاق العرض الحالي: {focusedBounds.map(value => value.toFixed(2)).join(' / ')}</span>
-    </div>
+    <details className="ymap-data-note"><summary>مصدر الحدود: OCHA / HDX · التفاصيل</summary><p>حدود إدارية من مجموعة COD-AB لليمن. تظهر المعلومات النصية عند توفرها، والحقول الناقصة موسومة بوضوح.</p><span>نطاق العرض الحالي: {focusedBounds.map(value => value.toFixed(2)).join(' / ')}</span></details>
   </div>;
 }

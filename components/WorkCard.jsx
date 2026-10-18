@@ -1,17 +1,16 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import WorkThumbnail from './WorkThumbnail';
 import {ArrowUpLeft, Play, Film} from 'lucide-react';
-import {workThumbnail, canOptimizeImage} from '@/lib/media';
+import {workThumbnail, parseMediaUrl} from '@/lib/media';
 import {formatArabicDate} from '@/lib/format';
 
-export default function WorkCard({work, index = 0}) {
+export default function WorkCard({work, index = 0, returnTo}) {
   const thumb = workThumbnail(work);
+  const embedded = Boolean(parseMediaUrl(work.external_url).embedUrl);
   const content = <>
     <div className={'work-card-media tone-' + (index % 4)}>
-      {thumb ? <Image src={thumb} alt="" fill sizes="(max-width:420px) 95vw, (max-width:760px) 45vw, 30vw" unoptimized={!canOptimizeImage(thumb)}/> : <>
-        <Film size={38} strokeWidth={1}/>
-        <span className="work-card-media-label">{work.platform || 'محتوى إعلامي'}</span>
-      </>}
+      <div className="work-card-placeholder" aria-hidden="true"><Film size={30} strokeWidth={1.5}/><span>{work.category || 'من أعمال 967'}</span><strong>{work.title}</strong><span className="work-card-media-label">{work.platform || 'محتوى إعلامي'}</span></div>
+      {thumb && <WorkThumbnail src={thumb}/>}
       {!work.is_demo && <span className="play-overlay" aria-hidden="true"><Play size={27} fill="currentColor"/></span>}
       {work.is_demo && <span className="demo-label">نموذج توضيحي</span>}
     </div>
@@ -21,10 +20,10 @@ export default function WorkCard({work, index = 0}) {
     {work.published_at && <time className="work-published" dateTime={work.published_at}>{formatArabicDate(work.published_at)}</time>}
     {work.is_demo
       ? <span className="work-card-link muted-link">يظهر المحتوى بعد النشر</span>
-      : <span className="work-card-link">افتح العمل وشاهده هنا <ArrowUpLeft size={17}/></span>}
+      : <span className="work-card-link">{embedded ? 'افتح العمل وشاهده' : 'التفاصيل ورابط المشاهدة'} <ArrowUpLeft size={17}/></span>}
   </>;
   return <article className="work-card">
     {work.is_demo ? <div className="work-card-static">{content}</div> :
-      <Link className="work-card-click" href={'/works/' + encodeURIComponent(work.slug)}>{content}</Link>}
+      <Link className="work-card-click" href={'/works/' + encodeURIComponent(work.slug)+(returnTo?'?from='+encodeURIComponent(returnTo):'')}>{content}</Link>}
   </article>;
 }

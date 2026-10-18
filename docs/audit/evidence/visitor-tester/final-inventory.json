@@ -1,0 +1,2511 @@
+{
+  "base": "http://127.0.0.1:3103",
+  "results": [
+    {
+      "route": "/contribute",
+      "width": 390,
+      "status": 200,
+      "title": "تواصل وشارك | مبادرة 967",
+      "elapsedMs": 33568,
+      "contentHeight": 2407,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "contact-form",
+          "top": 357.078125,
+          "width": 358
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "text": "",
+          "placeholder": "اسمك الكريم",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "text": "",
+          "placeholder": "name@example.com",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "type",
+          "text": "اختر نوع رسالتكاستفساراقتراح موضوعاقتراح شخصية أو معلومة تاريخيةتصحيح معلومةاقتراح شركة أو منتجطلب إضافة ملف مهنياقتراح نشاط مجتمعيالتطوع والمشاركةتعاون إعلاميأخرى",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "message",
+          "text": "",
+          "placeholder": "اكتب رسالتك هنا...",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "website",
+          "text": "",
+          "placeholder": "",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "إرسال الرسالة ",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "اقتراح موضوع",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%85%D9%88%D8%B6%D9%88%D8%B9#contribution-form"
+        },
+        {
+          "label": "اقتراح شخصية أو معلومة تاريخية",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9+%D8%A3%D9%88+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9+%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9#contribution-form"
+        },
+        {
+          "label": "تصحيح معلومة",
+          "href": "/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9#contribution-form"
+        },
+        {
+          "label": "اقتراح شركة أو منتج",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%B1%D9%83%D8%A9+%D8%A3%D9%88+%D9%85%D9%86%D8%AA%D8%AC#contribution-form"
+        },
+        {
+          "label": "طلب إضافة ملف مهني",
+          "href": "/contribute?type=%D8%B7%D9%84%D8%A8+%D8%A5%D8%B6%D8%A7%D9%81%D8%A9+%D9%85%D9%84%D9%81+%D9%85%D9%87%D9%86%D9%8A#contribution-form"
+        },
+        {
+          "label": "اقتراح نشاط مجتمعي",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%86%D8%B4%D8%A7%D8%B7+%D9%85%D8%AC%D8%AA%D9%85%D8%B9%D9%8A#contribution-form"
+        },
+        {
+          "label": "التطوع والمشاركة",
+          "href": "/contribute?type=%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D8%B9+%D9%88%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%83%D8%A9#contribution-form"
+        }
+      ]
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 390,
+      "status": 200,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "elapsedMs": 6011,
+      "contentHeight": 4051,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "search-result",
+          "top": 690.25,
+          "width": 358
+        },
+        {
+          "className": "search-result",
+          "top": 908.015625,
+          "width": 358
+        },
+        {
+          "className": "search-result",
+          "top": 1065,
+          "width": 358
+        },
+        {
+          "className": "search-result",
+          "top": 1318.5625,
+          "width": 358
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "search",
+          "name": "q",
+          "text": "",
+          "placeholder": "مثال: نجار صنعاء أو سكان اليمن",
+          "label": null,
+          "id": "platform-search"
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "ابحث",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "type",
+          "text": "",
+          "placeholder": "",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": " خيارات البحث",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "mode",
+          "text": "كل الكلمات، بأي ترتيبأي كلمة من الكلماتالعبارة بالترتيب نفسه",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "scope",
+          "text": "الاسم والوصف والتفاصيلالاسم أو العنوان فقط",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "exclude",
+          "text": "",
+          "placeholder": "مثال: تجريبي",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "تطبيق الخيارات ",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "كل المحتوى · 33",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all"
+        },
+        {
+          "label": "الأعمال الإعلامية · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=works"
+        },
+        {
+          "label": "المجلة · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=issues"
+        },
+        {
+          "label": "المؤشرات · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=indicators"
+        },
+        {
+          "label": "الشخصيات · 7",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=figures"
+        },
+        {
+          "label": "الشركات والمنتجات · 1",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=companies"
+        },
+        {
+          "label": "المهنيون · 1",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=professionals"
+        },
+        {
+          "label": "المحافظات والمديريات · 24",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places"
+        },
+        {
+          "label": "مجالات المرصد · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=domains"
+        },
+        {
+          "label": "صفحات المنصة · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=pages"
+        },
+        {
+          "label": "المحافظات والمديريات صنعاءمحافظة تحيط بأمانة العاصمة وتضم مرتفعات وأودية وقرى زراعية ومواقع طبيعية وتاريخية.محافظة",
+          "href": "/yemen-map?region=YE23#map"
+        },
+        {
+          "label": "المحافظات والمديريات صنعاء القديمهمديرية · امانة العاصمه",
+          "href": "/yemen-map?region=YE13&district=YE1301#map"
+        },
+        {
+          "label": "الشخصيات علي بن محمد الصليحيملف توضيحي — يحتاج مراجعةقائد يمني أسس الدولة الصليحية في القرن 11 ووحّد أجزاء واسعة من اليمن.السياسة والحكم · صنعاء",
+          "href": "/yemen-map/figures/ali-al-sulayhi"
+        },
+        {
+          "label": "الشخصيات أسماء بنت شهابملف توضيحي — يحتاج مراجعةشخصية سياسية بارزة شاركت في إدارة الدولة الصليحية وعُرفت بحضورها في شؤون الحكم.السياسة والحكم · صنعاء",
+          "href": "/yemen-map/figures/asma-bint-shihab"
+        },
+        {
+          "label": "الشخصيات عزيزة عبد الله أبو لحومملف توضيحي — يحتاج مراجعةكاتبة يمنية. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.الأدب والشعر · صنعاء",
+          "href": "/yemen-map/figures/q2784468"
+        },
+        {
+          "label": "الشخصيات محسن العينيملف توضيحي — يحتاج مراجعةسياسي يمني تولَّى رئاسة وزراء الجمهورية العربية اليمنية عدة مرات بين ١٩٦٣ و ١٩٧٤ وكان من القيادات المدنية لثورة ٢٦ سبتمبر ١٩٦٢. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.السياسة والحكم · صنعاء",
+          "href": "/yemen-map/figures/q4058917"
+        },
+        {
+          "label": "الشركات والمنتجات رحيق اليمنشركة رحيق اليمن للصناعات الغذائية هي شركة يمنية متخصصة في إنتاج العصائر الطبيعية والمشروبات المحلية. تأسست عام 2010 في صنعاء، وتهدف إلى تقديم منتجات يمنية عالية الجودة باستخدام المواد الخام المحلية، مع دعم المزارعين وتوفير فرص عمل للشباب.أغذية ومشروبات · صنعاء · شاي مثلج · ماء",
+          "href": "/yemeni-products/yemen-nectar"
+        },
+        {
+          "label": "المحافظات والمديريات الحيمة الداخليهمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2308#map"
+        },
+        {
+          "label": "المحافظات والمديريات الحيمة الخارجيهمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2309#map"
+        },
+        {
+          "label": "المحافظات والمديريات الحصنمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2315#map"
+        },
+        {
+          "label": "المحافظات والمديريات ارحبمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2302#map"
+        },
+        {
+          "label": "المحافظات والمديريات الطيالمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2313#map"
+        },
+        {
+          "label": "التالي",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&page=2"
+        }
+      ]
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "status": 200,
+      "title": "المهنيون | مبادرة 967",
+      "elapsedMs": 3643,
+      "contentHeight": 2336,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "professional-card",
+          "top": 718.875,
+          "width": 358
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث بالاسم، المهنة أو الخدمة...",
+          "label": "البحث عن مهني",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المهننجارة وأثاث",
+          "label": "اختيار المهنة",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل مناطق الخدمةسقطرىأمانة العاصمةصنعاء",
+          "label": "منطقة تقديم الخدمة",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل طرق الخدمةحضوريعن بُعدحضوري وعن بُعد",
+          "label": "طريقة تقديم الخدمة",
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "اطلب إضافة ملفك ",
+          "href": "/contribute?type=طلب%20إضافة%20ملف%20مهني"
+        },
+        {
+          "label": "عرض ملف علي سعيد الكروني",
+          "href": "/professionals/ali-carpenter"
+        },
+        {
+          "label": "واتساب",
+          "href": "https://wa.me/967777000456"
+        },
+        {
+          "label": "طلب إضافة ملف ",
+          "href": "/contribute?type=طلب%20إضافة%20ملف%20مهني"
+        }
+      ]
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "status": 200,
+      "title": "منتجات يمنية | مبادرة 967",
+      "elapsedMs": 5090,
+      "contentHeight": 2312,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "company-card",
+          "top": 689.875,
+          "width": 358
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن شركة، منتج أو مدينة...",
+          "label": "البحث في المنتجات اليمنية",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المحافظاتصنعاء",
+          "label": "اختيار المحافظة",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "الكلأغذية ومشروبات",
+          "label": "اختيار تصنيف المنتجات",
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "اقترح شركة أو منتجاً ",
+          "href": "/contribute?type=اقتراح%20شركة%20أو%20منتج"
+        },
+        {
+          "label": "متوسطأغذية ومشروباتصنعاءرحيق اليمنشركة رحيق اليمن للصناعات الغذائية هي شركة يمنية متخصصة في إنتاج العصائر الطبيعية والمشروبات المحلية. تأسست عام 2010 في صنعاء، وتهدف إلى تقديم منتجات يمنية عالية الجودة باستخدام المواد الخام المحلية، مع دعم المزارعين وتوفير فرص عمل للشباب.شاي مثلجماءعرض ملف الشركة والتفاصيل ",
+          "href": "/yemeni-products/yemen-nectar"
+        },
+        {
+          "label": "اقترح إضافة ",
+          "href": "/contribute?type=اقتراح%20شركة%20أو%20منتج"
+        }
+      ]
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "status": 200,
+      "title": "الأعمال الإعلامية | مبادرة 967",
+      "elapsedMs": 3005,
+      "contentHeight": 2454,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "work-card",
+          "top": 634.671875,
+          "width": 358
+        },
+        {
+          "className": "work-card",
+          "top": 1132.40625,
+          "width": 358
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن عمل أو موضوع...",
+          "label": "البحث في الأعمال",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المنصاتيوتيوبإنستغرام",
+          "label": "تصفية حسب المنصة",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "الكل",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "المناظرات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "التاريخ والهوية",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "المناظراتمناظرة بين احمد و فتحي حول العزلة اليمنيةيوتيوبالمناظراتيوتيوبمناظرة بين احمد و فتحي حول العزلة اليمنيةنقاش ومناظرة بين فكرتين حول العزلة اليمنية 13 أكتوبر 2026افتح العمل وشاهده ",
+          "href": "/works/work-mv6tx5yo"
+        },
+        {
+          "label": "التاريخ والهويةمن اناإنستغرامالتاريخ والهويةإنستغراممن اناهو ني13 أكتوبر 2026التفاصيل ورابط المشاهدة ",
+          "href": "/works/work-mv6uhecd"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "status": 200,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "elapsedMs": 10621,
+      "contentHeight": 2534,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "ymap-canvas",
+          "top": 471.015625,
+          "width": 356
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن محافظة أو مديرية...",
+          "label": "ابحث عن محافظة أو مديرية",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "اختر محافظةابينالضالععدنالبيضاءالحديدهالجوفالمهرهالمحويتعمرانذمارحضرموتحجهابلحجماربريمهصعدهصنعاءامانة العاصمهشبوهسقطرىتعز",
+          "label": "اختيار محافظة",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "تكبير",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "تصغير",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "اليمن كاملة",
+          "label": "عرض اليمن كاملة",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "العودة إلى المستوى السابق",
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "العرض",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "إخفاء الأسماء",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "إظهار حدود المديريات",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "صغير",
+          "label": "حجم أسماء صغير",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "متوسط",
+          "label": "حجم أسماء متوسط",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "كبير",
+          "label": "حجم أسماء كبير",
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "مصدر الحدود: OCHA / HDX · التفاصيل",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "شخصيات يمنية مرتبطة بالأماكنافتح الدليل وابحث بالاسم أو المجال",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث باسم الشخصية...",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "الكلالأدب والشعرالإعلام وحقوق الإنسانالإعلام والصحافةالمجتمع وحقوق الإنسانالسياسة والحكمالفن والموسيقىالعلم والتعليمالرياضةالاقتصاد وريادة الأعمالالتراث والتاريخ",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المحافظاتأبينالضالععدنالبيضاءالحديدةالمحويتعمرانذمارحضرموتحجةإبلحجمأربصعدةصنعاءأمانة العاصمةشبوةتعز",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "الكلمعاصرةتاريخية",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "text": "",
+          "placeholder": "",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "مسح",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "عرض المزيد 12",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "عرض صفحة الملكة أروى بنت أحمد الصليحي",
+          "href": "/yemen-map/figures/arwa-al-sulayhi"
+        },
+        {
+          "label": "عرض صفحة علي بن محمد الصليحي",
+          "href": "/yemen-map/figures/ali-al-sulayhi"
+        },
+        {
+          "label": "عرض صفحة أسماء بنت شهاب",
+          "href": "/yemen-map/figures/asma-bint-shihab"
+        },
+        {
+          "label": "عرض صفحة الحسن بن أحمد الهمداني",
+          "href": "/yemen-map/figures/al-hamdani"
+        },
+        {
+          "label": "عرض صفحة نشوان بن سعيد الحميري",
+          "href": "/yemen-map/figures/nashwan-al-himyari"
+        },
+        {
+          "label": "عرض صفحة محمد بن علي الشوكاني",
+          "href": "/yemen-map/figures/al-shawkani"
+        },
+        {
+          "label": "عرض صفحة وهب بن منبه",
+          "href": "/yemen-map/figures/wahb-ibn-munabbih"
+        },
+        {
+          "label": "عرض صفحة عبد الرزاق الصنعاني",
+          "href": "/yemen-map/figures/abd-al-razzaq-al-sannani"
+        },
+        {
+          "label": "عرض صفحة سيف بن ذي يزن",
+          "href": "/yemen-map/figures/sayf-ibn-dhi-yazan"
+        },
+        {
+          "label": "عرض صفحة ذو نواس",
+          "href": "/yemen-map/figures/dhu-nuwas"
+        },
+        {
+          "label": "عرض صفحة كرب إل وتر",
+          "href": "/yemen-map/figures/karib-il-watar"
+        },
+        {
+          "label": "عرض صفحة شمر يهرعش",
+          "href": "/yemen-map/figures/shammar-yuharish"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "status": 200,
+      "title": "اليمن بالأرقام | مبادرة 967",
+      "elapsedMs": 5739,
+      "contentHeight": 10715,
+      "overflow": false,
+      "positions": [],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن مؤشر أو موضوع...",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المجالاتالناتج المحلي الإجماليالتضخم والأسعارسوق العمل والبطالةالفقرالمالية العامةالضرائب والجماركالعملة والسياسة النقديةالقطاع المصرفيالتجارة الخارجيةالاستثمارتحويلات المغتربينالدين العامالسكانالتركيب العمريالمواليد والوفياتالأسرة والزواجالمرأةالشبابالإعاقةالهجرة والاغترابالتعليم المدرسيمحو الأميةالتعليم العاليالتعليم الفني والمهنيالبحث العلميالمهارات الرقميةالصحة العامةالمستشفيات والخدمات الصحيةالأمراض والأوبئةصحة الأم والطفلالتغذيةالأمن الغذائيالكهرباءمياه الأسرالصرف الصحيالإنترنت والاتصالاتالطرق والنقلالموانئ والمطاراتالإسكانالنفايات والنظافةالزراعةالثروة الحيوانيةالثروة السمكيةالقاتالنفط والغازالتعدينالصناعة التحويليةالطاقة المتجددةالموارد المائيةالمناخالتصحرالكوارث الطبيعيةالتنوع الحيويآثار الحربالنزوح واللجوءالاحتياجات الإنسانيةالمساعدات الدوليةالألغام ومخلفات الحربالحوكمةالفساد والشفافيةالسياحة والتراثالرياضةالثقافة والإعلامريادة الأعمال والتقنية",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل السنوات2026202520242023202220212020201920182017201620152014201320122011201020092008200720062005200420032002200120001999199819971996199519941993199219911990",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": " السابق",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "التالي ",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الاقتصاد والمالية12 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "السكان والمجتمع8 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "التعليم والمعرفة6 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الصحة والغذاء6 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "البنية التحتية والخدمات8 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الإنتاج والموارد8 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "البيئة والمناخ5 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الحرب والوضع الإنساني5 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الدولة والمؤسسات2 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الثقافة والمجتمع والإبداع4 مجالات",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "قارن عبر الزمن ",
+          "href": "/yemen-in-numbers/timeline"
+        },
+        {
+          "label": "تصفح المؤشرات ",
+          "href": "#indicators"
+        },
+        {
+          "label": "السكانجزئيةعدد سكان اليمنإجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر42,961,653نسمة 2026 · تقديريworldpopulationreview.comعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/yemen-population"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة الاستقرار السياسي وغياب العنفسلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات.21.69درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/political-stability-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة المشاركة والمساءلةسلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.25.67درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/voice-accountability-score"
+        },
+        {
+          "label": "المرأةمحدودةالمنشآت التي تشارك النساء في ملكيتهاسلسلة سنوية وطنية لليمن حول المنشآت التي تشارك النساء في ملكيتها. تعرض السنوات المتاحة فقط دون استكمال الفجوات.6.57% من المنشآت 2013 · تقديريمسوح المنشآت للبنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/firms-with-female-ownership"
+        },
+        {
+          "label": "ريادة الأعمال والتقنيةجزئيةصادرات المنتجات عالية التقنيةسلسلة سنوية وطنية لليمن حول صادرات المنتجات عالية التقنية. تعرض السنوات المتاحة فقط دون استكمال الفجوات.3,030,318دولار أمريكي 2015 · تقديريالمنظمة العالمية للملكية الفكرية عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/high-technology-exports"
+        },
+        {
+          "label": "ريادة الأعمال والتقنيةجزئيةطلبات براءات الاختراع للمقيمينسلسلة سنوية وطنية لليمن حول طلبات براءات الاختراع للمقيمين. تعرض السنوات المتاحة فقط دون استكمال الفجوات.11طلب 2023 · تقديريالمنظمة العالمية للملكية الفكرية عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/resident-patent-applications"
+        },
+        {
+          "label": "السياحة والتراثجزئيةإيرادات السياحة الدوليةسلسلة سنوية وطنية لليمن حول إيرادات السياحة الدولية. تعرض السنوات المتاحة فقط دون استكمال الفجوات.116,000,000دولار أمريكي 2016 · تقديريمنظمة الأمم المتحدة للسياحة عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/international-tourism-receipts"
+        },
+        {
+          "label": "السياحة والتراثجزئيةعدد السياح الدوليين الوافدينسلسلة سنوية وطنية لليمن حول عدد السياح الدوليين الوافدين. تعرض السنوات المتاحة فقط دون استكمال الفجوات.398,000زائر 2015 · تقديريمنظمة الأمم المتحدة للسياحة عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/international-tourism-arrivals"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة الاستقرار السياسي وغياب العنفسلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات.21.69درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/political-stability-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة المشاركة والمساءلةسلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.25.67درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/voice-accountability-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة سيادة القانونسلسلة سنوية وطنية لليمن حول درجة سيادة القانون. تعرض السنوات المتاحة فقط دون استكمال الفجوات.26.62درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/rule-of-law-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة فاعلية الحكومةسلسلة سنوية وطنية لليمن حول درجة فاعلية الحكومة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.14.03درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/government-effectiveness-score"
+        },
+        {
+          "label": "الفساد والشفافيةجزئيةدرجة السيطرة على الفسادسلسلة سنوية وطنية لليمن حول درجة السيطرة على الفساد. تعرض السنوات المتاحة فقط دون استكمال الفجوات.14.17درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/control-of-corruption-score"
+        },
+        {
+          "label": "المساعدات الدوليةجزئيةصافي المساعدات الإنمائية الرسمية المستلمةسلسلة سنوية وطنية لليمن حول صافي المساعدات الإنمائية الرسمية المستلمة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.4,146,491,699.22دولار أمريكي 2023 · تقديريلجنة المساعدة الإنمائية عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/net-official-development-assistance"
+        },
+        {
+          "label": "آثار الحربجزئيةالإنفاق العسكري بالقيمة الجاريةسلسلة سنوية وطنية لليمن حول الإنفاق العسكري بالقيمة الجارية. تعرض السنوات المتاحة فقط دون استكمال الفجوات.1,714,830,843.69دولار أمريكي 2014 · تقديريمصادر النزاع والأمن عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/military-expenditure-current-usd"
+        },
+        {
+          "label": "الناتج المحلي الإجمالي",
+          "href": "/yemen-in-numbers/gdp"
+        },
+        {
+          "label": "التضخم والأسعار",
+          "href": "/yemen-in-numbers/inflation-prices"
+        },
+        {
+          "label": "سوق العمل والبطالة",
+          "href": "/yemen-in-numbers/labor-unemployment"
+        },
+        {
+          "label": "الفقر",
+          "href": "/yemen-in-numbers/poverty"
+        },
+        {
+          "label": "المالية العامة",
+          "href": "/yemen-in-numbers/public-finance"
+        },
+        {
+          "label": "الضرائب والجمارك",
+          "href": "/yemen-in-numbers/taxes-customs"
+        },
+        {
+          "label": "العملة والسياسة النقدية",
+          "href": "/yemen-in-numbers/currency-monetary"
+        },
+        {
+          "label": "القطاع المصرفي",
+          "href": "/yemen-in-numbers/banking"
+        },
+        {
+          "label": "التجارة الخارجية",
+          "href": "/yemen-in-numbers/foreign-trade"
+        },
+        {
+          "label": "الاستثمار",
+          "href": "/yemen-in-numbers/investment"
+        },
+        {
+          "label": "تحويلات المغتربين",
+          "href": "/yemen-in-numbers/remittances"
+        },
+        {
+          "label": "الدين العام",
+          "href": "/yemen-in-numbers/public-debt"
+        },
+        {
+          "label": "السكان",
+          "href": "/yemen-in-numbers/population"
+        },
+        {
+          "label": "التركيب العمري",
+          "href": "/yemen-in-numbers/age-structure"
+        },
+        {
+          "label": "المواليد والوفيات",
+          "href": "/yemen-in-numbers/births-deaths"
+        },
+        {
+          "label": "الأسرة والزواج",
+          "href": "/yemen-in-numbers/family-marriage"
+        },
+        {
+          "label": "المرأة",
+          "href": "/yemen-in-numbers/women"
+        },
+        {
+          "label": "الشباب",
+          "href": "/yemen-in-numbers/youth"
+        },
+        {
+          "label": "الإعاقة",
+          "href": "/yemen-in-numbers/disability"
+        },
+        {
+          "label": "الهجرة والاغتراب",
+          "href": "/yemen-in-numbers/migration-diaspora"
+        },
+        {
+          "label": "التعليم المدرسي",
+          "href": "/yemen-in-numbers/schools"
+        },
+        {
+          "label": "محو الأمية",
+          "href": "/yemen-in-numbers/literacy"
+        },
+        {
+          "label": "التعليم العالي",
+          "href": "/yemen-in-numbers/higher-education"
+        },
+        {
+          "label": "التعليم الفني والمهني",
+          "href": "/yemen-in-numbers/vocational-education"
+        },
+        {
+          "label": "البحث العلمي",
+          "href": "/yemen-in-numbers/research"
+        },
+        {
+          "label": "المهارات الرقمية",
+          "href": "/yemen-in-numbers/digital-skills"
+        },
+        {
+          "label": "الصحة العامة",
+          "href": "/yemen-in-numbers/public-health"
+        },
+        {
+          "label": "المستشفيات والخدمات الصحية",
+          "href": "/yemen-in-numbers/hospitals-services"
+        },
+        {
+          "label": "الأمراض والأوبئة",
+          "href": "/yemen-in-numbers/diseases-epidemics"
+        },
+        {
+          "label": "صحة الأم والطفل",
+          "href": "/yemen-in-numbers/maternal-child-health"
+        },
+        {
+          "label": "التغذية",
+          "href": "/yemen-in-numbers/nutrition"
+        },
+        {
+          "label": "الأمن الغذائي",
+          "href": "/yemen-in-numbers/food-security"
+        },
+        {
+          "label": "الكهرباء",
+          "href": "/yemen-in-numbers/electricity"
+        },
+        {
+          "label": "مياه الأسر",
+          "href": "/yemen-in-numbers/household-water"
+        },
+        {
+          "label": "الصرف الصحي",
+          "href": "/yemen-in-numbers/sanitation"
+        },
+        {
+          "label": "الإنترنت والاتصالات",
+          "href": "/yemen-in-numbers/internet-telecom"
+        },
+        {
+          "label": "الطرق والنقل",
+          "href": "/yemen-in-numbers/roads-transport"
+        },
+        {
+          "label": "الموانئ والمطارات",
+          "href": "/yemen-in-numbers/ports-airports"
+        },
+        {
+          "label": "الإسكان",
+          "href": "/yemen-in-numbers/housing"
+        },
+        {
+          "label": "النفايات والنظافة",
+          "href": "/yemen-in-numbers/waste-cleanliness"
+        },
+        {
+          "label": "الزراعة",
+          "href": "/yemen-in-numbers/agriculture"
+        },
+        {
+          "label": "الثروة الحيوانية",
+          "href": "/yemen-in-numbers/livestock"
+        },
+        {
+          "label": "الثروة السمكية",
+          "href": "/yemen-in-numbers/fisheries"
+        },
+        {
+          "label": "القات",
+          "href": "/yemen-in-numbers/qat"
+        },
+        {
+          "label": "النفط والغاز",
+          "href": "/yemen-in-numbers/oil-gas"
+        },
+        {
+          "label": "التعدين",
+          "href": "/yemen-in-numbers/mining"
+        },
+        {
+          "label": "الصناعة التحويلية",
+          "href": "/yemen-in-numbers/manufacturing"
+        },
+        {
+          "label": "الطاقة المتجددة",
+          "href": "/yemen-in-numbers/renewable-energy"
+        },
+        {
+          "label": "الموارد المائية",
+          "href": "/yemen-in-numbers/water-resources"
+        },
+        {
+          "label": "المناخ",
+          "href": "/yemen-in-numbers/climate"
+        },
+        {
+          "label": "التصحر",
+          "href": "/yemen-in-numbers/desertification"
+        },
+        {
+          "label": "الكوارث الطبيعية",
+          "href": "/yemen-in-numbers/natural-disasters"
+        },
+        {
+          "label": "التنوع الحيوي",
+          "href": "/yemen-in-numbers/biodiversity"
+        },
+        {
+          "label": "آثار الحرب",
+          "href": "/yemen-in-numbers/war-impact"
+        },
+        {
+          "label": "النزوح واللجوء",
+          "href": "/yemen-in-numbers/displacement-refugees"
+        },
+        {
+          "label": "الاحتياجات الإنسانية",
+          "href": "/yemen-in-numbers/humanitarian-needs"
+        },
+        {
+          "label": "المساعدات الدولية",
+          "href": "/yemen-in-numbers/international-aid"
+        },
+        {
+          "label": "الألغام ومخلفات الحرب",
+          "href": "/yemen-in-numbers/mines-erw"
+        },
+        {
+          "label": "الحوكمة",
+          "href": "/yemen-in-numbers/governance"
+        },
+        {
+          "label": "الفساد والشفافية",
+          "href": "/yemen-in-numbers/corruption-transparency"
+        },
+        {
+          "label": "السياحة والتراث",
+          "href": "/yemen-in-numbers/tourism-heritage"
+        },
+        {
+          "label": "الرياضة",
+          "href": "/yemen-in-numbers/sports"
+        },
+        {
+          "label": "الثقافة والإعلام",
+          "href": "/yemen-in-numbers/culture-media"
+        },
+        {
+          "label": "ريادة الأعمال والتقنية",
+          "href": "/yemen-in-numbers/entrepreneurship-tech"
+        },
+        {
+          "label": "افتح المقارنة ",
+          "href": "/yemen-in-numbers/timeline"
+        }
+      ]
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "status": 200,
+      "title": "تواصل وشارك | مبادرة 967",
+      "elapsedMs": 1949,
+      "contentHeight": 1387,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "contact-form",
+          "top": 367.6875,
+          "width": 696
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "text": "",
+          "placeholder": "اسمك الكريم",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "text": "",
+          "placeholder": "name@example.com",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "type",
+          "text": "اختر نوع رسالتكاستفساراقتراح موضوعاقتراح شخصية أو معلومة تاريخيةتصحيح معلومةاقتراح شركة أو منتجطلب إضافة ملف مهنياقتراح نشاط مجتمعيالتطوع والمشاركةتعاون إعلاميأخرى",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "message",
+          "text": "",
+          "placeholder": "اكتب رسالتك هنا...",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "website",
+          "text": "",
+          "placeholder": "",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "إرسال الرسالة ",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "اقتراح موضوع",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%85%D9%88%D8%B6%D9%88%D8%B9#contribution-form"
+        },
+        {
+          "label": "اقتراح شخصية أو معلومة تاريخية",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9+%D8%A3%D9%88+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9+%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9#contribution-form"
+        },
+        {
+          "label": "تصحيح معلومة",
+          "href": "/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9#contribution-form"
+        },
+        {
+          "label": "اقتراح شركة أو منتج",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%B1%D9%83%D8%A9+%D8%A3%D9%88+%D9%85%D9%86%D8%AA%D8%AC#contribution-form"
+        },
+        {
+          "label": "طلب إضافة ملف مهني",
+          "href": "/contribute?type=%D8%B7%D9%84%D8%A8+%D8%A5%D8%B6%D8%A7%D9%81%D8%A9+%D9%85%D9%84%D9%81+%D9%85%D9%87%D9%86%D9%8A#contribution-form"
+        },
+        {
+          "label": "اقتراح نشاط مجتمعي",
+          "href": "/contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%86%D8%B4%D8%A7%D8%B7+%D9%85%D8%AC%D8%AA%D9%85%D8%B9%D9%8A#contribution-form"
+        },
+        {
+          "label": "التطوع والمشاركة",
+          "href": "/contribute?type=%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D8%B9+%D9%88%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%83%D8%A9#contribution-form"
+        }
+      ]
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 1440,
+      "status": 200,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "elapsedMs": 3541,
+      "contentHeight": 3661,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "search-result",
+          "top": 737.078125,
+          "width": 1200
+        },
+        {
+          "className": "search-result",
+          "top": 933.453125,
+          "width": 1200
+        },
+        {
+          "className": "search-result",
+          "top": 1099.4375,
+          "width": 1200
+        },
+        {
+          "className": "search-result",
+          "top": 1331.609375,
+          "width": 1200
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "search",
+          "name": "q",
+          "text": "",
+          "placeholder": "مثال: نجار صنعاء أو سكان اليمن",
+          "label": null,
+          "id": "platform-search"
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "ابحث",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "type",
+          "text": "",
+          "placeholder": "",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": " خيارات البحث",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "mode",
+          "text": "كل الكلمات، بأي ترتيبأي كلمة من الكلماتالعبارة بالترتيب نفسه",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "scope",
+          "text": "الاسم والوصف والتفاصيلالاسم أو العنوان فقط",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "exclude",
+          "text": "",
+          "placeholder": "مثال: تجريبي",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "تطبيق الخيارات ",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "كل المحتوى · 33",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all"
+        },
+        {
+          "label": "الأعمال الإعلامية · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=works"
+        },
+        {
+          "label": "المجلة · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=issues"
+        },
+        {
+          "label": "المؤشرات · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=indicators"
+        },
+        {
+          "label": "الشخصيات · 7",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=figures"
+        },
+        {
+          "label": "الشركات والمنتجات · 1",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=companies"
+        },
+        {
+          "label": "المهنيون · 1",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=professionals"
+        },
+        {
+          "label": "المحافظات والمديريات · 24",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places"
+        },
+        {
+          "label": "مجالات المرصد · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=domains"
+        },
+        {
+          "label": "صفحات المنصة · 0",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=pages"
+        },
+        {
+          "label": "المحافظات والمديريات صنعاءمحافظة تحيط بأمانة العاصمة وتضم مرتفعات وأودية وقرى زراعية ومواقع طبيعية وتاريخية.محافظة",
+          "href": "/yemen-map?region=YE23#map"
+        },
+        {
+          "label": "المحافظات والمديريات صنعاء القديمهمديرية · امانة العاصمه",
+          "href": "/yemen-map?region=YE13&district=YE1301#map"
+        },
+        {
+          "label": "الشخصيات علي بن محمد الصليحيملف توضيحي — يحتاج مراجعةقائد يمني أسس الدولة الصليحية في القرن 11 ووحّد أجزاء واسعة من اليمن.السياسة والحكم · صنعاء",
+          "href": "/yemen-map/figures/ali-al-sulayhi"
+        },
+        {
+          "label": "الشخصيات أسماء بنت شهابملف توضيحي — يحتاج مراجعةشخصية سياسية بارزة شاركت في إدارة الدولة الصليحية وعُرفت بحضورها في شؤون الحكم.السياسة والحكم · صنعاء",
+          "href": "/yemen-map/figures/asma-bint-shihab"
+        },
+        {
+          "label": "الشخصيات عزيزة عبد الله أبو لحومملف توضيحي — يحتاج مراجعةكاتبة يمنية. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.الأدب والشعر · صنعاء",
+          "href": "/yemen-map/figures/q2784468"
+        },
+        {
+          "label": "الشخصيات محسن العينيملف توضيحي — يحتاج مراجعةسياسي يمني تولَّى رئاسة وزراء الجمهورية العربية اليمنية عدة مرات بين ١٩٦٣ و ١٩٧٤ وكان من القيادات المدنية لثورة ٢٦ سبتمبر ١٩٦٢. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.السياسة والحكم · صنعاء",
+          "href": "/yemen-map/figures/q4058917"
+        },
+        {
+          "label": "الشركات والمنتجات رحيق اليمنشركة رحيق اليمن للصناعات الغذائية هي شركة يمنية متخصصة في إنتاج العصائر الطبيعية والمشروبات المحلية. تأسست عام 2010 في صنعاء، وتهدف إلى تقديم منتجات يمنية عالية الجودة باستخدام المواد الخام المحلية، مع دعم المزارعين وتوفير فرص عمل للشباب.أغذية ومشروبات · صنعاء · شاي مثلج · ماء",
+          "href": "/yemeni-products/yemen-nectar"
+        },
+        {
+          "label": "المحافظات والمديريات الحيمة الداخليهمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2308#map"
+        },
+        {
+          "label": "المحافظات والمديريات الحيمة الخارجيهمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2309#map"
+        },
+        {
+          "label": "المحافظات والمديريات الحصنمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2315#map"
+        },
+        {
+          "label": "المحافظات والمديريات ارحبمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2302#map"
+        },
+        {
+          "label": "المحافظات والمديريات الطيالمديرية · صنعاء",
+          "href": "/yemen-map?region=YE23&district=YE2313#map"
+        },
+        {
+          "label": "التالي",
+          "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&page=2"
+        }
+      ]
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "status": 200,
+      "title": "المهنيون | مبادرة 967",
+      "elapsedMs": 1552,
+      "contentHeight": 1674,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "professional-card",
+          "top": 569.484375,
+          "width": 960
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث بالاسم، المهنة أو الخدمة...",
+          "label": "البحث عن مهني",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المهننجارة وأثاث",
+          "label": "اختيار المهنة",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل مناطق الخدمةسقطرىأمانة العاصمةصنعاء",
+          "label": "منطقة تقديم الخدمة",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل طرق الخدمةحضوريعن بُعدحضوري وعن بُعد",
+          "label": "طريقة تقديم الخدمة",
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "اطلب إضافة ملفك ",
+          "href": "/contribute?type=طلب%20إضافة%20ملف%20مهني"
+        },
+        {
+          "label": "عرض ملف علي سعيد الكروني",
+          "href": "/professionals/ali-carpenter"
+        },
+        {
+          "label": "واتساب",
+          "href": "https://wa.me/967777000456"
+        },
+        {
+          "label": "طلب إضافة ملف ",
+          "href": "/contribute?type=طلب%20إضافة%20ملف%20مهني"
+        }
+      ]
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "status": 200,
+      "title": "منتجات يمنية | مبادرة 967",
+      "elapsedMs": 1528,
+      "contentHeight": 1570,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "company-card",
+          "top": 638.484375,
+          "width": 1280
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن شركة، منتج أو مدينة...",
+          "label": "البحث في المنتجات اليمنية",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المحافظاتصنعاء",
+          "label": "اختيار المحافظة",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "الكلأغذية ومشروبات",
+          "label": "اختيار تصنيف المنتجات",
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "اقترح شركة أو منتجاً ",
+          "href": "/contribute?type=اقتراح%20شركة%20أو%20منتج"
+        },
+        {
+          "label": "متوسطأغذية ومشروباتصنعاءرحيق اليمنشركة رحيق اليمن للصناعات الغذائية هي شركة يمنية متخصصة في إنتاج العصائر الطبيعية والمشروبات المحلية. تأسست عام 2010 في صنعاء، وتهدف إلى تقديم منتجات يمنية عالية الجودة باستخدام المواد الخام المحلية، مع دعم المزارعين وتوفير فرص عمل للشباب.شاي مثلجماءعرض ملف الشركة والتفاصيل ",
+          "href": "/yemeni-products/yemen-nectar"
+        },
+        {
+          "label": "اقترح إضافة ",
+          "href": "/contribute?type=اقتراح%20شركة%20أو%20منتج"
+        }
+      ]
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "status": 200,
+      "title": "الأعمال الإعلامية | مبادرة 967",
+      "elapsedMs": 2033,
+      "contentHeight": 1639,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "work-card",
+          "top": 564.28125,
+          "width": 628
+        },
+        {
+          "className": "work-card",
+          "top": 564.28125,
+          "width": 628
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن عمل أو موضوع...",
+          "label": "البحث في الأعمال",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المنصاتيوتيوبإنستغرام",
+          "label": "تصفية حسب المنصة",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "الكل",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "المناظرات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "name": "",
+          "text": "التاريخ والهوية",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "المناظراتمناظرة بين احمد و فتحي حول العزلة اليمنيةيوتيوبالمناظراتيوتيوبمناظرة بين احمد و فتحي حول العزلة اليمنيةنقاش ومناظرة بين فكرتين حول العزلة اليمنية 13 أكتوبر 2026افتح العمل وشاهده ",
+          "href": "/works/work-mv6tx5yo"
+        },
+        {
+          "label": "التاريخ والهويةمن اناإنستغرامالتاريخ والهويةإنستغراممن اناهو ني13 أكتوبر 2026التفاصيل ورابط المشاهدة ",
+          "href": "/works/work-mv6uhecd"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "status": 200,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "elapsedMs": 2314,
+      "contentHeight": 1859,
+      "overflow": false,
+      "positions": [
+        {
+          "className": "ymap-canvas",
+          "top": 433.34375,
+          "width": 820
+        }
+      ],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن محافظة أو مديرية...",
+          "label": "ابحث عن محافظة أو مديرية",
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "اختر محافظةابينالضالععدنالبيضاءالحديدهالجوفالمهرهالمحويتعمرانذمارحضرموتحجهابلحجماربريمهصعدهصنعاءامانة العاصمهشبوهسقطرىتعز",
+          "label": "اختيار محافظة",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "تكبير",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "تصغير",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "اليمن كاملة",
+          "label": "عرض اليمن كاملة",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "العودة إلى المستوى السابق",
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "العرض",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "إخفاء الأسماء",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "",
+          "label": "إظهار حدود المديريات",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "صغير",
+          "label": "حجم أسماء صغير",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "متوسط",
+          "label": "حجم أسماء متوسط",
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "كبير",
+          "label": "حجم أسماء كبير",
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "مصدر الحدود: OCHA / HDX · التفاصيل",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "شخصيات يمنية مرتبطة بالأماكنافتح الدليل وابحث بالاسم أو المجال",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث باسم الشخصية...",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "الكلالأدب والشعرالإعلام وحقوق الإنسانالإعلام والصحافةالمجتمع وحقوق الإنسانالسياسة والحكمالفن والموسيقىالعلم والتعليمالرياضةالاقتصاد وريادة الأعمالالتراث والتاريخ",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المحافظاتأبينالضالععدنالبيضاءالحديدةالمحويتعمرانذمارحضرموتحجةإبلحجمأربصعدةصنعاءأمانة العاصمةشبوةتعز",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "الكلمعاصرةتاريخية",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "text": "",
+          "placeholder": "",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "مسح",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "عرض المزيد 12",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "عرض صفحة الملكة أروى بنت أحمد الصليحي",
+          "href": "/yemen-map/figures/arwa-al-sulayhi"
+        },
+        {
+          "label": "عرض صفحة علي بن محمد الصليحي",
+          "href": "/yemen-map/figures/ali-al-sulayhi"
+        },
+        {
+          "label": "عرض صفحة أسماء بنت شهاب",
+          "href": "/yemen-map/figures/asma-bint-shihab"
+        },
+        {
+          "label": "عرض صفحة الحسن بن أحمد الهمداني",
+          "href": "/yemen-map/figures/al-hamdani"
+        },
+        {
+          "label": "عرض صفحة نشوان بن سعيد الحميري",
+          "href": "/yemen-map/figures/nashwan-al-himyari"
+        },
+        {
+          "label": "عرض صفحة محمد بن علي الشوكاني",
+          "href": "/yemen-map/figures/al-shawkani"
+        },
+        {
+          "label": "عرض صفحة وهب بن منبه",
+          "href": "/yemen-map/figures/wahb-ibn-munabbih"
+        },
+        {
+          "label": "عرض صفحة عبد الرزاق الصنعاني",
+          "href": "/yemen-map/figures/abd-al-razzaq-al-sannani"
+        },
+        {
+          "label": "عرض صفحة سيف بن ذي يزن",
+          "href": "/yemen-map/figures/sayf-ibn-dhi-yazan"
+        },
+        {
+          "label": "عرض صفحة ذو نواس",
+          "href": "/yemen-map/figures/dhu-nuwas"
+        },
+        {
+          "label": "عرض صفحة كرب إل وتر",
+          "href": "/yemen-map/figures/karib-il-watar"
+        },
+        {
+          "label": "عرض صفحة شمر يهرعش",
+          "href": "/yemen-map/figures/shammar-yuharish"
+        }
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "status": 200,
+      "title": "اليمن بالأرقام | مبادرة 967",
+      "elapsedMs": 5417,
+      "contentHeight": 5057,
+      "overflow": false,
+      "positions": [],
+      "controls": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "text": "",
+          "placeholder": "ابحث عن مؤشر أو موضوع...",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل المجالاتالناتج المحلي الإجماليالتضخم والأسعارسوق العمل والبطالةالفقرالمالية العامةالضرائب والجماركالعملة والسياسة النقديةالقطاع المصرفيالتجارة الخارجيةالاستثمارتحويلات المغتربينالدين العامالسكانالتركيب العمريالمواليد والوفياتالأسرة والزواجالمرأةالشبابالإعاقةالهجرة والاغترابالتعليم المدرسيمحو الأميةالتعليم العاليالتعليم الفني والمهنيالبحث العلميالمهارات الرقميةالصحة العامةالمستشفيات والخدمات الصحيةالأمراض والأوبئةصحة الأم والطفلالتغذيةالأمن الغذائيالكهرباءمياه الأسرالصرف الصحيالإنترنت والاتصالاتالطرق والنقلالموانئ والمطاراتالإسكانالنفايات والنظافةالزراعةالثروة الحيوانيةالثروة السمكيةالقاتالنفط والغازالتعدينالصناعة التحويليةالطاقة المتجددةالموارد المائيةالمناخالتصحرالكوارث الطبيعيةالتنوع الحيويآثار الحربالنزوح واللجوءالاحتياجات الإنسانيةالمساعدات الدوليةالألغام ومخلفات الحربالحوكمةالفساد والشفافيةالسياحة والتراثالرياضةالثقافة والإعلامريادة الأعمال والتقنية",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "",
+          "text": "كل السنوات2026202520242023202220212020201920182017201620152014201320122011201020092008200720062005200420032002200120001999199819971996199519941993199219911990",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": " السابق",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "type": "button",
+          "name": "",
+          "text": "التالي ",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الاقتصاد والمالية12 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "السكان والمجتمع8 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "التعليم والمعرفة6 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الصحة والغذاء6 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "البنية التحتية والخدمات8 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الإنتاج والموارد8 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "البيئة والمناخ5 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الحرب والوضع الإنساني5 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الدولة والمؤسسات2 مجالات",
+          "label": null,
+          "id": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "text": "الثقافة والمجتمع والإبداع4 مجالات",
+          "label": null,
+          "id": ""
+        }
+      ],
+      "links": [
+        {
+          "label": "الرئيسية",
+          "href": "/"
+        },
+        {
+          "label": "قارن عبر الزمن ",
+          "href": "/yemen-in-numbers/timeline"
+        },
+        {
+          "label": "تصفح المؤشرات ",
+          "href": "#indicators"
+        },
+        {
+          "label": "السكانجزئيةعدد سكان اليمنإجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر42,961,653نسمة 2026 · تقديريworldpopulationreview.comعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/yemen-population"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة الاستقرار السياسي وغياب العنفسلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات.21.69درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/political-stability-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة المشاركة والمساءلةسلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.25.67درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/voice-accountability-score"
+        },
+        {
+          "label": "المرأةمحدودةالمنشآت التي تشارك النساء في ملكيتهاسلسلة سنوية وطنية لليمن حول المنشآت التي تشارك النساء في ملكيتها. تعرض السنوات المتاحة فقط دون استكمال الفجوات.6.57% من المنشآت 2013 · تقديريمسوح المنشآت للبنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/firms-with-female-ownership"
+        },
+        {
+          "label": "ريادة الأعمال والتقنيةجزئيةصادرات المنتجات عالية التقنيةسلسلة سنوية وطنية لليمن حول صادرات المنتجات عالية التقنية. تعرض السنوات المتاحة فقط دون استكمال الفجوات.3,030,318دولار أمريكي 2015 · تقديريالمنظمة العالمية للملكية الفكرية عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/high-technology-exports"
+        },
+        {
+          "label": "ريادة الأعمال والتقنيةجزئيةطلبات براءات الاختراع للمقيمينسلسلة سنوية وطنية لليمن حول طلبات براءات الاختراع للمقيمين. تعرض السنوات المتاحة فقط دون استكمال الفجوات.11طلب 2023 · تقديريالمنظمة العالمية للملكية الفكرية عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/resident-patent-applications"
+        },
+        {
+          "label": "السياحة والتراثجزئيةإيرادات السياحة الدوليةسلسلة سنوية وطنية لليمن حول إيرادات السياحة الدولية. تعرض السنوات المتاحة فقط دون استكمال الفجوات.116,000,000دولار أمريكي 2016 · تقديريمنظمة الأمم المتحدة للسياحة عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/international-tourism-receipts"
+        },
+        {
+          "label": "السياحة والتراثجزئيةعدد السياح الدوليين الوافدينسلسلة سنوية وطنية لليمن حول عدد السياح الدوليين الوافدين. تعرض السنوات المتاحة فقط دون استكمال الفجوات.398,000زائر 2015 · تقديريمنظمة الأمم المتحدة للسياحة عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/international-tourism-arrivals"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة الاستقرار السياسي وغياب العنفسلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات.21.69درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/political-stability-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة المشاركة والمساءلةسلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.25.67درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/voice-accountability-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة سيادة القانونسلسلة سنوية وطنية لليمن حول درجة سيادة القانون. تعرض السنوات المتاحة فقط دون استكمال الفجوات.26.62درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/rule-of-law-score"
+        },
+        {
+          "label": "الحوكمةجزئيةدرجة فاعلية الحكومةسلسلة سنوية وطنية لليمن حول درجة فاعلية الحكومة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.14.03درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/government-effectiveness-score"
+        },
+        {
+          "label": "الفساد والشفافيةجزئيةدرجة السيطرة على الفسادسلسلة سنوية وطنية لليمن حول درجة السيطرة على الفساد. تعرض السنوات المتاحة فقط دون استكمال الفجوات.14.17درجة معيارية 2025 · تقديريمؤشرات الحوكمة العالمية WGIعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/control-of-corruption-score"
+        },
+        {
+          "label": "المساعدات الدوليةجزئيةصافي المساعدات الإنمائية الرسمية المستلمةسلسلة سنوية وطنية لليمن حول صافي المساعدات الإنمائية الرسمية المستلمة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.4,146,491,699.22دولار أمريكي 2023 · تقديريلجنة المساعدة الإنمائية عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/net-official-development-assistance"
+        },
+        {
+          "label": "آثار الحربجزئيةالإنفاق العسكري بالقيمة الجاريةسلسلة سنوية وطنية لليمن حول الإنفاق العسكري بالقيمة الجارية. تعرض السنوات المتاحة فقط دون استكمال الفجوات.1,714,830,843.69دولار أمريكي 2014 · تقديريمصادر النزاع والأمن عبر البنك الدوليعرض تفاصيل المؤشر ",
+          "href": "/yemen-in-numbers/indicator/military-expenditure-current-usd"
+        },
+        {
+          "label": "الناتج المحلي الإجمالي",
+          "href": "/yemen-in-numbers/gdp"
+        },
+        {
+          "label": "التضخم والأسعار",
+          "href": "/yemen-in-numbers/inflation-prices"
+        },
+        {
+          "label": "سوق العمل والبطالة",
+          "href": "/yemen-in-numbers/labor-unemployment"
+        },
+        {
+          "label": "الفقر",
+          "href": "/yemen-in-numbers/poverty"
+        },
+        {
+          "label": "المالية العامة",
+          "href": "/yemen-in-numbers/public-finance"
+        },
+        {
+          "label": "الضرائب والجمارك",
+          "href": "/yemen-in-numbers/taxes-customs"
+        },
+        {
+          "label": "العملة والسياسة النقدية",
+          "href": "/yemen-in-numbers/currency-monetary"
+        },
+        {
+          "label": "القطاع المصرفي",
+          "href": "/yemen-in-numbers/banking"
+        },
+        {
+          "label": "التجارة الخارجية",
+          "href": "/yemen-in-numbers/foreign-trade"
+        },
+        {
+          "label": "الاستثمار",
+          "href": "/yemen-in-numbers/investment"
+        },
+        {
+          "label": "تحويلات المغتربين",
+          "href": "/yemen-in-numbers/remittances"
+        },
+        {
+          "label": "الدين العام",
+          "href": "/yemen-in-numbers/public-debt"
+        },
+        {
+          "label": "السكان",
+          "href": "/yemen-in-numbers/population"
+        },
+        {
+          "label": "التركيب العمري",
+          "href": "/yemen-in-numbers/age-structure"
+        },
+        {
+          "label": "المواليد والوفيات",
+          "href": "/yemen-in-numbers/births-deaths"
+        },
+        {
+          "label": "الأسرة والزواج",
+          "href": "/yemen-in-numbers/family-marriage"
+        },
+        {
+          "label": "المرأة",
+          "href": "/yemen-in-numbers/women"
+        },
+        {
+          "label": "الشباب",
+          "href": "/yemen-in-numbers/youth"
+        },
+        {
+          "label": "الإعاقة",
+          "href": "/yemen-in-numbers/disability"
+        },
+        {
+          "label": "الهجرة والاغتراب",
+          "href": "/yemen-in-numbers/migration-diaspora"
+        },
+        {
+          "label": "التعليم المدرسي",
+          "href": "/yemen-in-numbers/schools"
+        },
+        {
+          "label": "محو الأمية",
+          "href": "/yemen-in-numbers/literacy"
+        },
+        {
+          "label": "التعليم العالي",
+          "href": "/yemen-in-numbers/higher-education"
+        },
+        {
+          "label": "التعليم الفني والمهني",
+          "href": "/yemen-in-numbers/vocational-education"
+        },
+        {
+          "label": "البحث العلمي",
+          "href": "/yemen-in-numbers/research"
+        },
+        {
+          "label": "المهارات الرقمية",
+          "href": "/yemen-in-numbers/digital-skills"
+        },
+        {
+          "label": "الصحة العامة",
+          "href": "/yemen-in-numbers/public-health"
+        },
+        {
+          "label": "المستشفيات والخدمات الصحية",
+          "href": "/yemen-in-numbers/hospitals-services"
+        },
+        {
+          "label": "الأمراض والأوبئة",
+          "href": "/yemen-in-numbers/diseases-epidemics"
+        },
+        {
+          "label": "صحة الأم والطفل",
+          "href": "/yemen-in-numbers/maternal-child-health"
+        },
+        {
+          "label": "التغذية",
+          "href": "/yemen-in-numbers/nutrition"
+        },
+        {
+          "label": "الأمن الغذائي",
+          "href": "/yemen-in-numbers/food-security"
+        },
+        {
+          "label": "الكهرباء",
+          "href": "/yemen-in-numbers/electricity"
+        },
+        {
+          "label": "مياه الأسر",
+          "href": "/yemen-in-numbers/household-water"
+        },
+        {
+          "label": "الصرف الصحي",
+          "href": "/yemen-in-numbers/sanitation"
+        },
+        {
+          "label": "الإنترنت والاتصالات",
+          "href": "/yemen-in-numbers/internet-telecom"
+        },
+        {
+          "label": "الطرق والنقل",
+          "href": "/yemen-in-numbers/roads-transport"
+        },
+        {
+          "label": "الموانئ والمطارات",
+          "href": "/yemen-in-numbers/ports-airports"
+        },
+        {
+          "label": "الإسكان",
+          "href": "/yemen-in-numbers/housing"
+        },
+        {
+          "label": "النفايات والنظافة",
+          "href": "/yemen-in-numbers/waste-cleanliness"
+        },
+        {
+          "label": "الزراعة",
+          "href": "/yemen-in-numbers/agriculture"
+        },
+        {
+          "label": "الثروة الحيوانية",
+          "href": "/yemen-in-numbers/livestock"
+        },
+        {
+          "label": "الثروة السمكية",
+          "href": "/yemen-in-numbers/fisheries"
+        },
+        {
+          "label": "القات",
+          "href": "/yemen-in-numbers/qat"
+        },
+        {
+          "label": "النفط والغاز",
+          "href": "/yemen-in-numbers/oil-gas"
+        },
+        {
+          "label": "التعدين",
+          "href": "/yemen-in-numbers/mining"
+        },
+        {
+          "label": "الصناعة التحويلية",
+          "href": "/yemen-in-numbers/manufacturing"
+        },
+        {
+          "label": "الطاقة المتجددة",
+          "href": "/yemen-in-numbers/renewable-energy"
+        },
+        {
+          "label": "الموارد المائية",
+          "href": "/yemen-in-numbers/water-resources"
+        },
+        {
+          "label": "المناخ",
+          "href": "/yemen-in-numbers/climate"
+        },
+        {
+          "label": "التصحر",
+          "href": "/yemen-in-numbers/desertification"
+        },
+        {
+          "label": "الكوارث الطبيعية",
+          "href": "/yemen-in-numbers/natural-disasters"
+        },
+        {
+          "label": "التنوع الحيوي",
+          "href": "/yemen-in-numbers/biodiversity"
+        },
+        {
+          "label": "آثار الحرب",
+          "href": "/yemen-in-numbers/war-impact"
+        },
+        {
+          "label": "النزوح واللجوء",
+          "href": "/yemen-in-numbers/displacement-refugees"
+        },
+        {
+          "label": "الاحتياجات الإنسانية",
+          "href": "/yemen-in-numbers/humanitarian-needs"
+        },
+        {
+          "label": "المساعدات الدولية",
+          "href": "/yemen-in-numbers/international-aid"
+        },
+        {
+          "label": "الألغام ومخلفات الحرب",
+          "href": "/yemen-in-numbers/mines-erw"
+        },
+        {
+          "label": "الحوكمة",
+          "href": "/yemen-in-numbers/governance"
+        },
+        {
+          "label": "الفساد والشفافية",
+          "href": "/yemen-in-numbers/corruption-transparency"
+        },
+        {
+          "label": "السياحة والتراث",
+          "href": "/yemen-in-numbers/tourism-heritage"
+        },
+        {
+          "label": "الرياضة",
+          "href": "/yemen-in-numbers/sports"
+        },
+        {
+          "label": "الثقافة والإعلام",
+          "href": "/yemen-in-numbers/culture-media"
+        },
+        {
+          "label": "ريادة الأعمال والتقنية",
+          "href": "/yemen-in-numbers/entrepreneurship-tech"
+        },
+        {
+          "label": "افتح المقارنة ",
+          "href": "/yemen-in-numbers/timeline"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    },
+    {
+      "type": "console",
+      "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "url": "http://127.0.0.1:3103/yemen-map"
+    }
+  ]
+}

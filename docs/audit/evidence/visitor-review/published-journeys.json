@@ -1,0 +1,61 @@
+[
+  {
+    "route": "/works",
+    "status": 200,
+    "title": "الأعمال الإعلامية | مبادرة 967",
+    "height390": 2246
+  },
+  {
+    "route": "/magazine",
+    "status": 200,
+    "title": "مجلة 967 | مبادرة 967",
+    "height390": 2472
+  },
+  {
+    "route": "/yemen-in-numbers",
+    "status": 200,
+    "title": "اليمن بالأرقام | مبادرة 967",
+    "height390": 9282
+  },
+  {
+    "route": "/yemen-ranking",
+    "status": 200,
+    "title": "ترتيب اليمن | مبادرة 967",
+    "height390": 4931
+  },
+  {
+    "route": "/yemen-map",
+    "status": 200,
+    "title": "اكتشف اليمن | مبادرة 967",
+    "height390": 10536
+  },
+  {
+    "route": "/yemeni-products",
+    "status": 200,
+    "title": "منتجات يمنية | مبادرة 967",
+    "height390": 2191
+  },
+  {
+    "route": "/professionals",
+    "status": 200,
+    "title": "المهنيون | مبادرة 967",
+    "height390": 2124
+  },
+  {
+    "route": "/contribute",
+    "status": 200,
+    "title": "تواصل وشارك | مبادرة 967",
+    "height390": 2276
+  },
+  {
+    "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+    "status": 200,
+    "title": "البحث في منصة 967 | مبادرة 967",
+    "height390": 4467
+  },
+  {
+    "name": "published-contribution-draft",
+    "formTop": 905.671875,
+    "remainingMessage": ""
+  }
+]

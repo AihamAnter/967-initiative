@@ -1,0 +1,429 @@
+{
+  "base": "http://127.0.0.1:3103",
+  "results": [
+    {
+      "name": "works",
+      "stage": "filtered",
+      "before": {
+        "url": "http://127.0.0.1:3103/works?q=%D9%85%D9%86+%D8%A7%D9%86%D8%A7",
+        "query": "من انا",
+        "selects": [
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "كل المنصات",
+                "value": "الكل"
+              },
+              {
+                "label": "يوتيوب",
+                "value": "يوتيوب"
+              },
+              {
+                "label": "إنستغرام",
+                "value": "إنستغرام"
+              }
+            ]
+          }
+        ]
+      },
+      "count": 1
+    },
+    {
+      "name": "works",
+      "stage": "detail",
+      "url": "http://127.0.0.1:3103/works/work-mv6uhecd?from=%2Fworks%3Fq%3D%25D9%2585%25D9%2586%2B%25D8%25A7%25D9%2586%25D8%25A7%23works-results",
+      "backLinks": [
+        {
+          "label": " العودة إلى الأعمال",
+          "href": "/works?q=%D9%85%D9%86+%D8%A7%D9%86%D8%A7#works-results"
+        },
+        {
+          "label": "جميع الأعمال ",
+          "href": "/works"
+        }
+      ]
+    },
+    {
+      "name": "works",
+      "stage": "browser-back",
+      "after": {
+        "url": "http://127.0.0.1:3103/works?q=%D9%85%D9%86+%D8%A7%D9%86%D8%A7",
+        "query": "من انا",
+        "selects": [
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "كل المنصات",
+                "value": "الكل"
+              },
+              {
+                "label": "يوتيوب",
+                "value": "يوتيوب"
+              },
+              {
+                "label": "إنستغرام",
+                "value": "إنستغرام"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "works",
+      "stage": "site-back-link",
+      "after": {
+        "url": "http://127.0.0.1:3103/works?q=%D9%85%D9%86+%D8%A7%D9%86%D8%A7#works-results",
+        "query": "من انا",
+        "selects": [
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "كل المنصات",
+                "value": "الكل"
+              },
+              {
+                "label": "يوتيوب",
+                "value": "يوتيوب"
+              },
+              {
+                "label": "إنستغرام",
+                "value": "إنستغرام"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "professionals",
+      "stage": "filtered",
+      "before": {
+        "url": "http://127.0.0.1:3103/professionals?q=%D8%B3%D8%B9%D9%8A%D8%AF&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+        "query": "سعيد",
+        "selects": [
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "كل المهن",
+                "value": "الكل"
+              },
+              {
+                "label": "نجارة وأثاث",
+                "value": "نجارة وأثاث"
+              }
+            ]
+          },
+          {
+            "value": "صنعاء",
+            "options": [
+              {
+                "label": "كل مناطق الخدمة",
+                "value": "كل المحافظات"
+              },
+              {
+                "label": "سقطرى",
+                "value": "سقطرى"
+              },
+              {
+                "label": "أمانة العاصمة",
+                "value": "أمانة العاصمة"
+              },
+              {
+                "label": "صنعاء",
+                "value": "صنعاء"
+              }
+            ]
+          },
+          {
+            "value": "كل طرق الخدمة",
+            "options": [
+              {
+                "label": "كل طرق الخدمة",
+                "value": "كل طرق الخدمة"
+              },
+              {
+                "label": "حضوري",
+                "value": "حضوري"
+              },
+              {
+                "label": "عن بُعد",
+                "value": "عن بُعد"
+              },
+              {
+                "label": "حضوري وعن بُعد",
+                "value": "حضوري وعن بُعد"
+              }
+            ]
+          }
+        ]
+      },
+      "count": 1
+    },
+    {
+      "name": "professionals",
+      "stage": "detail",
+      "url": "http://127.0.0.1:3103/professionals/ali-carpenter?from=%2Fprofessionals%3Fq%3D%25D8%25B3%25D8%25B9%25D9%258A%25D8%25AF%26location%3D%25D8%25B5%25D9%2586%25D8%25B9%25D8%25A7%25D8%25A1%23professionals-directory",
+      "backLinks": [
+        {
+          "label": " العودة إلى دليل المهنيين",
+          "href": "/professionals?q=%D8%B3%D8%B9%D9%8A%D8%AF&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1#professionals-directory"
+        }
+      ]
+    },
+    {
+      "name": "professionals",
+      "stage": "browser-back",
+      "after": {
+        "url": "http://127.0.0.1:3103/professionals?q=%D8%B3%D8%B9%D9%8A%D8%AF&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+        "query": "سعيد",
+        "selects": [
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "كل المهن",
+                "value": "الكل"
+              },
+              {
+                "label": "نجارة وأثاث",
+                "value": "نجارة وأثاث"
+              }
+            ]
+          },
+          {
+            "value": "صنعاء",
+            "options": [
+              {
+                "label": "كل مناطق الخدمة",
+                "value": "كل المحافظات"
+              },
+              {
+                "label": "سقطرى",
+                "value": "سقطرى"
+              },
+              {
+                "label": "أمانة العاصمة",
+                "value": "أمانة العاصمة"
+              },
+              {
+                "label": "صنعاء",
+                "value": "صنعاء"
+              }
+            ]
+          },
+          {
+            "value": "كل طرق الخدمة",
+            "options": [
+              {
+                "label": "كل طرق الخدمة",
+                "value": "كل طرق الخدمة"
+              },
+              {
+                "label": "حضوري",
+                "value": "حضوري"
+              },
+              {
+                "label": "عن بُعد",
+                "value": "عن بُعد"
+              },
+              {
+                "label": "حضوري وعن بُعد",
+                "value": "حضوري وعن بُعد"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "professionals",
+      "stage": "site-back-link",
+      "after": {
+        "url": "http://127.0.0.1:3103/professionals?q=%D8%B3%D8%B9%D9%8A%D8%AF&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1#professionals-directory",
+        "query": "سعيد",
+        "selects": [
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "كل المهن",
+                "value": "الكل"
+              },
+              {
+                "label": "نجارة وأثاث",
+                "value": "نجارة وأثاث"
+              }
+            ]
+          },
+          {
+            "value": "صنعاء",
+            "options": [
+              {
+                "label": "كل مناطق الخدمة",
+                "value": "كل المحافظات"
+              },
+              {
+                "label": "سقطرى",
+                "value": "سقطرى"
+              },
+              {
+                "label": "أمانة العاصمة",
+                "value": "أمانة العاصمة"
+              },
+              {
+                "label": "صنعاء",
+                "value": "صنعاء"
+              }
+            ]
+          },
+          {
+            "value": "كل طرق الخدمة",
+            "options": [
+              {
+                "label": "كل طرق الخدمة",
+                "value": "كل طرق الخدمة"
+              },
+              {
+                "label": "حضوري",
+                "value": "حضوري"
+              },
+              {
+                "label": "عن بُعد",
+                "value": "عن بُعد"
+              },
+              {
+                "label": "حضوري وعن بُعد",
+                "value": "حضوري وعن بُعد"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "products",
+      "stage": "filtered",
+      "before": {
+        "url": "http://127.0.0.1:3103/yemeni-products?q=%D8%B1%D8%AD%D9%8A%D9%82&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+        "query": "رحيق",
+        "selects": [
+          {
+            "value": "صنعاء",
+            "options": [
+              {
+                "label": "كل المحافظات",
+                "value": "كل المحافظات"
+              },
+              {
+                "label": "صنعاء",
+                "value": "صنعاء"
+              }
+            ]
+          },
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "الكل",
+                "value": "الكل"
+              },
+              {
+                "label": "أغذية ومشروبات",
+                "value": "أغذية ومشروبات"
+              }
+            ]
+          }
+        ]
+      },
+      "count": 1
+    },
+    {
+      "name": "products",
+      "stage": "detail",
+      "url": "http://127.0.0.1:3103/yemeni-products/yemen-nectar?from=%2Fyemeni-products%3Fq%3D%25D8%25B1%25D8%25AD%25D9%258A%25D9%2582%26location%3D%25D8%25B5%25D9%2586%25D8%25B9%25D8%25A7%25D8%25A1%23directory",
+      "backLinks": [
+        {
+          "label": " العودة إلى دليل المنتجات",
+          "href": "/yemeni-products?q=%D8%B1%D8%AD%D9%8A%D9%82&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1#directory"
+        }
+      ]
+    },
+    {
+      "name": "products",
+      "stage": "browser-back",
+      "after": {
+        "url": "http://127.0.0.1:3103/yemeni-products?q=%D8%B1%D8%AD%D9%8A%D9%82&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+        "query": "رحيق",
+        "selects": [
+          {
+            "value": "صنعاء",
+            "options": [
+              {
+                "label": "كل المحافظات",
+                "value": "كل المحافظات"
+              },
+              {
+                "label": "صنعاء",
+                "value": "صنعاء"
+              }
+            ]
+          },
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "الكل",
+                "value": "الكل"
+              },
+              {
+                "label": "أغذية ومشروبات",
+                "value": "أغذية ومشروبات"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "products",
+      "stage": "site-back-link",
+      "after": {
+        "url": "http://127.0.0.1:3103/yemeni-products?q=%D8%B1%D8%AD%D9%8A%D9%82&location=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1#directory",
+        "query": "رحيق",
+        "selects": [
+          {
+            "value": "صنعاء",
+            "options": [
+              {
+                "label": "كل المحافظات",
+                "value": "كل المحافظات"
+              },
+              {
+                "label": "صنعاء",
+                "value": "صنعاء"
+              }
+            ]
+          },
+          {
+            "value": "الكل",
+            "options": [
+              {
+                "label": "الكل",
+                "value": "الكل"
+              },
+              {
+                "label": "أغذية ومشروبات",
+                "value": "أغذية ومشروبات"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {useEffect, useMemo, useState} from 'react';
 import {ArrowUpLeft, AtSign, Facebook, Globe2, MapPinned, RotateCcw, Search, Youtube} from 'lucide-react';
-import {normalizeArabic} from './mapGeometry';
+import {matchesSearch} from '@/lib/search';
 import {yemenGovernorates, yemeniFigureEras, yemeniFigureFields} from '@/lib/yemeniFigures';
 import {formatNumber} from '@/lib/format';
 
@@ -26,7 +26,7 @@ function figureInitials(name) {
     .map(word => word.replace(/^ال/, '').slice(0, 1)).join(' ');
 }
 
-export default function YemeniFiguresDirectory({figures, selectedGovernorateId, onGovernorateChange}) {
+export default function YemeniFiguresDirectory({figures, selectedGovernorateId, onGovernorateChange, embedded=false}) {
   const [query, setQuery] = useState('');
   const [field, setField] = useState('الكل');
   const [era, setEra] = useState('الكل');
@@ -43,10 +43,8 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
   ), [figures]);
 
   const filteredFigures = useMemo(() => {
-    const normalizedQuery = normalizeArabic(query);
     return figures.filter(figure => {
-      const matchesName = !normalizedQuery || [figure.fullName, figure.knownFor, figure.shortBio]
-        .some(value => normalizeArabic(value).includes(normalizedQuery));
+      const matchesName = matchesSearch(query,[figure.fullName,figure.knownFor,figure.shortBio]);
       const matchesField = field === 'الكل' || figure.field === field;
       const matchesGovernorate = !selectedGovernorateId || figure.governorateId === selectedGovernorateId;
       const matchesEra = era === 'الكل' || figure.era === era;
@@ -68,7 +66,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
     onGovernorateChange(null);
   }
 
-  return <section className="yfigures-section" id="yemeni-figures">
+  return <section className="yfigures-section" id={embedded?undefined:'yemeni-figures'}>
     <div className="container yfigures-container">
       <header className="yfigures-head">
         <div><span className="eyebrow">ذاكرة وأثر</span><h2>شخصيات <span>يمنية</span></h2></div>

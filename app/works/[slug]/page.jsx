@@ -9,6 +9,7 @@ import MediaViewer from '@/components/MediaViewer';
 import WorkCard from '@/components/WorkCard';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd, workSchema} from '@/lib/seo-schema';
+import {collectionDefaults,listReturnPath} from '@/lib/listState';
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
@@ -22,7 +23,7 @@ export async function generateMetadata({params}) {
   });
 }
 
-export default async function WorkDetails({params}) {
+export default async function WorkDetails({params,searchParams}) {
   const {slug} = await params;
   const works = await getWorks();
   const work = works.find(item => item.slug === slug);
@@ -31,12 +32,14 @@ export default async function WorkDetails({params}) {
   if (related.length < 3) related.push(...works.filter(item => item.id !== work.id && !related.some(x => x.id === item.id)).slice(0, 3 - related.length));
   const date = work.published_at ? new Date(work.published_at) : null;
   const external = safeExternalUrl(work.external_url);
+  const query=await searchParams;
+  const returnTo=listReturnPath(query.from,'/works',collectionDefaults.works,'#works-results');
 
   return <>
     <JsonLd data={workSchema(work)}/>
     <JsonLd data={breadcrumbSchema([{name:'الأعمال الإعلامية', path:'/works'}, {name:work.title, path:detailPath('works', work.slug)}])}/>
     <section className="work-detail-head"><div className="container">
-      <Link href="/works" className="back-link"><ArrowRight size={17}/> العودة إلى الأعمال</Link>
+      <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى الأعمال</Link>
       <div className="work-detail-taxonomy"><span>{work.category}</span><span className="work-detail-dot"/><span>{work.platform}</span></div>
       <h1>{work.title}</h1>
       <div className="work-detail-subhead">

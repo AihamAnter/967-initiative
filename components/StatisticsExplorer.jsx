@@ -1,28 +1,27 @@
 'use client';
 
-import {useMemo, useState} from 'react';
+import {useMemo} from 'react';
 import {Filter, Search, X} from 'lucide-react';
 import IndicatorCard from '@/components/IndicatorCard';
 import {formatNumber} from '@/lib/format';
 import {formatYear} from '@/lib/format';
-import {matchesSearch} from '@/lib/search';
+import {rankSearchResults} from '@/lib/search';
 import Pagination from './Pagination';
+import useListState from './useListState';
 
 export default function StatisticsExplorer({indicators, sections}) {
-  const [query, setQuery] = useState('');
-  const [domain, setDomain] = useState('all');
-  const [year, setYear] = useState('all');
-  const [page, setPage] = useState(1);
+  const [{q:query,domain,year,page},update]=useListState({q:'',domain:'all',year:'all',page:1});
+  const setQuery=q=>update({q,page:1}),setDomain=domain=>update({domain,page:1}),setYear=year=>update({year,page:1}),setPage=page=>update({page});
   const years = useMemo(() => [...new Set(indicators.flatMap(item => item.values.map(value => Number(value.year))))].sort((a, b) => b - a), [indicators]);
   const visible = useMemo(() => {
-    return indicators.filter(item => {
-      const searchText = [item.name, item.short_description, item.definition, item.domain?.name, item.domain?.section?.name].join(' ').toLocaleLowerCase('ar');
-      return matchesSearch(query, searchText)
-        && (domain === 'all' || item.domain_id === domain)
-        && (year === 'all' || item.values.some(value => String(value.year) === year));
-    });
+    const candidates = indicators.filter(item => (domain === 'all' || item.domain_id === domain)
+      && (year === 'all' || item.values.some(value => String(value.year) === year)))
+      .map(item => ({indicator: item, title: item.name, description: item.short_description,
+        meta: item.domain?.name, searchText: [item.definition, item.domain?.section?.name].filter(Boolean).join(' ')}));
+    return rankSearchResults(query, candidates).map(item => item.indicator);
   }, [domain, indicators, query, year]);
   const filtered = query || domain !== 'all' || year !== 'all';
+  const currentPage=Math.min(page,Math.max(1,Math.ceil(visible.length/12)));
 
   return <div className="stat-explorer">
     <div className="stat-toolbar" role="search">
@@ -32,7 +31,7 @@ export default function StatisticsExplorer({indicators, sections}) {
       {filtered && <button className="stat-clear" onClick={() => {setQuery(''); setDomain('all'); setYear('all');setPage(1);}}><X size={16}/> إعادة الضبط</button>}
     </div>
     <div className="stat-results-head" aria-live="polite"><strong>عدد المؤشرات المطابقة: {formatNumber(visible.length)}</strong><span>النطاق الجغرافي: الجمهورية اليمنية</span></div>
-    {visible.length ? <div className="stat-indicator-grid">{visible.slice((page-1)*12,page*12).map(indicator => <IndicatorCard indicator={indicator} key={indicator.id}/>)}</div> : <div className="stat-empty"><Search size={28}/><h3>لا توجد مؤشرات مطابقة</h3><p>{indicators.length ? 'غيّر كلمات البحث أو عوامل التصفية.' : 'لم تُنشر مؤشرات رقمية بعد. ستظهر هنا بعد توثيقها ونشرها من لوحة التحرير.'}</p></div>}
-    <Pagination page={page} count={visible.length} onChange={setPage}/>
+    {visible.length ? <div className="stat-indicator-grid">{visible.slice((currentPage-1)*12,currentPage*12).map(indicator => <IndicatorCard indicator={indicator} key={indicator.id}/>)}</div> : <div className="stat-empty"><Search size={28}/><h3>لا توجد مؤشرات مطابقة</h3><p>{indicators.length ? 'غيّر كلمات البحث أو عوامل التصفية.' : 'لم تُنشر مؤشرات رقمية بعد. ستظهر هنا بعد توثيقها ونشرها من لوحة التحرير.'}</p></div>}
+    <Pagination page={currentPage} count={visible.length} onChange={setPage}/>
   </div>;
 }

@@ -1,0 +1,718 @@
+{
+  "base": "http://127.0.0.1:3104",
+  "startedAt": "2026-10-18T19:05:33.550Z",
+  "scenarios": [
+    {
+      "name": "Contribution draft survives type changes, reload, and back; clear removes it",
+      "pass": true
+    },
+    {
+      "name": "Mocked contact success clears the session draft without a real submission",
+      "pass": true
+    },
+    {
+      "name": "Search ranks direct names, matches separated words, and supports exact/excluded/title modes",
+      "pass": true
+    },
+    {
+      "name": "Work filters and search survive detail/back and direct URL reload",
+      "pass": true
+    },
+    {
+      "name": "Directories match separate fields and service areas; WhatsApp uses the saved number",
+      "pass": true
+    },
+    {
+      "name": "Atlas is visible early; display options work and a place opens its figures",
+      "pass": true
+    },
+    {
+      "name": "One-year indicator gives a brief explanation and no misleading trend chart",
+      "pass": true
+    },
+    {
+      "name": "Indicator search ranks its title ahead of a broad category mention",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 320,
+      "document": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 390,
+      "document": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 768,
+      "document": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 1024,
+      "document": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 1440,
+      "document": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 1920,
+      "document": 1920,
+      "clipped": [],
+      "pass": true
+    }
+  ],
+  "axe": [
+    {
+      "route": "/",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".participate-banner > .container > div > span"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.4 (foreground color: #c9dedb, background color: #176b75, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/yemen-population",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "metrics": {
+    "formTop390": 357.078125,
+    "mapTop390": 471.015625
+  },
+  "finishedAt": "2026-10-18T19:07:04.366Z",
+  "failures": 1
+}

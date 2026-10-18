@@ -27,6 +27,7 @@ import {getYemeniCompanies, getYemeniCompany} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
+import {collectionDefaults,listReturnPath} from '@/lib/listState';
 
 export const dynamic = 'force-dynamic';
 
@@ -52,7 +53,7 @@ function ProfileFact({icon: Icon, label, value, ltr = false}) {
   </div>;
 }
 
-export default async function YemeniCompanyPage({params}) {
+export default async function YemeniCompanyPage({params,searchParams}) {
   const {id} = await params;
   const company = await getYemeniCompany(id);
   if (!company) notFound();
@@ -60,13 +61,15 @@ export default async function YemeniCompanyPage({params}) {
   const related = companies.filter(item => item.id !== company.id && item.category === company.category).slice(0, 2);
   const mapQuery = [company.address, company.location, 'اليمن'].filter(Boolean).join('، ');
   const googleMapsUrl = company.googleMapsUrl || (mapQuery ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}` : null);
+  const query=await searchParams;
+  const returnTo=listReturnPath(query.from,'/yemeni-products',collectionDefaults.products,'#directory');
 
   return <>
     <JsonLd data={breadcrumbSchema([{name:'منتجات يمنية', path:'/yemeni-products'}, {name:company.name, path:detailPath('yemeni-products', company.id)}])}/>
     <section className="company-profile-hero">
       {company.imageUrl && <div className="company-profile-image"><Image src={company.imageUrl} alt={'صورة '+company.name} fill priority sizes="(max-width: 800px) 100vw, 52vw" style={{objectPosition: company.imagePosition}}/></div>}
       <div className="company-profile-copy">
-        <Link href="/yemeni-products#directory" className="back-link"><ArrowRight size={17}/> العودة إلى دليل المنتجات</Link>
+        <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى دليل المنتجات</Link>
         <div className="company-profile-tags"><span>{company.category}</span><span>{company.scale}</span><span><MapPin size={13}/>{company.location}</span></div>
         <h1>{company.name}</h1>
         <p>{company.summary}</p>

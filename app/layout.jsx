@@ -1,6 +1,7 @@
 import './fonts.css';
 import './globals.css';
 import './design-system.css';
+import './platform-refinements.css';
 import {site} from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -14,6 +15,7 @@ export const metadata = {
  metadataBase:new URL(getSiteOrigin()),
  title:{default:'مبادرة 967 | صوت ومعرفة ومجتمع',template:'%s | مبادرة 967'},
  description:site.description,
+ icons:{icon:'/images/967%20logo%20no%20background.png'},
 };
 export default async function RootLayout({children}){
  const settings=await getSiteSettings();

@@ -1,0 +1,2131 @@
+{
+  "base": "http://127.0.0.1:3102",
+  "label": "ux-refresh",
+  "startedAt": "2026-10-18T14:28:44.853Z",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "title": "967 | اليمن، أقرب إليك",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/works",
+      "status": 200,
+      "title": "الأعمال الإعلامية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/works",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/magazine",
+      "status": 200,
+      "title": "مجلة 967 | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/magazine",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/magazine/demo",
+      "status": 200,
+      "title": "نموذج تجريبي لقراءة مجلة 967 | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/magazine/demo",
+      "robots": "noindex, follow"
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "status": 200,
+      "title": "اليمن بالأرقام | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemen-in-numbers",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "status": 200,
+      "title": "اليمن عبر الزمن | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemen-in-numbers/timeline",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-map",
+      "status": 200,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemen-map",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemeni-products",
+      "status": 200,
+      "title": "منتجات يمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemeni-products",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/professionals",
+      "status": 200,
+      "title": "المهنيون | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/professionals",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/search",
+      "status": 200,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/search",
+      "robots": "noindex, follow"
+    },
+    {
+      "route": "/contribute",
+      "status": 200,
+      "title": "تواصل وشارك | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/contribute",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/admin",
+      "status": 200,
+      "title": "تسجيل الدخول | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/admin",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "status": 200,
+      "title": "مناظرة بين احمد و فتحي حول العزلة اليمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/works/work-mv6tx5yo",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/magazine/issue-2",
+      "status": 200,
+      "title": "اليمن خلف عناوين الحرب والسلام | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/magazine/issue-2",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "status": 200,
+      "title": "علي سعيد الكروني | المهنيون | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/professionals/ali-carpenter",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "status": 200,
+      "title": "رحيق اليمن | منتجات يمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemeni-products/yemen-nectar",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "status": 200,
+      "title": "المنشآت التي تشارك النساء في ملكيتها | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "status": 200,
+      "title": "الناتج المحلي الإجمالي | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemen-in-numbers/gdp",
+      "robots": "index, follow"
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "status": 200,
+      "title": "الملكة أروى بنت أحمد الصليحي | شخصيات يمنية | مبادرة 967",
+      "h1": 1,
+      "lang": "ar",
+      "dir": "rtl",
+      "canonical": "https://967-initiative.vercel.app/yemen-map/figures/arwa-al-sulayhi",
+      "robots": "noindex, follow"
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": ""
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": ""
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": ""
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": ""
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/search",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/admin",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": "stat-series-table"
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": "stat-series-table"
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": "stat-series-table"
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [
+        {
+          "tag": "TABLE",
+          "cls": "stat-series-table"
+        },
+        {
+          "tag": "CAPTION",
+          "cls": ""
+        },
+        {
+          "tag": "THEAD",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TH",
+          "cls": ""
+        },
+        {
+          "tag": "TBODY",
+          "cls": ""
+        },
+        {
+          "tag": "TR",
+          "cls": ""
+        },
+        {
+          "tag": "TD",
+          "cls": ""
+        }
+      ],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 320,
+      "pass": true,
+      "viewport": 320,
+      "document": 320,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 360,
+      "pass": true,
+      "viewport": 360,
+      "document": 360,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 390,
+      "pass": true,
+      "viewport": 390,
+      "document": 390,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 430,
+      "pass": true,
+      "viewport": 430,
+      "document": 430,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "document": 768,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1024,
+      "pass": true,
+      "viewport": 1024,
+      "document": 1024,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1440,
+      "pass": true,
+      "viewport": 1440,
+      "document": 1440,
+      "overflow": [],
+      "clippedControls": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1920,
+      "pass": true,
+      "viewport": 1920,
+      "document": 1920,
+      "overflow": [],
+      "clippedControls": []
+    }
+  ],
+  "accessibility": [
+    {
+      "route": "/",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine/demo",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/timeline",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/admin",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/admin",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/works/work-mv6tx5yo",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/magazine/issue-2",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals/ali-carpenter",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products/yemen-nectar",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/indicator/firms-with-female-ownership",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers/gdp",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "mobile menu opens, Escape closes, keyboard focus returns",
+      "pass": true
+    },
+    {
+      "name": "Arabic search finds figure and empty search recovers",
+      "pass": true
+    },
+    {
+      "name": "PDF loads, navigation works and page input accepts a complete number",
+      "pass": true
+    },
+    {
+      "name": "map loads, zoom/reset and governorate selection work",
+      "pass": true
+    },
+    {
+      "name": "contact UI reports mocked success without sending a message",
+      "pass": true
+    },
+    {
+      "name": "desktop dropdown Escape and direct detail/back navigation",
+      "pass": true
+    },
+    {
+      "name": "content searches produce empty states and recover",
+      "pass": true
+    },
+    {
+      "name": "PDF readable text, multi-digit clamp, spread and download",
+      "pass": true
+    },
+    {
+      "name": "PDF failure offers retry and recovers",
+      "pass": true
+    },
+    {
+      "name": "map network failure offers retry and recovers",
+      "pass": true
+    },
+    {
+      "name": "share handles a denied clipboard with a selectable link",
+      "pass": true
+    },
+    {
+      "name": "timeline table and CSV/PNG exports match visible data",
+      "pass": true
+    },
+    {
+      "name": "contact non-JSON error and network failure preserve the message",
+      "pass": true
+    }
+  ],
+  "runtimeErrors": [],
+  "completedAt": "2026-10-18T14:30:32.219Z"
+}

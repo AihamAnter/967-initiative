@@ -1,0 +1,67 @@
+[
+  {
+    "name": "mobile-form-position",
+    "formTop": 996.65625,
+    "viewport": 844
+  },
+  {
+    "name": "changing-contribution-route",
+    "message": "",
+    "person": "",
+    "email": "",
+    "type": "اقتراح شركة أو منتج"
+  },
+  {
+    "name": "work-search-after-back",
+    "query": "",
+    "cards": 2
+  },
+  {
+    "name": "professional-contact-links",
+    "count": 0
+  },
+  {
+    "name": "statistics-arabic-search",
+    "query": "السكان",
+    "count": 12
+  },
+  {
+    "name": "search-sanaa-first-page",
+    "results": [
+      "علي بن محمد الصليحي",
+      "أسماء بنت شهاب",
+      "الحسن بن أحمد الهمداني",
+      "محمد بن علي الشوكاني",
+      "عبد الرزاق الصنعاني",
+      "عزيزة عبد الله أبو لحوم",
+      "محسن العيني",
+      "رحيق اليمن",
+      "علي سعيد الكروني",
+      "الجوف",
+      "المحويت",
+      "عمران"
+    ]
+  },
+  {
+    "name": "search-sanaa-second-page",
+    "results": [
+      "ذمار",
+      "مارب",
+      "صنعاء",
+      "امانة العاصمه",
+      "الحيمة الداخليه",
+      "الحيمة الخارجيه",
+      "الحصن",
+      "ارحب",
+      "الطيال",
+      "بني ضبيان",
+      "بني حشيش",
+      "بني مطر"
+    ]
+  },
+  {
+    "name": "mobile-map",
+    "mapTop": 751.21875,
+    "touchAction": "none"
+  }
+]

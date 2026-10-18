@@ -2,23 +2,21 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import {useMemo, useState} from 'react';
+import {useMemo} from 'react';
 import {ArrowUpLeft, ChevronDown, MapPin, Package, Search, SlidersHorizontal, X} from 'lucide-react';
 import {formatNumber} from '@/lib/format';
-import {normalizeSearch} from '@/lib/search';
+import {matchesSearch} from '@/lib/search';
+import useListState from './useListState';
+import {collectionDefaults,listStateSearch} from '@/lib/listState';
 import Pagination from './Pagination';
 
 export default function YemeniProductDirectory({companies}) {
-  const [query, setQuery] = useState('');
-  const [page, setPage] = useState(1);
-  const [category, setCategory] = useState('الكل');
-  const [location, setLocation] = useState('كل المحافظات');
+  const [{q:query,page,category,location},update]=useListState(collectionDefaults.products);
+  const setQuery=q=>update({q,page:1}),setPage=page=>update({page}),setCategory=category=>update({category,page:1}),setLocation=location=>update({location,page:1});
   const results = useMemo(() => {
-    const needle = normalizeSearch(query);
     return companies.filter(company => {
-      const haystack = [company.name, company.summary, company.location, company.category, ...company.products, ...company.strengths]
-        .join(' ');
-      return (!needle || normalizeSearch(haystack).includes(needle))
+      const haystack = [company.name, company.summary, company.location, company.category, ...company.products, ...company.strengths];
+      return matchesSearch(query,haystack)
         && (category === 'الكل' || company.category === category)
         && (location === 'كل المحافظات' || company.location === location);
     });
@@ -33,10 +31,10 @@ export default function YemeniProductDirectory({companies}) {
   ], [companies]);
 
   const clearFilters = () => {
-    setQuery('');setPage(1);
-    setCategory('الكل');
-    setLocation('كل المحافظات');
+    update({q:'',page:1,category:'الكل',location:'كل المحافظات'});
   };
+  const currentPage=Math.min(page,Math.max(1,Math.ceil(results.length/12)));
+  const returnTo='/yemeni-products'+listStateSearch('',{q:query,page:currentPage,category,location},collectionDefaults.products)+'#directory';
 
   return <div className="products-directory">
     <div className="products-filter-bar">
@@ -69,8 +67,8 @@ export default function YemeniProductDirectory({companies}) {
       {(query || category !== 'الكل' || location !== 'كل المحافظات') && <button className="filter-reset" onClick={clearFilters}>إعادة الضبط</button>}
     </div>
 
-    {results.length ? <div className="company-grid">{results.slice((page-1)*12,page*12).map(company =>
-      <Link className="company-card" href={'/yemeni-products/' + company.id} key={company.id}>
+    {results.length ? <div className={'company-grid collection-results results-count-'+Math.min(results.length,3)}>{results.slice((currentPage-1)*12,currentPage*12).map(company =>
+      <Link className="company-card" href={'/yemeni-products/' + company.id+'?from='+encodeURIComponent(returnTo)} key={company.id}>
         <div className="company-media">
           {company.imageUrl ? <Image src={company.imageUrl || '/images/yemeni-products-hero.png'} alt={company.products.join('، ')} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" style={{objectPosition: company.imagePosition}}/> : <div className="company-placeholder"><Package size={42} strokeWidth={1}/></div>}
           <span>{company.scale}</span>
@@ -87,6 +85,6 @@ export default function YemeniProductDirectory({companies}) {
       <Package size={34}/><h2>لا توجد نتائج مطابقة</h2><p>جرّب كلمة أخرى أو اعرض جميع القطاعات والمحافظات.</p>
       <button type="button" className="btn btn-outline" onClick={clearFilters}>إزالة عوامل التصفية</button>
     </div>}
-    <Pagination page={page} count={results.length} onChange={setPage}/>
+    <Pagination page={currentPage} count={results.length} onChange={setPage}/>
   </div>;
 }

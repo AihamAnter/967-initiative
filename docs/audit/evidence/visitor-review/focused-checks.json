@@ -1,0 +1,122 @@
+[
+  {
+    "label": "local",
+    "name": "actual-published-pdf-text",
+    "text": "قراءة نص الصفحات المعروضة\nصفحة 1\n\nنسخة   /   العدد 00   مبادرة إعالمية ومجتمعية يمنية \n967 مــــجــــلــــة \nاليمن بعدسة الناس   /   ملف العدد \n... اليمن\nالحياة التي\nتستمر \nخلف األخبار العاجلة، هناك مدرسة تحاول أن تفتح أبوابها، وماء يجب أن يصل، وحياة\nيومية ال تتوقف. \nفي هذا العدد \nالتراث   •   الصحة   •   التعليم   •   الماء 00 \nالصور المعمارية رسوم تحريرية   •   تصميم تجريبي لمجلة 967"
+  },
+  {
+    "label": "local",
+    "name": "work-back-search-state",
+    "query": "",
+    "count": 2
+  },
+  {
+    "label": "published",
+    "name": "actual-published-pdf-text",
+    "text": "قراءة نص الصفحات المعروضة\nصفحة 1\n\nنسخة   /   العدد 00   مبادرة إعالمية ومجتمعية يمنية \n967 مــــجــــلــــة \nاليمن بعدسة الناس   /   ملف العدد \n... اليمن\nالحياة التي\nتستمر \nخلف األخبار العاجلة، هناك مدرسة تحاول أن تفتح أبوابها، وماء يجب أن يصل، وحياة\nيومية ال تتوقف. \nفي هذا العدد \nالتراث   •   الصحة   •   التعليم   •   الماء 00 \nالصور المعمارية رسوم تحريرية   •   تصميم تجريبي لمجلة 967"
+  },
+  {
+    "label": "published",
+    "name": "work-back-search-state",
+    "query": "",
+    "count": 2
+  },
+  {
+    "label": "local",
+    "name": "statistics-search-settled",
+    "query": "السكان",
+    "count": 12,
+    "message": "عدد المؤشرات المطابقة: 13\nالنطاق الجغرافي: الجمهورية اليمنية"
+  },
+  {
+    "label": "local",
+    "name": "statistics-search-without-article",
+    "query": "سكان",
+    "count": 12
+  },
+  {
+    "label": "local",
+    "name": "population-explanation-clipping",
+    "items": [
+      {
+        "tag": "SECTION",
+        "text": "ما الذي يقيسه؟\nالتعريف\n\nإجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر",
+        "rect": {
+          "x": 16,
+          "y": 1896.109375,
+          "width": 358,
+          "height": 180,
+          "top": 1896.109375,
+          "right": 374,
+          "bottom": 2076.109375,
+          "left": 16
+        },
+        "clientWidth": 358,
+        "scrollWidth": 358
+      },
+      {
+        "tag": "P",
+        "text": "إجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر",
+        "rect": {
+          "x": 16,
+          "y": 2004.109375,
+          "width": 358,
+          "height": 57,
+          "top": 2004.109375,
+          "right": 374,
+          "bottom": 2061.109375,
+          "left": 16
+        },
+        "clientWidth": 358,
+        "scrollWidth": 358
+      },
+      {
+        "tag": "SECTION",
+        "text": "كيف نقرأه؟\nالمعنى والمنهجية\n\nراجع المصدر ووثيقة النشر لفهم طريقة القياس وحدود المقارنة.",
+        "rect": {
+          "x": 16,
+          "y": 2111.109375,
+          "width": 358,
+          "height": 151.5,
+          "top": 2111.109375,
+          "right": 374,
+          "bottom": 2262.609375,
+          "left": 16
+        },
+        "clientWidth": 358,
+        "scrollWidth": 358
+      },
+      {
+        "tag": "P",
+        "text": "راجع المصدر ووثيقة النشر لفهم طريقة القياس وحدود المقارنة.",
+        "rect": {
+          "x": 16,
+          "y": 2219.109375,
+          "width": 358,
+          "height": 28.5,
+          "top": 2219.109375,
+          "right": 374,
+          "bottom": 2247.609375,
+          "left": 16
+        },
+        "clientWidth": 358,
+        "scrollWidth": 358
+      }
+    ],
+    "sources": [
+      {
+        "label": "زيارة المصدر ",
+        "href": "https://worldpopulationreview.com/countries/yemen"
+      },
+      {
+        "label": "وثيقة أحدث قيمة ",
+        "href": "https://worldpopulationreview.com/countries/yemen"
+      }
+    ]
+  },
+  {
+    "label": "local",
+    "name": "home-and-map-dimensions",
+    "figuresDemo": 12
+  }
+]

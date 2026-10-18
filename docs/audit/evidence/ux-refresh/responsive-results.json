@@ -1,0 +1,860 @@
+{
+  "base": "http://127.0.0.1:3102",
+  "startedAt": "2026-10-18T14:32:07.356Z",
+  "layouts": [
+    {
+      "route": "/",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/works",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/magazine",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/professionals",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 360,
+      "documentWidth": 360,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 430,
+      "documentWidth": 430,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 900,
+      "documentWidth": 900,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 901,
+      "documentWidth": 901,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/search",
+      "width": 1920,
+      "documentWidth": 1920,
+      "clipped": [],
+      "pass": true
+    }
+  ],
+  "accessibility": [
+    {
+      "route": "/",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/search",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Home uses full collection width and readable mobile destinations",
+      "pass": true
+    },
+    {
+      "name": "Mobile navigation and keyboard focus restore at 320 and 390px",
+      "pass": true
+    },
+    {
+      "name": "Search and directory filters recover from an empty result",
+      "pass": true
+    },
+    {
+      "name": "A removed thumbnail leaves a readable editorial fallback and valid work link",
+      "pass": true
+    },
+    {
+      "name": "Hero search submits an actual search and atlas links resolve",
+      "pass": true
+    }
+  ],
+  "runtimeErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "finishedAt": "2026-10-18T14:32:54.237Z",
+  "failures": 0,
+  "buildId": "Y65lOaomNbut3Qytr5iMe"
+}

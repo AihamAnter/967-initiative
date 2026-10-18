@@ -1,0 +1,77 @@
+[
+  {
+    "pass": false,
+    "stage": "wait places",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&mode=any&scope=title&exclude=",
+    "error": "page.waitForURL: Timeout 30000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until \"load\"\n============================================================",
+    "form": [
+      {
+        "html": "<form role=\"search\" class=\"advanced-search-form\" action=\"/search\"><div class=\"global-search\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-search\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><path d=\"m21 21-4.3-4.3\"></path></svg><label class=\"sr-only\" for=\"platform-search\">ابحث في منصة 967</label><input id=\"platform-search\" type=\"search\" placeholder=\"مثال: نجار صنعاء أو سكان اليمن\" maxlength=\"150\" name=\"q\" value=\"صنعاء\"><button type=\"submit\" aria-label=\"ابحث في المنصة\"><span>ابحث</span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-left\"><path d=\"m12 19-7-7 7-7\"></path><path d=\"M19 12H5\"></path></svg></button></div><input type=\"hidden\" name=\"type\" value=\"all\"><details class=\"advanced-search-options\" open=\"\"><summary><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sliders-horizontal\"><line x1=\"21\" x2=\"14\" y1=\"4\" y2=\"4\"></line><line x1=\"10\" x2=\"3\" y1=\"4\" y2=\"4\"></line><line x1=\"21\" x2=\"12\" y1=\"12\" y2=\"12\"></line><line x1=\"8\" x2=\"3\" y1=\"12\" y2=\"12\"></line><line x1=\"21\" x2=\"16\" y1=\"20\" y2=\"20\"></line><line x1=\"12\" x2=\"3\" y1=\"20\" y2=\"20\"></line><line x1=\"14\" x2=\"14\" y1=\"2\" y2=\"6\"></line><line x1=\"8\" x2=\"8\" y1=\"10\" y2=\"14\"></line><line x1=\"16\" x2=\"16\" y1=\"18\" y2=\"22\"></line></svg> خيارات البحث</summary><div class=\"advanced-search-fields\"><label>مطابقة الكلمات<select name=\"mode\"><option value=\"all\">كل الكلمات، بأي ترتيب</option><option value=\"any\" selected=\"\">أي كلمة من الكلمات</option><option value=\"phrase\">العبارة بالترتيب نفسه</option></select></label><label>أين نبحث؟<select name=\"scope\"><option value=\"all\">الاسم والوصف والتفاصيل</option><option value=\"title\" selected=\"\">الاسم أو العنوان فقط</option></select></label><label>استبعاد كلمات<input maxlength=\"150\" placeholder=\"مثال: تجريبي\" name=\"exclude\" value=\"\"></label></div><p>اكتب كلمتين ولو كانتا متباعدتين. استخدم «\"الطاقة الشمسية\"» لعبارة دقيقة، و«-كلمة» لاستبعادها.</p><button class=\"btn btn-outline\" type=\"submit\">تطبيق الخيارات <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-left\"><path d=\"m12 19-7-7 7-7\"></path><path d=\"M19 12H5\"></path></svg></button></details></form>",
+        "values": [
+          {
+            "name": "q",
+            "value": "صنعاء"
+          },
+          {
+            "name": "type",
+            "value": "all"
+          },
+          {
+            "name": "mode",
+            "value": "any"
+          },
+          {
+            "name": "scope",
+            "value": "title"
+          },
+          {
+            "name": "exclude",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "text": "كل المحتوى · 2",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&mode=any&scope=title"
+      },
+      {
+        "text": "الأعمال الإعلامية · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=works&mode=any&scope=title"
+      },
+      {
+        "text": "المجلة · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=issues&mode=any&scope=title"
+      },
+      {
+        "text": "المؤشرات · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=indicators&mode=any&scope=title"
+      },
+      {
+        "text": "الشخصيات · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=figures&mode=any&scope=title"
+      },
+      {
+        "text": "الشركات والمنتجات · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=companies&mode=any&scope=title"
+      },
+      {
+        "text": "المهنيون · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=professionals&mode=any&scope=title"
+      },
+      {
+        "text": "المحافظات والمديريات · 2",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title"
+      },
+      {
+        "text": "مجالات المرصد · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=domains&mode=any&scope=title"
+      },
+      {
+        "text": "صفحات المنصة · 0",
+        "href": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=pages&mode=any&scope=title"
+      }
+    ]
+  }
+]

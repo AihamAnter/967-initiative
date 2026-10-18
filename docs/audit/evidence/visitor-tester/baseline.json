@@ -1,0 +1,82 @@
+[
+  {
+    "route": "/contribute",
+    "title": "تواصل وشارك | مبادرة 967",
+    "elapsedMs": 1609,
+    "positions": [
+      {
+        "className": "contact-form",
+        "top": 996.65625,
+        "width": 358
+      }
+    ]
+  },
+  {
+    "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+    "title": "البحث في منصة 967 | مبادرة 967",
+    "elapsedMs": 7650,
+    "positions": [
+      {
+        "className": "search-result",
+        "top": 929.84375,
+        "width": 358
+      },
+      {
+        "className": "search-result",
+        "top": 1178.796875,
+        "width": 358
+      },
+      {
+        "className": "search-result",
+        "top": 1427.75,
+        "width": 358
+      },
+      {
+        "className": "search-result",
+        "top": 1676.703125,
+        "width": 358
+      }
+    ]
+  },
+  {
+    "route": "/professionals",
+    "title": "المهنيون | مبادرة 967",
+    "elapsedMs": 1091,
+    "positions": [
+      {
+        "className": "professional-card",
+        "top": 718.875,
+        "width": 358
+      }
+    ]
+  },
+  {
+    "route": "/works",
+    "title": "الأعمال الإعلامية | مبادرة 967",
+    "elapsedMs": 1656,
+    "positions": [
+      {
+        "className": "work-card",
+        "top": 673.671875,
+        "width": 358
+      },
+      {
+        "className": "work-card",
+        "top": 1171.40625,
+        "width": 358
+      }
+    ]
+  },
+  {
+    "route": "/yemen-map",
+    "title": "اكتشف اليمن | مبادرة 967",
+    "elapsedMs": 7891,
+    "positions": [
+      {
+        "className": "ymap-canvas",
+        "top": 751.21875,
+        "width": 356
+      }
+    ]
+  }
+]

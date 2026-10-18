@@ -1,0 +1,669 @@
+{
+  "base": "http://127.0.0.1:3104",
+  "results": [
+    {
+      "name": "responsive-page",
+      "route": "/contribute",
+      "width": 390,
+      "status": 200,
+      "title": "تواصل وشارك | مبادرة 967",
+      "overflow": false,
+      "height": 2407,
+      "positions": [
+        {
+          "className": "contact-form",
+          "top": 357.078125,
+          "width": 358
+        }
+      ]
+    },
+    {
+      "name": "responsive-page",
+      "route": "/contribute",
+      "width": 1440,
+      "status": 200,
+      "title": "تواصل وشارك | مبادرة 967",
+      "overflow": false,
+      "height": 1387,
+      "positions": [
+        {
+          "className": "contact-form",
+          "top": 367.6875,
+          "width": 696
+        }
+      ]
+    },
+    {
+      "name": "responsive-page",
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 390,
+      "status": 200,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "overflow": false,
+      "height": 4051,
+      "positions": [
+        {
+          "className": "search-result",
+          "top": 690.25,
+          "width": 358
+        },
+        {
+          "className": "search-result",
+          "top": 908.015625,
+          "width": 358
+        }
+      ]
+    },
+    {
+      "name": "responsive-page",
+      "route": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+      "width": 1440,
+      "status": 200,
+      "title": "البحث في منصة 967 | مبادرة 967",
+      "overflow": false,
+      "height": 3661,
+      "positions": [
+        {
+          "className": "search-result",
+          "top": 737.078125,
+          "width": 1200
+        },
+        {
+          "className": "search-result",
+          "top": 933.453125,
+          "width": 1200
+        }
+      ]
+    },
+    {
+      "name": "responsive-page",
+      "route": "/yemen-map",
+      "width": 390,
+      "status": 200,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "overflow": false,
+      "height": 2534,
+      "positions": [
+        {
+          "className": "ymap-canvas",
+          "top": 471.015625,
+          "width": 356
+        }
+      ]
+    },
+    {
+      "name": "responsive-page",
+      "route": "/yemen-map",
+      "width": 1440,
+      "status": 200,
+      "title": "اكتشف اليمن | مبادرة 967",
+      "overflow": false,
+      "height": 1859,
+      "positions": [
+        {
+          "className": "ymap-canvas",
+          "top": 433.34375,
+          "width": 820
+        }
+      ]
+    },
+    {
+      "name": "draft",
+      "afterSelectReload": {
+        "name": "اختبار مستقل دون إرسال",
+        "email": "qa@example.invalid",
+        "message": "هذه مسودة اختبار محلي لا ترسل.",
+        "type": "التطوع والمشاركة",
+        "url": "http://127.0.0.1:3104/contribute?type=%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D8%B9+%D9%88%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%83%D8%A9"
+      },
+      "afterLink": {
+        "name": "اختبار مستقل دون إرسال",
+        "email": "qa@example.invalid",
+        "message": "هذه مسودة اختبار محلي لا ترسل.",
+        "type": "تصحيح معلومة",
+        "url": "http://127.0.0.1:3104/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9#contribution-form"
+      },
+      "afterBack": {
+        "name": "اختبار مستقل دون إرسال",
+        "email": "qa@example.invalid",
+        "message": "هذه مسودة اختبار محلي لا ترسل.",
+        "type": "تصحيح معلومة",
+        "url": "http://127.0.0.1:3104/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9#contribution-form"
+      },
+      "afterClear": {
+        "name": "",
+        "email": "",
+        "message": "",
+        "type": "تصحيح معلومة",
+        "url": "http://127.0.0.1:3104/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9#contribution-form"
+      }
+    },
+    {
+      "name": "search-direct-name",
+      "first": "صنعاء",
+      "buttonNameCount": 0
+    },
+    {
+      "name": "search-case",
+      "q": "علي الأبواب",
+      "mode": "all",
+      "scope": "all",
+      "exclude": "",
+      "expected": 1,
+      "titles": [
+        "علي سعيد الكروني",
+        "مبادرة 967"
+      ],
+      "pass": false
+    },
+    {
+      "name": "whatsapp",
+      "url": "http://127.0.0.1:3104/professionals/ali-carpenter?from=%2Fprofessionals%23professionals-directory",
+      "links": [
+        {
+          "label": "تواصل عبر واتساب",
+          "href": "https://wa.me/967777000456?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%89%20%D9%85%D9%84%D9%81%D9%83%20%D9%81%D9%8A%20%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9%20967%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%86%D8%AC%D8%A7%D8%B1%20%D8%A3%D8%AB%D8%A7%D8%AB%20%D9%88%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A7%D8%AA.",
+          "rect": {
+            "x": 207.453125,
+            "y": 455.984375,
+            "width": 162.546875,
+            "height": 45,
+            "top": 455.984375,
+            "right": 370,
+            "bottom": 500.984375,
+            "left": 207.453125
+          }
+        },
+        {
+          "label": "واتساب",
+          "href": "https://wa.me/967777000456",
+          "rect": {
+            "x": 41,
+            "y": 2490.6875,
+            "width": 308,
+            "height": 45,
+            "top": 2490.6875,
+            "right": 349,
+            "bottom": 2535.6875,
+            "left": 41
+          }
+        }
+      ]
+    },
+    {
+      "name": "map-display320",
+      "overflow": []
+    },
+    {
+      "name": "map-directory",
+      "initialOpen": false,
+      "afterSelect": {
+        "open": true,
+        "links": 4,
+        "text": "شخصيات يمنية مرتبطة بالأماكن\nافتح الدليل وابحث بالاسم أو المجال\nذاكرة وأثر\nشخصيات يمنية\n\nتعرّف على شخصيات يمنية معاصرة وتاريخية، وابحث بحسب الاسم أو المجال أو المحافظة.\n\nيتضمن العرض ملفات من الكتالوج التجريبي للمشروع. هذه الملفات موسومة كتوضيحية وتحتاج مراجعة مصادرها قبل اعتمادها كمحتوى منشور.\n\nابحث بالاسم\nالمجال\nالكل\nالأدب والشعر\nالإعلام وحقوق الإنسان\nالإعلام والصحافة\nالمجتمع وحقوق الإنسان\nالسياسة والحكم\nالفن والموسيقى\nالعلم والتعليم\nالرياضة\nالاقتصاد وريادة الأعمال\nالتراث والتاريخ\nالمحافظة\nكل المحافظات\nأبين\nالضالع\nعدن\nالبيضاء\nالحديدة\nالمحويت\nعمران\nذمار\nحضرموت\nحجة\nإب\nلحج\nمأرب\nصعدة\nصنعاء\nأمانة العاصمة\nشبوة\nتعز\nالفترة\nالكل\nمعاصرة\nتاريخية\nلديها روابط تواصل\nمسح\n4\nشخصية مطابقة\nالخريطة والدليل يعرضان المحافظة نفسها\nعرض صفحة علي بن محمد الصليحي\nع م\nتاريخية\nالسياسة والحكم\n- 1067\nعلي بن محمد الصليحي\nملف توضيحي — يحتاج مراجعة\nمؤسس الدولة الصليحية\n\nقائد يمني أسس الدولة الصليحية في القرن 11 ووحّد أجزاء واسعة من اليمن.\n\nصنعاء\nالمحافظة المرتبطة\nعرض صفحة أسماء بنت شهاب\nأ ش\nتاريخية\nالسياسة والحكم\n- 1087\nأسماء بنت شهاب\nملف توضيحي — يحتاج مراجعة\nملكة يمنية من الدولة الصليحية\n\nشخصية سياسية بارزة شاركت في إدارة الدولة الصليحية وعُرفت بحضورها في شؤون الحكم.\n\nصنعاء\nالمحافظة المرتبطة\nعرض صفحة عزيزة عبد الله أبو لحوم\nع ع\nمعاصرة\nالأدب والشعر\n1945 - حتى الآن\nعزيزة عبد الله أبو لحوم\nملف توضيحي — يحتاج مراجعة\nكاتبة يمنية\n\nكاتبة يمنية. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.\n\nصنعاء\nالمحافظة المرتبطة\nعرض صفحة محسن العيني\nتاريخية\nالسياسة والحكم\n1932 - 2021\nمحسن العيني\nملف توضيحي — يحتاج مراجعة\nسياسي يمني تولَّى رئاسة وزراء الجمهورية العربية اليمنية عدة مرات بين ١٩٦٣ و ١٩٧٤ وكان من القيادات المدنية لثورة ٢٦ سبتمبر ١٩٦٢\n\nسياسي يمني تولَّى رئاسة وزراء الجمهورية العربية اليمنية عدة مرات بين ١٩٦٣ و ١٩٧٤ وكان من القيادات المدنية لثورة ٢٦ سبتمبر ١٩٦٢. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.\n\nصنعاء\nالمحافظة المرتبطة"
+      },
+      "afterClose": false
+    },
+    {
+      "name": "indicator-search",
+      "summary": "عدد المؤشرات المطابقة: 14\nالنطاق الجغرافي: الجمهورية اليمنية",
+      "titles": [
+        "السكان بعمر 65 سنة فأكثر",
+        "السكان بعمر 15 إلى 64 سنة",
+        "السكان بعمر 0 إلى 14 سنة",
+        "سكان الحضر المقيمون في أحياء عشوائية",
+        "نسبة السكان الذين تصلهم الكهرباء",
+        "نسبة الإناث من السكان",
+        "نسبة السكان تحت خط الفقر الوطني",
+        "عدد سكان اليمن",
+        "المنشآت التي تشارك النساء في ملكيتها",
+        "صافي الهجرة",
+        "معدل بطالة الشباب",
+        "معدل الخصوبة الكلي"
+      ]
+    },
+    {
+      "name": "indicator",
+      "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/yemen-population",
+      "charts": 0,
+      "text": "السكان\nالسكان والمجتمع / مؤشر وطني\nعدد سكان اليمن\n\nإجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر\n\nأحدث قيمة منشورة\n42,961,653\nنسمة\n2026\nمشاركة المؤشر\nتنزيل CSV\n\nآخر تحديث للسجل: 15 أكتوبر 2026 · سنة القياس موضحة بجانب القيمة.\n\n42,961,653 نسمة في 2026 على مستوى اليمن. القيمة تقديرية. تتوفر سنة واحدة؛ لا يمكن استنتاج اتجاه زمني.\n\nالسنوات المتاحة\nقيمة سنة واحدة\nنسمة\n\nتتوفر قيمة معتمدة لسنة 2026 فقط. تظهر تفاصيلها في الجدول أدناه.\n\nبطاقة المؤشر\nالوحدة\nنسمة\nحالة البيانات\nجزئية\nالسلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة.\nاتجاه التحسن\nيعتمد على السياق\nطبيعة أحدث قيمة\nتقديري\nالبيانات المنشورة للسلسلة المعتمدة\nعدد سكان اليمن — النطاق الوطني: الجمهورية اليمنية؛ الوحدة: نسمة\nسنة القياس\tالقيمة\tحالة القيمة\tالمصدر\n2026\t42,961,653\tتقديري\tعدد سكان اليمن\nالتعريف والمنهجية\nالتوثيق\nالمصادر والوثائق\nworldpopulationreview.comالسلسلة المعتمدة\nتفاصيل المصدر\nزيارة المصدر\nوثيقة أحدث قيمة\nتاريخ النشر: 15 أكتوبر 2026",
+      "overflow": false
+    },
+    {
+      "name": "complete",
+      "consoleErrors": 0,
+      "pageErrors": 0,
+      "requestFailures": 0,
+      "errors": [],
+      "failed": [
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/admin?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/works?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/magazine?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemeni-products?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/professionals?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-map?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-ranking?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=znyBdcYKFK2PO5sc",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/admin?_rsc=znyBdcYKFK2PO5sc",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-map?region=YE23&_rsc=znyBdcYKFK2PO5sc",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/contribute?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/admin?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9&_rsc=V0WPWNoVi_cZFJY4",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/works/work-mv6tx5yo?from=%2Fworks%23works-results&_rsc=QOspQQ7ajQu4jdSz",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=QOspQQ7ajQu4jdSz",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=QOspQQ7ajQu4jdSz",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/admin?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/admin?_rsc=znyBdcYKFK2PO5sc",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/professionals/ali-carpenter?_rsc=znyBdcYKFK2PO5sc",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/professionals/ali-carpenter?from=%2Fprofessionals%23professionals-directory&_rsc=OJO61lbZ2yfxHCtO",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/works?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/magazine?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemeni-products?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/professionals?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-ranking?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/contribute?_rsc=sCgPVVPBgISt8f-z",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/yemen-population?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/admin?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers/timeline?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/yemen-population?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/admin?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/search?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers/timeline?_rsc=TVWNG0E5kfxfip4g",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/political-stability-score?_rsc=o2Nwx2TfMJW6xIT-",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/yemen-population?_rsc=jPX5L-AU6rSzZApf",
+          "reason": "net::ERR_ABORTED"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failed": [
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/admin?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/works?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/magazine?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemeni-products?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/professionals?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-map?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-ranking?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=znyBdcYKFK2PO5sc",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/admin?_rsc=znyBdcYKFK2PO5sc",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-map?region=YE23&_rsc=znyBdcYKFK2PO5sc",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/contribute?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/admin?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9&_rsc=V0WPWNoVi_cZFJY4",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/works/work-mv6tx5yo?from=%2Fworks%23works-results&_rsc=QOspQQ7ajQu4jdSz",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=QOspQQ7ajQu4jdSz",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=QOspQQ7ajQu4jdSz",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/admin?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=s6Rh3O-0hqNuYlFt",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/admin?_rsc=znyBdcYKFK2PO5sc",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/professionals/ali-carpenter?_rsc=znyBdcYKFK2PO5sc",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/professionals/ali-carpenter?from=%2Fprofessionals%23professionals-directory&_rsc=OJO61lbZ2yfxHCtO",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/works?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/magazine?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemeni-products?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/professionals?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-ranking?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/contribute?_rsc=sCgPVVPBgISt8f-z",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/yemen-population?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/admin?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers/timeline?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/yemen-population?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/admin?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/search?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers/timeline?_rsc=TVWNG0E5kfxfip4g",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/political-stability-score?_rsc=o2Nwx2TfMJW6xIT-",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3104/yemen-in-numbers/indicator/yemen-population?_rsc=jPX5L-AU6rSzZApf",
+      "reason": "net::ERR_ABORTED"
+    }
+  ]
+}

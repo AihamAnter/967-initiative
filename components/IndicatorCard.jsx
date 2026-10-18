@@ -2,13 +2,14 @@ import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Database} from 'lucide-react';
 import {formatNumber, formatYear} from '@/lib/format';
 import {statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
+import {sourceLabel,dataStatusHelp} from '@/lib/indicatorPresentation';
 
 export default function IndicatorCard({indicator}) {
   const latest = indicator.latestValue;
   return <Link className="stat-indicator-card" href={'/yemen-in-numbers/indicator/' + indicator.slug}>
     <div className="stat-card-top">
       <span>{indicator.domain?.name || 'مؤشر وطني'}</span>
-      <span className={'stat-status stat-status-' + indicator.data_status}>{statusLabels[indicator.data_status] || indicator.data_status}</span>
+      <span title={dataStatusHelp[indicator.data_status]} className={'stat-status stat-status-' + indicator.data_status}>{statusLabels[indicator.data_status] || indicator.data_status}</span>
     </div>
     <h3>{indicator.name}</h3>
     <p>{indicator.short_description || indicator.definition || 'بيانات وطنية موثقة على مستوى الجمهورية اليمنية.'}</p>
@@ -18,7 +19,7 @@ export default function IndicatorCard({indicator}) {
     </div> : <div className="stat-card-empty"><Database size={18}/><span>{indicator.hasSourceConflict ? 'يجب تحديد السلسلة المعتمدة' : 'لم تُنشر قيم لهذا المؤشر بعد'}</span></div>}
     <div className="stat-card-meta">
       {latest && <span><CalendarDays size={15}/> {formatYear(latest.year)} · {valueStatusLabels[latest.value_status] || 'نوع القيمة غير محدد'}</span>}
-      <span>{latest?.source?.name || indicator.adopted_source?.name || 'المصدر قيد التوثيق'}</span>
+      <span>{sourceLabel(latest?.source||indicator.adopted_source,indicator.name)}</span>
     </div>
     <span className="stat-card-open">عرض تفاصيل المؤشر <ArrowUpLeft size={16}/></span>
   </Link>;

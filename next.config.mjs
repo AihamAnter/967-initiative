@@ -33,6 +33,9 @@ const nextConfig = {
     '/api/admin/rankings': ['./data/rankings/*.json'],
   },
   images: {remotePatterns},
+  async redirects() {
+    return [{source:'/favicon.ico',destination:'/images/967%20logo%20no%20background.png',permanent:true}];
+  },
   async headers() {
     return [{source: '/:path*', headers: [
       {key: 'X-Content-Type-Options', value: 'nosniff'},

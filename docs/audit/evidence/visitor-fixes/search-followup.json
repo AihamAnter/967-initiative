@@ -1,0 +1,35 @@
+[
+  {
+    "name": "title search",
+    "pass": true,
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&scope=title",
+    "ms": 2619
+  },
+  {
+    "name": "submit advanced any/title",
+    "pass": true,
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&mode=any&scope=title&exclude=",
+    "ms": 2492
+  },
+  {
+    "name": "change type while preserving options",
+    "pass": true,
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title",
+    "ms": 1748
+  },
+  {
+    "name": "indicator titles",
+    "titles": [
+      "عدد سكان اليمن",
+      "درجة الاستقرار السياسي وغياب العنف",
+      "درجة المشاركة والمساءلة",
+      "عدد سكان اليمن"
+    ]
+  },
+  {
+    "name": "indicator separated words",
+    "pass": true,
+    "url": "http://127.0.0.1:3104/yemen-in-numbers?q=%D8%B9%D8%AF%D8%AF+%D8%B3%D9%83%D8%A7%D9%86",
+    "ms": 3380
+  }
+]

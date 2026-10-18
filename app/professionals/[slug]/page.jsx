@@ -5,10 +5,10 @@ import {getProfessional, getProfessionals} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
+import {whatsappUrl} from '@/lib/contactLinks';
+import {collectionDefaults,listReturnPath} from '@/lib/listState';
 
 export const dynamic = 'force-dynamic';
-
-const whatsappLink = number => 'https://wa.me/' + String(number || '').replace(/\D/g, '').replace(/^00/, '');
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
@@ -22,24 +22,26 @@ function ContactLink({href, icon: Icon, label, external = false}) {
   return <a className="professional-contact-link" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}><Icon size={18}/><span>{label}</span>{external && <ExternalLink size={14}/>}</a>;
 }
 
-export default async function ProfessionalProfilePage({params}) {
+export default async function ProfessionalProfilePage({params,searchParams}) {
   const {slug} = await params;
   const person = await getProfessional(slug);
   if (!person) notFound();
   const professionals = await getProfessionals();
   const related = professionals.filter(item => item.id !== person.id && item.category === person.category).slice(0, 3);
+  const query=await searchParams;
+  const returnTo=listReturnPath(query.from,'/professionals',collectionDefaults.professionals,'#professionals-directory');
 
   return <>
     <JsonLd data={breadcrumbSchema([{name:'المهنيون', path:'/professionals'}, {name:person.fullName, path:detailPath('professionals', person.id)}])}/>
     <section className="professional-profile-hero">
       <div className="professional-profile-copy">
-        <Link href="/professionals#professionals-directory" className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>
+        <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>
         <div className="professional-profile-labels"><span>{person.category}</span><span><MapPin size={13}/>{person.location}</span>{person.isVerified && <span className="verified"><BadgeCheck size={14}/> ملف موثق</span>}</div>
         <h1>{person.fullName}</h1>{person.isDemo && <span className="status-badge">نموذج تجريبي — ليس ملفاً موثقاً</span>}{person.needsReview && !person.isDemo && <span className="status-badge">بيانات بحاجة إلى مراجعة إدارية</span>}
         <strong>{person.professionTitle}</strong>
         <p>{person.bio}</p>
         <div className="professional-profile-actions">
-          {person.whatsapp && <ContactLink href={whatsappLink(person.whatsapp)} icon={MessageCircle} label="تواصل عبر واتساب" external/>}
+          {person.whatsapp && <ContactLink href={whatsappUrl(person.whatsapp,`مرحباً، وصلت إلى ملفك في مبادرة 967 وأرغب في الاستفسار عن ${person.professionTitle}.`)} icon={MessageCircle} label="تواصل عبر واتساب" external/>}
           {person.phone && <ContactLink href={'tel:' + person.phone} icon={Phone} label="اتصال مباشر"/>}
           {!person.whatsapp && !person.phone && <span className="professional-no-contact">لا توجد أرقام اتصال منشورة لهذا الملف.</span>}
         </div>
@@ -63,7 +65,7 @@ export default async function ProfessionalProfilePage({params}) {
           <div><Languages size={18}/><span>اللغات<strong>{person.languages.length ? person.languages.join('، ') : 'العربية'}</strong></span></div>
         </div>
         <div className="professional-contact-panel"><h2>تواصل مع المهني</h2>
-          <ContactLink href={person.whatsapp ? whatsappLink(person.whatsapp) : null} icon={MessageCircle} label="واتساب" external/>
+          <ContactLink href={whatsappUrl(person.whatsapp)} icon={MessageCircle} label="واتساب" external/>
           <ContactLink href={person.phone ? 'tel:' + person.phone : null} icon={Phone} label={person.phone}/>
           <ContactLink href={person.email ? 'mailto:' + person.email : null} icon={Mail} label={person.email}/>
           <ContactLink href={person.website} icon={Globe2} label="الموقع الإلكتروني" external/>

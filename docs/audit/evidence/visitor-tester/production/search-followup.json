@@ -1,0 +1,24 @@
+{
+  "base": "http://127.0.0.1:3104",
+  "buttons": [
+    {
+      "text": "ابحث",
+      "ariaLabel": "ابحث في المنصة",
+      "title": null
+    },
+    {
+      "text": "تطبيق الخيارات ",
+      "ariaLabel": null,
+      "title": null
+    }
+  ],
+  "titles": [
+    "علي سعيد الكروني",
+    "مبادرة 967"
+  ],
+  "passSeparateTerms": true,
+  "excludedTitles": [],
+  "passExcludedPhrase": true,
+  "errors": [],
+  "notes": "The initial fixed count=1 assertion was too strict after Arabic article normalization: a second general page also matches. Correct result ranks first. Exact button name lookup was also too strict; ariaLabel is recorded here."
+}

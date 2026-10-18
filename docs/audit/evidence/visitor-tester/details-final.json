@@ -1,0 +1,243 @@
+{
+  "base": "http://127.0.0.1:3103",
+  "results": [
+    {
+      "name": "professional-detail",
+      "url": "http://127.0.0.1:3103/professionals/ali-carpenter",
+      "links": [
+        {
+          "label": "تواصل عبر واتساب",
+          "href": "https://wa.me/967777000456?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%89%20%D9%85%D9%84%D9%81%D9%83%20%D9%81%D9%8A%20%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9%20967%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%86%D8%AC%D8%A7%D8%B1%20%D8%A3%D8%AB%D8%A7%D8%AB%20%D9%88%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A7%D8%AA.",
+          "rect": {
+            "x": 207.453125,
+            "y": 452.984375,
+            "width": 162.546875,
+            "height": 45,
+            "top": 452.984375,
+            "right": 370,
+            "bottom": 497.984375,
+            "left": 207.453125
+          }
+        },
+        {
+          "label": "واتساب",
+          "href": "https://wa.me/967777000456",
+          "rect": {
+            "x": 41,
+            "y": 2487.6875,
+            "width": 308,
+            "height": 45,
+            "top": 2487.6875,
+            "right": 349,
+            "bottom": 2532.6875,
+            "left": 41
+          }
+        }
+      ],
+      "body": "العودة إلى دليل المهنيين\nنجارة وأثاث\nسقطرى\nعلي سعيد الكروني\nبيانات بحاجة إلى مراجعة إدارية\nنجار أثاث وديكورات\n\nنجار يمني متخصص في تصميم وتصنيع الأثاث المنزلي والمكتبي، بخبرة تزيد عن 8 سنوات في أعمال النجارة والديكورات الخشبية. أقدم خدمات تفصيل غرف النوم والمطابخ والخزائن والأبواب، بالإضافة إلى صيانة الأثاث وتركيبه. أحرص على جودة التنفيذ والالتزام بالمواعيد وتقديم حلول تناسب احتياجات العملاء وميزانياتهم.\n\nتواصل عبر واتساب\nالخدمات\nما الذي يقدمه؟\n01\nتفصيل غرف النوم والخزائن\n02\nتصميم وتركيب المطابخ الخشبية\n03\nتصنيع الأبواب والنوافذ\n04\nتفصيل الأثاث المكتبي\n05\nتركيب الديكورات والألواح الخشبية\n06\nصيانة وترميم الأثاث القديم\n07\nتركيب الرفوف ووحدات التخزين\n08\nتقديم استشارات في اختيار الأخشاب والتصاميم\nالمهارات\nخبرات ومهارات عملية\nالنجارة اليدوية والحديثة\nتصميم وتنفيذ الأثاث حسب الطلب\nاستخدام ماكينات قص وتشكيل الأخشاب\nقراءة المخططات والمقاسات\nتركيب المطابخ وغرف النوم\nمعالجة وصيانة الأخشاب\nالتشطيب والدهان الخشبي\nإدارة المشاريع والالتزام بالمواعيد\nنطاق الخدمة\nأين يمكن طلب الخدمة؟\nأمانة العاصمة\nصنعاء\nبيانات مهنية\nالمهنة\nنجار أثاث وديكورات\nالخبرة بالسنوات\n8\nطريقة الخدمة\nحضوري\nالتوفر\nمتاح\nاللغات\nالعربية، الانجليزية\nتواصل مع المهني\nواتساب"
+    },
+    {
+      "name": "global-category",
+      "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&scope=title&exclude=%D8%A7%D9%84%D8%AC%D9%88%D9%81",
+      "url": "http://127.0.0.1:3103/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&scope=title&exclude=%D8%A7%D9%84%D8%AC%D9%88%D9%81",
+      "values": [
+        {
+          "name": "mode",
+          "value": "all"
+        },
+        {
+          "name": "scope",
+          "value": "title"
+        },
+        {
+          "name": "exclude",
+          "value": "الجوف"
+        }
+      ],
+      "titles": [
+        "صنعاء",
+        "صنعاء القديمه"
+      ]
+    },
+    {
+      "name": "map-open-directory",
+      "open": true,
+      "height": 3221.46875,
+      "text": "شخصيات يمنية مرتبطة بالأماكن\nافتح الدليل وابحث بالاسم أو المجال\nذاكرة وأثر\nشخصيات يمنية\n\nتعرّف على شخصيات يمنية معاصرة وتاريخية، وابحث بحسب الاسم أو المجال أو المحافظة.\n\nيتضمن العرض ملفات من الكتالوج التجريبي للمشروع. هذه الملفات موسومة كتوضيحية وتحتاج مراجعة مصادرها قبل اعتمادها كمحتوى منشور.\n\nابحث بالاسم\nالمجال\nالكل\nالأدب والشعر\nالإعلام وحقوق الإنسان\nالإعلام والصحافة\nالمجتمع وحقوق الإنسان\nالسياسة والحكم\nالفن والموسيقى\nالعلم والتعليم\nالرياضة\nالاقتصاد وريادة الأعمال\nالتراث والتاريخ\nالمحافظة\nكل المحافظات\nأبين\nالضالع\nعدن\nالبيضاء\nالحديدة\nالمحويت\nعمران\nذمار\nحضرموت\nحجة\nإب\nلحج\nمأرب\nصعدة\nصنعاء\nأمانة العاصمة\nشبوة\nتعز\nالفترة\nالكل\nمعاصرة\nتاريخية\nلديها روابط تواصل\nمسح\n4\nشخصية مطابقة\nالخريطة والدليل يعرضان المحافظة نفسها\nعرض صفحة علي بن محمد الصليحي\nع م\nتاريخية\nالسياسة والحكم\n- 1067\nعلي بن محمد الصليحي\nملف توضيحي — يحتاج مراجعة\nمؤسس الدولة الصليحية\n\nقائد يمني أسس الدولة الصليحية في القرن 11 ووحّد أجزاء واسعة من اليمن.\n\nصنعاء\nالمحافظة المرتبطة\nعرض صفحة أسماء بنت شهاب\nأ ش\nتاريخية\nالسياسة والحكم\n- 1087\nأسماء بنت شهاب\nملف توضيحي — يحتاج مراجعة\nملكة يمنية من الدولة الصليحية\n\nشخصية سياسية بارزة شاركت في إدارة الدولة الصليحية وعُرفت بحضورها في شؤون الحكم.\n\nصنعاء\nالمحافظة المرتبطة\nعرض صفحة عزيزة عبد الله أبو لحوم\nع ع\nمعاصرة\nالأدب والشعر\n1945 - حتى الآن\nعزيزة عبد الله أبو لحوم\nملف توضيحي — يحتاج مراجعة\nكاتبة يمنية\n\nكاتبة يمنية. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.\n\nصنعاء\nالمحافظة المرتبطة\nعرض صفحة محسن العيني\nتاريخية\nالسياسة والحكم\n1932 - 2021\nمحسن العيني\nملف توضيحي — يحتاج مراجعة\nسياسي يمني تولَّى رئاسة وزراء الجمهورية العربية اليمنية عدة مرات بين ١٩٦٣ و ١٩٧٤ وكان من القيادات المدنية لثورة ٢٦ سبتمبر ١٩٦٢\n\nسياسي يمني تولَّى رئاسة وزراء الجمهورية العربية اليمنية عدة مرات بين ١٩٦٣ و ١٩٧٤ وكان من القيادات المدنية لثورة ٢٦ سبتمبر ١٩٦٢. شخصية يمنية مرتبطة بمحافظة صنعاء، ويعرض الدليل مجال حضورها وأبرز ما عُرفت به.\n\nصنعاء\nالمحافظة المرتبطة",
+      "counts": 4
+    },
+    {
+      "name": "map-directory-close",
+      "open": false,
+      "height": 109.984375
+    },
+    {
+      "name": "indicator-detail",
+      "url": "http://127.0.0.1:3103/yemen-in-numbers/indicator/yemen-population",
+      "text": "السكان\nالسكان والمجتمع / مؤشر وطني\nعدد سكان اليمن\n\nإجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر\n\nأحدث قيمة منشورة\n42,961,653\nنسمة\n2026\nمشاركة المؤشر\nتنزيل CSV\n\nآخر تحديث للسجل: 15 أكتوبر 2026 · سنة القياس موضحة بجانب القيمة.\n\n42,961,653 نسمة في 2026 على مستوى اليمن. القيمة تقديرية. تتوفر سنة واحدة؛ لا يمكن استنتاج اتجاه زمني.\n\nالسنوات المتاحة\nقيمة سنة واحدة\nنسمة\n\nتتوفر قيمة معتمدة لسنة 2026 فقط. تظهر تفاصيلها في الجدول أدناه.\n\nبطاقة المؤشر\nالوحدة\nنسمة\nحالة البيانات\nجزئية\nالسلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة.\nاتجاه التحسن\nيعتمد على السياق\nطبيعة أحدث قيمة\nتقديري\nالبيانات المنشورة للسلسلة المعتمدة\nعدد سكان اليمن — النطاق الوطني: الجمهورية اليمنية؛ الوحدة: نسمة\nسنة القياس\tالقيمة\tحالة القيمة\tالمصدر\n2026\t42,961,653\tتقديري\tعدد سكان اليمن\nالتعريف والمنهجية\nالتوثيق\nالمصادر والوثائق\nworldpopulationreview.comالسلسلة المعتمدة\nتفاصيل المصدر\nزيارة المصدر\nوثيقة أحدث قيمة\nتاريخ النشر: 15 أكتوبر 2026",
+      "charts": 0,
+      "details": [
+        {
+          "summary": "التعريف والمنهجية",
+          "open": false
+        },
+        {
+          "summary": "تفاصيل المصدر",
+          "open": false
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "name": "completed",
+      "failed": [
+        {
+          "url": "http://127.0.0.1:3103/professionals/ali-carpenter?_rsc=OJO61lbZ2yfxHCtO",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:3103/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&scope=title&exclude=%D8%A7%D9%84%D8%AC%D9%88%D9%81&_rsc=WZ9N0LoTy4fL1Cee",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ]
+    }
+  ],
+  "failed": [
+    {
+      "url": "http://127.0.0.1:3103/professionals/ali-carpenter?_rsc=OJO61lbZ2yfxHCtO",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:3103/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&scope=title&exclude=%D8%A7%D9%84%D8%AC%D9%88%D9%81&_rsc=WZ9N0LoTy4fL1Cee",
+      "reason": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/governorates?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    },
+    {
+      "url": "https://faadtmvgeafgrzpvtnab.supabase.co/rest/v1/districts?select=*",
+      "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+    }
+  ]
+}

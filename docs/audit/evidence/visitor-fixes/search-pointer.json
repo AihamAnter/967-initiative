@@ -1,0 +1,186 @@
+[
+  {
+    "event": "request",
+    "stage": "q=صنعاء",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1",
+    "navigation": true
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1"
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1"
+  },
+  {
+    "event": "request",
+    "stage": "q=صنعاء نجار",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20%D9%86%D8%AC%D8%A7%D8%B1",
+    "navigation": true
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء نجار",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20%D9%86%D8%AC%D8%A7%D8%B1"
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء نجار",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20%D9%86%D8%AC%D8%A7%D8%B1"
+  },
+  {
+    "event": "request",
+    "stage": "q=صنعاء -الكروني",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20-%D8%A7%D9%84%D9%83%D8%B1%D9%88%D9%86%D9%8A",
+    "navigation": true
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء -الكروني",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20-%D8%A7%D9%84%D9%83%D8%B1%D9%88%D9%86%D9%8A"
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء -الكروني",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20-%D8%A7%D9%84%D9%83%D8%B1%D9%88%D9%86%D9%8A"
+  },
+  {
+    "event": "request",
+    "stage": "q=\"نجار أثاث\"",
+    "url": "http://127.0.0.1:3104/search?q=%22%D9%86%D8%AC%D8%A7%D8%B1%20%D8%A3%D8%AB%D8%A7%D8%AB%22",
+    "navigation": true
+  },
+  {
+    "event": "navigation",
+    "stage": "q=\"نجار أثاث\"",
+    "url": "http://127.0.0.1:3104/search?q=%22%D9%86%D8%AC%D8%A7%D8%B1%20%D8%A3%D8%AB%D8%A7%D8%AB%22"
+  },
+  {
+    "event": "navigation",
+    "stage": "q=\"نجار أثاث\"",
+    "url": "http://127.0.0.1:3104/search?q=%22%D9%86%D8%AC%D8%A7%D8%B1%20%D8%A3%D8%AB%D8%A7%D8%AB%22"
+  },
+  {
+    "event": "request",
+    "stage": "q=صنعاء كلمةلاتوجد&mode=any",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20%D9%83%D9%84%D9%85%D8%A9%D9%84%D8%A7%D8%AA%D9%88%D8%AC%D8%AF&mode=any",
+    "navigation": true
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء كلمةلاتوجد&mode=any",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20%D9%83%D9%84%D9%85%D8%A9%D9%84%D8%A7%D8%AA%D9%88%D8%AC%D8%AF&mode=any"
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء كلمةلاتوجد&mode=any",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20%D9%83%D9%84%D9%85%D8%A9%D9%84%D8%A7%D8%AA%D9%88%D8%AC%D8%AF&mode=any"
+  },
+  {
+    "event": "request",
+    "stage": "q=صنعاء&scope=title",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&scope=title",
+    "navigation": true
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء&scope=title",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&scope=title"
+  },
+  {
+    "event": "navigation",
+    "stage": "q=صنعاء&scope=title",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&scope=title"
+  },
+  {
+    "event": "click",
+    "capture": true,
+    "target": "BUTTON",
+    "text": "تطبيق الخيارات ",
+    "prevented": false,
+    "x": 294,
+    "y": 819,
+    "scrollY": 11,
+    "stage": "apply"
+  },
+  {
+    "event": "click",
+    "capture": false,
+    "target": "BUTTON",
+    "text": "تطبيق الخيارات ",
+    "prevented": false,
+    "x": 294,
+    "y": 819,
+    "scrollY": 11,
+    "stage": "apply"
+  },
+  {
+    "event": "request",
+    "stage": "apply",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&mode=any&scope=title&exclude=",
+    "navigation": true
+  },
+  {
+    "event": "navigation",
+    "stage": "apply",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&mode=any&scope=title&exclude="
+  },
+  {
+    "event": "navigation",
+    "stage": "apply",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=all&mode=any&scope=title&exclude="
+  },
+  {
+    "event": "before-click",
+    "href": "/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title",
+    "box": {
+      "x": -590.625,
+      "y": 977.53125,
+      "width": 164.0625,
+      "height": 44
+    },
+    "scrollY": 0
+  },
+  {
+    "event": "click",
+    "capture": true,
+    "target": "A",
+    "text": "المحافظات والمديريات · 2",
+    "anchor": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title",
+    "prevented": false,
+    "x": 195,
+    "y": 421,
+    "scrollY": 578,
+    "stage": "pointer"
+  },
+  {
+    "event": "click",
+    "capture": false,
+    "target": "A",
+    "text": "المحافظات والمديريات · 2",
+    "anchor": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title",
+    "prevented": false,
+    "x": 195,
+    "y": 421,
+    "scrollY": 578,
+    "stage": "pointer"
+  },
+  {
+    "event": "request",
+    "stage": "pointer",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title&_rsc=rg0hVW3mf6sgPLZG",
+    "navigation": false
+  },
+  {
+    "event": "navigation",
+    "stage": "pointer",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title"
+  },
+  {
+    "event": "pointer-success",
+    "url": "http://127.0.0.1:3104/search?q=%D8%B5%D9%86%D8%B9%D8%A7%D8%A1&type=places&mode=any&scope=title"
+  }
+]
