@@ -1,19 +1,17 @@
 import Link from 'next/link';
 import PageIntro from './PageIntro';
+import {formatArabicDate} from '@/lib/format';
 
-export default function PolicyPage({title,description,path,summary,children}) {
+export default function PolicyPage({title,description,path,summary,children,navigation=[],updatedAt,contactHref='/contribute?type=استفسار#contribution-form',showContact=true}) {
   return <>
     <PageIntro title={title} description={description}/>
     <section className="policy-body"><div className="container policy-container">
-      <nav className="policy-navigation" aria-label="سياسات الموقع">
-        <Link href="/privacy" aria-current={path==='/privacy'?'page':undefined}>سياسة الخصوصية</Link>
-        <Link href="/terms" aria-current={path==='/terms'?'page':undefined}>شروط الاستخدام</Link>
-      </nav>
+      {navigation.length>0&&<nav className="policy-navigation" aria-label="صفحات مرتبطة">{navigation.map(item=><Link key={item.href} href={item.href} aria-current={path===item.href?'page':undefined}>{item.title}</Link>)}</nav>}
       <article className="policy-article" aria-label={title}>
-        <p className="policy-updated">آخر تحديث: <time dateTime="2026-10-18">18 أكتوبر 2026</time></p>
-        <p className="policy-summary">{summary}</p>
+        {updatedAt&&<p className="policy-updated">آخر تحديث: <time dateTime={updatedAt}>{formatArabicDate(updatedAt)}</time></p>}
+        {summary&&<p className="policy-summary">{summary}</p>}
         {children}
-        <div className="policy-contact"><h2>تواصل معنا</h2><p>للاستفسار عن هذه الصفحة أو إرسال طلب يتعلق ببياناتك أو بالمحتوى، استخدم <Link href="/contribute?type=استفسار#contribution-form">نموذج التواصل</Link>، واذكر موضوع طلبك بوضوح.</p></div>
+        {showContact&&<div className="policy-contact"><h2>تواصل معنا</h2><p>للاستفسار عن هذه الصفحة أو إرسال طلب يتعلق ببياناتك أو بالمحتوى، استخدم <Link href={contactHref}>نموذج التواصل</Link>، واذكر موضوع طلبك بوضوح.</p></div>}
       </article>
     </div></section>
   </>;

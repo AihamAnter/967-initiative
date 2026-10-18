@@ -28,6 +28,13 @@ test('JSON reader accepts Arabic but rejects malformed values and unsupported me
   for (const body of ['null', '[]', 'true', '1', '"string"', '{']) await assert.rejects(readJsonObject(request(body)), error => error.status === 400);
   await assert.rejects(readJsonObject(request('{}', {'content-type': 'text/plain'})), error => error.status === 415);
 });
+test('loopback aliases require the actual matching host, scheme and port',()=>{
+ const local=(origin,host,extra={})=>new Request('http://localhost:3105/api/admin/pages',{headers:{origin,host,...extra}});
+ assert.ok(isSameOrigin(local('http://127.0.0.1:3105','127.0.0.1:3105')));
+ for(const [origin,host] of [['http://evil.test:3105','evil.test:3105'],['http://127.0.0.1:3106','127.0.0.1:3106'],['https://127.0.0.1:3105','127.0.0.1:3105'],['http://127.0.0.1:3105','localhost:3105'],['http://127.0.0.1:3105/path','127.0.0.1:3105']])assert.equal(isSameOrigin(local(origin,host)),false);
+ assert.equal(isSameOrigin(local('http://127.0.0.1:3105','127.0.0.1:3105',{'sec-fetch-site':'cross-site'})),false);
+ assert.equal(isSameOrigin(new Request(url,{headers:{origin:'https://evil.test',host:'evil.test'}})),false);
+});
 
 test('body byte limit works on chunked requests without content-length and cancels the stream', async () => {
   let cancelled = false;

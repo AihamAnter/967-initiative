@@ -1,0 +1,372 @@
+{
+  "base": "http://127.0.0.1:3105",
+  "startedAt": "2026-10-18T22:14:08.132Z",
+  "scenarios": [
+    {
+      "name": "Public defaults show help, privacy requests, marked example team, and existing policies",
+      "pass": true
+    },
+    {
+      "name": "Editor dashboard authenticates against isolated records and loads page administration",
+      "pass": true
+    },
+    {
+      "name": "Edit, add, remove and reorder staff; saved changes render publicly without altering policies",
+      "pass": true
+    },
+    {
+      "name": "FAQ editing, additions, search, links and escaped unsafe content work end to end",
+      "pass": true
+    },
+    {
+      "name": "Create and delete a custom page; footer, live search, metadata and sitemap follow stored content",
+      "pass": true
+    },
+    {
+      "name": "A concurrent edit returns a conflict and preserves both server data and the unsaved form",
+      "pass": true
+    },
+    {
+      "name": "Privacy request form keeps separate drafts and reaches the editor inbox with its type",
+      "pass": true
+    },
+    {
+      "name": "Server rejects unauthenticated, cross-site, non-editor, invalid-page and forbidden delete requests",
+      "pass": true
+    },
+    {
+      "name": "Deleted built-in pages stay deleted and can be explicitly re-created",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/about",
+      "viewport": 320,
+      "width": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/about",
+      "viewport": 390,
+      "width": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/about",
+      "viewport": 768,
+      "width": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/about",
+      "viewport": 1024,
+      "width": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/about",
+      "viewport": 1440,
+      "width": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/help",
+      "viewport": 320,
+      "width": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/help",
+      "viewport": 390,
+      "width": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/help",
+      "viewport": 768,
+      "width": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/help",
+      "viewport": 1024,
+      "width": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/help",
+      "viewport": 1440,
+      "width": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy-requests",
+      "viewport": 320,
+      "width": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy-requests",
+      "viewport": 390,
+      "width": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy-requests",
+      "viewport": 768,
+      "width": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy-requests",
+      "viewport": 1024,
+      "width": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy-requests",
+      "viewport": 1440,
+      "width": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "viewport": 320,
+      "width": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "viewport": 390,
+      "width": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "viewport": 768,
+      "width": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "viewport": 1024,
+      "width": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "viewport": 1440,
+      "width": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "viewport": 320,
+      "width": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "viewport": 390,
+      "width": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "viewport": 768,
+      "width": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "viewport": 1024,
+      "width": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "viewport": 1440,
+      "width": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/admin",
+      "viewport": 320,
+      "width": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/admin",
+      "viewport": 390,
+      "width": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/admin",
+      "viewport": 768,
+      "width": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/admin",
+      "viewport": 1024,
+      "width": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/admin",
+      "viewport": 1440,
+      "width": 1440,
+      "clipped": [],
+      "pass": true
+    }
+  ],
+  "axe": [
+    {
+      "route": "/about",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/about",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/help",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/help",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/privacy-requests",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/privacy-requests",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/terms",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/terms",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/admin",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/admin",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "runtimeErrors": [],
+  "consoleErrors": [],
+  "fixture": {
+    "writes": [
+      {
+        "table": "site_settings",
+        "method": "POST",
+        "key": "public_content_pages_v1"
+      },
+      {
+        "table": "site_settings",
+        "method": "PATCH",
+        "key": "public_content_pages_v1"
+      },
+      {
+        "table": "site_settings",
+        "method": "PATCH",
+        "key": "public_content_pages_v1"
+      },
+      {
+        "table": "site_settings",
+        "method": "PATCH",
+        "key": "public_content_pages_v1"
+      },
+      {
+        "table": "messages",
+        "method": "POST"
+      },
+      {
+        "table": "site_settings",
+        "method": "PATCH",
+        "key": "public_content_pages_v1"
+      },
+      {
+        "table": "site_settings",
+        "method": "PATCH",
+        "key": "public_content_pages_v1"
+      }
+    ],
+    "messages": 1,
+    "pages": 5
+  },
+  "finishedAt": "2026-10-18T22:15:39.307Z",
+  "failures": 0
+}

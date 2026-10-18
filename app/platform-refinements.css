@@ -1,6 +1,47 @@
 /* Public platform refinements. Keep readers, forms, and long articles at their
    established widths; collections and the home page have room to breathe. */
 :root { --collection-width:1280px; --home-width:1360px; }
+.content-text{white-space:pre-line}
+.help-search{display:grid;gap:8px;margin-block:20px 12px;font-size:15px;color:var(--primary)}
+.help-search>span:last-child{display:flex;align-items:center;gap:10px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.help-search input{width:100%;min-width:0;min-height:42px;border:0;background:transparent;font-size:16px;color:var(--text)}
+.faq-list{display:grid;gap:10px}
+.faq-list details{border:1px solid var(--line);border-radius:7px;padding:0 18px;background:var(--surface)}
+.faq-list summary{min-height:54px;padding-block:12px;font-size:17px;font-weight:600;cursor:pointer;color:var(--primary);line-height:1.8}
+.faq-list details>div{padding:4px 0 14px}
+.faq-list details p:last-child{margin-bottom:0}
+.about-team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+.about-team-card{padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--soft-green);min-width:0}
+.about-team-card h3{font-size:21px;line-height:1.6;margin:12px 0 7px}
+.about-team-card>strong{font-size:15px;color:var(--primary);font-weight:600}
+.about-team-card>p{font-size:15px;margin:12px 0 0}
+.team-example-note{font-size:14px!important;color:var(--muted)}
+.managed-request-form{margin-top:30px}
+.managed-request-form .contact-form{padding:20px 0 0;border:0;box-shadow:none}
+.content-editor-layout{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,2fr);gap:24px;align-items:start}
+.content-editor-list{display:grid;gap:12px;min-width:0}
+.content-editor-list>article{display:flex;align-items:center;border:1px solid var(--line);border-radius:7px;background:var(--surface);min-width:0}
+.content-editor-list>article.selected{border-color:var(--primary);background:var(--soft-green)}
+.content-page-select{display:grid;gap:6px;text-align:start;padding:14px;min-width:0;flex:1;background:transparent;color:var(--text)}
+.content-page-select strong{overflow-wrap:anywhere;font-size:15px}
+.content-page-select small{color:var(--muted);text-align:start;overflow-wrap:anywhere}
+.content-page-delete{min-width:44px;min-height:44px;background:transparent;color:var(--primary)}
+.content-editor-form,.content-editor-fields,.content-editor-collection{min-width:0}
+.content-editor-fields{border:0;padding:0;margin:0;display:grid;gap:20px;width:100%}
+.content-editor-fields small{font-weight:400;font-size:13px;line-height:1.9}
+.content-editor-collection{border-top:1px solid var(--line);padding-top:22px}
+.content-editor-collection h4{font-size:20px;color:var(--primary);margin:0 0 14px}
+.content-editor-item{min-width:0;display:grid;gap:14px;margin:16px 0;padding:16px;border:1px solid var(--line);border-radius:7px}
+.content-editor-item legend{font-size:15px;padding-inline:8px;color:var(--primary)}
+.content-editor-row-tools{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.content-editor-row-tools button{min-width:44px;min-height:44px;background:var(--soft-green);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px;border-radius:5px;font-size:14px}
+.content-editor-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--line)}
+.content-editor-actions>span{font-size:14px;color:var(--muted)}
+.content-editor-fields .checkline{display:flex;align-items:center;gap:10px}
+.content-editor-fields .checkline input{width:18px;min-height:18px;height:18px;flex-shrink:0}
+@media(max-width:1000px){.content-editor-layout{grid-template-columns:minmax(0,1fr)}.content-editor-list{grid-template-columns:repeat(2,minmax(0,1fr))}.content-editor-list h3,.content-editor-list>.btn,.content-editor-list>p{grid-column:1/-1}}
+@media(max-width:900px){.about-team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.about-team-grid,.content-editor-list{grid-template-columns:minmax(0,1fr)}.content-editor-item{padding:14px 10px}.content-editor-actions .btn{width:100%}.content-editor-form{padding:20px 14px}.managed-request-form .contact-form{padding-top:16px}.site-settings-heading .btn{width:100%}}
 .platform-footer-bottom{flex-wrap:wrap}
 .footer-policy-links{display:flex;flex-wrap:wrap;gap:6px 20px}
 .footer-policy-links a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}

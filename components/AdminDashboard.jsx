@@ -11,6 +11,7 @@ import RankingAdminPanel from '@/components/RankingAdminPanel';
 import YemeniFiguresAdminPanel from '@/components/YemeniFiguresAdminPanel';
 import AdminUsersPanel from '@/components/AdminUsersPanel';
 import SiteSettingsPanel from '@/components/SiteSettingsPanel';
+import ContentPagesAdminPanel from '@/components/ContentPagesAdminPanel';
 import {validateMediaUpload} from '@/lib/uploads';
 import {safeExternalUrl} from '@/lib/media';
 const cleanSlug=v=>String(v||'').trim().toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'').replace(/-+/g,'-').replace(/^-|-$/g,'');
@@ -43,7 +44,7 @@ export default function AdminDashboard(){
  if(!user.user_metadata?.full_name)return <div className="admin-login"><AlertTriangle size={32}/><h1>أكمل بيانات حسابك</h1><p>أدخل اسمك ليظهر في حسابك ولوحة التحرير.</p><form onSubmit={saveAccountName}><label>الاسم الكامل<input required minLength="2" autoComplete="name" value={fullName} onChange={e=>setFullName(e.target.value)}/></label><button disabled={busy} className="btn btn-red">{busy?'جارٍ الحفظ...':'حفظ الاسم'}</button></form>{notice&&<p className={'feedback '+(notice.startsWith('خطأ')?'error':'success')} role="status">{notice}</p>}<button className="btn btn-outline" onClick={()=>db.auth.signOut()}>تسجيل الخروج</button></div>;
  if(!allowed)return <div className="admin-login"><AlertTriangle size={32}/><h1>مرحباً، {fullName}</h1><p>هذا حساب مستخدم عادي ولا يملك صلاحية دخول لوحة التحرير. تُمنح صلاحيات الأدمن والإدارة من إدارة الموقع.</p><button className="btn btn-outline" onClick={()=>db.auth.signOut()}>تسجيل الخروج</button></div>;
  const isManagement=role==='management';
- const tabs=[{id:'issues',name:'المجلة',icon:Newspaper},{id:'works',name:'الأعمال',icon:Clapperboard},{id:'companies',name:'منتجات يمنية',icon:Factory},{id:'professionals',name:'مهنيون',icon:UsersRound},{id:'figures',name:'شخصيات يمنية',icon:Landmark},{id:'statistics',name:'إدارة الإحصائيات',icon:ChartNoAxesCombined},{id:'rankings',name:'\u062a\u0631\u062a\u064a\u0628 \u0627\u0644\u064a\u0645\u0646',icon:ChartNoAxesCombined},{id:'settings',name:'الإعدادات',icon:Settings},{id:'messages',name:'الرسائل',icon:Inbox},...(isManagement?[{id:'admins',name:'إدارة الأدمن',icon:ShieldCheck}]:[])];
+ const tabs=[{id:'issues',name:'المجلة',icon:Newspaper},{id:'works',name:'الأعمال',icon:Clapperboard},{id:'companies',name:'منتجات يمنية',icon:Factory},{id:'professionals',name:'مهنيون',icon:UsersRound},{id:'figures',name:'شخصيات يمنية',icon:Landmark},{id:'statistics',name:'إدارة الإحصائيات',icon:ChartNoAxesCombined},{id:'rankings',name:'\u062a\u0631\u062a\u064a\u0628 \u0627\u0644\u064a\u0645\u0646',icon:ChartNoAxesCombined},{id:'pages',name:'صفحات الموقع',icon:Landmark},{id:'settings',name:'الإعدادات',icon:Settings},{id:'messages',name:'الرسائل',icon:Inbox},...(isManagement?[{id:'admins',name:'إدارة الأدمن',icon:ShieldCheck}]:[])];
  return <><div className="admin-heading"><div><span className="eyebrow">967 / CONTROL PANEL</span><h1>لوحة التحرير</h1><p>مرحباً، {fullName}. <span className={'admin-role-badge '+(isManagement?'management':'')}>{isManagement?'إدارة':'أدمن تحرير'}</span></p></div><button className="btn btn-outline" onClick={()=>db.auth.signOut()}>تسجيل الخروج <LogOut size={16}/></button></div>
  <div className="admin-tabs">{tabs.map(t=><button className={tab===t.id?'selected':''} key={t.id} onClick={()=>{setTab(t.id);setNotice('')}}><t.icon size={17}/>{t.name}</button>)}<button onClick={()=>load()} className="admin-refresh" title="تحديث"><RefreshCw size={17}/></button></div>
  {notice&&<p className={'feedback '+(notice.startsWith('خطأ')?'error':'success')} role="status">{notice}</p>}
@@ -55,6 +56,7 @@ export default function AdminDashboard(){
  {tab==='statistics'&&<StatisticsAdminPanel db={db} canDelete={isManagement}/>}
  {tab==='rankings'&&<RankingAdminPanel db={db}/>}
  {tab==='settings'&&<SiteSettingsPanel db={db}/>}
+ {tab==='pages'&&<ContentPagesAdminPanel db={db}/>}
  {tab==='messages'&&<div className="admin-panel"><h2><Inbox size={20}/> الرسائل الواردة ({messages.length})</h2>{messages.map(m=><article key={m.id} className="message-item"><div className="message-head"><b>{m.name}</b><span>{m.type} · {formatArabicDate(m.created_at)}</span></div><a href={'mailto:'+m.email}>{m.email}</a><p>{m.message}</p></article>)}{!messages.length&&<p className="small-muted">لا توجد رسائل حالياً.</p>}</div>}
  {tab==='admins'&&isManagement&&<AdminUsersPanel db={db}/>}
  </>;

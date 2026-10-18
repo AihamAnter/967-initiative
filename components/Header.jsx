@@ -6,13 +6,14 @@ import {ArrowUpLeft, ChevronDown, LayoutDashboard, LogIn, Menu, Search, X} from 
 import BrandLogo from './BrandLogo';
 import {browserDb} from '@/lib/supabase';
 
-const groups = [
+const baseGroups = [
   {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967']]},
   {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-ranking', 'ترتيب اليمن'], ['/yemen-map', 'اكتشف اليمن']]},
   {label: 'الأدلة', links: [['/yemeni-products', 'منتجات يمنية'], ['/professionals', 'المهنيون']]},
   {label: 'المبادرة', links: [['/#about', 'من نحن'], ['/#projects', 'مشاريعنا'], ['/contribute', 'تواصل وشارك']]},
 ];
-export default function Header({actionLabel='كن جزءاً من الحكاية'}) {
+export default function Header({actionLabel='كن جزءاً من الحكاية',contentLinks=[]}) {
+  const groups=baseGroups.map(group=>group.label==='المبادرة'?{...group,links:[...contentLinks.filter(item=>['about','help','privacy-requests'].includes(item.slug)).map(item=>[item.href,item.title]),['/#projects','مشاريعنا'],['/contribute','تواصل وشارك']]}:group);
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const [signedIn, setSignedIn] = useState(null);
