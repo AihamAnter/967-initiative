@@ -9,6 +9,6 @@ export default function Footer({settings=defaultSiteSettings}) {
       <div><h3>المحتوى والمعرفة</h3><Link href="/works">الأعمال الإعلامية</Link><Link href="/magazine">مجلة 967</Link><Link href="/yemen-in-numbers">اليمن بالأرقام</Link><Link href="/yemen-ranking">ترتيب اليمن</Link><Link href="/yemen-map">اكتشف اليمن</Link></div>
       <div><h3>الأدلة والمجتمع</h3><Link href="/yemeni-products">منتجات يمنية</Link><Link href="/professionals">المهنيون</Link><Link href="/yemen-map#yemeni-figures">شخصيات يمنية</Link><Link href="/contribute">ساهم في المنصة</Link></div>
       <div><h3>مبادرة 967</h3><Link href="/#about">من نحن</Link><Link href="/#projects">مشاريعنا</Link><Link href="/contribute?type=تصحيح%20معلومة">أرسل تصحيحاً</Link><Link href="/admin">دخول المحررين</Link></div>
-    </div><div className="platform-footer-bottom"><span>© {new Date().getFullYear()} مبادرة 967</span><span>المعرفة تجمعنا، والمشاركة تقرّبنا.</span><Link href="/search">ابحث في المنصة <ArrowUpLeft size={14}/></Link></div>
+    </div><div className="platform-footer-bottom"><span>© {new Date().getFullYear()} مبادرة 967</span><span>المعرفة تجمعنا، والمشاركة تقرّبنا.</span><nav className="footer-policy-links" aria-label="الخصوصية والشروط"><Link href="/privacy">سياسة الخصوصية</Link><Link href="/terms">شروط الاستخدام</Link></nav><Link href="/search">ابحث في المنصة <ArrowUpLeft size={14}/></Link></div>
   </div></footer>;
 }

@@ -1,0 +1,210 @@
+{
+  "base": "http://127.0.0.1:3104",
+  "startedAt": "2026-10-18T21:32:21.020Z",
+  "layouts": [
+    {
+      "route": "/privacy",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/terms",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "documentWidth": 320,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "documentWidth": 390,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "documentWidth": 768,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "documentWidth": 1024,
+      "clipped": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "documentWidth": 1440,
+      "clipped": [],
+      "pass": true
+    }
+  ],
+  "accessibility": [
+    {
+      "route": "/privacy",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/terms",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/terms",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Footer links open both policies and policy navigation keeps the active page",
+      "pass": true
+    },
+    {
+      "name": "Both policies are in the sitemap and privacy is discoverable by search",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "finishedAt": "2026-10-18T21:32:35.348Z",
+  "failures": 0
+}

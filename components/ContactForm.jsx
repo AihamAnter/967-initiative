@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import {useState,useEffect,useRef,useCallback} from 'react';
 import {Send,CheckCircle2,AlertCircle} from 'lucide-react';
 import {contributionTypes} from '@/lib/contributions';
@@ -78,7 +79,7 @@ export default function ContactForm({initialType=''}){
   <label>الرسالة <textarea name="message" rows="5" placeholder="اكتب رسالتك هنا..." required minLength={10} maxLength={4000}/></label>
   <div className="honeypot" aria-hidden="true"><input name="website" tabIndex={-1} autoComplete="off"/></div>
   {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && <div ref={captchaRef}/>}
-  <div className="form-bottom"><button type="submit" className="btn btn-red" disabled={status==='sending'}>{status==='sending'?'جارٍ الإرسال...':'إرسال الرسالة'} <Send size={17}/></button><span className="form-note">نستخدم بياناتك للرد على رسالتك فقط.</span></div>
+  <div className="form-bottom"><button type="submit" className="btn btn-red" disabled={status==='sending'}>{status==='sending'?'جارٍ الإرسال...':'إرسال الرسالة'} <Send size={17}/></button><span className="form-note">نستخدم بياناتك لمعالجة رسالتك والرد عليها. <Link href="/privacy">سياسة الخصوصية</Link></span></div>
   {draftStatus&&<div className="draft-status"><p role="status">{draftStatus}</p><button type="button" onClick={clearDraft} disabled={status==='sending'}>مسح المسودة</button></div>}
   {msg&&<p className={status==='sent'?'feedback success':'feedback error'} role={status==='sent'?'status':'alert'}>{status==='sent'?<CheckCircle2 size={17}/>:<AlertCircle size={17}/>} {msg}</p>}
  </form>

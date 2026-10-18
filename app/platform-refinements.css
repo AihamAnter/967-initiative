@@ -1,6 +1,28 @@
 /* Public platform refinements. Keep readers, forms, and long articles at their
    established widths; collections and the home page have room to breathe. */
 :root { --collection-width:1280px; --home-width:1360px; }
+.platform-footer-bottom{flex-wrap:wrap}
+.footer-policy-links{display:flex;flex-wrap:wrap;gap:6px 20px}
+.footer-policy-links a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.form-note a{text-decoration:underline;text-underline-offset:3px;color:var(--primary)}
+.policy-body{padding:24px 0 56px}
+.policy-container{max-width:960px}
+.policy-navigation{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.policy-navigation a{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border:1px solid var(--line);border-radius:6px;font-size:15px;color:var(--primary);background:var(--surface)}
+.policy-navigation a[aria-current=page]{background:var(--primary);color:#fff;border-color:var(--primary)}
+.policy-article{padding:32px 40px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow-wrap:anywhere}
+.policy-updated{font-size:14px;color:var(--muted);margin-bottom:18px}
+.policy-summary{padding:16px 20px;background:var(--soft-green);border-inline-start:3px solid var(--primary);border-radius:6px;font-size:17px;margin-bottom:30px}
+.policy-article section+section{margin-top:28px}
+.policy-article h2{font-size:23px;line-height:1.6;margin:0 0 10px;color:var(--primary)}
+.policy-article p,.policy-article li{font-size:16px;line-height:2}
+.policy-article section p:last-child{margin-bottom:0}
+.policy-article ul{padding-inline-start:24px;margin-block:12px 0}
+.policy-article li+li{margin-top:10px}
+.policy-article a{color:var(--primary);text-decoration:underline;text-underline-offset:4px}
+.policy-contact{border-top:1px solid var(--line);padding-top:24px;margin-top:30px}
+.policy-contact p{margin-bottom:0}
+@media(max-width:760px){.policy-container{width:calc(100% - 32px)}.policy-article{padding:22px 18px}.policy-summary{font-size:16px;padding:14px}.policy-article h2{font-size:21px}.policy-navigation a{padding-inline:14px}.policy-body{padding-bottom:36px}}
 .home-page .container,.site-header .container,.platform-footer .container {
   width:min(var(--home-width),calc(100% - 80px));
 }
