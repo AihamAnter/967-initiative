@@ -10,7 +10,8 @@
     "test": "node --test tests/*.test.mjs",
     "data:stats": "node --env-file=.env.local scripts/seed-yemen-statistics.mjs",
     "data:rankings": "node scripts/sync-yemen-rankings.mjs",
-    "data:companies": "node --env-file=.env.local scripts/seed-yemeni-companies.mjs"
+    "data:companies": "node --env-file=.env.local scripts/seed-yemeni-companies.mjs",
+    "data:figures": "node --env-file=.env.local scripts/seed-yemeni-figures.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",
@@ -23,6 +24,7 @@
     "recharts": "^3.10.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.5.28"
   },

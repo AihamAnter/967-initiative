@@ -1,0 +1,196 @@
+{
+  "scenarios": [
+    {
+      "name": "All published profiles are reachable and expose source-linked dossiers",
+      "pass": true
+    },
+    {
+      "name": "Historical uncertainty and contextual image labels are visible",
+      "pass": true
+    },
+    {
+      "name": "API enforces session, server role, source integrity and cross-site protection",
+      "pass": true
+    },
+    {
+      "name": "Admin UI edits the full source-linked biography and preserves the complete profile on reload",
+      "pass": true
+    },
+    {
+      "name": "Draft, publish, conflict and deletion persist while removed records never return from the demo catalog",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/tawakkol-karman",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/tawakkol-karman",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/tawakkol-karman",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/tawakkol-karman",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/tawakkol-karman",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/al-hamdani",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/al-hamdani",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/al-hamdani",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/al-hamdani",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map/figures/al-hamdani",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/yemen-map",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    }
+  ],
+  "axe": [
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "path": "/yemen-map/figures/tawakkol-karman",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemen-map/figures/tawakkol-karman",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "path": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemen-map/figures/arwa-al-sulayhi",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "path": "/yemen-map/figures/al-hamdani",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemen-map/figures/al-hamdani",
+      "width": 1440,
+      "violations": []
+    }
+  ],
+  "runtimeErrors": [],
+  "completedAt": "2026-10-19T01:34:04.566Z"
+}

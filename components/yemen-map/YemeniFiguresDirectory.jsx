@@ -18,7 +18,7 @@ const socialLinks = figure => [
 
 function lifeYears(figure) {
   if (!figure.birthYear && !figure.deathYear) return '';
-  return figure.deathYear ? `${figure.birthYear || ''} - ${figure.deathYear}` : `${figure.birthYear} - حتى الآن`;
+  return figure.deathYear ? `${figure.birthYear || '؟'} – ${figure.deathYear}` : `الميلاد: ${figure.birthYear}`;
 }
 
 function figureInitials(name) {
@@ -92,8 +92,9 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
           return <article className="yfigure-card" key={figure.id}>
             <Link className="yfigure-card-hitarea" href={`/yemen-map/figures/${figure.slug}`} aria-label={`عرض صفحة ${figure.fullName}`}><span className="sr-only">عرض صفحة {figure.fullName}</span></Link>
             <div className="yfigure-image">
-              {figure.imageUrl ? <Image src={figure.imageUrl} alt={`صورة ${figure.fullName}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
+              {figure.imageUrl ? <Image src={figure.imageUrl} alt={figure.imageKind==='context'?figure.imageCredit:`صورة ${figure.fullName}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
               <span className="yfigure-era">{figure.era}</span>
+              {figure.imageSourceUrl&&<a className="yfigure-photo-credit" href={figure.imageSourceUrl} target="_blank" rel="noopener noreferrer" title={figure.imageCredit}>{figure.imageCredit||'مصدر الصورة وحقوقها'}</a>}
             </div>
             <div className="yfigure-content">
               <div className="yfigure-meta"><span>{figure.field}</span>{lifeYears(figure) && <span dir="ltr">{lifeYears(figure)}</span>}</div>
@@ -102,7 +103,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
               <strong>{figure.knownFor}</strong>
               <p>{figure.shortBio}</p>
               <div className="yfigure-footer">
-                <span className="yfigure-location"><MapPinned size={17}/>{figure.governorateName}<small>المحافظة المرتبطة</small></span>
+                {figure.governorateName&&<span className="yfigure-location"><MapPinned size={17}/>{figure.governorateName}<small>المحافظة المرتبطة</small></span>}
                 {links.length > 0 && <div className="yfigure-socials">{links.map(({url, label, icon: Icon}) => <a href={url} target="_blank" rel="noreferrer" aria-label={`${label} - ${figure.fullName}`} title={label} key={label}><Icon size={17}/></a>)}</div>}
                 {links.length === 0 && <ArrowUpLeft className="yfigure-open-icon" size={20} aria-hidden="true"/>}
               </div>

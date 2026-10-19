@@ -1,0 +1,32 @@
+{
+  "scenarios": [
+    "Multiword admin search matches name and governorate",
+    "UI adds a source, timeline event, work and licensed local image with linked references; full data survives reload",
+    "UI removes nested content without altering the other saved records",
+    "UI unpublish and publish preserve the expanded biography"
+  ],
+  "layouts": [
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    }
+  ],
+  "axe": [
+    {
+      "width": 390,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "violations": []
+    }
+  ],
+  "runtimeErrors": [],
+  "completedAt": "2026-10-19T01:36:03.120Z"
+}

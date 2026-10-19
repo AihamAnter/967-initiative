@@ -1,0 +1,158 @@
+{
+  "scenarios": [
+    "management creates and assigns a task through real API/PostgreSQL",
+    "subtask creation/completion and comment addition/edit recorded in database",
+    "edit priority/timed deadline, complete, archive, restore and reopen preserving audit",
+    "Kanban drag/drop persists; failed mutation retains original status; search survives detail navigation",
+    "monthly/weekly calendar, day selection, next period and today navigation",
+    "management project creation",
+    "notification read state",
+    "admin sees another member task, cannot edit, can comment"
+  ],
+  "layouts": [
+    {
+      "view": "list",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "pass": true
+    },
+    {
+      "view": "list",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "pass": true
+    },
+    {
+      "view": "list",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "pass": true
+    },
+    {
+      "view": "list",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "pass": true
+    },
+    {
+      "view": "list",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "pass": true
+    },
+    {
+      "view": "Kanban",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "pass": true
+    },
+    {
+      "view": "Kanban",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "pass": true
+    },
+    {
+      "view": "Kanban",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "pass": true
+    },
+    {
+      "view": "Kanban",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "pass": true
+    },
+    {
+      "view": "Kanban",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "pass": true
+    },
+    {
+      "view": "التقويم",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "pass": true
+    },
+    {
+      "view": "التقويم",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "pass": true
+    },
+    {
+      "view": "التقويم",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "pass": true
+    },
+    {
+      "view": "التقويم",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "pass": true
+    },
+    {
+      "view": "التقويم",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "pass": true
+    },
+    {
+      "view": "form",
+      "width": 320,
+      "scroll": 280,
+      "client": 280,
+      "pass": true
+    },
+    {
+      "view": "form",
+      "width": 390,
+      "scroll": 350,
+      "client": 350,
+      "pass": true
+    },
+    {
+      "view": "form",
+      "width": 768,
+      "scroll": 728,
+      "client": 728,
+      "pass": true
+    },
+    {
+      "view": "form",
+      "width": 1440,
+      "scroll": 838,
+      "client": 838,
+      "pass": true
+    },
+    {
+      "view": "form",
+      "width": 1920,
+      "scroll": 838,
+      "client": 838,
+      "pass": true
+    }
+  ],
+  "accessibility": [],
+  "runtimeErrors": [],
+  "unexpectedWrites": [],
+  "externalRequests": []
+}

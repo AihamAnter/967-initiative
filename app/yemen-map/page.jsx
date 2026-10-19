@@ -1,7 +1,7 @@
 import YemenDiscovery from '@/components/yemen-map/YemenDiscovery';
 import {pageMetadata} from '@/lib/seo';
 import {getYemeniFigures} from '@/lib/data';
-import {yemenGovernorates} from '@/lib/yemeniFigures';
+import {yemenGovernorates,toFigureDirectoryCard} from '@/lib/yemeniFigures';
 
 export const metadata = pageMetadata({
   title: 'اكتشف اليمن',
@@ -23,6 +23,6 @@ export default async function YemenMapPage({searchParams}) {
         <p>استكشف المحافظات والمديريات والشخصيات المرتبطة بها.</p>
       </div>
     </section>
-    <YemenDiscovery key={(region||'')+':'+(district||'')} figures={figures} initialGovernorateId={region} initialDistrictId={district}/>
+    <YemenDiscovery key={(region||'')+':'+(district||'')} figures={figures.map(toFigureDirectoryCard)} initialGovernorateId={region} initialDistrictId={district}/>
   </div>;
 }

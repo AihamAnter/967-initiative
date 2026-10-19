@@ -17,6 +17,7 @@ import {
 import {getYemeniFigure, getYemeniFigures} from '@/lib/data';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, figureSchema, JsonLd} from '@/lib/seo-schema';
+import FigureDossier from '@/components/FigureDossier';
 
 export const dynamic = 'force-dynamic';
 
@@ -58,6 +59,8 @@ export default async function YemeniFigureProfilePage({params}) {
   if (!figure) notFound();
 
   const links = socialLinks(figure);
+  const hasDossier=figure.profile&&['sections','facts','timeline','works','gallery','notes'].some(key=>figure.profile[key]?.length);
+  const portrait=figure.profile?.gallery.find(photo=>photo.url===figure.imageUrl);
   const related = figures
     .filter(item => item.id !== figure.id && (item.field === figure.field || (figure.governorateId && item.governorateId === figure.governorateId)))
     .sort((a, b) => {
@@ -78,22 +81,22 @@ export default async function YemeniFigureProfilePage({params}) {
           <div className="figure-profile-tags">
             <span>{figure.era}</span>
             <span>{figure.field}</span>
-            <span><MapPinned size={14}/>{figure.governorateName}</span>
+            {figure.governorateName&&<span><MapPinned size={14}/>{figure.governorateName}</span>}
           </div>
           <h1>{figure.fullName}</h1>
           {figure.isDemo && <p className="data-disclosure">ملف توضيحي من الكتالوج التجريبي للمشروع. يحتاج إلى مراجعة المصادر والبيانات قبل اعتماده؛ لا يمثل ملفاً موثقاً منشوراً.</p>}
           <strong>{figure.knownFor}</strong>
-          <p>شخصية يمنية مرتبطة بمحافظة {figure.governorateName}، ضمن مجال {figure.field}.</p>
+          <p>{figure.shortBio}</p>
           {links.length > 0 && <nav className="figure-profile-socials" aria-label={`روابط ${figure.fullName}`}>
             {links.map(({url, label, icon: Icon}) => <a href={url} target="_blank" rel="noopener noreferrer" key={label}><Icon size={17}/><span>{label}</span><ExternalLink size={13}/></a>)}
           </nav>}
         </div>
 
-        <div className="figure-profile-portrait">
+        <div className="figure-profile-portrait" data-kind={portrait?.kind||'portrait'}>
           {figure.imageUrl
-            ? <Image src={figure.imageUrl} alt={`صورة ${figure.fullName}`} fill priority sizes="(max-width: 850px) 100vw, 42vw" unoptimized={figure.imageUrl.startsWith('http')}/>
+            ? <Image src={figure.imageUrl} alt={figure.profile?.gallery.find(photo=>photo.url===figure.imageUrl)?.alt||`صورة ${figure.fullName}`} fill priority sizes="(max-width: 850px) 100vw, 42vw" unoptimized={figure.imageUrl.startsWith('http')}/>
             : <span className="figure-profile-initials" aria-hidden="true">{figureInitials(figure.fullName)}</span>}
-          <div><span>{figure.field}</span><strong>{figure.fullName}</strong></div>
+          <div><span>{{context:'صورة سياقية مرتبطة بالسيرة',artwork:'تصوير فني',document:'وثيقة تاريخية'}[portrait?.kind]||figure.field}</span><strong>{figure.fullName}</strong>{figure.imageSourceUrl&&<a href={figure.imageSourceUrl} title={figure.imageCredit} target="_blank" rel="noopener noreferrer">مصدر الصورة وحقوقها</a>}</div>
         </div>
       </div>
     </section>
@@ -101,10 +104,11 @@ export default async function YemeniFigureProfilePage({params}) {
     <section className="figure-profile-body">
       <div className="container figure-profile-layout">
         <div className="figure-profile-main">
+          {hasDossier ? <FigureDossier profile={figure.profile} figure={figure}/> : <>
           <section>
             <span className="eyebrow">السيرة والتعريف</span>
             <h2>عن {figure.fullName}</h2>
-            <p className="figure-profile-biography">{figure.shortBio}</p>
+            <p className="figure-profile-biography">{figure.biographyText||figure.shortBio}</p>
           </section>
 
           {(figure.birthYear || figure.deathYear || figure.timeline?.length > 0) && <section><span className="eyebrow">محطات من السيرة</span><h2>التسلسل الزمني</h2><ol className="figure-timeline">{[
@@ -119,6 +123,7 @@ export default async function YemeniFigureProfilePage({params}) {
             <BookOpenText size={27}/>
             <div><span className="eyebrow">معروف بـ</span><h2>{figure.knownFor}</h2><p>يُصنّف هذا الملف ضمن {figure.field} ويرتبط بمحافظة {figure.governorateName} في دليل شخصيات يمنية.</p></div>
           </section>
+          </>}
         </div>
 
         <aside className="figure-profile-aside">

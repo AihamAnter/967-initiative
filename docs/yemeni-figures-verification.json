@@ -1,0 +1,421 @@
+{
+  "verifiedAt": "2026-10-19T01:33:27.091Z",
+  "figures": 120,
+  "publishedFigures": 120,
+  "verifiedBaseRecordsAndProfiles": 120,
+  "sections": 494,
+  "paragraphs": 970,
+  "facts": 476,
+  "events": 433,
+  "works": 263,
+  "photos": 80,
+  "sources": 262,
+  "profilesWithPhotos": 64,
+  "privateBucketIsPrivate": true,
+  "anonymousPrivateObjectDenied": true,
+  "publicPrivateObjectDenied": true,
+  "publicImagesVerified": 80,
+  "errors": [],
+  "images": [
+    {
+      "file": "fe584b55b6d32896.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "b146d3b54bd3b68c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "9c5780f3ee66eb8c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "37f9108c2b93a725.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "9461f004670cde2e.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "39e67e21e5a5be3e.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "af7eb4ef6b6c784e.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "37f0b713bc35da55.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "ec78d1bd18cdeea7.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "a9c7bf72466da085.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "ea917fbaa9f3ef04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "9f09d87da6ac1b1a.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "6e674723213b2c8c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "658f2e351887f833.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "ffad49b3f36ccd7b.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "2c6ef2e36fa4b422.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "0c293f7390438f46.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "97aad95754658099.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "06b2aa206089c30a.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "6ca26da4bb9aa642.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "4caf32368f0fd726.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "9f32474b1c81866e.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "d3aaa9d70fa4bb08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "001419f28a2d2338.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "c67203891569a255.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "9f3dcce002179a9f.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "9ec4676c8782146f.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "7120a87a82e3542e.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "31c5998f5cd4fd79.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "21ef0b6e002b1253.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "4cf8261efd80f957.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "330f0fa1701b760f.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "b82b78c135bcc8e6.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "dfe7e0e32cf8f5aa.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "8a1d716994557629.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "f52d9e1416fee8ba.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "52d17bd13a353ae8.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "08aba89b56e4a505.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "50c0c15be452fd5d.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "b2f146ec56c8f761.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "968efca4aba11404.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "b88febb9d32ab392.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "4702edd7055a9866.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "cc45314f614eeac2.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "e722406d54e195ff.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "ccd044a17e568157.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "40f809ee1c8d5be9.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "6deff92c1d797b43.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "e17c4b6b799fb879.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "3cc1e23585305d88.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "123c967f4aeccd31.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "218ea1ed506533c4.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "a18921f3aea4f5b5.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "4ef3b515a0ed29c7.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "888dfcee5b92157c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "4e7a3fd3f35eebe0.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "6109b4c83366f9df.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "66c55f6c4fc22f97.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "395842da4ac5459c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "daef918fe49584fd.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "86f33731e28cffd2.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "13bca893f086cfc7.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "c88c5cc0b28288e1.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "6312f195253cc557.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "c77262f360a5c9be.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "78b4f30a660a1709.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "1047307091fc1ebe.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "df520852d4371ee6.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "32edc580a0849dfa.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "403ae418d2d6ade3.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "dc123247ab3ad63e.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "0447a72a2eee0254.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "d40162beb2506249.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "50680be695661bad.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "628726951e33c06c.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "7932521d339d570a.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "38d3abf27bf15df9.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "6773c88c443ba3d2.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "2074d22e3b973a50.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "3678ade1ed6c48aa.webp",
+      "status": 200,
+      "type": "image/webp"
+    }
+  ]
+}

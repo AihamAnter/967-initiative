@@ -1,0 +1,100 @@
+'use client';
+import Link from 'next/link';
+import {useState,useEffect,useMemo,useCallback,useRef} from 'react';
+import {Plus,Search,Bell,LayoutList,Columns3,CalendarDays,RefreshCw,ArrowRight,CheckCheck,SlidersHorizontal,FolderOpen,LockKeyhole} from 'lucide-react';
+import {browserDb} from '@/lib/supabase';
+import {taskApi} from '@/lib/taskClient';
+import {TASK_STATUSES,TASK_PRIORITIES,dayKey,calendarDays} from '@/lib/tasks';
+import TaskForm from './TaskForm';
+import TaskDetail from './TaskDetail';
+import TaskDialog from './TaskDialog';
+import {TaskCard,TaskKanban,TaskCalendar} from './TaskViews';
+import styles from './TaskCenter.module.css';
+const filterKeys=['q','scope','status','priority','assignee','project','sort','archive','view','page'];
+const readFilters=()=>{const p=new URLSearchParams(window.location.search);return Object.fromEntries(filterKeys.map(k=>[k,p.get(k)||'']));};
+export default function TaskCenter(){
+ const db=useMemo(()=>browserDb(),[]),[session,setSession]=useState(undefined),[filters,setFilters]=useState({}),[workspace,setWorkspace]=useState(null),[loading,setLoading]=useState(true),[error,setError]=useState(''),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[detail,setDetail]=useState(null),[editor,setEditor]=useState(null),[notifications,setNotifications]=useState(false),[projectsOpen,setProjectsOpen]=useState(false),[anchor,setAnchor]=useState(dayKey()),[calendarMode,setCalendarMode]=useState('month'),[query,setQuery]=useState('');
+ const active=useRef(null),listController=useRef(null),detailController=useRef(null),mutationLock=useRef(false),initialTask=useRef(null);const view=filters.view||'list';
+ useEffect(()=>{const initial=readFilters();initialTask.current=new URLSearchParams(window.location.search).get('task');setFilters(initial);setQuery(initial.q||'');const pop=()=>{const f=readFilters();setFilters(f);setQuery(f.q||'');};window.addEventListener('popstate',pop);return()=>window.removeEventListener('popstate',pop);},[]);
+ useEffect(()=>{if(!db){setSession(null);setLoading(false);return;}let live=true;
+  const update=s=>{if(!live)return;const id=s?.user.id||null;if(active.current!==id){setWorkspace(null);setDetail(null);setEditor(null);setError('');listController.current?.abort();detailController.current?.abort();}active.current=id;setSession(s);};
+  db.auth.getSession().then(({data})=>update(data.session)).catch(()=>update(null));const {data}=db.auth.onAuthStateChange((_e,s)=>update(s));
+  return()=>{live=false;active.current=null;listController.current?.abort();detailController.current?.abort();data.subscription.unsubscribe();};
+ },[db]);
+ const changeFilters=patch=>{setFilters(f=>({...f,page:'',...patch}));setDetail(null);setError('');};
+ const load=useCallback(async()=>{
+  if(!session)return;
+  const actorId=session.user.id;listController.current?.abort();const control=new AbortController();listController.current=control;setLoading(true);
+  const params=new URLSearchParams();for(const key of filterKeys)if(filters[key])params.set(key,filters[key]);params.set('tz',Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC');
+  if(view==='calendar'){const days=calendarDays(anchor,calendarMode);params.set('from',days[0]);params.set('to',days.at(-1));}
+  try{const result=await taskApi(db,{params:params.toString(),signal:control.signal});if(active.current===actorId&&!control.signal.aborted){setWorkspace(result);setError('');}}
+  catch(err){if(!control.signal.aborted&&active.current===actorId){setError(err.message);if([401,403].includes(err.status)){setWorkspace(null);setDetail(null);setEditor(null);}}}
+  finally{if(!control.signal.aborted&&active.current===actorId)setLoading(false);}
+ },[db,session,filters,view,anchor,calendarMode]);
+ useEffect(()=>{if(session)load();else if(session===null)setLoading(false);},[session,load]);
+ useEffect(()=>{if(workspace&&initialTask.current){const id=initialTask.current;initialTask.current=null;openTask(id);}
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[workspace]);
+ useEffect(()=>{if(session===undefined)return;const p=new URLSearchParams();for(const key of filterKeys)if(filters[key])p.set(key,filters[key]);if(detail)p.set('task',detail.task.id);window.history.replaceState({},'',window.location.pathname+(p.size?'?'+p:''));},[filters,detail,session]);
+ // Clock-based hints and notifications refresh when the center opens; no background scheduler.
+ useEffect(()=>{if(!session||!db)return;let live=true;taskApi(db,{method:'POST',body:{action:'reminders'}}).then(()=>{if(live)load();}).catch(()=>{});return()=>{live=false;};/* load/filter changes must not recreate reminders. */
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[db,session?.user.id]);
+ useEffect(()=>{if(!session)return;const id=setInterval(()=>{if(document.visibilityState==='visible')load();},60000);return()=>clearInterval(id);},[session,load]);
+ async function openTask(id){const actorId=active.current;detailController.current?.abort();const control=new AbortController();detailController.current=control;setError('');try{const result=await taskApi(db,{params:'id='+id,signal:control.signal});if(active.current===actorId&&!control.signal.aborted)setDetail(result);}catch(err){if(!control.signal.aborted)setError(err.message);}}
+ async function mutate(body){
+  if(mutationLock.current)return false;mutationLock.current=true;setBusy(true);setError('');setNotice('');const actorId=active.current;
+  try{const result=await taskApi(db,{method:'POST',body});if(active.current!==actorId)return false;
+   setNotice('تم حفظ التغيير بنجاح.');if(body.action==='delete')setDetail(null);else if(detail&&result.id===detail.task.id)await openTask(result.id);await load();return result;
+  }catch(err){if(active.current===actorId)setError(err.message);return false;}finally{mutationLock.current=false;setBusy(false);}
+ }
+ async function saveForm(data){const result=await mutate({action:editor.task?'update':'create',id:editor.task?.id||null,revision:editor.task?.revision||null,data});if(result){setEditor(null);await openTask(result.id);}}
+ const onStatus=(task,status)=>mutate({action:'status',id:task.id,revision:task.revision,data:{status}});
+ if(session===undefined)return <section className={styles.shell}><p role="status">جارٍ التحقق من الحساب…</p></section>;
+ if(!session)return <section className={`${styles.shell} ${styles.gate}`}><LockKeyhole size={34}/><h1>مركز مهام 967</h1><p>سجّل الدخول بحساب الإدارة أو الأدمن لفتح مساحة عمل الفريق.</p><Link className={styles.primary} href="/admin">تسجيل الدخول إلى لوحة الإدارة</Link></section>;
+ const metricCards=[['total','إجمالي المهام',{}],['not_started','لم تبدأ',{status:'not_started'}],['in_progress','قيد التنفيذ',{status:'in_progress'}],['completed','مكتملة',{status:'completed'}],['overdue','متأخرة',{scope:'overdue'}],['today','تستحق اليوم',{scope:'today'}],['week','خلال ٧ أيام',{scope:'week'}],['completion_rate','معدل الإنجاز',{scope:'completed'}],['on_time_rate','الالتزام بالموعد',{scope:'completed'}]];
+ const tasks=(workspace?.tasks||[]).map(t=>({...t,manager:workspace.actor.role==='management'}));
+ const unread=workspace?.notifications.filter(n=>!n.read_at).length||0;
+ return <section className={styles.shell}>
+  <Link href="/admin" className={styles.back}><ArrowRight size={17}/>لوحة الإدارة</Link>
+  <header className={styles.heading}><div><span className={styles.eyebrow}>967 / مساحة عمل الفريق</span><h1>مركز مهام <span>967</span></h1><p>نعمل معاً، ونرى التقدّم بوضوح.</p></div><div className={styles.actions}><button className={styles.secondary} disabled={!workspace||busy} onClick={()=>setNotifications(true)}><Bell size={18}/>التنبيهات{unread>0&&<span className={styles.count}>{unread.toLocaleString('ar',{numberingSystem:'arab'})}</span>}</button><button className={styles.primary} disabled={!workspace||busy} onClick={()=>{setError('');setEditor({task:null});}}><Plus size={19}/>إضافة مهمة</button></div></header>
+  <p className={styles.teamNote}><CheckCheck size={16}/> جميع مهام الفريق متاحة للأدمن والإدارة. التعديل بحسب مسؤولية المهمة.</p>
+  {error&&!detail&&!editor&&<p className={styles.error} role="alert">{error} <button className={styles.textButton} onClick={load}>إعادة المحاولة</button></p>}{notice&&<p className={styles.success} role="status">{notice}</p>}
+  {workspace&&<>
+   <div className={styles.metrics}>{metricCards.map(([key,label,patch])=><button key={key} onClick={()=>changeFilters({scope:'',status:'',archive:'',...patch})}><span>{label}</span><strong>{workspace.metrics[key]===null?'—':workspace.metrics[key].toLocaleString('ar',{numberingSystem:'arab'})}{key.endsWith('rate')&&workspace.metrics[key]!==null?'٪':''}</strong>{key==='overdue'&&<i/>}</button>)}</div>
+   <div className={styles.workLayout}><div className={styles.mainColumn}>
+    <section className={styles.workspace} aria-label="مهام الفريق">
+     <form className={styles.search} onSubmit={e=>{e.preventDefault();changeFilters({q:query});}}><Search size={19}/><input type="search" aria-label="البحث في مهام الفريق" placeholder="ابحث عن مهمة، مشروع، مسؤول أو وسم…" value={query} onChange={e=>setQuery(e.target.value)}/><button type="submit" className={styles.secondary}>بحث</button></form>
+     <details className={styles.filterDetails} open><summary><SlidersHorizontal size={16}/>البحث والتصفية</summary><div className={styles.filters}>
+      <label>النطاق<select value={filters.scope||''} onChange={e=>changeFilters({scope:e.target.value})}>{[['','جميع المهام'],['mine','مهامي'],['created','أنشأتها'],['completed','مكتملة'],['overdue','متأخرة'],['urgent','عاجلة'],['today','مهام اليوم'],['week','مهام الأسبوع'],['open','غير المكتملة']].map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>
+      <label>الحالة<select value={filters.status||''} onChange={e=>changeFilters({status:e.target.value})}><option value="">كل الحالات</option>{Object.entries(TASK_STATUSES).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>
+      <label>الأولوية<select value={filters.priority||''} onChange={e=>changeFilters({priority:e.target.value})}><option value="">كل الأولويات</option>{Object.entries(TASK_PRIORITIES).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>
+      <label>المسؤول<select value={filters.assignee||''} onChange={e=>changeFilters({assignee:e.target.value})}><option value="">كل الفريق</option>{workspace.members.map(m=><option key={m.user_id} value={m.user_id}>{m.display_name}</option>)}</select></label>
+      <label>المشروع<select value={filters.project||''} onChange={e=>changeFilters({project:e.target.value})}><option value="">كل المشاريع</option>{workspace.projects.map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label>
+      <label>الترتيب<select value={filters.sort||''} onChange={e=>changeFilters({sort:e.target.value})}>{[['','أقرب موعد'],['newest','الأحدث'],['priority','الأعلى أولوية'],['updated','آخر تعديل'],['assignee','اسم المسؤول']].map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>
+     </div><div className={styles.filterFooter}><label className={styles.check}><input type="checkbox" checked={filters.archive==='1'} onChange={e=>changeFilters({archive:e.target.checked?'1':''})}/>عرض الأرشيف</label><button type="button" className={styles.textButton} onClick={()=>{setQuery('');setFilters({view});}}>مسح الفلاتر</button></div></details>
+     <div className={styles.viewToolbar}><div className={styles.tabs} aria-label="طرق عرض المهام">{[['list','القائمة',LayoutList],['kanban','Kanban',Columns3],['calendar','التقويم',CalendarDays]].map(([v,label,Icon])=><button key={v} className={view===v?styles.active:''} aria-pressed={view===v} onClick={()=>changeFilters({view:v})}><Icon size={17}/>{label}</button>)}</div><button className={styles.iconButton} aria-label="تحديث المهام" onClick={load} disabled={loading}><RefreshCw size={17}/></button></div>
+     <div className={styles.resultsInfo} role="status">{loading?'جارٍ تحديث المهام…':`${workspace.total.toLocaleString('ar',{numberingSystem:'arab'})} مهمة مطابقة`}{filters.archive==='1'?' · الأرشيف':''}</div>
+     <div aria-busy={loading}>{view==='kanban'?<TaskKanban tasks={tasks} onOpen={openTask} onStatus={onStatus} busy={busy||loading}/>:view==='calendar'?<TaskCalendar tasks={tasks} anchor={anchor} mode={calendarMode} setAnchor={setAnchor} setMode={setCalendarMode} onOpen={openTask}/>:<div className={styles.taskList}>{tasks.map(task=><TaskCard key={task.id} task={task} onOpen={openTask} onStatus={onStatus} busy={busy||loading}/>)}</div>}
+     {!tasks.length&&view!=='calendar'&&<div className={styles.empty}><CheckCheck size={32}/><h3>مساحة لإنجازك القادم</h3><p>لا توجد مهام تطابق الفلاتر الحالية.</p><button className={styles.secondary} onClick={()=>{setQuery('');setFilters({view});}}>عرض جميع المهام</button></div>}</div>
+     {workspace.pages>1&&<nav className={styles.pagination} aria-label="صفحات المهام"><button className={styles.secondary} disabled={workspace.page<=1||loading} onClick={()=>changeFilters({page:String(workspace.page-1)})}>السابق</button><span>{workspace.page.toLocaleString('ar',{numberingSystem:'arab'})} / {workspace.pages.toLocaleString('ar',{numberingSystem:'arab'})}</span><button className={styles.secondary} disabled={workspace.page>=workspace.pages||loading} onClick={()=>changeFilters({page:String(workspace.page+1)})}>التالي</button></nav>}
+     {view!=='list'&&workspace.pages>1&&<p className={styles.hint}>يعرض هذا المنظور مهام الصفحة الحالية. استخدم التصفية أو انتقل بين الصفحات لعرض البقية.</p>}
+    </section>
+    <details className={styles.report}><summary>التقرير الأسبوعي <span>من الإثنين حتى الآن</span></summary><div className={styles.weekStats}>{[['created','أنشئت'],['completed','اكتملت'],['on_time','في موعدها'],['late','اكتملت متأخرة'],['overdue','متأخرة حالياً']].map(([key,label])=><div key={key}><strong>{workspace.metrics.weekly[key].toLocaleString('ar',{numberingSystem:'arab'})}</strong><span>{label}</span></div>)}</div><div className={styles.distributions}>{[['projects','توزيع مهام الأسبوع حسب المشروع'],['assignees','توزيع مهام الأسبوع حسب المسؤول']].map(([key,label])=><div key={key}><h3>{label}</h3>{workspace.metrics.weekly[key].map(row=><div className={styles.distribution} key={row.name}><span>{row.name}</span><b>{row.count.toLocaleString('ar',{numberingSystem:'arab'})}</b></div>)}</div>)}</div><p className={styles.hint}>المؤشرات تستثني المؤرشف والمحذوف. الالتزام يُحسب للمهام المكتملة التي لها موعد فقط. إعادة الفتح تستبعد المهمة من عدد المكتملة الحالي.</p></details>
+   </div><aside className={styles.sidebar}>
+    {[['overdue','تحتاج انتباهك','متأخرة'],['upcoming','على الأفق','قريبة التسليم']].map(([key,title,label])=><section className={styles.sidePanel} key={key}><span className={styles.eyebrow}>{label}</span><h2>{title}</h2>{workspace[key].map(t=><button className={styles.miniTask} key={t.id} onClick={()=>openTask(t.id)}><b>{t.title}</b><small>{t.assignee_name}</small></button>)}{!workspace[key].length&&<p className={styles.hint}>لا توجد مهام {label}.</p>}</section>)}
+    <section className={styles.sidePanel}><FolderOpen size={24}/><h2>مشاريع الفريق</h2><p className={styles.hint}>تصنيفات داخلية لتنظيم العمل، تديرها الإدارة.</p>{workspace.actor.role==='management'&&<button className={styles.secondary} onClick={()=>setProjectsOpen(true)}>إدارة المشاريع</button>}</section>
+    <p className={styles.hint}>تذكيرات المواعيد تُحدّث عند فتح المركز أو تحديثه. لا توجد إشعارات مجدولة خارج الموقع.</p>
+   </aside></div>
+  </>}
+  {loading&&!workspace&&<p className={styles.loading} role="status">جارٍ تحميل مساحة الفريق…</p>}
+  {detail&&workspace&&<TaskDetail detail={detail} workspace={workspace} busy={busy} error={error} onClose={()=>{setDetail(null);setError('');}} onEdit={task=>{setError('');setEditor({task});}} onMutate={mutate} onReload={()=>openTask(detail.task.id)}/>}
+  {editor&&workspace&&<TaskForm task={editor.task} workspace={workspace} busy={busy} error={error} onClose={()=>{setEditor(null);setError('');}} onSave={saveForm}/>}
+  {notifications&&workspace&&<TaskDialog title="تنبيهات الفريق" onClose={()=>setNotifications(false)} busy={busy}><button className={styles.secondary} disabled={busy} onClick={()=>mutate({action:'read_notifications'})}>تحديد الجميع كمقروء</button>{workspace.notifications.map(n=><article className={styles.notification} key={n.id}><span className={!n.read_at?styles.unread:''}>{({assignment:'أُسندت إليك مهمة',due_soon:'اقترب موعد مهمة',overdue:'تجاوزت مهمة موعدها',review:'مهمة بانتظار اعتمادك',reopened:'أُعيد فتح مهمة',comment:'تعليق جديد على مهمة مرتبطة بك'})[n.kind]}</span><small>{new Date(n.created_at).toLocaleString('ar',{numberingSystem:'arab'})}</small><div className={styles.actions}><button className={styles.textButton} onClick={async()=>{setNotifications(false);await openTask(n.task_id);}}>فتح المهمة</button>{!n.read_at&&<button className={styles.textButton} disabled={busy} onClick={()=>mutate({action:'read_notifications',data:{id:n.id}})}>تحديد كمقروء</button>}</div></article>)}{!workspace.notifications.length&&<p>لا توجد تنبيهات بعد.</p>}<p className={styles.hint}>آخر ١٠٠ تنبيه. التذكيرات الزمنية تُنشأ عند فتح المركز.</p></TaskDialog>}
+  {projectsOpen&&workspace&&<Projects workspace={workspace} busy={busy} error={error} onClose={()=>{setProjectsOpen(false);setError('');}} mutate={mutate}/>}
+ </section>;
+}
+function Projects({workspace,busy,error,onClose,mutate}){
+ const [name,setName]=useState(''),[editing,setEditing]=useState(null);
+ return <TaskDialog title="إدارة المشاريع والتصنيفات" busy={busy} onClose={onClose}>{error&&<p className={styles.error} role="alert">{error}</p>}<form className={styles.inlineForm} onSubmit={async e=>{e.preventDefault();if(await mutate({action:'project_save',id:editing?.id||null,data:{name,updated_at:editing?.updated_at}})){setName('');setEditing(null);}}}><label>{editing?'تعديل اسم المشروع':'مشروع جديد'}<input required maxLength={120} value={name} onChange={e=>setName(e.target.value)}/></label><button className={styles.primary} disabled={busy}>حفظ المشروع</button>{editing&&<button type="button" className={styles.secondary} onClick={()=>{setEditing(null);setName('');}}>إلغاء</button>}</form>{workspace.projects.map(p=><article key={p.id} className={styles.projectRow}><span>{p.name}{!p.is_active?' (متوقف)':''}</span><div className={styles.actions}><button className={styles.textButton} disabled={busy} onClick={()=>{setEditing(p);setName(p.name);}}>تعديل</button><button className={styles.textButton} disabled={busy} onClick={()=>mutate({action:'project_save',id:p.id,data:{name:p.name,is_active:!p.is_active,updated_at:p.updated_at}})}>{p.is_active?'إيقاف':'تفعيل'}</button></div></article>)}</TaskDialog>;
+}
