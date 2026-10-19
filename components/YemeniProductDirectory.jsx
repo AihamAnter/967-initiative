@@ -71,7 +71,7 @@ export default function YemeniProductDirectory({companies}) {
       <Link className="company-card" href={'/yemeni-products/' + company.id+'?from='+encodeURIComponent(returnTo)} key={company.id}>
         <div className="company-media">
           {company.imageUrl ? <Image src={company.imageUrl || '/images/yemeni-products-hero.png'} alt={company.products.join('، ')} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" style={{objectPosition: company.imagePosition}}/> : <div className="company-placeholder"><Package size={42} strokeWidth={1}/></div>}
-          <span>{company.scale}</span>
+          {company.scale && <span>{company.scale}</span>}
         </div>
         <div className="company-main">
           <div className="company-overline"><span>{company.category}</span><span><MapPin size={13}/>{company.location}</span></div>

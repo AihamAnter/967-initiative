@@ -449,3 +449,11 @@
  .ymap-controls>button:not(.ymap-reset){min-width:40px;width:40px}
  .ymap-display-options>summary{padding-inline:6px}
 }
+.company-source-editor{border:1px solid var(--border,#dbe4e2);border-radius:10px;padding:16px;margin-block:12px;min-width:0}
+.company-source-row{display:grid;gap:10px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border,#dbe4e2)}
+.company-source-row input{min-width:0;max-width:100%}
+.company-sources ul{list-style:none;padding:0;display:grid;gap:16px}
+.company-sources li{display:grid;gap:6px;overflow-wrap:anywhere}
+.company-sources a{display:flex;align-items:center;gap:8px;color:var(--teal,#176c74)}
+.company-sources small{color:var(--muted,#6d7f86)}
+.company-contact-links .company-maps-link{color:var(--primary,#176c74)}

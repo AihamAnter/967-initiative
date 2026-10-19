@@ -9,7 +9,8 @@
     "lint": "eslint . --ext .js,.jsx",
     "test": "node --test tests/*.test.mjs",
     "data:stats": "node --env-file=.env.local scripts/seed-yemen-statistics.mjs",
-    "data:rankings": "node scripts/sync-yemen-rankings.mjs"
+    "data:rankings": "node scripts/sync-yemen-rankings.mjs",
+    "data:companies": "node --env-file=.env.local scripts/seed-yemeni-companies.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",

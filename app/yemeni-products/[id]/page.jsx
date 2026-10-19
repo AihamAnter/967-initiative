@@ -24,7 +24,7 @@ import {
   UsersRound,
 } from 'lucide-react';
 import {getYemeniCompanies, getYemeniCompany} from '@/lib/data';
-import {formatNumber} from '@/lib/format';
+import {formatNumber,formatArabicDate} from '@/lib/format';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
@@ -48,6 +48,7 @@ export async function generateMetadata({params}) {
 }
 
 function ProfileFact({icon: Icon, label, value, ltr = false}) {
+  if (!hasValue(value)) return null;
   return <div className="company-profile-fact">
     <Icon size={18}/><div><span>{label}</span><strong dir={ltr ? 'ltr' : undefined}>{value || 'غير متوفر — قيد التحقق'}</strong></div>
   </div>;
@@ -60,7 +61,7 @@ export default async function YemeniCompanyPage({params,searchParams}) {
   const companies = await getYemeniCompanies();
   const related = companies.filter(item => item.id !== company.id && item.category === company.category).slice(0, 2);
   const mapQuery = [company.address, company.location, 'اليمن'].filter(Boolean).join('، ');
-  const googleMapsUrl = company.googleMapsUrl || (mapQuery ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}` : null);
+  const googleMapsUrl = company.googleMapsUrl || (company.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}` : null);
   const query=await searchParams;
   const returnTo=listReturnPath(query.from,'/yemeni-products',collectionDefaults.products,'#directory');
 
@@ -70,21 +71,21 @@ export default async function YemeniCompanyPage({params,searchParams}) {
       {company.imageUrl && <div className="company-profile-image"><Image src={company.imageUrl} alt={'صورة '+company.name} fill priority sizes="(max-width: 800px) 100vw, 52vw" style={{objectPosition: company.imagePosition}}/></div>}
       <div className="company-profile-copy">
         <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى دليل المنتجات</Link>
-        <div className="company-profile-tags"><span>{company.category}</span><span>{company.scale}</span><span><MapPin size={13}/>{company.location}</span></div>
+        <div className="company-profile-tags"><span>{company.category}</span>{company.scale&&<span>{company.scale}</span>}<span><MapPin size={13}/>{company.location}</span></div>
         <h1>{company.name}</h1>
         <p>{company.summary}</p>
-        <div className="company-profile-status"><span/> {company.isDemo ? 'ملف تجريبي — بيانات الهوية والتواصل غير الموثقة موضحة بوضوح.' : 'ملف منشور من لوحة التحرير — يُحدّث عند توفر معلومات أحدث.'}</div>
+        <div className="company-profile-status"><span/> {company.isDemo ? 'ملف تجريبي — بيانات الهوية والتواصل غير الموثقة موضحة بوضوح.' : company.sources?.length ? 'معلومات مستندة إلى مصادر منشورة — روابط المصادر وتاريخ مراجعتها أدناه.' : 'ملف منشور من لوحة التحرير — يُحدّث عند توفر معلومات أحدث.'}</div>
       </div>
     </section>
 
     <section className="company-profile-body">
       <div className="container company-profile-layout">
         <div className="company-profile-main">
-          <section>
+          {company.story && <section>
             <span className="eyebrow">قصة المنشأة</span>
             <h2>عن {company.name}</h2>
             <p className="company-profile-lead">{company.story}</p>
-          </section>
+          </section>}
 
           <section>
             <div className="company-section-heading"><div><span className="eyebrow">المنتجات</span><h2>ماذا تقدم المنشأة؟</h2></div><strong>عدد المنتجات: {formatNumber(company.productDetails.length)}</strong></div>
@@ -106,18 +107,23 @@ export default async function YemeniCompanyPage({params,searchParams}) {
             </article>)}</div>
           </section>
 
-          <section className="company-impact-section">
+          {(company.impact || company.strengths.length>0) && <section className="company-impact-section">
             <span className="eyebrow">القيمة المحلية</span>
             <h2>الأثر في الصناعة والتجارة</h2>
             <p>{company.impact}</p>
             <div>{company.strengths.map(item => <span key={item}><Factory size={15}/>{item}</span>)}</div>
-          </section>
+          </section>}
 
-          <section>
+          {company.markets.length>0 && <section>
             <span className="eyebrow">قنوات البيع</span>
             <h2>الأسواق التي تخدمها</h2>
             <div className="company-markets">{company.markets.map(item => <span key={item}><Store size={17}/>{item}</span>)}</div>
-          </section>
+          </section>}
+          {company.sources?.length>0 && <section className="company-sources">
+            <span className="eyebrow">المعلومات والمراجع</span><h2>مصادر بيانات المنشأة والمنتجات</h2>
+            <p className="small-muted">تاريخ المراجعة يخص المعلومات المنشورة في المصدر، ولا يؤكد حالة التشغيل الحالية أو توفر المنتجات.</p>
+            <ul>{company.sources.map(source=><li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}<ExternalLink size={15}/></a>{source.reviewedAt&&<small>تاريخ المراجعة: {formatArabicDate(source.reviewedAt)}</small>}</li>)}</ul>
+          </section>}
         </div>
 
         <aside className="company-profile-aside">
@@ -132,17 +138,17 @@ export default async function YemeniCompanyPage({params,searchParams}) {
             <ProfileFact icon={UsersRound} label="حجم الفريق" value={company.teamSize}/>
           </div>
 
-          <div className="company-profile-panel">
+          {(company.address||company.website||company.email||company.phone||googleMapsUrl) && <div className="company-profile-panel">
             <h2>العنوان والتواصل</h2>
             <ProfileFact icon={MapPin} label="العنوان" value={company.address}/>
             <ProfileFact icon={Globe2} label="الموقع الإلكتروني" value={company.website} ltr/>
             <ProfileFact icon={Mail} label="البريد الإلكتروني" value={company.email} ltr/>
             <ProfileFact icon={Phone} label="الهاتف" value={company.phone} ltr/>
             {(company.website || googleMapsUrl) && <div className="company-contact-links">
-              {googleMapsUrl && <a className="company-website-link company-maps-link" href={googleMapsUrl} target="_blank" rel="noopener noreferrer">فتح الموقع في خرائط Google <MapPinned size={16}/></a>}
+              {googleMapsUrl && <a className="company-website-link company-maps-link" href={googleMapsUrl} target="_blank" rel="noopener noreferrer">{company.googleMapsUrl?'فتح الموقع في خرائط Google':'بحث العنوان في خرائط Google'} <MapPinned size={16}/></a>}
               {company.website && <a className="company-website-link" href={company.website} target="_blank" rel="noopener noreferrer">زيارة الموقع الإلكتروني <ExternalLink size={15}/></a>}
             </div>}
-          </div>
+          </div>}
 
           <div className="company-correction">
             <strong>هل تمثل هذه المنشأة؟</strong>

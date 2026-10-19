@@ -1,0 +1,205 @@
+{
+  "scenarios": [
+    {
+      "name": "Published directory contains 111 real records, with search, filters and pagination",
+      "pass": true
+    },
+    {
+      "name": "Company profiles expose sources, true named products and no fabricated missing facts",
+      "pass": true
+    },
+    {
+      "name": "Editor loads every company despite capped backend pages and edits sourced products without images",
+      "pass": true
+    },
+    {
+      "name": "Management can remove a sourced company in the isolated editor without production writes",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "path": "/yemeni-products",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/yemen-industry-commerce",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/yemen-industry-commerce",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/yemen-industry-commerce",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/yemen-industry-commerce",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/yemen-industry-commerce",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/national-cement-yemen",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/national-cement-yemen",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/national-cement-yemen",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/national-cement-yemen",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/national-cement-yemen",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/shaphaco",
+      "width": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/shaphaco",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/shaphaco",
+      "width": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/shaphaco",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "pass": true
+    },
+    {
+      "path": "/yemeni-products/shaphaco",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "path": "/admin",
+      "width": 390,
+      "scrollWidth": 390,
+      "pass": true
+    }
+  ],
+  "axe": [
+    {
+      "path": "/yemeni-products",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemeni-products",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "path": "/yemeni-products/yemen-industry-commerce",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemeni-products/yemen-industry-commerce",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "path": "/yemeni-products/national-cement-yemen",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemeni-products/national-cement-yemen",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "path": "/yemeni-products/shaphaco",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "path": "/yemeni-products/shaphaco",
+      "width": 1440,
+      "violations": []
+    }
+  ],
+  "runtimeErrors": [],
+  "consoleErrors": [],
+  "isolatedWrites": [
+    {
+      "method": "PATCH",
+      "slug": "shaphaco"
+    },
+    {
+      "method": "DELETE",
+      "slug": "shaphaco"
+    }
+  ],
+  "productionWritesFromBrowser": 0,
+  "finishedAt": "2026-10-19T00:17:12.370Z",
+  "failures": 0
+}
