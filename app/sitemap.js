@@ -9,6 +9,7 @@ import {
   getContentPages,
 } from '@/lib/data';
 import {buildSitemap, isIndexableDeployment} from '@/lib/seo';
+import {getDebateCatalog} from '@/lib/debateServer';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,5 +26,6 @@ export default async function sitemap() {
     getContentPages(),
   ]);
 
-  return buildSitemap({issues, companies, professionals, figures, statSections, statIndicators, works,contentPages});
+  const {debates}=await getDebateCatalog();
+  return buildSitemap({issues, companies, professionals, figures, statSections, statIndicators, works,contentPages,debates});
 }

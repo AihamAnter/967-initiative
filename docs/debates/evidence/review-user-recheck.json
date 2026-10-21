@@ -1,0 +1,18 @@
+{
+  "passed": [
+    "Slow stale comment-sort responses no longer override oldest selection",
+    "Failed comment save preserves typed text and reenables retry",
+    "Unsaved editor changes are protected across tabs, refresh and public-section link",
+    "Preparation task action refuses to discard unsaved editor changes",
+    "Saved debate still creates preparation tasks",
+    "Publishing retains both participants and stances in hydrated editor",
+    "Published independent prerecorded debate opens with participants and recording"
+  ],
+  "findings": [],
+  "errors": [],
+  "order": [
+    "تعليق مستقل قديم للمراجعة والترتيب",
+    "تعليق مستقل حديث للمراجعة والترتيب"
+  ],
+  "draftUrl": "http://127.0.0.1:3117/admin/debates?debate=eb26ddb3-23d5-4a6e-8d38-86c572255874"
+}

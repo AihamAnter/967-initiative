@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "results": [
+    "Yemen midnight date is correct; poll opens and closes in an unchanged browser tab",
+    "Two consecutive saves preserve children and precise poll deadlines, including the repeated DST hour",
+    "Cancelling the unsaved-navigation prompt preserves the draft",
+    "Browser back/forward restores filter controls and matching results"
+  ],
+  "runtimeErrors": []
+}

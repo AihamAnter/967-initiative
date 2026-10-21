@@ -1,0 +1,86 @@
+
+> 967-initiative@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.28
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 8.5s
+   Linting and checking validity of types ...
+
+./components/MediaViewer.jsx
+17:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/PdfReader.jsx
+15:18  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+21:18  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/3) ...
+ ✓ Generating static pages (3/3)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ƒ /                                    1.98 kB         113 kB
+├ ƒ /_not-found                            186 B         103 kB
+├ ƒ /about                                 134 B         115 kB
+├ ƒ /account                               142 B         181 kB
+├ ƒ /account/activity                      142 B         181 kB
+├ ƒ /admin                               52.2 kB         238 kB
+├ ƒ /admin/debates                       13.1 kB         188 kB
+├ ƒ /admin/tasks                         18.1 kB         189 kB
+├ ƒ /api/account                           186 B         103 kB
+├ ƒ /api/admin/debates                     186 B         103 kB
+├ ƒ /api/admin/editors                     186 B         103 kB
+├ ƒ /api/admin/figures                     186 B         103 kB
+├ ƒ /api/admin/pages                       186 B         103 kB
+├ ƒ /api/admin/rankings                    186 B         103 kB
+├ ƒ /api/admin/rankings/refresh            186 B         103 kB
+├ ƒ /api/admin/tasks                       186 B         103 kB
+├ ƒ /api/contact                           186 B         103 kB
+├ ƒ /api/debates                           186 B         103 kB
+├ ƒ /api/rankings                          186 B         103 kB
+├ ƒ /auth/callback                         142 B         180 kB
+├ ƒ /contribute                          3.74 kB         110 kB
+├ ƒ /debates                             5.37 kB         121 kB
+├ ƒ /debates/[slug]                      14.1 kB         194 kB
+├ ƒ /debates/speakers/[slug]               177 B         112 kB
+├ ƒ /debates/suggest                     4.36 kB         175 kB
+├ ƒ /forgot-password                       142 B         180 kB
+├ ƒ /help                                  134 B         115 kB
+├ ƒ /llms.txt                              186 B         103 kB
+├ ƒ /login                                 142 B         180 kB
+├ ƒ /magazine                            2.99 kB         117 kB
+├ ƒ /magazine/[slug]                     6.58 kB         113 kB
+├ ƒ /pages/[slug]                          134 B         115 kB
+├ ƒ /privacy                               134 B         115 kB
+├ ƒ /privacy-requests                      134 B         115 kB
+├ ƒ /professionals                       4.37 kB         113 kB
+├ ƒ /professionals/[slug]                  170 B         106 kB
+├ ƒ /register                              142 B         180 kB
+├ ƒ /robots.txt                            186 B         103 kB
+├ ƒ /search                                170 B         106 kB
+├ ƒ /sitemap.xml                           186 B         103 kB
+├ ƒ /terms                                 134 B         115 kB
+├ ƒ /update-password                       142 B         180 kB
+├ ƒ /works                               4.44 kB         118 kB
+├ ƒ /works/[slug]                        4.15 kB         116 kB
+├ ƒ /yemen-in-numbers                    5.58 kB         114 kB
+├ ƒ /yemen-in-numbers/[slug]               170 B         106 kB
+├ ƒ /yemen-in-numbers/indicator/[slug]   16.2 kB         233 kB
+├ ƒ /yemen-in-numbers/timeline           12.5 kB         229 kB
+├ ƒ /yemen-map                            7.4 kB         119 kB
+├ ƒ /yemen-map/figures/[slug]              182 B         112 kB
+├ ƒ /yemen-ranking                       13.3 kB         125 kB
+├ ƒ /yemeni-products                     3.31 kB         117 kB
+└ ƒ /yemeni-products/[id]                  182 B         112 kB
++ First Load JS shared by all             103 kB
+  ├ chunks/1255-60d8dc7c8c9309a1.js      46.3 kB
+  ├ chunks/4bd1b696-100b9d70ed4e49c1.js  54.2 kB
+  └ other shared chunks (total)          2.35 kB
+
+
+ƒ  (Dynamic)  server-rendered on demand

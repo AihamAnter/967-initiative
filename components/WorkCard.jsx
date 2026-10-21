@@ -24,6 +24,6 @@ export default function WorkCard({work, index = 0, returnTo}) {
   </>;
   return <article className="work-card">
     {work.is_demo ? <div className="work-card-static">{content}</div> :
-      <Link className="work-card-click" href={'/works/' + encodeURIComponent(work.slug)+(returnTo?'?from='+encodeURIComponent(returnTo):'')}>{content}</Link>}
+      <Link className="work-card-click" href={work.debate_slug?'/debates/'+encodeURIComponent(work.debate_slug):'/works/' + encodeURIComponent(work.slug)+(returnTo?'?from='+encodeURIComponent(returnTo):'')}>{content}</Link>}
   </article>;
 }

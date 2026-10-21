@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "Private voting history identifies debate, phase and chosen option with return links",
+    "Reserved suggest and speakers slugs fail visibly before saving",
+    "Corrected unreserved slug saves successfully",
+    "Suspension stops new participation while owner can delete their own comment"
+  ],
+  "findings": [],
+  "errors": [],
+  "external": [],
+  "voteText": "تصويتاتي الخاصة (2)\nحوار مسجل للاختبار المعزول\n\nبعد المناظرة / المشاهدة ? الموقف الأول\n\nتم حفظ اختيارك لهذه المرحلة.\n\n20 أكتوبر 2026\nحوار مسجل للاختبار المعزول\n\nقبل المناظرة / المشاهدة ? الموقف الأول\n\nتم حفظ اختيارك لهذه المرحلة.\n\n20 أكتوبر 2026",
+  "verificationNote": "Delete success status and persisted deleted item confirmed in a fresh browser session; initial test locator followed original comment text after deletion removed it."
+}

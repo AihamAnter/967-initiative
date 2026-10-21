@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "results": [
+    "Guests see zero totals while polls are open, without a published final snapshot",
+    "First vote immediately updates the voter and another connected visitor (200ms simulated push)",
+    "A second user changes exact totals and percentages in the open visitor tab",
+    "Editing a vote moves its count without increasing the number of voters",
+    "Automatic fallback refresh works when WebSockets are unavailable",
+    "Management can hide and restore live results before saving any final snapshot",
+    "Live results fit mobile and desktop widths without horizontal overflow",
+    "Slow initial requests complete even when they take longer than the fallback interval"
+  ],
+  "runtimeErrors": [],
+  "externalRequests": [],
+  "realtimeTransport": "Simulated Supabase wire protocol; actual Supabase deployment not modified or exercised"
+}

@@ -1,0 +1,37 @@
+{
+  "passed": [
+    "Registration with consent asks email confirmation",
+    "Login returns independent account to intended debate comments",
+    "Before/after vote saves with recording watch acknowledgement",
+    "Question and two comments clear on success and stay private pending moderation",
+    "Private activity shows comment/question status and two private votes",
+    "Independent topic proposal saves privately",
+    "Management approves both pending comments",
+    "Proposal converts to draft once and exposes draft link"
+  ],
+  "findings": [
+    {
+      "id": "UX-3",
+      "severity": "medium",
+      "summary": "Slow previous discussion request overwrites newest sorting selection",
+      "steps": [
+        "Have two approved comments",
+        "Slow network for order=newest requests",
+        "Toggle oldest → newest → oldest quickly",
+        "Selector says oldest but most recent comment renders first"
+      ],
+      "evidence": ".audit-tools/user-order-race.png"
+    }
+  ],
+  "runtimeErrors": [],
+  "external": [],
+  "activityVotes": "تصويتاتي الخاصة (2)\n\nتم حفظ اختيارك لهذه المرحلة.\n\n20 أكتوبر 2026\n\nتم حفظ اختيارك لهذه المرحلة.\n\n20 أكتوبر 2026",
+  "commentOrder": {
+    "selected": "oldest",
+    "rendered": [
+      "تعليق مستقل حديث للمراجعة والترتيب",
+      "تعليق مستقل قديم للمراجعة والترتيب"
+    ],
+    "delayed": 2
+  }
+}

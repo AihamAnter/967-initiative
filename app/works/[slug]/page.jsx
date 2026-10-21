@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 import Link from 'next/link';
-import {notFound} from 'next/navigation';
+import {notFound,redirect} from 'next/navigation';
 import {ArrowRight, CalendarDays, ArrowUpLeft, ExternalLink} from 'lucide-react';
 import {getWorks} from '@/lib/data';
 import {formatArabicDate} from '@/lib/format';
@@ -19,7 +19,7 @@ export async function generateMetadata({params}) {
   return pageMetadata({
     title: work.title,
     description: work.summary || 'عمل من إنتاج مبادرة 967',
-    path:detailPath('works', work.slug), image, noindex:work.is_demo || work.isDemo,
+    path:work.debate_slug?detailPath('debates',work.debate_slug):detailPath('works', work.slug), image, noindex:work.is_demo || work.isDemo,
   });
 }
 
@@ -28,6 +28,7 @@ export default async function WorkDetails({params,searchParams}) {
   const works = await getWorks();
   const work = works.find(item => item.slug === slug);
   if (!work) notFound();
+  if(work.debate_slug)redirect('/debates/'+encodeURIComponent(work.debate_slug));
   const related = works.filter(item => item.id !== work.id && item.category === work.category).slice(0, 3);
   if (related.length < 3) related.push(...works.filter(item => item.id !== work.id && !related.some(x => x.id === item.id)).slice(0, 3 - related.length));
   const date = work.published_at ? new Date(work.published_at) : null;

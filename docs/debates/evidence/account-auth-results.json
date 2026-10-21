@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "results": [
+    "Invalid credentials have their own message without implying an unconfirmed email",
+    "Unconfirmed accounts receive a distinct confirmation message",
+    "Confirmed user signs in and keeps the session on the account page",
+    "Auto-confirmed signup opens the account immediately and preserves the issued session"
+  ],
+  "runtimeErrors": [],
+  "externalRequests": []
+}

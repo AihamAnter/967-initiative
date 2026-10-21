@@ -7,7 +7,7 @@ import BrandLogo from './BrandLogo';
 import {browserDb} from '@/lib/supabase';
 
 const baseGroups = [
-  {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967']]},
+  {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967'], ['/debates', 'مناظرات 967']]},
   {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-ranking', 'ترتيب اليمن'], ['/yemen-map', 'اكتشف اليمن']]},
   {label: 'الأدلة', links: [['/yemeni-products', 'منتجات يمنية'], ['/professionals', 'المهنيون']]},
   {label: 'المبادرة', links: [['/#about', 'من نحن'], ['/#projects', 'مشاريعنا'], ['/contribute', 'تواصل وشارك']]},
@@ -95,6 +95,6 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
       <div className="mobile-navigation-groups">{groups.map(group=><div key={group.label}><span>{group.label}</span>{group.links.map(([href,label])=><Link href={href} key={href} aria-current={active(href)?'page':undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>)}</div>
       <Link href="/search" className="mobile-search-link" onClick={close}><Search size={18}/> البحث في المنصة</Link>
     </nav>
-    <div className="header-tools"><Link href="/search" className="header-search" aria-label="البحث في المنصة" onClick={close}><Search size={21}/></Link>{signedIn === false && <Link href="/admin" className="header-login" aria-current={path === '/admin' ? 'page' : undefined} onClick={close}><LogIn size={17} aria-hidden="true"/><span>دخول المحررين</span></Link>}{signedIn === true && canEdit && <Link href="/admin" className="header-login" aria-current={path === '/admin' ? 'page' : undefined} onClick={close}><LayoutDashboard size={17} aria-hidden="true"/><span>لوحة التحرير</span></Link>}<Link href="/contribute" className="header-action" onClick={close}>{actionLabel} <ArrowUpLeft size={16}/></Link><button ref={toggle} type="button" className="menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button></div>
+    <div className="header-tools"><Link href="/search" className="header-search" aria-label="البحث في المنصة" onClick={close}><Search size={21}/></Link>{signedIn === false && <Link href="/login" className="header-login" aria-current={path === '/login' ? 'page' : undefined} onClick={close}><LogIn size={17} aria-hidden="true"/><span>تسجيل الدخول</span></Link>}{signedIn === true && canEdit && <Link href="/admin" className="header-login" aria-current={path === '/admin' ? 'page' : undefined} onClick={close}><LayoutDashboard size={17} aria-hidden="true"/><span>لوحة التحرير</span></Link>}{signedIn === true && !canEdit && <Link href="/account" className="header-login" onClick={close}>حسابي</Link>}<Link href="/contribute" className="header-action" onClick={close}>{actionLabel} <ArrowUpLeft size={16}/></Link><button ref={toggle} type="button" className="menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button></div>
   </div></header>;
 }

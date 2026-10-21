@@ -2,6 +2,7 @@ import './fonts.css';
 import './globals.css';
 import './design-system.css';
 import './platform-refinements.css';
+import './debates.css';
 import {site} from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';

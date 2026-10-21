@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "scenarios": [
+    "Empty admin fields show stars, inline Arabic errors, red state and focus on first invalid field",
+    "Whitespace, invalid slug and insecure optional URL are rejected; corrections clear errors",
+    "Recording URL becomes required only when recording is published; valid draft saves",
+    "Question, comment and poll validations highlight missing/short fields without sending them",
+    "Suggestion marks five required fields while keeping optional speaker suggestions optional",
+    "Registration required fields and consent are highlighted too"
+  ]
+}

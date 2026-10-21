@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "results": [
+    "Small heading, video in the first viewport, compact speakers and five working disclosures across six widths",
+    "Player stays lazy until requested; chapters still jump to the selected timestamp",
+    "One mixed feed loads all 50 comments and 30 questions in chronological order without duplicates",
+    "Comment sort remains correct when an older network response arrives late",
+    "Private questions and comments retain owner pagination and moderation status",
+    "Single composer preserves drafts and submits directed, themed and anonymous questions with pending status",
+    "Collapsed polls and live results still work, preserve discussion drafts and do not color other forms red",
+    "Comments post privately pending moderation and retain owner editing",
+    "Social cards preserve threaded comment replies and reporting",
+    "Owner deletion persists and approved anonymous questions stay anonymous in the shared feed",
+    "Postponed and cancelled live debates show their actual state instead of promising a future recording",
+    "Old question, comment and vote anchors continue to reveal the correct controls"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "videoTop": 260.5,
+      "headingSize": 23,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "videoTop": 234.5,
+      "headingSize": 23,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "videoTop": 234.5,
+      "headingSize": 23,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "videoTop": 256.5,
+      "headingSize": 23,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "videoTop": 280,
+      "headingSize": 32,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "videoTop": 280,
+      "headingSize": 32,
+      "overflow": false
+    }
+  ],
+  "accessibility": [],
+  "runtimeErrors": [],
+  "video": "External playback mocked; no real provider video was loaded"
+}

@@ -1,0 +1,227 @@
+{
+  "scenarios": [
+    "public catalog, filters, URL state and empty search",
+    "anonymous viewing, lazy video and preserved login action; prerecorded never labeled live",
+    "signup consent, pending confirmation UX, simulated confirmation, login returns to intended question and question persists pending",
+    "before and after votes persist through PostgreSQL; recorded watch acknowledgement",
+    "comment pending, private activity, display-name edit and account profile",
+    "admin review publishes the approved comment and anonymous follow-up question in one arena",
+    "admin creates prerecorded draft using contextual fields and creates preparation tasks in existing task center",
+    "admin publishes a prerecorded debate with two speakers and links one synchronized media work to the canonical debate page",
+    "owner comment edit re-enters moderation and disappears from the public arena",
+    "suggestion persisted privately with activity status",
+    "simulated recovery request, password update and logout",
+    "revoked session removes private profile and asks for login"
+  ],
+  "layouts": [
+    {
+      "name": "debates",
+      "width": 320,
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "name": "debates",
+      "width": 390,
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "name": "debates",
+      "width": 430,
+      "scroll": 430,
+      "client": 430
+    },
+    {
+      "name": "debates",
+      "width": 768,
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "name": "debates",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "name": "debates",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920
+    },
+    {
+      "name": "recorded",
+      "width": 320,
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "name": "recorded",
+      "width": 390,
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "name": "recorded",
+      "width": 430,
+      "scroll": 430,
+      "client": 430
+    },
+    {
+      "name": "recorded",
+      "width": 768,
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "name": "recorded",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "name": "recorded",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920
+    },
+    {
+      "name": "account",
+      "width": 320,
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "name": "account",
+      "width": 390,
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "name": "account",
+      "width": 430,
+      "scroll": 430,
+      "client": 430
+    },
+    {
+      "name": "account",
+      "width": 768,
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "name": "account",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "name": "account",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920
+    },
+    {
+      "name": "admin-list",
+      "width": 320,
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "name": "admin-list",
+      "width": 390,
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "name": "admin-list",
+      "width": 430,
+      "scroll": 430,
+      "client": 430
+    },
+    {
+      "name": "admin-list",
+      "width": 768,
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "name": "admin-list",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "name": "admin-list",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920
+    },
+    {
+      "name": "admin-editor",
+      "width": 320,
+      "scroll": 320,
+      "client": 320
+    },
+    {
+      "name": "admin-editor",
+      "width": 390,
+      "scroll": 390,
+      "client": 390
+    },
+    {
+      "name": "admin-editor",
+      "width": 430,
+      "scroll": 430,
+      "client": 430
+    },
+    {
+      "name": "admin-editor",
+      "width": 768,
+      "scroll": 768,
+      "client": 768
+    },
+    {
+      "name": "admin-editor",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440
+    },
+    {
+      "name": "admin-editor",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "catalog",
+      "violations": []
+    },
+    {
+      "name": "login",
+      "violations": []
+    },
+    {
+      "name": "register",
+      "violations": []
+    },
+    {
+      "name": "account",
+      "violations": []
+    },
+    {
+      "name": "detail",
+      "violations": []
+    },
+    {
+      "name": "admin",
+      "violations": []
+    }
+  ],
+  "runtimeErrors": [],
+  "externalRequests": [],
+  "authDelivery": "Auth HTTP behavior is simulated locally. Real Supabase SMTP/email delivery is not tested."
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "results": [
+    "Native validity checks and focus changes leave untouched forms neutral",
+    "An empty question submission validates only the question form; correction clears it",
+    "Posting a comment preserves the question draft and leaves empty polls neutral",
+    "Saving a vote leaves the other poll and comment fields neutral",
+    "Posting a question resets its validation and leaves all other forms neutral",
+    "Empty comment submissions still show their own error and clear after correction",
+    "Missing second-poll choice and watch confirmation highlight only that poll"
+  ],
+  "runtimeErrors": [],
+  "externalRequests": []
+}

@@ -3,6 +3,7 @@ import {pageMetadata} from '@/lib/seo';
 import Image from 'next/image';
 import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, Compass, Film, Handshake, MapPin, MessagesSquare, Package, PenLine, UsersRound} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
+import HomeDebates from '@/components/debates/HomeDebates';
 import SectionHeading from '@/components/SectionHeading';
 import WorkCard from '@/components/WorkCard';
 import IndicatorCard from '@/components/IndicatorCard';
@@ -31,6 +32,7 @@ export default async function Home() {
       <Link href="/yemen-map" className="home-map-visual" aria-label="استكشف محافظات اليمن ومديرياتها في الأطلس التفاعلي"><span className="map-caption"><span/> أرض واحدة، حكايات كثيرة</span><Image src="/images/yemen-preview.svg" width={1343} height={760} priority alt="خريطة اليمن ومحافظاتها وجزرها" className="home-map-image" sizes="(max-width: 760px) 90vw, (max-width: 1440px) 45vw, 600px"/><span className="map-discover"><span><strong>تعرّف على اليمن، مكاناً بمكان.</strong><span>المحافظات والمديريات في أطلس تفاعلي</span></span><ArrowUpLeft size={22}/></span></Link>
     </div></section>
     <section className="quick-section" aria-label="الوصول السريع"><div className="container"><div className="quick-grid">{destinations.map(({href, title, text, icon: Icon}) => <Link href={href} className="quick-link" key={href}><Icon size={25} strokeWidth={1.5}/><h2>{title}</h2><span>{text}</span><ArrowUpLeft size={17} className="quick-arrow"/></Link>)}</div></div></section>
+    <HomeDebates/>
     <section className="section home-latest"><div className="container"><SectionHeading kicker="من المنصة" title="مساحة للاكتشاف، كل يوم." copy="أحدث ما نُشر من أعمال وإصدارات وإضافات إلى أدلة 967." href="/works" linkLabel="المكتبة الإعلامية"/>
       {works.length > 0 && <div className={`work-grid home-work-grid${works.length === 1 ? ' home-work-single' : ''}`}>{works.slice(0, 3).map((work, index) => <WorkCard work={work} index={index} key={work.id}/>)}</div>}
       {latest && <Link href={'/magazine/' + latest.slug} className="home-issue"><div className="home-issue-cover">{latest.cover_url ? <Image src={latest.cover_url} alt={'غلاف ' + latest.title} width={450} height={600} sizes="(max-width: 600px) 210px, 240px" unoptimized={!canOptimizeImage(latest.cover_url)}/> : <BookOpen size={56} aria-hidden="true"/>}</div><div><span className="eyebrow">أحدث إصدار · العدد {latest.number}</span><h3>{latest.title}</h3><p>{latest.summary}</p><time dateTime={latest.issue_date}>{formatArabicDate(latest.issue_date)}</time><span className="btn btn-primary">اقرأ العدد <ArrowLeft size={17}/></span></div></Link>}
