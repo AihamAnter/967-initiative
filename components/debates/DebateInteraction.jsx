@@ -7,6 +7,7 @@ import useLiveDebateResults from './useLiveDebateResults';
 import DebatePollExperience from './DebatePollExperience';
 import DebateArena from './DebateArena';
 import {useInlineEditor} from '@/components/inline/InlineEditorProvider';
+import {participationNotice} from '@/lib/debatePublication';
 
 function ParticipationGate({user,ready,slug,anchor}){
  const next='/debates/'+slug+'#'+anchor;
@@ -30,9 +31,9 @@ export default function DebateInteraction({debate:initialDebate}){
  useEffect(()=>{refreshParticipation();},[initialDebate.id,initialDebate.updated_at,refreshParticipation]);
  useEffect(()=>{
   if(!newer||unavailable)return;
-  const signature=[incoming.recording_published,incoming.stage,incoming.publication_status].join(':');
-  if(signature!==[initialDebate.recording_published,initialDebate.stage,initialDebate.publication_status].join(':')&&signature!==routedState.current){routedState.current=signature;router.refresh();}
- },[newer,unavailable,incoming,initialDebate.recording_published,initialDebate.stage,initialDebate.publication_status,router]);
+  const signature=[incoming.recording_published,incoming.stage,incoming.publication_status,incoming.updated_at].join(':');
+  if(signature!==[initialDebate.recording_published,initialDebate.stage,initialDebate.publication_status,initialDebate.updated_at].join(':')&&signature!==routedState.current){routedState.current=signature;router.refresh();}
+ },[newer,unavailable,incoming,initialDebate.recording_published,initialDebate.stage,initialDebate.publication_status,initialDebate.updated_at,router]);
  useEffect(()=>{const next=(debate.polls||[]).filter(p=>p.enabled).flatMap(p=>[p.opens_at,p.closes_at]).filter(Boolean).map(Date.parse).filter(time=>time>now).sort((a,b)=>a-b)[0];if(!next)return;const timer=setTimeout(()=>setNow(Date.now()),Math.min(Math.max(next-Date.now()+25,25),2147480000));return()=>clearTimeout(timer);},[debate.polls,now]);
  const reloadAccount=useCallback(async pageOverride=>{const revision=++accountRevision.current;if(!user){setAccount(null);return;}const owner=user.id;try{const result=await audienceRequest('/api/account?debate='+initialDebate.id+'&page='+(Number.isInteger(pageOverride)?pageOverride:myPage));if(activeUser.current===owner&&result.user.id===owner&&revision===accountRevision.current)setAccount(result);}catch(err){if(activeUser.current===owner&&revision===accountRevision.current){setFailed(true);setNotice(err.message);}}},[user,initialDebate.id,myPage]);
  useEffect(()=>{const guard=accountRevision;setAccount(null);reloadAccount();return()=>{guard.current++;};},[reloadAccount]);
@@ -40,7 +41,7 @@ export default function DebateInteraction({debate:initialDebate}){
  useEffect(()=>{if(account&&myPage>1&&!account.debate_comments.items.length&&!account.debate_questions.items.length)setMyPage(Math.max(1,Math.ceil(Math.max(account.debate_comments.total,account.debate_questions.total)/20)));},[account,myPage]);
  async function act(body,success){
   setBusy(true);setNotice('');setFailed(false);
-  try{await audienceRequest('/api/debates',body);const isNew=body.action==='comment'||body.action==='question';if(isNew)setMyPage(1);await Promise.all([reloadAccount(isNew?1:undefined),...(body.action==='vote'?[refreshParticipation()]:[])]);if(body.action!=='vote')setDiscussionVersion(n=>n+1);setNotice(success);return true;}
+  try{const result=await audienceRequest('/api/debates',body);const isNew=body.action==='comment'||body.action==='question';if(isNew)setMyPage(1);await Promise.all([reloadAccount(isNew?1:undefined),...(body.action==='vote'?[refreshParticipation()]:[])]);if(body.action!=='vote')setDiscussionVersion(n=>n+1);setNotice(participationNotice(body.action,result,success).message);return true;}
   catch(err){setFailed(true);setNotice(err.message);if(err.code==='questions_closed_after_recording')setQuestionBlocked(true);if(body.action==='vote')setPollStale(true);if(body.action==='question'||body.action==='vote')await refreshParticipation();return false;}
   finally{setBusy(false);}
  }

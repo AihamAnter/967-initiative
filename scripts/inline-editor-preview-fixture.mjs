@@ -21,7 +21,8 @@ await db.pg.exec('grant all on all tables in schema public to service_role;grant
 const ids=Object.fromEntries(['issue','work','company','professional','figure','section','domain','source','statistic','ranking'].map((kind,index)=>[kind,`10000000-0000-4000-8000-${String(index+1).padStart(12,'0')}`]));
 const insert=async(table,row)=>{const keys=Object.keys(row),params=keys.map(k=>typeof row[k]==='object'&&row[k]!==null&&!Array.isArray(row[k])?JSON.stringify(row[k]):row[k]);return db.pg.query('insert into public.'+table+'('+keys.join(',')+') values('+keys.map((_,i)=>'$'+(i+1)).join(',')+') returning *',params);};
 await fixture.update(fixture.live,{publication_status:'published',live_url:'https://www.youtube.com/watch?v=abcdefghijk',live_platform:'YouTube'});
-await fixture.update(fixture.recorded,{publication_status:'published',recording_published:true,stage:'recording_available',summary:{introduction:'مقدمة محايدة للاختبار المحلي.',arguments:'موقف أول وموقف ثان وثالث في عرض متوازن.',conclusion:'عرض المواقف دون اختيار فائز.'},summary_published:true});
+const publicationPreview=process.argv.includes('--publication-preview');
+await fixture.update(fixture.recorded,{publication_status:'published',recording_published:!publicationPreview,stage:publicationPreview?'announced':'recording_available',...(publicationPreview?{cover_url:'https://fixtures.967.test/debate-cover.svg',scheduled_at:'2026-10-30T17:00:00Z'}:{}),summary:{introduction:'مقدمة محايدة للاختبار المحلي.',arguments:'موقف أول وموقف ثان وثالث في عرض متوازن.',conclusion:'عرض المواقف دون اختيار فائز.'},summary_published:!publicationPreview});
 const member=debateTestUsers.find(u=>!u.role&&!u.unconfirmed),admin=debateTestUsers.find(u=>u.role==='admin'),management=debateTestUsers.find(u=>u.role==='management');
 const approved=(await insert('debate_comments',{debate_id:fixture.recorded,user_id:member.id,body:'تعليق منشور للمراجعة المباشرة',status:'approved'})).rows[0];
 const pending=(await insert('debate_comments',{debate_id:fixture.recorded,user_id:member.id,body:'محتوى سري محلي ينتظر اعتماد المشرف',status:'pending'})).rows[0];
@@ -61,8 +62,11 @@ await insert('districts',{id:district.id,governorate_id:gov.id,name_ar:district.
 await db.pg.query("insert into public.site_settings(key,value) values('public_content_pages_v1',$1::jsonb) on conflict(key) do update set value=excluded.value",[JSON.stringify({version:1,pages:createDefaultContentPages()})]);
 // Historical review regressions keep their original fixture policy. Opt in
 // when exercising the current instant-publishing migration.
-if(process.argv.includes('--instant-discussion')||process.argv.includes('--recording-lifecycle'))await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220001_debates_instant_discussion.sql',import.meta.url),'utf8'));
-if(process.argv.includes('--recording-lifecycle'))await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220002_debate_recording_lifecycle.sql',import.meta.url),'utf8'));
+const withLifecycle=process.argv.includes('--recording-lifecycle')||process.argv.includes('--publication-repair')||process.argv.includes('--publication-portable');
+if(!process.argv.includes('--legacy-discussion')&&(process.argv.includes('--instant-discussion')||withLifecycle))await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220001_debates_instant_discussion.sql',import.meta.url),'utf8'));
+if(withLifecycle)await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220002_debate_recording_lifecycle.sql',import.meta.url),'utf8'));
+if(process.argv.includes('--publication-repair'))await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220003_debate_discussion_publication_repair.sql',import.meta.url),'utf8'));
+if(process.argv.includes('--publication-portable'))await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220004_debate_discussion_publication_portable.sql',import.meta.url),'utf8'));
 const tokens=new Map(),revoked=new Set(),files=new Map(),writes=[];
 const identifier=value=>{if(!/^[a-z_]+$/.test(value))throw Error('Unsafe fixture identifier');return '"'+value+'"';};
 const tableNames=new Set((await db.pg.query("select tablename from pg_tables where schemaname='public'")).rows.map(r=>r.tablename));
@@ -85,6 +89,7 @@ const server=createServer(async(req,res)=>{
   if(path==='/fixture/role'&&req.method==='POST'){if(!debateTestUsers.some(u=>u.id===body.user_id)||![null,'admin','management'].includes(body.role))throw Error('Bad fixture role');await db.pg.query('delete from public.editors where user_id=$1',[body.user_id]);if(body.role)await db.pg.query('insert into public.editors(user_id,role) values($1,$2)',[body.user_id,body.role]);return respond({ok:true});}
   if(path==='/fixture/revoke'){revoked.add(body.token);return respond({ok:true});}
   if(path==='/fixture/clear-rate'){await db.pg.exec('delete from public.debate_rate_limits');return respond({ok:true});}
+  if(path==='/fixture/repair-publication'&&req.method==='POST'&&process.argv.includes('--legacy-discussion')&&body.confirm==='isolated-fixture-only'){await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220004_debate_discussion_publication_portable.sql',import.meta.url),'utf8'));return respond({ok:true,production:false});}
   if(path==='/fixture/bump'&&req.method==='POST'){const table=body.table;if(!tableNames.has(table))throw Error('Bad fixture table');const column=table==='debates'?'revision':'updated_at';await db.pg.query('update public.'+identifier(table)+' set '+column+'='+(column==='revision'?'revision+1':"clock_timestamp()+interval '1 second'")+' where '+(table==='site_settings'?'key':'id')+'=$1',[body.id]);return respond({ok:true});}
   if(path==='/fixture/row'){if(!tableNames.has(url.searchParams.get('table')))throw Error('Bad fixture table');const table=url.searchParams.get('table'),r=await db.pg.query('select * from public.'+identifier(table)+' where '+(table==='site_settings'?'key':'id')+'=$1',[url.searchParams.get('id')]);return respond(r.rows[0]||null);}
   if(path==='/auth/v1/user'){if(!uid)return respond({msg:'Invalid local fixture session',code:'bad_jwt'},401);return respond(await userFor(uid));}

@@ -1,0 +1,64 @@
+{
+  "scenarios": [
+    "Failed save keeps the draft and shows the server error without a success notice",
+    "The partial deployed policy is reproduced; the UI reports pending honestly and does not claim public publication",
+    "The repair updates only future behavior, preserving old waiting posts and moderation decisions",
+    "A new comment is publicly visible immediately after successful save, with a truthful published status",
+    "Replies publish immediately, remain attached to the parent and are visible to other users",
+    "Directed anonymous questions publish publicly with participant/axis links; new posts do not enter the pending queue",
+    "Refreshing updates the visible total without duplicating newly published posts",
+    "Inline hiding and moderator restoration work; an author edit cannot publish hidden content or reveal private posts",
+    "The cover and prominent Yemen date work at 320/390/768/1440 px, without early YouTube requests or detected accessibility violations",
+    "Upcoming and unset schedules work, including UTC date rollover to the next Yemen day and live schedule edits",
+    "Postponed/cancelled debates do not present the old date as a current promise",
+    "Ongoing/ended external broadcasts retain the external link and before phase without pretending a recording was published",
+    "Publishing replaces the same cover area with the existing consent-based player, chapters and after poll without a duplicate cover or future release date",
+    "Withdrawal restores the cover without a misleading future date, early playback, reopened questions or obsolete voting",
+    "Missing and broken covers use the 967 fallback, with no broken image or required upload",
+    "Admin explains editor-local input, public Yemen display and manual publication"
+  ],
+  "viewports": [
+    {
+      "width": 320,
+      "noOverflow": true,
+      "coverRatio": 1.7777777777777777
+    },
+    {
+      "width": 390,
+      "noOverflow": true,
+      "coverRatio": 1.7777777777777777
+    },
+    {
+      "width": 768,
+      "noOverflow": true,
+      "coverRatio": 1.7777777777777777
+    },
+    {
+      "width": 1440,
+      "noOverflow": true,
+      "coverRatio": 1.7777777777777777
+    }
+  ],
+  "runtimeErrors": [],
+  "hydrationErrors": [],
+  "accessibility": [
+    {
+      "width": 320,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "violations": []
+    }
+  ],
+  "youtubeRequests": 2,
+  "migration": "202610220004_debate_discussion_publication_portable.sql"
+}

@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-22T12:33:46.609Z",
+  "read_only": true,
+  "configuration": {
+    "supabase_configured": true,
+    "service_key_present": true,
+    "database_connection_present": false,
+    "supabase_origin": "https://faadtmvgeafgrzpvtnab.supabase.co",
+    "site_origin": "https://967-initiative.vercel.app"
+  },
+  "checks": {
+    "database_schema": {
+      "http_status": 200,
+      "metadata_only_service_access": true,
+      "comments_status_default": "pending",
+      "questions_status_default": "new",
+      "lifecycle_column_present": true,
+      "api_schema_available": true,
+      "error_code": null,
+      "error_message": null
+    },
+    "lifecycle_rpc": {
+      "http_status": 200,
+      "returns_null": true,
+      "error_code": null
+    },
+    "public_site": {
+      "http_status": 200,
+      "script_count": 14,
+      "matching_supabase_origin": true,
+      "public_supabase_origins": [
+        "https://faadtmvgeafgrzpvtnab.supabase.co"
+      ]
+    }
+  }
+}
