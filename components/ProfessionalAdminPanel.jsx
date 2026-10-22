@@ -5,21 +5,24 @@ import {Eye, EyeOff, Pencil, Save, Trash2, UserRound, X} from 'lucide-react';
 import {professionalCategories, serviceModes} from '@/lib/professionals';
 import {mapProfessional} from '@/lib/professionals';
 import {safeExternalUrl} from '@/lib/media';
+import {contentPatch,saveInlineContent} from '@/lib/inlineContentClient';
+import useAdminItemTarget from './inline/useAdminItemTarget';
 
 const emptyProfessional = () => ({
   full_name: '', slug: '', profession_title: '', category: 'البناء والصيانة', location: '',
   service_areas: '', service_mode: 'حضوري', years_experience: '', availability: '', bio: '',
   services: '', skills: '', languages: 'العربية', phone: '', whatsapp: '', email: '', website: '', instagram: '',
-  is_verified: false, is_published: false,
+  profile_image_url:'',image_position:'center',is_verified: false, is_published: false,
 });
 const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
 const splitList = value => String(value || '').split(/\r?\n|،|,/).map(item => item.trim()).filter(Boolean);
 const joinList = value => Array.isArray(value) ? value.join('\n') : '';
 
-export default function ProfessionalAdminPanel({db, canDelete = false}) {
+export default function ProfessionalAdminPanel({db, canDelete = false,initialItem = ''}) {
   const [professionals, setProfessionals] = useState([]);
   const [professional, setProfessional] = useState(emptyProfessional);
   const [editingId, setEditingId] = useState(null);
+  const [original,setOriginal]=useState(null);
   const [busy, setBusy] = useState(false);
   const [loading, setLoading] = useState(true);
   const [notice, setNotice] = useState('');
@@ -44,6 +47,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
   }, [db]);
 
   useEffect(() => { loadProfessionals(); }, [loadProfessionals]);
+  useAdminItemTarget({item:initialItem,rows:professionals,loading,onSelect:editProfessional,onMissing:()=>setNotice('خطأ: لم يتم العثور على الملف المطلوب. لم يتغير أي محتوى.')});
 
   function setField(field, value) {
     setProfessional(current => ({...current, [field]: value}));
@@ -56,6 +60,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
   }
 
   function editProfessional(row) {
+    setOriginal(row);
     setEditingId(row.id);
     setProfessional({
       full_name: row.full_name || '', slug: row.slug || '', profession_title: row.profession_title || '',
@@ -63,7 +68,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
       service_mode: row.service_mode || 'حضوري', years_experience: row.years_experience ?? '', availability: row.availability || '',
       bio: row.bio || '', services: joinList(row.services), skills: joinList(row.skills), languages: joinList(row.languages) || 'العربية',
       phone: row.phone || '', whatsapp: row.whatsapp || '', email: row.email || '', website: row.website || '',
-      instagram: row.instagram || '', is_verified: Boolean(row.is_verified), is_published: Boolean(row.is_published),
+      instagram: row.instagram || '',profile_image_url:row.profile_image_url||'',image_position:row.image_position||'center', is_verified: Boolean(row.is_verified), is_published: Boolean(row.is_published),
     });
     setNotice('تعدّل الآن ملف: ' + row.full_name);
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -82,6 +87,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
       if (professional.is_verified && /@example\.(com|org|net)$/i.test(professional.email.trim())) throw Error('استبدل البريد التجريبي قبل توثيق الملف.');
       if (professional.website && !safeExternalUrl(professional.website)) throw Error('رابط الموقع غير صالح. استخدم HTTP أو HTTPS دون بيانات دخول.');
       if (professional.instagram && !safeExternalUrl(professional.instagram)) throw Error('رابط إنستغرام غير صالح.');
+      if (professional.profile_image_url && !safeExternalUrl(professional.profile_image_url)) throw Error('رابط الصورة غير صالح. استخدم HTTP أو HTTPS دون بيانات دخول.');
       const payload = {
         slug, full_name: professional.full_name.trim(), profession_title: professional.profession_title.trim(),
         category: professional.category.trim(), location: professional.location.trim(), service_areas: splitList(professional.service_areas),
@@ -89,10 +95,9 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
         availability: professional.availability.trim(), bio: professional.bio.trim(), services, skills: splitList(professional.skills),
         languages: splitList(professional.languages), phone: professional.phone.trim() || null, whatsapp: professional.whatsapp.trim() || null,
         email: professional.email.trim() || null, website: professional.website.trim() || null, instagram: professional.instagram.trim() || null,
-        is_verified: professional.is_verified, is_published: professional.is_published, updated_at: new Date().toISOString(),
+        profile_image_url:professional.profile_image_url.trim()||null,image_position:professional.image_position,is_verified: professional.is_verified, is_published: professional.is_published,
       };
-      const query = editingId ? db.from('professionals').update(payload).eq('id', editingId) : db.from('professionals').insert(payload);
-      const {error} = await query;
+      const {error} = editingId ? await saveInlineContent(db,'professional',editingId,original?.revision,contentPatch(original,payload)) : await db.from('professionals').insert(payload);
       if (error) throw Error(error.message);
       const message = editingId ? 'تم تحديث الملف المهني بنجاح.' : professional.is_published ? 'تمت إضافة المهني ونشر ملفه في الدليل.' : 'تم حفظ الملف كمسودة.';
       resetForm(false);
@@ -108,7 +113,7 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
 
   async function togglePublished(row) {
     setBusy(true);
-    const {error} = await db.from('professionals').update({is_published: !row.is_published, updated_at: new Date().toISOString()}).eq('id', row.id);
+    let error;try{await saveInlineContent(db,'professional',row.id,row.revision,{is_published:!row.is_published});}catch(failure){error=failure;}
     if (error) setNotice('خطأ: ' + error.message);
     else { setNotice(row.is_published ? 'تم تحويل الملف إلى مسودة.' : 'تم نشر الملف في دليل مهنيون.'); await loadProfessionals(); }
     setBusy(false);
@@ -147,6 +152,8 @@ export default function ProfessionalAdminPanel({db, canDelete = false}) {
           <div className="form-row"><label>رقم الهاتف<input dir="ltr" placeholder="+967..." value={professional.phone} onChange={event => setField('phone', event.target.value)}/></label><label>رقم واتساب<input dir="ltr" placeholder="967..." value={professional.whatsapp} onChange={event => setField('whatsapp', event.target.value)}/></label></div>
           <div className="form-row"><label>البريد الإلكتروني<input type="email" dir="ltr" value={professional.email} onChange={event => setField('email', event.target.value)}/></label><label>الموقع الإلكتروني<input type="url" dir="ltr" placeholder="https://..." value={professional.website} onChange={event => setField('website', event.target.value)}/></label></div>
           <label>رابط إنستغرام<input type="url" dir="ltr" placeholder="https://instagram.com/..." value={professional.instagram} onChange={event => setField('instagram', event.target.value)}/></label>
+          <label>رابط صورة الملف المصرح بنشرها<input type="url" dir="ltr" placeholder="https://..." value={professional.profile_image_url} onChange={event=>setField('profile_image_url',event.target.value)}/></label>
+          <label>موضع الصورة<select value={professional.image_position} onChange={event=>setField('image_position',event.target.value)}>{[['center','الوسط'],['top','الأعلى'],['bottom','الأسفل'],['left','اليسار'],['right','اليمين']].map(([value,label])=><option value={value} key={value}>{label}</option>)}</select></label>
         </div>
 
         <div className="company-admin-group"><h3>النشر</h3>

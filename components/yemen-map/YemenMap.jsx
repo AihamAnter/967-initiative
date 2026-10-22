@@ -50,7 +50,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
     const db = browserDb();
     if (!db) return;
     let active = true;
-    Promise.all([
+    const loadProfiles=()=>Promise.all([
       db.from('governorates').select('*'),
       db.from('districts').select('*'),
     ]).then(([governorates, districts]) => {
@@ -60,7 +60,10 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
       if (!districts.error) for (const item of districts.data || []) next[item.id] = item;
       setProfiles(next);
     }).catch(() => {});
-    return () => { active = false; };
+    loadProfiles();
+    const refresh=event=>{if(['governorate','district'].includes(event.detail?.target?.kind))loadProfiles();};
+    window.addEventListener('967:inline-content-saved',refresh);
+    return () => { active = false;window.removeEventListener('967:inline-content-saved',refresh); };
   }, []);
 
   const selectedRegion = selectedDistrict || selectedGovernorate;

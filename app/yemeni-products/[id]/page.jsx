@@ -28,6 +28,7 @@ import {formatNumber,formatArabicDate} from '@/lib/format';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
+import InlineTarget from '@/components/inline/InlineTarget';
 
 export const dynamic = 'force-dynamic';
 
@@ -66,6 +67,7 @@ export default async function YemeniCompanyPage({params,searchParams}) {
   const returnTo=listReturnPath(query.from,'/yemeni-products',collectionDefaults.products,'#directory');
 
   return <>
+    <InlineTarget kind="company" id={company.databaseId} slug={company.id} title={company.name} href={detailPath('yemeni-products',company.id)} isDemo={company.isDemo}/>
     <JsonLd data={breadcrumbSchema([{name:'منتجات يمنية', path:'/yemeni-products'}, {name:company.name, path:detailPath('yemeni-products', company.id)}])}/>
     <section className="company-profile-hero">
       {company.imageUrl && <div className="company-profile-image"><Image src={company.imageUrl} alt={'صورة '+company.name} fill priority sizes="(max-width: 800px) 100vw, 52vw" style={{objectPosition: company.imagePosition}}/></div>}

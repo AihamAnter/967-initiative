@@ -1,0 +1,440 @@
+{
+  "baselineCommit": "ddcce22",
+  "baselineBuild": "x7LJm-shuXWhRlGxWJKvP",
+  "finalBuild": "atnLOlcc6Ly7P3kUT7Rb0",
+  "measurement": "Unique eager route JS, raw bytes and sum of per-file gzip. Dynamic chunks loaded only for authorized users are excluded.",
+  "routes": {
+    "/layout": {
+      "baseline": {
+        "raw": 633599,
+        "gzip": 180955
+      },
+      "final": {
+        "raw": 644231,
+        "gzip": 184395
+      },
+      "delta": {
+        "raw": 10632,
+        "gzip": 3440,
+        "gzipPercent": 1.9
+      },
+      "eagerEditorRuntimeFiles": [],
+      "files": [
+        {
+          "file": "static/chunks/webpack-a03f73605b9cb9d3.js",
+          "raw": 4188,
+          "gzip": 2151,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/6650-f7ea6e987b14e2ce.js",
+          "raw": 180552,
+          "gzip": 50110,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1910-d08933c8c1408a14.js",
+          "raw": 14680,
+          "gzip": 5627,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2245-098e2303535024f8.js",
+          "raw": 7874,
+          "gzip": 3245,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/layout-7a30ce254eec7b01.js",
+          "raw": 12636,
+          "gzip": 4526,
+          "containsEditorRuntime": false
+        }
+      ]
+    },
+    "/page": {
+      "baseline": {
+        "raw": 638225,
+        "gzip": 182936
+      },
+      "final": {
+        "raw": 652983,
+        "gzip": 187649
+      },
+      "delta": {
+        "raw": 14758,
+        "gzip": 4713,
+        "gzipPercent": 2.58
+      },
+      "eagerEditorRuntimeFiles": [],
+      "files": [
+        {
+          "file": "static/chunks/webpack-a03f73605b9cb9d3.js",
+          "raw": 4188,
+          "gzip": 2151,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/6650-f7ea6e987b14e2ce.js",
+          "raw": 180552,
+          "gzip": 50110,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1910-d08933c8c1408a14.js",
+          "raw": 14680,
+          "gzip": 5627,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2245-098e2303535024f8.js",
+          "raw": 7874,
+          "gzip": 3245,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/layout-7a30ce254eec7b01.js",
+          "raw": 12636,
+          "gzip": 4526,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/page-9d58fd0533df05c4.js",
+          "raw": 8752,
+          "gzip": 3254,
+          "containsEditorRuntime": false
+        }
+      ]
+    },
+    "/debates/[slug]/page": {
+      "baseline": {
+        "raw": 684425,
+        "gzip": 198745
+      },
+      "final": {
+        "raw": 704693,
+        "gzip": 204403
+      },
+      "delta": {
+        "raw": 20268,
+        "gzip": 5658,
+        "gzipPercent": 2.85
+      },
+      "eagerEditorRuntimeFiles": [],
+      "files": [
+        {
+          "file": "static/chunks/webpack-a03f73605b9cb9d3.js",
+          "raw": 4188,
+          "gzip": 2151,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/6650-f7ea6e987b14e2ce.js",
+          "raw": 180552,
+          "gzip": 50110,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1910-d08933c8c1408a14.js",
+          "raw": 14680,
+          "gzip": 5627,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2245-098e2303535024f8.js",
+          "raw": 7874,
+          "gzip": 3245,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/layout-7a30ce254eec7b01.js",
+          "raw": 12636,
+          "gzip": 4526,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/3776-bbb0430cf083838a.js",
+          "raw": 6931,
+          "gzip": 2575,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/debates/[slug]/page-3ab4507b0090375d.js",
+          "raw": 53531,
+          "gzip": 17433,
+          "containsEditorRuntime": false
+        }
+      ]
+    },
+    "/about/page": {
+      "baseline": {
+        "raw": 655014,
+        "gzip": 189884
+      },
+      "final": {
+        "raw": 672172,
+        "gzip": 195491
+      },
+      "delta": {
+        "raw": 17158,
+        "gzip": 5607,
+        "gzipPercent": 2.95
+      },
+      "eagerEditorRuntimeFiles": [],
+      "files": [
+        {
+          "file": "static/chunks/webpack-a03f73605b9cb9d3.js",
+          "raw": 4188,
+          "gzip": 2151,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/6650-f7ea6e987b14e2ce.js",
+          "raw": 180552,
+          "gzip": 50110,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1910-d08933c8c1408a14.js",
+          "raw": 14680,
+          "gzip": 5627,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2245-098e2303535024f8.js",
+          "raw": 7874,
+          "gzip": 3245,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/layout-7a30ce254eec7b01.js",
+          "raw": 12636,
+          "gzip": 4526,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/6915-62e72de72f8cf6bb.js",
+          "raw": 9900,
+          "gzip": 4071,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/10-e3c8580173838e5c.js",
+          "raw": 17888,
+          "gzip": 6883,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/about/page-b2e4602a70fe746f.js",
+          "raw": 153,
+          "gzip": 142,
+          "containsEditorRuntime": false
+        }
+      ]
+    },
+    "/yemeni-products/[id]/page": {
+      "baseline": {
+        "raw": 633845,
+        "gzip": 181137
+      },
+      "final": {
+        "raw": 651397,
+        "gzip": 187222
+      },
+      "delta": {
+        "raw": 17552,
+        "gzip": 6085,
+        "gzipPercent": 3.36
+      },
+      "eagerEditorRuntimeFiles": [],
+      "files": [
+        {
+          "file": "static/chunks/webpack-a03f73605b9cb9d3.js",
+          "raw": 4188,
+          "gzip": 2151,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/6650-f7ea6e987b14e2ce.js",
+          "raw": 180552,
+          "gzip": 50110,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/1910-d08933c8c1408a14.js",
+          "raw": 14680,
+          "gzip": 5627,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/2245-098e2303535024f8.js",
+          "raw": 7874,
+          "gzip": 3245,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/layout-7a30ce254eec7b01.js",
+          "raw": 12636,
+          "gzip": 4526,
+          "containsEditorRuntime": false
+        },
+        {
+          "file": "static/chunks/app/yemeni-products/[id]/page-0c12950f409a3fff.js",
+          "raw": 7166,
+          "gzip": 2827,
+          "containsEditorRuntime": false
+        }
+      ]
+    }
+  }
+}

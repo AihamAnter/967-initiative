@@ -8,6 +8,8 @@ import {validateMediaUpload} from '@/lib/uploads';
 import {safeExternalUrl} from '@/lib/media';
 import {normalizeCompanySources,validateCompanySources} from '@/lib/companySources';
 import {fetchAllRows} from '@/lib/pagination';
+import {contentPatch,saveInlineContent} from '@/lib/inlineContentClient';
+import useAdminItemTarget from './inline/useAdminItemTarget';
 
 const emptyProduct = () => ({
   clientKey: globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2),
@@ -28,10 +30,11 @@ const splitList = value => String(value || '').split(/\r?\n|،|,/).map(item => i
 const joinList = value => Array.isArray(value) ? value.join('\n') : '';
 const optionalNumber = value => value === '' || value === null || value === undefined ? null : Number(value);
 
-export default function CompanyAdminPanel({db, canDelete = false}) {
+export default function CompanyAdminPanel({db, canDelete = false,initialItem = ''}) {
   const [companies, setCompanies] = useState([]);
   const [company, setCompany] = useState(emptyCompany);
   const [editingId, setEditingId] = useState(null);
+  const [original,setOriginal]=useState(null);
   const [busy, setBusy] = useState(false);
   const [loading, setLoading] = useState(true);
   const [notice, setNotice] = useState('');
@@ -59,6 +62,7 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
   }, [db]);
 
   useEffect(() => { loadCompanies(); }, [loadCompanies]);
+  useAdminItemTarget({item:initialItem,rows:companies,loading,onSelect:editCompany,onMissing:()=>setNotice('خطأ: لم يتم العثور على المنشأة المطلوبة. لم يتغير أي محتوى.')});
 
   function setField(field, value) {
     setCompany(current => ({...current, [field]: value}));
@@ -90,6 +94,7 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
   }
 
   function editCompany(row) {
+    setOriginal(row);
     setEditingId(row.id);
     setCompany({
       name: row.name || '', slug: row.slug || '', legal_name: row.legal_name || '', category: row.category || 'أغذية ومشروبات',
@@ -98,6 +103,7 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
       address: row.address || '', google_maps_url: row.google_maps_url || '', website: row.website || '', email: row.email || '', phone: row.phone || '', summary: row.summary || '',
       story: row.story || '', impact: row.impact || '', strengths: joinList(row.strengths), markets: joinList(row.markets),
       products: Array.isArray(row.products) && row.products.length ? row.products.map(product => ({
+        ...product,
         clientKey: globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2),
         name: product.name || '', description: product.description || '', format: product.format || '',
         image_url: product.image_url || '', imageFileName: '', size: product.size || '', weight: product.weight || '',
@@ -130,6 +136,7 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
       const formData = new FormData(form);
       const slug = cleanSlug(company.slug);
       const productDrafts = company.products.map(product => ({
+        ...Object.fromEntries(Object.entries(product).filter(([key])=>!['clientKey','imageFileName'].includes(key))),
         name: product.name.trim(), description: product.description.trim(), format: product.format.trim(),
         image_url: product.image_url || null, size: product.size.trim(), weight: product.weight.trim(),
         quantity: optionalNumber(product.quantity), wholesale_price: optionalNumber(product.wholesale_price),
@@ -155,10 +162,8 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
         summary: company.summary.trim(), story: company.story.trim(), impact: company.impact.trim(),
         strengths: splitList(company.strengths), markets: splitList(company.markets), products,
         image_url: imageUrl, image_position: company.image_position, is_published: company.is_published,
-        updated_at: new Date().toISOString(),
       };
-      const query = editingId ? db.from('yemeni_companies').update(payload).eq('id', editingId) : db.from('yemeni_companies').insert(payload);
-      const {error} = await query;
+      const {error} = editingId ? await saveInlineContent(db,'company',editingId,original?.revision,contentPatch(original,payload)) : await db.from('yemeni_companies').insert(payload);
       if (error) throw Error(error.message);
       setNotice(editingId ? 'تم تحديث بيانات الشركة بنجاح.' : 'تمت إضافة الشركة إلى Supabase بنجاح.');
       setEditingId(null);
@@ -178,7 +183,7 @@ export default function CompanyAdminPanel({db, canDelete = false}) {
   async function togglePublished(row) {
     setBusy(true);
     setNotice('');
-    const {error} = await db.from('yemeni_companies').update({is_published: !row.is_published, updated_at: new Date().toISOString()}).eq('id', row.id);
+    let error;try{await saveInlineContent(db,'company',row.id,row.revision,{is_published:!row.is_published});}catch(failure){error=failure;}
     if (error) setNotice('خطأ: ' + error.message);
     else {
       setNotice(row.is_published ? 'تم تحويل الشركة إلى مسودة.' : 'تم نشر الشركة في صفحة منتجات يمنية.');

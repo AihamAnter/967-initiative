@@ -1,0 +1,424 @@
+{
+  "environment": "Isolated Next HTTP + PGlite PostgreSQL, no production calls.",
+  "scenarios": [
+    "Guest has no management tools, protected requests, editor runtime chunks or unpublished SSR payload",
+    "Regular account retains public discussion; forged local edit preference does not grant tools or review access",
+    "Server verified Admin toolbar, explicit edit toggle and item tools",
+    "Admin approves pending comment inside the debate; public visibility updates and arena drafts/filter survive",
+    "Pinned comment is distinguished and ordered first without rewriting its original creation time",
+    "Hiding removes published content for guests; authorized audited undo restores the current revision",
+    "Directed anonymous question approval, selection and answered transitions retain target/axis and never expose account actions to Admin",
+    "Related report can be reviewed and resolved in place",
+    "Limited bulk review reports partial success and refuses a stale item updated by another editor",
+    "Inline debate save updates public page and preserves discussion drafts and filter; Escape warns about unsaved edits",
+    "Concurrent revision conflict leaves editor draft intact and does not overwrite newer debate",
+    "Persisted issue inline edit through real API and isolated PostgreSQL",
+    "Persisted work inline edit through real API and isolated PostgreSQL",
+    "Persisted company inline edit through real API and isolated PostgreSQL",
+    "Persisted professional inline edit through real API and isolated PostgreSQL",
+    "Persisted figure inline edit through real API and isolated PostgreSQL",
+    "Unpublish work requires confirmation, removes public visibility, and audited undo restores it",
+    "Unpublish professional requires confirmation, removes public visibility, and audited undo restores it",
+    "Unpublish company requires confirmation, removes public visibility, and audited undo restores it",
+    "CMS inline editor reuses existing catalog revision, preserving other pages",
+    "Product edits preserve list order, zero quantities, prices and unrendered fields",
+    "Statistics routes to the exact specialized indicator editor, with no context-free numeric editing",
+    "Failed network save keeps original record and unsaved editor draft; Escape offers explicit discard confirmation",
+    "Transient session-verification failure preserves the verified editor and unsaved draft, warns in the dialog and recovers on recheck",
+    "Old comment and anonymous-question links resolve beyond page one, scroll to the target, and never expose hidden records or owner identity",
+    "Mobile toolbar opens without covering the page, Escape restores focus, Management hides and restores real public live results",
+    "Management limits and restores comments without blocking the account question form or exposing private identity",
+    "Management destructive action requires confirmation and reason; tombstone preserves linked replies and audit",
+    "Task is created only on explicit save, retains source metadata, and opens the exact existing task center item",
+    "Admin sees safe participation history and escalation without account identity, ballot data or restriction controls",
+    "All ten existing full-editor deep links open the exact requested content records",
+    "Advanced moderation link focuses the exact question and offers only its valid next transitions",
+    "Selected public governorate and district expose their correct descriptive editor, preserving geometry and census fields",
+    "Computed ranking links to source editor and actual sign-out removes every administrative control"
+  ],
+  "layouts": [
+    {
+      "name": "guest-debate",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "rtl": "rtl"
+    },
+    {
+      "name": "guest-debate",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "rtl": "rtl"
+    },
+    {
+      "name": "guest-debate",
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "rtl": "rtl"
+    },
+    {
+      "name": "guest-debate",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "rtl": "rtl"
+    },
+    {
+      "name": "guest-debate",
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "rtl": "rtl"
+    },
+    {
+      "name": "guest-debate",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "rtl": "rtl"
+    },
+    {
+      "name": "guest-debate",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "rtl": "rtl"
+    },
+    {
+      "name": "admin-toolbar",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "rtl": "rtl"
+    },
+    {
+      "name": "admin-toolbar",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "rtl": "rtl"
+    },
+    {
+      "name": "admin-toolbar",
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "rtl": "rtl"
+    },
+    {
+      "name": "admin-toolbar",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "rtl": "rtl"
+    },
+    {
+      "name": "admin-toolbar",
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "rtl": "rtl"
+    },
+    {
+      "name": "admin-toolbar",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "rtl": "rtl"
+    },
+    {
+      "name": "admin-toolbar",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "rtl": "rtl"
+    },
+    {
+      "name": "review-queue",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "rtl": "rtl"
+    },
+    {
+      "name": "review-queue",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "rtl": "rtl"
+    },
+    {
+      "name": "review-queue",
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "rtl": "rtl"
+    },
+    {
+      "name": "review-queue",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "rtl": "rtl"
+    },
+    {
+      "name": "review-queue",
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "rtl": "rtl"
+    },
+    {
+      "name": "review-queue",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "rtl": "rtl"
+    },
+    {
+      "name": "review-queue",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "rtl": "rtl"
+    },
+    {
+      "name": "comment-moderation",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "rtl": "rtl"
+    },
+    {
+      "name": "comment-moderation",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "rtl": "rtl"
+    },
+    {
+      "name": "comment-moderation",
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "rtl": "rtl"
+    },
+    {
+      "name": "comment-moderation",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "rtl": "rtl"
+    },
+    {
+      "name": "comment-moderation",
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "rtl": "rtl"
+    },
+    {
+      "name": "comment-moderation",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "rtl": "rtl"
+    },
+    {
+      "name": "comment-moderation",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "rtl": "rtl"
+    },
+    {
+      "name": "question-moderation",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "rtl": "rtl"
+    },
+    {
+      "name": "question-moderation",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "rtl": "rtl"
+    },
+    {
+      "name": "question-moderation",
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "rtl": "rtl"
+    },
+    {
+      "name": "question-moderation",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "rtl": "rtl"
+    },
+    {
+      "name": "question-moderation",
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "rtl": "rtl"
+    },
+    {
+      "name": "question-moderation",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "rtl": "rtl"
+    },
+    {
+      "name": "question-moderation",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "rtl": "rtl"
+    },
+    {
+      "name": "debate-editor",
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "rtl": "rtl"
+    },
+    {
+      "name": "debate-editor",
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "rtl": "rtl"
+    },
+    {
+      "name": "debate-editor",
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "rtl": "rtl"
+    },
+    {
+      "name": "debate-editor",
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "rtl": "rtl"
+    },
+    {
+      "name": "debate-editor",
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "rtl": "rtl"
+    },
+    {
+      "name": "debate-editor",
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "rtl": "rtl"
+    },
+    {
+      "name": "debate-editor",
+      "width": 1920,
+      "scroll": 1920,
+      "client": 1920,
+      "rtl": "rtl"
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "guest-debate",
+      "violations": []
+    },
+    {
+      "name": "admin-toolbar",
+      "violations": []
+    },
+    {
+      "name": "review-queue",
+      "violations": []
+    },
+    {
+      "name": "comment-moderation",
+      "violations": []
+    },
+    {
+      "name": "question-moderation",
+      "violations": []
+    },
+    {
+      "name": "debate-editor",
+      "violations": []
+    }
+  ],
+  "runtimeErrors": [],
+  "externalRequests": [
+    {
+      "origin": "https://i.ytimg.com",
+      "path": "/vi/abcdefghijk/hqdefault.jpg"
+    },
+    {
+      "origin": "https://i.ytimg.com",
+      "path": "/vi/abcdefghijk/hqdefault.jpg"
+    }
+  ],
+  "security": [
+    "Anonymous/member direct protected reads and forged-role writes rejected",
+    "Cross-origin requests, anonymous account lookup, Admin restrictions/deletion/results visibility, invalid states, protected fields and malformed IDs rejected",
+    "Concurrent writes yield exactly one winner; stale undo refuses to republish a subsequently changed item",
+    "Actions are recorded in existing moderation history without credentials or individual ballots",
+    "Admin and Management cannot read another account ballot or modify a vote through inline moderation",
+    "Revoked editor role cannot save and all management UI is removed"
+  ],
+  "scripts": {
+    "guest": [
+      "/_next/static/chunks/webpack.js",
+      "/_next/static/chunks/main-app.js",
+      "/_next/static/chunks/app-pages-internals.js",
+      "/_next/static/chunks/app/error.js",
+      "/_next/static/chunks/app/layout.js",
+      "/_next/static/chunks/app/debates/%5Bslug%5D/page.js",
+      "/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+    ],
+    "member": [
+      "/_next/static/chunks/webpack.js",
+      "/_next/static/chunks/main-app.js",
+      "/_next/static/chunks/app-pages-internals.js",
+      "/_next/static/chunks/app/error.js",
+      "/_next/static/chunks/app/layout.js",
+      "/_next/static/chunks/app/debates/%5Bslug%5D/page.js",
+      "/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+    ],
+    "admin": [
+      "/_next/static/chunks/webpack.js",
+      "/_next/static/chunks/main-app.js",
+      "/_next/static/chunks/app-pages-internals.js",
+      "/_next/static/chunks/app/error.js",
+      "/_next/static/chunks/app/layout.js",
+      "/_next/static/chunks/app/yemeni-products/%5Bid%5D/page.js",
+      "/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js",
+      "/_next/static/chunks/_app-pages-browser_components_inline_InlineEditorRuntime_jsx.js"
+    ]
+  },
+  "limitations": [
+    "Auth sessions are simulated through a local Supabase-shaped server. Real email delivery and external video playback are not exercised."
+  ],
+  "executionSegments": [
+    {
+      "phase": "full",
+      "passedScenarios": 30,
+      "passedLayouts": 42
+    },
+    {
+      "phase": "remaining after selector correction",
+      "note": "No application source change beyond contextual action captions; corrected native select accessible-label selector."
+    }
+  ]
+}

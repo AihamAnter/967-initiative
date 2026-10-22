@@ -18,6 +18,7 @@ import {getYemeniFigure, getYemeniFigures} from '@/lib/data';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, figureSchema, JsonLd} from '@/lib/seo-schema';
 import FigureDossier from '@/components/FigureDossier';
+import InlineTarget from '@/components/inline/InlineTarget';
 
 export const dynamic = 'force-dynamic';
 
@@ -71,6 +72,7 @@ export default async function YemeniFigureProfilePage({params}) {
     .slice(0, 3);
 
   return <div className="figure-profile-page">
+    <InlineTarget kind="figure" id={figure.id} slug={figure.slug} title={figure.fullName} href={detailPath('yemen-map/figures',figure.slug)} isDemo={figure.isDemo}/>
     <JsonLd data={figureSchema(figure)}/>
     <JsonLd data={breadcrumbSchema([{name:'اكتشف اليمن', path:'/yemen-map'}, {name:figure.fullName, path:detailPath('yemen-map/figures', figure.slug)}])}/>
 

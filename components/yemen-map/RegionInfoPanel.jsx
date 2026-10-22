@@ -1,6 +1,7 @@
 'use client';
 import {ArrowUpLeft,ChevronRight,MapPinned,X} from 'lucide-react';
 import {formatNumber} from './mapGeometry';
+import InlineTarget from '../inline/InlineTarget';
 
 const missing = 'البيانات غير متوفرة حاليًا';
 
@@ -42,6 +43,7 @@ export default function RegionInfoPanel({
     </div>}
 
     {region && <div className="ymap-info-body">
+      <InlineTarget kind={isDistrict?'district':'governorate'} id={region.id} title={title} href={'/yemen-map?'+(isDistrict?'district=':'region=')+encodeURIComponent(region.id)+'#map'}/>
       {isDistrict && <button type="button" className="ymap-backline" onClick={onGovernorateBack}><ChevronRight size={16}/> العودة إلى محافظة {region.governorateNameAr}</button>}
       <div className="ymap-info-grid">
         <Field label={isDistrict ? 'اسم المديرية' : 'اسم المحافظة'} value={region.nameAr}/>

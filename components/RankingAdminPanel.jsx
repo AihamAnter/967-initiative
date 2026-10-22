@@ -5,6 +5,7 @@ import {AlertTriangle, Check, Eye, EyeOff, Library, Pencil, Plus, RefreshCw, Sav
 import {defaultRankingIndicators, rankingCategories} from '@/lib/rankingCatalog';
 import {formatNumber} from '@/lib/format';
 import styles from './RankingAdminPanel.module.css';
+import useAdminItemTarget from './inline/useAdminItemTarget';
 
 const blankDraft = () => ({
   name:'', slug:'', category:rankingCategories[0]?.id || '', unit:'', code:'',
@@ -35,7 +36,7 @@ function SnapshotFacts({snapshot}) {
   </dl>;
 }
 
-export default function RankingAdminPanel({db}) {
+export default function RankingAdminPanel({db,initialItem = ''}) {
   const fieldId = useId();
   const editorHeading = useRef(null);
   const mounted = useRef(true);
@@ -120,6 +121,7 @@ export default function RankingAdminPanel({db}) {
   }, [request]);
 
   useEffect(() => {load();}, [load]);
+  useAdminItemTarget({item:initialItem,rows:indicators,loading,onSelect:openEditor,onMissing:()=>setNotice({type:'error',text:'لم يتم العثور على مؤشر الترتيب المطلوب. لم يتغير أي محتوى.'})});
 
   const filtered = useMemo(() => indicators.filter(row => {
     const needle = query.trim().toLocaleLowerCase('ar');

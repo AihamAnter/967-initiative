@@ -1,0 +1,323 @@
+{
+  "sourceCommit": "ddcce22",
+  "buildId": "x7LJm-shuXWhRlGxWJKvP",
+  "capturedAt": "2026-10-21T13:27:21.520Z",
+  "kind": "production manifest eager JS bytes (raw + per-file gzip)",
+  "routes": {
+    "/layout": {
+      "files": [
+        {
+          "file": "static/chunks/webpack-894d3e9e85b2584b.js",
+          "raw": 4114,
+          "gzip": 2111
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406
+        },
+        {
+          "file": "static/chunks/5376-04a3d57f5f04927f.js",
+          "raw": 22622,
+          "gzip": 7112
+        },
+        {
+          "file": "static/chunks/6650-bd251615059cf12b.js",
+          "raw": 157830,
+          "gzip": 43364
+        },
+        {
+          "file": "static/chunks/1356-b1f982685cfcaf9f.js",
+          "raw": 13668,
+          "gzip": 5220
+        },
+        {
+          "file": "static/chunks/app/layout-c4bcdb5706fc0760.js",
+          "raw": 11064,
+          "gzip": 4412
+        }
+      ],
+      "raw": 633599,
+      "gzip": 180955
+    },
+    "/page": {
+      "files": [
+        {
+          "file": "static/chunks/webpack-894d3e9e85b2584b.js",
+          "raw": 4114,
+          "gzip": 2111
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406
+        },
+        {
+          "file": "static/chunks/5376-04a3d57f5f04927f.js",
+          "raw": 22622,
+          "gzip": 7112
+        },
+        {
+          "file": "static/chunks/6650-bd251615059cf12b.js",
+          "raw": 157830,
+          "gzip": 43364
+        },
+        {
+          "file": "static/chunks/1356-b1f982685cfcaf9f.js",
+          "raw": 13668,
+          "gzip": 5220
+        },
+        {
+          "file": "static/chunks/app/layout-c4bcdb5706fc0760.js",
+          "raw": 11064,
+          "gzip": 4412
+        },
+        {
+          "file": "static/chunks/app/page-a087136555183c16.js",
+          "raw": 4626,
+          "gzip": 1981
+        }
+      ],
+      "raw": 638225,
+      "gzip": 182936
+    },
+    "/debates/[slug]/page": {
+      "files": [
+        {
+          "file": "static/chunks/webpack-894d3e9e85b2584b.js",
+          "raw": 4114,
+          "gzip": 2111
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406
+        },
+        {
+          "file": "static/chunks/5376-04a3d57f5f04927f.js",
+          "raw": 22622,
+          "gzip": 7112
+        },
+        {
+          "file": "static/chunks/6650-bd251615059cf12b.js",
+          "raw": 157830,
+          "gzip": 43364
+        },
+        {
+          "file": "static/chunks/1356-b1f982685cfcaf9f.js",
+          "raw": 13668,
+          "gzip": 5220
+        },
+        {
+          "file": "static/chunks/app/layout-c4bcdb5706fc0760.js",
+          "raw": 11064,
+          "gzip": 4412
+        },
+        {
+          "file": "static/chunks/5779-1add9c83b06025b2.js",
+          "raw": 8658,
+          "gzip": 3700
+        },
+        {
+          "file": "static/chunks/app/debates/[slug]/page-4b9791419d552e39.js",
+          "raw": 42168,
+          "gzip": 14090
+        }
+      ],
+      "raw": 684425,
+      "gzip": 198745
+    },
+    "/about/page": {
+      "files": [
+        {
+          "file": "static/chunks/webpack-894d3e9e85b2584b.js",
+          "raw": 4114,
+          "gzip": 2111
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406
+        },
+        {
+          "file": "static/chunks/5376-04a3d57f5f04927f.js",
+          "raw": 22622,
+          "gzip": 7112
+        },
+        {
+          "file": "static/chunks/6650-bd251615059cf12b.js",
+          "raw": 157830,
+          "gzip": 43364
+        },
+        {
+          "file": "static/chunks/1356-b1f982685cfcaf9f.js",
+          "raw": 13668,
+          "gzip": 5220
+        },
+        {
+          "file": "static/chunks/app/layout-c4bcdb5706fc0760.js",
+          "raw": 11064,
+          "gzip": 4412
+        },
+        {
+          "file": "static/chunks/6915-90fd7d210b41d06c.js",
+          "raw": 10287,
+          "gzip": 4204
+        },
+        {
+          "file": "static/chunks/108-5f676192313e0d3b.js",
+          "raw": 10989,
+          "gzip": 4591
+        },
+        {
+          "file": "static/chunks/app/about/page-52c6f50ee2b503e4.js",
+          "raw": 139,
+          "gzip": 134
+        }
+      ],
+      "raw": 655014,
+      "gzip": 189884
+    },
+    "/yemeni-products/[id]/page": {
+      "files": [
+        {
+          "file": "static/chunks/webpack-894d3e9e85b2584b.js",
+          "raw": 4114,
+          "gzip": 2111
+        },
+        {
+          "file": "static/chunks/4bd1b696-100b9d70ed4e49c1.js",
+          "raw": 173025,
+          "gzip": 54364
+        },
+        {
+          "file": "static/chunks/1255-60d8dc7c8c9309a1.js",
+          "raw": 174644,
+          "gzip": 46409
+        },
+        {
+          "file": "static/chunks/main-app-e07822020ffc9648.js",
+          "raw": 572,
+          "gzip": 237
+        },
+        {
+          "file": "static/chunks/44530001-0be73d50aff2989d.js",
+          "raw": 67496,
+          "gzip": 14320
+        },
+        {
+          "file": "static/chunks/2619-04bc32f026a0d946.js",
+          "raw": 8564,
+          "gzip": 3406
+        },
+        {
+          "file": "static/chunks/5376-04a3d57f5f04927f.js",
+          "raw": 22622,
+          "gzip": 7112
+        },
+        {
+          "file": "static/chunks/6650-bd251615059cf12b.js",
+          "raw": 157830,
+          "gzip": 43364
+        },
+        {
+          "file": "static/chunks/1356-b1f982685cfcaf9f.js",
+          "raw": 13668,
+          "gzip": 5220
+        },
+        {
+          "file": "static/chunks/app/layout-c4bcdb5706fc0760.js",
+          "raw": 11064,
+          "gzip": 4412
+        },
+        {
+          "file": "static/chunks/app/yemeni-products/[id]/page-cf4b9159ef47c201.js",
+          "raw": 246,
+          "gzip": 182
+        }
+      ],
+      "raw": 633845,
+      "gzip": 181137
+    }
+  }
+}

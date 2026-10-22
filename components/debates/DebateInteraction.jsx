@@ -8,6 +8,7 @@ import DebateLiveResults from './DebateLiveResults';
 import DebateDisclosure from './DebateDisclosure';
 import DebateArena from './DebateArena';
 import {pollOpen,formatDebateDateTime} from '@/lib/debates';
+import {useInlineEditor} from '@/components/inline/InlineEditorProvider';
 function ParticipationGate({user,ready,slug,anchor}){
  const next='/debates/'+slug+'#'+anchor;
  if(!ready)return <p role="status">جارٍ التحقق من الحساب…</p>;
@@ -19,9 +20,11 @@ export default function DebateInteraction({debate}){
  const {user,ready,error:authError}=useAudience(),[rawAccount,setAccount]=useState(null),[notice,setNotice]=useState(''),[failed,setFailed]=useState(false),[busy,setBusy]=useState(false),[myPage,setMyPage]=useState(1),[discussionVersion,setDiscussionVersion]=useState(0),[now,setNow]=useState(()=>Date.now());
  const liveResults=useLiveDebateResults(debate.id),activeUser=useRef(null),accountRevision=useRef(0);activeUser.current=user?.id||null;
  const account=rawAccount?.user.id===user?.id?rawAccount:null;
+ const inline=useInlineEditor();
  useEffect(()=>{const next=(debate.polls||[]).filter(p=>p.enabled).flatMap(p=>[p.opens_at,p.closes_at]).filter(Boolean).map(Date.parse).filter(time=>time>now).sort((a,b)=>a-b)[0];if(!next)return;const timer=setTimeout(()=>setNow(Date.now()),Math.min(Math.max(next-Date.now()+25,25),2147480000));return()=>clearTimeout(timer);},[debate.polls,now]);
  const reloadAccount=useCallback(async pageOverride=>{const revision=++accountRevision.current;if(!user){setAccount(null);return;}const owner=user.id;try{const result=await audienceRequest('/api/account?debate='+debate.id+'&page='+(Number.isInteger(pageOverride)?pageOverride:myPage));if(activeUser.current===owner&&result.user.id===owner&&revision===accountRevision.current)setAccount(result);}catch(err){if(activeUser.current===owner&&revision===accountRevision.current){setFailed(true);setNotice(err.message);}}},[user,debate.id,myPage]);
  useEffect(()=>{const guard=accountRevision;setAccount(null);reloadAccount();return()=>{guard.current++;};},[reloadAccount]);
+ useEffect(()=>{if(inline.revision&&user&&(!inline.lastChange?.debate_id||inline.lastChange.debate_id===debate.id))reloadAccount();},[inline.revision,inline.lastChange,debate.id,reloadAccount,user]);
  useEffect(()=>{if(account&&myPage>1&&!account.debate_comments.items.length&&!account.debate_questions.items.length)setMyPage(Math.max(1,Math.ceil(Math.max(account.debate_comments.total,account.debate_questions.total)/20)));},[account,myPage]);
  async function act(body,success){setBusy(true);setNotice('');setFailed(false);try{await audienceRequest('/api/debates',body);const isNew=body.action==='comment'||body.action==='question';if(isNew)setMyPage(1);await Promise.all([reloadAccount(isNew?1:undefined),...(body.action==='vote'?[liveResults.refresh()]:[])]);if(body.action!=='vote')setDiscussionVersion(n=>n+1);setNotice(success);return true;}catch(err){setFailed(true);setNotice(err.message);return false;}finally{setBusy(false);}}
  const canParticipate=Boolean(user?.email_confirmed_at&&account?.profile&&!account.profile.suspended&&!account.profile.deletion_requested_at);

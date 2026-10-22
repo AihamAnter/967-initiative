@@ -1,4 +1,5 @@
 import test from 'node:test';
+const ACTOR='a0000000-0000-4000-8000-000000000001';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {emptyFigureProfile,validateFigureProfile,figureProfilePath} from '../lib/figureProfiles.js';
@@ -10,7 +11,7 @@ const sample=()=>({slug:'source-linked-figure',full_name:'Reference Figure',know
 const detailed=()=>({...emptyFigureProfile(),reviewedAt:'2026-10-19',sources:[{id:'archive',title:'Original archive',url:'https://example.org/archive',publisher:'Archive',accessedAt:'2026-10-19'}],sections:[{id:'life',title:'Life',paragraphs:['A source-linked biography.'],sourceIds:['archive']}],timeline:[{id:'publication',year:1998,title:'Publication',sourceIds:['archive']}],works:[{id:'book',title:'Book',year:1998,sourceIds:['archive']}],gallery:[{id:'photo',url:'https://example.org/photo.webp',alt:'At a documented event',kind:'context',credit:'Photographer',license:'CC BY-SA 4.0',sourceUrl:'https://example.org/photo',sourceIds:['archive']}],notes:['Some dates are approximate.']});
 function memoryDb({beforeWrite,writeError,storageError}={}){
  const state={rows:[],files:new Map(),writes:0};
- const db={storage:{from(bucket){assert.equal(bucket,'figure-profiles');return {async upload(path,body,options){assert.equal(options.upsert,false);if(storageError)return {error:storageError};if(state.files.has(path))return {error:{statusCode:409}};state.files.set(path,body);return {data:{path},error:null};},async download(path){return state.files.has(path)?{data:new Blob([state.files.get(path)]),error:null}:{data:null,error:{status:404}};},async remove(paths){for(const p of paths)state.files.delete(p);return {error:null};}};}},from(table){assert.equal(table,'yemeni_figures');let action='read',payload,filters={};const query={select(){return query;},eq(key,value){filters[key]=value;return query;},insert(value){action='insert';payload=value;return query;},update(value){action='update';payload=value;return query;},delete(){action='delete';return query;},async maybeSingle(){if(action==='read')return {data:structuredClone(state.rows.find(r=>r.id===filters.id)||null),error:null};if(beforeWrite)await beforeWrite(state);if(writeError)return {data:null,error:writeError};const index=state.rows.findIndex(r=>r.id===filters.id&&r.updated_at===filters.updated_at);if(action!=='insert'&&index===-1)return {data:null,error:null};if(action==='insert'&&state.rows.some(r=>r.slug===payload.slug))return {data:null,error:{code:'23505'}};let result;if(action==='insert'){state.rows.push(structuredClone(payload));result=payload;}if(action==='update'){state.rows[index]=structuredClone(payload);result=payload;}if(action==='delete'){result=state.rows.splice(index,1)[0];}state.writes++;return {data:structuredClone(result),error:null};}};return query;}};return {db,state};
+ const db={storage:{from(bucket){assert.equal(bucket,'figure-profiles');return {async upload(path,body,options){assert.equal(options.upsert,false);if(storageError)return {error:storageError};if(state.files.has(path))return {error:{statusCode:409}};state.files.set(path,body);return {data:{path},error:null};},async download(path){return state.files.has(path)?{data:new Blob([state.files.get(path)]),error:null}:{data:null,error:{status:404}};},async remove(paths){for(const p of paths)state.files.delete(p);return {error:null};}};}},from(table){assert.equal(table,'yemeni_figures');let action='read',payload,filters={};const query={select(){return query;},eq(key,value){filters[key]=value;return query;},insert(value){action='insert';payload=value;return query;},update(value){action='update';payload=value;return query;},delete(){action='delete';return query;},async maybeSingle(){if(action==='read')return {data:structuredClone(state.rows.find(r=>r.id===filters.id)||null),error:null};if(beforeWrite)await beforeWrite(state);if(writeError)return {data:null,error:writeError};const index=state.rows.findIndex(r=>r.id===filters.id&&r.updated_at===filters.updated_at);if(action!=='insert'&&index===-1)return {data:null,error:null};if(action==='insert'&&state.rows.some(r=>r.slug===payload.slug))return {data:null,error:{code:'23505'}};let result;if(action==='insert'){state.rows.push(structuredClone(payload));result=payload;}if(action==='update'){state.rows[index]=structuredClone(payload);result=payload;}if(action==='delete'){result=state.rows.splice(index,1)[0];}state.writes++;return {data:structuredClone(result),error:null};}};return query;}};db.rpc=async(name,args)=>{assert.equal(name,'inline_service_save');assert.equal(args.p_kind,'figure');assert.equal(args.p_actor,ACTOR);let query=db.from('yemeni_figures');if(args.p_action==='create')query=query.insert(args.p_data);else{query=args.p_action==='delete'?query.delete():query.update(args.p_data);query=query.eq('id',args.p_id).eq('updated_at',args.p_revision);}const result=await query.select().maybeSingle();return {data:result.data?{record:result.data,revision:result.data.updated_at}:null,error:result.error||(!result.data?{code:'40001'}:null)};};return {db,state};
 }
 
 test('structured figures preserve sources, dates, image rights and editorial notes without unknown fields',()=>{
@@ -22,34 +23,40 @@ test('structured figures preserve sources, dates, image rights and editorial not
 });
 
 test('private immutable profiles round trip with their base row and preserve publication on edits',async()=>{
- const {db,state}=memoryDb(),first=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,role:'admin'},()=>1000000000000);
+ const {db,state}=memoryDb(),first=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'admin'},()=>1000000000000);
  assert.equal(first.record.is_published,false);assert.equal(state.files.size,1);assert.deepEqual(await readFigureProfile(db,first.record),first.profile);
- const next=await saveFigureProfile(db,{record:{...first.record,is_published:true},profile:{...first.profile,notes:['Edited']},revision:first.revision,role:'management'},()=>1000000000000);
+ const next=await saveFigureProfile(db,{record:{...first.record,is_published:true},profile:{...first.profile,notes:['Edited']},revision:first.revision,actorId:ACTOR,role:'management'},()=>1000000000000);
  assert.notEqual(next.revision,first.revision);assert.equal(state.files.size,2);assert.equal(next.record.is_published,true);assert.deepEqual((await readFigureProfile(db,next.record)).notes,['Edited']);assert.deepEqual((await readFigureProfile(db,first.record)).notes,detailed().notes);
- await assert.rejects(saveFigureProfile(db,{record:first.record,profile:detailed(),revision:first.revision,role:'admin'}),e=>e.status===409);assert.equal(state.writes,2);
+ await assert.rejects(saveFigureProfile(db,{record:first.record,profile:detailed(),revision:first.revision,actorId:ACTOR,role:'admin'}),e=>e.status===409);assert.equal(state.writes,2);
 });
 
 test('concurrent row changes, duplicate routes and storage failures cannot overwrite published content',async()=>{
  const {db,state}=memoryDb({beforeWrite(s){if(s.rows.length)s.rows[0].updated_at='2026-10-20T00:00:00.000Z';}});
- const first=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,role:'management'});
- await assert.rejects(saveFigureProfile(db,{record:first.record,profile:detailed(),revision:first.revision,role:'admin'}),e=>e.status===409);assert.equal(state.writes,1);assert.equal(state.files.size,1);
- const duplicate=memoryDb();await saveFigureProfile(duplicate.db,{record:sample(),profile:detailed(),revision:null,role:'admin'});await assert.rejects(saveFigureProfile(duplicate.db,{record:sample(),profile:detailed(),revision:null,role:'admin'}),e=>e.status===409);assert.equal(duplicate.state.files.size,1);
- const offline=memoryDb({storageError:{statusCode:503}});await assert.rejects(saveFigureProfile(offline.db,{record:sample(),profile:detailed(),revision:null,role:'admin'}),e=>e.status===503);assert.equal(offline.state.rows.length,0);
- const uncertain=memoryDb({writeError:{message:'Network timeout'}});await assert.rejects(saveFigureProfile(uncertain.db,{record:sample(),profile:detailed(),revision:null,role:'admin'}),e=>e.status===503);assert.equal(uncertain.state.files.size,1,'An uncertain commit must not lose its uploaded biography');
+ const first=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'management'});
+ await assert.rejects(saveFigureProfile(db,{record:first.record,profile:detailed(),revision:first.revision,actorId:ACTOR,role:'admin'}),e=>e.status===409);assert.equal(state.writes,1);assert.equal(state.files.size,1);
+ const duplicate=memoryDb();await saveFigureProfile(duplicate.db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'admin'});await assert.rejects(saveFigureProfile(duplicate.db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'admin'}),e=>e.status===409);assert.equal(duplicate.state.files.size,1);
+ const offline=memoryDb({storageError:{statusCode:503}});await assert.rejects(saveFigureProfile(offline.db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'admin'}),e=>e.status===503);assert.equal(offline.state.rows.length,0);
+ const uncertain=memoryDb({writeError:{message:'Network timeout'}});await assert.rejects(saveFigureProfile(uncertain.db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'admin'}),e=>e.status===503);assert.equal(uncertain.state.files.size,1,'An uncertain commit must not lose its uploaded biography');
 });
 
 test('deletion is management-only, revision checked, and leaves historical files private',async()=>{
- const {db,state}=memoryDb(),saved=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,role:'admin'});
- await assert.rejects(deleteFigureProfile(db,{id:saved.record.id,revision:saved.revision,role:'admin'}),e=>e.status===403);
- await assert.rejects(deleteFigureProfile(db,{id:saved.record.id,revision:'2000-01-01',role:'management'}),e=>e.status===409);
- await deleteFigureProfile(db,{id:saved.record.id,revision:saved.revision,role:'management'});assert.equal(state.rows.length,0);assert.equal(state.files.size,1);
- await assert.rejects(saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,role:'reader'}),e=>e.status===403);
+ const {db,state}=memoryDb(),saved=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'admin'});
+ await assert.rejects(deleteFigureProfile(db,{id:saved.record.id,revision:saved.revision,actorId:ACTOR,role:'admin'}),e=>e.status===403);
+ await assert.rejects(deleteFigureProfile(db,{id:saved.record.id,revision:'2000-01-01',actorId:ACTOR,role:'management'}),e=>e.status===409);
+ await deleteFigureProfile(db,{id:saved.record.id,revision:saved.revision,actorId:ACTOR,role:'management'});assert.equal(state.rows.length,0);assert.equal(state.files.size,1);
+ await assert.rejects(saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'reader'}),e=>e.status===403);
 });
 
 test('corrupt or unavailable profile storage fails explicitly instead of erasing the saved biography',async()=>{
- const {db,state}=memoryDb(),saved=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,role:'admin'});
+ const {db,state}=memoryDb(),saved=await saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,actorId:ACTOR,role:'admin'});
  state.files.set(figureProfilePath(saved.record),'invalid json');await assert.rejects(readFigureProfile(db,saved.record),e=>e.status===503);
  state.files.clear();assert.equal(await readFigureProfile(db,saved.record),null);
+});
+
+test('audited figure writes require an identified editorial actor before any storage change',async()=>{
+ const {db,state}=memoryDb();
+ await assert.rejects(saveFigureProfile(db,{record:sample(),profile:detailed(),revision:null,role:'admin'}),error=>error.status===403);
+ assert.equal(state.files.size,0);assert.equal(state.writes,0);
 });
 
 test('directory payload stays compact and context images never become Person portraits',()=>{

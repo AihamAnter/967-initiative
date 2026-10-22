@@ -1,6 +1,7 @@
 'use client';
 
 import {useCallback, useEffect, useId, useMemo, useRef, useState} from 'react';
+import InlineTarget from './inline/InlineTarget';
 import {ArrowDown, ArrowLeft, ArrowUp, Check, ChevronDown, Download, Globe2, Info, LoaderCircle, MapPin, RotateCcw, Search, Share2, X} from 'lucide-react';
 import {rankingCategories} from '@/lib/rankingCatalog';
 import {buildRanking, getDefaultRankingYear, getRankingYears, getYemenNeighborhood, validateRankingDataset} from '@/lib/rankings';
@@ -235,6 +236,7 @@ export default function YemenRankingExplorer({indicators = [], initialIndicator,
   if(!indicators.length)return <div className="yr-explorer"><div className="yr-state" role="status"><Info size={28}/><h2>لا توجد معايير منشورة حالياً</h2><p>ستظهر المقارنات هنا عند نشر معايير الترتيب.</p></div></div>;
 
   return <div className="yr-explorer">
+    <InlineTarget kind="ranking" id={indicator?.id} slug={indicator?.slug} title={indicator?.name} href={'/yemen-ranking?indicator='+encodeURIComponent(indicator?.slug||'')}/>
     <section className="yr-controls" aria-label="اختيار المؤشر والمقارنة">
       <label><span>المجال</span><select value={category} onChange={event=>selectCategory(event.target.value)}><option value="all">كل المجالات</option>{categoryOptions.map(item=><option key={item.id} value={item.id}>{item.name}</option>)}</select><ChevronDown size={17} aria-hidden="true"/></label>
       <label className="yr-metric-select"><span>ما الذي تريد مقارنته؟</span><select value={selection.indicator} onChange={event=>selectMetric(event.target.value)} disabled={!indicators.length}>{metricOptions.map(item=><option key={item.slug} value={item.slug}>{item.name}</option>)}</select><ChevronDown size={17} aria-hidden="true"/></label>

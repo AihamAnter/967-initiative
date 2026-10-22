@@ -1,0 +1,2 @@
+Command: node node_modules/eslint/bin/eslint.js lib/inlineEditorApi.js lib/inlineEditorRepository.js lib/debateRepository.js lib/debateApi.js lib/debates.js app/api/admin/inline/route.js
+Exit code: 0

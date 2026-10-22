@@ -3,6 +3,7 @@ import nextDynamic from 'next/dynamic';
 import {notFound} from 'next/navigation';
 import {AlertTriangle, ArrowRight, CalendarDays, ExternalLink, Info, Ruler, ShieldCheck} from 'lucide-react';
 import IndicatorActions from '@/components/IndicatorActions';
+import InlineTarget from '@/components/inline/InlineTarget';
 import {getStatIndicator} from '@/lib/data';
 import {formatArabicDate, formatNumber, formatYear} from '@/lib/format';
 import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
@@ -28,6 +29,7 @@ export default async function IndicatorPage({params}) {
   const sourceIds = new Set(indicator.allValues.map(value => value.source_id));
   const yearCount=new Set(indicator.values.map(value=>value.year)).size;
   return <>
+    <InlineTarget kind="statistic" id={indicator.id} slug={indicator.slug} title={indicator.name} href={detailPath('yemen-in-numbers/indicator',indicator.slug)}/>
     <JsonLd data={indicatorSchema(indicator)}/>
     <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:indicator.domain.name, path:detailPath('yemen-in-numbers', indicator.domain.slug)}, {name:indicator.name, path:detailPath('yemen-in-numbers/indicator', indicator.slug)}])}/>
     <section className="stat-indicator-head"><div className="container">

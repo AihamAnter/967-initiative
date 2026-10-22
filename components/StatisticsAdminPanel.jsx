@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
 import {formatNumber, toLatinDigits, formatYear} from '@/lib/format';
+import useAdminItemTarget from './inline/useAdminItemTarget';
 
 const emptyIndicator = {
   name: '', slug: '', domain_id: '', short_description: '', definition: '', unit: '',
@@ -19,7 +20,7 @@ const emptySource = {name: '', publisher: '', url: '', description: '', is_activ
 const newValueRow = () => ({clientId: crypto.randomUUID(), year: '', value: '', source_id: '', document_url: '', publication_date: '', methodology_note: '', value_status: 'official', is_published: false});
 const slugify = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
 
-export default function StatisticsAdminPanel({db, canDelete = false}) {
+export default function StatisticsAdminPanel({db, canDelete = false,initialItem = ''}) {
   const [view, setView] = useState('indicators');
   const [sections, setSections] = useState([]);
   const [domains, setDomains] = useState([]);
@@ -65,6 +66,7 @@ export default function StatisticsAdminPanel({db, canDelete = false}) {
   }, [db]);
 
   useEffect(() => { loadAll(); }, [loadAll]);
+  useAdminItemTarget({item:initialItem,rows:indicators,loading,onSelect:item=>{editIndicator(item);setSelectedIndicatorId(item.id);setView('indicators');},onMissing:()=>setNotice('خطأ: لم يتم العثور على المؤشر المطلوب. لم يتغير أي محتوى.')});
 
   const filteredIndicators = useMemo(() => indicators.filter(item => {
     const needle = search.trim().toLocaleLowerCase('ar');

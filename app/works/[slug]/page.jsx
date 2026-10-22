@@ -7,6 +7,7 @@ import {formatArabicDate} from '@/lib/format';
 import {safeExternalUrl, workThumbnail} from '@/lib/media';
 import MediaViewer from '@/components/MediaViewer';
 import WorkCard from '@/components/WorkCard';
+import InlineTarget from '@/components/inline/InlineTarget';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd, workSchema} from '@/lib/seo-schema';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
@@ -37,6 +38,7 @@ export default async function WorkDetails({params,searchParams}) {
   const returnTo=listReturnPath(query.from,'/works',collectionDefaults.works,'#works-results');
 
   return <>
+    <InlineTarget kind="work" id={work.id} slug={work.slug} title={work.title} href={detailPath('works',work.slug)} isDemo={work.is_demo||work.isDemo}/>
     <JsonLd data={workSchema(work)}/>
     <JsonLd data={breadcrumbSchema([{name:'الأعمال الإعلامية', path:'/works'}, {name:work.title, path:detailPath('works', work.slug)}])}/>
     <section className="work-detail-head"><div className="container">

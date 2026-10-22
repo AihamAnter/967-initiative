@@ -1,0 +1,80 @@
+{
+  "scenarios": [
+    "All eight question transitions use accurate contextual Arabic captions, preserve anonymity, and restore focus",
+    "Mobile and desktop toolbar controls remain clear of the success toast",
+    "A real SDK cross-tab account change immediately removes private queue and every editor control for a regular account",
+    "Changing the active editor role reloads item capabilities and removes Management-only actions without stale permission controls",
+    "Admin forbidden poll reopening returns 403 while keeping valid editor tools and the unsaved title draft",
+    "Revoked-role 403 is distinguished by server session recheck and removes every private panel and tool",
+    "Fresh canonical poll capabilities disable forbidden Admin reopening without exposing individual votes",
+    "SDK sign-out clears active administrative panel and tools in place"
+  ],
+  "transitions": [
+    {
+      "label": "اعتماد",
+      "status": "approved"
+    },
+    {
+      "label": "اختيار للمناظرة",
+      "status": "selected"
+    },
+    {
+      "label": "إلغاء اختيار السؤال",
+      "status": "approved"
+    },
+    {
+      "label": "اختيار للمناظرة",
+      "status": "selected"
+    },
+    {
+      "label": "تمت الإجابة عنه",
+      "status": "answered"
+    },
+    {
+      "label": "إعادة إلى الأسئلة المختارة",
+      "status": "selected"
+    },
+    {
+      "label": "تمت الإجابة عنه",
+      "status": "answered"
+    },
+    {
+      "label": "إعادة إلى الأسئلة المعتمدة",
+      "status": "approved"
+    }
+  ],
+  "layouts": [
+    {
+      "name": "final question moderation",
+      "width": 320
+    },
+    {
+      "name": "final question moderation",
+      "width": 390
+    },
+    {
+      "name": "final question moderation",
+      "width": 430
+    },
+    {
+      "name": "final question moderation",
+      "width": 768
+    },
+    {
+      "name": "final question moderation",
+      "width": 1024
+    },
+    {
+      "name": "final question moderation",
+      "width": 1440
+    },
+    {
+      "name": "final question moderation",
+      "width": 1920
+    }
+  ],
+  "accessibility": [],
+  "runtimeErrors": [],
+  "environment": "Isolated Supabase-shaped auth, Next HTTP, actual PostgreSQL RLS.",
+  "accessibilityScans": 2
+}

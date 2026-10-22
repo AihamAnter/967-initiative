@@ -19,6 +19,10 @@ const read=()=>fetchAllRows(()=>db.from('yemeni_figures').select('*',{count:'exa
 const before=await read(),known=new Set(before.map(r=>r.slug)),pending=catalog.filter(r=>!known.has(r.record.slug));
 const report={mode:apply?'apply':'dry-run',reviewedAt:'2026-10-19',catalogFigures:catalog.length,existingFigures:before.length,insertCount:pending.length,skipped:catalog.filter(r=>known.has(r.record.slug)).map(r=>r.record.slug),existingSnapshotHash:createHash('sha256').update(JSON.stringify(before)).digest('hex')};
 if(!apply){console.log(JSON.stringify(report,null,2));return;}
+// A service-key import must name its real editorial actor for the same audit
+// trail used by both editors. The RPC rechecks this actor's current DB role.
+const actorId=process.env.EDITOR_ACTOR_ID;
+if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(actorId||''))throw Error('Set EDITOR_ACTOR_ID to the authorized editor UUID before --apply.');
 
 const buckets=await db.storage.listBuckets();if(buckets.error)throw Error('Cannot inspect storage configuration.');
 let privateBucket=buckets.data.find(b=>b.id===FIGURE_PROFILE_BUCKET);
@@ -40,7 +44,7 @@ for(const original of pending){
   photo.url=mirrors.get(local);
  }
  if(profile.gallery[0])record.image_url=profile.gallery[0].url;
- const saved=await saveFigureProfile(db,{record,profile,revision:null,role:'management'});
+ const saved=await saveFigureProfile(db,{record,profile,revision:null,role:'management',actorId});
  const recovered=await readFigureProfile(db,saved.record);
  if(!isDeepStrictEqual(recovered,saved.profile))throw Error('Stored profile verification failed for '+record.slug);
  inserted.push({slug:record.slug,id:saved.record.id,revision:saved.revision,sections:profile.sections.length,events:profile.timeline.length,works:profile.works.length,photos:profile.gallery.length});

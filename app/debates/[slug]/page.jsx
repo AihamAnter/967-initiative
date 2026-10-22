@@ -10,6 +10,7 @@ import DebateInteraction from '@/components/debates/DebateInteraction';
 import DebateCard from '@/components/debates/DebateCard';
 import DebateShare from '@/components/debates/DebateShare';
 import DebateDisclosure from '@/components/debates/DebateDisclosure';
+import InlineTarget from '@/components/inline/InlineTarget';
 export async function generateMetadata({params}){const {slug}=await params,{debate:d}=await getDebateDetail(slug);return pageMetadata({title:d?.seo_title||d?.title||'المناظرة غير متاحة',description:d?.seo_description||d?.question,path:'/debates/'+slug,image:d?.cover_url,noindex:!d});}
 export default async function Page({params}){
  const {slug}=await params,{debate:d,available}=await getDebateDetail(slug);
@@ -20,7 +21,7 @@ export default async function Page({params}){
  const hasPolls=d.polls.some(p=>p.enabled);
  const waitingTitle=d.stage==='cancelled'?'أُلغيت هذه المناظرة':d.stage==='postponed'?'المناظرة مؤجلة':d.stage==='ended'?'انتهت المناظرة':d.publication_status==='archived'?'مناظرة مؤرشفة':d.debate_type==='prerecorded'?'التسجيل غير متاح بعد':'بانتظار بدء المناظرة';
  const videoSchema=hasRecording&&d.first_published_at&&httpsUrl(d.cover_url)?{'@context':'https://schema.org','@type':'VideoObject',name:d.title,description:d.description||d.question,thumbnailUrl:d.cover_url,uploadDate:d.first_published_at,url:siteUrl('/debates/'+d.slug),...(d.duration_seconds?{duration:'PT'+d.duration_seconds+'S'}:{})}:null;
- return <><JsonLd data={breadcrumbSchema([{name:'مناظرات 967',path:'/debates'},{name:d.title,path:'/debates/'+d.slug}])}/><JsonLd data={videoSchema}/>
+ return <><InlineTarget kind="debate" id={d.id} slug={d.slug} title={d.title} href={'/debates/'+d.slug}/><JsonLd data={breadcrumbSchema([{name:'مناظرات 967',path:'/debates'},{name:d.title,path:'/debates/'+d.slug}])}/><JsonLd data={videoSchema}/>
   <header className="debate-detail-hero debate-detail-header"><div className="container"><div className="debate-detail-topline"><Link href="/debates" className="eyebrow">مناظرات 967</Link><div className="debate-meta"><span>{d.category}</span><span>{DEBATE_TYPES[d.debate_type]}</span><span>{DEBATE_STAGES[d.stage]}</span></div></div><h1>{d.title}</h1><div className="debate-detail-toolbar">{d.scheduled_at&&<p>{debateDateLabel(d)}: <time dateTime={d.scheduled_at}>{formatDebateDateTime(d.scheduled_at)}</time></p>}<DebateShare/></div></div></header>
   <div className="container debate-detail-content debate-detail-compact">
    {hasRecording?<DebateVideo debate={d}/>:isLive?<section id="recording" className="debate-live-callout"><span className="eyebrow">مباشر الآن</span><h2>شاهد المناظرة على {d.live_platform||'المنصة الخارجية'}</h2><a href={httpsUrl(d.live_url)} className="btn btn-primary" target="_blank" rel="noopener noreferrer">شاهد البث المباشر</a></section>:<section className="debate-watch-pending"><h2>{waitingTitle}</h2><p>{d.question}</p>{d.stage!=='cancelled'&&httpsUrl(d.live_url)&&<a href={httpsUrl(d.live_url)} target="_blank" rel="noopener noreferrer">صفحة البث على {d.live_platform||'المنصة الخارجية'}</a>}</section>}

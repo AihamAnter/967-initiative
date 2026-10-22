@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {notFound} from 'next/navigation';
 import {ArrowRight, ArrowUpLeft, BadgeCheck, BriefcaseBusiness, CalendarDays, ExternalLink, Globe2, Languages, Mail, MapPin, MessageCircle, Phone, UserRoundCheck} from 'lucide-react';
 import {getProfessional, getProfessionals} from '@/lib/data';
@@ -7,6 +8,7 @@ import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 import {whatsappUrl} from '@/lib/contactLinks';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
+import InlineTarget from '@/components/inline/InlineTarget';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,9 +34,11 @@ export default async function ProfessionalProfilePage({params,searchParams}) {
   const returnTo=listReturnPath(query.from,'/professionals',collectionDefaults.professionals,'#professionals-directory');
 
   return <>
+    <InlineTarget kind="professional" id={person.databaseId} slug={person.id} title={person.fullName} href={detailPath('professionals',person.id)} isDemo={person.isDemo}/>
     <JsonLd data={breadcrumbSchema([{name:'المهنيون', path:'/professionals'}, {name:person.fullName, path:detailPath('professionals', person.id)}])}/>
     <section className="professional-profile-hero">
       <div className="professional-profile-copy">
+        {person.profileImageUrl&&<Image src={person.profileImageUrl} alt={'صورة '+person.fullName} width={96} height={96} unoptimized style={{width:96,height:96,borderRadius:'50%',objectFit:'cover',objectPosition:person.imagePosition}}/>}
         <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>
         <div className="professional-profile-labels"><span>{person.category}</span><span><MapPin size={13}/>{person.location}</span>{person.isVerified && <span className="verified"><BadgeCheck size={14}/> ملف موثق</span>}</div>
         <h1>{person.fullName}</h1>{person.isDemo && <span className="status-badge">نموذج تجريبي — ليس ملفاً موثقاً</span>}{person.needsReview && !person.isDemo && <span className="status-badge">بيانات بحاجة إلى مراجعة إدارية</span>}

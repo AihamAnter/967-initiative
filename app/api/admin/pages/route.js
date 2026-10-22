@@ -14,7 +14,7 @@ async function handle(request,action){
   if(action==='delete'&&auth.role!=='management')throw new RequestValidationError('حذف الصفحات متاح لحساب الإدارة فقط.',403);
   const body=await readJsonObject(request,120000);
   if(!Object.hasOwn(body,'revision'))throw new RequestValidationError('نسخة الصفحات مطلوبة للحفظ. أعد تحميل القائمة.');
-  const result=await writeContentPage(db,{action,input:action==='delete'?{id:body.id}:body.page,revision:body.revision,role:auth.role});
+  const result=await writeContentPage(db,{action,input:action==='delete'?{id:body.id}:body.page,revision:body.revision,role:auth.role,actorId:auth.user.id});
   return json({ok:true,...result,canDelete:auth.role==='management'},action==='create'?201:200);
  }catch(error){
   if(error instanceof RequestValidationError)return json({error:error.message},error.status);

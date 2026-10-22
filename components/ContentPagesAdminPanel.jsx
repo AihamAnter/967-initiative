@@ -9,7 +9,7 @@ import {formatArabicDate} from '@/lib/format';
 const newId=()=>crypto.randomUUID();
 const emptyPage=()=>({id:newId(),slug:'',kind:'article',title:'',description:'',summary:'',order:40,showInFooter:true,sections:[],faqs:[],team:[]});
 
-export default function ContentPagesAdminPanel({db}){
+export default function ContentPagesAdminPanel({db,initialItem=''}){
  const router=useRouter();
  const [pages,setPages]=useState([]),[revision,setRevision]=useState(null),[form,setForm]=useState(null),[saved,setSaved]=useState(''),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[feedback,setFeedback]=useState(null),[canDelete,setCanDelete]=useState(false);
  const mounted=useRef(false),loadId=useRef(0),saving=useRef(false);
@@ -28,10 +28,10 @@ export default function ContentPagesAdminPanel({db}){
  const select=page=>{const next=structuredClone(page);setForm(next);setSaved(JSON.stringify(next));};
  const load=useCallback(async()=>{
   const id=++loadId.current;setLoading(true);setFeedback(null);
-  try{const result=await api();if(!mounted.current||id!==loadId.current)return;setPages(result.pages);setRevision(result.revision);setCanDelete(result.canDelete);const next=structuredClone(result.pages[0]||emptyPage());setForm(next);setSaved(JSON.stringify(next));}
+  try{const result=await api();if(!mounted.current||id!==loadId.current)return;setPages(result.pages);setRevision(result.revision);setCanDelete(result.canDelete);const selected=initialItem?result.pages.find(page=>page.id===initialItem||page.slug===initialItem):result.pages[0];const next=structuredClone(selected||emptyPage());setForm(next);setSaved(JSON.stringify(next));if(initialItem&&!selected)setFeedback({error:true,text:'الصفحة المطلوبة غير موجودة. لم يتغير أي محتوى.'});}
   catch(error){if(mounted.current&&id===loadId.current)setFeedback({error:true,text:error.message});}
   finally{if(mounted.current&&id===loadId.current)setLoading(false);}
- },[api]);
+ },[api,initialItem]);
  useEffect(()=>{mounted.current=true;load();return()=>{mounted.current=false;};},[load]);
  const dirty=form&&JSON.stringify(form)!==saved;
  const discard=()=>!dirty||window.confirm('لديك تعديلات غير محفوظة. هل تريد تجاهلها؟');

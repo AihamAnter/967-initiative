@@ -8,6 +8,7 @@ import {safeExternalUrl} from '@/lib/media';
 import {emptyFigureProfile,validateFigureProfile} from '@/lib/figureProfiles';
 import FigureProfileEditor from './FigureProfileEditor';
 import {matchesSearch} from '@/lib/search';
+import useAdminItemTarget from './inline/useAdminItemTarget';
 
 const emptyFigure = () => ({
   full_name: '', slug: '', known_for: '', field: 'الأدب والشعر', governorate_id: '', era: 'معاصرة',
@@ -17,7 +18,7 @@ const emptyFigure = () => ({
 const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
 const isUrl = value => !value || Boolean(safeExternalUrl(value));
 
-export default function YemeniFiguresAdminPanel({db, canDelete = false}) {
+export default function YemeniFiguresAdminPanel({db, canDelete = false,initialItem = ''}) {
   const [figures, setFigures] = useState([]);
   const [figure, setFigure] = useState(emptyFigure);
   const [editingId, setEditingId] = useState(null);
@@ -38,6 +39,7 @@ export default function YemeniFiguresAdminPanel({db, canDelete = false}) {
   const loadFigures=useCallback(async()=>{setLoading(true);try{const result=await api();setFigures(result.records);}catch(error){setNotice('خطأ: '+error.message);}finally{setLoading(false);}},[api]);
 
   useEffect(() => { loadFigures(); }, [loadFigures]);
+  useAdminItemTarget({item:initialItem,rows:figures,loading,onSelect:editFigure,onMissing:()=>setNotice('خطأ: لم يتم العثور على الشخصية المطلوبة. لم يتغير أي محتوى.')});
 
   function setField(field, value) {
     setFigure(current => ({...current, [field]: value}));
