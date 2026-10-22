@@ -5,6 +5,7 @@ import {Check,EyeOff,Flag,History,Pin,Shield} from 'lucide-react';
 import ValidatedForm,{FormInput,FormTextarea,FormLabel} from '@/components/debates/ValidatedForm';
 import {COMMENT_STATUSES,QUESTION_STATUSES} from '@/lib/debates';
 import {formatArabicDate} from '@/lib/format';
+import {auditActionLabel,auditDateOptions} from '@/lib/debateAudit';
 import {MODERATION_ACTION_LABELS,moderationActionLabel} from '@/lib/inlineModerationLabels';
 import {useInlineEditor} from './InlineEditorProvider';
 
@@ -54,7 +55,7 @@ export function InlineReviewQueue({target,initialKind='all',initialStatus='pendi
 export function InlineHistory({target}){
  const {request}=useInlineEditor(),[data,setData]=useState(null),[error,setError]=useState('');
  useEffect(()=>{let live=true;const params=new URLSearchParams({view:target.content?'content_history':'history',kind:target.kind,id:target.id});request('/api/admin/inline?'+params).then(result=>{if(live)setData(result);}).catch(err=>{if(live)setError(err.message);});return()=>{live=false;};},[request,target.kind,target.id,target.content]);
- return <>{error&&<p className="inline-error" role="alert">{error}</p>}{!data&&!error?<p role="status">جارٍ تحميل السجل…</p>:<div className="inline-history">{(data?.items||data?.history||[]).map(item=><article key={item.id}><strong>{item.action}</strong><p>{item.reason}</p><p>{item.actor_label||item.actor_name||'محرر معتمد'} · {formatArabicDate(item.created_at)}</p>{item.undo_of&&<span>استعادة موثقة لإجراء سابق</span>}</article>)}{data&&(data.items||data.history||[]).length===0&&<p>لا توجد إجراءات مسجلة لهذا العنصر.</p>}</div>}</>;
+ return <>{error&&<p className="inline-error" role="alert">{error}</p>}{!data&&!error?<p role="status">جارٍ تحميل السجل…</p>:<div className="inline-history">{(data?.items||data?.history||[]).map(item=><article key={item.id}><strong>{auditActionLabel({...item,target_kind:target.kind})}</strong><p>{item.reason}</p><p>{item.actor_label||item.actor_name||'محرر غير مسمّى'} · <time dateTime={item.created_at}>{formatArabicDate(item.created_at,auditDateOptions)}</time></p>{item.undo_of&&<span>استعادة موثقة لإجراء سابق</span>}</article>)}{data&&(data.items||data.history||[]).length===0&&<p>لا توجد إجراءات مسجلة لهذا العنصر.</p>}</div>}</>;
 }
 
 export function InlineAccountPanel({target,onSaved,onBusyChange,onDirtyChange}){

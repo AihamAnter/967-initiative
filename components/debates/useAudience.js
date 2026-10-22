@@ -8,7 +8,7 @@ export async function audienceRequest(path,body){
  if(error||!data.session)throw Error('انتهت الجلسة. سجل الدخول مجدداً.');
  const response=await fetch(path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+data.session.access_token,...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{}),cache:'no-store'});
  const result=await response.json();
- if(!response.ok){if(response.status===401)await db.auth.signOut({scope:'local'});throw Error(result.error||'تعذر إتمام الطلب.');}
+ if(!response.ok){if(response.status===401)await db.auth.signOut({scope:'local'});throw Object.assign(Error(result.error||'تعذر إتمام الطلب.'),{status:response.status,code:result.code});}
  return result;
 }
 export default function useAudience(){

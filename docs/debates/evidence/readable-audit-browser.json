@@ -1,0 +1,10 @@
+{
+  "scenarios": [
+    "Global audit shows the editor name, Arabic action, content excerpt and debate context without visible UUIDs",
+    "Clicking the audit target opens and focuses the exact protected moderation record",
+    "Inline history uses readable Arabic action labels and complete timestamps too",
+    "Readable audit remains usable on a 390px phone with no detected axe violations"
+  ],
+  "runtimeErrors": [],
+  "accessibility": []
+}

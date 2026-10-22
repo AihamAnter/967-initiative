@@ -1,0 +1,11 @@
+{
+  "scenarios": [
+    "New comment appears in the public feed immediately, without approval",
+    "Directed anonymous question publishes immediately with privacy preserved",
+    "Editing a published comment keeps it public without returning to review",
+    "Admin can hide an already public comment and question",
+    "Author edits cannot reverse moderator hiding"
+  ],
+  "runtimeErrors": [],
+  "accessibility": []
+}

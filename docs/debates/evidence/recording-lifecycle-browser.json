@@ -1,0 +1,106 @@
+{
+  "scenarios": [
+    "Before publication: question sends with visible real participants, Everyone default, axis and anonymous identity preserved",
+    "One before poll and integrated live results update through the existing fallback without a reload",
+    "Stale question and before-vote requests are rejected by the API; phase refresh preserves the draft and defaults to comments",
+    "After publication: clear question closure, easy comment return, safe draft conversion, comments and previous approved questions remain readable",
+    "After voting: both aggregate phase comparison and true paired change use real totals inside the single poll card",
+    "A disabled previous phase exposes no previous totals or comparison",
+    "Management hiding removes current, previous and paired results while participation state still updates",
+    "Legacy results/before/after links open the same card and before link reveals the comparison",
+    "Both previous and current votes remain in the owner account history",
+    "Prerecorded after poll retains required watch acknowledgement and isolated field validation",
+    "Inline moderation still operates on old questions after video publication",
+    "Disabled, not-yet-open and expired polls show explicit states without an unusable form",
+    "Publication updates an already open page, preserves an unsent draft, and never substitutes the before form when after poll is absent",
+    "Withdrawal does not reopen questions or the obsolete before-vote phase",
+    "Archived debate remains readable without new participation",
+    "320, 390, 768 and 1440 px: no horizontal overflow, accessible labels and usable integrated results"
+  ],
+  "viewports": [
+    {
+      "phase": "after",
+      "width": 320,
+      "noOverflow": true
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "noOverflow": true
+    },
+    {
+      "phase": "after",
+      "width": 768,
+      "noOverflow": true
+    },
+    {
+      "phase": "after",
+      "width": 1440,
+      "noOverflow": true
+    },
+    {
+      "phase": "before",
+      "width": 320,
+      "noOverflow": true
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "noOverflow": true
+    },
+    {
+      "phase": "before",
+      "width": 768,
+      "noOverflow": true
+    },
+    {
+      "phase": "before",
+      "width": 1440,
+      "noOverflow": true
+    }
+  ],
+  "runtimeErrors": [],
+  "hydrationErrors": [],
+  "accessibility": [
+    {
+      "phase": "after",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "phase": "after",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "phase": "after",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "phase": "before",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "phase": "before",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "phase": "before",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "phase": "before",
+      "width": 1440,
+      "violations": []
+    }
+  ]
+}

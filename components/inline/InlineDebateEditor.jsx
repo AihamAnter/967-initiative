@@ -5,6 +5,7 @@ import ValidatedForm,{FormInput,FormTextarea,FormSelect,FormLabel} from '@/compo
 import {DEBATE_CATEGORIES,DEBATE_STAGES,PUBLICATION_STATUSES,SUMMARY_FIELDS,formatDebateDateTime} from '@/lib/debates';
 import {debateSaveData,debateTimeInput,debateTimeValue,validateDebateStage} from '@/lib/debateEditor';
 import {useInlineEditor} from './InlineEditorProvider';
+import DebateAxesField from '@/components/debates/DebateAxesField';
 
 export default function InlineDebateEditor({target,onSaved,onDirtyChange,onBusyChange,initialPublication}){
  const {request,actor}=useInlineEditor(),[form,setForm]=useState(null),[error,setError]=useState(''),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[reason,setReason]=useState(''),[preview,setPreview]=useState(false),[conflict,setConflict]=useState(false);
@@ -23,7 +24,7 @@ export default function InlineDebateEditor({target,onSaved,onDirtyChange,onBusyC
   event.preventDefault();if(busy||!form)return;
   if(['hidden','archived'].includes(form.publication_status)&&JSON.parse(baseline.current).publication_status!==form.publication_status&&!confirm('سيتغير ظهور المناظرة وتوفر المشاركة للزوار. هل تريد حفظ هذه الحالة؟'))return;
   setBusy(true);setError('');
-  try{const result=await request('/api/admin/debates',{action:'save',id:form.id,revision:form.revision,data:debateSaveData(form,reason)});onDirtyChange(false);await onSaved({...target,id:form.id,slug:form.slug},result);await load();}
+  try{const result=await request('/api/admin/debates',{action:'save',id:form.id,revision:form.revision,data:debateSaveData(form,reason,JSON.parse(baseline.current))});onDirtyChange(false);await onSaved({...target,id:form.id,slug:form.slug},result);await load();}
   catch(err){setError(err.message);setConflict(err.status===409);}finally{setBusy(false);}
  }
  async function visibility(){
@@ -38,6 +39,7 @@ export default function InlineDebateEditor({target,onSaved,onDirtyChange,onBusyC
    <FormLabel required>عنوان المناظرة<FormInput required minLength={3} maxLength={250} value={form.title} onChange={event=>field('title',event.target.value)}/></FormLabel>
    <FormLabel required>السؤال الرئيسي<FormTextarea required minLength={3} maxLength={500} rows={2} value={form.question} onChange={event=>field('question',event.target.value)}/></FormLabel>
    <FormLabel>وصف المناظرة<FormTextarea maxLength={15000} rows={3} value={form.description} onChange={event=>field('description',event.target.value)}/></FormLabel>
+   <DebateAxesField value={form.axes} onChange={axes=>field('axes',axes)}/>
    <div className="inline-two-columns"><FormLabel>التصنيف<FormSelect value={form.category} onChange={event=>field('category',event.target.value)}>{DEBATE_CATEGORIES.map(value=><option key={value}>{value}</option>)}</FormSelect></FormLabel><FormLabel>الموعد<FormInput type="datetime-local" step="any" value={debateTimeInput(form.scheduled_at)} onChange={event=>field('scheduled_at',debateTimeValue(event.target.value))}/></FormLabel><FormLabel>مرحلة المناظرة<FormSelect validate={value=>validateDebateStage(value,form)} value={form.stage} onChange={event=>field('stage',event.target.value)}>{Object.entries(DEBATE_STAGES).filter(([key])=>form.debate_type!=='prerecorded'||!['live','ended'].includes(key)).map(([value,label])=><option value={value} key={value}>{label}</option>)}</FormSelect></FormLabel><FormLabel>حالة النشر<FormSelect value={form.publication_status} onChange={event=>field('publication_status',event.target.value)}>{Object.entries(PUBLICATION_STATUSES).map(([value,label])=><option key={value} value={value}>{label}</option>)}</FormSelect></FormLabel></div>
    <FormLabel>رابط الغلاف<FormInput type="url" value={form.cover_url||''} onChange={event=>field('cover_url',event.target.value||null)}/></FormLabel>
    {form.debate_type==='external_live'&&<div className="inline-two-columns"><FormLabel>منصة البث<FormInput maxLength={100} value={form.live_platform} onChange={event=>field('live_platform',event.target.value)}/></FormLabel><FormLabel>رابط البث الخارجي<FormInput type="url" value={form.live_url||''} onChange={event=>field('live_url',event.target.value||null)}/></FormLabel></div>}

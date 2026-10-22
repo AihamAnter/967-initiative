@@ -59,6 +59,10 @@ ids.governorate=gov.id;ids.district=district.id;
 await insert('governorates',{id:gov.id,name_ar:gov.nameAr,name_en:gov.nameEn||'',description:'وصف المحافظة المحلي قبل التعديل',population:1000000,population_year:2025});
 await insert('districts',{id:district.id,governorate_id:gov.id,name_ar:district.nameAr,name_en:district.nameEn||'',description:'وصف المديرية المحلي قبل التعديل'});
 await db.pg.query("insert into public.site_settings(key,value) values('public_content_pages_v1',$1::jsonb) on conflict(key) do update set value=excluded.value",[JSON.stringify({version:1,pages:createDefaultContentPages()})]);
+// Historical review regressions keep their original fixture policy. Opt in
+// when exercising the current instant-publishing migration.
+if(process.argv.includes('--instant-discussion')||process.argv.includes('--recording-lifecycle'))await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220001_debates_instant_discussion.sql',import.meta.url),'utf8'));
+if(process.argv.includes('--recording-lifecycle'))await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220002_debate_recording_lifecycle.sql',import.meta.url),'utf8'));
 const tokens=new Map(),revoked=new Set(),files=new Map(),writes=[];
 const identifier=value=>{if(!/^[a-z_]+$/.test(value))throw Error('Unsafe fixture identifier');return '"'+value+'"';};
 const tableNames=new Set((await db.pg.query("select tablename from pg_tables where schemaname='public'")).rows.map(r=>r.tablename));
