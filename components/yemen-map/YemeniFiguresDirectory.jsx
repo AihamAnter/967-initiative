@@ -6,7 +6,7 @@ import {useEffect, useMemo, useState} from 'react';
 import {ArrowUpLeft, AtSign, Facebook, Globe2, MapPinned, RotateCcw, Search, Youtube} from 'lucide-react';
 import {matchesSearch} from '@/lib/search';
 import {yemenGovernorates, yemeniFigureEras, yemeniFigureFields} from '@/lib/yemeniFigures';
-import {formatNumber} from '@/lib/format';
+import {formatNumber, toLatinDigits} from '@/lib/format';
 
 const socialLinks = figure => [
   {url: figure.website, label: 'الموقع الإلكتروني', icon: Globe2},
@@ -100,8 +100,8 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
               <div className="yfigure-meta"><span>{figure.field}</span>{lifeYears(figure) && <span dir="ltr">{lifeYears(figure)}</span>}</div>
               <h3>{figure.fullName}</h3>
               {figure.isDemo && <span className="status-badge">ملف توضيحي — يحتاج مراجعة</span>}
-              <strong>{figure.knownFor}</strong>
-              <p>{figure.shortBio}</p>
+              <strong>{toLatinDigits(figure.knownFor)}</strong>
+              <p>{toLatinDigits(figure.shortBio)}</p>
               <div className="yfigure-footer">
                 {figure.governorateName&&<span className="yfigure-location"><MapPinned size={17}/>{figure.governorateName}<small>المحافظة المرتبطة</small></span>}
                 {links.length > 0 && <div className="yfigure-socials">{links.map(({url, label, icon: Icon}) => <a href={url} target="_blank" rel="noreferrer" aria-label={`${label} - ${figure.fullName}`} title={label} key={label}><Icon size={17}/></a>)}</div>}

@@ -20,7 +20,7 @@ const categoryName = id => rankingCategories.find(category => category.id === id
 const present = value => value !== null && value !== undefined && value !== '';
 const dateLabel = value => {
   if (!value || Number.isNaN(Date.parse(value))) return 'غير متوفر';
-  return new Intl.DateTimeFormat('ar-YE', {dateStyle:'medium', timeStyle:'short', timeZone:'Europe/Paris'}).format(new Date(value));
+  return new Intl.DateTimeFormat('ar-YE-u-nu-latn', {dateStyle:'medium', timeStyle:'short', timeZone:'Europe/Paris'}).format(new Date(value));
 };
 const sortIndicators = rows => [...rows].sort((a, b) => Number(a.display_order || 0) - Number(b.display_order || 0) || String(a.name || '').localeCompare(String(b.name || ''), 'ar'));
 

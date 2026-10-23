@@ -6,6 +6,9 @@ import {createTaskTestDatabase,taskTestUsers} from './helpers/taskTestDatabase.m
 const A=taskTestUsers[0].id,B=taskTestUsers[1].id,C=taskTestUsers[2].id,actor={role:'admin',user:{id:A}},now=Date.parse('2026-10-21T12:00:00Z');
 const task=(overrides={})=>({id:'a',title:'حلقة يامكان',description:'إنتاج الفيديو',status:'in_progress',priority:'normal',assigned_to:A,created_by:C,due_at:'2026-10-21T14:00:00Z',due_date:null,due_timezone:'Europe/Paris',created_at:'2026-10-20T10:00:00Z',updated_at:'2026-10-21T10:00:00Z',tags:['تصوير'],project_name:'الإنتاج الإعلامي',assignee_name:'أيهم',...overrides});
 test('deadlines, all-day zones/DST, on-time completion and overdue stay separate from status',()=>{
+ for(const [due_at,digits] of [['2026-10-21T14:00:00Z','2'],['2026-10-19T12:00:00Z','2'],['2026-10-24T12:00:00Z','3']]){
+  const label=dueLabel(task({due_at}),now,'UTC');assert.ok(label.includes(digits));assert.doesNotMatch(label,/[\u0660-\u0669\u06f0-\u06f9]/);
+ }
  const allDay=task({due_at:null,due_date:'2026-03-29'});assert.equal(new Date(deadline(allDay)).toISOString(),'2026-03-29T22:00:00.000Z');
  assert.equal(isOverdue(allDay,Date.parse('2026-03-29T21:59:59Z')),false);assert.equal(isOverdue(allDay,Date.parse('2026-03-29T22:00:00Z')),true);
  assert.equal(isOnTime({...allDay,status:'completed',completed_at:'2026-03-29T22:00:00Z'}),false);

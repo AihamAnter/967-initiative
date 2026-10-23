@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import {toLatinDigits} from '@/lib/format';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {
@@ -44,7 +45,7 @@ export async function generateMetadata({params}) {
   if (!figure) notFound();
 
   const title = `${figure.fullName} | شخصيات يمنية`;
-  const description = figure.shortBio || figure.knownFor;
+  const description = toLatinDigits(figure.shortBio || figure.knownFor);
   return pageMetadata({title, description, path:detailPath('yemen-map/figures', figure.slug), noindex:figure.isDemo, image:figure.imageUrl, type:'profile'});
 }
 
@@ -88,8 +89,8 @@ export default async function YemeniFigureProfilePage({params}) {
           </div>
           <h1>{figure.fullName}</h1>
           {figure.isDemo && <p className="data-disclosure">ملف توضيحي من الكتالوج التجريبي للمشروع. يحتاج إلى مراجعة المصادر والبيانات قبل اعتماده؛ لا يمثل ملفاً موثقاً منشوراً.</p>}
-          <strong>{figure.knownFor}</strong>
-          <p>{figure.shortBio}</p>
+          <strong>{toLatinDigits(figure.knownFor)}</strong>
+          <p>{toLatinDigits(figure.shortBio)}</p>
           {links.length > 0 && <nav className="figure-profile-socials" aria-label={`روابط ${figure.fullName}`}>
             {links.map(({url, label, icon: Icon}) => <a href={url} target="_blank" rel="noopener noreferrer" key={label}><Icon size={17}/><span>{label}</span><ExternalLink size={13}/></a>)}
           </nav>}
@@ -111,7 +112,7 @@ export default async function YemeniFigureProfilePage({params}) {
           <section>
             <span className="eyebrow">السيرة والتعريف</span>
             <h2>عن {figure.fullName}</h2>
-            <p className="figure-profile-biography">{figure.biographyText||figure.shortBio}</p>
+            <p className="figure-profile-biography">{toLatinDigits(figure.biographyText||figure.shortBio)}</p>
           </section>
 
           {(figure.birthYear || figure.deathYear || figure.timeline?.length > 0) && <section><span className="eyebrow">محطات من السيرة</span><h2>التسلسل الزمني</h2><ol className="figure-timeline">{[
@@ -124,7 +125,7 @@ export default async function YemeniFigureProfilePage({params}) {
 
           <section className="figure-profile-significance">
             <BookOpenText size={27}/>
-            <div><span className="eyebrow">معروف بـ</span><h2>{figure.knownFor}</h2><p>يُصنّف هذا الملف ضمن {figure.field} ويرتبط بمحافظة {figure.governorateName} في دليل شخصيات يمنية.</p></div>
+            <div><span className="eyebrow">معروف بـ</span><h2>{toLatinDigits(figure.knownFor)}</h2><p>يُصنّف هذا الملف ضمن {figure.field} ويرتبط بمحافظة {figure.governorateName} في دليل شخصيات يمنية.</p></div>
           </section>
           </>}
         </div>
@@ -151,7 +152,7 @@ export default async function YemeniFigureProfilePage({params}) {
       <div className="container">
         <div className="figure-profile-related-head"><div><span className="eyebrow">شخصيات مرتبطة</span><h2>ملفات أخرى للاستكشاف</h2></div><Link className="text-link" href="/yemen-map#yemeni-figures">عرض الدليل <ArrowUpLeft size={16}/></Link></div>
         <div className="figure-profile-related-grid">{related.map(item => <Link href={`/yemen-map/figures/${item.slug}`} key={item.id}>
-          <div><span>{item.field} · {item.governorateName}</span><h3>{item.fullName}</h3><p>{item.knownFor}</p></div><ArrowUpLeft size={20}/>
+          <div><span>{item.field} · {item.governorateName}</span><h3>{item.fullName}</h3><p>{toLatinDigits(item.knownFor)}</p></div><ArrowUpLeft size={20}/>
         </Link>)}</div>
       </div>
     </section>}
