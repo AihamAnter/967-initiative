@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import DebateLogo from '@/components/debates/DebateLogo';
 import {notFound} from 'next/navigation';
 import {getDebateCatalog,getDebateDetail} from '@/lib/debateServer';
 import {DEBATE_TYPES,DEBATE_STAGES,formatDebateDateTime,SUMMARY_FIELDS,debateDateLabel,httpsUrl,publicRecordingAvailable} from '@/lib/debates';
@@ -11,7 +12,7 @@ import DebateCard from '@/components/debates/DebateCard';
 import DebateShare from '@/components/debates/DebateShare';
 import DebateDisclosure from '@/components/debates/DebateDisclosure';
 import InlineTarget from '@/components/inline/InlineTarget';
-export async function generateMetadata({params}){const {slug}=await params,{debate:d}=await getDebateDetail(slug);return pageMetadata({title:d?.seo_title||d?.title||'المناظرة غير متاحة',description:d?.seo_description||d?.question,path:'/debates/'+slug,image:d?.cover_url,noindex:!d});}
+export async function generateMetadata({params}){const {slug}=await params,{debate:d}=await getDebateDetail(slug);return pageMetadata({title:d?.seo_title||d?.title||'المناظرة غير متاحة',description:d?.seo_description||d?.question,path:'/debates/'+slug,image:d?.cover_url||'/images/debates-logo.png',noindex:!d});}
 export default async function Page({params}){
  const {slug}=await params,{debate:d,available}=await getDebateDetail(slug);
  if(!available)return <div className="container debate-account"><h1>تعذر تحميل المناظرة</h1><p>الخدمة غير متاحة حالياً. حاول مجدداً لاحقاً.</p><Link href="/debates">العودة إلى المناظرات</Link></div>;
@@ -20,7 +21,7 @@ export default async function Page({params}){
  const hasRecording=publicRecordingAvailable(d);
  const videoSchema=hasRecording&&d.first_published_at&&httpsUrl(d.cover_url)?{'@context':'https://schema.org','@type':'VideoObject',name:d.title,description:d.description||d.question,thumbnailUrl:d.cover_url,uploadDate:d.first_published_at,url:siteUrl('/debates/'+d.slug),...(d.duration_seconds?{duration:'PT'+d.duration_seconds+'S'}:{})}:null;
  return <><InlineTarget kind="debate" id={d.id} slug={d.slug} title={d.title} href={'/debates/'+d.slug}/><JsonLd data={breadcrumbSchema([{name:'مناظرات 967',path:'/debates'},{name:d.title,path:'/debates/'+d.slug}])}/><JsonLd data={videoSchema}/>
-  <header className="debate-detail-hero debate-detail-header"><div className="container"><div className="debate-detail-topline"><Link href="/debates" className="eyebrow">مناظرات 967</Link><div className="debate-meta"><span>{d.category}</span><span>{DEBATE_TYPES[d.debate_type]}</span><span>{DEBATE_STAGES[d.stage]}</span></div></div><h1>{d.title}</h1><div className="debate-detail-toolbar">{d.debate_type==='external_live'&&d.stage!=='cancelled'&&d.stage!=='postponed'&&d.scheduled_at&&<p>{debateDateLabel(d)}: <time dateTime={d.scheduled_at}>{formatDebateDateTime(d.scheduled_at)}</time></p>}<DebateShare/></div></div></header>
+  <header className="debate-detail-hero debate-detail-header"><div className="container"><div className="debate-detail-topline"><Link href="/debates" className="eyebrow debate-brand-link"><DebateLogo decorative sizes="44px"/>مناظرات 967</Link><div className="debate-meta"><span>{d.category}</span><span>{DEBATE_TYPES[d.debate_type]}</span><span>{DEBATE_STAGES[d.stage]}</span></div></div><h1>{d.title}</h1><div className="debate-detail-toolbar">{d.debate_type==='external_live'&&d.stage!=='cancelled'&&d.stage!=='postponed'&&d.scheduled_at&&<p>{debateDateLabel(d)}: <time dateTime={d.scheduled_at}>{formatDebateDateTime(d.scheduled_at)}</time></p>}<DebateShare/></div></div></header>
   <div className="container debate-detail-content debate-detail-compact">
    <DebateVideo key={d.id+':'+(hasRecording?d.recording_url:'preview')} debate={d} now={Date.now()}/>
    <nav className="debate-detail-nav" aria-label="أقسام المناظرة"><a href="#discussion">ساحة النقاش</a><a href="#polls">استطلاع الرأي والنتائج</a><a href="#participants">المشاركون</a></nav>
