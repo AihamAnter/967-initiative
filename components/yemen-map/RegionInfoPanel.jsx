@@ -74,6 +74,7 @@ export default function RegionInfoPanel({
       </section>
 
       {isGovernorate && <section>
+        <a className="text-link" href="#yemeni-figures">اكتشف الشخصيات المرتبطة بمحافظة {region.nameAr}<ArrowUpLeft size={14}/></a>
         <h3>المديريات التابعة</h3>
         <div className="ymap-district-list">
           {districtList.map(district => <button type="button" key={district.id} onClick={() => onDistrictSelect(district)}>

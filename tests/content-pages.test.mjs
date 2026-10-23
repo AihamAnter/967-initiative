@@ -94,7 +94,7 @@ test('content links reject executable, credentialed and protocol-relative URLs',
 
 test('page administration checks origin, session and server role before access',async()=>{
  const request=(headers={})=>new Request('https://site.test/api/admin/pages',{headers});
- const makeDb=role=>({auth:{getUser:async()=>({data:{user:{id:'known-user'}},error:null})},from(){return {select(){return this;},eq(){return this;},maybeSingle:async()=>({data:role?{role}:null,error:null})};}});
+ const makeDb=role=>({auth:{getUser:async()=>({data:{user:{id:'known-user',email_confirmed_at:'2026-01-01'}},error:null})},from(){return {select(){return this;},eq(){return this;},maybeSingle:async()=>({data:role?{role}:null,error:null})};}});
  await assert.rejects(authorizeEditorRequest(request(),makeDb('management')),error=>error.status===401);
  await assert.rejects(authorizeEditorRequest(request({authorization:'Bearer fake',origin:'https://evil.test'}),makeDb('management')),error=>error.status===403);
  for(const role of [null,'reader'])await assert.rejects(authorizeEditorRequest(request({authorization:'Bearer fake'}),makeDb(role)),error=>error.status===403);

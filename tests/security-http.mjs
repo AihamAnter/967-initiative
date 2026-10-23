@@ -23,7 +23,7 @@ for(let i=0;i<cases.length;i++){
 }
 for(let i=0;i<9;i++){
  const response=await fetch(base+'/api/contact',{method:'POST',headers:{'content-type':'application/json','x-real-ip':'198.51.100.99'},body:'{}'});
- if(i===8)checks.push({name:'per-process rate limit',status:response.status,pass:response.status===429&&Number(response.headers.get('retry-after'))>0});
+ if(i===8)checks.push({name:'invalid retries do not consume the shared valid-submission quota',status:response.status,pass:response.status===400,note:'The real shared 8/10-minute boundary is covered by prelaunch-security and the isolated contact browser scenario.'});
 }
 for(const route of ['/', '/admin', '/demo/967-demo.pdf']){
  const response=await fetch(base+route,{method:'HEAD'});
@@ -31,4 +31,4 @@ for(const route of ['/', '/admin', '/demo/967-demo.pdf']){
  checks.push({name:route+' CSP',pass:response.headers.get('content-security-policy')?.includes("frame-ancestors 'none'")===true});
 }
 const report={checkedAt:new Date().toISOString(),base,checks:checks.length,passed:checks.filter(x=>x.pass).length,failed:checks.filter(x=>!x.pass).length,results:checks};
-await mkdir('docs/audit/evidence',{recursive:true});await writeFile('docs/audit/evidence/security-http-after.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));process.exitCode=report.failed?1:0;
+const out=process.env.AUDIT_OUTPUT_DIR||'docs/audit/evidence';await mkdir(out,{recursive:true});await writeFile(out+'/security-http-after.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));process.exitCode=report.failed?1:0;

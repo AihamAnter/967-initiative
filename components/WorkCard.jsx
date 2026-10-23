@@ -20,7 +20,7 @@ export default function WorkCard({work, index = 0, returnTo}) {
     {work.published_at && <time className="work-published" dateTime={work.published_at}>{formatArabicDate(work.published_at)}</time>}
     {work.is_demo
       ? <span className="work-card-link muted-link">يظهر المحتوى بعد النشر</span>
-      : <span className="work-card-link">{embedded ? 'افتح العمل وشاهده' : 'التفاصيل ورابط المشاهدة'} <ArrowUpLeft size={17}/></span>}
+      : <span className="work-card-link">{embedded ? 'افتح العمل وخيارات المشاهدة' : 'التفاصيل ورابط المشاهدة'} <ArrowUpLeft size={17}/></span>}
   </>;
   return <article className="work-card">
     {work.is_demo ? <div className="work-card-static">{content}</div> :

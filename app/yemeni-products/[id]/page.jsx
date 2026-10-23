@@ -29,6 +29,7 @@ import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
 import InlineTarget from '@/components/inline/InlineTarget';
+import {buildCorrectionHref} from '@/lib/contributions';
 
 export const dynamic = 'force-dynamic';
 
@@ -155,7 +156,7 @@ export default async function YemeniCompanyPage({params,searchParams}) {
           <div className="company-correction">
             <strong>هل تمثل هذه المنشأة؟</strong>
             <p>يمكن إرسال البيانات الرسمية وروابط التواصل لتوثيق الملف وتحديثه.</p>
-            <Link href="/#contact">تحديث بيانات الشركة <ArrowUpLeft size={15}/></Link>
+            <Link href={buildCorrectionHref({title:company.name,path:detailPath('yemeni-products',company.id),id:company.databaseId||company.id})}>تحديث بيانات الشركة <ArrowUpLeft size={15}/></Link>
           </div>
         </aside>
       </div>

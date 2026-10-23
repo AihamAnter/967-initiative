@@ -46,6 +46,13 @@
 .debate-release-card .debate-release-note{font-size:12px;color:var(--muted);margin-top:8px}
 .debate-release-card .debate-release-unset{font-size:23px;font-weight:500}
 .debate-release-inactive{background:var(--bg)}
+.debate-report-dialog{width:min(520px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--surface);color:var(--text)}
+.debate-report-dialog::backdrop{background:#102c27aa}
+.debate-report-dialog h2{font-size:22px;margin:0 0 10px}
+.debate-report-dialog p{font-size:14px;line-height:1.9}
+.debate-report-dialog label{display:grid;gap:8px}
+.debate-report-dialog select,.debate-report-dialog textarea{width:100%;min-height:44px}
+.debate-participation-summary{border-inline-start:3px solid var(--primary);padding:10px 16px;font-size:14px;line-height:1.9;background:var(--bg)}
 .debate-release-inactive h2{font-size:23px;font-weight:600}
 .debate-preview-live{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:20px 25px;border-top:1px solid var(--line)}
 .debate-preview-live strong{color:var(--primary);font-size:19px}

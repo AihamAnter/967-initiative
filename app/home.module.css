@@ -1,0 +1,11 @@
+.aboutDisclosure{border-top:1px solid var(--line);padding-block:24px}
+.aboutDisclosure>summary{cursor:pointer;font-weight:600;font-size:20px;line-height:1.8;padding-block:12px}
+.aboutDisclosure>summary span{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+.aboutDisclosure[open]>summary{margin-bottom:8px}
+.aboutDisclosure :global(.home-about){padding-top:36px}
+.aboutDisclosure :global(.home-projects){padding-bottom:36px}
+.featurePair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.featurePair :global(.home-work-grid){max-width:none;margin:0}
+.featurePair :global(.home-issue){margin:0;grid-template-columns:minmax(0,1fr);gap:16px;padding:24px}
+.featurePair :global(.home-issue-cover){height:240px}
+@media(max-width:760px){.featurePair{grid-template-columns:minmax(0,1fr)}}

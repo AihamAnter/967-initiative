@@ -10,26 +10,51 @@ import {Pin} from 'lucide-react';
 import {useInlineEditor} from '@/components/inline/InlineEditorProvider';
 import InlineActions from '@/components/inline/InlineActions';
 import {questionsAvailable,recordingHasPublished,QUESTIONS_AFTER_RECORDING_MESSAGE} from '@/lib/debates';
+import DebateReportDialog from './DebateReportDialog';
+import useDebateDraft from './useDebateDraft';
 
 const empty=()=>({comments:{items:[],total:0,page:0},questions:{items:[],total:0,page:0}});
 const merge=(a,b)=>[...new Map([...a,...b].map(item=>[item.id,item])).values()];
-export default function DebateArena({debate,user,account,canParticipate,busy,act,gate,refreshVersion,myPage,setMyPage}){
+export default function DebateArena({debate,user,ready,account,canParticipate,busy,act,gate,refreshVersion,myPage,setMyPage,refreshAccount}){
  const [sources,setSources]=useState(empty),[filter,setFilter]=useState('all'),[compose,setCompose]=useState('comment'),[order,setOrder]=useState('newest'),[visible,setVisible]=useState(20),[loading,setLoading]=useState(true),[more,setMore]=useState(false),[error,setError]=useState(''),[reply,setReply]=useState(null),[editing,setEditing]=useState(null);
  const revision=useRef(0),viewRevision=useRef(0),processedChange=useRef(0),hashVersion=useRef(0);
  const [focused,setFocused]=useState(null);
  const focusedRecord=useRef(null);focusedRecord.current=focused;
  const inline=useInlineEditor(),loadedPages=useRef({comments:1,questions:1});loadedPages.current={comments:Math.max(1,sources.comments.page),questions:Math.max(1,sources.questions.page)};
  const closed=debate.publication_status==='archived'||debate.stage==='cancelled';
- const [questionDraft,setQuestionDraft]=useState({body:'',participant_id:'',axis:'',anonymous:false}),[commentDraft,setCommentDraft]=useState(''),[draftNotice,setDraftNotice]=useState('');
+ const [draft,setDraft]=useDebateDraft(debate.id,user?.id,ready),[draftNotice,setDraftNotice]=useState(''),[reporting,setReporting]=useState(null),[syncError,setSyncError]=useState('');
+ const questionDraft=draft.question,commentDraft=draft.comment;
+ const setQuestionDraft=value=>setDraft(current=>({...current,question:typeof value==='function'?value(current.question):value}));
+ const setCommentDraft=value=>setDraft(current=>({...current,comment:typeof value==='function'?value(current.comment):value}));
+ const refreshOwn=useRef(refreshAccount);refreshOwn.current=refreshAccount;
  const allowQuestions=questionsAvailable(debate),recordingClosed=recordingHasPublished(debate);
  useEffect(()=>{if(!allowQuestions)setCompose('comment');},[allowQuestions]);
- useEffect(()=>{setQuestionDraft({body:'',participant_id:'',axis:'',anonymous:false});setCommentDraft('');setDraftNotice('');},[debate.id,user?.id]);
+ useEffect(()=>{setDraftNotice('');},[debate.id,user?.id]);
  function useQuestionAsComment(){const combined=commentDraft?(commentDraft.includes(questionDraft.body)?commentDraft:commentDraft+'\n'+questionDraft.body):questionDraft.body;if(combined.length>5000){setDraftNotice('النص يتجاوز الحد المسموح للتعليق. انسخ السؤال وراجع مسودة تعليقك.');return;}setCommentDraft(combined);setCompose('comment');requestAnimationFrame(()=>document.getElementById('comment-body')?.focus());}
  async function copyQuestionDraft(){try{await navigator.clipboard.writeText(questionDraft.body);setDraftNotice('نُسخ نص السؤال.');}catch{setDraftNotice('تعذر النسخ التلقائي. يمكنك تحديد النص ونسخه من هنا.');}}
 
- const read=useCallback(async(kind,page)=>{const response=await fetch('/api/debates?'+new URLSearchParams({discussion:kind,debate:debate.id,page:String(page),order}),{cache:'no-store'});if(!response.ok)throw Error('تعذر تحميل المشاركات. حاول مجدداً.');const data=await response.json();return {...data,page};},[debate.id,order]);
+ const read=useCallback(async(kind,page,signal)=>{const response=await fetch('/api/debates?'+new URLSearchParams({discussion:kind,debate:debate.id,page:String(page),order}),{cache:'no-store',signal});if(!response.ok)throw Error('تعذر تحميل المشاركات. حاول مجدداً.');const data=await response.json();return {...data,page};},[debate.id,order]);
  const reload=useCallback(async()=>{const current=++revision.current;setLoading(true);setError('');setMore(false);try{const [comments,questions]=await Promise.all([read('comments',1),read('questions',1)]);if(current===revision.current){setSources({comments,questions});setVisible(20);}}catch(err){if(current===revision.current)setError(err.message);}finally{if(current===revision.current)setLoading(false);}},[read]);
  useEffect(()=>{const guard=revision;reload();return()=>{guard.current++;};},[reload,refreshVersion]);
+ useEffect(()=>{
+  let stopped=false,timer=null,controller=null;
+  async function sync(){
+   if(stopped||document.hidden||navigator.onLine===false)return;
+   controller?.abort();controller=new AbortController();const current=++revision.current;setMore(false);
+   const anchor=[...document.querySelectorAll('.arena-post')].find(node=>{const rect=node.getBoundingClientRect();return rect.bottom>0&&rect.top<window.innerHeight;}),anchorTop=anchor?.getBoundingClientRect().top;
+   try{const entries=await Promise.all(['comments','questions'].map(async kind=>{const pages=await Promise.all(Array.from({length:loadedPages.current[kind]},(_,index)=>read(kind,index+1,controller.signal)));return [kind,{...pages.at(-1),items:merge([],pages.flatMap(page=>page.items)),total:pages[0].total}];}));
+    if(stopped||current!==revision.current)return;setSources(Object.fromEntries(entries));setLoading(false);setSyncError('');
+    // Recheck linked records too; never retain a focused item after moderation.
+    const focus=focusedRecord.current;if(focus){const response=await fetch('/api/debates?'+new URLSearchParams({target:focus.kind==='question'?'questions':'comments',debate:debate.id,id:focus.id}),{cache:'no-store',signal:controller.signal});if(response.ok){const result=await response.json();if(!stopped&&current===revision.current)setFocused(result?{...result.item,kind:focus.kind}:null);}}
+    requestAnimationFrame(()=>{if(stopped||!anchor?.isConnected)return;const delta=anchor.getBoundingClientRect().top-anchorTop;if(Math.abs(delta)>1)window.scrollBy(0,delta);});
+    refreshOwn.current?.();
+   }catch(err){if(!stopped&&err.name!=='AbortError')setSyncError('توقف التحديث التلقائي مؤقتاً. سنحاول مجدداً عند عودة الاتصال.');}
+   finally{if(!stopped&&!document.hidden){clearTimeout(timer);timer=setTimeout(sync,15000);}}
+  }
+  function resume(){clearTimeout(timer);if(document.hidden){controller?.abort();return;}sync();}
+  timer=setTimeout(sync,15000);document.addEventListener('visibilitychange',resume);window.addEventListener('online',resume);
+  return()=>{stopped=true;clearTimeout(timer);controller?.abort();document.removeEventListener('visibilitychange',resume);window.removeEventListener('online',resume);};
+ },[read,debate.id]);
  useEffect(()=>{
   const change=inline.lastChange;if(!inline.revision||inline.revision===processedChange.current||!change||change.debate_id&&change.debate_id!==debate.id||change.kind==='debate'&&change.id&&change.id!==debate.id)return;
   if(!['comments','questions','reports','debate'].includes(change.kind))return;
@@ -67,7 +92,7 @@ export default function DebateArena({debate,user,account,canParticipate,busy,act
  }
  function beginReply(item){setReply(item);setCompose('comment');requestAnimationFrame(()=>{document.getElementById('comment-body')?.focus();document.getElementById('arena-composer')?.scrollIntoView({block:'center',behavior:'smooth'});});}
  function afterPost(){chooseFilter('all');setOrder('newest');setReply(null);}
- async function report(item){if(!user){location.assign('/login?next='+encodeURIComponent('/debates/'+debate.slug+'#discussion'));return;}const reason=prompt('سبب الإبلاغ عن التعليق (5 أحرف على الأقل)');if(reason?.trim())await act({action:'report',id:item.id,data:{reason:reason.trim()}},'وصل البلاغ للمراجعة.');}
+ function report(item){if(!user){location.assign('/login?next='+encodeURIComponent('/debates/'+debate.slug+'#discussion'));return;}setReporting(item);}
  return <section id="discussion" className="debate-arena">
   <div className="arena-heading"><div><span className="eyebrow">مساحة لكل رأي</span><h2>ساحة النقاش</h2></div><span>{total} مشاركة</span></div>
   <div className="arena-composer" id="arena-composer"><div className="arena-compose-topline"><div className="arena-compose-heading"><span className="debate-person-avatar" aria-hidden="true">{(account?.profile?.display_name||'م').charAt(0)}</span><div><strong>{account?.profile?.display_name||'شارك في الحوار'}</strong><small>تعليق أو سؤال، في مكان واحد.</small></div></div>
@@ -75,8 +100,8 @@ export default function DebateArena({debate,user,account,canParticipate,busy,act
    {(compose!=='question'||allowQuestions)&&gate(compose==='question'?'questions':'comments')}
    {compose==='comment'&&account?.profile?.comments_restricted&&<p className="inline-error" role="status">إضافة التعليقات مقيدة لهذا الحساب. ما زالت بقية وظائف الحساب متاحة وفق صلاحياتك.</p>}
    {compose==='question'&&account?.profile?.questions_restricted&&<p className="inline-error" role="status">إرسال الأسئلة مقيد لهذا الحساب. ما زالت بقية وظائف الحساب متاحة وفق صلاحياتك.</p>}
-   <div id="comments" hidden={compose!=='comment'||!user}>{debate.comments_open&&!closed?<>{reply&&<div className="arena-reply-preview"><span>رد على {reply.display_name}: {reply.body.slice(0,100)}</span><button type="button" onClick={()=>setReply(null)}>إلغاء الرد</button></div>}<ValidatedForm className="debate-form arena-compose-form" onSubmit={async e=>{e.preventDefault();const form=e.currentTarget;if(await act({action:'comment',data:{debate_id:debate.id,body:new FormData(form).get('body'),parent_id:reply?.id||null}},'نُشر تعليقك في ساحة النقاش.')){form.reset();setCommentDraft('');afterPost();}}}><fieldset disabled={busy||!canParticipate||account?.profile?.comments_restricted}><FormLabel required htmlFor="comment-body">{reply?'اكتب رداً':'أضف تعليقاً'}</FormLabel><FormTextarea id="comment-body" name="body" value={commentDraft} onChange={event=>setCommentDraft(event.target.value)} required minLength={2} maxLength={5000} rows={2} placeholder="ما رأيك في المواقف المطروحة؟"/><button className="btn btn-primary" disabled={busy||!canParticipate||account?.profile?.comments_restricted}><Send size={15}/> نشر التعليق</button></fieldset></ValidatedForm></>:<p className="small-muted">إضافة تعليقات مغلقة.</p>}</div>
-   <div id="questions" hidden={compose!=='question'||!user&&allowQuestions}>{allowQuestions?<><p className="arena-compose-hint">يمكنك توجيه سؤالك إلى أحد المشاركين أو إلى الجميع قبل نشر التسجيل.</p><ValidatedForm className="debate-form arena-compose-form" onSubmit={async event=>{event.preventDefault();if(await act({action:'question',data:{debate_id:debate.id,body:questionDraft.body,participant_id:questionDraft.participant_id||null,axis:questionDraft.axis,anonymous:questionDraft.anonymous}},'نُشر سؤالك في ساحة النقاش.')){setQuestionDraft({body:'',participant_id:'',axis:'',anonymous:false});afterPost();}}}><fieldset disabled={busy||!canParticipate||account?.profile?.questions_restricted}>
+   <div id="comments" hidden={compose!=='comment'}>{debate.comments_open&&!closed?<>{reply&&<div className="arena-reply-preview"><span>رد على {reply.display_name}: {reply.body.slice(0,100)}</span><button type="button" onClick={()=>setReply(null)}>إلغاء الرد</button></div>}<ValidatedForm className="debate-form arena-compose-form" onSubmit={async e=>{e.preventDefault();const form=e.currentTarget;if(await act({action:'comment',data:{debate_id:debate.id,body:new FormData(form).get('body'),parent_id:reply?.id||null}},'نُشر تعليقك في ساحة النقاش.')){form.reset();setCommentDraft('');afterPost();}}}><fieldset disabled={busy||!ready||Boolean(user)&&(!canParticipate||account?.profile?.comments_restricted)}><FormLabel required htmlFor="comment-body">{reply?'اكتب رداً':'أضف تعليقاً'}</FormLabel><FormTextarea id="comment-body" name="body" value={commentDraft} onChange={event=>setCommentDraft(event.target.value)} required minLength={2} maxLength={5000} rows={2} placeholder="ما رأيك في المواقف المطروحة؟"/><button className="btn btn-primary" disabled={busy||!canParticipate||account?.profile?.comments_restricted}><Send size={15}/> نشر التعليق</button></fieldset></ValidatedForm></>:<p className="small-muted">إضافة تعليقات مغلقة.</p>}</div>
+   <div id="questions" hidden={compose!=='question'}>{allowQuestions?<><p className="arena-compose-hint">يمكنك توجيه سؤالك إلى أحد المشاركين أو إلى الجميع قبل نشر التسجيل.</p><ValidatedForm className="debate-form arena-compose-form" onSubmit={async event=>{event.preventDefault();if(await act({action:'question',data:{debate_id:debate.id,body:questionDraft.body,participant_id:questionDraft.participant_id||null,axis:questionDraft.axis,anonymous:questionDraft.anonymous}},'نُشر سؤالك في ساحة النقاش.')){setQuestionDraft({body:'',participant_id:'',axis:'',anonymous:false});afterPost();}}}><fieldset disabled={busy||!ready||Boolean(user)&&(!canParticipate||account?.profile?.questions_restricted)}>
     <FormLabel required htmlFor="question-body">اكتب سؤالك</FormLabel><FormTextarea id="question-body" name="body" value={questionDraft.body} onChange={event=>setQuestionDraft(current=>({...current,body:event.target.value}))} required minLength={10} maxLength={2000} rows={3} placeholder="ما الذي تودّ أن يوضّحه المشاركون؟"/>
     <div className="debate-form-columns"><FormLabel>إلى من توجه سؤالك؟<FormSelect name="participant_id" value={questionDraft.participant_id} onChange={event=>setQuestionDraft(current=>({...current,participant_id:event.target.value}))}><option value="">الجميع</option>{debate.participants.map(participant=><option value={participant.id} key={participant.id}>{participant.speaker.name}</option>)}</FormSelect></FormLabel>
     {debate.axes.length>0&&<FormLabel>محور السؤال<FormSelect name="axis" value={questionDraft.axis} onChange={event=>setQuestionDraft(current=>({...current,axis:event.target.value}))}><option value="">عام</option>{debate.axes.map(axis=><option key={axis}>{axis}</option>)}</FormSelect></FormLabel>}</div>
@@ -86,7 +111,7 @@ export default function DebateArena({debate,user,account,canParticipate,busy,act
    <details className="arena-rules"><summary>قواعد الحوار</summary><p>{COMMENT_RULES}</p></details>
   </div>
   <div className="arena-feed-toolbar"><div className="arena-filters" aria-label="تصفية ساحة النقاش">{[['all','الكل'],['comments','التعليقات'],['questions','الأسئلة'],...(user?[['mine','مشاركاتي']]:[])].map(([value,label])=><button key={value} aria-pressed={filter===value} onClick={()=>chooseFilter(value)}>{label}</button>)}</div><div className="arena-feed-tools"><label>ترتيب التعليقات<select aria-label="ترتيب التعليقات" value={order} onChange={e=>{setOrder(e.target.value);setFilter('comments');setVisible(20);viewRevision.current++;}}><option value="newest">الأحدث</option><option value="oldest">الأقدم</option></select></label><button className="arena-refresh" disabled={loading} onClick={reload} aria-label="تحديث ساحة النقاش"><RefreshCw size={16}/></button></div></div>
-  {error&&<p className="feedback error" role="alert">{error} <button onClick={reload}>إعادة المحاولة</button></p>}
+  {syncError&&<p className="small-muted" role="status">{syncError}</p>}{error&&<p className="feedback error" role="alert">{error} <button onClick={reload}>إعادة المحاولة</button></p>}
   {focused&&<div className="arena-focus-notice" role="status"><span>المشاركة المحددة من الرابط</span><button type="button" onClick={()=>setFocused(null)}>إنهاء تحديد المشاركة</button></div>}<div className="arena-feed" aria-busy={loading&&filter!=='mine'}>{loading&&filter!=='mine'&&<p className="arena-empty" role="status">جارٍ تحميل المشاركات…</p>}{!loading&&items.length===0&&<div className="arena-empty"><MessageCircle size={24}/><p>{filter==='mine'?'ستجد هنا أسئلتك وتعليقاتك وحالة ظهورها.':'ابدأ الحوار بتعليق أو سؤال يحترم اختلاف الآراء.'}</p></div>}{displayedItems.map(item=>{
    const question=item.kind==='question',own=item.own,name=own?(question&&item.anonymous?'مشارك':account?.profile?.display_name||'أنت'):item.display_name;
    const parent=item.parent_id&&sources.comments.items.find(c=>c.id===item.parent_id);
@@ -101,5 +126,6 @@ export default function DebateArena({debate,user,account,canParticipate,busy,act
   })}</div>
   {filter!=='mine'&&!loading&&items.length<total&&<button className="arena-load-more" disabled={more} onClick={loadMore}>{more?'جارٍ التحميل…':'عرض مشاركات أخرى'}</button>}
   {filter==='mine'&&Math.max(account?.debate_comments.total||0,account?.debate_questions.total||0)>20&&<nav className="debate-actions arena-own-pages" aria-label="صفحات مشاركاتي"><button disabled={myPage===1||busy} onClick={()=>setMyPage(n=>n-1)}>السابق</button><span>صفحة {myPage}</span><button disabled={myPage*20>=Math.max(account.debate_comments.total,account.debate_questions.total)||busy} onClick={()=>setMyPage(n=>n+1)}>التالي</button></nav>}
+  {reporting&&<DebateReportDialog item={reporting} onClose={()=>setReporting(null)} submit={act}/>}
  </section>;
 }

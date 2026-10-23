@@ -8,11 +8,14 @@ import DebatePollExperience from './DebatePollExperience';
 import DebateArena from './DebateArena';
 import {useInlineEditor} from '@/components/inline/InlineEditorProvider';
 import {participationNotice} from '@/lib/debatePublication';
+import {prepareDebateDraftReturn,safeTabStorage} from '@/lib/debateDraft';
+import {debateParticipationSummary} from '@/lib/debates';
 
-function ParticipationGate({user,ready,slug,anchor}){
+function ParticipationGate({user,ready,slug,anchor,debateId}){
  const next='/debates/'+slug+'#'+anchor;
+ function authenticate(event,mode){event.preventDefault();const target=prepareDebateDraftReturn(safeTabStorage(),debateId,next,crypto.randomUUID());location.assign('/'+mode+'?next='+encodeURIComponent(target));}
  if(!ready)return <p role="status">جارٍ التحقق من الحساب…</p>;
- if(!user)return <p className="debate-login-note">للمشاركة <Link href={'/login?next='+encodeURIComponent(next)}>سجل الدخول</Link> أو <Link href={'/register?next='+encodeURIComponent(next)}>أنشئ حساباً</Link>.</p>;
+ if(!user)return <p className="debate-login-note">المشاهدة متاحة دون حساب. اكتب مسودتك هنا، ثم <Link href={'/login?next='+encodeURIComponent(next)} onClick={event=>authenticate(event,'login')}>سجل الدخول</Link> أو <Link href={'/register?next='+encodeURIComponent(next)} onClick={event=>authenticate(event,'register')}>أنشئ حساباً</Link> لإرسالها. تُحفظ المسودة في علامة التبويب هذه لمدة 30 دقيقة إذا سمحت إعدادات المتصفح بالتخزين.</p>;
  if(!user.email_confirmed_at)return <p className="debate-login-note">أكد بريدك الإلكتروني قبل المشاركة. <Link href={'/login?next='+encodeURIComponent(next)}>إرسال رسالة التحقق</Link></p>;
  return null;
 }
@@ -46,12 +49,13 @@ export default function DebateInteraction({debate:initialDebate}){
   finally{setBusy(false);}
  }
  const canParticipate=Boolean(user?.email_confirmed_at&&account?.profile&&!account.profile.suspended&&!account.profile.deletion_requested_at&&debate.publication_status==='published'&&debate.stage!=='cancelled');
- const gate=anchor=><ParticipationGate user={user} ready={ready} slug={debate.slug} anchor={anchor}/>;
+ const gate=anchor=><ParticipationGate user={user} ready={ready} slug={debate.slug} anchor={anchor} debateId={debate.id}/>;
  return <div className="debate-interactions debate-interactions-compact">
   {authError&&<p role="status">{authError}</p>}{user&&account&&!account.profile&&<p className="debate-login-note">أكمل اسم العرض ووافق على شروط المشاركة في <Link href="/account">ملفك الشخصي</Link>.</p>}{account?.profile?.suspended&&<p className="feedback error">المشاركة معطلة لهذا الحساب. {account.profile.suspension_reason}</p>}{account?.profile?.deletion_requested_at&&<p>المشاركة متوقفة أثناء معالجة طلب حذف الحساب.</p>}
   {unavailable&&<p className="feedback error" role="status">لم تعد هذه المناظرة متاحة للمشاركة.</p>}
   {notice&&<p className={'debate-sticky-notice feedback '+(failed?'error':'success')} role={failed?'alert':'status'}>{notice}</p>}
   <DebatePollExperience debate={debate} account={account} canParticipate={canParticipate} busy={busy} act={act} gate={gate} now={now} liveResults={liveResults} stale={pollStale}/>
-  <DebateArena debate={debate} user={user} account={account} canParticipate={canParticipate} busy={busy} act={act} gate={gate} refreshVersion={discussionVersion} myPage={myPage} setMyPage={setMyPage}/>
+  <p className="debate-participation-summary" role="status">{debateParticipationSummary(debate)}</p>
+  <DebateArena debate={debate} user={user} ready={ready} account={account} canParticipate={canParticipate} busy={busy} act={act} gate={gate} refreshVersion={discussionVersion} myPage={myPage} setMyPage={setMyPage} refreshAccount={user?reloadAccount:null}/>
  </div>;
 }

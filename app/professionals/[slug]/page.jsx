@@ -9,6 +9,7 @@ import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 import {whatsappUrl} from '@/lib/contactLinks';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
 import InlineTarget from '@/components/inline/InlineTarget';
+import CorrectionLink from '@/components/CorrectionLink';
 
 export const dynamic = 'force-dynamic';
 
@@ -47,7 +48,8 @@ export default async function ProfessionalProfilePage({params,searchParams}) {
         <div className="professional-profile-actions">
           {person.whatsapp && <ContactLink href={whatsappUrl(person.whatsapp,`مرحباً، وصلت إلى ملفك في مبادرة 967 وأرغب في الاستفسار عن ${person.professionTitle}.`)} icon={MessageCircle} label="تواصل عبر واتساب" external/>}
           {person.phone && <ContactLink href={'tel:' + person.phone} icon={Phone} label="اتصال مباشر"/>}
-          {!person.whatsapp && !person.phone && <span className="professional-no-contact">لا توجد أرقام اتصال منشورة لهذا الملف.</span>}
+          {person.email && <ContactLink href={'mailto:' + person.email} icon={Mail} label="البريد الإلكتروني"/>}
+          {!person.whatsapp && !person.phone && !person.email && <span className="professional-no-contact">التواصل المباشر غير متاح من خلال هذا الملف حالياً.</span>}
         </div>
       </div>
     </section>
@@ -76,6 +78,7 @@ export default async function ProfessionalProfilePage({params,searchParams}) {
           <ContactLink href={person.instagram} icon={ExternalLink} label="إنستغرام" external/>
           {!person.phone && !person.whatsapp && !person.email && !person.website && !person.instagram && <p>لا توجد وسائل تواصل منشورة لهذا الملف حتى الآن.</p>}
         </div>
+        <CorrectionLink title={person.fullName} path={detailPath('professionals',person.id)} id={person.databaseId||person.id}/>
       </aside>
     </div></section>
 

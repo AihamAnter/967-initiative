@@ -11,6 +11,7 @@ import InlineTarget from '@/components/inline/InlineTarget';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd, workSchema} from '@/lib/seo-schema';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
+import CorrectionLink from '@/components/CorrectionLink';
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
@@ -49,6 +50,7 @@ export default async function WorkDetails({params,searchParams}) {
         <p>من أعمال مبادرة 967 الإعلامية والمجتمعية</p>
         {date && !Number.isNaN(date.getTime()) && <span><CalendarDays size={16}/>{formatArabicDate(date)}</span>}
       </div>
+      <CorrectionLink title={work.title} path={detailPath('works',work.slug)} id={work.id}/>
     </div></section>
     <section className="work-detail-body"><div className="container">
       <MediaViewer work={work}/>

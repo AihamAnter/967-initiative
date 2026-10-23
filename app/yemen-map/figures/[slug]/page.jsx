@@ -19,6 +19,7 @@ import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, figureSchema, JsonLd} from '@/lib/seo-schema';
 import FigureDossier from '@/components/FigureDossier';
 import InlineTarget from '@/components/inline/InlineTarget';
+import CorrectionLink from '@/components/CorrectionLink';
 
 export const dynamic = 'force-dynamic';
 
@@ -79,7 +80,7 @@ export default async function YemeniFigureProfilePage({params}) {
     <section className="figure-profile-hero">
       <div className="container figure-profile-hero-grid">
         <div className="figure-profile-copy">
-          <Link href="/yemen-map#yemeni-figures" className="back-link"><ArrowRight size={17}/> العودة إلى شخصيات يمنية</Link>
+          <Link href={'/yemen-map'+(figure.governorateId?'?region='+encodeURIComponent(figure.governorateId):'')+'#yemeni-figures'} className="back-link"><ArrowRight size={17}/> العودة إلى شخصيات يمنية</Link>
           <div className="figure-profile-tags">
             <span>{figure.era}</span>
             <span>{figure.field}</span>
@@ -141,6 +142,7 @@ export default async function YemeniFigureProfilePage({params}) {
           </div>
           <Link className="figure-profile-directory-link" href="/yemen-map#yemeni-figures">استعراض جميع الشخصيات <ArrowUpLeft size={17}/></Link>
           {figure.governorateId && <Link className="figure-profile-directory-link" href={'/yemen-map?region='+encodeURIComponent(figure.governorateId)+'#map'}>استكشف {figure.governorateName} على الخريطة <MapPinned size={17}/></Link>}
+          <CorrectionLink title={figure.fullName} path={detailPath('yemen-map/figures',figure.slug)} id={figure.id}/>
         </aside>
       </div>
     </section>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {browserDb} from '@/lib/supabase';
 import {safeAccountReturn} from '@/lib/debates';
 import {accountAuthErrorMessage} from '@/lib/authErrors';
+import {claimSessionDebateDraft,safeTabStorage} from '@/lib/debateDraft';
 
 const labels={login:'تسجيل الدخول',register:'إنشاء حساب',forgot:'استعادة كلمة المرور',update:'تحديث كلمة المرور',callback:'تأكيد الحساب'};
 export default function AudienceAuth({mode='login'}){
@@ -19,7 +20,7 @@ export default function AudienceAuth({mode='login'}){
    if(params.has('error')||hash.has('error'))throw Error('تعذر تأكيد الرابط. قد يكون منتهياً أو مستخدماً من قبل. اطلب رسالة جديدة.');
    if(params.has('code')){const result=await db.auth.exchangeCodeForSession(params.get('code'));if(result.error)throw result.error;}
    const {data,error}=await db.auth.getSession();if(error||!data.session)throw Error('افتح رابط التأكيد من بريدك الإلكتروني، أو سجل الدخول بعد التأكيد.');
-   if(live)location.replace(safeAccountReturn(params.get('next')));
+   if(live){const target=safeAccountReturn(params.get('next'));claimSessionDebateDraft(safeTabStorage(),target,data.session);location.replace(target);}
   }catch{if(live){setFailed(true);setNotice('تعذر إكمال التأكيد. قد يكون الرابط منتهياً. يمكنك تسجيل الدخول أو طلب رسالة تحقق جديدة.');}}})();
   return()=>{live=false;};
  },[mode,db]);
@@ -39,15 +40,16 @@ export default function AudienceAuth({mode='login'}){
     result=await db.auth.updateUser({password});
    }
    if(result?.error)throw Error(accountAuthErrorMessage(result.error,mode));
-   if(mode==='login'){location.assign(next);return;}
-   if(mode==='register'){if(result.data.session){location.assign(next);return;}setNotice('تحقق من بريدك وافتح رسالة تأكيد الحساب، ثم سجل الدخول.');}
+   if(mode==='login'){claimSessionDebateDraft(safeTabStorage(),next,result.data.session);location.assign(next);return;}
+   if(mode==='register'){if(result.data.session){claimSessionDebateDraft(safeTabStorage(),next,result.data.session);location.assign(next);return;}setNotice('تحقق من بريدك وافتح رسالة تأكيد الحساب، ثم سجل الدخول.');}
    if(mode==='forgot')setNotice('إذا كان البريد مرتبطاً بحساب، ستصلك رسالة لاستعادة كلمة المرور.');
    if(mode==='update'){setNotice('تم تحديث كلمة المرور. يمكنك العودة إلى حسابك.');e.target.reset();}
    if(mode!=='update')e.target.reset();
   }catch(error){setFailed(true);setNotice(error?.__isAuthError||['TypeError','AbortError','TimeoutError'].includes(error?.name)?accountAuthErrorMessage(error,mode):error.message);}finally{setBusy(false);}
  }
  async function resend(e){e.preventDefault();setBusy(true);setFailed(false);try{const email=String(new FormData(e.currentTarget).get('email')).trim();const result=await db.auth.resend({type:'signup',email,options:{emailRedirectTo:location.origin+'/auth/callback?next='+encodeURIComponent(next)}});if(result.error)throw result.error;setNotice('إذا كان الحساب بانتظار التأكيد، ستصلك رسالة جديدة.');}catch{setFailed(true);setNotice('تعذر إرسال رسالة التأكيد. حاول لاحقاً.');}setBusy(false);}
- return <div className="container debate-auth"><Link href="/" className="eyebrow">مبادرة 967 · حساب المستخدم</Link><h1>{labels[mode]}</h1>{!db&&<p className="feedback error" role="alert">خدمة الحسابات غير مفعّلة بعد.</p>}
+ return <div className="container debate-auth"><Link href="/" className="eyebrow">مبادرة 967 · حساب المستخدم</Link><h1>{labels[mode]}</h1><p>يمكنك تصفح 967 دون حساب. أنشئ حساباً للمشاركة في المناظرات، والتصويت، وطرح الأسئلة، ومتابعة مشاركاتك.</p>{!db&&<p className="feedback error" role="alert">خدمة الحسابات غير مفعّلة بعد.</p>}
+  {next.includes('draft=')&&<p className="small-muted">للحفاظ على مسودة مشاركتك، أكمل الدخول في علامة التبويب هذه خلال 30 دقيقة. إذا فتحت رسالة التأكيد في علامة تبويب أخرى، عُد إلى هذه العلامة وسجل الدخول.</p>}
   {mode!=='callback'&&<ValidatedForm className="debate-form" onSubmit={submit}><fieldset disabled={busy||!db}>
    {mode==='register'&&<FormLabel>اسم العرض<FormInput name="display_name" required minLength={2} maxLength={60} autoComplete="nickname"/><small>يمكن استخدام اسم مستعار. لا يُطلب نشر اسمك الحقيقي.</small></FormLabel>}
    {mode!=='update'&&<FormLabel>البريد الإلكتروني<FormInput name="email" type="email" dir="ltr" required maxLength={254} autoComplete="email"/></FormLabel>}

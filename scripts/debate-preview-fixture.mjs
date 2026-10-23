@@ -2,23 +2,35 @@
 // Runs on loopback; never loads .env.local, real credentials or production data.
 import {createServer} from 'node:http';
 import {randomUUID} from 'node:crypto';
+import {readFile} from 'node:fs/promises';
 import {createDebateTestDatabase,debateTestUsers} from '../tests/helpers/debateTestDatabase.mjs';
+import {createInlineEditorTestDatabase} from '../tests/helpers/inlineEditorTestDatabase.mjs';
 import {seedDebateFixtures} from '../tests/helpers/debateFixtures.mjs';
-const db=await createDebateTestDatabase(),fixture=await seedDebateFixtures(db);
+const prelaunch=process.argv.includes('--prelaunch');
+const fixturePort=Number(process.env.DEBATE_FIXTURE_PORT||3417),previewOrigin=process.env.DEBATE_PREVIEW_ORIGIN||'http://127.0.0.1:3117';
+const db=await (prelaunch?createInlineEditorTestDatabase():createDebateTestDatabase());
+if(prelaunch)for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/migrations/'+file,import.meta.url),'utf8'));
+const fixture=await seedDebateFixtures(db);
 await fixture.update(fixture.live,{publication_status:'published',live_url:'https://www.youtube.com/watch?v=abcdefghijk',live_platform:'YouTube'});
 await fixture.update(fixture.recorded,{publication_status:'published',recording_published:true,stage:'recording_available',summary:{introduction:'مقدمة محايدة خضعت للمراجعة المحلية.',arguments:'حجج الموقف الأول: المشاركة المباشرة.\nحجج الموقف الثاني: تنظيم المشاركة.\nالموقف الثالث: التوازن بين المقاربتين.',conclusion:'عرض المواقف دون اختيار فائز.'},summary_published:true});
+let pending=null;
+if(prelaunch){const saved=await fixture.rpc('save',null,{...fixture.draftData('prerecorded'),slug:'local-pending-recording',publication_status:'published',stage:'upcoming',title:'تسجيل متأخر للاختبار المحلي'});pending=saved.id;}
 const passwords=new Map(debateTestUsers.map(u=>['user-'+u.id[0]+'@example.test',{id:u.id,password:'Local-test-967!'}])),tokens=new Map(),revoked=new Set();
 function tokenFor(uid){const enc=v=>Buffer.from(JSON.stringify(v)).toString('base64url'),token=enc({alg:'HS256',typ:'JWT'})+'.'+enc({sub:uid,role:'authenticated',aud:'authenticated',exp:Math.floor(Date.now()/1000)+3600,iat:Math.floor(Date.now()/1000),session_id:randomUUID()})+'.local-browser-fixture';tokens.set(token,uid);return token;}
 const userFor=async uid=>{const r=await db.pg.query('select * from auth.users where id=$1',[uid]),u=r.rows[0];return u?{id:u.id,email:u.email,email_confirmed_at:u.email_confirmed_at,aud:'authenticated',role:'authenticated',user_metadata:u.raw_user_meta_data,app_metadata:{provider:'email',providers:['email']},created_at:u.created_at}:null;};
 async function sessionFor(uid){return {access_token:tokenFor(uid),token_type:'bearer',expires_in:3600,expires_at:Math.floor(Date.now()/1000)+3600,refresh_token:'local-refresh-'+uid,user:await userFor(uid)};}
-const cors={'Content-Type':'application/json','Cache-Control':'no-store','Access-Control-Allow-Origin':'http://127.0.0.1:3117','Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info,x-supabase-api-version,prefer,range,accept-profile,content-profile','Access-Control-Allow-Methods':'GET,POST,PUT,PATCH,DELETE,OPTIONS','Access-Control-Expose-Headers':'Content-Range,x-supabase-api-version','X-Supabase-Api-Version':'2024-01-01'};
+const cors={'Content-Type':'application/json','Cache-Control':'no-store','Access-Control-Allow-Origin':previewOrigin,'Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info,x-supabase-api-version,prefer,range,accept-profile,content-profile','Access-Control-Allow-Methods':'GET,POST,PUT,PATCH,DELETE,OPTIONS','Access-Control-Expose-Headers':'Content-Range,x-supabase-api-version','X-Supabase-Api-Version':'2024-01-01'};
 const server=createServer(async(req,res)=>{
  const respond=(body,status=200,headers={})=>{res.writeHead(status,{...cors,...headers});res.end(body===null?'':JSON.stringify(body));};
  if(req.method==='OPTIONS')return respond(null,204);
  try{
   const url=new URL(req.url,'http://127.0.0.1:3417'),path=url.pathname;let raw='';for await(const c of req){raw+=c;if(raw.length>250000)throw Error('Fixture request too large');}const body=raw?JSON.parse(raw):{};
   const token=req.headers.authorization?.replace(/^Bearer\s+/i,'')||'',uid=revoked.has(token)?null:tokens.get(token)||null;
-  if(path==='/fixture/state')return respond({live:fixture.live,recorded:fixture.recorded,users:debateTestUsers.map(u=>({id:u.id,role:u.role})),production:false});
+  if(path==='/fixture/state')return respond({live:fixture.live,recorded:fixture.recorded,pending,users:debateTestUsers.map(u=>({id:u.id,role:u.role})),prelaunch,production:false});
+  if(prelaunch&&path==='/fixture/debate-update'){await fixture.update(body.id,body.data);return respond({ok:true});}
+  if(prelaunch&&path==='/fixture/debate-create'){const slug='local-auth-'+Date.now(),saved=await fixture.rpc('save',null,{...fixture.draftData('prerecorded'),slug,publication_status:'published',stage:'upcoming',scheduled_at:null});return respond({id:saved.id,slug});}
+  if(prelaunch&&path==='/fixture/moderate'){if(!['comments','questions'].includes(body.kind))return respond({error:'Invalid fixture kind'},400);const row=(await db.pg.query('select updated_at from public.debate_'+body.kind+' where id=$1',[body.id])).rows[0];const result=await db.client(debateTestUsers[0].id).rpc('debate_admin_mutate',{p_action:'moderate',p_id:body.id,p_data:{kind:body.kind,status:body.status,updated_at:row?.updated_at,reason:'Local browser QA moderation'}});return respond(result.error||result.data,result.error?400:200);}
+  if(prelaunch&&path==='/fixture/report-count')return respond((await db.pg.query('select count(*)::int total from public.debate_reports')).rows[0]);
   if(path==='/fixture/session')return respond(await sessionFor(body.user_id));
   if(path==='/fixture/confirm'){await db.pg.query('update auth.users set email_confirmed_at=now() where email=$1',[body.email]);return respond({ok:true});}
   if(path==='/fixture/revoke'){revoked.add(body.token);return respond({ok:true});}
@@ -51,7 +63,7 @@ const server=createServer(async(req,res)=>{
   if(path==='/auth/v1/logout'){revoked.add(token);return respond(null,204);}
   if(['/auth/v1/recover','/auth/v1/resend'].includes(path))return respond({});
   if(path.startsWith('/rest/v1/rpc/')){
-   const name=path.split('/').at(-1);if(!/^debate_/.test(name))return respond([]);
+   const name=path.split('/').at(-1);if(!/^(debate_|inline_|task_)/.test(name))return respond([]);
    const result=await db.client(uid).rpc(name,req.method==='GET'?Object.fromEntries(url.searchParams):body);
    return respond(result.error||result.data,result.error?result.error.code==='42501'?403:400:200);
   }
@@ -67,5 +79,5 @@ const server=createServer(async(req,res)=>{
   respond({error:'Unsupported local fixture request'},404);
  }catch(error){respond({error:'Local fixture error',message:error.message},500);}
 });
-server.listen(3417,'127.0.0.1',()=>process.stdout.write('Isolated debate fixture ready at http://127.0.0.1:3417\n'));
+server.listen(fixturePort,'127.0.0.1',()=>process.stdout.write('Isolated debate fixture ready at http://127.0.0.1:'+fixturePort+'\n'));
 for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>server.close(async()=>{await db.close();process.exit(0);}));

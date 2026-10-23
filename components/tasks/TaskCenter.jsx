@@ -59,9 +59,10 @@ export default function TaskCenter(){
   <Link href="/admin" className={styles.back}><ArrowRight size={17}/>لوحة الإدارة</Link>
   <header className={styles.heading}><div><span className={styles.eyebrow}>967 / مساحة عمل الفريق</span><h1>مركز مهام <span>967</span></h1><p>نعمل معاً، ونرى التقدّم بوضوح.</p></div><div className={styles.actions}><button className={styles.secondary} disabled={!workspace||busy} onClick={()=>setNotifications(true)}><Bell size={18}/>التنبيهات{unread>0&&<span className={styles.count}>{unread.toLocaleString('ar',{numberingSystem:'arab'})}</span>}</button><button className={styles.primary} disabled={!workspace||busy} onClick={()=>{setError('');setEditor({task:null});}}><Plus size={19}/>إضافة مهمة</button></div></header>
   <p className={styles.teamNote}><CheckCheck size={16}/> جميع مهام الفريق متاحة للأدمن والإدارة. التعديل بحسب مسؤولية المهمة.</p>
+  <p className={styles.hint}>التنبيهات داخل مركز المهام فقط. تُحفظ في حسابك وتُنشأ تذكيرات المواعيد عند فتح المركز؛ لا يصل بريد أو إشعار خارج الموقع.</p>
   {error&&!detail&&!editor&&<p className={styles.error} role="alert">{error} <button className={styles.textButton} onClick={load}>إعادة المحاولة</button></p>}{notice&&<p className={styles.success} role="status">{notice}</p>}
   {workspace&&<>
-   <div className={styles.metrics}>{metricCards.map(([key,label,patch])=><button key={key} onClick={()=>changeFilters({scope:'',status:'',archive:'',...patch})}><span>{label}</span><strong>{workspace.metrics[key]===null?'—':workspace.metrics[key].toLocaleString('ar',{numberingSystem:'arab'})}{key.endsWith('rate')&&workspace.metrics[key]!==null?'٪':''}</strong>{key==='overdue'&&<i/>}</button>)}</div>
+   <div className={styles.metrics}>{metricCards.map(([key,label,patch])=><button key={key} className={key==='overdue'&&workspace.metrics.overdue>0?styles.attention:''} aria-label={key==='overdue'?`المهام المتأخرة التي تحتاج متابعة: ${workspace.metrics.overdue}`:undefined} onClick={()=>changeFilters({scope:'',status:'',archive:'',...patch})}><span>{label}</span><strong>{workspace.metrics[key]===null?'—':workspace.metrics[key].toLocaleString('ar',{numberingSystem:'arab'})}{key.endsWith('rate')&&workspace.metrics[key]!==null?'٪':''}</strong>{key==='overdue'&&workspace.metrics.overdue>0&&<i/>}</button>)}</div>
    <div className={styles.workLayout}><div className={styles.mainColumn}>
     <section className={styles.workspace} aria-label="مهام الفريق">
      <form className={styles.search} onSubmit={e=>{e.preventDefault();changeFilters({q:query});}}><Search size={19}/><input type="search" aria-label="البحث في مهام الفريق" placeholder="ابحث عن مهمة، مشروع، مسؤول أو وسم…" value={query} onChange={e=>setQuery(e.target.value)}/><button type="submit" className={styles.secondary}>بحث</button></form>
@@ -84,7 +85,7 @@ export default function TaskCenter(){
    </div><aside className={styles.sidebar}>
     {[['overdue','تحتاج انتباهك','متأخرة'],['upcoming','على الأفق','قريبة التسليم']].map(([key,title,label])=><section className={styles.sidePanel} key={key}><span className={styles.eyebrow}>{label}</span><h2>{title}</h2>{workspace[key].map(t=><button className={styles.miniTask} key={t.id} onClick={()=>openTask(t.id)}><b>{t.title}</b><small>{t.assignee_name}</small></button>)}{!workspace[key].length&&<p className={styles.hint}>لا توجد مهام {label}.</p>}</section>)}
     <section className={styles.sidePanel}><FolderOpen size={24}/><h2>مشاريع الفريق</h2><p className={styles.hint}>تصنيفات داخلية لتنظيم العمل، تديرها الإدارة.</p>{workspace.actor.role==='management'&&<button className={styles.secondary} onClick={()=>setProjectsOpen(true)}>إدارة المشاريع</button>}</section>
-    <p className={styles.hint}>تذكيرات المواعيد تُحدّث عند فتح المركز أو تحديثه. لا توجد إشعارات مجدولة خارج الموقع.</p>
+    <p className={styles.hint}>تذكيرات المواعيد تُنشأ عند فتح المركز. لا توجد إشعارات مجدولة خارج الموقع.</p>
    </aside></div>
   </>}
   {loading&&!workspace&&<p className={styles.loading} role="status">جارٍ تحميل مساحة الفريق…</p>}

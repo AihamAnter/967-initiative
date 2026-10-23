@@ -20,7 +20,7 @@ if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
 }
 
 const nextConfig = {
-  distDir: process.env.NEXT_TASK_PREVIEW === '1' ? '.audit-tools/task-preview' : process.env.NEXT_VALIDATION_BUILD === '1' ? '.next-validation' : '.next',
+  distDir: process.env.NEXT_PRELAUNCH_DEBATES === '1' ? '.audit-tools/prelaunch-debates' : process.env.NEXT_TASK_PREVIEW === '1' ? '.audit-tools/task-preview' : process.env.NEXT_VALIDATION_BUILD === '1' ? '.next-validation' : '.next',
   reactStrictMode: true,
   poweredByHeader: false,
   // Extend the installed Next.js defaults, since assigning this option replaces

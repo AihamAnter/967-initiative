@@ -24,7 +24,7 @@ export async function createTaskTestDatabase(){
  const normalize=value=>JSON.parse(JSON.stringify(value,(_k,v)=>v));
  const tableNames=['editors','tasks','task_projects','task_subtasks','task_comments','task_activity','task_notifications'];
  function client(user){return {
-  auth:{getUser:async token=>{const u=taskTestUsers.find(x=>x.id===tokenUser(token));return u?{data:{user:{id:u.id,user_metadata:{full_name:u.name}}},error:null}:{data:{user:null},error:{status:401}};}},
+  auth:{getUser:async token=>{const u=taskTestUsers.find(x=>x.id===tokenUser(token));return u?{data:{user:{id:u.id,email_confirmed_at:'2026-01-01',user_metadata:{full_name:u.name}}},error:null}:{data:{user:null},error:{status:401}};}},
   rpc:async(name,args={})=>{try{
    let result;
    if(name==='task_mutate')result=await run(user,'select public.task_mutate($1,$2,$3,$4::jsonb) result',[args.p_action,args.p_id,args.p_revision,JSON.stringify(args.p_data)]);

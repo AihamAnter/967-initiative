@@ -1,7 +1,7 @@
 import {NextResponse} from 'next/server';
 import {serverDb} from '@/lib/supabase-server';
-import {isSameOrigin, readJsonObject, RequestValidationError} from '@/lib/requestSecurity';
-import {checkRoleChange} from '@/lib/adminAuthorization';
+import {readJsonObject, RequestValidationError} from '@/lib/requestSecurity';
+import {authorizeEditorRequest,checkRoleChange} from '@/lib/adminAuthorization';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -9,28 +9,15 @@ export const dynamic = 'force-dynamic';
 const validRoles = new Set(['admin', 'management']);
 const json = (body, status = 200) => NextResponse.json(body, {status, headers: {'Cache-Control': 'no-store, private'}});
 const fail = (message, status = 400) => json({error: message}, status);
-const requestFailure = (error, message) => error instanceof RequestValidationError ? fail(error.message, error.status) : fail(message, 503);
+const requestFailure = (error, message) => error instanceof RequestValidationError ? fail(error.message, error.status) : ['23514','40001','40P01'].includes(error?.code)?fail('تعارض تغيير الصلاحيات. حدّث قائمة الحسابات؛ لا يمكن إزالة آخر حساب إدارة.',409):fail(message, 503);
 
 async function authorize(request) {
-  if (!isSameOrigin(request)) return {error: fail('طلب غير مسموح.', 403)};
-  const token = request.headers.get('authorization')?.match(/^Bearer\s+([^\s]+)$/i)?.[1];
   const db = serverDb();
-  if (!token) return {error: fail('تعذر التحقق من الجلسة.', 401)};
-  if (!db) return {error: fail('خدمة إدارة الحسابات غير متاحة حالياً.', 503)};
-
   try {
-  const {data: authData, error: authError} = await db.auth.getUser(token);
-  if (authError || !authData.user) return {error: fail('انتهت الجلسة. سجّل الدخول مجددًا.', 401)};
-
-  const {data: editor, error: editorError} = await db
-    .from('editors')
-    .select('user_id,role')
-    .eq('user_id', authData.user.id)
-    .maybeSingle();
-  if (editorError) return {error: fail('شغّل ملف supabase/admin-roles.sql أولًا.', 503)};
-  if (editor?.role !== 'management') return {error: fail('هذه العملية متاحة للإدارة فقط.', 403)};
-  return {db, user: authData.user};
-  } catch { return {error: fail('تعذر التحقق من الجلسة حالياً.', 503)}; }
+    const auth=await authorizeEditorRequest(request,db);
+    if(auth.role!=='management')return {error:fail('هذه العملية متاحة للإدارة فقط.',403)};
+    return {db,user:auth.user};
+  } catch(error) { return {error:requestFailure(error,'تعذر التحقق من الجلسة حالياً.')}; }
 }
 
 async function authUsersById(db) {

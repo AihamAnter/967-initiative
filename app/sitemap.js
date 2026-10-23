@@ -10,22 +10,15 @@ import {
 } from '@/lib/data';
 import {buildSitemap, isIndexableDeployment} from '@/lib/seo';
 import {getDebateCatalog} from '@/lib/debateServer';
+import {collectPublicSources} from '@/lib/publicSourceCollection';
+import {recordOperationalEvent} from '@/lib/operationalEvents';
 
 export const dynamic = 'force-dynamic';
 
 export default async function sitemap() {
   if (!isIndexableDeployment()) return [];
-  const [issues, companies, professionals, figures, statSections, statIndicators, works,contentPages] = await Promise.all([
-    getIssues(),
-    getYemeniCompanies(),
-    getProfessionals(),
-    getYemeniFigures(),
-    getStatSections(),
-    getStatIndicators(),
-    getWorks(),
-    getContentPages(),
-  ]);
-
-  const {debates}=await getDebateCatalog();
-  return buildSitemap({issues, companies, professionals, figures, statSections, statIndicators, works,contentPages,debates});
+  const {data}=await collectPublicSources({issues:getIssues,companies:getYemeniCompanies,professionals:getProfessionals,figures:getYemeniFigures,statSections:getStatSections,statIndicators:getStatIndicators,works:getWorks,contentPages:getContentPages,debates:async()=>{
+    const result=await getDebateCatalog();if(!result.available)throw new Error('Unavailable');return result.debates;
+  }},{onUnavailable:source=>recordOperationalEvent('source_unavailable',{source,area:'sitemap'})});
+  return buildSitemap(data);
 }
