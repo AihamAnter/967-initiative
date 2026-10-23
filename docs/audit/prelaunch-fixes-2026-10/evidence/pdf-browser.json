@@ -1,0 +1,12 @@
+{
+  "base": "http://127.0.0.1:3122",
+  "passed": true,
+  "checks": [
+    "The actual unchanged demo PDF loads and renders",
+    "Next page and keyboard navigation work",
+    "Zoom reaches115%",
+    "Arabic page jump reaches page4",
+    "Reader search reports a genuine no-match"
+  ],
+  "runtimeErrors": []
+}

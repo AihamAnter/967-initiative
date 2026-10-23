@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-23T14:55:14.372Z",
+  "baselineCommit": "6158419",
+  "branch": "fix/prelaunch-quality-34",
+  "productFiles": 266,
+  "productFingerprint": "7c4bcdd3c8b52d5f692a02cc9d95e44cf12f5325059797e0f14f85dc5d22fa36",
+  "finalBuildId": "fttg7IALu4vAhXLdV4dRY",
+  "baselineBuildId": "OgQJDzFA-OSRsiap_mpB6",
+  "build": "NEXT_VALIDATION_BUILD=1 npm run build; exit0",
+  "note": "Product source frozen after independent reviewer fix. Fixtures/scripts and documentation may be updated afterward. Both builds use loopback fixture credentials; no deployment.",
+  "sourceCommit": "299cedb"
+}

@@ -1,0 +1,41 @@
+{
+  "scenarios": [
+    "D-01/D-02 live filter includes broadcast exactly once in Featured",
+    "D-02 completed filter excludes unrelated Featured and keeps matching recording searchable",
+    "D-04 overdue recording uses explicit delay notice and no future-looking date",
+    "D-05 second reader sees one new comment with filter, draft and reading position intact",
+    "D-06 dialog traps focus, restores Escape focus, retains failed report text and prevents duplicate submission",
+    "D-05 hidden comment disappears from another reader without manual refresh",
+    "D-09 selected/answered statuses update publicly while anonymous author remains participant",
+    "D-05 hidden page pauses polling; visible/online resumes without losing draft",
+    "D-05 leaving debate cleans up discussion timers and requests",
+    "D-10 guest draft returns to original question section after real local login without automatic submission",
+    "D-10 switching account in same tab does not expose previous account draft and clears it",
+    "D-10 blocked sessionStorage getter leaves composition and login navigation working",
+    "D-10 signup, isolated email confirmation and closed-question race retain draft for explicit conversion to comment",
+    "D-08 postponed debate clearly explains stage and available participation",
+    "Responsive 320/390/768/1440 screenshots, no overflow, axe and runtime checks passed"
+  ],
+  "runtimeErrors": [],
+  "accessibility": [],
+  "widths": [
+    {
+      "width": 320,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 390,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 768,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1440,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "local": true,
+  "passed": true
+}

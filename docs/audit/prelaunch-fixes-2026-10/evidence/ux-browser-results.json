@@ -1,0 +1,446 @@
+{
+  "environment": "Local Next dev HTTP and isolated PostgreSQL fixture. External traffic blocked.",
+  "scenarios": [
+    {
+      "name": "U-03: account explains anonymous browsing before login",
+      "pass": true
+    },
+    {
+      "name": "C-01: one magazine issue is shown only in spotlight",
+      "pass": true
+    },
+    {
+      "name": "C-01: multiple issues keep newest outside archive and retain every earlier issue",
+      "pass": true
+    },
+    {
+      "name": "B-02: professional shows email and a clear state when contact channels are absent",
+      "pass": true
+    },
+    {
+      "name": "C-03: external platform fallback is explicit; YouTube does not load an iframe before activation",
+      "pass": true
+    },
+    {
+      "name": "K-06: search states scope, PDF and expanded biography limitations and retains filters",
+      "pass": true
+    },
+    {
+      "name": "S-05: task reminders explain their scope and attention links lead to actual overdue tasks",
+      "pass": true
+    },
+    {
+      "name": "S-01: account names email reset accurately and reset form shows success and service error",
+      "pass": true
+    },
+    {
+      "name": "B-01 / C-04: company correction retains context through failure/success and returns to the company",
+      "pass": true
+    },
+    {
+      "name": "K-05: map/directory choices preserve the map node, governorate and existing deep links",
+      "pass": true
+    },
+    {
+      "name": "U-01 / U-02: focused home, one main contribution action, editable project status and all sections reachable",
+      "pass": true
+    },
+    {
+      "name": "U-02: editor saves project status through existing settings and public search follows the saved value",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "name": "account-guest",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "account-guest",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "account-guest",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "account-guest",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "magazine-single",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "magazine-single",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "magazine-single",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "magazine-single",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "magazine-multiple",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "magazine-multiple",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "magazine-multiple",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "magazine-multiple",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "professional-no-contact",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "professional-no-contact",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "professional-no-contact",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "professional-no-contact",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "video-external",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "video-external",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "video-external",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "video-external",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "search-empty",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "search-empty",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "search-empty",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "search-empty",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "tasks-reminders",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "tasks-reminders",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "tasks-reminders",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "tasks-reminders",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "password-reset",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "password-reset",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "password-reset",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "password-reset",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "company",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "company",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "company",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "company",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "correction-form",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "correction-form",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "correction-form",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "correction-form",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "map-directory",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "map-directory",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "map-directory",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "map-directory",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    },
+    {
+      "name": "home",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "pass": true
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "pass": true
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "name": "home",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "pass": true
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "account-guest",
+      "violations": []
+    },
+    {
+      "name": "magazine-single",
+      "violations": []
+    },
+    {
+      "name": "magazine-multiple",
+      "violations": []
+    },
+    {
+      "name": "professional-no-contact",
+      "violations": []
+    },
+    {
+      "name": "video-external",
+      "violations": []
+    },
+    {
+      "name": "search-empty",
+      "violations": []
+    },
+    {
+      "name": "tasks-reminders",
+      "violations": []
+    },
+    {
+      "name": "password-reset",
+      "violations": []
+    },
+    {
+      "name": "company",
+      "violations": []
+    },
+    {
+      "name": "correction-form",
+      "violations": []
+    },
+    {
+      "name": "map-directory",
+      "violations": []
+    },
+    {
+      "name": "home",
+      "violations": []
+    }
+  ],
+  "runtimeErrors": [],
+  "limitations": [
+    "Real external video playback and email delivery were not tested.",
+    "Chromium only; no physical device or screen reader."
+  ]
+}

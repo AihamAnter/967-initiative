@@ -1,0 +1,668 @@
+{
+  "base": "http://127.0.0.1:3122",
+  "checks": 165,
+  "passed": 165,
+  "failed": 0,
+  "results": [
+    {
+      "name": "/ HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/ canonical",
+      "passed": true
+    },
+    {
+      "name": "/ description",
+      "passed": true
+    },
+    {
+      "name": "/ og:title",
+      "passed": true
+    },
+    {
+      "name": "/ og:description",
+      "passed": true
+    },
+    {
+      "name": "/ og:url",
+      "passed": true
+    },
+    {
+      "name": "/ twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/ valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/debates HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/debates canonical",
+      "passed": true
+    },
+    {
+      "name": "/debates description",
+      "passed": true
+    },
+    {
+      "name": "/debates og:title",
+      "passed": true
+    },
+    {
+      "name": "/debates og:description",
+      "passed": true
+    },
+    {
+      "name": "/debates og:url",
+      "passed": true
+    },
+    {
+      "name": "/debates twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/debates valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded canonical",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded description",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded og:title",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded og:description",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded og:url",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/debates/local-prerecorded valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/works HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/works canonical",
+      "passed": true
+    },
+    {
+      "name": "/works description",
+      "passed": true
+    },
+    {
+      "name": "/works og:title",
+      "passed": true
+    },
+    {
+      "name": "/works og:description",
+      "passed": true
+    },
+    {
+      "name": "/works og:url",
+      "passed": true
+    },
+    {
+      "name": "/works twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/works valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work canonical",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work description",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work og:title",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work og:description",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work og:url",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/works/inline-work valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/magazine HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/magazine canonical",
+      "passed": true
+    },
+    {
+      "name": "/magazine description",
+      "passed": true
+    },
+    {
+      "name": "/magazine og:title",
+      "passed": true
+    },
+    {
+      "name": "/magazine og:description",
+      "passed": true
+    },
+    {
+      "name": "/magazine og:url",
+      "passed": true
+    },
+    {
+      "name": "/magazine twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/magazine valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue canonical",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue description",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue og:title",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue og:description",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue og:url",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/magazine/inline-issue valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map description",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map og:title",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map og:description",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map og:url",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure description",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure og:title",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure og:description",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure og:url",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/inline-figure valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products description",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products og:title",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products og:description",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products og:url",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company canonical",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company description",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company og:title",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company og:description",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company og:url",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/inline-company valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/professionals HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/professionals canonical",
+      "passed": true
+    },
+    {
+      "name": "/professionals description",
+      "passed": true
+    },
+    {
+      "name": "/professionals og:title",
+      "passed": true
+    },
+    {
+      "name": "/professionals og:description",
+      "passed": true
+    },
+    {
+      "name": "/professionals og:url",
+      "passed": true
+    },
+    {
+      "name": "/professionals twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/professionals valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional canonical",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional description",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional og:title",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional og:description",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional og:url",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/professionals/inline-professional valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/search HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/search canonical",
+      "passed": true
+    },
+    {
+      "name": "/search description",
+      "passed": true
+    },
+    {
+      "name": "/search og:title",
+      "passed": true
+    },
+    {
+      "name": "/search og:description",
+      "passed": true
+    },
+    {
+      "name": "/search og:url",
+      "passed": true
+    },
+    {
+      "name": "/search twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/search private noindex",
+      "passed": true
+    },
+    {
+      "name": "/search valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/contribute HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/contribute canonical",
+      "passed": true
+    },
+    {
+      "name": "/contribute description",
+      "passed": true
+    },
+    {
+      "name": "/contribute og:title",
+      "passed": true
+    },
+    {
+      "name": "/contribute og:description",
+      "passed": true
+    },
+    {
+      "name": "/contribute og:url",
+      "passed": true
+    },
+    {
+      "name": "/contribute twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/contribute valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/account HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/account canonical",
+      "passed": true
+    },
+    {
+      "name": "/account description",
+      "passed": true
+    },
+    {
+      "name": "/account og:title",
+      "passed": true
+    },
+    {
+      "name": "/account og:description",
+      "passed": true
+    },
+    {
+      "name": "/account og:url",
+      "passed": true
+    },
+    {
+      "name": "/account twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/account private noindex",
+      "passed": true
+    },
+    {
+      "name": "/account valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/login HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/login canonical",
+      "passed": true
+    },
+    {
+      "name": "/login description",
+      "passed": true
+    },
+    {
+      "name": "/login og:title",
+      "passed": true
+    },
+    {
+      "name": "/login og:description",
+      "passed": true
+    },
+    {
+      "name": "/login og:url",
+      "passed": true
+    },
+    {
+      "name": "/login twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/login private noindex",
+      "passed": true
+    },
+    {
+      "name": "/login valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/register HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/register canonical",
+      "passed": true
+    },
+    {
+      "name": "/register description",
+      "passed": true
+    },
+    {
+      "name": "/register og:title",
+      "passed": true
+    },
+    {
+      "name": "/register og:description",
+      "passed": true
+    },
+    {
+      "name": "/register og:url",
+      "passed": true
+    },
+    {
+      "name": "/register twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/register private noindex",
+      "passed": true
+    },
+    {
+      "name": "/register valid site schema",
+      "passed": true
+    },
+    {
+      "name": "/admin HTTP200",
+      "passed": true
+    },
+    {
+      "name": "/admin canonical",
+      "passed": true
+    },
+    {
+      "name": "/admin description",
+      "passed": true
+    },
+    {
+      "name": "/admin og:title",
+      "passed": true
+    },
+    {
+      "name": "/admin og:description",
+      "passed": true
+    },
+    {
+      "name": "/admin og:url",
+      "passed": true
+    },
+    {
+      "name": "/admin twitter:card",
+      "passed": true
+    },
+    {
+      "name": "/admin private noindex",
+      "passed": true
+    },
+    {
+      "name": "/admin valid site schema",
+      "passed": true
+    },
+    {
+      "name": "robots excludes admin/API/account",
+      "passed": true
+    },
+    {
+      "name": "llms includes debates",
+      "passed": true
+    },
+    {
+      "name": "/debates/does-not-exist HTTP404",
+      "passed": true
+    },
+    {
+      "name": "/works/does-not-exist HTTP404",
+      "passed": true
+    },
+    {
+      "name": "/magazine/does-not-exist HTTP404",
+      "passed": true
+    },
+    {
+      "name": "/yemen-map/figures/does-not-exist HTTP404",
+      "passed": true
+    },
+    {
+      "name": "/professionals/does-not-exist HTTP404",
+      "passed": true
+    },
+    {
+      "name": "/yemeni-products/does-not-exist HTTP404",
+      "passed": true
+    }
+  ]
+}

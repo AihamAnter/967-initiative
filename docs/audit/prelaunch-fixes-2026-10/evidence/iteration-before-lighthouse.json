@@ -1,0 +1,163 @@
+{
+  "label": "before",
+  "base": "http://127.0.0.1:3121",
+  "environment": "isolated local PostgreSQL fixture, production Next build, Lighthouse default mobile simulation, one lab sample per route; no field INP",
+  "results": [
+    {
+      "route": "/",
+      "performance": 82,
+      "fcpMs": 2403.5069999999996,
+      "lcpMs": 4268.260499999999,
+      "cls": 0.002482854931736649,
+      "tbtMs": 51.999999999999545,
+      "ttfbMs": 258,
+      "transferBytes": 651930,
+      "javascriptBytes": 202594,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/search?q=967",
+      "performance": 64,
+      "fcpMs": 1447.8426,
+      "lcpMs": 4917.1065,
+      "cls": 0.001937104477786942,
+      "tbtMs": 725,
+      "ttfbMs": 106,
+      "transferBytes": 541295,
+      "javascriptBytes": 203451,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/debates",
+      "performance": 45,
+      "fcpMs": 1399.2567,
+      "lcpMs": 5067.885050000001,
+      "cls": 0.7455580036272401,
+      "tbtMs": 494.45275000000083,
+      "ttfbMs": 51,
+      "transferBytes": 613006,
+      "javascriptBytes": 210205,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "performance": 71,
+      "fcpMs": 1386.4696,
+      "lcpMs": 2754.7044,
+      "cls": 0.7558922065623068,
+      "tbtMs": 135.734800000002,
+      "ttfbMs": 54,
+      "transferBytes": 646916,
+      "javascriptBytes": 221265,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/yemen-map",
+      "performance": 77,
+      "fcpMs": 1275.5239,
+      "lcpMs": 5775.5239,
+      "cls": 0.08737884464223744,
+      "tbtMs": 51.73804999999993,
+      "ttfbMs": 66,
+      "transferBytes": 805953,
+      "javascriptBytes": 219121,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/magazine",
+      "performance": 94,
+      "fcpMs": 1983.9885000000002,
+      "lcpMs": 2889.65325,
+      "cls": 0.001937104477786942,
+      "tbtMs": 41.5,
+      "ttfbMs": 35,
+      "transferBytes": 532992,
+      "javascriptBytes": 199802,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/magazine/local-issue",
+      "performance": 0,
+      "warnings": [
+        "Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 404)"
+      ],
+      "runtimeError": {
+        "code": "ERRORED_DOCUMENT_REQUEST",
+        "message": "Lighthouse was unable to reliably load the page you requested. Make sure you are testing the correct URL and that the server is properly responding to all requests. (Status code: 404)",
+        "errorStack": "LighthouseError: ERRORED_DOCUMENT_REQUEST\n    at getNetworkError (file:///C:/Users/anter/967-initiative/.audit-tools/node_modules/lighthouse/core/lib/navigation-error.js:61:14)\n    at getPageLoadError (file:///C:/Users/anter/967-initiative/.audit-tools/node_modules/lighthouse/core/lib/navigation-error.js:165:24)\n    at _computeNavigationResult (file:///C:/Users/anter/967-initiative/.audit-tools/node_modules/lighthouse/core/gather/navigation-runner.js:148:7)\n    at async gatherFn (file:///C:/Users/anter/967-initiative/.audit-tools/node_modules/lighthouse/core/gather/navigation-runner.js:300:23)\n    at async Runner.gather (file:///C:/Users/anter/967-initiative/.audit-tools/node_modules/lighthouse/core/runner.js:232:25)\n    at async navigationGather (file:///C:/Users/anter/967-initiative/.audit-tools/node_modules/lighthouse/core/gather/navigation-runner.js:306:21)\n    at async navigation (file:///C:/Users/anter/967-initiative/.audit-tools/node_modules/lighthouse/core/index.js:58:24)\n    at async file:///C:/Users/anter/967-initiative/scripts/measure-prelaunch.mjs:16:15",
+        "artifactKey": "PageLoadError"
+      }
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "performance": 87,
+      "fcpMs": 2117.05605,
+      "lcpMs": 3475.584075,
+      "cls": 0.0022762928362515663,
+      "tbtMs": 144.15732499999967,
+      "ttfbMs": 76,
+      "transferBytes": 572676,
+      "javascriptBytes": 213904,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/yemen-ranking",
+      "performance": 65,
+      "fcpMs": 1674.7677,
+      "lcpMs": 5235.919250000001,
+      "cls": 0.0021988478960770054,
+      "tbtMs": 603.2322999999994,
+      "ttfbMs": 22,
+      "transferBytes": 721277,
+      "javascriptBytes": 226107,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/yemeni-products",
+      "performance": 88,
+      "fcpMs": 2287.5687,
+      "lcpMs": 3500.0915999999997,
+      "cls": 0.002383795597185587,
+      "tbtMs": 94.5,
+      "ttfbMs": 40,
+      "transferBytes": 611912,
+      "javascriptBytes": 209193,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/professionals",
+      "performance": 93,
+      "fcpMs": 1818.3435,
+      "lcpMs": 3024.458000000001,
+      "cls": 0.004705205764004176,
+      "tbtMs": 71,
+      "ttfbMs": 29,
+      "transferBytes": 615022,
+      "javascriptBytes": 211903,
+      "warnings": [],
+      "runtimeError": null
+    },
+    {
+      "route": "/admin",
+      "performance": 81,
+      "fcpMs": 1540.3287,
+      "lcpMs": 2972.05015,
+      "cls": 0.00006487700207627369,
+      "tbtMs": 513.9429,
+      "ttfbMs": 52,
+      "transferBytes": 676428,
+      "javascriptBytes": 270439,
+      "warnings": [],
+      "runtimeError": null
+    }
+  ]
+}

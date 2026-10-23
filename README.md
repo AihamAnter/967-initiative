@@ -2,6 +2,8 @@
 
 الموقع الرسمي لمبادرة 967: مبادرة إعلامية ومجتمعية يمنية.
 
+مراجعة إصلاحات ما قبل الإطلاق الحالية: [التقرير العربي وسجل البنود الـ34](docs/audit/prelaunch-fixes-2026-10/README_AR.md)، مع الاختبارات والأدلة ومتطلبات الترحيل. القرار المحلي READY FOR REVIEW؛ لم تُطبق migrations أو تُنشر التغييرات على الإنتاج.
+
 ### التحرير والإشراف أثناء التصفح
 
 أُضيف وضع تحرير للمسؤولين في الصفحات العامة مع مراجعة المناظرات وتحرير المحتوى وربط المهام بالنظام الحالي. راجع [دليل التشغيل وSQL](docs/inline-editor/README.md) و[تقرير التنفيذ والتحقق](docs/inline-editor/verification.md). يحتاج الحفظ الجديد إلى migration مستقلة، ولم تُطبق على الإنتاج ولم تُنشر الميزة تلقائياً.
@@ -63,7 +65,9 @@ INSERT INTO public.editors(user_id) VALUES ('USER-UUID-HERE');
 
 ## 3. Contact form
 
-The contact form writes to the `messages` table server-side; editors can view messages inside `/admin`. In production, create a Cloudflare Turnstile widget for your domain, set `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`; Turnstile is used server-side when configured. Without Turnstile the contact endpoint has validation and a honeypot but **not strong bot/rate-limit protection**. For high-volume deployment, also add server-side rate limiting at the hosting edge. Set a suitable privacy/data-retention policy before launch.
+The contact form writes to the `messages` table server-side; editors can view and follow up messages inside `/admin`. Before deploying this version, review and test `supabase/migrations/202610230001_prelaunch_roles_rls.sql`, `202610230002_management_guard.sql`, and `202610230003_contact_workflow.sql` in an isolated database. The contact endpoint fails safely with 503 until its shared PostgreSQL limiter is installed. It allows eight valid attempts per ten minutes per HMAC network digest across server instances; raw IP addresses are never stored. Vercel's overwritten `x-vercel-forwarded-for` is used only when `VERCEL=1`; other hosts share an unattributed limit until a trusted adapter is configured. An optional server-only `CONTACT_RATE_LIMIT_SECRET` separates the HMAC key from the existing service-role key. Expired digests are removed by the next valid request; a quiet database retains expired hashes until then.
+
+In production, create a Cloudflare Turnstile widget for your deployment hostname and set both `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`. Server validation checks success, the hostname from `NEXT_PUBLIC_SITE_URL`, and the `contact` action. Preview deployments must use their own site URL/widget configuration. CAPTCHA remains optional; its real external challenge has not been verified by local tests. Message follow-up statuses do not send email or external notifications. See [the security evidence and deployment limits](docs/audit/prelaunch-fixes-2026-10/security-notes.md).
 
 ## 4. Customize
 

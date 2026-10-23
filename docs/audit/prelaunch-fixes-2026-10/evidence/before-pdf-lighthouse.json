@@ -1,0 +1,20 @@
+{
+  "label": "before-pdf",
+  "base": "http://127.0.0.1:3121",
+  "environment": "isolated local PostgreSQL fixture, production Next build, Lighthouse default mobile simulation, one lab sample per route; no field INP",
+  "results": [
+    {
+      "route": "/magazine/inline-issue",
+      "performance": 68,
+      "fcpMs": 2113.86075,
+      "lcpMs": 5737.7215,
+      "cls": 0.001937104477786942,
+      "tbtMs": 381.68987500000003,
+      "ttfbMs": 14,
+      "transferBytes": 740919,
+      "javascriptBytes": 341651,
+      "warnings": [],
+      "runtimeError": null
+    }
+  ]
+}

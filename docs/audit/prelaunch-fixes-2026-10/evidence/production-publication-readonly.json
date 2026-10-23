@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-23T13:22:37.264Z",
+  "issue": "L-01",
+  "readOnly": true,
+  "checks": {
+    "metadata": {
+      "status": 200,
+      "serviceMetadataOnly": true,
+      "available": true,
+      "commentsDefault": "approved",
+      "questionsDefault": "approved",
+      "lifecyclePresent": true
+    },
+    "expectedApprovedDefaults": true,
+    "readRpc": {
+      "status": 200,
+      "nullTarget": true
+    }
+  },
+  "conclusion": "Cannot verify production publication repair from public metadata alone. No mutation was attempted."
+}

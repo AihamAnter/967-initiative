@@ -1,0 +1,1302 @@
+{
+  "base": "http://127.0.0.1:3122",
+  "environment": "local isolated fixture; Chromium only",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/debates",
+      "status": 200
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "status": 200
+    },
+    {
+      "route": "/works",
+      "status": 200
+    },
+    {
+      "route": "/works/inline-work",
+      "status": 200
+    },
+    {
+      "route": "/magazine",
+      "status": 200
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "status": 200
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "status": 200
+    },
+    {
+      "route": "/yemen-ranking",
+      "status": 200
+    },
+    {
+      "route": "/yemen-map",
+      "status": 200
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "status": 200
+    },
+    {
+      "route": "/yemeni-products",
+      "status": 200
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "status": 200
+    },
+    {
+      "route": "/professionals",
+      "status": 200
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "status": 200
+    },
+    {
+      "route": "/search?q=967",
+      "status": 200
+    },
+    {
+      "route": "/contribute",
+      "status": 200
+    },
+    {
+      "route": "/login",
+      "status": 200
+    },
+    {
+      "route": "/register",
+      "status": 200
+    },
+    {
+      "route": "/account",
+      "status": 200
+    },
+    {
+      "route": "/admin",
+      "status": 200
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "width": 1920,
+      "overflow": false
+    }
+  ],
+  "accessibility": [
+    {
+      "route": "/",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/debates",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/debates",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/works",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/works",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/works/inline-work",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/magazine",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/magazine",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/yemen-ranking",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/yemen-map",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/yemeni-products",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/professionals",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/professionals",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/search?q=967",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/search?q=967",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/contribute",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/contribute",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/login",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/login",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/register",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/register",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/account",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/account",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "route": "/admin",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "route": "/admin",
+      "width": 1440,
+      "violations": []
+    }
+  ],
+  "zoom": [
+    {
+      "route": "/",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/debates",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/debates/local-prerecorded",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/works",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/works/inline-work",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/magazine",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/magazine/inline-issue",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-in-numbers",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-ranking",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/yemen-map/figures/inline-figure",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/yemeni-products/inline-company",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/professionals",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/professionals/inline-professional",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/search?q=967",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/contribute",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/login",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/register",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/account",
+      "textPercent": 200,
+      "overflow": false
+    },
+    {
+      "route": "/admin",
+      "textPercent": 200,
+      "overflow": false
+    }
+  ],
+  "checks": [
+    "U-04 keyboard skip link reaches main content",
+    "K-02 failed works source retains other public sitemap links and excludes private routes",
+    "K-01 failed source displays partial search results and a retry link",
+    "S-08 missing debate returns HTTP404",
+    "S-08 llms reading guide includes debates",
+    "S-07 browser error reaches local structured telemetry without raw error or form data"
+  ],
+  "runtimeErrors": [],
+  "hydrationErrors": [],
+  "searchPayload": {
+    "before": {
+      "site_settings": {
+        "requests": 1,
+        "bytes": 17731,
+        "failures": 0
+      },
+      "works": {
+        "requests": 1,
+        "bytes": 518,
+        "failures": 0
+      },
+      "issues": {
+        "requests": 1,
+        "bytes": 413,
+        "failures": 0
+      },
+      "stat_indicators": {
+        "requests": 1,
+        "bytes": 1498,
+        "failures": 0
+      },
+      "yemeni_figures": {
+        "requests": 1,
+        "bytes": 686,
+        "failures": 0
+      },
+      "yemeni_companies": {
+        "requests": 1,
+        "bytes": 1301,
+        "failures": 0
+      },
+      "professionals": {
+        "requests": 1,
+        "bytes": 736,
+        "failures": 0
+      },
+      "stat_sections": {
+        "requests": 1,
+        "bytes": 4034,
+        "failures": 0
+      },
+      "stat_domains": {
+        "requests": 1,
+        "bytes": 24015,
+        "failures": 0
+      },
+      "ranking_indicators": {
+        "requests": 2,
+        "bytes": 390,
+        "failures": 0
+      },
+      "stat_values": {
+        "requests": 1,
+        "bytes": 593,
+        "failures": 0
+      },
+      "governorates": {
+        "requests": 2,
+        "bytes": 171,
+        "failures": 0
+      },
+      "districts": {
+        "requests": 2,
+        "bytes": 126,
+        "failures": 0
+      },
+      "ranking_snapshots": {
+        "requests": 1,
+        "bytes": 2,
+        "failures": 0
+      }
+    },
+    "after": {
+      "site_settings": {
+        "requests": 1,
+        "bytes": 17731,
+        "failures": 0
+      },
+      "works": {
+        "requests": 1,
+        "bytes": 314,
+        "failures": 0
+      },
+      "issues": {
+        "requests": 1,
+        "bytes": 241,
+        "failures": 0
+      },
+      "stat_indicators": {
+        "requests": 1,
+        "bytes": 1498,
+        "failures": 0
+      },
+      "yemeni_figures": {
+        "requests": 1,
+        "bytes": 431,
+        "failures": 0
+      },
+      "yemeni_companies": {
+        "requests": 1,
+        "bytes": 932,
+        "failures": 0
+      },
+      "professionals": {
+        "requests": 1,
+        "bytes": 457,
+        "failures": 0
+      },
+      "stat_sections": {
+        "requests": 1,
+        "bytes": 4034,
+        "failures": 0
+      },
+      "stat_domains": {
+        "requests": 1,
+        "bytes": 24015,
+        "failures": 0
+      },
+      "ranking_indicators": {
+        "requests": 2,
+        "bytes": 390,
+        "failures": 0
+      },
+      "stat_values": {
+        "requests": 1,
+        "bytes": 593,
+        "failures": 0
+      },
+      "governorates": {
+        "requests": 1,
+        "bytes": 169,
+        "failures": 0
+      },
+      "districts": {
+        "requests": 1,
+        "bytes": 124,
+        "failures": 0
+      },
+      "ranking_snapshots": {
+        "requests": 1,
+        "bytes": 2,
+        "failures": 0
+      }
+    }
+  }
+}

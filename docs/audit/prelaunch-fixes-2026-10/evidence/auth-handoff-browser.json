@@ -1,0 +1,11 @@
+{
+  "environment": "Final production build + isolated fixture. Signup returns an intentionally simulated obfuscated user with no session; login uses real local Auth fixture.",
+  "passed": true,
+  "checks": [
+    "Guest handoff remains unclaimed after signup without a session",
+    "Actual authenticated account restores the original draft",
+    "No automatic question publication",
+    "No runtime errors"
+  ],
+  "runtimeErrors": []
+}

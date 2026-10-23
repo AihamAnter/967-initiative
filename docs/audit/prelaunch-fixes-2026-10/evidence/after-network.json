@@ -1,0 +1,88 @@
+{
+  "label": "after",
+  "base": "http://127.0.0.1:3122",
+  "build": "current production build",
+  "measurements": [
+    {
+      "name": "home",
+      "status": 200,
+      "navigationMs": 1608,
+      "requests": 40,
+      "declaredBytes": 325784,
+      "ttfbMs": 87.69999992847443,
+      "domContentLoadedMs": 161.29999995231628,
+      "resourceBytes": 611956
+    },
+    {
+      "name": "debates",
+      "status": 200,
+      "navigationMs": 1065,
+      "requests": 35,
+      "declaredBytes": 324858,
+      "ttfbMs": 37,
+      "domContentLoadedMs": 89.5,
+      "resourceBytes": 587449
+    },
+    {
+      "name": "recording",
+      "status": 200,
+      "navigationMs": 936,
+      "requests": 40,
+      "declaredBytes": 324858,
+      "ttfbMs": 41.39999997615814,
+      "domContentLoadedMs": 92.60000002384186,
+      "resourceBytes": 603887
+    },
+    {
+      "name": "magazine",
+      "status": 200,
+      "navigationMs": 783,
+      "requests": 41,
+      "declaredBytes": 258670,
+      "ttfbMs": 17.800000071525574,
+      "domContentLoadedMs": 107.10000002384186,
+      "resourceBytes": 515587
+    },
+    {
+      "name": "contribute",
+      "status": 200,
+      "navigationMs": 867,
+      "requests": 44,
+      "declaredBytes": 325092,
+      "ttfbMs": 24.40000009536743,
+      "domContentLoadedMs": 70.5,
+      "resourceBytes": 586969
+    },
+    {
+      "name": "search",
+      "status": 200,
+      "navigationMs": 968,
+      "requests": 42,
+      "declaredBytes": 258866,
+      "ttfbMs": 80.79999995231628,
+      "domContentLoadedMs": 323.39999997615814,
+      "resourceBytes": 516437
+    },
+    {
+      "name": "account",
+      "status": 200,
+      "navigationMs": 803,
+      "requests": 48,
+      "declaredBytes": 258820,
+      "ttfbMs": 17.5,
+      "domContentLoadedMs": 55.5,
+      "resourceBytes": 527531
+    },
+    {
+      "name": "map",
+      "status": 200,
+      "navigationMs": 929,
+      "requests": 37,
+      "declaredBytes": 325631,
+      "ttfbMs": 19.899999976158142,
+      "domContentLoadedMs": 66.10000002384186,
+      "resourceBytes": 783187
+    }
+  ],
+  "runtimeErrors": []
+}

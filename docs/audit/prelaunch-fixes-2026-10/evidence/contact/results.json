@@ -1,0 +1,55 @@
+{
+  "environment": "Local Next + isolated PGlite fixture; real DB persistence/status/limiter; simulated failures only where labelled.",
+  "scenarios": [
+    "L-07 real contact save returns201 only after insertion; reference persisted, legacy-compatible new status, draft cleared",
+    "L-07 real commit with simulated lost response keeps draft; editing retry generates another UUID and persists revised text without replacing original",
+    "L-07 simulated503 preserves text and session draft across reload",
+    "S-04 real shared PostgreSQL counter accepts eight then429; form preserves draft and shows wait",
+    "L-07 authenticated Admin reads stored reference and updates new→in_progress→resolved through RLS; filter retains processed message",
+    "L-07 processed status persists after full reload",
+    "L-05 revoked editor is refused by actual API and UI; private message list absent"
+  ],
+  "layouts": [
+    {
+      "screen": "contact",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "screen": "contact",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "screen": "contact",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "screen": "contact",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "screen": "admin messages",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "screen": "admin messages",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "screen": "admin messages",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "screen": "admin messages",
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "runtimeErrors": []
+}
