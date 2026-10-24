@@ -2,6 +2,7 @@ import test from 'node:test';
 const ACTOR='a0000000-0000-4000-8000-000000000001';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {emptyFigureProfile,validateFigureProfile,figureProfilePath} from '../lib/figureProfiles.js';
 import {readFigureProfile,saveFigureProfile,deleteFigureProfile,validateFigureRecord} from '../lib/figureProfileRepository.js';
 import {mapYemeniFigure,toFigureDirectoryCard} from '../lib/yemeniFigures.js';
@@ -66,8 +67,49 @@ test('directory payload stays compact and context images never become Person por
 });
 
 test('every imported figure has real editable source-linked content, with honest uncertain dates and attributed images',()=>{
- const rows=JSON.parse(readFileSync('data/yemeni-figures/profiles.json','utf8'));assert.equal(rows.length,120);assert.equal(new Set(rows.map(r=>r.record.slug)).size,120);
+ const rows=JSON.parse(readFileSync('data/yemeni-figures/profiles.json','utf8'));assert.equal(rows.length,270);assert.equal(new Set(rows.map(r=>r.record.slug)).size,270);
  let events=0,works=0,photos=0;
  for(const {record,profile} of rows){validateFigureRecord(record);validateFigureProfile(profile);assert.ok(profile.sections.length);assert.ok(profile.sources.length>=2);assert.ok(profile.sources.every(s=>!s.revisionUrl||/oldid=\d+$/.test(s.revisionUrl)));assert.equal(record.is_demo,undefined);for(const image of profile.gallery){assert.ok(image.credit);assert.ok(image.sourceUrl.startsWith('https://commons.wikimedia.org/'));if(image.url.startsWith('/'))assert.ok(existsSync('public'+image.url));}events+=profile.timeline.length;works+=profile.works.length;photos+=profile.gallery.length;}
  assert.ok(events>400);assert.ok(works>250);assert.ok(photos>=80);assert.equal(rows.find(x=>x.record.slug==='al-hamdani').record.death_year,null);assert.equal(rows.find(x=>x.record.slug==='queen-bilqis').profile.historicity,'traditional');assert.equal(rows.find(x=>x.record.slug==='q72433980').record.governorate_id,'');
+});
+
+test('the expansion adds distinct prominent figures and enriches every existing profile',()=>{
+ const rows=JSON.parse(readFileSync('data/yemeni-figures/profiles.json','utf8'));
+ const plan=JSON.parse(readFileSync('data/yemeni-figures/expansion-plan-2026-10.json','utf8'));
+ assert.equal(plan.beforeCount,120);assert.equal(plan.addedCount,50);assert.equal(plan.afterCount,170);assert.equal(plan.updatedCount,120);
+ assert.equal(plan.changes.filter(x=>x.kind==='create').length,50);
+ for(const change of plan.changes.filter(x=>x.kind==='update'))assert.ok(change.factsAdded>0||change.eventsAdded>0||change.bioExpanded,change.slug);
+ const identities=new Set();
+ for(const {record,profile}of rows){
+  const identity=profile.sources.map(s=>s.url.match(/wikidata.org\/wiki\/(Q\d+)/)?.[1]).find(Boolean);
+  const previous=plan.changes.find(x=>x.slug===record.slug);
+  if(previous)assert.ok(identity,record.slug);
+  if(identity){assert.ok(!identities.has(identity),'Duplicate identity '+identity);identities.add(identity);}
+  assert.equal(profile.reviewedAt,'2026-10-24');
+  if(previous){assert.equal(createHash('sha256').update(JSON.stringify({record:validateFigureRecord(record),profile:validateFigureProfile(profile)})).digest('hex'),previous.afterHash,'The later additions must preserve '+record.slug);}
+  if(previous?.kind==='create'){
+   assert.ok(profile.sections.length>=3,record.slug+' needs a substantive biography');
+   assert.ok(profile.facts.length>=3,record.slug+' needs specific facts');
+   assert.ok(profile.sections.every(s=>s.sourceIds.length),record.slug+' needs section references');
+  }
+ }
+ for(const slug of ['abdulaziz-al-maqaleh','faisal-alawi','hussein-al-mihdhar','hayel-saeed-anam','ali-abdullah-saleh','naseem-hamed'])assert.ok(rows.some(x=>x.record.slug===slug));
+});
+
+test('the second expansion contains exactly 100 additional rich, source-linked biographies',()=>{
+ const rows=JSON.parse(readFileSync('data/yemeni-figures/profiles.json','utf8'));
+ const additions=JSON.parse(readFileSync('data/yemeni-figures/additions-100.json','utf8'));
+ const plan=JSON.parse(readFileSync('data/yemeni-figures/additions-100-plan.json','utf8'));
+ assert.equal(plan.beforeCount,170);assert.equal(plan.addedCount,100);assert.equal(plan.afterCount,270);assert.equal(plan.existingProfilesUnchanged,true);
+ assert.equal(additions.length,100);assert.deepEqual(rows.slice(170),additions);
+ const normalizedName=value=>value.normalize('NFKC').replace(/[\u064b-\u065fـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/\s+/g,' ').trim();
+ const names=rows.map(x=>normalizedName(x.record.full_name));assert.equal(new Set(names).size,270);
+ const paragraphs=new Set();
+ for(const [index,{record,profile}]of additions.entries()){
+  assert.equal(record.display_order,171+index);assert.equal(record.is_published,true);
+  assert.ok(profile.sections.length>=4,record.slug);assert.ok(profile.sections.flatMap(s=>s.paragraphs).join(' ').length>=1400,record.slug);
+  assert.ok(profile.facts.length>=5,record.slug);assert.ok(profile.timeline.length>=3,record.slug);assert.ok(profile.sources.length>=2,record.slug);
+  for(const key of ['sections','facts','timeline','works'])for(const item of profile[key])assert.ok(item.sourceIds.length,record.slug+' '+key);
+  for(const p of profile.sections.flatMap(s=>s.paragraphs)){if(p.length<150)continue;const normalized=normalizedName(p);assert.ok(!paragraphs.has(normalized),'Repeated filler paragraph in '+record.slug);paragraphs.add(normalized);}
+ }
 });

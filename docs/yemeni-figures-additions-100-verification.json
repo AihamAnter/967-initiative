@@ -1,0 +1,526 @@
+{
+  "verifiedAt": "2026-10-23T23:58:35.181Z",
+  "figures": 270,
+  "published": 270,
+  "anonymousVisible": 270,
+  "expectedTotal": 270,
+  "verifiedProfiles": 270,
+  "verifiedNewProfiles": 100,
+  "existingRecordsUnchanged": true,
+  "existingProfilesUnchanged": true,
+  "http": [
+    {
+      "path": "/yemen-map",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ahmed-al-sunaydar",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ali-bin-ali-al-ansi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-saleh-azzani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-mohsen-atroosh",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-abdu-zaidi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/awad-ahmed",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/aboud-khawaja",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/khalil-mohammed-khalil",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ali-abdullah-al-simah",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/salem-ahmed-bamadhaf",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/hamood-al-simah",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/salah-al-akhfash",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/hussein-moheb",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/taqiya-al-tawiliya",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohamed-alghoom",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/fathiya-al-saghira",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/raja-basoudan",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-al-adrai",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/fahad-al-qarni",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/yahya-ibrahim-actor",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulkarim-al-ashmouri",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/salah-al-wafi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-al-rubaa",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/najeeba-abdullah",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/adel-samnan",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/entisar-al-hammadi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/remas-mansoor",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/adam-saif",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/amani-al-dhamari",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulrahman-al-haddad",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulkarim-mahdi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ammar-mohammed-al-azaki",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-qasim-al-akhfash",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/suha-al-masri",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/yahya-omar-al-yafai",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/zaid-al-mushki",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-salam-naji",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ibrahim-al-hadhrani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ismail-ali-al-akwa",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-ali-al-akwa",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/umara-al-yamani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/tawus-ibn-kaysan",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-umar-bamakhrama",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/salih-al-maqbali",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/muhammad-ibrahim-al-wazir",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abu-musa-al-ashari",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/al-ashath-ibn-qays",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/hussein-salem-basadiq",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-saeed-jaradah",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulwasi-al-wasii",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/yahya-ibn-hamza-al-alawi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-mohammed-al-hibshi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-abdulqader-bamatrif",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abu-bakr-abdulrahman-al-saqqaf",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulrahman-tayyib-baakar",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/muqbil-hadi-al-wadii",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-hadi-subait",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulmajid-al-zindani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-salem-al-bayhani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ahmad-bin-yahya-hamid-al-din",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/yahya-hamid-al-din",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulrahman-ubaidullah-al-saqqaf",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/muhammad-al-badr-hamid-al-din",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdul-karim-al-iryani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdul-qadir-bajamal",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-salem-basindawa",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ahmad-hussein-al-ghashmi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/faraj-said-bin-ghanem",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/maeen-abdulmalik-saeed",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ali-mohsen-al-ahmar",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/faisal-bin-shamlan",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/yasin-saeed-numan",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-abdullah-al-yadoumi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/sultan-saeed-al-barakani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdul-wahab-al-ansi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/afrah-nasser",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/sultan-ali-al-aradah",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/hind-al-eryani",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/rajih-ghalib-labouza",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/radhya-al-mutawakel",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ashwaq-moharram",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/shatha-al-harazi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/amal-mohammed-al-basha",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohsen-mohammed-qarawi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/nadia-abdulaziz-al-sakkaf",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-ibrahim-ayash",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/sami-hasan-al-naash",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abubakr-omar-bazara",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/salem-abdullah-awadh",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/shihab-ghanem",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-ahmed-bugshan",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/sawsan-al-areeqe",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/elham-manea",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ahmed-zein",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/huda-ablan",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/mohammed-algharbi-imran",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulnasser-mugali",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/marwan-al-ghafory",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abbas-al-dailami",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/ali-bin-ali-sabra",
+      "status": 200,
+      "expectedContentFound": true
+    }
+  ],
+  "errors": [],
+  "profileBucketPrivate": true,
+  "anonymousProfileObjectDenied": true
+}

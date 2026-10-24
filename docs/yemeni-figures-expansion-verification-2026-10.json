@@ -1,0 +1,37 @@
+{
+  "verifiedAt": "2026-10-23T23:09:36.631Z",
+  "figures": 170,
+  "published": 170,
+  "anonymousVisible": 170,
+  "verifiedProfiles": 170,
+  "errors": [],
+  "http": [
+    {
+      "path": "/yemen-map",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdulaziz-al-maqaleh",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/hayel-saeed-anam",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/alaa-al-sasi",
+      "status": 200,
+      "expectedContentFound": true
+    },
+    {
+      "path": "/yemen-map/figures/abdullah-al-baradouni",
+      "status": 200,
+      "expectedContentFound": true
+    }
+  ],
+  "profileBucketPrivate": true,
+  "anonymousProfileObjectDenied": true
+}

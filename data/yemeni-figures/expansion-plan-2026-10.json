@@ -1,0 +1,1695 @@
+{
+  "reviewedAt": "2026-10-24",
+  "beforeCount": 120,
+  "afterCount": 170,
+  "addedCount": 50,
+  "updatedCount": 120,
+  "before": {
+    "sections": 494,
+    "facts": 476,
+    "timeline": 433,
+    "works": 263,
+    "gallery": 80,
+    "sources": 262
+  },
+  "after": {
+    "sections": 668,
+    "facts": 1133,
+    "timeline": 558,
+    "works": 383,
+    "gallery": 80,
+    "sources": 442
+  },
+  "changes": [
+    {
+      "slug": "q4058917",
+      "name": "محسن العيني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:11.311+00:00",
+      "beforeHash": "52151fd17869d02be359b391887820e7d28211c38c969c73c658612c4ef615e8",
+      "afterHash": "29c852f96f2544083e99f228b773ffa7c8238b4720fa5676dbf35774543c6679",
+      "factsAdded": 10,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12000123",
+      "name": "شاهر عبد الحق",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:30.169+00:00",
+      "beforeHash": "169d7343cf4a8c8090949cbf0ebda43d49d9e2aee13eb6048ed12c3ee29a51c1",
+      "afterHash": "6a62d0c8342f8281e9b3fa6d3136307c7f3b68eb7ad1bef5d34129272eb7d85d",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q4665243",
+      "name": "عبد الواسع السقاف",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:20.551+00:00",
+      "beforeHash": "a98d2ea358b89f6d37a0400976304a706bbb1531e616cfefa8a5a38b93027cfc",
+      "afterHash": "5958c78d7085a67c41a3d91703e0796e3d9f30ccb1aa074bba5e552938a56d6b",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "abdullah-al-baradouni",
+      "name": "عبد الله البردوني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:34.755+00:00",
+      "beforeHash": "56bf99e1d69919cb05ca2b02de8e067b087d278b662c09608ba4734550926688",
+      "afterHash": "403d77adfa27159ec2a8257eb696256f95ff0cc4bafecc0d484e7f5c7d7afc9e",
+      "factsAdded": 3,
+      "eventsAdded": 1,
+      "bioExpanded": true
+    },
+    {
+      "slug": "wahb-ibn-munabbih",
+      "name": "وهب بن منبه",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:01.473+00:00",
+      "beforeHash": "be74e6ae2b4def8b7efded2486e37cd891e440992cbeb86943bbefaaf09ff914",
+      "afterHash": "259991851dd28d65e08dab17e1cf5163a8d50e9c65e2cfae0b537ec6ebb316b9",
+      "factsAdded": 4,
+      "eventsAdded": 1,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q6542272",
+      "name": "أحمد بن غودل",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:35.988+00:00",
+      "beforeHash": "5dcd091c9f46b3eef0a01b3ceab58b6ad3840e8ff6ecddd3c7a36010c64ca8b0",
+      "afterHash": "2f0c26ab64babf34ad4fe21c913da1c073f713bff447217811f7ba297e252db5",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q3698979",
+      "name": "ابتسام المتوكل",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:45.425+00:00",
+      "beforeHash": "9888ed2bf99730950be3407b6323bfb17228d90addb605f84f79ede47ad11f22",
+      "afterHash": "8876c43c0a23743aed9ec3da05308ec3528f42dd02f53f4187ec775fba742db7",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q6399485",
+      "name": "خالد محفوظ بحاح",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:58.519+00:00",
+      "beforeHash": "c0bea6228d56df3df5e4ed551b948d87148895701490606fe669940b5dbc6c99",
+      "afterHash": "371bd78457eb8c2b15d7431df786a26f178a8c36e1b99afdb4fc95913436e3d0",
+      "factsAdded": 7,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q99300071",
+      "name": "يحيى بن حسين الديلمي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:20.215+00:00",
+      "beforeHash": "bde060ada2bd5199cfdbb53df75354d8140414cf0ec348d8f2b295573a3cfd0d",
+      "afterHash": "9d09b33523c91fe5718448ddc2c296815529ac12859a0b01de974cfee7ae1414",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12177902",
+      "name": "أبو بكر سالم",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:31.273+00:00",
+      "beforeHash": "47135385d32f9e64cfb2c88e6ad1f78d462db10328b837979a3575e4d21f0b1a",
+      "afterHash": "385843ddf86415ca68a64ea99d39d962b22cfae60a033258d70f6b918cb6a7c9",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q72433980",
+      "name": "عادل وجدان الشاذلي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:25.545+00:00",
+      "beforeHash": "2c01eab813c718762afa8581ad4f48cada9227bb8bee127a16ee3d1e3fbe46a4",
+      "afterHash": "9f3a47ddfc61ae3b9826bec2ce99d19c34638c4c33f6220e6635bd8f6ebf6a52",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q20423157",
+      "name": "محمد علي المقدشي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:15.929+00:00",
+      "beforeHash": "c5850e387b38838627c419fd438f88fa5e8879613d239965645f0275560d3939",
+      "afterHash": "627a82c06c75332ea3461f20c9d488b2b08ee40d6b135f419c4568e8c4f04fe8",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q21642643",
+      "name": "صفاء كرمان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:19.711+00:00",
+      "beforeHash": "674f80ade3caeed242a478af289b2ae2896cce307f725f9a6e5dc381b0494b07",
+      "afterHash": "bfb88d2a0c5c1698ecb9bdb023c3911a481a07f846ff9b131888c7eeca87d967",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12208895",
+      "name": "حمود سعيد المخلافي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:57.078+00:00",
+      "beforeHash": "2ab6d1dc40f46646b1e87040d2d5674ab4fd91b466b7ffb856c533ea3ff522e2",
+      "afterHash": "7c4e5fef25b402c641d526295eff70b358fc6f6047e65bbc6ae08984ca35695e",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "waddah-al-yaman",
+      "name": "وضاح اليمن",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:08.958+00:00",
+      "beforeHash": "d4199b018282d31eda193e0ff2bea39db16c6a5897784fa26ccd86a22b0a3398",
+      "afterHash": "d300adaabd0e308baf0f341d7aaf1ad182e69011b56a4756efec8c0e6d72d384",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q19429078",
+      "name": "صالح علي الصماد",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:00.764+00:00",
+      "beforeHash": "d6a83e0dc739270a889a914bf21b5f19b30aea6a5c61a2a7953bdef340ef2f2d",
+      "afterHash": "f2299da1e278f785405f598e6971df02698266d636a60c64d82b541a06e8f234",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q17007872",
+      "name": "ندى الأهدل",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:27.712+00:00",
+      "beforeHash": "c1435fcbfffea9a3542e7df1fe64745267f9e9c65b656d46fd5d9c91faee7e7e",
+      "afterHash": "90787531f8471e7c6b5f3798f7b2970632f7a4e58194a46957690d0572519826",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "al-shawkani",
+      "name": "محمد بن علي الشوكاني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:00.815+00:00",
+      "beforeHash": "caa2416ab7dfa8aea44a24d635c1635f8eff0718eeeaea2cdc0f5c6ec90dad7d",
+      "afterHash": "70b48000002fc49b6afda958bbb93b81e23b99b3a4e85a3b80ba2069c0a4c3b2",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q124457762",
+      "name": "زيد بن علي الوزير",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:49.301+00:00",
+      "beforeHash": "9f369cab01ff45308ed027c7eb5f1268a07cfcd199d068c676ca9b13a5e34dbe",
+      "afterHash": "16ff48479f5561bd603f338b2864063158cdaf8bbf5542163824065016b1527c",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q57480",
+      "name": "عبد ربه منصور هادي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:08.549+00:00",
+      "beforeHash": "466333b38aa1ea89c41c96ce01cc1518f56abce0ae7db5b9c1a13f7e6e6cb895",
+      "afterHash": "a2a102b75befb428a8f957349ce118b01411d8ffbd3c8061a393f53e1f8ac9fb",
+      "factsAdded": 6,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q11281342",
+      "name": "علي المقري",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:21.244+00:00",
+      "beforeHash": "152a90d50fd8032da59721b01e2095781090f08d062a7f0c0ca91c77eccada31",
+      "afterHash": "8f82a5ab0857f3b40785abe8518fb03333eaac400d25d0fb5b13c9f7b8482f23",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q22684197",
+      "name": "أروى عبده عثمان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:24.112+00:00",
+      "beforeHash": "cfedbf1af8938ac8a5ce17ed37a318b36b7aedfe0fd3cf568157e1aab6c07eaa",
+      "afterHash": "1081feca9cb5e16b09ce976f2b30ead463653ac3a356e47c5e4f1ddcf6506fd1",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q68837007",
+      "name": "سالم صالح بن بريك",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:59.254+00:00",
+      "beforeHash": "826e0cd67bfaf90c914be8dd2f06794b1c429581ce2750f61eb32220f5cc7462",
+      "afterHash": "532a8c968a8f98f70b0606a27f1abf7b776b9389f87b9529776c80bc2757987f",
+      "factsAdded": 5,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q719638",
+      "name": "أمة العليم السوسوه",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:54.726+00:00",
+      "beforeHash": "bfc97a29587eb9a6d28f1e1aa23e24fbbbfc1bef2d0bb4e2d7822aae01faf80d",
+      "afterHash": "cffe944c3ddcdd2f1fc1c85b2beb9067965ad3ad1bcd1dec515792eeba3d4274",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12177879",
+      "name": "أبو بكر المشهور",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:46.449+00:00",
+      "beforeHash": "01858993823f39ebe4b682f728803d369b5952ddc46dad04339efb3eb6f07b25",
+      "afterHash": "d6b9ca81c576c699874cc26469adef902b770a7d0d6970974bb9e06952f35c16",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "ali-al-sulayhi",
+      "name": "علي بن محمد الصليحي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:30:57.394+00:00",
+      "beforeHash": "f62edf0da20f79c02f3aada04c0e6925e37b871ac571c566fd5dc8546024abea",
+      "afterHash": "7fba9ec742a2b9322f06442cb0029f7b5a22c118077b379e4c28001869aff13d",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q20774338",
+      "name": "سمية علي رجاء",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:25.758+00:00",
+      "beforeHash": "11a4641d75a680dc2db64e51e8b0223cd1c147bbfae42d031d6db72cdfa9fe89",
+      "afterHash": "27f709e8b9b4329d49e8a511b74d3aaa2df9edc5d9aae17c9ecea489cd0c0480",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "queen-bilqis",
+      "name": "الملكة بلقيس",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:08.238+00:00",
+      "beforeHash": "dd9bc89b73672e4ee33c0a79e9845bd8a91005137b904231075569955451781c",
+      "afterHash": "7472162a22560cf067af06e30d78e8c925533e5e8aed1384836bb0a2183322d0",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q26205352",
+      "name": "داود الحدابي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:17.042+00:00",
+      "beforeHash": "5745574fb4c95843afddf9d91ce61aea5b9b748ad5ffb3f687d69b684aea4cfc",
+      "afterHash": "6b2f59e6ca08e594fbbe0afe8214f8e0743d546dff1342dbab83e1646eb67772",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q22683225",
+      "name": "طارق محمد عبد الله صالح",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:01.584+00:00",
+      "beforeHash": "fc196efd35b0190e03037019b84e4017c72bcfce5cf2e597665b6a738b1ad33f",
+      "afterHash": "acde7b6fde7c97656f9f03df32a9bd16dca35d190ffe8d6f4337eb153f5ca13b",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12189255",
+      "name": "محمد علي عثمان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:16.693+00:00",
+      "beforeHash": "82ced8990f9f86383dfbac6bcd6d4c050c3cb8c9458e2ee197d92a6edf3d351a",
+      "afterHash": "3409f4b390449f493d1b1eba510f0dbbcc76394ea46fed941013495b69e61e81",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q69545437",
+      "name": "أحمد صالح العيسي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:29.057+00:00",
+      "beforeHash": "51e0da038b163604a2f1e050bbf6aa8989c86c3b276aecee45f2fe6a33f448fe",
+      "afterHash": "4fcc77b76d0a36295535020111793b72afcd8de00df38379fde3e4562dc64e9a",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q70463766",
+      "name": "عبدالجبار نعمان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:40.696+00:00",
+      "beforeHash": "ea57603d86f6101359a4ec3d21376fc82802ebaee2250ec95568a40f17669488",
+      "afterHash": "3537767427215de3da627530a5e3781b8b56159514e03244183680deb0ec8e7e",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12213376",
+      "name": "رشاد العليمي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:42.669+00:00",
+      "beforeHash": "2f1d1915048095f69a6df5863aaab964d8d84c54ee2c0f08f2ebda89bf23957e",
+      "afterHash": "051d47180b47b664f02f63bd200bdbf9b83b9bde3c915e666c9620cb47de9303",
+      "factsAdded": 5,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "tawakkol-karman",
+      "name": "توكل كرمان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:19.138+00:00",
+      "beforeHash": "5fd85e992be2d67128a21bad3ece0e355e49a43779ed52de7a009022c19e1113",
+      "afterHash": "dc239c00065156cdc0706c31b8f7e8e07900e3e0fca38d79ef07bc9a91551085",
+      "factsAdded": 3,
+      "eventsAdded": 3,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12207894",
+      "name": "حسن الشاطري",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:21.351+00:00",
+      "beforeHash": "22c135b72828145b65c456e78839b9e21c40b03c411b4a3c87c19468ff1cd787",
+      "afterHash": "85315cc02085f34cd542e3ec0b3a3e233b160a1b00d615aed05120f2d58865bd",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q20384844",
+      "name": "حورية مشهور أحمد",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:26.62+00:00",
+      "beforeHash": "0878675c514f329198e1caccc1c15106e46650bf40cba160d80f8ec415c726b2",
+      "afterHash": "140bf4f993679823ee2bf31f195a52f63caa72d134537b1dc55b00aaf0f2a939",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q5644670",
+      "name": "حميد الأحمر",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:29.65+00:00",
+      "beforeHash": "6469a208cb8ad4d38710234783d77f47794f2757c56e6134ffc7160696723543",
+      "afterHash": "93b0e281ec7c5ad9021513805d8e2cf84ccc0fdad5478cf586fb4a89d3883584",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "dhu-nuwas",
+      "name": "ذو نواس",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:05.085+00:00",
+      "beforeHash": "19bc21c08e70cd5e63d8f35476307bc8a1b240f8727731e7a47d9d87ac1b03e6",
+      "afterHash": "1c03c65ab0c346c9f82206ff13c69e90bf27c625f0dbb0acedbab52a05cc7a77",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q6854002",
+      "name": "محمد عبد الله مخشف",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:22.065+00:00",
+      "beforeHash": "8a37ad2fa74127298e2d8282c32ef2283ccee095cda2de19a8a954202aa830b3",
+      "afterHash": "a0f25d3cb3d9956b3eb17b05adb2d369c52293bde37aa53c92bea94d3a652435",
+      "factsAdded": 3,
+      "eventsAdded": 2,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q16119688",
+      "name": "أحمد عوض بن مبارك",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:53.198+00:00",
+      "beforeHash": "ee6463478ca4394ad0f367cb73570176406f1de061dc93752b698cf88c438914",
+      "afterHash": "0e477aaa9a812f3b849525b058c5520436c2c501b7416f3d9bb201abf5136a46",
+      "factsAdded": 6,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q2555542",
+      "name": "علي سالم البيض",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:09.468+00:00",
+      "beforeHash": "caeb26780794ef39ba885563ae12273963302cc6281771775946f97128035a9b",
+      "afterHash": "2be5466e2eca3e5161469e8072d2bf4ae577869e1f7d05edb650e3aa8002b297",
+      "factsAdded": 13,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "al-hamdani",
+      "name": "الحسن بن أحمد الهمداني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:30:58.817+00:00",
+      "beforeHash": "9c576d3e70b03849777234f691b356a42128f716e141253eca80193aedad2bcf",
+      "afterHash": "b4576abc081f5586bd7da293d6e75b70443fc97d6146767eba87b440f173837b",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q4059062",
+      "name": "أيوب طارش",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:36.609+00:00",
+      "beforeHash": "cc2d2af4f076642d96f08429b655772d563b87cc916c65d208673af76fcc4cdc",
+      "afterHash": "94c5a1aa0310df595a2726c3707bc6730132b7d9d4487f3c0c7738683c1787e2",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q20385496",
+      "name": "جلال الرويشان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:55.49+00:00",
+      "beforeHash": "b83685dce11773e4ab4bbc3227ad083111cf094561777e4dbeaa60cb28c2b9ab",
+      "afterHash": "d8be28d787b5b2b1a9c04114d21bfb03e81220e25cba1b8ff4ad859ba06b979a",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q16119908",
+      "name": "محمد رشاد العليمي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:12.541+00:00",
+      "beforeHash": "3db70a61b64be1bb15ef90cb17530608766d80718ef5022290d0ca0bb0bcefc0",
+      "afterHash": "64d4884e947f72c8aa80f5d796f4094485f9f91ed8f7f57063829a381958445c",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "ahmed-ibn-alwan",
+      "name": "أحمد بن علوان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:11.235+00:00",
+      "beforeHash": "ba365cd451f1fd7e346f92aa2109ab919fbf690d4bd35d149ade3ad40aa1e1d3",
+      "afterHash": "8c6727c09ebd05babf72f1c4f6e6ed9f6c5a4979d778da39abcef68cea6aff9b",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q1951898",
+      "name": "محمد بن عوض بن لادن",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:28.518+00:00",
+      "beforeHash": "3c2e79f9a9bc960f0754b677cfeecc51bd3c4dd922a63ab8c968b79240ef50ec",
+      "afterHash": "ef2b2a34c16f156139df056e5a224f44b77fa1aa785cbffcd7b6353c7d304472",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q6854091",
+      "name": "محمد علي لقمان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:22.884+00:00",
+      "beforeHash": "198c6c3d90bc2653b500f7cca56218d8a28a2c9eeb407a60849fef6038998bbc",
+      "afterHash": "fd5b1807d16ea58c079ad6f8e60972f6cd4d00e9206c63f04eb8f7a996187469",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12189231",
+      "name": "عبد الرحمن باعباد",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:17.811+00:00",
+      "beforeHash": "07a6838ef660c6cf24f48c21dafd0e6976057f9f4a7a098bb8eae6e020961e58",
+      "afterHash": "2b739ae7cf9b44e1918d3ebd6637ac94f01426ca973dc38b141959243db6c1c0",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12215087",
+      "name": "سالم الشاطري",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:22.613+00:00",
+      "beforeHash": "4f4a03e14fa5f10b0a7b0f25f7bb705494cf2e9f47c84183036ea6b29894caa6",
+      "afterHash": "db807a0891644a797247d5b9923e8467066065d47fc99f8e46b609159d781e50",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q6762954",
+      "name": "حسن عبد الله الشرفي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:32.099+00:00",
+      "beforeHash": "c85174a9b9c33bab57600af5a62a8d29bedf39e379deb3403a9343d3d9ed55df",
+      "afterHash": "c88a24d08a2d8651adfebbddb80b57d7093cff43680ff333e955ed329b0cd5e9",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q307252",
+      "name": "عبد الكريم العرشي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:04.048+00:00",
+      "beforeHash": "8bd00d25977a6bfce43e99517edb9a11f393c0022053e96f91911e1c28a84a16",
+      "afterHash": "adea6d0b818c1ee54453a18426f84a2809f6c0323736f65aff35a937e7bca309",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q2622743",
+      "name": "عبد العزيز عبد الغني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:03.222+00:00",
+      "beforeHash": "1ef257f21cf2a5c5c6ec0bc44403c89616d014cc2a22231566fa9550a9446346",
+      "afterHash": "4a60fa9a58d7fc23de77fbe3ec447d6b0bb69b59f1345b364bf5da8ffa949b60",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12223818",
+      "name": "عبد الملك المخلافي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:07.113+00:00",
+      "beforeHash": "2f5256af3068fa0cb0f02b87739108d76fc573f61228fa877e3db2edd443032d",
+      "afterHash": "51398ac6d59fb29e4fdbf7fc3bcafdab296347c69dd9401a1de2da8b8249f50c",
+      "factsAdded": 5,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q4670479",
+      "name": "أبو بكر الماس",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:24.114+00:00",
+      "beforeHash": "1ca3776b7f93249ea0bac8b7e47fa160b0fb733ff3a8c37269843c5f2184184a",
+      "afterHash": "cdef3909fb9d353e4348001c03abf690caaeedc5d70cec4b50475f6ca63fd7ed",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q128777972",
+      "name": "أحمد عبد الرحمن محبوب",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:20.764+00:00",
+      "beforeHash": "6d53372f9f02d4570c4046e7ae8dfd4d24cfb02db7438c5de065d79570bb387d",
+      "afterHash": "aefb144aaa65d2e4101043c6d06ee8de425a20b1f2d719f15d5e84b615cf7dc2",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q20811058",
+      "name": "جمالة البيضاني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:27.217+00:00",
+      "beforeHash": "0b313f9b5a1cd0862517a2b04159b1a34ba118f69aa4adc1892464a0a000b9eb",
+      "afterHash": "23d6976c3b67b152ca2d9257a9f0ab84430e425f2a16a7c96ac917dd4d5eca58",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q5627924",
+      "name": "محمد عبد المجيد قباطي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:14.222+00:00",
+      "beforeHash": "9da42ec426db61e42e306999524165b64d4543b810703d4695ce96765be1ed41",
+      "afterHash": "5b29106cce266507ce2a4eeb1130ec1e00c9e71c88550a4c92cc8f8a7838873c",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q16118426",
+      "name": "سعد الدين بن طالب",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:00.05+00:00",
+      "beforeHash": "768e305bf29fc41afc6154aa41509f5ad586c3571990a0b2aab91b6659e89820",
+      "afterHash": "e8470ce645dcce31be02ead7bdd25386b0d11c51d5dbfcab1e3045928499a5bf",
+      "factsAdded": 2,
+      "eventsAdded": 1,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12207969",
+      "name": "حسن زيد",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:56.285+00:00",
+      "beforeHash": "7d461619bed701b7e885d208daae6097ccc002772f7245cb55c49386c019bd1f",
+      "afterHash": "6bf5d094090b321bb9ecac2446de9fce63d97f17226df6a564fb9bbe7ef54248",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12208000",
+      "name": "حسن علوان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:37.729+00:00",
+      "beforeHash": "9ca9fae6957881ce81b2d90c7cd0d3aaba55f993b60bf9420f8a4b5ab72907d4",
+      "afterHash": "15b9ebdb1f813cfdbad5fecf7ccade238958ca5b606617f9de35ca30f7faa4af",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q20934577",
+      "name": "عبد الله القوباني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:30.486+00:00",
+      "beforeHash": "c50b565444b078f14a543cb201065fa12244114ef5b40cdde9daf61faaf160fa",
+      "afterHash": "6e8aec610d7f3a3c57b66c883b971b5864d81f5506d77af5eb50c6195e0c6326",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q125185169",
+      "name": "آمنة النصيري",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:35.319+00:00",
+      "beforeHash": "c74ee315bd8c171c104a5f1c4c1104c5c8354609d9c3faca72b1cdc169d2ffdc",
+      "afterHash": "f73bb549725fe8ef3be271f0d6b760da898c2eefed5f03acd3c83f6465bfa32e",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "abdullah-al-sallal",
+      "name": "عبد الله السلال",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:14.377+00:00",
+      "beforeHash": "22b342f2ea4b8c2874bdafab0c5c638003578413b29276387ebcde1f20746ae9",
+      "afterHash": "3a6fc59d1ea83c37744d51584fea85b605e06309537447f110245954c31ba2a4",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q20412274",
+      "name": "عبد العزيز قائد المسعودي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:50.447+00:00",
+      "beforeHash": "107c3500031bd464bfe56b03d7465c9db32c1ae51dd6e6dc7ab56691a1a36067",
+      "afterHash": "d0b96a3df13d6767fb4f6451c3de8540fc8467b8197dce260344dc8951b2e2d4",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q5644466",
+      "name": "حميد القشيبي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:57.803+00:00",
+      "beforeHash": "b58f45892a73645e91ff08b90940fccb50feb95a1ac29fc12349978698e42550",
+      "afterHash": "b76231086d68b71615c9338547bc9436a7be360d5f50cc1786d4d1ebe4f909cd",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q16300330",
+      "name": "أوسام السيد",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:28.215+00:00",
+      "beforeHash": "1d9264913781fa0b8c1265cf867da9ed17afb736c498d77d3aa50f3292638bfd",
+      "afterHash": "a7fd466f4a795adb556478f9cdc4aed566ec45eaba07dec7c781016b6ad0ad71",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12212800",
+      "name": "رؤوفة حسن",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:25.274+00:00",
+      "beforeHash": "f837cc31add4a7ae8c1389fcfa53bc4540d06154da10c1268a8711701dbec846",
+      "afterHash": "ebf5b4435d11958d0e3828426fb90d86d0567784ad3e3ad6461585828c900cd4",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "abd-al-razzaq-al-sannani",
+      "name": "عبد الرزاق الصنعاني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:02.598+00:00",
+      "beforeHash": "2a83ffe22bd38e56020818d9be0456a3eadd7e33894a860be5a0e2edb2209cb3",
+      "afterHash": "939b4367acb7e9d617ce7feedf67dc142be340ee5a7261a6feb22adbd5da0d7e",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q6127529",
+      "name": "جمال عامر",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:24.626+00:00",
+      "beforeHash": "988d83c14758fc3d71a76bd3f71d5a2268cca3f8d1bc89cdb3c6f9880852bf44",
+      "afterHash": "d6ea6fcc1f13d2c3999aeafb858e4355854a1acd81964da3addd1caead8f279b",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12228199",
+      "name": "علي ناصر القردعي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:44.287+00:00",
+      "beforeHash": "cd828b8869f9ee4189ee38b1722b99570532f89b8d5ba6edcca55a87a77001d4",
+      "afterHash": "6d5434e8b03849d2d2a12a3f6839a6d4b4c4a375b13778151d2c2a88b8f10e89",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "arwa-al-sulayhi",
+      "name": "الملكة أروى بنت أحمد الصليحي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:28:41.659+00:00",
+      "beforeHash": "576451aabf7a554d59898e2beff850738cc093043fbb842bd55a00b1ca9b9589",
+      "afterHash": "be92f250bc28d642ba1b6ecbba7badbdb8d3495cb0a25c2084cc8ded77c6d1e9",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q16122933",
+      "name": "شذى الخطيب",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:43.402+00:00",
+      "beforeHash": "6f1141fc074d0b141cdf8963201e4397e09d35424a00a389fa5b182bbcb0ef23",
+      "afterHash": "9ce3aa992679bce52dd657f9302bf7893a35268c5526250fef782d95d657efb0",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q2753071",
+      "name": "تميم القباطي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:28.815+00:00",
+      "beforeHash": "d37703aa27cbee729d3f0aff119a0089f7629de0684811afdb7e6219eed47e56",
+      "afterHash": "5fed9afe7f372ad4dcc345d37ecd68db980546c48235e85d5c9fb49d014fbe5d",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q68107054",
+      "name": "محمد عبد الله الحضرمي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:13.36+00:00",
+      "beforeHash": "5594a613c846110e52e632f3dbd466ed09ed9912aed751a5d282f7cc97c1f12d",
+      "afterHash": "9ba08d09a5bda54deffa19e50225440f7a3cddcabbd0accd42f8107c4171731e",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q6532374",
+      "name": "إبراهيم بن عقيل",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:45.943+00:00",
+      "beforeHash": "95c9ce2207ad5c8b288ce639f1b9f58d97ebc861345ffc101ffbe2872844386d",
+      "afterHash": "02905b70ec2bbc33dbf1e9f41c71f3efc22391ed98a9eea4ec7ffa9a5c15ca72",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q137845940",
+      "name": "راشد محمد ثابت",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:48.118+00:00",
+      "beforeHash": "a97381800e415f6094c67cf8db0a6e80f07f5cdef82a3c9bf95b7514227da4b1",
+      "afterHash": "070a8b299a7b53c006dda8f90ada02215d8ceacf827f3a2bf41c1b5ef90d55e8",
+      "factsAdded": 8,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q20414203",
+      "name": "عبد الله محسن الأكوع",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:06.309+00:00",
+      "beforeHash": "94385ae95a87301a465976cf729c11b0fd9b82246cac48fe7cacce557164849b",
+      "afterHash": "5ad37e81e1cf54461e5f2c53c364da12fea5b9812c18926f7af86a2e73cd1f3d",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "nashwan-al-himyari",
+      "name": "نشوان بن سعيد الحميري",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:30:59.48+00:00",
+      "beforeHash": "0bc76b992bc3688740633bb333f72a59c907d9439c191d28d9d17b8a19538067",
+      "afterHash": "117526f93d3d6a5a7768a95b0a5834829bea84bb5a837c2b39e28ad50243709c",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q7498310",
+      "name": "عبد الله جزيلان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:05.617+00:00",
+      "beforeHash": "6840f1abc29e4677d222c288642c624da96a096f10b58fd74b323eccef777fc9",
+      "afterHash": "ddb93d96a6ba03fe1c3b9d562932caa80a0426d03a6ab652bd6c1910e13e799a",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q124287468",
+      "name": "أحمد بيدر",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:23.498+00:00",
+      "beforeHash": "60496f3023dfe1471e6c30c7340817f19469b36a8598971336fb1dd879d15925",
+      "afterHash": "027ab0c12dc53927d7621d8c8cbf09d69bceee3094b61f683d6cd8015ad54a45",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q22054939",
+      "name": "عيدروس الزبيدي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:10.287+00:00",
+      "beforeHash": "49eefc8f1ad672d91c332bf39c272924a7667a35b2ef5ff625834361fa03c2fd",
+      "afterHash": "3557a69cb7cc636aeabf1308d75bc9f695e3d7a8ca630387665c95a23750e61b",
+      "factsAdded": 5,
+      "eventsAdded": 1,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q3699003",
+      "name": "أحمد محفوظ عمر",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:47.565+00:00",
+      "beforeHash": "f8567c406c03bf5e69d45bd75b1c4263b8b1d2488847bc955be56efb061633b9",
+      "afterHash": "b869b8cfd70eab5d605bb9d7718c3b7458738ad4844fc51324398abb3eb46886",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12223209",
+      "name": "عبد القادر قحطان",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:18.479+00:00",
+      "beforeHash": "ca5754e38d8391c04711ff67ea86d61bae837708ac902b1e960763151ab0171b",
+      "afterHash": "f751f21000187a6d180f6ddeba4b2169ac88df5dec3b0fbbda26cc43eda3a824",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12223068",
+      "name": "عبد العزيز بن حبتور",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:02.402+00:00",
+      "beforeHash": "5459f85c83dbc22bfd6fff8c268984c900c62f943e5184487858d9847b38b28e",
+      "afterHash": "caff015786afde5bef50726c962bc043bc8e17ea6aa406512e3957d74944c981",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q4746300",
+      "name": "أمين السنيني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:27.588+00:00",
+      "beforeHash": "485457ac8150774256ae61c7f45e31bc8bb3f640b42fe962691aea1e3d4ebb13",
+      "afterHash": "e0b1c7f5302aee2b02671e9a0366815cdd42bae37cdfe74742fd19f0ef18957e",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q4665499",
+      "name": "عبد اللطيف ضيف الله",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:04.883+00:00",
+      "beforeHash": "2cc56e02dfe7b53ee74e47b4987c227f4aae3921ee55206681c6d5aff7927e06",
+      "afterHash": "b05b7497171f88befa4d1f2d90b0f53eaed214de054d88b19bc45d1bcf3ecc17",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "muhammad-al-zubayri",
+      "name": "محمد محمود الزبيري",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:12.738+00:00",
+      "beforeHash": "bf697be5c22159bac8c502cbc3a8ce36a32e9f0c6c8f1fc955eb6c7a1fe794f0",
+      "afterHash": "27b56d16de61daca0e4a920488164239969bec35f5ff16a7f8934b3d1f276a37",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q3660608",
+      "name": "رمزية الإرياني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:48.695+00:00",
+      "beforeHash": "f555fe6e568d5d9eab9f99b3faf791e7105df1f7b2d0e29109ee7f963fcd41e4",
+      "afterHash": "aa988d3f38771e7520d48ee53335ad1e05f59b7348903e99794e3d618069a21e",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "ibn-al-dayba",
+      "name": "عبد الرحمن بن علي ابن الديبع",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:11.927+00:00",
+      "beforeHash": "42632ee05f6277f848c95dd7b2581cd7c405733121ba3c940c4dc3e4755dd23e",
+      "afterHash": "5594c315e95adac501d3391502201d45598b21f9bac14febdd6eb03a46d24e97",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q2784468",
+      "name": "عزيزة عبد الله أبو لحوم",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:51.041+00:00",
+      "beforeHash": "782af58ec04c47b5a96821fb8d5f1a6ae110ec454b2303f881eae82d31af2162",
+      "afterHash": "715c2d5a576425b44f0547ae865758bc02ba09782dd41878226891bb20ed1857",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q20385161",
+      "name": "سميرة خميس عبيد",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:23.395+00:00",
+      "beforeHash": "22660b6f2dbffd85df55407cb21ed0aed2d29a1f381fe2b20d9852d41f3bbf74",
+      "afterHash": "aca26557fe24e8c43db740deb2dc3ae073d6715096986a1a8177439dc9f2d798",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q3013149",
+      "name": "صالح سعيد باعامر",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:49.865+00:00",
+      "beforeHash": "f71328edde95b2fb3b84bcd332e7f987b50706b3d966982cf04c2b1d6050c268",
+      "afterHash": "d68d26ecde5c0d48af50d768c43620e4a12532ef9bb4b276971649db896e0204",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q65640445",
+      "name": "صبري الحيقي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:34.044+00:00",
+      "beforeHash": "7933595e8d10a1fcd1e99a23b725e09212713d07a5fd17051dd7e77d13855621",
+      "afterHash": "d6aa557f13ca58806c9f7f6562d6bc4abd917f4d2cb68d9da4ef85841d7bdb66",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q1322893",
+      "name": "حيدر أبو بكر العطاس",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:21.963+00:00",
+      "beforeHash": "83ceaa2bfa6f4ae456f57e8ea1669a730c9b9a4389f384037157978bcc1ac9c1",
+      "afterHash": "e235f7dc41879102e74aee40dc544808bfca2b5b0e102fe174538b6b0acce80e",
+      "factsAdded": 7,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "shammar-yuharish",
+      "name": "شمر يهرعش",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:06.441+00:00",
+      "beforeHash": "262951bd30f4ad265485cc8adee1d82a0ec7b60fe9eba9628c92af981ec9a5d0",
+      "afterHash": "26b8dbaff61786746169c352ae96fd6ccf52992d97fa9a15c2613b7117210866",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q6399320",
+      "name": "خالد بلعيد",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:29.441+00:00",
+      "beforeHash": "0d77f7f86ae390672a001158608f4be50af7e028c686e436a0ceba06119cef6c",
+      "afterHash": "2133ae7d245da2ce6a5509e1c76f17b1557a0677c43f8ea5624d339047041426",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q2266637",
+      "name": "الحسن بن يحيى حميد الدين",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:54.007+00:00",
+      "beforeHash": "17769adc931621cc50b34d846c67cffa520faf475012a72a7e2f27d637f3b443",
+      "afterHash": "dae5317662d228a13af2bad17a30950da8e03baa8214a11e40dcc3379dad60a6",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q22933693",
+      "name": "أحمد بن محمد بن علي الأنصاري اليمني",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:47.073+00:00",
+      "beforeHash": "497e188ecdd35d5a3b5fe996f6508461decb5c573e45cc115e84978eb709e68d",
+      "afterHash": "0e2736ac3a2c0e8d231331dcee28c3948351599fa27c50ac3248f095a175ed7b",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "asma-bint-shihab",
+      "name": "أسماء بنت شهاب",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:30:58.1+00:00",
+      "beforeHash": "4e27a08a843c0a815291d0bae8d9fd447b8572181a7593c386a7b89340e3a07f",
+      "afterHash": "796ae921afd2324c0bb1b2a36c71bc6994a7dec202633793e94a4e7f36196eaa",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12214890",
+      "name": "زيدون مبارك العبيدي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:38.351+00:00",
+      "beforeHash": "2f5f1c372384c429a34691daf7de8e7bf464559e8ebb6870cc77a9ec26fcfd69",
+      "afterHash": "38c22c8e7ab931fa0049b75f1d2a1ab5d5f20c403fd732dfdd35c5256eb0b617",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q131823699",
+      "name": "صابر بامطرف",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:33.119+00:00",
+      "beforeHash": "4de4a44705061efdbc4b1d38e3ce1474de4eaf07f384d9b40bff9baeb34893bb",
+      "afterHash": "b1bb9b8f9ea27a8951300dd647c99662a7945810ebb97b5e9f3986c51cdb2941",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q58297",
+      "name": "أبو بكر القربي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:16.231+00:00",
+      "beforeHash": "3942af61adaa05b2fcbff625f98f0b99f1f1545245e364af6549a21a0913e08b",
+      "afterHash": "6df2921f045d0019f8f401011b30881ddd647647f9c20c85ffeb3386248019be",
+      "factsAdded": 5,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "yahya-al-rassi",
+      "name": "يحيى بن الحسين الرسي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:10.691+00:00",
+      "beforeHash": "59456f467e8476ac373fa362bb296bafc1720269c55fb723c63346ff89f55b9e",
+      "afterHash": "3c3e7a0a05242ce88eeb168b7b3f811a66d008a52bf6e37668319e60f283b3ed",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "sayf-ibn-dhi-yazan",
+      "name": "سيف بن ذي يزن",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:04.35+00:00",
+      "beforeHash": "966b4c3aa6d5cd2c7817d12430253cf0db5ead692cd0aa61943d75b6f3e6e40a",
+      "afterHash": "6ce87b6f70e7c818d1db8cafb609a68f3135eb17bd7e3504407b541fa88c4b43",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q12182187",
+      "name": "إسراء جرجرة",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:26.979+00:00",
+      "beforeHash": "118920518691d390568ad6466aaf1dc0ca3f9d5871af09ae48c22c1f5faab3be",
+      "afterHash": "14099d02d7bfad0a03a899421648203870acacbad845ab1f671f4873f6119de5",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q20385886",
+      "name": "أحمد عبيد بن دغر",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:51.968+00:00",
+      "beforeHash": "a9e439803fa00427caa1b796303c72923039bb118c801541140a746048bbfeac",
+      "afterHash": "cf1ae0df7aba5a0b73a603cb8867cedb64fe6917eb34f599ed408d5ce73b4edc",
+      "factsAdded": 6,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q2836307",
+      "name": "علي محسن المريسي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:26.307+00:00",
+      "beforeHash": "cdaef85d201e919c06da4268267801851d78748ee754229e1f2d901673074401",
+      "afterHash": "236b481e322f46f3cc3f94fae0ef16f6f9cf342e61580731bba488fe92edb9ec",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q6854149",
+      "name": "محمد قائد سيف قباطي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:17.869+00:00",
+      "beforeHash": "51def479742d097e7bcfef784c849fc047230b14295a13efd9d779393ed6c15d",
+      "afterHash": "5b5db3541ee30639fdd098cce798d84ed6685054a69d9a771250f99b030e1479",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q19006319",
+      "name": "محمد علي الحوثي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:15.013+00:00",
+      "beforeHash": "28f22e00b326481f6cff3deacbe2e186133f94be0cf2b965e61020a493bd649b",
+      "afterHash": "323262129b8dffd396487943529f890cffccf33f789c2ef3acca0d62ad2180de",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q12221560",
+      "name": "طاهر حسين",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:38.891+00:00",
+      "beforeHash": "bb638fe69e3aec207f0eaad7155f9a53ae56e4efbe51b688ca284a757663416c",
+      "afterHash": "8c174ef42977a873f26ddbddb0245c7a5b946c52bc1d2f82d6f4e5be23d06543",
+      "factsAdded": 1,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q2404104",
+      "name": "أحمد عبد الرحمن السماوي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:41.515+00:00",
+      "beforeHash": "6fce0257cf5b6b3255dcba4da53b56043bb6970b3b6c9aac62a33906580ce9fe",
+      "afterHash": "2c23f974cad10af0cfeb224bdb2e2f8c40fea0f4810ac184893c1b58ecd17e0c",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q136914151",
+      "name": "عبد العزيز مصنوم",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:29.986+00:00",
+      "beforeHash": "ab19056d5daba02292a5b16b168262b86bf688348b7e8b85e15ddaacae87d823",
+      "afterHash": "78e2dbb3caf3bd89851a3a11f2bb7136ab455bdd7f27d312cf666eb296e89a6c",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q7403896",
+      "name": "صالح اليزيدي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:24.926+00:00",
+      "beforeHash": "c2d05b6f4efc7c4999b9af7d69cbce427ad9d8c41f7fd3a8fcfe6869aa8e8847",
+      "afterHash": "80bdc9a09569fa372718834ffbbf20ced2e9cb679dbdde136c9dc5fb50846cce",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q2784436",
+      "name": "حسن أحمد اللوزي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:37.135+00:00",
+      "beforeHash": "12ac848428306b31c233d8926d5a173f14c914995b8d993bc67593249485b3a7",
+      "afterHash": "37a67a96eccae9107f702e48d6bc8463fec2f92bc479ab19305408bcbf8b145c",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "ibrahim-al-hamdi",
+      "name": "إبراهيم الحمدي",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:15.511+00:00",
+      "beforeHash": "9bef259127de4444c1cfd7ead367c91154902c52520127be5b5a5ca738fd576d",
+      "afterHash": "419e9e645fb5a956c42719c1661ce2e83d3078cfc364fb0de8bf94472885877c",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": true
+    },
+    {
+      "slug": "q136026273",
+      "name": "محمد أحمد مفتاح",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:32:11.832+00:00",
+      "beforeHash": "d8e9c29f99bf1a3fad4d611e6981d1d96feb33adcbfc243404d2f26cba2cf46f",
+      "afterHash": "c33cf82f16318cadefb977a8299d85acc1b69520426e6d9dcc1853e9ff2ff11e",
+      "factsAdded": 2,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "karib-il-watar",
+      "name": "كرب إل وتر",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:05.783+00:00",
+      "beforeHash": "22d2d8611177072bf2db85b759fabb2de25aaebb8bc7e4b3fcac722962c8d9e6",
+      "afterHash": "add68f1d2e3f3d86978431e8248fc1d7f1f32a360164f1c05fbf4f0479b6f0a2",
+      "factsAdded": 3,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "q4678423",
+      "name": "عمر بن حفيظ",
+      "kind": "update",
+      "expectedRevision": "2026-10-19T01:31:19.245+00:00",
+      "beforeHash": "2e0c531f4b189cef877e31b81a05a9060ecaf12378cabe8d7f7bebd1de988031",
+      "afterHash": "4a041529840e320a3be473624e5902330b7c18e7508ffb973428143c2af5bd5a",
+      "factsAdded": 4,
+      "eventsAdded": 0,
+      "bioExpanded": false
+    },
+    {
+      "slug": "abdulaziz-al-maqaleh",
+      "name": "عبد العزيز المقالح",
+      "kind": "create",
+      "wikidataId": "Q4665796",
+      "afterHash": "ce2fd8b49b7842094298b6152a8fca16c0ef7842137be3f80edd0885b9fc3a02"
+    },
+    {
+      "slug": "abdullah-abdulwahab-noman",
+      "name": "عبد الله عبد الوهاب نعمان",
+      "kind": "create",
+      "wikidataId": "Q12223657",
+      "afterHash": "820f7f4b802745e77189ebe86527d60f671eee6f94c7a458d3028907bae8dc28"
+    },
+    {
+      "slug": "hussein-al-mihdhar",
+      "name": "حسين أبو بكر المحضار",
+      "kind": "create",
+      "wikidataId": "Q12208148",
+      "afterHash": "6fa5cb244da2d22eda561f438404ca88bf7accf84ba1765a50ebe07d95772951"
+    },
+    {
+      "slug": "mohammed-murshid-naji",
+      "name": "محمد مرشد ناجي",
+      "kind": "create",
+      "wikidataId": "Q12241001",
+      "afterHash": "72063be6b1e8ea17918573074fca466e796d456c15bca437cdd0563b54781541"
+    },
+    {
+      "slug": "mohammed-saad-abdullah",
+      "name": "محمد سعد عبد الله",
+      "kind": "create",
+      "wikidataId": "Q12240549",
+      "afterHash": "e4a524c796caf7a75a44debfd8a259c3867b2f8386e5d1385229776eae64ce7b"
+    },
+    {
+      "slug": "faisal-alawi",
+      "name": "فيصل علوي",
+      "kind": "create",
+      "wikidataId": "Q12231682",
+      "afterHash": "3867683ca9708a9e86f21fedef89788be153ae4cad8e6b87ab9c485e3ed3b6d5"
+    },
+    {
+      "slug": "mohammed-hamoud-al-harithi",
+      "name": "محمد حمود الحارثي",
+      "kind": "create",
+      "wikidataId": "Q12240432",
+      "afterHash": "a6dc5950fcebd7fecbeabdba20872fb11390f5ae08560aab380429ce2fa2d7ad"
+    },
+    {
+      "slug": "ahmed-fathi",
+      "name": "أحمد فتحي",
+      "kind": "create",
+      "wikidataId": "Q6822196",
+      "afterHash": "864889fa8f260e7e3d5e5e410a4521267f2f503db096781a61dc596bbb9bdfbd"
+    },
+    {
+      "slug": "karamah-mursal",
+      "name": "كرامة مرسال",
+      "kind": "create",
+      "wikidataId": "Q12234642",
+      "afterHash": "4128691eb5d15aac1ecf3d3c1b1c2acc1765dc506edd73a30b5115edeb4e0d97"
+    },
+    {
+      "slug": "amal-kadeel",
+      "name": "أمل كعدل",
+      "kind": "create",
+      "wikidataId": "Q28936500",
+      "afterHash": "fc5d7ff31847f97f189b1ab2ef1bab842825b76773ae728889463dd3a845954c"
+    },
+    {
+      "slug": "arwa-singer",
+      "name": "أروى",
+      "kind": "create",
+      "wikidataId": "Q4119168",
+      "afterHash": "fe8d6dab8079cc7d8bd5cc1d52ba3557aa0c24b55c767bdf450fd2e98c586ec8"
+    },
+    {
+      "slug": "balqees-fathi",
+      "name": "بلقيس فتحي",
+      "kind": "create",
+      "wikidataId": "Q12199113",
+      "afterHash": "6dace3845de09a298e8765dccad4ea38fe1cc39e861d77861971f9386a11e88e"
+    },
+    {
+      "slug": "fuad-al-kibsi",
+      "name": "فؤاد الكبسي",
+      "kind": "create",
+      "wikidataId": "Q12229947",
+      "afterHash": "d920471e26c70efe018bb3de309b07ea6ec965f6c2dfe167825f51d2ed1abb86"
+    },
+    {
+      "slug": "ahmed-qasim",
+      "name": "أحمد بن أحمد قاسم",
+      "kind": "create",
+      "wikidataId": "Q25451095",
+      "afterHash": "153c82ea2c19336c09a412c4a136dd6ff9f71eef37747930f68ff9555b89b95c"
+    },
+    {
+      "slug": "mohammed-juma-khan",
+      "name": "محمد جمعة خان",
+      "kind": "create",
+      "wikidataId": "Q12240350",
+      "afterHash": "d1407c9f18a67dcb51a0cd3bc613e02ccff9f855a1be2f228c89345901a5dc70"
+    },
+    {
+      "slug": "mohammed-abdu-ghanem",
+      "name": "محمد عبده غانم",
+      "kind": "create",
+      "wikidataId": "Q12240768",
+      "afterHash": "299693825557f0671003970bdd57b104dac7c2b9a698af2c87528b0936428144"
+    },
+    {
+      "slug": "omar-al-jawi",
+      "name": "عمر عبد الله الجاوي",
+      "kind": "create",
+      "wikidataId": "Q6819017",
+      "afterHash": "ac38664e4815694a0c1e7b3f93b36a853fe79284536252e05193c5cb1ba9ada1"
+    },
+    {
+      "slug": "abdulkarim-al-razehi",
+      "name": "عبد الكريم الرازحي",
+      "kind": "create",
+      "wikidataId": "Q4664562",
+      "afterHash": "94a833d9613fb73366693df53086b151403dc86d6ede636e3f7527450547dbd3"
+    },
+    {
+      "slug": "mohammed-hussein-haitham",
+      "name": "محمد حسين هيثم",
+      "kind": "create",
+      "wikidataId": "Q6853789",
+      "afterHash": "df21a8f297ee08325394e374a30ab1e0be9155b91848bd0dbc955510c63edd6c"
+    },
+    {
+      "slug": "habib-abdulrab-sarori",
+      "name": "حبيب عبد الرب سروري",
+      "kind": "create",
+      "wikidataId": "Q5636754",
+      "afterHash": "2145d3407be49f797eff68f123336de1bfafa4135f4e85f4317b91811693c791"
+    },
+    {
+      "slug": "wajdi-al-ahdal",
+      "name": "وجدي الأهدل",
+      "kind": "create",
+      "wikidataId": "Q4117116",
+      "afterHash": "6c037bf7cc72f4f467f78c2ef0f2240287a13da7c830afdca1eacea26d797cb4"
+    },
+    {
+      "slug": "mohammed-abdul-wali",
+      "name": "محمد عبد الولي",
+      "kind": "create",
+      "wikidataId": "Q4119190",
+      "afterHash": "9253ed1bd6d97954dd7b90e7f408fcc1e971a37e03c9357e61559fe2a3cf9a36"
+    },
+    {
+      "slug": "zaid-mutee-dammaj",
+      "name": "زيد مطيع دماج",
+      "kind": "create",
+      "wikidataId": "Q8067549",
+      "afterHash": "8117547c6b83e96973f4813cdb7d2df9f9cb05da411af7b5767bf0c5b14bab0d"
+    },
+    {
+      "slug": "ali-ahmed-bakathir",
+      "name": "علي أحمد باكثير",
+      "kind": "create",
+      "wikidataId": "Q12227833",
+      "afterHash": "c5866dec5f6c2afd72328ad09d99970ff5424a65e85cd74b55612f1c231219f1"
+    },
+    {
+      "slug": "mutahhar-al-iryani",
+      "name": "مطهر علي الإرياني",
+      "kind": "create",
+      "wikidataId": "Q116754003",
+      "afterHash": "035c247820f4dc4d62c7a8089ea6e0437984dfdaf239c31d4c58f4b77af42bec"
+    },
+    {
+      "slug": "al-amir-al-sanani",
+      "name": "محمد بن إسماعيل الصنعاني",
+      "kind": "create",
+      "wikidataId": "Q12240084",
+      "afterHash": "402058db2f9c3bfe28c9c30f0607f1bbe41533a2c24814d9311af0871cd36a0d"
+    },
+    {
+      "slug": "mohammed-al-imrani",
+      "name": "محمد بن إسماعيل العمراني",
+      "kind": "create",
+      "wikidataId": "Q12240087",
+      "afterHash": "c518b91af89c4ff11ef644b1522b81ba2198cefab0433f3063343ff859ce348a"
+    },
+    {
+      "slug": "abdullah-al-haddad",
+      "name": "عبد الله بن علوي الحداد",
+      "kind": "create",
+      "wikidataId": "Q6003118",
+      "afterHash": "e49d05a5cbef758b9ba3e13b58a284ccdd997c009ae7e6292a6510f826fc6ec1"
+    },
+    {
+      "slug": "ahmed-al-muhajir",
+      "name": "أحمد بن عيسى المهاجر",
+      "kind": "create",
+      "wikidataId": "Q4115985",
+      "afterHash": "88c05cc5989de11c4e1a37e36d0c8a3b572c7dbe91a966a77d2d7088f2dbb1f1"
+    },
+    {
+      "slug": "abdullah-badhib",
+      "name": "عبد الله باذيب",
+      "kind": "create",
+      "wikidataId": "Q88406945",
+      "afterHash": "221469dd6ab6b1c543d817c004a9ab91d3195dbd7de063ca308dbe1eefb984ce"
+    },
+    {
+      "slug": "qahtan-al-shaabi",
+      "name": "قحطان محمد الشعبي",
+      "kind": "create",
+      "wikidataId": "Q3034053",
+      "afterHash": "db55f09b752dfa95e8b4b430f141a724811717884db0684d1e481946c5116413"
+    },
+    {
+      "slug": "salim-rubai-ali",
+      "name": "سالم ربيع علي",
+      "kind": "create",
+      "wikidataId": "Q2214390",
+      "afterHash": "dd1b20d0da0ce4a8250d89710218349c6b173c600f118de9f7a757a33fdd3913"
+    },
+    {
+      "slug": "abdul-fattah-ismail",
+      "name": "عبد الفتاح إسماعيل",
+      "kind": "create",
+      "wikidataId": "Q307211",
+      "afterHash": "0d704c2221156630a2926b3f98f6fda6504714a7ca043b5e26624e4000c1191f"
+    },
+    {
+      "slug": "ali-nasser-mohammed",
+      "name": "علي ناصر محمد",
+      "kind": "create",
+      "wikidataId": "Q924397",
+      "afterHash": "f5faf45937632f55359671fa64193595b8f4641a060593dfc4c023d6765364eb"
+    },
+    {
+      "slug": "abdulrahman-al-iryani",
+      "name": "عبد الرحمن الأرياني",
+      "kind": "create",
+      "wikidataId": "Q317420",
+      "afterHash": "a54893c60b9475d38e5b5044b8739323509a6b401b6e5e5f02387554f8195b47"
+    },
+    {
+      "slug": "ali-abdullah-saleh",
+      "name": "علي عبد الله صالح",
+      "kind": "create",
+      "wikidataId": "Q483672",
+      "afterHash": "a6ef9a78bfe3cb9cd89ad5133dc42d1ebafaefcd491311f81c2d82898609c4d5"
+    },
+    {
+      "slug": "ahmed-mohammed-noman",
+      "name": "أحمد محمد نعمان",
+      "kind": "create",
+      "wikidataId": "Q400701",
+      "afterHash": "d499ea433aa98921fcbd5ef8db4fbcff07e66356fa4cfc5b579afa32226a24b6"
+    },
+    {
+      "slug": "abdullah-al-ahmar",
+      "name": "عبد الله بن حسين الأحمر",
+      "kind": "create",
+      "wikidataId": "Q307637",
+      "afterHash": "8932c8c18157de6072eed9a7d63cc6d6bbedc8462b33d9c8ae67c6bc42029f78"
+    },
+    {
+      "slug": "hayel-saeed-anam",
+      "name": "هائل سعيد أنعم",
+      "kind": "create",
+      "wikidataId": "Q16012507",
+      "afterHash": "2b0373efe8a4f318ee459ebb6997390ed04810b63940f270eb94cf26a8ad01e4"
+    },
+    {
+      "slug": "naseem-hamed",
+      "name": "نسيم حميد",
+      "kind": "create",
+      "wikidataId": "Q1355898",
+      "afterHash": "900fd20044d1c66d285452a3b2269e6d11d69bd620fa3c0a6011bd0b89f8b393"
+    },
+    {
+      "slug": "ali-al-nono",
+      "name": "علي النونو",
+      "kind": "create",
+      "wikidataId": "Q4119526",
+      "afterHash": "6d362e9012bee544c9024f88b2718e5eddd1686119452e8202ecbbad34d69d57"
+    },
+    {
+      "slug": "alaa-al-sasi",
+      "name": "علاء الصاصي",
+      "kind": "create",
+      "wikidataId": "Q4116063",
+      "afterHash": "70a6bb1e845f38f3996e679adf2aa63aac4161c7c4a826388ba90ef5508ceb6c"
+    },
+    {
+      "slug": "omar-al-dahi",
+      "name": "عمر الداحي",
+      "kind": "create",
+      "wikidataId": "Q77887203",
+      "afterHash": "452302275ef37058fc092b320928d77369213f9bbf1d38d1be40156c5b46a4ad"
+    },
+    {
+      "slug": "bushra-al-maqtari",
+      "name": "بشرى المقطري",
+      "kind": "create",
+      "wikidataId": "Q16124105",
+      "afterHash": "e73d0de35848331d1feab1edd36a52ddbd561d5cd51966a3c561bb63a96f7bee"
+    },
+    {
+      "slug": "nabila-al-zubair",
+      "name": "نبيلة الزبير",
+      "kind": "create",
+      "wikidataId": "Q6956915",
+      "afterHash": "acb9320904f08e73f002bcd63696cb48bbc3dce21e67744a0b7cfba5f8c26a20"
+    },
+    {
+      "slug": "huda-al-attas",
+      "name": "هدى العطاس",
+      "kind": "create",
+      "wikidataId": "Q3013158",
+      "afterHash": "a79c1bd1add41c88ab68e9a3b1d11f77986ba347ac133413443d72486fc070cb"
+    },
+    {
+      "slug": "lutfi-jafar-aman",
+      "name": "لطفي جعفر أمان",
+      "kind": "create",
+      "wikidataId": "Q12237237",
+      "afterHash": "6c34a61228a7221563bc91c07b3928fb226770cba6a2d1f3890845d7ef342cc1"
+    },
+    {
+      "slug": "nasr-taha-mustafa",
+      "name": "نصر طه مصطفى",
+      "kind": "create",
+      "wikidataId": "Q6967263",
+      "afterHash": "9ad9f306b39478ca86a5bcbf0932a0d790d5e0cec83f9035e47cf9445245cdbf"
+    },
+    {
+      "slug": "saeed-awlaqi",
+      "name": "سعيد عولقي",
+      "kind": "create",
+      "wikidataId": "Q7398217",
+      "afterHash": "e9a80438989db4d1e5195819c4cc12630185f3d06220f2ad0aca4ed40ebf43ab"
+    },
+    {
+      "slug": "abdulrahman-fakhri",
+      "name": "عبد الرحمن فخري",
+      "kind": "create",
+      "wikidataId": "Q4664583",
+      "afterHash": "940d6661cce45d4a8de0e269a8bb4ddc34a47d282ba299d33ca63bf506a3703e"
+    }
+  ]
+}

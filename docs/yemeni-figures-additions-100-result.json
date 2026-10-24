@@ -1,0 +1,621 @@
+{
+  "mode": "apply",
+  "reviewedAt": "2026-10-24",
+  "beforeCount": 170,
+  "baselineCount": 170,
+  "batchCount": 100,
+  "alreadyPresent": 0,
+  "plannedInsertions": 100,
+  "plannedUpdates": 0,
+  "expectedAfterCount": 270,
+  "inserted": [
+    {
+      "slug": "ali-bin-ali-al-ansi",
+      "name": "علي بن علي الآنسي",
+      "id": "fde7bd65-1952-4f56-86f1-4c40796c4a68",
+      "revision": "2026-10-23T23:57:08.801+00:00"
+    },
+    {
+      "slug": "ahmed-al-sunaydar",
+      "name": "أحمد السنيدار",
+      "id": "ba388b7f-a416-41af-af4b-fa006384e220",
+      "revision": "2026-10-23T23:57:09.582+00:00"
+    },
+    {
+      "slug": "mohammed-saleh-azzani",
+      "name": "محمد صالح عزاني",
+      "id": "401966d9-af93-4e28-9524-d299d26b83d2",
+      "revision": "2026-10-23T23:57:10.493+00:00"
+    },
+    {
+      "slug": "mohammed-mohsen-atroosh",
+      "name": "محمد محسن عطروش",
+      "id": "befac849-8439-49e7-b7de-79d516ce999d",
+      "revision": "2026-10-23T23:57:11.047+00:00"
+    },
+    {
+      "slug": "awad-ahmed",
+      "name": "عوض أحمد",
+      "id": "a03dd62b-2d45-4f2c-9b8b-b9c5e80ad441",
+      "revision": "2026-10-23T23:57:11.718+00:00"
+    },
+    {
+      "slug": "aboud-khawaja",
+      "name": "عبود خواجة",
+      "id": "05537a9b-1b53-4b71-93be-dfe8888d190c",
+      "revision": "2026-10-23T23:57:12.268+00:00"
+    },
+    {
+      "slug": "mohammed-abdu-zaidi",
+      "name": "محمد عبده زيدي",
+      "id": "4374a481-8235-4923-a8a8-dbc40b7c84f8",
+      "revision": "2026-10-23T23:57:12.845+00:00"
+    },
+    {
+      "slug": "salem-ahmed-bamadhaf",
+      "name": "سالم أحمد بامدهف",
+      "id": "f84128ec-4228-408d-8b72-9a7a86f7331a",
+      "revision": "2026-10-23T23:57:13.389+00:00"
+    },
+    {
+      "slug": "khalil-mohammed-khalil",
+      "name": "خليل محمد خليل",
+      "id": "7c799002-ee32-40c7-9f86-205ab4a85d6c",
+      "revision": "2026-10-23T23:57:13.971+00:00"
+    },
+    {
+      "slug": "ali-abdullah-al-simah",
+      "name": "علي عبد الله السمة",
+      "id": "0910dc16-6131-496e-abce-295620d3162c",
+      "revision": "2026-10-23T23:57:14.59+00:00"
+    },
+    {
+      "slug": "hamood-al-simah",
+      "name": "حمود السمة",
+      "id": "4e5c0d42-e7d8-4df8-90ff-39e233242575",
+      "revision": "2026-10-23T23:57:15.224+00:00"
+    },
+    {
+      "slug": "hussein-moheb",
+      "name": "حسين محب",
+      "id": "9b8307cb-797d-454e-8aae-3987f64b3490",
+      "revision": "2026-10-23T23:57:15.828+00:00"
+    },
+    {
+      "slug": "salah-al-akhfash",
+      "name": "صلاح الأخفش",
+      "id": "367ecc72-3a0c-4c3f-bdc2-050428811097",
+      "revision": "2026-10-23T23:57:16.349+00:00"
+    },
+    {
+      "slug": "mohamed-alghoom",
+      "name": "محمد القحوم",
+      "id": "45131218-311f-4c7e-85bd-ac9313eff121",
+      "revision": "2026-10-23T23:57:17.17+00:00"
+    },
+    {
+      "slug": "taqiya-al-tawiliya",
+      "name": "تقية الطويلية",
+      "id": "20b25cf8-c8cc-41ab-9fc3-bfef45c804fc",
+      "revision": "2026-10-23T23:57:17.666+00:00"
+    },
+    {
+      "slug": "fathiya-al-saghira",
+      "name": "فتحية الصغيرة",
+      "id": "d6adde74-d91a-4bc6-aad3-d774dae07438",
+      "revision": "2026-10-23T23:57:18.271+00:00"
+    },
+    {
+      "slug": "raja-basoudan",
+      "name": "رجاء باسودان",
+      "id": "49a71e96-8ab9-419d-9ecf-05cd3df652de",
+      "revision": "2026-10-23T23:57:18.842+00:00"
+    },
+    {
+      "slug": "fahad-al-qarni",
+      "name": "فهد القرني",
+      "id": "e9932d66-b247-4b61-9ede-5a1c3e73da6d",
+      "revision": "2026-10-23T23:57:19.397+00:00"
+    },
+    {
+      "slug": "mohammed-al-adrai",
+      "name": "محمد الأضرعي",
+      "id": "9adf462c-63c1-4106-b8d3-e60fcda53399",
+      "revision": "2026-10-23T23:57:19.842+00:00"
+    },
+    {
+      "slug": "salah-al-wafi",
+      "name": "صلاح الوافي",
+      "id": "9611beb6-34b7-41ba-a244-bcdaa9f34e48",
+      "revision": "2026-10-23T23:57:20.452+00:00"
+    },
+    {
+      "slug": "yahya-ibrahim-actor",
+      "name": "يحيى إبراهيم",
+      "id": "b313b6f9-7eae-4b77-b525-dff86b3cfddb",
+      "revision": "2026-10-23T23:57:20.979+00:00"
+    },
+    {
+      "slug": "mohammed-al-rubaa",
+      "name": "محمد الربع",
+      "id": "1aa25f80-457f-415f-99fc-f141e5997524",
+      "revision": "2026-10-23T23:57:21.675+00:00"
+    },
+    {
+      "slug": "abdulkarim-al-ashmouri",
+      "name": "عبد الكريم الأشموري",
+      "id": "72e67bb8-bc63-43f5-8bc9-1abb203dedec",
+      "revision": "2026-10-23T23:57:22.164+00:00"
+    },
+    {
+      "slug": "adel-samnan",
+      "name": "عادل سمنان",
+      "id": "3974e7ce-e093-48db-b635-3efdfced909f",
+      "revision": "2026-10-23T23:57:22.804+00:00"
+    },
+    {
+      "slug": "najeeba-abdullah",
+      "name": "نجيبة عبد الله",
+      "id": "7df1fe25-891b-41ff-90a3-d1f44a907a11",
+      "revision": "2026-10-23T23:57:23.345+00:00"
+    },
+    {
+      "slug": "remas-mansoor",
+      "name": "ريماس منصور",
+      "id": "ef854db7-d66e-45e9-9800-b14dbeacd364",
+      "revision": "2026-10-23T23:57:23.903+00:00"
+    },
+    {
+      "slug": "entisar-al-hammadi",
+      "name": "انتصار الحمادي",
+      "id": "8de5911d-45d0-4e7c-b26a-62a97e92e00b",
+      "revision": "2026-10-23T23:57:24.723+00:00"
+    },
+    {
+      "slug": "abdulkarim-mahdi",
+      "name": "عبد الكريم مهدي",
+      "id": "da8baa32-e486-4298-bdc2-79d3102b73d9",
+      "revision": "2026-10-23T23:57:25.848+00:00"
+    },
+    {
+      "slug": "amani-al-dhamari",
+      "name": "أماني الذماري",
+      "id": "1845e14f-2386-4b0b-8c2f-c7338322097b",
+      "revision": "2026-10-23T23:57:27.407+00:00"
+    },
+    {
+      "slug": "adam-saif",
+      "name": "آدم سيف",
+      "id": "af44e979-9d7c-4bcb-b437-b8dfbabc67f2",
+      "revision": "2026-10-23T23:57:28.002+00:00"
+    },
+    {
+      "slug": "abdulrahman-al-haddad",
+      "name": "عبد الرحمن الحداد",
+      "id": "98810b87-a630-4c80-8ea9-2c684225727a",
+      "revision": "2026-10-23T23:57:29.337+00:00"
+    },
+    {
+      "slug": "ammar-mohammed-al-azaki",
+      "name": "عمار محمد العزكي",
+      "id": "368d54b6-280d-4096-83a1-7f7ab3b02e9d",
+      "revision": "2026-10-23T23:57:31.584+00:00"
+    },
+    {
+      "slug": "suha-al-masri",
+      "name": "سهى المصري",
+      "id": "0f4835f6-d8ab-47ca-ba06-4ef48ac2898a",
+      "revision": "2026-10-23T23:57:32.199+00:00"
+    },
+    {
+      "slug": "mohammed-qasim-al-akhfash",
+      "name": "محمد قاسم الأخفش",
+      "id": "040c2fc0-3404-4cdd-acc7-e12eec6c7f8c",
+      "revision": "2026-10-23T23:57:32.756+00:00"
+    },
+    {
+      "slug": "yahya-omar-al-yafai",
+      "name": "يحيى عمر اليافعي",
+      "id": "500eff75-7885-4ca5-bf91-fd064b7f89fa",
+      "revision": "2026-10-23T23:57:33.381+00:00"
+    },
+    {
+      "slug": "ibrahim-al-hadhrani",
+      "name": "إبراهيم أحمد الحضراني",
+      "id": "90dcb2ef-13ff-4f0e-a56b-e33892fbe645",
+      "revision": "2026-10-23T23:57:34.042+00:00"
+    },
+    {
+      "slug": "abdullah-salam-naji",
+      "name": "عبد الله سلام ناجي",
+      "id": "033ffa61-349b-43c7-96cb-1b286509c564",
+      "revision": "2026-10-23T23:57:36.435+00:00"
+    },
+    {
+      "slug": "zaid-al-mushki",
+      "name": "زيد بن علي الموشكي",
+      "id": "3455af5e-fe17-4536-a40f-4ca48a19b146",
+      "revision": "2026-10-23T23:57:37.019+00:00"
+    },
+    {
+      "slug": "ismail-ali-al-akwa",
+      "name": "إسماعيل بن علي الأكوع",
+      "id": "0ffefe5a-0d37-4d20-95ed-32ae65ae6c5c",
+      "revision": "2026-10-23T23:57:37.933+00:00"
+    },
+    {
+      "slug": "mohammed-ali-al-akwa",
+      "name": "محمد بن علي الأكوع",
+      "id": "d1e4d207-e223-4ab3-a859-0896cc0eade5",
+      "revision": "2026-10-23T23:57:38.557+00:00"
+    },
+    {
+      "slug": "umara-al-yamani",
+      "name": "عمارة اليمني",
+      "id": "e3656247-be53-4735-9003-a06617bfa619",
+      "revision": "2026-10-23T23:57:39.215+00:00"
+    },
+    {
+      "slug": "abdullah-umar-bamakhrama",
+      "name": "عبد الله بن عمر بامخرمة",
+      "id": "81617ab6-2eaf-4ce8-ab02-6b52077f6d9d",
+      "revision": "2026-10-23T23:57:39.776+00:00"
+    },
+    {
+      "slug": "tawus-ibn-kaysan",
+      "name": "طاووس بن كيسان",
+      "id": "95814b90-dc01-4fbf-9504-cb94ca345467",
+      "revision": "2026-10-23T23:57:40.338+00:00"
+    },
+    {
+      "slug": "abu-musa-al-ashari",
+      "name": "أبو موسى الأشعري",
+      "id": "cca3a606-55b6-4164-961f-8f3935092edb",
+      "revision": "2026-10-23T23:57:41.017+00:00"
+    },
+    {
+      "slug": "al-ashath-ibn-qays",
+      "name": "الأشعث بن قيس",
+      "id": "86ba77a5-279a-4e44-96fc-d5d99f81bbe1",
+      "revision": "2026-10-23T23:57:41.536+00:00"
+    },
+    {
+      "slug": "muhammad-ibrahim-al-wazir",
+      "name": "محمد بن إبراهيم الوزير",
+      "id": "079ca208-c981-43ae-bc33-a6a5e6c40c03",
+      "revision": "2026-10-23T23:57:42.043+00:00"
+    },
+    {
+      "slug": "salih-al-maqbali",
+      "name": "صالح بن مهدي المقبلي",
+      "id": "dc6c8cdc-b92f-45c3-8121-2a13cd0f4ae1",
+      "revision": "2026-10-23T23:57:42.643+00:00"
+    },
+    {
+      "slug": "yahya-ibn-hamza-al-alawi",
+      "name": "يحيى بن حمزة العلوي",
+      "id": "90f4cfdc-8692-481c-b2b8-2beea62ce809",
+      "revision": "2026-10-23T23:57:43.257+00:00"
+    },
+    {
+      "slug": "abdulwasi-al-wasii",
+      "name": "عبد الواسع الواسعي",
+      "id": "0bbedd09-04e8-44f4-9db2-a24dd9b56122",
+      "revision": "2026-10-23T23:57:43.874+00:00"
+    },
+    {
+      "slug": "mohammed-saeed-jaradah",
+      "name": "محمد سعيد جرادة",
+      "id": "ca40107d-088b-40f8-ac44-7956ae0e961b",
+      "revision": "2026-10-23T23:57:44.385+00:00"
+    },
+    {
+      "slug": "hussein-salem-basadiq",
+      "name": "حسين سالم باصديق",
+      "id": "29569127-bf41-4412-a40c-61aafaf1d2ac",
+      "revision": "2026-10-23T23:57:44.898+00:00"
+    },
+    {
+      "slug": "abdullah-mohammed-al-hibshi",
+      "name": "عبد الله محمد الحبشي",
+      "id": "60d31182-2f61-44aa-910b-e28b5d65a178",
+      "revision": "2026-10-23T23:57:45.509+00:00"
+    },
+    {
+      "slug": "mohammed-abdulqader-bamatrif",
+      "name": "محمد عبد القادر بامطرف",
+      "id": "d5e02696-f7a6-4feb-9d78-c0d0b0de9470",
+      "revision": "2026-10-23T23:57:46.133+00:00"
+    },
+    {
+      "slug": "abdulrahman-tayyib-baakar",
+      "name": "عبد الرحمن طيب بعكر",
+      "id": "000acaed-6e9f-4246-8ce9-be1836da5a99",
+      "revision": "2026-10-23T23:57:46.767+00:00"
+    },
+    {
+      "slug": "abu-bakr-abdulrahman-al-saqqaf",
+      "name": "أبو بكر عبد الرحمن السقاف",
+      "id": "d89cd975-8775-49e6-b5ec-bab65a11f8ac",
+      "revision": "2026-10-23T23:57:47.278+00:00"
+    },
+    {
+      "slug": "abdullah-hadi-subait",
+      "name": "عبد الله هادي سبيت",
+      "id": "e23a4bf4-605e-4508-9f56-61e680c0cf99",
+      "revision": "2026-10-23T23:57:47.79+00:00"
+    },
+    {
+      "slug": "abdulmajid-al-zindani",
+      "name": "عبد المجيد الزنداني",
+      "id": "1f484b2f-f340-4635-b89c-7d888e11b07e",
+      "revision": "2026-10-23T23:57:49.196+00:00"
+    },
+    {
+      "slug": "muqbil-hadi-al-wadii",
+      "name": "مقبل بن هادي الوادعي",
+      "id": "9cc23581-b5bf-4358-8276-15a9d81e8a74",
+      "revision": "2026-10-23T23:57:49.813+00:00"
+    },
+    {
+      "slug": "mohammed-salem-al-bayhani",
+      "name": "محمد بن سالم البيحاني",
+      "id": "07693478-8bb7-4a29-917b-18c6d11dc16a",
+      "revision": "2026-10-23T23:57:50.326+00:00"
+    },
+    {
+      "slug": "abdulrahman-ubaidullah-al-saqqaf",
+      "name": "عبد الرحمن بن عبيد الله السقاف",
+      "id": "455d5bb5-2ebd-40af-b8ff-a9535b9feb7c",
+      "revision": "2026-10-23T23:57:50.879+00:00"
+    },
+    {
+      "slug": "yahya-hamid-al-din",
+      "name": "يحيى حميد الدين",
+      "id": "ecd405e9-c4a9-4639-ac3d-0ce4ced337a8",
+      "revision": "2026-10-23T23:57:51.552+00:00"
+    },
+    {
+      "slug": "ahmad-bin-yahya-hamid-al-din",
+      "name": "أحمد بن يحيى حميد الدين",
+      "id": "ce1e25ba-e19f-49b6-b41f-e8cda3aa1cda",
+      "revision": "2026-10-23T23:57:52.165+00:00"
+    },
+    {
+      "slug": "muhammad-al-badr-hamid-al-din",
+      "name": "محمد البدر حميد الدين",
+      "id": "ec601d88-4e3d-4c26-b491-91a594772875",
+      "revision": "2026-10-23T23:57:52.68+00:00"
+    },
+    {
+      "slug": "ahmad-hussein-al-ghashmi",
+      "name": "أحمد حسين الغشمي",
+      "id": "b22f0f60-2e86-4b9b-bdc3-9772770fbaee",
+      "revision": "2026-10-23T23:57:53.301+00:00"
+    },
+    {
+      "slug": "abdul-karim-al-iryani",
+      "name": "عبد الكريم الإرياني",
+      "id": "e56cd817-a381-49b6-bdc4-37288ae50641",
+      "revision": "2026-10-23T23:57:53.907+00:00"
+    },
+    {
+      "slug": "mohammed-salem-basindawa",
+      "name": "محمد سالم باسندوة",
+      "id": "cc8fe006-4292-4fcc-a596-79c2c28863c5",
+      "revision": "2026-10-23T23:57:54.442+00:00"
+    },
+    {
+      "slug": "abdul-qadir-bajamal",
+      "name": "عبد القادر باجمال",
+      "id": "55735461-4a9a-4070-a839-b9d077feb1fe",
+      "revision": "2026-10-23T23:57:55.045+00:00"
+    },
+    {
+      "slug": "faraj-said-bin-ghanem",
+      "name": "فرج سعيد بن غانم",
+      "id": "50ab0780-4ee3-40c8-9ec0-3a42304ac3e1",
+      "revision": "2026-10-23T23:57:55.702+00:00"
+    },
+    {
+      "slug": "faisal-bin-shamlan",
+      "name": "فيصل بن شملان",
+      "id": "df921b3b-daf9-4d7e-b5cc-9a631b8eadf9",
+      "revision": "2026-10-23T23:57:56.366+00:00"
+    },
+    {
+      "slug": "maeen-abdulmalik-saeed",
+      "name": "معين عبد الملك سعيد",
+      "id": "31848de6-595d-479e-9450-0f2b5f3a766a",
+      "revision": "2026-10-23T23:57:56.982+00:00"
+    },
+    {
+      "slug": "ali-mohsen-al-ahmar",
+      "name": "علي محسن الأحمر",
+      "id": "cf6b1ed4-022d-45d3-89a4-7faf43597cbc",
+      "revision": "2026-10-23T23:57:57.596+00:00"
+    },
+    {
+      "slug": "sultan-saeed-al-barakani",
+      "name": "سلطان سعيد البركاني",
+      "id": "5dc1be77-a270-4e54-84d6-cb32c74cc82c",
+      "revision": "2026-10-23T23:57:58.209+00:00"
+    },
+    {
+      "slug": "yasin-saeed-numan",
+      "name": "ياسين سعيد نعمان",
+      "id": "1db1a94b-98ab-430c-a222-3cf47ac08a82",
+      "revision": "2026-10-23T23:57:58.848+00:00"
+    },
+    {
+      "slug": "abdul-wahab-al-ansi",
+      "name": "عبد الوهاب أحمد الآنسي",
+      "id": "3bfa4839-fa60-4069-a1f4-f8f50967e5b9",
+      "revision": "2026-10-23T23:57:59.439+00:00"
+    },
+    {
+      "slug": "mohammed-abdullah-al-yadoumi",
+      "name": "محمد عبد الله اليدومي",
+      "id": "f6cebeba-72f9-46bf-b9f3-27b5fe0cf27c",
+      "revision": "2026-10-23T23:58:00.052+00:00"
+    },
+    {
+      "slug": "rajih-ghalib-labouza",
+      "name": "راجح غالب لبوزة",
+      "id": "120c941d-1a6a-426b-aba2-42dd58e9f159",
+      "revision": "2026-10-23T23:58:00.87+00:00"
+    },
+    {
+      "slug": "sultan-ali-al-aradah",
+      "name": "سلطان علي العرادة",
+      "id": "ff3c858d-174c-461a-ae5e-05cd2486decf",
+      "revision": "2026-10-23T23:58:01.487+00:00"
+    },
+    {
+      "slug": "hind-al-eryani",
+      "name": "هند الإرياني",
+      "id": "eec725c9-4c69-4e07-9ca3-76d7b36d03fb",
+      "revision": "2026-10-23T23:58:02.151+00:00"
+    },
+    {
+      "slug": "afrah-nasser",
+      "name": "أفراح ناصر",
+      "id": "191cb414-de82-47f9-ba1a-72b783ad39e2",
+      "revision": "2026-10-23T23:58:02.92+00:00"
+    },
+    {
+      "slug": "radhya-al-mutawakel",
+      "name": "رضية المتوكل",
+      "id": "31cfc5e4-bb6e-4bd9-aa77-7af6c3e3b906",
+      "revision": "2026-10-23T23:58:03.484+00:00"
+    },
+    {
+      "slug": "ashwaq-moharram",
+      "name": "أشواق محرم",
+      "id": "114918d4-c47d-4737-a9b6-f596459fc9de",
+      "revision": "2026-10-23T23:58:04.509+00:00"
+    },
+    {
+      "slug": "shatha-al-harazi",
+      "name": "شذى الحرازي",
+      "id": "e2bcade2-edea-4923-ab18-60fe218f590c",
+      "revision": "2026-10-23T23:58:05.171+00:00"
+    },
+    {
+      "slug": "amal-mohammed-al-basha",
+      "name": "أمل الباشا",
+      "id": "723f3c3e-9b42-4f53-bac2-cf90254a8fd2",
+      "revision": "2026-10-23T23:58:05.787+00:00"
+    },
+    {
+      "slug": "nadia-abdulaziz-al-sakkaf",
+      "name": "نادية عبد العزيز السقاف",
+      "id": "77e681b7-7cd5-4428-90a4-2d46a5c3057d",
+      "revision": "2026-10-23T23:58:06.413+00:00"
+    },
+    {
+      "slug": "sami-hasan-al-naash",
+      "name": "سامي حسن النعاش",
+      "id": "122836db-147b-4567-b9a1-2ebd7b18298a",
+      "revision": "2026-10-23T23:58:07.135+00:00"
+    },
+    {
+      "slug": "mohsen-mohammed-qarawi",
+      "name": "محسن قراوي",
+      "id": "e1774422-e366-4271-b4f3-30132feb40d8",
+      "revision": "2026-10-23T23:58:07.658+00:00"
+    },
+    {
+      "slug": "mohammed-ibrahim-ayash",
+      "name": "محمد إبراهيم عياش",
+      "id": "32232857-ad89-4ff9-9d8e-0f8c01b72992",
+      "revision": "2026-10-23T23:58:08.552+00:00"
+    },
+    {
+      "slug": "salem-abdullah-awadh",
+      "name": "سالم عبد الله عوض",
+      "id": "2fdaf999-3819-493d-a245-4ae092c58998",
+      "revision": "2026-10-23T23:58:09.116+00:00"
+    },
+    {
+      "slug": "abdullah-ahmed-bugshan",
+      "name": "عبد الله أحمد بقشان",
+      "id": "8869ce12-061c-4d86-85a1-84f0beae682e",
+      "revision": "2026-10-23T23:58:09.882+00:00"
+    },
+    {
+      "slug": "abubakr-omar-bazara",
+      "name": "أبو بكر عمر بازرعة",
+      "id": "fb9774fe-343a-40eb-b254-7e6a1926db6e",
+      "revision": "2026-10-23T23:58:10.399+00:00"
+    },
+    {
+      "slug": "shihab-ghanem",
+      "name": "شهاب غانم",
+      "id": "b0845995-a571-4033-a257-4fb5a38360a8",
+      "revision": "2026-10-23T23:58:11.037+00:00"
+    },
+    {
+      "slug": "elham-manea",
+      "name": "إلهام مانع",
+      "id": "079b64e7-df17-4ff8-abcd-7016b258a353",
+      "revision": "2026-10-23T23:58:11.623+00:00"
+    },
+    {
+      "slug": "sawsan-al-areeqe",
+      "name": "سوسن العريقي",
+      "id": "910d8331-a8c6-4baf-8a74-6635f5c9fe6b",
+      "revision": "2026-10-23T23:58:12.172+00:00"
+    },
+    {
+      "slug": "huda-ablan",
+      "name": "هدى أبلان",
+      "id": "1a98748b-0af0-4b09-a17e-384316e2edc6",
+      "revision": "2026-10-23T23:58:12.853+00:00"
+    },
+    {
+      "slug": "ahmed-zein",
+      "name": "أحمد زين",
+      "id": "bcd44167-9374-4ec6-a5ae-def29d52d3db",
+      "revision": "2026-10-23T23:58:13.526+00:00"
+    },
+    {
+      "slug": "mohammed-algharbi-imran",
+      "name": "محمد الغربي عمران",
+      "id": "e0569ad0-8c57-4465-9891-413e358a9620",
+      "revision": "2026-10-23T23:58:14.196+00:00"
+    },
+    {
+      "slug": "abdulnasser-mugali",
+      "name": "عبد الناصر مجلي",
+      "id": "5c5f07df-cbba-4edb-be93-4d24ef797a02",
+      "revision": "2026-10-23T23:58:14.841+00:00"
+    },
+    {
+      "slug": "marwan-al-ghafory",
+      "name": "مروان الغفوري",
+      "id": "4c155cf0-bb93-4dd9-8072-abc7d8cb6e08",
+      "revision": "2026-10-23T23:58:15.932+00:00"
+    },
+    {
+      "slug": "abbas-al-dailami",
+      "name": "عباس الديلمي",
+      "id": "63bb39d2-8b8d-4fc4-912c-9cb61636d348",
+      "revision": "2026-10-23T23:58:16.463+00:00"
+    },
+    {
+      "slug": "ali-bin-ali-sabra",
+      "name": "علي بن علي صبرة",
+      "id": "fc1f9e8c-c628-4eae-8495-50fcdb9725fd",
+      "revision": "2026-10-23T23:58:16.976+00:00"
+    }
+  ],
+  "errors": [],
+  "afterCount": 270,
+  "publishedCount": 270,
+  "addedThisRunCount": 100,
+  "addedCount": 100,
+  "existingRecordsUnchanged": true,
+  "verifiedNewProfiles": 100,
+  "completedAt": "2026-10-23T23:58:17.940Z"
+}
