@@ -1,0 +1,102 @@
+- generic [active] [ref=f9e1]:
+  - link "انتقل إلى المحتوى" [ref=f9e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f9e3]:
+    - generic [ref=f9e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f9e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f9e6]
+      - generic [ref=f9e7]:
+        - link "البحث في المنصة" [ref=f9e8] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f9e85] [cursor=pointer]:
+          - /url: /login
+        - button "فتح القائمة" [ref=f9e12] [cursor=pointer]
+  - main [ref=f9e14]:
+    - generic [ref=f9e16]:
+      - navigation "مسار التصفح" [ref=f9e17]:
+        - link "الرئيسية" [ref=f9e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f9e21]: للقراءة لاحقاً
+      - generic [ref=f9e22]: للقراءة لاحقاً
+      - heading "قراءات تنتظرك." [level=1] [ref=f9e23]
+      - paragraph [ref=f9e24]: الأعمال وأعداد المجلة التي حفظتها، لتعود إليها في وقتك.
+    - generic [ref=f9e90]:
+      - paragraph [ref=f9e94]: محفوظة في هذا المتصفح دون حساب. تحتاج اتصالاً لفتح المحتوى.
+      - generic [ref=f9e95]:
+        - strong [ref=f9e96]: "المحتوى المحفوظ: 1"
+        - link "اكتشف أعمالاً جديدة" [ref=f9e97] [cursor=pointer]:
+          - /url: /works
+      - status [ref=f9e101]: أُزيل «اليمن خلف عناوين الحرب والسلام» من القائمة.
+      - list [ref=f9e102]:
+        - listitem [ref=f9e103]:
+          - link "من الأعمال الإعلامية من انا افتح المحتوى" [ref=f9e107] [cursor=pointer]:
+            - /url: /works/work-mv6uhecd
+            - generic [ref=f9e108]: من الأعمال الإعلامية
+            - heading "من انا" [level=2] [ref=f9e109]
+            - generic [ref=f9e110]: افتح المحتوى
+          - button "إزالة من انا من القائمة" [ref=f9e114] [cursor=pointer]
+  - contentinfo [ref=f9e28]:
+    - generic [ref=f9e29]:
+      - generic [ref=f9e30]:
+        - generic [ref=f9e31]:
+          - link "مبادرة 967" [ref=f9e32] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f9e33]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f9e34]
+          - paragraph [ref=f9e35]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f9e36]:
+            - link "إنستغرام" [ref=f9e37] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f9e45] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f9e53]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f9e54]
+          - link "الأعمال الإعلامية" [ref=f9e55] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f9e56] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f9e57] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f9e58] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f9e59] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f9e60] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f9e61] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f9e62]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f9e63]
+          - link "منتجات يمنية" [ref=f9e64] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f9e65] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f9e66] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f9e67] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f9e68]:
+          - heading "مبادرة 967" [level=3] [ref=f9e69]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f9e70] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f9e71] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f9e72] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f9e73] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f9e74] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f9e75]:
+        - generic [ref=f9e76]: © 2026 مبادرة 967
+        - generic [ref=f9e77]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f9e78]:
+          - link "سياسة الخصوصية" [ref=f9e79] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f9e80] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f9e81] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f9e123] [cursor=pointer]
+  - alert [ref=f9e127]

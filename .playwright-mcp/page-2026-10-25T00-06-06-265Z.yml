@@ -1,0 +1,215 @@
+- generic [active] [ref=f54e1]:
+  - link "انتقل إلى المحتوى" [ref=f54e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f54e3]:
+    - generic [ref=f54e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f54e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f54e6]
+      - generic [ref=f54e7]:
+        - link "البحث في المنصة" [ref=f54e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f54e12] [cursor=pointer]
+  - main [ref=f54e14]:
+    - generic [ref=f54e16]:
+      - generic [ref=f54e17]:
+        - link "مناظرات 967" [ref=f54e18] [cursor=pointer]:
+          - /url: /debates
+        - generic [ref=f54e19]:
+          - generic [ref=f54e20]: تنموية
+          - generic [ref=f54e21]: مسجلة مسبقاً
+          - generic [ref=f54e22]: التسجيل متاح
+      - heading "هل يجب أن تصبح الخدمات الحكومية في اليمن رقمية بالكامل خلال خمس سنوات؟" [level=1] [ref=f54e23]
+      - generic [ref=f54e25]:
+        - button "نسخ رابط المناظرة" [ref=f54e26] [cursor=pointer]
+        - status
+    - generic [ref=f54e27]:
+      - generic [ref=f54e28]:
+        - generic [ref=f54e30]:
+          - 'img "غلاف المناظرة: هل يجب أن تصبح الخدمات الحكومية في اليمن رقمية بالكامل خلال خمس سنوات؟" [ref=f54e32]'
+          - button "تشغيل المناظرة" [ref=f54e33] [cursor=pointer]
+        - generic [ref=f54e36]:
+          - generic [ref=f54e37]:
+            - heading "تسجيل المناظرة" [level=2] [ref=f54e38]
+            - generic [ref=f54e39]: 94 دقيقة
+          - link "فتح على المنصة الأصلية" [ref=f54e40] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=bAIx-WmSikE
+        - group [ref=f54e45]:
+          - generic "فصول التسجيل 2" [ref=f54e46] [cursor=pointer]
+      - generic [ref=f54e48]:
+        - button "حفظ هل يجب أن تصبح الخدمات الحكومية في اليمن رقمية بالكامل خلال خمس سنوات؟ للقراءة لاحقاً" [disabled] [ref=f54e50]: احفظ للقراءة لاحقاً
+        - status [ref=f54e53]
+      - navigation "أقسام المناظرة" [ref=f54e54]:
+        - link "ساحة النقاش" [ref=f54e55] [cursor=pointer]:
+          - /url: "#discussion"
+        - link "استطلاع الرأي والنتائج" [ref=f54e56] [cursor=pointer]:
+          - /url: "#polls"
+        - link "المشاركون" [ref=f54e57] [cursor=pointer]:
+          - /url: "#participants"
+      - generic [ref=f54e58]:
+        - heading "المشاركون ومواقفهم" [level=2] [ref=f54e60]
+        - generic [ref=f54e61]:
+          - article [ref=f54e62]:
+            - link "د. سامر المعافري مؤيد للتحول الرقمي الشامل · باحث في التحول الرقمي والإدارة العامة" [ref=f54e63] [cursor=pointer]:
+              - /url: /debates/speakers/test-samer-almaafri
+              - generic [ref=f54e64]:
+                - heading "د. سامر المعافري" [level=3] [ref=f54e65]
+                - generic [ref=f54e66]: مؤيد للتحول الرقمي الشامل · باحث في التحول الرقمي والإدارة العامة
+            - generic [ref=f54e67]:
+              - paragraph [ref=f54e68]: أرى أن اليمن يجب أن يضع خطة وطنية للانتقال إلى الخدمات الحكومية الرقمية خلال خمس سنوات، مع مراحل تنفيذ واضحة. فالاستمرار في الاعتماد على المعاملات الو…
+              - group [ref=f54e69]:
+                - generic "قراءة الموقف كاملاً" [ref=f54e70] [cursor=pointer]
+          - article [ref=f54e71]:
+            - link "م. هدى السقاف مؤيدة للنظام الهجين · خبيرة في الخدمات العامة والشمول الرقمي" [ref=f54e72] [cursor=pointer]:
+              - /url: /debates/speakers/test-huda-alsaqaf
+              - generic [ref=f54e73]:
+                - heading "م. هدى السقاف" [level=3] [ref=f54e74]
+                - generic [ref=f54e75]: مؤيدة للنظام الهجين · خبيرة في الخدمات العامة والشمول الرقمي
+            - generic [ref=f54e76]:
+              - paragraph [ref=f54e77]: التحول الرقمي مهم، لكن تحويل جميع الخدمات إلى خدمات إلكترونية حصراً خلال خمس سنوات قد يخلق عوائق جديدة أمام المواطنين. فضعف الكهرباء والاتصالات وصعوبة…
+              - group [ref=f54e78]:
+                - generic "قراءة الموقف كاملاً" [ref=f54e79] [cursor=pointer]
+      - generic [ref=f54e80]:
+        - group [ref=f54e81]:
+          - heading "عن القضية السؤال الرئيسي وخلفية الحوار" [level=2] [ref=f54e83] [cursor=pointer]:
+            - generic [ref=f54e84]:
+              - text: عن القضية
+              - generic [ref=f54e85]: السؤال الرئيسي وخلفية الحوار
+        - group [ref=f54e88]:
+          - heading "محاور النقاش 5 محاور" [level=2] [ref=f54e90] [cursor=pointer]:
+            - generic [ref=f54e91]:
+              - text: محاور النقاش
+              - generic [ref=f54e92]: 5 محاور
+      - generic [ref=f54e95]:
+        - group [ref=f54e96]:
+          - heading "استطلاع الرأي بعد المشاهدة" [level=2] [ref=f54e98] [cursor=pointer]:
+            - generic [ref=f54e99]:
+              - text: استطلاع الرأي
+              - generic [ref=f54e100]: بعد المشاهدة
+          - generic [ref=f54e103]:
+            - generic [ref=f54e104]:
+              - heading "استطلاع الرأي — بعد المشاهدة" [level=3] [ref=f54e105]
+              - paragraph [ref=f54e106]: هل ينبغي لليمن أن يتجه نحو رقمنة جميع الخدمات الحكومية خلال خمس سنوات، أم أن الإبقاء على الخدمات الحضورية إلى جانب الرقمية هو الخيار الأنسب في ظل الظروف الحالية؟
+              - status [ref=f54e107]: جارٍ التحقق من الحساب…
+              - group "اختر موقفك" [ref=f54e109]:
+                - generic [ref=f54e110]: اختر موقفك *
+                - generic [ref=f54e111]:
+                  - generic [ref=f54e112] [cursor=pointer]:
+                    - 'radio "هل تؤيد التحول الرقمي الكامل للخدمات الحكومية في اليمن خلال خمس سنوات؟ الخيارات: نعم، أؤيد التحول الرقمي الكامل خلال خمس سنوات" [disabled] [ref=f54e113]'
+                    - generic [ref=f54e114]: "هل تؤيد التحول الرقمي الكامل للخدمات الحكومية في اليمن خلال خمس سنوات؟ الخيارات: نعم، أؤيد التحول الرقمي الكامل خلال خمس سنوات"
+                  - generic [ref=f54e115] [cursor=pointer]:
+                    - radio "أؤيد نظاماً هجيناً يجمع الخدمات الرقمية والحضورية." [disabled] [ref=f54e116]
+                    - generic [ref=f54e117]: أؤيد نظاماً هجيناً يجمع الخدمات الرقمية والحضورية.
+                  - generic [ref=f54e118] [cursor=pointer]:
+                    - radio "لا، يجب تحسين البنية التحتية أولاً." [disabled] [ref=f54e119]
+                    - generic [ref=f54e120]: لا، يجب تحسين البنية التحتية أولاً.
+                  - generic [ref=f54e121] [cursor=pointer]:
+                    - radio "لم أحدد موقفي بعد." [disabled] [ref=f54e122]
+                    - generic [ref=f54e123]: لم أحدد موقفي بعد.
+                - generic [ref=f54e124]:
+                  - checkbox "أؤكد أنني شاهدت التسجيل" [disabled] [ref=f54e125]
+                  - generic [ref=f54e126]: أؤكد أنني شاهدت التسجيل *
+                - button "حفظ صوتي" [disabled] [ref=f54e127]
+            - generic [ref=f54e128]:
+              - status [ref=f54e129]: جارٍ تحميل النتائج…
+              - paragraph [ref=f54e130]: تعكس النتائج آراء المشاركين فقط. لا تُعرض أسماء المصوّتين أو اختياراتهم الفردية.
+        - status [ref=f54e131]: التسجيل متاح. انتهى استقبال الأسئلة بعد نشر التسجيل. يمكنك المشاركة بتعليق.
+        - generic [ref=f54e132]:
+          - generic [ref=f54e133]:
+            - generic [ref=f54e134]:
+              - generic [ref=f54e135]: مساحة لكل رأي
+              - heading "ساحة النقاش" [level=2] [ref=f54e136]
+            - generic [ref=f54e137]: 0 مشاركة
+          - generic [ref=f54e138]:
+            - generic [ref=f54e139]:
+              - generic [ref=f54e140]:
+                - generic [aria-hidden] [ref=f54e141]: م
+                - strong [ref=f54e143]: شارك في الحوار
+              - generic "نوع مشاركتك" [ref=f54e144]:
+                - button "كتابة تعليق" [pressed] [ref=f54e145] [cursor=pointer]: تعليق
+                - button "طرح سؤال" [ref=f54e148] [cursor=pointer]: سؤال
+            - status [ref=f54e152]: جارٍ التحقق من الحساب…
+            - group [ref=f54e155]:
+              - generic [ref=f54e156]:
+                - text: أضف تعليقاً
+                - generic [aria-hidden] [ref=f54e157]: "*"
+              - textbox "أضف تعليقاً" [disabled] [ref=f54e158]:
+                - /placeholder: ما رأيك في المواقف المطروحة؟
+              - button "نشر التعليق" [disabled] [ref=f54e159]
+            - group [ref=f54e163]:
+              - generic "قواعد الحوار" [ref=f54e164] [cursor=pointer]
+          - generic [ref=f54e165]:
+            - generic "تصفية ساحة النقاش" [ref=f54e166]:
+              - button "الكل" [pressed] [ref=f54e167] [cursor=pointer]
+              - button "التعليقات" [ref=f54e168] [cursor=pointer]
+              - button "الأسئلة" [ref=f54e169] [cursor=pointer]
+            - generic [ref=f54e170]:
+              - generic [ref=f54e171]:
+                - text: ترتيب التعليقات
+                - combobox "ترتيب التعليقات" [ref=f54e172]:
+                  - option "الأحدث" [selected]
+                  - option "الأقدم"
+              - button "تحديث ساحة النقاش" [disabled] [ref=f54e173]
+          - status [ref=f54e180]: جارٍ تحميل المشاركات…
+  - contentinfo [ref=f54e181]:
+    - generic [ref=f54e182]:
+      - generic [ref=f54e183]:
+        - generic [ref=f54e184]:
+          - link "مبادرة 967" [ref=f54e185] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f54e186]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f54e187]
+          - paragraph [ref=f54e188]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f54e189]:
+            - link "إنستغرام" [ref=f54e190] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f54e198] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f54e206]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f54e207]
+          - link "الأعمال الإعلامية" [ref=f54e208] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f54e209] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f54e210] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f54e211] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f54e212] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f54e213] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f54e214] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f54e215]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f54e216]
+          - link "منتجات يمنية" [ref=f54e217] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f54e218] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f54e219] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f54e220] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f54e221]:
+          - heading "مبادرة 967" [level=3] [ref=f54e222]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f54e223] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f54e224] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f54e225] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f54e226] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f54e227] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f54e228]:
+        - generic [ref=f54e229]: © 2026 مبادرة 967
+        - generic [ref=f54e230]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f54e231]:
+          - link "سياسة الخصوصية" [ref=f54e232] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f54e233] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f54e234] [cursor=pointer]:
+          - /url: /search

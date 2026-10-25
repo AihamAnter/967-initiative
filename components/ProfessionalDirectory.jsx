@@ -10,6 +10,8 @@ import {whatsappUrl} from '@/lib/contactLinks';
 import useListState from './useListState';
 import {collectionDefaults,listStateSearch} from '@/lib/listState';
 import Pagination from './Pagination';
+import ActiveFilters from './ActiveFilters';
+import SaveForLater from './reading/SaveForLater';
 
 export default function ProfessionalDirectory({professionals}) {
   const [{q:query,page,category,location,mode},update]=useListState(collectionDefaults.professionals);
@@ -44,7 +46,8 @@ export default function ProfessionalDirectory({professionals}) {
       <label className="professionals-select"><UserSearch size={17}/><select value={mode} onChange={event => {setMode(event.target.value);setPage(1);}} aria-label="طريقة تقديم الخدمة"><option>كل طرق الخدمة</option>{serviceModes.map(item => <option key={item}>{item}</option>)}</select><ChevronDown size={16}/></label>
     </div>
 
-    <div className="professionals-results" aria-live="polite"><span>المهنيون المطابقون لبحثك</span><strong>عدد النتائج: {formatNumber(results.length)}</strong>{(query || category !== 'الكل' || location !== 'كل المحافظات' || mode !== 'كل طرق الخدمة') && <button className="filter-reset" onClick={clearFilters}>إعادة الضبط</button>}</div>
+    <ActiveFilters filters={[query&&{key:'q',label:'البحث: '+query,onRemove:()=>setQuery('')},category!=='الكل'&&{key:'category',label:'المهنة: '+category,onRemove:()=>setCategory('الكل')},location!=='كل المحافظات'&&{key:'location',label:'المنطقة: '+location,onRemove:()=>setLocation('كل المحافظات')},mode!=='كل طرق الخدمة'&&{key:'mode',label:'الخدمة: '+mode,onRemove:()=>setMode('كل طرق الخدمة')}]} onClear={clearFilters}/>
+    <div className="professionals-results" aria-live="polite"><span>المهنيون المطابقون لبحثك</span><strong>عدد النتائج: {formatNumber(results.length)}</strong></div>
 
     {results.length ? <div className={'professional-grid collection-results results-count-'+Math.min(results.length,3)}>{results.slice((currentPage-1)*12,currentPage*12).map(person => <article className="professional-card" key={person.id}>
       <Link className="professional-card-hitarea" href={'/professionals/' + person.id+'?from='+encodeURIComponent(returnTo)} aria-label={'عرض ملف ' + person.fullName}><span className="sr-only">عرض ملف {person.fullName}</span></Link>
@@ -61,6 +64,7 @@ export default function ProfessionalDirectory({professionals}) {
           <div className="professional-card-contact">{person.phone && <a href={'tel:' + person.phone} title="اتصال" aria-label={'الاتصال بـ ' + person.fullName}><Phone size={16}/></a>}{person.whatsapp && <a className="whatsapp-card-link" href={whatsappUrl(person.whatsapp)} target="_blank" rel="noopener noreferrer" title="واتساب" aria-label={'مراسلة ' + person.fullName + ' عبر واتساب'}><MessageCircle size={16}/><span>واتساب</span></a>}{person.email && <a href={'mailto:' + person.email} title="بريد إلكتروني" aria-label={'مراسلة ' + person.fullName + ' بالبريد الإلكتروني'}><Mail size={16}/></a>}{!person.phone&&!person.whatsapp&&!person.email&&<span className="small-muted">التواصل المباشر غير متاح حالياً</span>}</div>
         </div>
       </div>
+      <div className="card-save-action"><SaveForLater item={{kind:'professional',href:'/professionals/'+encodeURIComponent(person.id),title:person.fullName}}/></div>
     </article>)}</div> : <div className="professionals-empty"><UserSearch size={38}/><h2>لا توجد نتائج مطابقة</h2><p>جرّب مهنة أو محافظة أخرى، أو أزل عوامل التصفية.</p><button type="button" className="btn btn-outline" onClick={clearFilters}>عرض جميع المهنيين</button></div>}
     <Pagination page={currentPage} count={results.length} onChange={setPage}/>
   </div>;

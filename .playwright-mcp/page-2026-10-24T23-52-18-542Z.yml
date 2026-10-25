@@ -1,0 +1,504 @@
+- generic [ref=f29e1]:
+  - link "انتقل إلى المحتوى" [ref=f29e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f29e3]:
+    - generic [ref=f29e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f29e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f29e6]
+      - generic [ref=f29e7]:
+        - link "البحث في المنصة" [ref=f29e8] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f29e110] [cursor=pointer]:
+          - /url: /login
+        - button "فتح القائمة" [ref=f29e12] [cursor=pointer]
+  - main [ref=f29e14]:
+    - generic [ref=f29e117]:
+      - button "حفظ اكتشف اليمن للقراءة لاحقاً" [ref=f29e119] [cursor=pointer]: احفظ للقراءة لاحقاً
+      - status [ref=f29e122]
+    - generic [ref=f29e15]:
+      - generic [ref=f29e17]:
+        - generic [ref=f29e18]: أطلس 967 الجغرافي
+        - heading "اكتشف اليمن" [level=1] [ref=f29e19]
+        - paragraph [ref=f29e20]: استكشف المحافظات والمديريات والشخصيات المرتبطة بها.
+      - navigation "اختر طريقة اكتشاف اليمن" [ref=f29e21]:
+        - link "استكشف المحافظات والمديريات الخريطة ومعلومات الأماكن" [ref=f29e22] [cursor=pointer]:
+          - /url: "#map"
+          - strong [ref=f29e23]: استكشف المحافظات والمديريات
+          - generic [ref=f29e24]: الخريطة ومعلومات الأماكن
+        - link "اكتشف الشخصيات اليمنية ابحث بالاسم أو المجال أو المحافظة" [ref=f29e25] [cursor=pointer]:
+          - /url: "#yemeni-figures"
+          - strong [ref=f29e26]: اكتشف الشخصيات اليمنية
+          - generic [ref=f29e27]: ابحث بالاسم أو المجال أو المحافظة
+      - generic [ref=f29e29]:
+        - generic [ref=f29e30]:
+          - heading "اختر مكاناً على الخريطة" [level=2] [ref=f29e32]
+          - paragraph [ref=f29e33]: ابحث عن محافظة أو مديرية، أو اضغط عليها لاستكشافها.
+        - complementary [ref=f29e34]:
+          - group [ref=f29e35]:
+            - 'generic "اليمن، ثلاث محطات أقرب. جولة اكتشاف · المحطات: 0 من 3 0 عرض الجولة" [ref=f29e36] [cursor=pointer]':
+              - generic [ref=f29e37]:
+                - strong [ref=f29e38]: اليمن، ثلاث محطات أقرب.
+                - generic [ref=f29e39]: "جولة اكتشاف · المحطات: 0 من 3"
+                - progressbar "اليمن، ثلاث محطات أقرب." [ref=f29e40]
+              - generic [ref=f29e41]: عرض الجولة
+          - status [ref=f29e45]: "المحطات المستكشفة: 0 من 3."
+        - generic [ref=f29e123]:
+          - generic [ref=f29e124]:
+            - generic [ref=f29e125]:
+              - textbox "ابحث عن محافظة أو مديرية" [ref=f29e130]:
+                - /placeholder: ابحث عن محافظة أو مديرية...
+              - combobox "اختيار محافظة" [ref=f29e131]:
+                - option "اختر محافظة" [selected]
+                - option "ابين"
+                - option "الضالع"
+                - option "عدن"
+                - option "البيضاء"
+                - option "الحديده"
+                - option "الجوف"
+                - option "المهره"
+                - option "المحويت"
+                - option "عمران"
+                - option "ذمار"
+                - option "حضرموت"
+                - option "حجه"
+                - option "اب"
+                - option "لحج"
+                - option "مارب"
+                - option "ريمه"
+                - option "صعده"
+                - option "صنعاء"
+                - option "امانة العاصمه"
+                - option "شبوه"
+                - option "سقطرى"
+                - option "تعز"
+            - group "أدوات التحكم بالخريطة" [ref=f29e132]:
+              - button "تكبير" [ref=f29e133] [cursor=pointer]
+              - button "تصغير" [ref=f29e135] [cursor=pointer]
+              - button "عرض اليمن كاملة" [ref=f29e137] [cursor=pointer]
+              - button "العودة إلى المستوى السابق" [disabled] [ref=f29e141]
+              - group [ref=f29e144]:
+                - generic "العرض" [ref=f29e145] [cursor=pointer]
+          - generic [ref=f29e150]:
+            - generic [ref=f29e151]:
+              - group "خريطة تفاعلية لليمن" [ref=f29e152]:
+                - button "استكشاف محافظة ابين" [ref=f29e153] [cursor=pointer]
+                - button "استكشاف محافظة الضالع" [ref=f29e154] [cursor=pointer]
+                - button "استكشاف محافظة عدن" [ref=f29e155] [cursor=pointer]
+                - button "استكشاف محافظة البيضاء" [ref=f29e156] [cursor=pointer]
+                - button "استكشاف محافظة الحديده" [ref=f29e157] [cursor=pointer]
+                - button "استكشاف محافظة الجوف" [ref=f29e158] [cursor=pointer]
+                - button "استكشاف محافظة المهره" [ref=f29e159] [cursor=pointer]
+                - button "استكشاف محافظة المحويت" [ref=f29e160] [cursor=pointer]
+                - button "استكشاف محافظة عمران" [ref=f29e161] [cursor=pointer]
+                - button "استكشاف محافظة ذمار" [ref=f29e162] [cursor=pointer]
+                - button "استكشاف محافظة حضرموت" [ref=f29e163] [cursor=pointer]
+                - button "استكشاف محافظة حجه" [ref=f29e164] [cursor=pointer]
+                - button "استكشاف محافظة اب" [ref=f29e165] [cursor=pointer]
+                - button "استكشاف محافظة لحج" [ref=f29e166] [cursor=pointer]
+                - button "استكشاف محافظة مارب" [ref=f29e167] [cursor=pointer]
+                - button "استكشاف محافظة ريمه" [ref=f29e168] [cursor=pointer]
+                - button "استكشاف محافظة صعده" [ref=f29e169] [cursor=pointer]
+                - button "استكشاف محافظة صنعاء" [ref=f29e170] [cursor=pointer]
+                - button "استكشاف محافظة امانة العاصمه" [ref=f29e171] [cursor=pointer]
+                - button "استكشاف محافظة شبوه" [ref=f29e172] [cursor=pointer]
+                - button "استكشاف محافظة سقطرى" [ref=f29e173] [cursor=pointer]
+                - button "استكشاف محافظة تعز" [ref=f29e174] [cursor=pointer]
+                - generic "ابين" [ref=f29e175] [cursor=pointer]
+                - generic "الضالع" [ref=f29e176] [cursor=pointer]
+                - generic "عدن" [ref=f29e177] [cursor=pointer]
+                - generic "البيضاء" [ref=f29e178] [cursor=pointer]
+                - generic "الحديده" [ref=f29e179] [cursor=pointer]
+                - generic "الجوف" [ref=f29e180] [cursor=pointer]
+                - generic "المهره" [ref=f29e181] [cursor=pointer]
+                - generic "المحويت" [ref=f29e182] [cursor=pointer]
+                - generic "عمران" [ref=f29e183] [cursor=pointer]
+                - generic "ذمار" [ref=f29e184] [cursor=pointer]
+                - generic "حضرموت" [ref=f29e185] [cursor=pointer]
+                - generic "حجه" [ref=f29e186] [cursor=pointer]
+                - generic "اب" [ref=f29e187] [cursor=pointer]
+                - generic "لحج" [ref=f29e188] [cursor=pointer]
+                - generic "مارب" [ref=f29e189] [cursor=pointer]
+                - generic "ريمه" [ref=f29e190] [cursor=pointer]
+                - generic "صعده" [ref=f29e191] [cursor=pointer]
+                - generic "صنعاء" [ref=f29e192] [cursor=pointer]
+                - generic "امانة العاصمه" [ref=f29e193] [cursor=pointer]
+                - generic "شبوه" [ref=f29e194] [cursor=pointer]
+                - generic "سقطرى" [ref=f29e195] [cursor=pointer]
+                - generic "تعز" [ref=f29e196] [cursor=pointer]
+              - generic [ref=f29e197]:
+                - generic [ref=f29e198]: حدود الجمهورية
+                - generic [ref=f29e200]: المحافظات
+                - generic [ref=f29e202]: المديريات
+                - generic [ref=f29e204]: "مصدر الحدود: OCHA Field Information Services Section (FISS) / HDX"
+            - complementary "لوحة معلومات المنطقة" [ref=f29e205]:
+              - generic [ref=f29e207]:
+                - generic [ref=f29e208]: أطلس 967
+                - heading "اكتشف اليمن" [level=2] [ref=f29e209]
+              - generic [ref=f29e210]:
+                - paragraph [ref=f29e215]: اختر محافظة من الخريطة أو استخدم البحث لعرض المديريات والمعلومات المتاحة. لا تُعرض أرقام غير موثقة؛ الحقول غير المتوفرة تظهر بوضوح.
+                - generic [ref=f29e216]:
+                  - generic [ref=f29e217]:
+                    - term [ref=f29e218]: المحافظات
+                    - definition [ref=f29e219]: "22"
+                  - generic [ref=f29e220]:
+                    - term [ref=f29e221]: المديريات
+                    - definition [ref=f29e222]: "335"
+                  - generic [ref=f29e223]:
+                    - term [ref=f29e224]: المصدر
+                    - definition [ref=f29e225]: OCHA Field Information Services Section (FISS) / HDX
+              - generic [ref=f29e226]:
+                - generic [ref=f29e227]: "المصدر: Yemen administrative level 0-2 boundaries (COD-AB)"
+                - generic [ref=f29e228]: Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)
+          - group [ref=f29e229]:
+            - 'generic "مصدر الحدود: OCHA / HDX · التفاصيل" [ref=f29e230] [cursor=pointer]'
+      - group [ref=f29e49]:
+        - generic "شخصيات يمنية مرتبطة بالأماكن افتح الدليل وابحث بالاسم أو المجال −" [ref=f29e231] [cursor=pointer]:
+          - generic [ref=f29e51]: شخصيات يمنية مرتبطة بالأماكن
+          - generic [ref=f29e52]: افتح الدليل وابحث بالاسم أو المجال
+          - text: −
+        - generic [ref=f29e233]:
+          - generic [ref=f29e234]:
+            - generic [ref=f29e235]:
+              - generic [ref=f29e236]: ذاكرة وأثر
+              - heading "شخصيات يمنية" [level=2] [ref=f29e237]
+            - paragraph [ref=f29e238]: تعرّف على شخصيات يمنية معاصرة وتاريخية، وابحث بحسب الاسم أو المجال أو المحافظة.
+          - search "البحث وتصفية الشخصيات" [ref=f29e239]:
+            - generic [ref=f29e240]:
+              - generic [ref=f29e244]: ابحث بالاسم
+              - textbox "ابحث بالاسم" [ref=f29e245]:
+                - /placeholder: ابحث باسم الشخصية...
+            - generic [ref=f29e246]:
+              - generic [ref=f29e247]: المجال
+              - combobox "المجال" [ref=f29e248]:
+                - option "الكل" [selected]
+                - option "الأدب والشعر"
+                - option "الإعلام وحقوق الإنسان"
+                - option "الإعلام والصحافة"
+                - option "المجتمع وحقوق الإنسان"
+                - option "السياسة والحكم"
+                - option "الفن والموسيقى"
+                - option "العلم والتعليم"
+                - option "الرياضة"
+                - option "الاقتصاد وريادة الأعمال"
+                - option "التراث والتاريخ"
+            - generic [ref=f29e249]:
+              - generic [ref=f29e250]: المحافظة
+              - combobox "المحافظة" [ref=f29e251]:
+                - option "كل المحافظات" [selected]
+                - option "أبين"
+                - option "الضالع"
+                - option "عدن"
+                - option "البيضاء"
+                - option "الحديدة"
+                - option "المحويت"
+                - option "عمران"
+                - option "ذمار"
+                - option "حضرموت"
+                - option "إب"
+                - option "لحج"
+                - option "مأرب"
+                - option "صعدة"
+                - option "صنعاء"
+                - option "أمانة العاصمة"
+                - option "شبوة"
+                - option "تعز"
+            - generic [ref=f29e252]:
+              - generic [ref=f29e253]: الفترة
+              - combobox "الفترة" [ref=f29e254]:
+                - option "الكل" [selected]
+                - option "معاصرة"
+                - option "تاريخية"
+            - generic [ref=f29e255] [cursor=pointer]:
+              - checkbox "لديها روابط تواصل" [ref=f29e256]
+              - generic [ref=f29e257]: لديها روابط تواصل
+          - generic [ref=f29e258]:
+            - strong [ref=f29e259]: "270"
+            - generic [ref=f29e260]: شخصية مطابقة
+          - generic [ref=f29e261]:
+            - article [ref=f29e262] [cursor=pointer]:
+              - link "عرض صفحة الملكة أروى بنت أحمد الصليحي" [ref=f29e263]:
+                - /url: /yemen-map/figures/arwa-al-sulayhi
+              - generic [ref=f29e265]:
+                - img "صورة سياقية — Md iet · CC BY-SA 3.0" [ref=f29e266]
+                - generic [ref=f29e267]: تاريخية
+                - link "صورة سياقية — Md iet · CC BY-SA 3.0" [ref=f29e268]:
+                  - /url: https://commons.wikimedia.org/wiki/File:Mousoleum_Hurrat-ul-Malaika_Arwa.JPG
+              - generic [ref=f29e269]:
+                - generic [ref=f29e270]:
+                  - generic [ref=f29e271]: السياسة والحكم
+                  - generic [ref=f29e272]: 1048 – 1138
+                - heading "الملكة أروى بنت أحمد الصليحي" [level=3] [ref=f29e273]
+                - strong [ref=f29e274]: ملكة يمنية حكمت الدولة الصليحية
+                - paragraph [ref=f29e275]: أروى بنت أحمد الصليحي حاكمة يمنية من الدولة الصليحية، ارتبط حكمها بمدينة جبلة. مارست السلطة في أواخر القرن الحادي عشر والنصف الأول من القرن الثاني عشر الميلادي، وعُرفت في المصادر بلقب السيدة الحرة. تُدرس سيرتها في تاريخ الحكم والسياسة والعمران والدعوة الإسماعيلية في اليمن. ولدت في مدينة جبلة وأمها رداح بنت الفارع بن موسى الصليحي زوجة المكرّم أحمد بن علي الصليحي ملك اليمن.
+                - generic [ref=f29e277]:
+                  - text: إب
+                  - generic [ref=f29e282]: المحافظة المرتبطة
+              - generic [ref=f29e287]:
+                - generic [ref=f29e288]:
+                  - button "إزالة الملكة أروى بنت أحمد الصليحي من قائمة القراءة لاحقاً" [active] [pressed] [ref=f29e289]: محفوظ للقراءة لاحقاً
+                  - link "فتح قائمة القراءة لاحقاً" [ref=f29e293]:
+                    - /url: /read-later
+                    - text: عرض قائمتي
+                - status [ref=f29e297]: أُضيف إلى قائمة القراءة لاحقاً.
+            - article [ref=f29e298] [cursor=pointer]:
+              - link "عرض صفحة علي بن محمد الصليحي" [ref=f29e299]:
+                - /url: /yemen-map/figures/ali-al-sulayhi
+              - generic [ref=f29e301]:
+                - generic [ref=f29e302]: ع م
+                - generic [ref=f29e303]: تاريخية
+              - generic [ref=f29e304]:
+                - generic [ref=f29e305]: السياسة والحكم
+                - heading "علي بن محمد الصليحي" [level=3] [ref=f29e307]
+                - strong [ref=f29e308]: مؤسس الدولة الصليحية
+                - paragraph [ref=f29e309]: علي بن محمد الصليحي مؤسس الدولة الصليحية في اليمن في القرن الحادي عشر الميلادي. انطلقت حركته من حراز وجبل مسار، وارتبطت بالدعوة الإسماعيلية والخلافة الفاطمية. اتخذ من صنعاء مركزًا لحكم امتد إلى أجزاء واسعة من اليمن، وخلفه ابنه المكرم أحمد.
+                - generic [ref=f29e311]:
+                  - text: صنعاء
+                  - generic [ref=f29e316]: المحافظة المرتبطة
+              - generic [ref=f29e321]:
+                - button "حفظ علي بن محمد الصليحي للقراءة لاحقاً" [ref=f29e323]: احفظ للقراءة لاحقاً
+                - status [ref=f29e326]
+            - article [ref=f29e327] [cursor=pointer]:
+              - link "عرض صفحة أسماء بنت شهاب" [ref=f29e328]:
+                - /url: /yemen-map/figures/asma-bint-shihab
+              - generic [ref=f29e330]:
+                - generic [ref=f29e331]: أ ش
+                - generic [ref=f29e332]: تاريخية
+              - generic [ref=f29e333]:
+                - generic [ref=f29e334]: السياسة والحكم
+                - heading "أسماء بنت شهاب" [level=3] [ref=f29e336]
+                - strong [ref=f29e337]: ملكة يمنية من الدولة الصليحية
+                - paragraph [ref=f29e338]: أسماء بنت شهاب من الشخصيات النسائية البارزة في تاريخ الدولة الصليحية في اليمن. كانت زوجة علي بن محمد الصليحي وشريكته في إدارة الحكم في القرن الحادي عشر الميلادي، وتذكر المصادر أن اسمها كان يرد في خطبة الجمعة إلى جانب اسمه. لا تتفق المراجع المتاحة على تاريخ واضح لميلادها أو وفاتها؛ ترد سنة 1087 في بعض البيانات وسنة 1097 في نصوص أخرى.
+                - generic [ref=f29e340]:
+                  - text: صنعاء
+                  - generic [ref=f29e345]: المحافظة المرتبطة
+              - generic [ref=f29e350]:
+                - button "حفظ أسماء بنت شهاب للقراءة لاحقاً" [ref=f29e352]: احفظ للقراءة لاحقاً
+                - status [ref=f29e355]
+            - article [ref=f29e356] [cursor=pointer]:
+              - link "عرض صفحة الحسن بن أحمد الهمداني" [ref=f29e357]:
+                - /url: /yemen-map/figures/al-hamdani
+              - generic [ref=f29e359]:
+                - generic [ref=f29e360]: ح أ
+                - generic [ref=f29e361]: تاريخية
+              - generic [ref=f29e362]:
+                - generic [ref=f29e363]:
+                  - generic [ref=f29e364]: العلم والتعليم
+                  - generic [ref=f29e365]: "الميلاد: 893"
+                - heading "الحسن بن أحمد الهمداني" [level=3] [ref=f29e366]
+                - strong [ref=f29e367]: جغرافي ومؤرخ ولغوي يمني
+                - paragraph [ref=f29e368]: "أبو محمد الحسن بن أحمد الهمداني عالم يمني موسوعي، جمع بين الجغرافيا والتاريخ والأنساب واللغة والشعر ومعرفة المعادن والفلك. وُلد في صنعاء في أواخر القرن الثالث الهجري، وتُعد مؤلفاته من المصادر الأساسية لدراسة اليمن والجزيرة العربية في العصور الإسلامية المبكرة. عرف الهمداني بألقاب عديدة مثل: ابن يعقوب، النسابة، ابن الحائك، ابن الدمينة -غير الشاعر المشهور بهذا اللقب- و (لسان اليمن)، ويكنى (أبا محمد الهمداني)، نسبة إلى قبيلة همدان اليمنية."
+                - generic [ref=f29e370]:
+                  - text: أمانة العاصمة
+                  - generic [ref=f29e375]: المحافظة المرتبطة
+              - generic [ref=f29e380]:
+                - button "حفظ الحسن بن أحمد الهمداني للقراءة لاحقاً" [ref=f29e382]: احفظ للقراءة لاحقاً
+                - status [ref=f29e385]
+            - article [ref=f29e386] [cursor=pointer]:
+              - link "عرض صفحة نشوان بن سعيد الحميري" [ref=f29e387]:
+                - /url: /yemen-map/figures/nashwan-al-himyari
+              - generic [ref=f29e389]:
+                - generic [ref=f29e390]: ن س
+                - generic [ref=f29e391]: تاريخية
+              - generic [ref=f29e392]:
+                - generic [ref=f29e393]:
+                  - generic [ref=f29e394]: الأدب والشعر
+                  - generic [ref=f29e395]: 1107 – 1178
+                - heading "نشوان بن سعيد الحميري" [level=3] [ref=f29e396]
+                - strong [ref=f29e397]: عالم وشاعر ولغوي يمني
+                - paragraph [ref=f29e398]: "نَشْوَانُ بْنُ سَعِيدٍ ٱلْحِمْيَرِيُّ (نحو 500 هـ - 573 هـ / 1107م - 1178 م): قاضٍ، سياسي، لُغَوي، مؤرخ، أديب، يمانٍ (يمني)، اقترب في فكره من فكر المعتزلة، وكتب في تاريخ ملوك حمير، والدين، واللغة، كان له طموح في السياسة، وحكم في بعض سنين عمره، عُرف بفخره بيمانِيَتِه وإنكارِ حصر الإمامة في البطنين أو في قريش والرد عليها وله في ذلك كثير من النقاشات مع الأئمة الزيدية في عهده."
+              - generic [ref=f29e404]:
+                - button "حفظ نشوان بن سعيد الحميري للقراءة لاحقاً" [ref=f29e406]: احفظ للقراءة لاحقاً
+                - status [ref=f29e409]
+            - article [ref=f29e410] [cursor=pointer]:
+              - link "عرض صفحة محمد بن علي الشوكاني" [ref=f29e411]:
+                - /url: /yemen-map/figures/al-shawkani
+              - generic [ref=f29e413]:
+                - img "تصوير فني — ShafiNotes · CC0" [ref=f29e414]
+                - generic [ref=f29e415]: تاريخية
+                - link "تصوير فني — ShafiNotes · CC0" [ref=f29e416]:
+                  - /url: https://commons.wikimedia.org/wiki/File:Al_Shawkani.png
+              - generic [ref=f29e417]:
+                - generic [ref=f29e418]:
+                  - generic [ref=f29e419]: العلم والتعليم
+                  - generic [ref=f29e420]: 1760 – 1834
+                - heading "محمد بن علي الشوكاني" [level=3] [ref=f29e421]
+                - strong [ref=f29e422]: فقيه وقاضٍ ومؤلف يمني
+                - paragraph [ref=f29e423]: مُحَمَّدُ بْنُ عَلِيِّ بْنِ مُحَمَّدِ بْنِ عَبْدِ اللَّٰهِ الشَّوْكَانِيُّ الصَّنْعَانِيُّ، الملقب بـبدر الدين الشوكاني، أحد أبرز علماء أهل السنة والجماعة وفقهائها، ومن كبار علماء اليمن ولد في هجرة شوكان في اليمن 1173 هـ ونشأ بصنعاء، وولي قضاءها سنة 1209 هـ ومات حاكمًا بها في سنة 1250 هـ.
+                - generic [ref=f29e425]:
+                  - text: صنعاء
+                  - generic [ref=f29e430]: المحافظة المرتبطة
+              - generic [ref=f29e435]:
+                - button "حفظ محمد بن علي الشوكاني للقراءة لاحقاً" [ref=f29e437]: احفظ للقراءة لاحقاً
+                - status [ref=f29e440]
+            - article [ref=f29e441] [cursor=pointer]:
+              - link "عرض صفحة وهب بن منبه" [ref=f29e442]:
+                - /url: /yemen-map/figures/wahb-ibn-munabbih
+              - generic [ref=f29e444]:
+                - generic [ref=f29e445]: و م
+                - generic [ref=f29e446]: تاريخية
+              - generic [ref=f29e447]:
+                - generic [ref=f29e448]:
+                  - generic [ref=f29e449]: العلم والتعليم
+                  - generic [ref=f29e450]: "الميلاد: 654"
+                - heading "وهب بن منبه" [level=3] [ref=f29e451]
+                - strong [ref=f29e452]: مؤرخ وراوية يمني
+                - paragraph [ref=f29e453]: "أَبُو عَبْدِ اللَّهِ وَهْبُ بْنُ مُنَبِّهِ بْنِ كَامِلِ بْنِ سِيجِ بْنِ ذِي كِبَارٍ الْأَبْنَاوِيُّ الْيَمَانِيُّ الذِّمَارِيُّ الصَّنْعَانِيُّ (34 هـ - 110 هـ أو 114 هـ) هو تابعي جليل، له معرفة بكتب الأوائل وإخباري قصصي يُعد من أقدم من كتب في الإسلام. كان ممن قرأ الكُتب ولزم العبادة وواظب على العلم وتجرد للزهد. وعدّه ابن سعد في الطبقة الثانية من محدّثي اليمن بعد الصحابة. قال الذهبي عنه: «ورِوايته للمسند قليلة، وإنما غَزارة علمه في الإسرائيليات، ومن صَحائف أهل الكتاب». روى له البخاري ومسلم وأبو داود والترمذي والنسائي ومحمد بن ماجه. وقال الذهبي: «لا شيء في الصحيحين لوهب بن منبه سوى حديث واحد»."
+              - generic [ref=f29e459]:
+                - button "حفظ وهب بن منبه للقراءة لاحقاً" [ref=f29e461]: احفظ للقراءة لاحقاً
+                - status [ref=f29e464]
+            - article [ref=f29e465] [cursor=pointer]:
+              - link "عرض صفحة عبد الرزاق الصنعاني" [ref=f29e466]:
+                - /url: /yemen-map/figures/abd-al-razzaq-al-sannani
+              - generic [ref=f29e468]:
+                - img "تصوير فني — Hammad · CC BY-SA 4.0" [ref=f29e469]
+                - generic [ref=f29e470]: تاريخية
+                - link "تصوير فني — Hammad · CC BY-SA 4.0" [ref=f29e471]:
+                  - /url: https://commons.wikimedia.org/wiki/File:%D8%B9%D8%A8%D8%AF_%D8%A7%D9%84%D8%B1%D8%B2%D8%A7%D9%82_%D8%A7%D9%84%D8%B5%D9%86%D8%B9%D8%A7%D9%86%D9%8A.png
+              - generic [ref=f29e472]:
+                - generic [ref=f29e473]:
+                  - generic [ref=f29e474]: العلم والتعليم
+                  - generic [ref=f29e475]: 744 – 827
+                - heading "عبد الرزاق الصنعاني" [level=3] [ref=f29e476]
+                - strong [ref=f29e477]: محدّث ومصنف يمني
+                - paragraph [ref=f29e478]: عبد الرَّزَّاق الصَّنْعَاني (126 - 211هـ / 744 - 827م) هو عبد الرزاق بن همام بن نافع الحميري، مولاهم، أبو بكر الصنعاني من حُفَّاظ الحديث الثقات، وفقيه، ومفسر، من أهل صنعاء. روى عن معمر بن راشد، وكان من أبرز تلاميذه، وعن ابن جريج، والأوزاعي، والثوري، وابن عيينة. روى عنه أحمد بن حنبل، وابن معين، والذهلي، وأحمد بن صالح. كان يحفظ نحوا من سبعة عشر ألف حديث. أخذ عنه البخاري، وتوفي في نصف شوال وله من العمر 85 سنة.
+                - generic [ref=f29e480]:
+                  - text: أمانة العاصمة
+                  - generic [ref=f29e485]: المحافظة المرتبطة
+              - generic [ref=f29e490]:
+                - button "حفظ عبد الرزاق الصنعاني للقراءة لاحقاً" [ref=f29e492]: احفظ للقراءة لاحقاً
+                - status [ref=f29e495]
+            - article [ref=f29e496] [cursor=pointer]:
+              - link "عرض صفحة سيف بن ذي يزن" [ref=f29e497]:
+                - /url: /yemen-map/figures/sayf-ibn-dhi-yazan
+              - generic [ref=f29e499]:
+                - img "تصوير فني — مصور غير معروف · Public domain" [ref=f29e500]
+                - generic [ref=f29e501]: تاريخية
+                - link "تصوير فني — مصور غير معروف · Public domain" [ref=f29e502]:
+                  - /url: https://commons.wikimedia.org/wiki/File:Tarikhuna_bi-uslub_qasasi-Sayf_ibn_Dhi-Yazan_%26_Khosrow.jpg
+              - generic [ref=f29e503]:
+                - generic [ref=f29e504]: السياسة والحكم
+                - heading "سيف بن ذي يزن" [level=3] [ref=f29e506]
+                - strong [ref=f29e507]: حاكم يمني في القرن السادس الميلادي وشخصية محورية في السيرة الشعبية
+                - paragraph [ref=f29e508]: سيف بن ذي يزن (نحو 516م - 574م ) هو مَلِك حميري من فترة ما قبل الإسلام، جرت أسطرته بعد تحرير اليمن من الغزو الحبشي فشاع ذكره في الأدب الإسلامي. حكم سيف بن ذي يزن من قصر غمدان في صنعاء، والذي كان من أشهر وآخر الملوك الذين سكنوه. يعود لابن ذي يزن الفضل في طرد الأحباش من اليمن بعد أن ظلوا يحكمونه منذ عهد ذي نواس حوالي أوائل القرن السادس.
+              - generic [ref=f29e514]:
+                - button "حفظ سيف بن ذي يزن للقراءة لاحقاً" [ref=f29e516]: احفظ للقراءة لاحقاً
+                - status [ref=f29e519]
+            - article [ref=f29e520] [cursor=pointer]:
+              - link "عرض صفحة ذو نواس" [ref=f29e521]:
+                - /url: /yemen-map/figures/dhu-nuwas
+              - generic [ref=f29e523]:
+                - generic [ref=f29e524]: ذ ن
+                - generic [ref=f29e525]: تاريخية
+              - generic [ref=f29e526]:
+                - generic [ref=f29e527]: السياسة والحكم
+                - heading "ذو نواس" [level=3] [ref=f29e529]
+                - strong [ref=f29e530]: ملك حميري في أوائل القرن السادس الميلادي
+                - paragraph [ref=f29e531]: "يوسف أسأر يثأر الحميري ، المعروف في المصادر العربية باسم زرعة ذي نواس، وفي السريانية مسروق، وفي اليونانية دوناس (تـ بين 525 و530م): آخر ملوك مملكة حمير المستقلة وآخر ملوكها اليهود، تولى الحكم في يونيو 522م ملكًا تابعًا لـمملكة أكسوم، ثم ثار عليها في خريف السنة نفسها، وقمع ثورة مسيحيي نجران في نوفمبر 523م، فكانت ذريعة لحملة النجاشي كالب على اليمن، التي قُتل فيها يوسف وانتهى بمقتله غرقاً في البحر استقلال حمير. ويرى كريستيان روبان أن هذا اللقب إما لقب جديد أراد به يوسف أن يجمع أنصاره في كيان سياسي جديد، وإما لقب مؤقت ريثما يقرّ مجلس الأقيال ملكه، في حين عاد أبرهة بعده إلى اللقب الملكي الحميري الطويل (النقشان: DAI GDN 2002-20 وCIH 541)."
+                - generic [ref=f29e533]:
+                  - text: إب
+                  - generic [ref=f29e538]: المحافظة المرتبطة
+              - generic [ref=f29e543]:
+                - button "حفظ ذو نواس للقراءة لاحقاً" [ref=f29e545]: احفظ للقراءة لاحقاً
+                - status [ref=f29e548]
+            - article [ref=f29e549] [cursor=pointer]:
+              - link "عرض صفحة كرب إل وتر" [ref=f29e550]:
+                - /url: /yemen-map/figures/karib-il-watar
+              - generic [ref=f29e552]:
+                - generic [ref=f29e553]: ك إ
+                - generic [ref=f29e554]: تاريخية
+              - generic [ref=f29e555]:
+                - generic [ref=f29e556]: السياسة والحكم
+                - heading "كرب إل وتر" [level=3] [ref=f29e558]
+                - strong [ref=f29e559]: ملك سبئي بارز
+                - paragraph [ref=f29e560]: "كرب إيل وتر بن ذمار علي (تـ 650 ق م): أشهر مكاربة سبأ، ويعد المؤسس الفعلي لمملكة سبأ ومنظمها. وقد افتتح هذا المكرب عهده بإرسال هدايا إلى آشور، وهو أول حاكم سبئي اعترف به الآشوريون بوصفه ملكاً وحاكماً، ووفقاً لنقش أثري خاص للملك سنحاريب في ذكرى انشاء المعبد في رأس السنة الآشورية عام 685 ق م أو 682 ق م، قدم (كربئيلو ملك سبأ) هبة تتضمن أحجار كريمة وتوابل بهذه المناسبة. وعلل فرتز هومل إطلاق لقب ملك على كرب إيل في هذا النقش بأن الآشوريين لم يهتموا كثيراً بألقاب هؤلاء الأمراء البعيدين، ولذلك دعوا مكربا \"ملكاً\". وعلى الرغم من كل الانتصارات العسكرية التي نجح فيها سلفه المكرب السبئي يثع أمر وتر بن يكرب ملك على النطاق الداخلي في جنوبي جزيرة العرب، فإنه"
+                - generic [ref=f29e562]:
+                  - text: مأرب
+                  - generic [ref=f29e567]: المحافظة المرتبطة
+              - generic [ref=f29e572]:
+                - button "حفظ كرب إل وتر للقراءة لاحقاً" [ref=f29e574]: احفظ للقراءة لاحقاً
+                - status [ref=f29e577]
+            - article [ref=f29e578] [cursor=pointer]:
+              - link "عرض صفحة شمر يهرعش" [ref=f29e579]:
+                - /url: /yemen-map/figures/shammar-yuharish
+              - generic [ref=f29e581]:
+                - generic [ref=f29e582]: ش ي
+                - generic [ref=f29e583]: تاريخية
+              - generic [ref=f29e584]:
+                - generic [ref=f29e585]: السياسة والحكم
+                - heading "شمر يهرعش" [level=3] [ref=f29e587]
+                - strong [ref=f29e588]: ملك حميري وحّد ممالك يمنية قديمة
+                - paragraph [ref=f29e589]: "شمر يهرعش بن ياسر يهنعم (نحو 255م - 312م): مؤسس وأول ملوك عصر ملوك سبأ وذى ريدان وحضرموت ويمنت. اشترك في الحكم مع أبيه في العام 275م، ثم أنفرد بالعرش، وهو أول من وحّد جنوب الجزيرة العربية تحت دولة موحدة لأول مرة، وفي عهده بدأت مملكة سبأ القيام بدور إقليمي بارز جعلها في مصاف القوى الإقليمية العظمى. وروى عبيد بن شرية عن أسعد الكامل أبياتاً مدح بها شمر يهرعش بقوله:."
+                - generic [ref=f29e591]:
+                  - text: إب
+                  - generic [ref=f29e596]: المحافظة المرتبطة
+              - generic [ref=f29e601]:
+                - button "حفظ شمر يهرعش للقراءة لاحقاً" [ref=f29e603]: احفظ للقراءة لاحقاً
+                - status [ref=f29e606]
+          - button "عرض المزيد 12" [ref=f29e607] [cursor=pointer]:
+            - text: عرض المزيد
+            - generic [ref=f29e608]: "12"
+  - contentinfo [ref=f29e53]:
+    - generic [ref=f29e54]:
+      - generic [ref=f29e55]:
+        - generic [ref=f29e56]:
+          - link "مبادرة 967" [ref=f29e57] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f29e58]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f29e59]
+          - paragraph [ref=f29e60]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f29e61]:
+            - link "إنستغرام" [ref=f29e62] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f29e70] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f29e78]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f29e79]
+          - link "الأعمال الإعلامية" [ref=f29e80] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f29e81] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f29e82] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f29e83] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f29e84] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f29e85] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f29e86] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f29e87]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f29e88]
+          - link "منتجات يمنية" [ref=f29e89] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f29e90] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f29e91] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f29e92] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f29e93]:
+          - heading "مبادرة 967" [level=3] [ref=f29e94]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f29e95] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f29e96] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f29e97] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f29e98] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f29e99] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f29e100]:
+        - generic [ref=f29e101]: © 2026 مبادرة 967
+        - generic [ref=f29e102]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f29e103]:
+          - link "سياسة الخصوصية" [ref=f29e104] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f29e105] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f29e106] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f29e614] [cursor=pointer]
+  - alert [ref=f29e618]

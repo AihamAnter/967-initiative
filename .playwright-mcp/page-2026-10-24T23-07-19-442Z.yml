@@ -1,0 +1,291 @@
+- generic [active] [ref=e1]:
+  - link "انتقل إلى المحتوى" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=e6]
+        - generic [ref=e7]:
+          - text: مساحة يمنية
+          - strong [ref=e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=e9]:
+        - link "الرئيسية" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=e11]:
+          - generic "المحتوى" [ref=e12] [cursor=pointer]
+        - group [ref=e15]:
+          - generic "المعرفة" [ref=e16] [cursor=pointer]
+        - group [ref=e19]:
+          - generic "الأدلة" [ref=e20] [cursor=pointer]
+        - group [ref=e23]:
+          - generic "المبادرة" [ref=e24] [cursor=pointer]
+      - generic [ref=e27]:
+        - link "البحث في المنصة" [ref=e28] [cursor=pointer]:
+          - /url: /search
+        - link "كن جزءاً من الحكاية" [ref=e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]: من اليمن، لكل اليمنيين
+          - heading "اليمن، أقرب إليك." [level=1] [ref=e42]
+          - paragraph [ref=e43]: حكايات نرويها، ومعرفة نتشاركها، ومساحة تجمعنا. اكتشف بلدك، افهم واقعه، وكن جزءاً من حكايته.
+          - search [ref=e44]:
+            - generic [ref=e48]: ابحث في منصة 967
+            - searchbox "ابحث في منصة 967" [ref=e49]
+            - button "ابحث في المنصة" [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]: ابحث
+          - generic [ref=e54]:
+            - generic [ref=e55]: ابدأ من هنا
+            - link "اكتشف مكاناً" [ref=e56] [cursor=pointer]:
+              - /url: /yemen-map
+            - link "اقرأ حكاية" [ref=e57] [cursor=pointer]:
+              - /url: /magazine
+            - link "تحقّق من رقم" [ref=e58] [cursor=pointer]:
+              - /url: /yemen-in-numbers
+        - link "استكشف محافظات اليمن ومديرياتها في الأطلس التفاعلي" [ref=e59] [cursor=pointer]:
+          - /url: /yemen-map
+          - generic [ref=e60]: أرض واحدة، حكايات كثيرة
+          - img "خريطة اليمن ومحافظاتها وجزرها" [ref=e62]
+          - generic [ref=e64]:
+            - strong [ref=e65]: تعرّف على اليمن، مكاناً بمكان.
+            - generic [ref=e66]: المحافظات والمديريات في أطلس تفاعلي
+      - region "أدوات استكشاف اليمن" [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: أقسام المنصة
+            - heading "اختر ما تود اكتشافه." [level=2] [ref=e75]
+            - paragraph [ref=e76]: قراءة، معرفة، أو مهارة تحتاجها. كل أقسام 967 أمامك.
+          - generic [ref=e77]:
+            - link "مجلة 967 مساحة للقراءة والتأمل" [ref=e78] [cursor=pointer]:
+              - /url: /magazine
+              - heading "مجلة 967" [level=2] [ref=e81]
+              - generic [ref=e82]: مساحة للقراءة والتأمل
+            - link "الأعمال الإعلامية حكايات من زوايا مختلفة" [ref=e86] [cursor=pointer]:
+              - /url: /works
+              - heading "الأعمال الإعلامية" [level=2] [ref=e89]
+              - generic [ref=e90]: حكايات من زوايا مختلفة
+            - link "اليمن بالأرقام بيانات تضعك في الصورة" [ref=e94] [cursor=pointer]:
+              - /url: /yemen-in-numbers
+              - heading "اليمن بالأرقام" [level=2] [ref=e97]
+              - generic [ref=e98]: بيانات تضعك في الصورة
+            - link "اكتشف اليمن أماكن وقصص وشخصيات" [ref=e102] [cursor=pointer]:
+              - /url: /yemen-map
+              - heading "اكتشف اليمن" [level=2] [ref=e106]
+              - generic [ref=e107]: أماكن وقصص وشخصيات
+            - link "منتجات يمنية اعرف ما يُصنع في بلدك" [ref=e111] [cursor=pointer]:
+              - /url: /yemeni-products
+              - heading "منتجات يمنية" [level=2] [ref=e116]
+              - generic [ref=e117]: اعرف ما يُصنع في بلدك
+            - link "المهنيون مهارات أقرب إلى احتياجك" [ref=e121] [cursor=pointer]:
+              - /url: /professionals
+              - heading "المهنيون" [level=2] [ref=e126]
+              - generic [ref=e127]: مهارات أقرب إلى احتياجك
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e135]:
+            - generic [ref=e136]: مساحة يمنية للحوار
+            - heading "مناظرات 967 · نختلف لنفهم." [level=2] [ref=e137]
+          - link "استكشف المناظرات" [ref=e138] [cursor=pointer]:
+            - /url: /debates
+        - article [ref=e139]:
+          - generic [ref=e140]: مسجلة مسبقاً
+          - generic [ref=e143]:
+            - generic [ref=e144]:
+              - generic [ref=e145]: تنموية
+              - generic [ref=e146]: التسجيل متاح
+            - heading [level=3] [ref=e147]:
+              - link "هل يجب أن تصبح الخدمات الحكومية في اليمن رقمية بالكامل خلال خمس سنوات؟" [ref=e148] [cursor=pointer]:
+                - /url: /debates/yemen-digital-services-test
+            - paragraph [ref=e149]: هل ينبغي لليمن أن يتجه نحو رقمنة جميع الخدمات الحكومية خلال خمس سنوات، أم أن الإبقاء على الخدمات الحضورية إلى جانب الرقمية هو الخيار الأنسب في ظل الظروف الحالية؟
+            - generic [ref=e150]:
+              - generic [ref=e151]:
+                - text: د. سامر المعافري
+                - generic [ref=e152]: أرى أن اليمن يجب أن يضع خطة وطنية للانتقال إلى الخدمات الحكومية الرقمية خلال خمس سنوات، مع مراحل تنفيذ واضحة. فالاستمرار في الاعتماد على المعاملات الورقية يستهلك الوقت والموارد، ويزيد احتمالات الأخطاء والوساطة. يمكن البدء بالخدمات الأكثر استخداماً، مع تدريب الموظفين وتوفير مراكز مساعدة للفئات التي تحتاج دعماً
+              - generic [ref=e153]:
+                - text: م. هدى السقاف
+                - generic [ref=e154]: التحول الرقمي مهم، لكن تحويل جميع الخدمات إلى خدمات إلكترونية حصراً خلال خمس سنوات قد يخلق عوائق جديدة أمام المواطنين. فضعف الكهرباء والاتصالات وصعوبة امتلاك بعض الأجهزة يجعل الاحتفاظ بمكاتب خدمة حضورية أمراً ضرورياً. الأنسب هو نظام هجين يوفر المعاملة إلكترونياً لمن يستطيع استخدامها، ويحتفظ بحق الوصول المباشر لمن يحتاجه
+            - generic [ref=e155]: "المدة: 94 دقيقة"
+            - generic [ref=e156]:
+              - link "شاهد المناظرة" [ref=e157] [cursor=pointer]:
+                - /url: /debates/yemen-digital-services-test
+              - link "شارك برأيك" [ref=e161] [cursor=pointer]:
+                - /url: /debates/yemen-digital-services-test#polls
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]: من المنصة
+            - heading "مساحة للاكتشاف، كل يوم." [level=2] [ref=e167]
+            - paragraph [ref=e168]: أحدث ما نُشر من أعمال وإصدارات وإضافات إلى أدلة 967.
+          - link "المكتبة الإعلامية" [ref=e169] [cursor=pointer]:
+            - /url: /works
+        - generic [ref=e173]:
+          - article [ref=e175]:
+            - link "التاريخ والهوية إنستغرام من انا هو ني 13 أكتوبر 2026 التفاصيل ورابط المشاهدة" [ref=e176] [cursor=pointer]:
+              - /url: /works/work-mv6uhecd
+              - generic [aria-hidden] [ref=e178]:
+                - generic [ref=e181]: التاريخ والهوية
+                - strong [ref=e182]: من انا
+                - generic [ref=e183]: إنستغرام
+              - generic [ref=e187]:
+                - generic [ref=e188]: التاريخ والهوية
+                - generic [ref=e189]: إنستغرام
+              - heading "من انا" [level=3] [ref=e190]
+              - paragraph [ref=e191]: هو ني
+              - time [ref=e192]: 13 أكتوبر 2026
+              - generic [ref=e193]: التفاصيل ورابط المشاهدة
+            - button "حفظ من انا للقراءة لاحقاً" [disabled] [ref=e199]: احفظ للقراءة لاحقاً
+          - article [ref=e202]:
+            - link [ref=e203] [cursor=pointer]:
+              - /url: /magazine/issue-2
+              - img "غلاف اليمن خلف عناوين الحرب والسلام" [ref=e204]
+            - generic [ref=e205]:
+              - generic [ref=e206]: أحدث إصدار · العدد 2
+              - heading [level=3] [ref=e207]:
+                - link "اليمن خلف عناوين الحرب والسلام" [ref=e208] [cursor=pointer]:
+                  - /url: /magazine/issue-2
+              - paragraph [ref=e209]: يناقش قضايا الانسان واليمن
+              - time [ref=e210]: 13 أكتوبر 2026
+              - generic [ref=e211]:
+                - link "اقرأ العدد" [ref=e212] [cursor=pointer]:
+                  - /url: /magazine/issue-2
+                - button "حفظ اليمن خلف عناوين الحرب والسلام للقراءة لاحقاً" [disabled] [ref=e216]: احفظ للقراءة لاحقاً
+        - generic [ref=e219]:
+          - 'link "من دليل المنتجات تهامة للصناعات الخفيفة تهامة للصناعات الخفيفة؛ نشاطها الموثق: وجبات خفيفة — بف." [ref=e220] [cursor=pointer]':
+            - /url: /yemeni-products/tehama-light-industries
+            - generic [ref=e221]: من دليل المنتجات
+            - heading "تهامة للصناعات الخفيفة" [level=3] [ref=e222]
+            - paragraph [ref=e223]: "تهامة للصناعات الخفيفة؛ نشاطها الموثق: وجبات خفيفة — بف."
+          - link "من دليل المهنيين علي سعيد الكروني نجار أثاث وديكورات" [ref=e227] [cursor=pointer]:
+            - /url: /professionals/ali-carpenter
+            - generic [ref=e228]: من دليل المهنيين
+            - heading "علي سعيد الكروني" [level=3] [ref=e229]
+            - paragraph [ref=e230]: نجار أثاث وديكورات
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - generic [ref=e238]: اليمن بالأرقام
+            - heading "وراء كل رقم، صورة أوضح." [level=2] [ref=e239]
+            - paragraph [ref=e240]: مؤشرات وطنية مع سنة القياس والمصدر. المعرفة تبدأ برقم يمكن التحقّق منه.
+          - link "استكشف جميع المؤشرات" [ref=e241] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+        - generic [ref=e245]:
+          - 'link "السكان جزئية عدد سكان اليمن إجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر 42,961,653 نسمة سنة القياس: 2026 تقديري المصدر: worldpopulationreview.com عرض تفاصيل المؤشر" [ref=e246] [cursor=pointer]':
+            - /url: /yemen-in-numbers/indicator/yemen-population
+            - generic [ref=e247]:
+              - generic [ref=e248]: السكان
+              - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=e249]: جزئية
+            - heading "عدد سكان اليمن" [level=3] [ref=e250]
+            - paragraph [ref=e251]: إجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر
+            - generic [ref=e252]:
+              - strong [ref=e253]: 42,961,653
+              - generic [ref=e254]: نسمة
+              - generic [ref=e255]:
+                - generic [ref=e256]: "سنة القياس: 2026"
+                - generic [ref=e259]: تقديري
+            - generic [ref=e260]: "المصدر: worldpopulationreview.com"
+            - generic [ref=e262]: عرض تفاصيل المؤشر
+          - 'link "الحوكمة جزئية درجة الاستقرار السياسي وغياب العنف سلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات. 21.69 درجة معيارية سنة القياس: 2025 تقديري المصدر: مؤشرات الحوكمة العالمية WGI عرض تفاصيل المؤشر" [ref=e266] [cursor=pointer]':
+            - /url: /yemen-in-numbers/indicator/political-stability-score
+            - generic [ref=e267]:
+              - generic [ref=e268]: الحوكمة
+              - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=e269]: جزئية
+            - heading "درجة الاستقرار السياسي وغياب العنف" [level=3] [ref=e270]
+            - paragraph [ref=e271]: سلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات.
+            - generic [ref=e272]:
+              - strong [ref=e273]: "21.69"
+              - generic [ref=e274]: درجة معيارية
+              - generic [ref=e275]:
+                - generic [ref=e276]: "سنة القياس: 2025"
+                - generic [ref=e279]: تقديري
+            - generic [ref=e280]: "المصدر: مؤشرات الحوكمة العالمية WGI"
+            - generic [ref=e282]: عرض تفاصيل المؤشر
+          - 'link "الحوكمة جزئية درجة المشاركة والمساءلة سلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات. 25.67 درجة معيارية سنة القياس: 2025 تقديري المصدر: مؤشرات الحوكمة العالمية WGI عرض تفاصيل المؤشر" [ref=e286] [cursor=pointer]':
+            - /url: /yemen-in-numbers/indicator/voice-accountability-score
+            - generic [ref=e287]:
+              - generic [ref=e288]: الحوكمة
+              - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=e289]: جزئية
+            - heading "درجة المشاركة والمساءلة" [level=3] [ref=e290]
+            - paragraph [ref=e291]: سلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.
+            - generic [ref=e292]:
+              - strong [ref=e293]: "25.67"
+              - generic [ref=e294]: درجة معيارية
+              - generic [ref=e295]:
+                - generic [ref=e296]: "سنة القياس: 2025"
+                - generic [ref=e299]: تقديري
+            - generic [ref=e300]: "المصدر: مؤشرات الحوكمة العالمية WGI"
+            - generic [ref=e302]: عرض تفاصيل المؤشر
+      - generic [ref=e307]:
+        - generic [ref=e308]:
+          - text: المساحة مساحتك
+          - heading "لديك حكاية، معلومة، أو فكرة؟ نسمعك." [level=2] [ref=e309]
+        - link "تواصل وشارك" [ref=e310] [cursor=pointer]:
+          - /url: /contribute
+      - group [ref=e314]:
+        - generic "عن المبادرة ومشاريع 967 تعرّف على رؤيتنا ومسارات العمل" [ref=e315] [cursor=pointer]:
+          - text: عن المبادرة ومشاريع 967
+          - generic [ref=e316]: تعرّف على رؤيتنا ومسارات العمل
+  - contentinfo [ref=e317]:
+    - generic [ref=e318]:
+      - generic [ref=e319]:
+        - generic [ref=e320]:
+          - link "مبادرة 967" [ref=e321] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=e322]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=e323]
+          - paragraph [ref=e324]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=e325]:
+            - link "إنستغرام" [ref=e326] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=e334] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=e342]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=e343]
+          - link "الأعمال الإعلامية" [ref=e344] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=e345] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=e346] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=e347] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=e348] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=e349] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=e350] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=e351]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=e352]
+          - link "منتجات يمنية" [ref=e353] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=e354] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=e355] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=e356] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=e357]:
+          - heading "مبادرة 967" [level=3] [ref=e358]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=e359] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=e360] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=e361] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=e362] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=e363] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=e364]:
+        - generic [ref=e365]: © 2026 مبادرة 967
+        - generic [ref=e366]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=e367]:
+          - link "سياسة الخصوصية" [ref=e368] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=e369] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=e370] [cursor=pointer]:
+          - /url: /search

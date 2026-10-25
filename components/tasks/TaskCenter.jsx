@@ -58,6 +58,7 @@ export default function TaskCenter(){
  return <section className={styles.shell}>
   <Link href="/admin" className={styles.back}><ArrowRight size={17}/>لوحة الإدارة</Link>
   <header className={styles.heading}><div><span className={styles.eyebrow}>967 / مساحة عمل الفريق</span><h1>مركز مهام <span>967</span></h1><p>نعمل معاً، ونرى التقدّم بوضوح.</p></div><div className={styles.actions}><button className={styles.secondary} disabled={!workspace||busy} onClick={()=>setNotifications(true)}><Bell size={18}/>التنبيهات{unread>0&&<span className={styles.count}>{unread.toLocaleString('ar-u-nu-latn',{numberingSystem:'latn'})}</span>}</button><button className={styles.primary} disabled={!workspace||busy} onClick={()=>{setError('');setEditor({task:null});}}><Plus size={19}/>إضافة مهمة</button></div></header>
+  {workspace&&<p className={styles.hint}>{workspace.auto_archive_available===false?'الأرشفة التلقائية تنتظر تفعيل تحديث مركز المهام. تبقى الأرشفة اليدوية متاحة.':'تنتقل المهام المكتملة تلقائياً إلى الأرشيف بعد 24 ساعة، ويمكن استعادتها من قائمة المؤرشفة.'}</p>}
   <p className={styles.teamNote}><CheckCheck size={16}/> جميع مهام الفريق متاحة للأدمن والإدارة. التعديل بحسب مسؤولية المهمة.</p>
   <p className={styles.hint}>التنبيهات داخل مركز المهام فقط. تُحفظ في حسابك وتُنشأ تذكيرات المواعيد عند فتح المركز؛ لا يصل بريد أو إشعار خارج الموقع.</p>
   {error&&!detail&&!editor&&<p className={styles.error} role="alert">{error} <button className={styles.textButton} onClick={load}>إعادة المحاولة</button></p>}{notice&&<p className={styles.success} role="status">{notice}</p>}

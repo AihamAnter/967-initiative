@@ -7,7 +7,7 @@ import BrandLogo from './BrandLogo';
 import {browserDb} from '@/lib/supabase';
 
 const baseGroups = [
-  {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967'], ['/debates', 'مناظرات 967']]},
+  {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967'], ['/debates', 'مناظرات 967'], ['/read-later', 'للقراءة لاحقاً']]},
   {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-ranking', 'ترتيب اليمن'], ['/yemen-map', 'اكتشف اليمن']]},
   {label: 'الأدلة', links: [['/yemeni-products', 'منتجات يمنية'], ['/professionals', 'المهنيون']]},
   {label: 'المبادرة', links: [['/#about', 'من نحن'], ['/#projects', 'مشاريعنا'], ['/contribute', 'تواصل وشارك']]},

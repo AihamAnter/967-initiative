@@ -1,0 +1,154 @@
+- generic [active] [ref=f55e1]:
+  - link "انتقل إلى المحتوى" [ref=f55e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f55e3]:
+    - generic [ref=f55e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f55e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f55e6]
+      - generic [ref=f55e7]:
+        - link "البحث في المنصة" [ref=f55e8] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f55e12] [cursor=pointer]:
+          - /url: /login
+        - button "فتح القائمة" [ref=f55e17] [cursor=pointer]
+  - main [ref=f55e19]:
+    - generic [ref=f55e21]:
+      - link "العودة إلى دليل المنتجات" [ref=f55e22] [cursor=pointer]:
+        - /url: /yemeni-products#directory
+      - generic [ref=f55e25]:
+        - generic [ref=f55e26]: أغذية ومشروبات
+        - generic [ref=f55e27]: الحديدة
+      - heading "تهامة للصناعات الخفيفة" [level=1] [ref=f55e31]
+      - paragraph [ref=f55e32]: "تهامة للصناعات الخفيفة؛ نشاطها الموثق: وجبات خفيفة — بف."
+      - generic [ref=f55e33]: معلومات مستندة إلى مصادر منشورة — روابط المصادر وتاريخ مراجعتها أدناه.
+    - generic [ref=f55e36]:
+      - generic [ref=f55e37]:
+        - generic [ref=f55e39]:
+          - button "حفظ تهامة للصناعات الخفيفة للقراءة لاحقاً" [ref=f55e41] [cursor=pointer]: احفظ للقراءة لاحقاً
+          - status [ref=f55e44]
+        - generic [ref=f55e45]:
+          - generic [ref=f55e46]: قصة المنشأة
+          - heading "عن تهامة للصناعات الخفيفة" [level=2] [ref=f55e47]
+          - paragraph [ref=f55e48]: يسجل دليل اتحاد الغرف التجارية الصناعية اليمنية هذه المنشأة ضمن القطاع الصناعي في محافظة الحديدة.
+        - generic [ref=f55e49]:
+          - generic [ref=f55e50]:
+            - generic [ref=f55e51]:
+              - generic [ref=f55e52]: المنتجات
+              - heading "ماذا تقدم المنشأة؟" [level=2] [ref=f55e53]
+            - strong [ref=f55e54]: "عدد المنتجات: 1"
+          - article [ref=f55e56]:
+            - generic [ref=f55e57]: "01"
+            - generic [ref=f55e58]:
+              - heading "وجبات خفيفة — بف" [level=3] [ref=f55e59]
+              - paragraph
+        - generic [ref=f55e60]:
+          - generic [ref=f55e61]: المعلومات والمراجع
+          - heading "مصادر بيانات المنشأة والمنتجات" [level=2] [ref=f55e62]
+          - paragraph [ref=f55e63]: تاريخ المراجعة يخص المعلومات المنشورة في المصدر، ولا يؤكد حالة التشغيل الحالية أو توفر المنتجات.
+          - list [ref=f55e64]:
+            - listitem [ref=f55e65]:
+              - link "اتحاد الغرف التجارية الصناعية اليمنية — سجل المنشأة" [ref=f55e66] [cursor=pointer]:
+                - /url: https://fycci-ye.org/?act=dalil&did=916
+              - generic [ref=f55e71]: "تاريخ المراجعة: 19 أكتوبر 2026"
+      - complementary [ref=f55e72]:
+        - generic [ref=f55e73]:
+          - heading "بيانات المنشأة" [level=2] [ref=f55e74]
+          - generic [ref=f55e80]:
+            - generic [ref=f55e81]: نوع المنشأة
+            - strong [ref=f55e82]: شركة
+        - generic [ref=f55e83]:
+          - heading "العنوان والتواصل" [level=2] [ref=f55e84]
+          - generic [ref=f55e89]:
+            - generic [ref=f55e90]: العنوان
+            - strong [ref=f55e91]: الحديدة، بيت الفقيه، الشارع العام - محطه الشماع
+          - link "بحث العنوان في خرائط Google" [ref=f55e93] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%D8%A9%D8%8C%20%D8%A8%D9%8A%D8%AA%20%D8%A7%D9%84%D9%81%D9%82%D9%8A%D9%87%D8%8C%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D8%B9%D8%A7%D9%85%20-%20%D9%85%D8%AD%D8%B7%D9%87%20%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D8%B9%D8%8C%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%D8%A9%D8%8C%20%D8%A7%D9%84%D9%8A%D9%85%D9%86
+        - generic [ref=f55e98]:
+          - strong [ref=f55e99]: هل تمثل هذه المنشأة؟
+          - paragraph [ref=f55e100]: يمكن إرسال البيانات الرسمية وروابط التواصل لتوثيق الملف وتحديثه.
+          - link "تحديث بيانات الشركة" [ref=f55e101] [cursor=pointer]:
+            - /url: /contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9&referenceTitle=%D8%AA%D9%87%D8%A7%D9%85%D8%A9+%D9%84%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A7%D8%AA+%D8%A7%D9%84%D8%AE%D9%81%D9%8A%D9%81%D8%A9&referencePath=%2Fyemeni-products%2Ftehama-light-industries&referenceId=015775e6-223b-4ce6-84c9-de0cb7288b71#contribution-form
+    - generic [ref=f55e106]:
+      - generic [ref=f55e107]:
+        - generic [ref=f55e108]:
+          - generic [ref=f55e109]: من القطاع نفسه
+          - heading "منشآت مشابهة" [level=2] [ref=f55e110]
+        - link "عرض الدليل كاملاً" [ref=f55e111] [cursor=pointer]:
+          - /url: /yemeni-products#directory
+      - generic [ref=f55e115]:
+        - link [ref=f55e116] [cursor=pointer]:
+          - /url: /yemeni-products/mocha-hunters
+          - generic [ref=f55e117]:
+            - text: صنعاء
+            - heading "موكا هنترز — نشاط اليمن" [level=3] [ref=f55e118]
+            - paragraph [ref=f55e119]: "موكا هنترز — نشاط اليمن؛ نشاطها الموثق: بن يمني مختص، قهوة محمصة."
+        - link [ref=f55e123] [cursor=pointer]:
+          - /url: /yemeni-products/alsafaa-water-taiz
+          - generic [ref=f55e124]:
+            - text: تعز
+            - heading "الصفاء للمياه" [level=3] [ref=f55e125]
+            - paragraph [ref=f55e126]: "الصفاء للمياه؛ نشاطها الموثق: مياه محلاة."
+  - contentinfo [ref=f55e130]:
+    - generic [ref=f55e131]:
+      - generic [ref=f55e132]:
+        - generic [ref=f55e133]:
+          - link "مبادرة 967" [ref=f55e134] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f55e135]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f55e136]
+          - paragraph [ref=f55e137]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f55e138]:
+            - link "إنستغرام" [ref=f55e139] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f55e147] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f55e155]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f55e156]
+          - link "الأعمال الإعلامية" [ref=f55e157] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f55e158] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f55e159] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f55e160] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f55e161] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f55e162] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f55e163] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f55e164]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f55e165]
+          - link "منتجات يمنية" [ref=f55e166] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f55e167] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f55e168] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f55e169] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f55e170]:
+          - heading "مبادرة 967" [level=3] [ref=f55e171]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f55e172] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f55e173] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f55e174] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f55e175] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f55e176] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f55e177]:
+        - generic [ref=f55e178]: © 2026 مبادرة 967
+        - generic [ref=f55e179]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f55e180]:
+          - link "سياسة الخصوصية" [ref=f55e181] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f55e182] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f55e183] [cursor=pointer]:
+          - /url: /search
+  - alert [ref=f55e187]

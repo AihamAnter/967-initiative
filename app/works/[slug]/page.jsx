@@ -12,6 +12,7 @@ import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd, workSchema} from '@/lib/seo-schema';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
 import CorrectionLink from '@/components/CorrectionLink';
+import ContentReadingAction from '@/components/reading/ContentReadingAction';
 
 export async function generateMetadata({params}) {
   const {slug} = await params;
@@ -54,6 +55,7 @@ export default async function WorkDetails({params,searchParams}) {
     </div></section>
     <section className="work-detail-body"><div className="container">
       <MediaViewer work={work}/>
+      <ContentReadingAction kind="work" href={detailPath('works',work.slug)} title={work.title}/>
       <div className="work-detail-info">
         <div><span className="eyebrow">عن هذا العمل</span><h2>التفاصيل</h2><p className="work-detail-description">{work.summary || 'لم يُضف وصف لهذا العمل بعد.'}</p></div>
         <aside className="work-detail-aside"><h3>معلومات العمل</h3><dl><div><dt>المنصة</dt><dd>{work.platform}</dd></div><div><dt>التصنيف</dt><dd>{work.category}</dd></div></dl>{external && <a href={external} target="_blank" rel="noopener noreferrer">المنشور الأصلي <ExternalLink size={16}/></a>}</aside>

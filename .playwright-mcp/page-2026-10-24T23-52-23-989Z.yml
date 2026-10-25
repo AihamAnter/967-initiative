@@ -1,0 +1,392 @@
+- generic [active] [ref=f30e1]:
+  - link "انتقل إلى المحتوى" [ref=f30e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f30e3]:
+    - generic [ref=f30e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f30e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f30e6]
+      - generic [ref=f30e7]:
+        - link "البحث في المنصة" [ref=f30e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f30e12] [cursor=pointer]
+  - main [ref=f30e14]:
+    - generic [ref=f30e15]:
+      - generic [ref=f30e17]:
+        - generic [ref=f30e18]:
+          - link "العودة إلى شخصيات يمنية" [ref=f30e19] [cursor=pointer]:
+            - /url: /yemen-map?region=YE11#yemeni-figures
+          - generic [ref=f30e22]:
+            - generic [ref=f30e23]: تاريخية
+            - generic [ref=f30e24]: السياسة والحكم
+            - generic [ref=f30e25]: إب
+          - heading "الملكة أروى بنت أحمد الصليحي" [level=1] [ref=f30e30]
+          - strong [ref=f30e31]: ملكة يمنية حكمت الدولة الصليحية
+          - paragraph [ref=f30e32]: أروى بنت أحمد الصليحي حاكمة يمنية من الدولة الصليحية، ارتبط حكمها بمدينة جبلة. مارست السلطة في أواخر القرن الحادي عشر والنصف الأول من القرن الثاني عشر الميلادي، وعُرفت في المصادر بلقب السيدة الحرة. تُدرس سيرتها في تاريخ الحكم والسياسة والعمران والدعوة الإسماعيلية في اليمن. ولدت في مدينة جبلة وأمها رداح بنت الفارع بن موسى الصليحي زوجة المكرّم أحمد بن علي الصليحي ملك اليمن.
+        - generic [ref=f30e33]:
+          - img "ضريح الملكة أروى بنت أحمد في جبلة" [ref=f30e34]
+          - generic [ref=f30e35]:
+            - generic [ref=f30e36]: صورة سياقية مرتبطة بالسيرة
+            - strong [ref=f30e37]: الملكة أروى بنت أحمد الصليحي
+            - link "مصدر الصورة وحقوقها" [ref=f30e38] [cursor=pointer]:
+              - /url: https://commons.wikimedia.org/wiki/File:Mousoleum_Hurrat-ul-Malaika_Arwa.JPG
+      - generic [ref=f30e40]:
+        - generic [ref=f30e41]:
+          - navigation "محتويات السيرة" [ref=f30e42]:
+            - heading "محتويات الملف" [level=2] [ref=f30e43]
+            - list [ref=f30e45]:
+              - listitem [ref=f30e46]:
+                - link "التعريف والمسيرة" [ref=f30e47] [cursor=pointer]:
+                  - /url: "#section-intro"
+              - listitem [ref=f30e48]:
+                - link "ولادتها" [ref=f30e49] [cursor=pointer]:
+                  - /url: "#section-bio-1"
+              - listitem [ref=f30e50]:
+                - link "زواجها" [ref=f30e51] [cursor=pointer]:
+                  - /url: "#section-bio-2"
+              - listitem [ref=f30e52]:
+                - link "حكمها" [ref=f30e53] [cursor=pointer]:
+                  - /url: "#section-bio-3"
+              - listitem [ref=f30e54]:
+                - link "وفاتها" [ref=f30e55] [cursor=pointer]:
+                  - /url: "#section-bio-4"
+              - listitem [ref=f30e56]:
+                - link "صفاتها" [ref=f30e57] [cursor=pointer]:
+                  - /url: "#section-bio-5"
+              - listitem [ref=f30e58]:
+                - link "تفاصيل السيرة" [ref=f30e59] [cursor=pointer]:
+                  - /url: "#figure-facts"
+              - listitem [ref=f30e60]:
+                - link "التسلسل الزمني" [ref=f30e61] [cursor=pointer]:
+                  - /url: "#figure-timeline"
+              - listitem [ref=f30e62]:
+                - link "الصور والوثائق" [ref=f30e63] [cursor=pointer]:
+                  - /url: "#figure-gallery"
+              - listitem [ref=f30e64]:
+                - link "ملاحظات توثيقية" [ref=f30e65] [cursor=pointer]:
+                  - /url: "#figure-notes"
+              - listitem [ref=f30e66]:
+                - link "المصادر والمراجع" [ref=f30e67] [cursor=pointer]:
+                  - /url: "#figure-sources"
+          - generic [ref=f30e68]:
+            - generic [ref=f30e69]: "آخر مراجعة: 24 أكتوبر 2026"
+            - generic [ref=f30e70]: "مصادر الملف: 3"
+          - generic [ref=f30e71]:
+            - heading "التعريف والمسيرة" [level=2] [ref=f30e72]
+            - paragraph [ref=f30e73]:
+              - text: أروى بنت أحمد الصليحي حاكمة يمنية من الدولة الصليحية، ارتبط حكمها بمدينة جبلة. مارست السلطة في أواخر القرن الحادي عشر والنصف الأول من القرن الثاني عشر الميلادي، وعُرفت في المصادر بلقب السيدة الحرة. تُدرس سيرتها في تاريخ الحكم والسياسة والعمران والدعوة الإسماعيلية في اليمن.
+              - superscript [ref=f30e75]:
+                - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e76] [cursor=pointer]':
+                  - /url: "#source-wikipedia"
+                  - text: "[1]"
+          - generic [ref=f30e77]:
+            - heading "ولادتها" [level=2] [ref=f30e78]
+            - paragraph [ref=f30e79]:
+              - text: ولدت في مدينة جبلة وأمها رداح بنت الفارع بن موسى الصليحي زوجة المكرّم أحمد بن علي الصليحي ملك اليمن. ونشأت في رعاية أسماء بنت شهاب زوجة علي بن محمد الصليحي مؤسس الدولة الصليحية، بعد وفاة والدها أحمد الصليحي وزواج والدتها من عامر بن سليمان الزواحي.
+              - superscript [ref=f30e81]:
+                - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e82] [cursor=pointer]':
+                  - /url: "#source-wikipedia"
+                  - text: "[1]"
+          - generic [ref=f30e83]:
+            - heading "زواجها" [level=2] [ref=f30e84]
+            - paragraph [ref=f30e85]:
+              - text: تزوجها المكرّم أحمد بن علي سنة 458 هـ في حياة أبيه، وتولى الحكم من بعده (459 - 481 هـ) فأنجبت منه أربعة من الأولاد هم علي ومحمد وفاطمة وأم همدان وقد توفى علي ومحمد وهما طفلين سنة 467 هـ. أما أم همدان فقد تزوجت من أحمد بن سليمان بن عامر الزواحي ورزقت منه بعبد المستعلي وتوفيت قبل أمها سنة 516 هـ. وأما فاطمة فتزوجها شمس المعالي بن الراعي بن سبأ وتوفيت بعد والدتها بسنتين وذلك سنة 534 هـ.
+              - superscript [ref=f30e87]:
+                - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e88] [cursor=pointer]':
+                  - /url: "#source-wikipedia"
+                  - text: "[1]"
+          - generic [ref=f30e89]:
+            - heading "حكمها" [level=2] [ref=f30e90]
+            - paragraph [ref=f30e91]: فوّض المكرم الأمور إِلى زوجته أروى، فكان أول ما قامت به، بعد أن غادرت صنعاء، أن اتخذت مقرها في قصر شيده زوجها في حصن بجبلة ونقل إِليه ذخائره وقامت بتدبير المملكة خير قيام وبسطت سلطانها على القبائل اليمانية، فخضع الناس لها، وكانت الرسائل التي يبعث بها المستنصر بالله الفاطمي إِلى اليمن تصدر باسمها.
+            - paragraph [ref=f30e92]:
+              - text: "وبعد وفاة زوجها المكرّم سنة 481هـ اختلف الصليحيون والزواحيون فيمن يتولى الحكم، وكان زوجها قد أوصى أن تسند أمور الدعوة إِلى الأمير المنصور سبأ بن أحمد بن المظفر الصليحي الذي طمح إِلى الزواج منها، فلم ترضَ أروى بهذا الاختيار، واحتكم سبأ إِلى المستنصر بالله الفاطمي الذي أمر أروى أن تقبل بسبأ زوجاً، وإن ظل هذا الزواج صورياً، وظلّت أروى تمسك بمقاليد الحكم الفعلية، وتُرفع إِليها الرقاع، ويجتمع عندها الوزراء، ويدعى لها على منابر اليمن، فيخطب أولاً للخليفة الفاطمي ثم لسبأ ابن أحمد ثم للسيدة الحرّة أروى. ولم تلبث أن استقلت بأمر الحكم بعد وفاة زوجها الثاني سبأ سنة 492هـ، واعتمدت في تدبير أمور الملك على عدد من الثقات، منهم: المفضّل بن أبي البركات، وزريع بن أبي الفضل، وعليّ بن إِبراهيم بن نجيب الدولة وغيرهم، وامتدت أيام حكمها بعد ذلك أربعين سنة، استطاعت في أثنائها أن تمارس سيادتها على الإِمارات اليمنية الصغيرة من دون إِخضاعها."
+              - superscript [ref=f30e94]:
+                - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e95] [cursor=pointer]':
+                  - /url: "#source-wikipedia"
+                  - text: "[1]"
+          - generic [ref=f30e96]:
+            - heading "وفاتها" [level=2] [ref=f30e97]
+            - paragraph [ref=f30e98]: "عمرت أروى طويلاً، فلمّا ماتت دفنت في مسجد كانت بنته بذي جبلة، وقبرها ما يزال حتى اليوم مزارًا. وعلى إِثر وفاتها دبّ الضعف في جسد الدولة الصليحية وتفككت أوصالها وصار الأمر فيها إِلى الأمراء من آل زريع، وانتهى أمر الصليحيين تماماً بعد أن غزا توران شاه بن أيوب اليمن سنة 569 هـ. مدحها الشاعر ابن القم بأبيات شهيرة:"
+            - paragraph [ref=f30e99]: أعلمت أن من الرماح قدودا *** ومن الصّفاح محاجرا ونهوداً
+            - paragraph [ref=f30e100]: أعلى الأنام أبا وأكرم طينة *** وأتمّ أعراقا وأصلب عوداً
+            - paragraph [ref=f30e101]: لو كان يعبد للجلالة في الورى *** بشر لكانت ذلك المعبودا
+            - paragraph [ref=f30e102]: هي نعمة الله التي ما ماؤها *** ثمداً ولا معروفها مجحودا
+            - paragraph [ref=f30e103]: هي رحمة الله التي ما زال من *** فوق البرية ظلها ممدودا
+            - paragraph [ref=f30e104]: "كما مدح علمها الشاعر محمد أحمد منصور :"
+            - paragraph [ref=f30e105]: تلك أروى، خليفة الله في *** الأرض، ولله مثلها الخلفاء
+            - paragraph [ref=f30e106]: صنعت للبلاد ماعجزت بالامس*** عنه، العمائم البيضاء
+            - paragraph [ref=f30e107]: ليت أهل اللحى الطويلة تبني *** مابنته الضفائر السوداء
+            - paragraph [ref=f30e108]: كم أقامت مدارساً شامخات*** نهلت من علومها الأبناءُ
+            - paragraph [ref=f30e109]:
+              - text: تلك أروى في مفرق الدهر *** تاج تتحدى بها الرجالَ النساءُ
+              - superscript [ref=f30e111]:
+                - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e112] [cursor=pointer]':
+                  - /url: "#source-wikipedia"
+                  - text: "[1]"
+          - generic [ref=f30e113]:
+            - heading "صفاتها" [level=2] [ref=f30e114]
+            - paragraph [ref=f30e115]:
+              - text: كانت بيضاء مشربة بحمرة، طويلة القامة تميل إلى السمنة جهورية الصوت.
+              - superscript [ref=f30e117]:
+                - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e118] [cursor=pointer]':
+                  - /url: "#source-wikipedia"
+                  - text: "[1]"
+          - generic [ref=f30e119]:
+            - heading "تفاصيل السيرة" [level=2] [ref=f30e120]
+            - generic [ref=f30e121]:
+              - generic [ref=f30e122]:
+                - term [ref=f30e123]: الميلاد
+                - definition [ref=f30e124]:
+                  - text: "1048"
+                  - superscript [ref=f30e126]:
+                    - 'link "المصدر 2: البيانات التعريفية: Q444206" [ref=f30e127] [cursor=pointer]':
+                      - /url: "#source-wikidata"
+                      - text: "[2]"
+              - generic [ref=f30e128]:
+                - term [ref=f30e129]: الوفاة
+                - definition [ref=f30e130]:
+                  - text: "1138"
+                  - superscript [ref=f30e132]:
+                    - 'link "المصدر 2: البيانات التعريفية: Q444206" [ref=f30e133] [cursor=pointer]':
+                      - /url: "#source-wikidata"
+                      - text: "[2]"
+              - generic [ref=f30e134]:
+                - term [ref=f30e135]: مكان الميلاد
+                - definition [ref=f30e136]:
+                  - text: جبلة
+                  - superscript [ref=f30e138]:
+                    - 'link "المصدر 2: البيانات التعريفية: Q444206" [ref=f30e139] [cursor=pointer]':
+                      - /url: "#source-wikidata"
+                      - text: "[2]"
+              - generic [ref=f30e140]:
+                - term [ref=f30e141]: مكان الوفاة
+                - definition [ref=f30e142]:
+                  - text: جبلة
+                  - superscript [ref=f30e144]:
+                    - 'link "المصدر 2: البيانات التعريفية: Q444206" [ref=f30e145] [cursor=pointer]':
+                      - /url: "#source-wikidata"
+                      - text: "[2]"
+              - generic [ref=f30e146]:
+                - term [ref=f30e147]: مجالات العمل
+                - definition [ref=f30e148]:
+                  - text: سياسي، عاهل
+                  - superscript [ref=f30e150]:
+                    - 'link "المصدر 2: البيانات التعريفية: Q444206" [ref=f30e151] [cursor=pointer]':
+                      - /url: "#source-wikidata"
+                      - text: "[2]"
+              - generic [ref=f30e152]:
+                - term [ref=f30e153]: ولادتها
+                - definition [ref=f30e154]:
+                  - text: ولدت في مدينة جبلة وأمها رداح بنت الفارع بن موسى الصليحي زوجة المكرّم أحمد بن علي الصليحي ملك اليمن.
+                  - superscript [ref=f30e156]:
+                    - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e157] [cursor=pointer]':
+                      - /url: "#source-wikipedia"
+                      - text: "[1]"
+              - generic [ref=f30e158]:
+                - term [ref=f30e159]: زواجها
+                - definition [ref=f30e160]:
+                  - text: تزوجها المكرّم أحمد بن علي سنة 458 هـ في حياة أبيه، وتولى الحكم من بعده (459 - 481 هـ) فأنجبت منه أربعة من الأولاد هم علي ومحمد وفاطمة وأم همدان وقد توفى علي ومحمد وهما طفلين سنة 467 هـ.
+                  - superscript [ref=f30e162]:
+                    - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e163] [cursor=pointer]':
+                      - /url: "#source-wikipedia"
+                      - text: "[1]"
+              - generic [ref=f30e164]:
+                - term [ref=f30e165]: حكمها
+                - definition [ref=f30e166]:
+                  - text: فوّض المكرم الأمور إِلى زوجته أروى، فكان أول ما قامت به، بعد أن غادرت صنعاء، أن اتخذت مقرها في قصر شيده زوجها في حصن بجبلة ونقل إِليه ذخائره وقامت بتدبير المملكة خير قيام وبسطت سلطانها على القبائل اليمانية، فخضع الناس لها، وكانت الرسائل التي يبعث بها المستنصر بالله الفاطمي إِلى اليمن تصدر باسمها.
+                  - superscript [ref=f30e168]:
+                    - 'link "المصدر 1: أروى بنت أحمد — السيرة الموسوعية" [ref=f30e169] [cursor=pointer]':
+                      - /url: "#source-wikipedia"
+                      - text: "[1]"
+          - generic [ref=f30e170]:
+            - generic [ref=f30e171]: محطات موثقة
+            - heading "التسلسل الزمني" [level=2] [ref=f30e174]
+            - list [ref=f30e175]:
+              - listitem [ref=f30e176]:
+                - generic [ref=f30e177]: "1048"
+                - generic [ref=f30e178]:
+                  - heading "الميلاد" [level=3] [ref=f30e179]
+                  - paragraph [ref=f30e180]: الميلاد بحسب التاريخ الوارد في المراجع.
+                  - superscript [ref=f30e182]:
+                    - 'link "المصدر 2: البيانات التعريفية: Q444206" [ref=f30e183] [cursor=pointer]':
+                      - /url: "#source-wikidata"
+                      - text: "[2]"
+              - listitem [ref=f30e184]:
+                - generic [ref=f30e185]: "1138"
+                - generic [ref=f30e186]:
+                  - heading "الوفاة" [level=3] [ref=f30e187]
+                  - paragraph [ref=f30e188]: الوفاة بحسب التاريخ الوارد في المراجع.
+                  - superscript [ref=f30e190]:
+                    - 'link "المصدر 2: البيانات التعريفية: Q444206" [ref=f30e191] [cursor=pointer]':
+                      - /url: "#source-wikidata"
+                      - text: "[2]"
+          - generic [ref=f30e192]:
+            - generic [ref=f30e193]: ذاكرة بصرية
+            - heading "الصور والوثائق" [level=2] [ref=f30e198]
+            - generic [ref=f30e199]:
+              - figure "صورة سياقية ضريح الملكة أروى بنت أحمد في جبلة Md iet CC BY-SA 3.0" [ref=f30e200]:
+                - 'link "المصدر الأصلي: ضريح الملكة أروى بنت أحمد في جبلة" [ref=f30e201] [cursor=pointer]':
+                  - /url: https://commons.wikimedia.org/wiki/File:Mousoleum_Hurrat-ul-Malaika_Arwa.JPG
+                  - img "ضريح الملكة أروى بنت أحمد في جبلة" [ref=f30e203]
+                - generic [ref=f30e204]:
+                  - generic [ref=f30e205]: صورة سياقية
+                  - paragraph [ref=f30e206]: ضريح الملكة أروى بنت أحمد في جبلة
+                  - generic [ref=f30e207]: Md iet
+                  - link "CC BY-SA 3.0" [ref=f30e208] [cursor=pointer]:
+                    - /url: https://creativecommons.org/licenses/by-sa/3.0
+              - figure "صورة سياقية مسجد الملكة أروى في جبلة؛ صورة للموقع وليست صورة شخصية Rod Waddington from Kergunyah, Australia CC BY-SA 2.0" [ref=f30e209]:
+                - 'link "المصدر الأصلي: مسجد الملكة أروى في جبلة؛ صورة للموقع وليست صورة شخصية" [ref=f30e210] [cursor=pointer]':
+                  - /url: https://commons.wikimedia.org/wiki/File:Queen_Arya_Tomb,_Jibla_(14159927604).jpg
+                  - img "مسجد الملكة أروى في جبلة؛ صورة للموقع وليست صورة شخصية" [ref=f30e212]
+                - generic [ref=f30e213]:
+                  - generic [ref=f30e214]: صورة سياقية
+                  - paragraph [ref=f30e215]: مسجد الملكة أروى في جبلة؛ صورة للموقع وليست صورة شخصية
+                  - generic [ref=f30e216]: Rod Waddington from Kergunyah, Australia
+                  - link "CC BY-SA 2.0" [ref=f30e217] [cursor=pointer]:
+                    - /url: https://creativecommons.org/licenses/by-sa/2.0
+          - generic [ref=f30e218]:
+            - generic [ref=f30e219]: توضيح المعلومات
+            - heading "ملاحظات توثيقية" [level=2] [ref=f30e223]
+            - list [ref=f30e224]:
+              - listitem [ref=f30e225]: تختلف بيانات المراجع في سنة الميلاد (1048 / 1052)؛ لم يُعتمد تاريخ تفصيلي غير محسوم.
+              - listitem [ref=f30e226]: تذكر المراجع اختلافات في بعض تواريخ بدايات مشاركتها في الحكم. لا تُستخدم عبارة «أول ملكة في الإسلام»؛ فقد سبقتها أسماء بنت شهاب إلى المشاركة في حكم الدولة الصليحية.
+          - generic [ref=f30e227]:
+            - heading "المصادر والمراجع" [level=2] [ref=f30e228]
+            - list [ref=f30e229]:
+              - listitem [ref=f30e230]:
+                - link "أروى بنت أحمد — السيرة الموسوعية" [ref=f30e231] [cursor=pointer]:
+                  - /url: https://ar.wikipedia.org/w/index.php?oldid=72340299
+                - generic [ref=f30e236]: ويكيبيديا العربية ومساهموها
+                - generic [ref=f30e237]: "تاريخ الاطلاع: 19 أكتوبر 2026"
+              - listitem [ref=f30e238]:
+                - 'link "البيانات التعريفية: Q444206" [ref=f30e239] [cursor=pointer]':
+                  - /url: https://www.wikidata.org/wiki/Q444206
+                - generic [ref=f30e244]: ويكي بيانات
+                - generic [ref=f30e245]: "تاريخ الاطلاع: 19 أكتوبر 2026"
+              - listitem [ref=f30e246]:
+                - link "أروى الصليحي — مشروع Team Queens" [ref=f30e247] [cursor=pointer]:
+                  - /url: https://teamqueens.org/arwa-al-sulayhi/
+                - generic [ref=f30e252]: Team Queens
+                - generic [ref=f30e253]: "تاريخ الاطلاع: 19 أكتوبر 2026"
+            - generic [ref=f30e254]:
+              - strong [ref=f30e255]: نسب النص وترخيصه
+              - paragraph [ref=f30e256]: "أُعدّت أجزاء السيرة بالاستناد إلى نص «أروى بنت أحمد» لمساهمي ويكيبيديا العربية، مع الاختصار وإعادة التنظيم وحذف الاقتباسات والمعلومات التي تحتاج إلى تحقق إضافي. النص المقتبس أو المعدّل متاح برخصة المشاع الإبداعي: النسب والمشاركة بالمثل 4.0. تُنسب الصور وتُرخص كلٌّ على حدة."
+              - link "CC BY-SA 4.0" [ref=f30e257] [cursor=pointer]:
+                - /url: https://creativecommons.org/licenses/by-sa/4.0/
+              - link "النص المصدر وسجل المساهمين" [ref=f30e258] [cursor=pointer]:
+                - /url: https://ar.wikipedia.org/w/index.php?oldid=72340299
+            - link "اقترح مصدرًا أو تصحيحًا" [ref=f30e259] [cursor=pointer]:
+              - /url: /contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD%20%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9%20%D8%A3%D9%88%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9&figure=arwa-al-sulayhi
+        - complementary [ref=f30e264]:
+          - generic [ref=f30e265]:
+            - heading "معلومات سريعة" [level=2] [ref=f30e266]
+            - generic [ref=f30e267]:
+              - generic [ref=f30e268]:
+                - term [ref=f30e269]: الفترة
+                - definition [ref=f30e272]: تاريخية
+              - generic [ref=f30e273]:
+                - term [ref=f30e274]: المجال
+                - definition [ref=f30e277]: السياسة والحكم
+              - generic [ref=f30e278]:
+                - term [ref=f30e279]: المحافظة المرتبطة
+                - definition [ref=f30e284]: إب
+              - generic [ref=f30e285]:
+                - term [ref=f30e286]: سنة الميلاد
+                - definition [ref=f30e289]: "1048"
+              - generic [ref=f30e290]:
+                - term [ref=f30e291]: سنة الوفاة
+                - definition [ref=f30e294]: "1138"
+          - link "استعراض جميع الشخصيات" [ref=f30e295] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "استكشف إب على الخريطة" [ref=f30e299] [cursor=pointer]:
+            - /url: /yemen-map?region=YE11#map
+          - link "اقترح تصحيحاً لهذه الصفحة" [ref=f30e304] [cursor=pointer]:
+            - /url: /contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9&referenceTitle=%D8%A7%D9%84%D9%85%D9%84%D9%83%D8%A9+%D8%A3%D8%B1%D9%88%D9%89+%D8%A8%D9%86%D8%AA+%D8%A3%D8%AD%D9%85%D8%AF+%D8%A7%D9%84%D8%B5%D9%84%D9%8A%D8%AD%D9%8A&referencePath=%2Fyemen-map%2Ffigures%2Farwa-al-sulayhi&referenceId=9caad3c6-aa9b-4250-9e69-786895868890#contribution-form
+      - generic [ref=f30e308]:
+        - generic [ref=f30e309]:
+          - generic [ref=f30e310]:
+            - generic [ref=f30e311]: شخصيات مرتبطة
+            - heading "ملفات أخرى للاستكشاف" [level=2] [ref=f30e312]
+          - link "عرض الدليل" [ref=f30e313] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+        - generic [ref=f30e317]:
+          - link "السياسة والحكم · إب ذو نواس ملك حميري في أوائل القرن السادس الميلادي" [ref=f30e318] [cursor=pointer]:
+            - /url: /yemen-map/figures/dhu-nuwas
+            - generic [ref=f30e319]:
+              - generic [ref=f30e320]: السياسة والحكم · إب
+              - heading "ذو نواس" [level=3] [ref=f30e321]
+              - paragraph [ref=f30e322]: ملك حميري في أوائل القرن السادس الميلادي
+          - link "السياسة والحكم · إب شمر يهرعش ملك حميري وحّد ممالك يمنية قديمة" [ref=f30e326] [cursor=pointer]:
+            - /url: /yemen-map/figures/shammar-yuharish
+            - generic [ref=f30e327]:
+              - generic [ref=f30e328]: السياسة والحكم · إب
+              - heading "شمر يهرعش" [level=3] [ref=f30e329]
+              - paragraph [ref=f30e330]: ملك حميري وحّد ممالك يمنية قديمة
+          - link "السياسة والحكم · إب عبد اللطيف ضيف الله سياسي يمني" [ref=f30e334] [cursor=pointer]:
+            - /url: /yemen-map/figures/q4665499
+            - generic [ref=f30e335]:
+              - generic [ref=f30e336]: السياسة والحكم · إب
+              - heading "عبد اللطيف ضيف الله" [level=3] [ref=f30e337]
+              - paragraph [ref=f30e338]: سياسي يمني
+  - contentinfo [ref=f30e342]:
+    - generic [ref=f30e343]:
+      - generic [ref=f30e344]:
+        - generic [ref=f30e345]:
+          - link "مبادرة 967" [ref=f30e346] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f30e347]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f30e348]
+          - paragraph [ref=f30e349]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f30e350]:
+            - link "إنستغرام" [ref=f30e351] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f30e359] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f30e367]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f30e368]
+          - link "الأعمال الإعلامية" [ref=f30e369] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f30e370] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f30e371] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f30e372] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f30e373] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f30e374] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f30e375] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f30e376]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f30e377]
+          - link "منتجات يمنية" [ref=f30e378] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f30e379] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f30e380] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f30e381] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f30e382]:
+          - heading "مبادرة 967" [level=3] [ref=f30e383]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f30e384] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f30e385] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f30e386] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f30e387] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f30e388] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f30e389]:
+        - generic [ref=f30e390]: © 2026 مبادرة 967
+        - generic [ref=f30e391]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f30e392]:
+          - link "سياسة الخصوصية" [ref=f30e393] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f30e394] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f30e395] [cursor=pointer]:
+          - /url: /search

@@ -1,6 +1,7 @@
 /* Public platform refinements. Keep readers, forms, and long articles at their
    established widths; collections and the home page have room to breathe. */
 :root { --collection-width:1280px; --home-width:1360px; }
+
 .content-text{white-space:pre-line}
 .help-search{display:grid;gap:8px;margin-block:20px 12px;font-size:15px;color:var(--primary)}
 .help-search>span:last-child{display:flex;align-items:center;gap:10px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
@@ -289,13 +290,6 @@
 @media(max-width:600px) {
   .work-grid,.home-work-grid { grid-template-columns:minmax(0,1fr); }
   .quick-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .quick-link { border-radius:0!important; border-bottom:1px solid var(--line)!important; border-inline-end:1px solid var(--line)!important; }
-  .quick-link:nth-child(2n) { border-inline-end:0!important; }
-  .quick-link:nth-last-child(-n+2) { border-bottom:0!important; }
-  .quick-link:first-child { border-start-start-radius:var(--radius)!important; }
-  .quick-link:nth-child(2) { border-start-end-radius:var(--radius)!important; }
-  .quick-link:nth-child(5) { border-end-start-radius:var(--radius)!important; }
-  .quick-link:last-child { border-end-end-radius:var(--radius)!important; }
   .home-issue { grid-template-columns:minmax(0,1fr); gap:22px; padding:24px; }
   .home-issue-cover { height:280px; }
   .home-issue-cover img { max-height:280px; }

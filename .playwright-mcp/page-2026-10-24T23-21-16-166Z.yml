@@ -1,0 +1,111 @@
+- generic [active] [ref=f15e1]:
+  - link "انتقل إلى المحتوى" [ref=f15e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f15e3]:
+    - generic [ref=f15e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f15e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f15e6]
+      - generic [ref=f15e7]:
+        - link "البحث في المنصة" [ref=f15e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f15e12] [cursor=pointer]
+  - main [ref=f15e14]:
+    - generic [ref=f15e16]:
+      - navigation "مسار التصفح" [ref=f15e17]:
+        - link "الرئيسية" [ref=f15e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f15e21]: الأعمال الإعلامية
+      - generic [ref=f15e22]: الأعمال الإعلامية
+      - heading "حكايات تستحق أن تُروى." [level=1] [ref=f15e23]
+      - paragraph [ref=f15e24]: فيديوهات، حوارات، وقصص تقرّب قضايا اليمن. ابحث عن موضوعك وشاهد العمل من مكان واحد.
+    - generic [ref=f15e27]:
+      - generic [ref=f15e28]:
+        - textbox "البحث في الأعمال" [ref=f15e33]:
+          - /placeholder: ابحث عن عمل أو موضوع...
+        - combobox "تصفية حسب المنصة" [ref=f15e34]:
+          - option "كل المنصات" [selected]
+          - option "إنستغرام"
+      - group "موضوع العمل" [ref=f15e35]:
+        - button "الكل" [pressed] [ref=f15e36] [cursor=pointer]
+        - button "التاريخ والهوية" [ref=f15e37] [cursor=pointer]
+      - generic [ref=f15e38]: "عدد الأعمال المنشورة: 1"
+      - article [ref=f15e41]:
+        - link "التاريخ والهوية إنستغرام من انا هو ني 13 أكتوبر 2026 التفاصيل ورابط المشاهدة" [ref=f15e42] [cursor=pointer]:
+          - /url: /works/work-mv6uhecd?from=%2Fworks%23works-results
+          - generic [aria-hidden] [ref=f15e44]:
+            - generic [ref=f15e47]: التاريخ والهوية
+            - strong [ref=f15e48]: من انا
+            - generic [ref=f15e49]: إنستغرام
+          - generic [ref=f15e53]:
+            - generic [ref=f15e54]: التاريخ والهوية
+            - generic [ref=f15e55]: إنستغرام
+          - heading "من انا" [level=3] [ref=f15e56]
+          - paragraph [ref=f15e57]: هو ني
+          - time [ref=f15e58]: 13 أكتوبر 2026
+          - generic [ref=f15e59]: التفاصيل ورابط المشاهدة
+        - generic [ref=f15e64]:
+          - button "حفظ من انا للقراءة لاحقاً" [disabled] [ref=f15e66]: احفظ للقراءة لاحقاً
+          - status [ref=f15e69]
+  - contentinfo [ref=f15e70]:
+    - generic [ref=f15e71]:
+      - generic [ref=f15e72]:
+        - generic [ref=f15e73]:
+          - link "مبادرة 967" [ref=f15e74] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f15e75]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f15e76]
+          - paragraph [ref=f15e77]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f15e78]:
+            - link "إنستغرام" [ref=f15e79] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f15e87] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f15e95]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f15e96]
+          - link "الأعمال الإعلامية" [ref=f15e97] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f15e98] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f15e99] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f15e100] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f15e101] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f15e102] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f15e103] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f15e104]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f15e105]
+          - link "منتجات يمنية" [ref=f15e106] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f15e107] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f15e108] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f15e109] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f15e110]:
+          - heading "مبادرة 967" [level=3] [ref=f15e111]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f15e112] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f15e113] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f15e114] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f15e115] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f15e116] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f15e117]:
+        - generic [ref=f15e118]: © 2026 مبادرة 967
+        - generic [ref=f15e119]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f15e120]:
+          - link "سياسة الخصوصية" [ref=f15e121] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f15e122] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f15e123] [cursor=pointer]:
+          - /url: /search

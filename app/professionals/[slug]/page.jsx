@@ -1,3 +1,4 @@
+import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Link from 'next/link';
 import Image from 'next/image';
 import {notFound} from 'next/navigation';
@@ -56,6 +57,7 @@ export default async function ProfessionalProfilePage({params,searchParams}) {
 
     <section className="professional-profile-body"><div className="container professional-profile-layout">
       <div className="professional-profile-main">
+        <ContentReadingAction kind="professional" href={detailPath('professionals',person.id)} title={person.fullName}/>
         <section><span className="eyebrow">الخدمات</span><h2>ما الذي يقدمه؟</h2><div className="professional-services-list">{person.services.map((service, index) => <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><strong>{service}</strong></div>)}</div></section>
         <section><span className="eyebrow">المهارات</span><h2>خبرات ومهارات عملية</h2><div className="professional-skills">{person.skills.map(skill => <span key={skill}><UserRoundCheck size={16}/>{skill}</span>)}</div></section>
         <section><span className="eyebrow">نطاق الخدمة</span><h2>أين يمكن طلب الخدمة؟</h2><div className="professional-areas">{person.serviceAreas.map(area => <span key={area}><MapPin size={16}/>{area}</span>)}</div></section>

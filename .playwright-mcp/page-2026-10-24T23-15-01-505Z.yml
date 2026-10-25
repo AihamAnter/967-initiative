@@ -1,0 +1,400 @@
+- generic [active] [ref=f8e1]:
+  - link "انتقل إلى المحتوى" [ref=f8e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f8e3]:
+    - generic [ref=f8e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f8e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f8e6]
+      - generic [ref=f8e7]:
+        - link "البحث في المنصة" [ref=f8e8] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f8e552] [cursor=pointer]:
+          - /url: /login
+        - button "فتح القائمة" [ref=f8e12] [cursor=pointer]
+  - main [ref=f8e14]:
+    - generic [ref=f8e16]:
+      - navigation "مسار التصفح" [ref=f8e17]:
+        - link "الرئيسية" [ref=f8e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f8e21]: مرصد 967 الوطني
+      - generic [ref=f8e22]: مرصد 967 الوطني
+      - heading "اليمن بالأرقام." [level=1] [ref=f8e23]
+      - paragraph [ref=f8e24]: وراء كل رقم سياق. استكشف المؤشرات، راجع مصدرها وسنة قياسها، وافهم كيف تغيّرت عبر الزمن. جميع البيانات على مستوى الجمهورية اليمنية.
+      - generic [ref=f8e25]:
+        - generic [ref=f8e26]:
+          - text: "المؤشرات المعرّفة والمنشورة:"
+          - strong [ref=f8e27]: "87"
+        - generic [ref=f8e28]:
+          - text: "ذات قيم منشورة:"
+          - strong [ref=f8e29]: "87"
+        - generic [ref=f8e30]:
+          - text: "دون قيم منشورة:"
+          - strong [ref=f8e31]: "0"
+        - link "قارن عبر الزمن" [ref=f8e32] [cursor=pointer]:
+          - /url: /yemen-in-numbers/timeline
+    - generic [ref=f8e36]:
+      - generic [ref=f8e37]:
+        - generic [ref=f8e38]:
+          - generic [ref=f8e39]: أحدث سنوات القياس المتاحة
+          - heading "أرقام تضعك في الصورة." [level=2] [ref=f8e40]
+        - link "تصفح المؤشرات" [ref=f8e41] [cursor=pointer]:
+          - /url: "#indicators"
+      - generic [ref=f8e45]:
+        - 'link "السكان جزئية عدد سكان اليمن إجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر 42,961,653 نسمة سنة القياس: 2026 تقديري المصدر: worldpopulationreview.com عرض تفاصيل المؤشر" [ref=f8e46] [cursor=pointer]':
+          - /url: /yemen-in-numbers/indicator/yemen-population
+          - generic [ref=f8e47]:
+            - generic [ref=f8e48]: السكان
+            - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=f8e49]: جزئية
+          - heading "عدد سكان اليمن" [level=3] [ref=f8e50]
+          - paragraph [ref=f8e51]: إجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر
+          - generic [ref=f8e52]:
+            - strong [ref=f8e53]: 42,961,653
+            - generic [ref=f8e54]: نسمة
+            - generic [ref=f8e55]:
+              - generic [ref=f8e56]: "سنة القياس: 2026"
+              - generic [ref=f8e59]: تقديري
+          - generic [ref=f8e60]: "المصدر: worldpopulationreview.com"
+          - generic [ref=f8e62]: عرض تفاصيل المؤشر
+        - 'link "الحوكمة جزئية درجة الاستقرار السياسي وغياب العنف سلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات. 21.69 درجة معيارية سنة القياس: 2025 تقديري المصدر: مؤشرات الحوكمة العالمية WGI عرض تفاصيل المؤشر" [ref=f8e66] [cursor=pointer]':
+          - /url: /yemen-in-numbers/indicator/political-stability-score
+          - generic [ref=f8e67]:
+            - generic [ref=f8e68]: الحوكمة
+            - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=f8e69]: جزئية
+          - heading "درجة الاستقرار السياسي وغياب العنف" [level=3] [ref=f8e70]
+          - paragraph [ref=f8e71]: سلسلة سنوية وطنية لليمن حول درجة الاستقرار السياسي وغياب العنف. تعرض السنوات المتاحة فقط دون استكمال الفجوات.
+          - generic [ref=f8e72]:
+            - strong [ref=f8e73]: "21.69"
+            - generic [ref=f8e74]: درجة معيارية
+            - generic [ref=f8e75]:
+              - generic [ref=f8e76]: "سنة القياس: 2025"
+              - generic [ref=f8e79]: تقديري
+          - generic [ref=f8e80]: "المصدر: مؤشرات الحوكمة العالمية WGI"
+          - generic [ref=f8e82]: عرض تفاصيل المؤشر
+        - 'link "الحوكمة جزئية درجة المشاركة والمساءلة سلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات. 25.67 درجة معيارية سنة القياس: 2025 تقديري المصدر: مؤشرات الحوكمة العالمية WGI عرض تفاصيل المؤشر" [ref=f8e86] [cursor=pointer]':
+          - /url: /yemen-in-numbers/indicator/voice-accountability-score
+          - generic [ref=f8e87]:
+            - generic [ref=f8e88]: الحوكمة
+            - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=f8e89]: جزئية
+          - heading "درجة المشاركة والمساءلة" [level=3] [ref=f8e90]
+          - paragraph [ref=f8e91]: سلسلة سنوية وطنية لليمن حول درجة المشاركة والمساءلة. تعرض السنوات المتاحة فقط دون استكمال الفجوات.
+          - generic [ref=f8e92]:
+            - strong [ref=f8e93]: "25.67"
+            - generic [ref=f8e94]: درجة معيارية
+            - generic [ref=f8e95]:
+              - generic [ref=f8e96]: "سنة القياس: 2025"
+              - generic [ref=f8e99]: تقديري
+          - generic [ref=f8e100]: "المصدر: مؤشرات الحوكمة العالمية WGI"
+          - generic [ref=f8e102]: عرض تفاصيل المؤشر
+    - generic [ref=f8e107]:
+      - generic [ref=f8e109]:
+        - generic [ref=f8e110]: قاعدة المؤشرات
+        - heading "اعثر على الرقم الذي تحتاجه." [level=2] [ref=f8e111]
+      - generic [ref=f8e112]:
+        - complementary [ref=f8e113]:
+          - group [ref=f8e114]:
+            - 'generic "صورة أوسع، مجالاً بعد مجال. جولة اكتشاف · المحطات: 1 من 3 1 عرض الجولة" [ref=f8e557] [cursor=pointer]':
+              - generic [ref=f8e116]:
+                - strong [ref=f8e117]: صورة أوسع، مجالاً بعد مجال.
+                - generic [ref=f8e118]: "جولة اكتشاف · المحطات: 1 من 3"
+                - progressbar "صورة أوسع، مجالاً بعد مجال." [ref=f8e119]
+              - generic [ref=f8e120]: عرض الجولة
+          - status [ref=f8e124]: "المحطات المستكشفة: 1 من 3."
+        - search [ref=f8e125]:
+          - generic [ref=f8e126]:
+            - generic [ref=f8e130]: ابحث في المؤشرات
+            - textbox "ابحث في المؤشرات" [ref=f8e131]:
+              - /placeholder: ابحث عن مؤشر أو موضوع...
+          - generic [ref=f8e132]:
+            - generic [ref=f8e135]: المجال
+            - combobox "المجال" [ref=f8e136]:
+              - option "كل المجالات"
+              - option "الناتج المحلي الإجمالي" [selected]
+              - option "التضخم والأسعار"
+              - option "سوق العمل والبطالة"
+              - option "الفقر"
+              - option "المالية العامة"
+              - option "الضرائب والجمارك"
+              - option "العملة والسياسة النقدية"
+              - option "القطاع المصرفي"
+              - option "التجارة الخارجية"
+              - option "الاستثمار"
+              - option "تحويلات المغتربين"
+              - option "الدين العام"
+              - option "السكان"
+              - option "التركيب العمري"
+              - option "المواليد والوفيات"
+              - option "الأسرة والزواج"
+              - option "المرأة"
+              - option "الشباب"
+              - option "الإعاقة"
+              - option "الهجرة والاغتراب"
+              - option "التعليم المدرسي"
+              - option "محو الأمية"
+              - option "التعليم العالي"
+              - option "التعليم الفني والمهني"
+              - option "البحث العلمي"
+              - option "المهارات الرقمية"
+              - option "الصحة العامة"
+              - option "المستشفيات والخدمات الصحية"
+              - option "الأمراض والأوبئة"
+              - option "صحة الأم والطفل"
+              - option "التغذية"
+              - option "الأمن الغذائي"
+              - option "الكهرباء"
+              - option "مياه الأسر"
+              - option "الصرف الصحي"
+              - option "الإنترنت والاتصالات"
+              - option "الطرق والنقل"
+              - option "الموانئ والمطارات"
+              - option "الإسكان"
+              - option "النفايات والنظافة"
+              - option "الزراعة"
+              - option "الثروة الحيوانية"
+              - option "الثروة السمكية"
+              - option "القات"
+              - option "النفط والغاز"
+              - option "التعدين"
+              - option "الصناعة التحويلية"
+              - option "الطاقة المتجددة"
+              - option "الموارد المائية"
+              - option "المناخ"
+              - option "التصحر"
+              - option "الكوارث الطبيعية"
+              - option "التنوع الحيوي"
+              - option "آثار الحرب"
+              - option "النزوح واللجوء"
+              - option "الاحتياجات الإنسانية"
+              - option "المساعدات الدولية"
+              - option "الألغام ومخلفات الحرب"
+              - option "الحوكمة"
+              - option "الفساد والشفافية"
+              - option "السياحة والتراث"
+              - option "الرياضة"
+              - option "الثقافة والإعلام"
+              - option "ريادة الأعمال والتقنية"
+          - generic [ref=f8e137]:
+            - generic [ref=f8e138]: السنة
+            - combobox "السنة" [ref=f8e139]:
+              - option "كل السنوات" [selected]
+              - option "2026"
+              - option "2025"
+              - option "2024"
+              - option "2023"
+              - option "2022"
+              - option "2021"
+              - option "2020"
+              - option "2019"
+              - option "2018"
+              - option "2017"
+              - option "2016"
+              - option "2015"
+              - option "2014"
+              - option "2013"
+              - option "2012"
+              - option "2011"
+              - option "2010"
+              - option "2009"
+              - option "2008"
+              - option "2007"
+              - option "2006"
+              - option "2005"
+              - option "2004"
+              - option "2003"
+              - option "2002"
+              - option "2001"
+              - option "2000"
+              - option "1999"
+              - option "1998"
+              - option "1997"
+              - option "1996"
+              - option "1995"
+              - option "1994"
+              - option "1993"
+              - option "1992"
+              - option "1991"
+              - option "1990"
+        - group "الفلاتر النشطة" [ref=f8e539]:
+          - generic [ref=f8e540]: الفلاتر المطبّقة
+          - 'button "إزالة فلتر المجال: الناتج المحلي الإجمالي" [ref=f8e541] [cursor=pointer]':
+            - generic [ref=f8e542]: "المجال: الناتج المحلي الإجمالي"
+          - button "مسح الفلاتر" [ref=f8e551] [cursor=pointer]
+        - generic [ref=f8e140]:
+          - strong [ref=f8e141]: "عدد المؤشرات المطابقة: 3"
+          - generic [ref=f8e142]: "النطاق الجغرافي: الجمهورية اليمنية"
+        - generic [ref=f8e143]:
+          - 'link "الناتج المحلي الإجمالي جزئية معدل نمو الناتج المحلي الإجمالي سلسلة سنوية وطنية لليمن حول معدل نمو الناتج المحلي الإجمالي. تعرض السنوات المتاحة فقط دون استكمال الفجوات. 0.75 % سنويا سنة القياس: 2018 تقديري المصدر: البنك الدولي - الحسابات القومية عرض تفاصيل المؤشر" [ref=f8e558] [cursor=pointer]':
+            - /url: /yemen-in-numbers/indicator/gdp-annual-growth
+            - generic [ref=f8e559]:
+              - generic [ref=f8e560]: الناتج المحلي الإجمالي
+              - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=f8e561]: جزئية
+            - heading "معدل نمو الناتج المحلي الإجمالي" [level=3] [ref=f8e562]
+            - paragraph [ref=f8e563]: سلسلة سنوية وطنية لليمن حول معدل نمو الناتج المحلي الإجمالي. تعرض السنوات المتاحة فقط دون استكمال الفجوات.
+            - generic [ref=f8e564]:
+              - strong [ref=f8e565]: "0.75"
+              - generic [ref=f8e566]: "% سنويا"
+              - generic [ref=f8e567]:
+                - generic [ref=f8e568]: "سنة القياس: 2018"
+                - generic [ref=f8e571]: تقديري
+            - generic [ref=f8e572]: "المصدر: البنك الدولي - الحسابات القومية"
+            - generic [ref=f8e574]: عرض تفاصيل المؤشر
+          - 'link "الناتج المحلي الإجمالي جزئية نصيب الفرد من الناتج المحلي الإجمالي سلسلة سنوية وطنية لليمن حول نصيب الفرد من الناتج المحلي الإجمالي. تعرض السنوات المتاحة فقط دون استكمال الفجوات. 633.89 دولار أمريكي للفرد سنة القياس: 2018 تقديري المصدر: البنك الدولي - الحسابات القومية عرض تفاصيل المؤشر" [ref=f8e578] [cursor=pointer]':
+            - /url: /yemen-in-numbers/indicator/gdp-per-capita-current-usd
+            - generic [ref=f8e579]:
+              - generic [ref=f8e580]: الناتج المحلي الإجمالي
+              - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=f8e581]: جزئية
+            - heading "نصيب الفرد من الناتج المحلي الإجمالي" [level=3] [ref=f8e582]
+            - paragraph [ref=f8e583]: سلسلة سنوية وطنية لليمن حول نصيب الفرد من الناتج المحلي الإجمالي. تعرض السنوات المتاحة فقط دون استكمال الفجوات.
+            - generic [ref=f8e584]:
+              - strong [ref=f8e585]: "633.89"
+              - generic [ref=f8e586]: دولار أمريكي للفرد
+              - generic [ref=f8e587]:
+                - generic [ref=f8e588]: "سنة القياس: 2018"
+                - generic [ref=f8e591]: تقديري
+            - generic [ref=f8e592]: "المصدر: البنك الدولي - الحسابات القومية"
+            - generic [ref=f8e594]: عرض تفاصيل المؤشر
+          - 'link "الناتج المحلي الإجمالي جزئية الناتج المحلي الإجمالي بالأسعار الجارية سلسلة سنوية وطنية لليمن حول الناتج المحلي الإجمالي بالأسعار الجارية. تعرض السنوات المتاحة فقط دون استكمال الفجوات. 21,606,160,663.03 دولار أمريكي سنة القياس: 2018 تقديري المصدر: البنك الدولي - الحسابات القومية عرض تفاصيل المؤشر" [ref=f8e598] [cursor=pointer]':
+            - /url: /yemen-in-numbers/indicator/gdp-current-usd
+            - generic [ref=f8e599]:
+              - generic [ref=f8e600]: الناتج المحلي الإجمالي
+              - generic "السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة." [ref=f8e601]: جزئية
+            - heading "الناتج المحلي الإجمالي بالأسعار الجارية" [level=3] [ref=f8e602]
+            - paragraph [ref=f8e603]: سلسلة سنوية وطنية لليمن حول الناتج المحلي الإجمالي بالأسعار الجارية. تعرض السنوات المتاحة فقط دون استكمال الفجوات.
+            - generic [ref=f8e604]:
+              - strong [ref=f8e605]: 21,606,160,663.03
+              - generic [ref=f8e606]: دولار أمريكي
+              - generic [ref=f8e607]:
+                - generic [ref=f8e608]: "سنة القياس: 2018"
+                - generic [ref=f8e611]: تقديري
+            - generic [ref=f8e612]: "المصدر: البنك الدولي - الحسابات القومية"
+            - generic [ref=f8e614]: عرض تفاصيل المؤشر
+    - generic [ref=f8e393]:
+      - generic [ref=f8e395]:
+        - generic [ref=f8e396]: مجالات المعرفة
+        - heading "تصفح بحسب ما يهمك." [level=2] [ref=f8e397]
+      - generic [ref=f8e398]:
+        - group [ref=f8e399]:
+          - generic "الاقتصاد والمالية 12 مجالات +" [ref=f8e400] [cursor=pointer]:
+            - text: الاقتصاد والمالية
+            - generic [ref=f8e405]: 12 مجالات
+            - text: +
+        - group [ref=f8e406]:
+          - generic "السكان والمجتمع 8 مجالات +" [ref=f8e407] [cursor=pointer]:
+            - text: السكان والمجتمع
+            - generic [ref=f8e412]: 8 مجالات
+            - text: +
+        - group [ref=f8e413]:
+          - generic "التعليم والمعرفة 6 مجالات +" [ref=f8e414] [cursor=pointer]:
+            - text: التعليم والمعرفة
+            - generic [ref=f8e419]: 6 مجالات
+            - text: +
+        - group [ref=f8e420]:
+          - generic "الصحة والغذاء 6 مجالات +" [ref=f8e421] [cursor=pointer]:
+            - text: الصحة والغذاء
+            - generic [ref=f8e426]: 6 مجالات
+            - text: +
+        - group [ref=f8e427]:
+          - generic "البنية التحتية والخدمات 8 مجالات +" [ref=f8e428] [cursor=pointer]:
+            - text: البنية التحتية والخدمات
+            - generic [ref=f8e433]: 8 مجالات
+            - text: +
+        - group [ref=f8e434]:
+          - generic "الإنتاج والموارد 8 مجالات +" [ref=f8e435] [cursor=pointer]:
+            - text: الإنتاج والموارد
+            - generic [ref=f8e440]: 8 مجالات
+            - text: +
+        - group [ref=f8e441]:
+          - generic "البيئة والمناخ 5 مجالات +" [ref=f8e442] [cursor=pointer]:
+            - text: البيئة والمناخ
+            - generic [ref=f8e447]: 5 مجالات
+            - text: +
+        - group [ref=f8e448]:
+          - generic "الحرب والوضع الإنساني 5 مجالات +" [ref=f8e449] [cursor=pointer]:
+            - text: الحرب والوضع الإنساني
+            - generic [ref=f8e454]: 5 مجالات
+            - text: +
+        - group [ref=f8e455]:
+          - generic "الدولة والمؤسسات 2 مجالات +" [ref=f8e456] [cursor=pointer]:
+            - text: الدولة والمؤسسات
+            - generic [ref=f8e461]: 2 مجالات
+            - text: +
+        - group [ref=f8e462]:
+          - generic "الثقافة والمجتمع والإبداع 4 مجالات +" [ref=f8e463] [cursor=pointer]:
+            - text: الثقافة والمجتمع والإبداع
+            - generic [ref=f8e468]: 4 مجالات
+            - text: +
+      - complementary [ref=f8e469]:
+        - generic [ref=f8e470]: المصادر والمنهجية
+        - heading "ماذا تعني الأرقام المعروضة؟" [level=2] [ref=f8e471]
+        - paragraph [ref=f8e472]: تعرض البطاقة أحدث قيمة فعلية في السلسلة المعتمدة، مع سنة القياس، وليست سنة تحديث السجل. الصفر قيمة صحيحة، والقيم المفقودة لا تُعوّض بتقديرات. تُميّز القيم التقديرية عن الرسمية. عند تعارض المصادر دون اعتماد سلسلة، يتوقف العرض الرقمي حتى المراجعة.
+        - paragraph [ref=f8e473]: العدادات تخص المؤشرات المنشورة المتاحة للزائر. لا تُعد المؤشرات الفارغة أو المتعارضة ذات سلسلة معتمدة. راجع صفحة كل مؤشر للتعريف والمنهجية والمراجع. جميع المؤشرات وطنية ولا تمثل إحصاءات المحافظات.
+    - generic [ref=f8e475]:
+      - generic [ref=f8e476]:
+        - text: البيانات أفضل حين نفهمها معاً
+        - heading "كيف تغيّر اليمن عبر الزمن؟" [level=2] [ref=f8e477]
+      - link "افتح المقارنة" [ref=f8e478] [cursor=pointer]:
+        - /url: /yemen-in-numbers/timeline
+  - contentinfo [ref=f8e482]:
+    - generic [ref=f8e483]:
+      - generic [ref=f8e484]:
+        - generic [ref=f8e485]:
+          - link "مبادرة 967" [ref=f8e486] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f8e487]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f8e488]
+          - paragraph [ref=f8e489]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f8e490]:
+            - link "إنستغرام" [ref=f8e491] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f8e499] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f8e507]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f8e508]
+          - link "الأعمال الإعلامية" [ref=f8e509] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f8e510] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f8e511] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f8e512] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f8e513] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f8e514] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f8e515] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f8e516]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f8e517]
+          - link "منتجات يمنية" [ref=f8e518] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f8e519] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f8e520] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f8e521] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f8e522]:
+          - heading "مبادرة 967" [level=3] [ref=f8e523]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f8e524] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f8e525] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f8e526] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f8e527] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f8e528] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f8e529]:
+        - generic [ref=f8e530]: © 2026 مبادرة 967
+        - generic [ref=f8e531]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f8e532]:
+          - link "سياسة الخصوصية" [ref=f8e533] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f8e534] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f8e535] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f8e623] [cursor=pointer]
+  - alert [ref=f8e627]

@@ -1,0 +1,140 @@
+- generic [active] [ref=f3e1]:
+  - link "انتقل إلى المحتوى" [ref=f3e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f3e6]
+      - generic [ref=f3e7]:
+        - link "البحث في المنصة" [ref=f3e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f3e12] [cursor=pointer]
+  - main [ref=f3e14]:
+    - generic [ref=f3e16]:
+      - navigation "مسار التصفح" [ref=f3e17]:
+        - link "الرئيسية" [ref=f3e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f3e21]: تواصل وشارك
+      - generic [ref=f3e22]: تواصل وشارك
+      - heading "لك مكان في الحكاية." [level=1] [ref=f3e23]
+      - paragraph [ref=f3e24]: معرفة تشاركها، معلومة تصححها، أو فكرة نبدأ منها. اختر طريقة مساهمتك واكتب لنا.
+    - generic [ref=f3e26]:
+      - complementary [ref=f3e27]:
+        - heading "كيف تحب أن تساهم؟" [level=2] [ref=f3e28]
+        - link "اقتراح موضوع" [ref=f3e29] [cursor=pointer]:
+          - /url: /contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%85%D9%88%D8%B6%D9%88%D8%B9#contribution-form
+        - link "اقتراح شخصية أو معلومة تاريخية" [ref=f3e33] [cursor=pointer]:
+          - /url: /contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9+%D8%A3%D9%88+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9+%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9#contribution-form
+        - link "تصحيح معلومة" [ref=f3e37] [cursor=pointer]:
+          - /url: /contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9#contribution-form
+        - link "اقتراح شركة أو منتج" [ref=f3e41] [cursor=pointer]:
+          - /url: /contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D8%B4%D8%B1%D9%83%D8%A9+%D8%A3%D9%88+%D9%85%D9%86%D8%AA%D8%AC#contribution-form
+        - link "طلب إضافة ملف مهني" [ref=f3e45] [cursor=pointer]:
+          - /url: /contribute?type=%D8%B7%D9%84%D8%A8+%D8%A5%D8%B6%D8%A7%D9%81%D8%A9+%D9%85%D9%84%D9%81+%D9%85%D9%87%D9%86%D9%8A#contribution-form
+        - link "اقتراح نشاط مجتمعي" [ref=f3e49] [cursor=pointer]:
+          - /url: /contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD+%D9%86%D8%B4%D8%A7%D8%B7+%D9%85%D8%AC%D8%AA%D9%85%D8%B9%D9%8A#contribution-form
+        - link "التطوع والمشاركة" [ref=f3e53] [cursor=pointer]:
+          - /url: /contribute?type=%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D8%B9+%D9%88%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%83%D8%A9#contribution-form
+        - paragraph [ref=f3e57]: يراجع فريق التحرير المساهمات قبل نشرها. لا ننشر بيانات الاتصال في الأدلة دون موافقة صاحبها.
+      - generic [ref=f3e58]:
+        - generic [ref=f3e59]:
+          - generic [ref=f3e60]:
+            - text: الاسم
+            - textbox "الاسم" [ref=f3e61]:
+              - /placeholder: اسمك الكريم
+          - generic [ref=f3e62]:
+            - text: البريد الإلكتروني
+            - textbox "البريد الإلكتروني" [ref=f3e63]:
+              - /placeholder: name@example.com
+        - generic [ref=f3e64]:
+          - text: نوع الرسالة
+          - combobox "نوع الرسالة" [ref=f3e65]:
+            - option "اختر النوع" [disabled] [selected]
+            - option "استفسار"
+            - option "اقتراح موضوع"
+            - option "اقتراح شخصية أو معلومة تاريخية"
+            - option "تصحيح معلومة"
+            - option "اقتراح شركة أو منتج"
+            - option "طلب إضافة ملف مهني"
+            - option "اقتراح نشاط مجتمعي"
+            - option "التطوع والمشاركة"
+            - option "تعاون إعلامي"
+            - option "أخرى"
+            - option "طلب الاطلاع على البيانات"
+            - option "طلب تصحيح بيانات"
+            - option "طلب حذف بيانات"
+            - option "بلاغ عن محتوى أو انتهاك حقوق"
+            - option "بلاغ عن مشكلة تقنية"
+        - generic [ref=f3e66]:
+          - text: الرسالة
+          - textbox "الرسالة" [ref=f3e67]:
+            - /placeholder: اكتب رسالتك هنا...
+        - generic [aria-hidden]:
+          - textbox
+        - generic [ref=f3e68]:
+          - button "إرسال الرسالة" [ref=f3e69] [cursor=pointer]
+          - generic [ref=f3e73]:
+            - text: نستخدم بياناتك لمعالجة رسالتك والرد عليها، وبصمة مموّهة للشبكة للحد من الإغراق.
+            - link "سياسة الخصوصية" [ref=f3e74] [cursor=pointer]:
+              - /url: /privacy
+  - contentinfo [ref=f3e75]:
+    - generic [ref=f3e76]:
+      - generic [ref=f3e77]:
+        - generic [ref=f3e78]:
+          - link "مبادرة 967" [ref=f3e79] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f3e80]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f3e81]
+          - paragraph [ref=f3e82]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f3e83]:
+            - link "إنستغرام" [ref=f3e84] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f3e92] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f3e100]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f3e101]
+          - link "الأعمال الإعلامية" [ref=f3e102] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f3e103] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f3e104] [cursor=pointer]:
+            - /url: /magazine
+          - link "اليمن بالأرقام" [ref=f3e105] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f3e106] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f3e107] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f3e108]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f3e109]
+          - link "منتجات يمنية" [ref=f3e110] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f3e111] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f3e112] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f3e113] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f3e114]:
+          - heading "مبادرة 967" [level=3] [ref=f3e115]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f3e116] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f3e117] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f3e118] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f3e119] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f3e120] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f3e121]:
+        - generic [ref=f3e122]: © 2026 مبادرة 967
+        - generic [ref=f3e123]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f3e124]:
+          - link "سياسة الخصوصية" [ref=f3e125] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f3e126] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f3e127] [cursor=pointer]:
+          - /url: /search

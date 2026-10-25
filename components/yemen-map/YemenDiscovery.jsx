@@ -4,11 +4,14 @@ import {useState,useRef,useEffect} from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import YemeniFiguresDirectory from './YemeniFiguresDirectory';
+import ExplorationProgress, {useExplorationTrail} from '@/components/ExplorationProgress';
+import {yemenGovernorates} from '@/lib/yemeniFigures';
 import styles from './YemenDiscovery.module.css';
 const YemenMap = dynamic(() => import('./YemenMap'), {ssr:false, loading:()=><div className="ymap-loading" role="status"><Image src="/images/yemen-preview.svg" width={1343} height={760} alt="معاينة خريطة اليمن" sizes="(max-width:760px) 90vw, 65vw"/><p>جارٍ تجهيز الخريطة التفاعلية…</p></div>});
 
 export default function YemenDiscovery({figures, initialGovernorateId = null, initialDistrictId = null}) {
   const [selectedGovernorateId, setSelectedGovernorateId] = useState(initialGovernorateId);
+  const [exploredPlaces, explorePlace, restartTour, tourSaved] = useExplorationTrail('967-map-tour-v1', yemenGovernorates);
   const directoryRef=useRef(null);
   useEffect(()=>{if(selectedGovernorateId&&directoryRef.current)directoryRef.current.open=true;},[selectedGovernorateId]);
   useEffect(()=>{
@@ -32,10 +35,12 @@ export default function YemenDiscovery({figures, initialGovernorateId = null, in
           <div><h2>اختر مكاناً على الخريطة</h2></div>
           <p>ابحث عن محافظة أو مديرية، أو اضغط عليها لاستكشافها.</p>
         </header>
+        <ExplorationProgress items={exploredPlaces} title="اليمن، ثلاث محطات أقرب." description="اختر ثلاث محافظات مختلفة على الخريطة وتعرّف على تفاصيل كل مكان." completeLabel="أكملت جولتك! ما زالت أماكن كثيرة تنتظرك." onRestart={restartTour} persistent={tourSaved}/>
         <YemenMap
           focusedGovernorateId={selectedGovernorateId}
           initialDistrictId={initialDistrictId}
           onGovernorateChange={handleMapGovernorateChange}
+          onGovernorateExplore={explorePlace}
         />
       </div>
     </section>

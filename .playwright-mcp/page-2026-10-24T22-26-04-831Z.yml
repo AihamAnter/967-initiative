@@ -1,0 +1,154 @@
+- generic [active] [ref=f1e1]:
+  - link "انتقل إلى المحتوى" [ref=f1e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f1e6]
+        - generic [ref=f1e7]:
+          - text: مساحة يمنية
+          - strong [ref=f1e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f1e9]:
+        - link "الرئيسية" [ref=f1e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=f1e11]:
+          - generic "المحتوى" [ref=f1e12] [cursor=pointer]
+        - group [ref=f1e15]:
+          - generic "المعرفة" [ref=f1e16] [cursor=pointer]
+        - group [ref=f1e19]:
+          - generic "الأدلة" [ref=f1e20] [cursor=pointer]
+        - group [ref=f1e23]:
+          - generic "المبادرة" [ref=f1e24] [cursor=pointer]
+      - generic [ref=f1e27]:
+        - link "البحث في المنصة" [ref=f1e28] [cursor=pointer]:
+          - /url: /search
+        - link "كن جزءاً من الحكاية" [ref=f1e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f1e36]:
+    - generic [ref=f1e37]:
+      - generic [ref=f1e39]:
+        - generic [ref=f1e40]: أطلس 967 الجغرافي
+        - heading "اكتشف اليمن" [level=1] [ref=f1e41]
+        - paragraph [ref=f1e42]: استكشف المحافظات والمديريات والشخصيات المرتبطة بها.
+      - navigation "اختر طريقة اكتشاف اليمن" [ref=f1e43]:
+        - link "استكشف المحافظات والمديريات الخريطة ومعلومات الأماكن" [ref=f1e44] [cursor=pointer]:
+          - /url: "#map"
+          - strong [ref=f1e45]: استكشف المحافظات والمديريات
+          - generic [ref=f1e46]: الخريطة ومعلومات الأماكن
+        - link "اكتشف الشخصيات اليمنية ابحث بالاسم أو المجال أو المحافظة" [ref=f1e47] [cursor=pointer]:
+          - /url: "#yemeni-figures"
+          - strong [ref=f1e48]: اكتشف الشخصيات اليمنية
+          - generic [ref=f1e49]: ابحث بالاسم أو المجال أو المحافظة
+      - generic [ref=f1e51]:
+        - generic [ref=f1e52]:
+          - heading "اختر مكاناً على الخريطة" [level=2] [ref=f1e54]
+          - paragraph [ref=f1e55]: ابحث عن محافظة أو مديرية، أو اضغط عليها لاستكشافها.
+        - complementary [ref=f1e56]:
+          - generic [ref=f1e61]:
+            - generic [ref=f1e62]:
+              - heading "جولة صغيرة، معرفة أكبر" [level=3] [ref=f1e63]
+              - generic [ref=f1e64]: 0 / 3
+            - paragraph [ref=f1e65]: استكشف 3 محافظات مختلفة على الخريطة واجمع محطات جولتك خلال زيارتك لهذه الصفحة.
+            - progressbar "جولة صغيرة، معرفة أكبر" [ref=f1e66]
+            - status
+        - status [ref=f1e67]:
+          - img "معاينة خريطة اليمن" [ref=f1e68]
+          - paragraph [ref=f1e69]: جارٍ تجهيز الخريطة التفاعلية…
+      - group [ref=f1e70]:
+        - generic "شخصيات يمنية مرتبطة بالأماكن افتح الدليل وابحث بالاسم أو المجال +" [ref=f1e71] [cursor=pointer]:
+          - generic [ref=f1e72]: شخصيات يمنية مرتبطة بالأماكن
+          - generic [ref=f1e73]: افتح الدليل وابحث بالاسم أو المجال
+          - text: +
+        - option "الكل" [selected]
+        - option "الأدب والشعر"
+        - option "الإعلام وحقوق الإنسان"
+        - option "الإعلام والصحافة"
+        - option "المجتمع وحقوق الإنسان"
+        - option "السياسة والحكم"
+        - option "الفن والموسيقى"
+        - option "العلم والتعليم"
+        - option "الرياضة"
+        - option "الاقتصاد وريادة الأعمال"
+        - option "التراث والتاريخ"
+        - option "كل المحافظات" [selected]
+        - option "أبين"
+        - option "الضالع"
+        - option "عدن"
+        - option "البيضاء"
+        - option "الحديدة"
+        - option "المحويت"
+        - option "عمران"
+        - option "ذمار"
+        - option "حضرموت"
+        - option "إب"
+        - option "لحج"
+        - option "مأرب"
+        - option "صعدة"
+        - option "صنعاء"
+        - option "أمانة العاصمة"
+        - option "شبوة"
+        - option "تعز"
+        - option "الكل" [selected]
+        - option "معاصرة"
+        - option "تاريخية"
+  - contentinfo [ref=f1e74]:
+    - generic [ref=f1e75]:
+      - generic [ref=f1e76]:
+        - generic [ref=f1e77]:
+          - link "مبادرة 967" [ref=f1e78] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f1e79]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f1e80]
+          - paragraph [ref=f1e81]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f1e82]:
+            - link "إنستغرام" [ref=f1e83] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f1e91] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f1e99]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f1e100]
+          - link "الأعمال الإعلامية" [ref=f1e101] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f1e102] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f1e103] [cursor=pointer]:
+            - /url: /magazine
+          - link "اليمن بالأرقام" [ref=f1e104] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f1e105] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f1e106] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f1e107]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f1e108]
+          - link "منتجات يمنية" [ref=f1e109] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f1e110] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f1e111] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f1e112] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f1e113]:
+          - heading "مبادرة 967" [level=3] [ref=f1e114]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f1e115] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f1e116] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f1e117] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f1e118] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f1e119] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f1e120]:
+        - generic [ref=f1e121]: © 2026 مبادرة 967
+        - generic [ref=f1e122]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f1e123]:
+          - link "سياسة الخصوصية" [ref=f1e124] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f1e125] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f1e126] [cursor=pointer]:
+          - /url: /search

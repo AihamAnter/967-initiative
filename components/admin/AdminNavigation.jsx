@@ -1,0 +1,8 @@
+'use client';
+import {useEditorProtection} from './EditorProtection';
+const groups=[['المحتوى',['issues','works','pages']],['الأدلة والبيانات',['companies','professionals','figures','statistics','rankings','map']],['الإدارة والمتابعة',['messages','settings','admins']]];
+export default function AdminNavigation({tabs,tab,onChange,onRefresh}) {
+  const protection=useEditorProtection();
+  const choose=id=>protection.requestLeave(()=>onChange(id));
+  return <aside className="admin-sidebar"><label className="admin-mobile-section">قسم التحرير<select value={tab} onChange={e=>choose(e.target.value)}>{tabs.map(item=><option value={item.id} key={item.id}>{item.name}</option>)}</select></label><nav aria-label="أقسام لوحة التحرير">{groups.map(([title,ids])=><div className="admin-nav-group" key={title}><h2>{title}</h2>{tabs.filter(item=>ids.includes(item.id)).map(item=><button type="button" key={item.id} aria-current={tab===item.id?'page':undefined} className={tab===item.id?'selected':''} onClick={()=>choose(item.id)}><item.icon size={18} aria-hidden="true"/>{item.name}</button>)}</div>)}<div className="admin-nav-group"><h2>الفريق</h2><a href="/admin/tasks">مركز المهام</a><a href="/admin/debates">إدارة المناظرات</a><button type="button" onClick={()=>protection.requestLeave(onRefresh)}>تحديث البيانات</button></div></nav><div className="admin-mobile-links"><a href="/admin/tasks">مركز المهام</a><a href="/admin/debates">المناظرات</a><button type="button" onClick={()=>protection.requestLeave(onRefresh)}>تحديث</button></div></aside>;
+}

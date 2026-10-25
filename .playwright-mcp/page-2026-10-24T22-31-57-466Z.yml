@@ -1,0 +1,462 @@
+- generic [active] [ref=f7e1]:
+  - link "انتقل إلى المحتوى" [ref=f7e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f7e3]:
+    - generic [ref=f7e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f7e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f7e6]
+        - generic [ref=f7e7]:
+          - text: مساحة يمنية
+          - strong [ref=f7e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f7e9]:
+        - link "الرئيسية" [ref=f7e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=f7e11]:
+          - generic "المحتوى" [ref=f7e12] [cursor=pointer]
+        - group [ref=f7e15]:
+          - generic "المعرفة" [ref=f7e16] [cursor=pointer]
+        - group [ref=f7e19]:
+          - generic "الأدلة" [ref=f7e20] [cursor=pointer]
+        - group [ref=f7e23]:
+          - generic "المبادرة" [ref=f7e24] [cursor=pointer]
+      - generic [ref=f7e27]:
+        - link "البحث في المنصة" [ref=f7e28] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f7e256] [cursor=pointer]:
+          - /url: /login
+        - link "كن جزءاً من الحكاية" [ref=f7e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f7e36]:
+    - generic [ref=f7e37]:
+      - generic [ref=f7e39]:
+        - generic [ref=f7e40]: أطلس 967 الجغرافي
+        - heading "اكتشف اليمن" [level=1] [ref=f7e41]
+        - paragraph [ref=f7e42]: استكشف المحافظات والمديريات والشخصيات المرتبطة بها.
+      - navigation "اختر طريقة اكتشاف اليمن" [ref=f7e43]:
+        - link "استكشف المحافظات والمديريات الخريطة ومعلومات الأماكن" [ref=f7e44] [cursor=pointer]:
+          - /url: "#map"
+          - strong [ref=f7e45]: استكشف المحافظات والمديريات
+          - generic [ref=f7e46]: الخريطة ومعلومات الأماكن
+        - link "اكتشف الشخصيات اليمنية ابحث بالاسم أو المجال أو المحافظة" [ref=f7e47] [cursor=pointer]:
+          - /url: "#yemeni-figures"
+          - strong [ref=f7e48]: اكتشف الشخصيات اليمنية
+          - generic [ref=f7e49]: ابحث بالاسم أو المجال أو المحافظة
+      - generic [ref=f7e51]:
+        - generic [ref=f7e52]:
+          - heading "اختر مكاناً على الخريطة" [level=2] [ref=f7e54]
+          - paragraph [ref=f7e55]: ابحث عن محافظة أو مديرية، أو اضغط عليها لاستكشافها.
+        - complementary [ref=f7e56]:
+          - generic [ref=f7e61]:
+            - generic [ref=f7e62]:
+              - generic [ref=f7e63]:
+                - generic [ref=f7e64]: جولة اكتشاف
+                - heading "اليمن، ثلاث محطات أقرب." [level=3] [ref=f7e65]
+              - generic [aria-hidden] [ref=f7e66]: 1 / 3
+            - paragraph [ref=f7e67]: اختر ثلاث محافظات مختلفة على الخريطة وتعرّف على تفاصيل كل مكان.
+            - progressbar "اليمن، ثلاث محطات أقرب." [ref=f7e68]
+            - list "محطات جولتك" [ref=f7e69]:
+              - listitem [ref=f7e70]:
+                - generic [ref=f7e72]: أبين
+              - listitem [ref=f7e73]:
+                - generic [aria-hidden] [ref=f7e74]: "2"
+                - generic [ref=f7e75]: المحطة 2
+              - listitem [ref=f7e76]:
+                - generic [aria-hidden] [ref=f7e77]: "3"
+                - generic [ref=f7e78]: المحطة 3
+            - generic [ref=f7e79]:
+              - status [ref=f7e80]:
+                - generic [ref=f7e81]:
+                  - generic [ref=f7e82]: "المحطات المستكشفة: 1 من 3."
+                  - text: محطاتك محفوظة في هذه التبويبة.
+              - button "جولة جديدة" [ref=f7e263] [cursor=pointer]
+        - generic [ref=f7e146]:
+          - generic [ref=f7e147]:
+            - generic [ref=f7e148]:
+              - textbox "ابحث عن محافظة أو مديرية" [ref=f7e153]:
+                - /placeholder: ابحث عن محافظة أو مديرية...
+              - combobox "اختيار محافظة" [ref=f7e154]:
+                - option "اختر محافظة"
+                - option "ابين" [selected]
+                - option "الضالع"
+                - option "عدن"
+                - option "البيضاء"
+                - option "الحديده"
+                - option "الجوف"
+                - option "المهره"
+                - option "المحويت"
+                - option "عمران"
+                - option "ذمار"
+                - option "حضرموت"
+                - option "حجه"
+                - option "اب"
+                - option "لحج"
+                - option "مارب"
+                - option "ريمه"
+                - option "صعده"
+                - option "صنعاء"
+                - option "امانة العاصمه"
+                - option "شبوه"
+                - option "سقطرى"
+                - option "تعز"
+            - group "أدوات التحكم بالخريطة" [ref=f7e155]:
+              - button "تكبير" [ref=f7e156] [cursor=pointer]
+              - button "تصغير" [ref=f7e158] [cursor=pointer]
+              - button "عرض اليمن كاملة" [ref=f7e160] [cursor=pointer]:
+                - generic [ref=f7e164]: اليمن كاملة
+              - button "العودة إلى المستوى السابق" [ref=f7e165] [cursor=pointer]
+              - group [ref=f7e168]:
+                - generic "العرض" [ref=f7e169] [cursor=pointer]
+          - generic [ref=f7e174]:
+            - generic [ref=f7e175]:
+              - group "خريطة تفاعلية لليمن" [ref=f7e176]:
+                - button "استكشاف محافظة ابين" [pressed] [ref=f7e177] [cursor=pointer]
+                - button "استكشاف محافظة الضالع" [ref=f7e178] [cursor=pointer]
+                - button "استكشاف محافظة عدن" [ref=f7e179] [cursor=pointer]
+                - button "استكشاف محافظة البيضاء" [ref=f7e180] [cursor=pointer]
+                - button "استكشاف محافظة الحديده" [ref=f7e181] [cursor=pointer]
+                - button "استكشاف محافظة الجوف" [ref=f7e182] [cursor=pointer]
+                - button "استكشاف محافظة المهره" [ref=f7e183] [cursor=pointer]
+                - button "استكشاف محافظة المحويت" [ref=f7e184] [cursor=pointer]
+                - button "استكشاف محافظة عمران" [ref=f7e185] [cursor=pointer]
+                - button "استكشاف محافظة ذمار" [ref=f7e186] [cursor=pointer]
+                - button "استكشاف محافظة حضرموت" [ref=f7e187] [cursor=pointer]
+                - button "استكشاف محافظة حجه" [ref=f7e188] [cursor=pointer]
+                - button "استكشاف محافظة اب" [ref=f7e189] [cursor=pointer]
+                - button "استكشاف محافظة لحج" [ref=f7e190] [cursor=pointer]
+                - button "استكشاف محافظة مارب" [ref=f7e191] [cursor=pointer]
+                - button "استكشاف محافظة ريمه" [ref=f7e192] [cursor=pointer]
+                - button "استكشاف محافظة صعده" [ref=f7e193] [cursor=pointer]
+                - button "استكشاف محافظة صنعاء" [ref=f7e194] [cursor=pointer]
+                - button "استكشاف محافظة امانة العاصمه" [ref=f7e195] [cursor=pointer]
+                - button "استكشاف محافظة شبوه" [ref=f7e196] [cursor=pointer]
+                - button "استكشاف محافظة سقطرى" [ref=f7e197] [cursor=pointer]
+                - button "استكشاف محافظة تعز" [ref=f7e198] [cursor=pointer]
+                - button "استكشاف مديرية احور" [ref=f7e267] [cursor=pointer]
+                - button "استكشاف مديرية المحفد" [ref=f7e268] [cursor=pointer]
+                - button "استكشاف مديرية الوضيع" [ref=f7e269] [cursor=pointer]
+                - button "استكشاف مديرية جيشان" [ref=f7e270] [cursor=pointer]
+                - button "استكشاف مديرية خنفر" [ref=f7e271] [cursor=pointer]
+                - button "استكشاف مديرية لودر" [ref=f7e272] [cursor=pointer]
+                - button "استكشاف مديرية موديه" [ref=f7e273] [cursor=pointer]
+                - button "استكشاف مديرية رصد" [ref=f7e274] [cursor=pointer]
+                - button "استكشاف مديرية سرار" [ref=f7e275] [cursor=pointer]
+                - button "استكشاف مديرية سباح" [ref=f7e276] [cursor=pointer]
+                - button "استكشاف مديرية زنجبار" [ref=f7e277] [cursor=pointer]
+                - generic "احور" [ref=f7e278] [cursor=pointer]
+                - generic "المحفد" [ref=f7e279] [cursor=pointer]
+                - generic "الوضيع" [ref=f7e280] [cursor=pointer]
+                - generic "جيشان" [ref=f7e281] [cursor=pointer]
+                - generic "خنفر" [ref=f7e282] [cursor=pointer]
+                - generic "لودر" [ref=f7e283] [cursor=pointer]
+                - generic "موديه" [ref=f7e284] [cursor=pointer]
+                - generic "رصد" [ref=f7e285] [cursor=pointer]
+                - generic "سرار" [ref=f7e286] [cursor=pointer]
+                - generic "سباح" [ref=f7e287] [cursor=pointer]
+                - generic "زنجبار" [ref=f7e288] [cursor=pointer]
+              - generic [ref=f7e221]: اسحب الخريطة للتحريك، واستخدم عجلة الماوس أو الأزرار للتكبير.
+              - generic [ref=f7e222]:
+                - generic [ref=f7e223]: حدود الجمهورية
+                - generic [ref=f7e225]: المحافظات
+                - generic [ref=f7e227]: المديريات
+                - generic [ref=f7e229]: "مصدر الحدود: OCHA Field Information Services Section (FISS) / HDX"
+            - complementary "لوحة معلومات المنطقة" [ref=f7e230]:
+              - generic [ref=f7e231]:
+                - generic [ref=f7e232]:
+                  - generic [ref=f7e233]: محافظة
+                  - heading "ابين" [level=2] [ref=f7e289]
+                - button "إغلاق اللوحة" [ref=f7e290] [cursor=pointer]
+              - generic [ref=f7e294]:
+                - generic [ref=f7e295]:
+                  - generic [ref=f7e296]:
+                    - generic [ref=f7e297]: اسم المحافظة
+                    - strong [ref=f7e298]: ابين
+                  - generic [ref=f7e299]:
+                    - generic [ref=f7e300]: الاسم الإنجليزي
+                    - strong [ref=f7e301]: Abyan
+                  - generic [ref=f7e302]:
+                    - generic [ref=f7e303]: المعرّف الإداري
+                    - strong [ref=f7e304]: YE12
+                  - generic [ref=f7e305]:
+                    - generic [ref=f7e306]: المركز الإداري
+                    - strong [ref=f7e307]: زنجبار
+                  - generic [ref=f7e308]:
+                    - generic [ref=f7e309]: المساحة كم²
+                    - strong [ref=f7e310]: 16,450
+                  - generic [ref=f7e311]:
+                    - generic [ref=f7e312]: السكان
+                    - strong [ref=f7e313]: البيانات غير متوفرة حاليًا
+                  - generic [ref=f7e314]:
+                    - generic [ref=f7e315]: عدد المديريات
+                    - strong [ref=f7e316]: "11"
+                - generic [ref=f7e317]:
+                  - heading "نبذة تعريفية" [level=3] [ref=f7e318]
+                  - paragraph [ref=f7e319]: محافظة جنوبية تمتد بين الساحل والمرتفعات، وتربط عدن بمناطق شبوة والبيضاء.
+                - generic [ref=f7e320]:
+                  - heading "نبذة تاريخية" [level=3] [ref=f7e321]
+                  - paragraph [ref=f7e322]: عرفت أبين تجمعات زراعية وتجارية قديمة، وظلت زنجبار مركزها الإداري الحديث.
+                - generic [ref=f7e323]:
+                  - heading "الطبيعة والتضاريس" [level=3] [ref=f7e324]
+                  - paragraph [ref=f7e325]: تجمع بين ساحل بحر العرب والأودية والسهول الزراعية، ثم ترتفع تضاريسها باتجاه الشمال.
+                - generic [ref=f7e326]:
+                  - heading "المعالم والأنشطة" [level=3] [ref=f7e327]
+                  - paragraph [ref=f7e328]: زنجبار، جعار، وادي بنا، شواطئ أبين والمناطق الزراعية المحيطة بها.
+                - generic [ref=f7e329]:
+                  - link "اكتشف الشخصيات المرتبطة بمحافظة ابين" [ref=f7e330] [cursor=pointer]:
+                    - /url: "#yemeni-figures"
+                  - heading "المديريات التابعة" [level=3] [ref=f7e334]
+                  - generic [ref=f7e335]:
+                    - button "احور" [ref=f7e336] [cursor=pointer]
+                    - button "المحفد" [ref=f7e340] [cursor=pointer]
+                    - button "الوضيع" [ref=f7e344] [cursor=pointer]
+                    - button "جيشان" [ref=f7e348] [cursor=pointer]
+                    - button "خنفر" [ref=f7e352] [cursor=pointer]
+                    - button "لودر" [ref=f7e356] [cursor=pointer]
+                    - button "موديه" [ref=f7e360] [cursor=pointer]
+                    - button "رصد" [ref=f7e364] [cursor=pointer]
+                    - button "سرار" [ref=f7e368] [cursor=pointer]
+                    - button "سباح" [ref=f7e372] [cursor=pointer]
+                    - button "زنجبار" [ref=f7e376] [cursor=pointer]
+              - generic [ref=f7e251]:
+                - generic [ref=f7e252]: "المصدر: Yemen administrative level 0-2 boundaries (COD-AB)"
+                - generic [ref=f7e253]: Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)
+          - group [ref=f7e254]:
+            - 'generic "مصدر الحدود: OCHA / HDX · التفاصيل" [ref=f7e255] [cursor=pointer]'
+      - group [ref=f7e86]:
+        - generic "شخصيات يمنية مرتبطة بالأماكن افتح الدليل وابحث بالاسم أو المجال −" [ref=f7e380] [cursor=pointer]:
+          - generic [ref=f7e88]: شخصيات يمنية مرتبطة بالأماكن
+          - generic [ref=f7e89]: افتح الدليل وابحث بالاسم أو المجال
+          - text: −
+        - generic [ref=f7e382]:
+          - generic [ref=f7e383]:
+            - generic [ref=f7e384]:
+              - generic [ref=f7e385]: ذاكرة وأثر
+              - heading "شخصيات يمنية" [level=2] [ref=f7e386]
+            - paragraph [ref=f7e387]: تعرّف على شخصيات يمنية معاصرة وتاريخية، وابحث بحسب الاسم أو المجال أو المحافظة.
+          - search "البحث وتصفية الشخصيات" [ref=f7e388]:
+            - generic [ref=f7e389]:
+              - generic [ref=f7e393]: ابحث بالاسم
+              - textbox "ابحث بالاسم" [ref=f7e394]:
+                - /placeholder: ابحث باسم الشخصية...
+            - generic [ref=f7e395]:
+              - generic [ref=f7e396]: المجال
+              - combobox "المجال" [ref=f7e397]:
+                - option "الكل" [selected]
+                - option "الأدب والشعر"
+                - option "الإعلام وحقوق الإنسان"
+                - option "الإعلام والصحافة"
+                - option "المجتمع وحقوق الإنسان"
+                - option "السياسة والحكم"
+                - option "الفن والموسيقى"
+                - option "العلم والتعليم"
+                - option "الرياضة"
+                - option "الاقتصاد وريادة الأعمال"
+                - option "التراث والتاريخ"
+            - generic [ref=f7e398]:
+              - generic [ref=f7e399]: المحافظة
+              - combobox "المحافظة" [ref=f7e400]:
+                - option "كل المحافظات"
+                - option "أبين" [selected]
+                - option "الضالع"
+                - option "عدن"
+                - option "البيضاء"
+                - option "الحديدة"
+                - option "المحويت"
+                - option "عمران"
+                - option "ذمار"
+                - option "حضرموت"
+                - option "إب"
+                - option "لحج"
+                - option "مأرب"
+                - option "صعدة"
+                - option "صنعاء"
+                - option "أمانة العاصمة"
+                - option "شبوة"
+                - option "تعز"
+            - generic [ref=f7e401]:
+              - generic [ref=f7e402]: الفترة
+              - combobox "الفترة" [ref=f7e403]:
+                - option "الكل" [selected]
+                - option "معاصرة"
+                - option "تاريخية"
+            - generic [ref=f7e404] [cursor=pointer]:
+              - checkbox "لديها روابط تواصل" [ref=f7e405]
+              - generic [ref=f7e406]: لديها روابط تواصل
+            - button "مسح" [ref=f7e407] [cursor=pointer]
+          - generic [ref=f7e412]:
+            - strong [ref=f7e413]: "7"
+            - generic [ref=f7e414]: شخصية مطابقة
+            - generic [ref=f7e415]: الخريطة والدليل يعرضان المحافظة نفسها
+          - generic [ref=f7e416]:
+            - article [ref=f7e417] [cursor=pointer]:
+              - link "عرض صفحة أوسام السيد" [ref=f7e418]:
+                - /url: /yemen-map/figures/q16300330
+              - generic [ref=f7e420]:
+                - generic [ref=f7e421]: أ س
+                - generic [ref=f7e422]: تاريخية
+              - generic [ref=f7e423]:
+                - generic [ref=f7e424]:
+                  - generic [ref=f7e425]: الرياضة
+                  - generic [ref=f7e426]: 1987 – 2013
+                - heading "أوسام السيد" [level=3] [ref=f7e427]
+                - strong [ref=f7e428]: لاعب كرة قدم يمني
+                - paragraph [ref=f7e429]: أوسام السيد لاعب كرة قدم يمني لعب في خط الدفاع. وُلد في محافظة أبين يوم 5 أبريل 1987، وتوفي فيها يوم 5 أغسطس 2013. تُحفظ سيرته الرياضية في قواعد بيانات كرة القدم التي تشير إليها المراجع.
+                - generic [ref=f7e431]:
+                  - text: أبين
+                  - generic [ref=f7e436]: المحافظة المرتبطة
+            - article [ref=f7e440] [cursor=pointer]:
+              - link "عرض صفحة عبد ربه منصور هادي" [ref=f7e441]:
+                - /url: /yemen-map/figures/q57480
+              - generic [ref=f7e443]:
+                - img "صورة عبد ربه منصور هادي" [ref=f7e444]
+                - generic [ref=f7e445]: تاريخية
+                - link "U.S Defense Department · CC BY 2.0" [ref=f7e446]:
+                  - /url: https://commons.wikimedia.org/wiki/File:Abdrabbuh_Mansur_Hadi.jpg
+              - generic [ref=f7e447]:
+                - generic [ref=f7e448]:
+                  - generic [ref=f7e449]: السياسة والحكم
+                  - generic [ref=f7e450]: "الميلاد: 1945"
+                - heading "عبد ربه منصور هادي" [level=3] [ref=f7e451]
+                - strong [ref=f7e452]: رئيس الجمهورية اليمنية منذ سنة 2012 إلى سنة 2022
+                - paragraph [ref=f7e453]: انتُخب رئيسًا للبلاد عام 2012 وكان مرشَّحًا توافقيًّا وحيدًا، أجمع عليه حزب المؤتمر الشعبي العام وأحزاب تكتُّل اللقاء المشترك بعد أحداث 2011 التي سمِّيت ثورة الشباب. أجرى هادي عملية لهيكلة الجيش اليمني والأمن بإقالة العشرات من القادة العسكريين الموالين لسلفه الرئيس السابق علي عبد الله صالح، و علي محسن الأحمر، وإعادة تنظيم وتوزيع الوحَدات العسكرية والأمنية. وعلَّل هادي إعادةَ بناء الجيش على أسُس وطنية أنه يكفُل حياديته وعدم دخوله طرفًا في الصراعات السياسية.
+                - generic [ref=f7e455]:
+                  - text: أبين
+                  - generic [ref=f7e460]: المحافظة المرتبطة
+            - article [ref=f7e464] [cursor=pointer]:
+              - link "عرض صفحة سالم ربيع علي" [ref=f7e465]:
+                - /url: /yemen-map/figures/salim-rubai-ali
+              - generic [ref=f7e467]:
+                - generic [ref=f7e468]: س ر
+                - generic [ref=f7e469]: معاصرة
+              - generic [ref=f7e470]:
+                - generic [ref=f7e471]:
+                  - generic [ref=f7e472]: السياسة والحكم
+                  - generic [ref=f7e473]: ؟ – 1978
+                - heading "سالم ربيع علي" [level=3] [ref=f7e474]
+                - strong [ref=f7e475]: سياسي يمني ترأس مجلس الرئاسة في اليمن الجنوبي
+                - paragraph [ref=f7e476]: سالم ربيع علي سياسي يمني ترأس مجلس الرئاسة في اليمن الجنوبي. ترأس مجلس الرئاسة في اليمن الجنوبي بين 1969 و1978. تزامنت هذه المرحلة مع تحول اسم الدولة إلى جمهورية اليمن الديمقراطية الشعبية عام 1970. اشتهر سالم ربيع علي باسم سالمين، وكان من قادة الجبهة القومية في جنوب اليمن.
+                - generic [ref=f7e478]:
+                  - text: أبين
+                  - generic [ref=f7e483]: المحافظة المرتبطة
+            - article [ref=f7e487] [cursor=pointer]:
+              - link "عرض صفحة علي ناصر محمد" [ref=f7e488]:
+                - /url: /yemen-map/figures/ali-nasser-mohammed
+              - generic [ref=f7e490]:
+                - generic [ref=f7e491]: ع ن
+                - generic [ref=f7e492]: معاصرة
+              - generic [ref=f7e493]:
+                - generic [ref=f7e494]: السياسة والحكم
+                - heading "علي ناصر محمد" [level=3] [ref=f7e496]
+                - strong [ref=f7e497]: سياسي يمني ورئيس سابق لجمهورية اليمن الديمقراطية الشعبية
+                - paragraph [ref=f7e498]: علي ناصر محمد سياسي يمني ورئيس سابق لجمهورية اليمن الديمقراطية الشعبية. شغل علي ناصر محمد رئاسة الوزراء في اليمن الجنوبي خلال السبعينيات وبداية الثمانينيات، وتولى قيادة الدولة والحزب في الفترة من 1980 إلى 1986. وتُقرأ هذه الكتب بوصفها شهادة صاحب دور في الأحداث، مع الرجوع إلى مصادر أخرى عند دراسة الخلافات السياسية.
+                - generic [ref=f7e500]:
+                  - text: أبين
+                  - generic [ref=f7e505]: المحافظة المرتبطة
+            - article [ref=f7e509] [cursor=pointer]:
+              - link "عرض صفحة محمد محسن عطروش" [ref=f7e510]:
+                - /url: /yemen-map/figures/mohammed-mohsen-atroosh
+              - generic [ref=f7e512]:
+                - generic [ref=f7e513]: م م
+                - generic [ref=f7e514]: معاصرة
+              - generic [ref=f7e515]:
+                - generic [ref=f7e516]: الفن والموسيقى
+                - heading "محمد محسن عطروش" [level=3] [ref=f7e518]
+                - strong [ref=f7e519]: مطرب وشاعر وملحن من رواد الأغنية اليمنية وصاحب برع يا استعمار
+                - paragraph [ref=f7e520]: ولد محمد محسن عطروش في قرية المحل قرب زنجبار بمحافظة أبين، ونشأ في بيئة عرفت الموشحات الدينية والأغاني الشعبية. بدأت ممارسته للموسيقى في المدرسة، حيث تولى نشاطاً موسيقياً مبكراً، ثم توسعت بعد دراسته في كلية عدن. يروي في حديث نشرته الأيام أنه كان يحاكي آلة العود بفمه قبل امتلاك أدوات مناسبة، وهو تفصيل يوضح أن اهتمامه سبق توافر الإمكانات والتعليم الموسيقي.
+                - generic [ref=f7e522]:
+                  - text: أبين
+                  - generic [ref=f7e527]: المحافظة المرتبطة
+            - article [ref=f7e531] [cursor=pointer]:
+              - link "عرض صفحة عوض أحمد" [ref=f7e532]:
+                - /url: /yemen-map/figures/awad-ahmed
+              - generic [ref=f7e534]:
+                - generic [ref=f7e535]: ع أ
+                - generic [ref=f7e536]: معاصرة
+              - generic [ref=f7e537]:
+                - generic [ref=f7e538]:
+                  - generic [ref=f7e539]: الفن والموسيقى
+                  - generic [ref=f7e540]: "الميلاد: 1947"
+                - heading "عوض أحمد" [level=3] [ref=f7e541]
+                - strong [ref=f7e542]: مطرب يمني من أبين اشتهر بلقب بلبل بنا وأدى ألحان كبار المجددين
+                - paragraph [ref=f7e543]: ولد عوض أحمد علي أبو بكر همام في قرية المحل قرب زنجبار بأبين. فقد والده رضيعاً وتولت والدته تربيته، ويربط حديثه عن البدايات بين موهبته وصوتها الجميل الذي سمعه في البيت. بدأ الغناء في المدرسة والشارع، وكان يردد أغاني محمد صالح حمدون، ثم انتقل من هذا التدريب الفطري إلى الغناء أمام جمهور المناسبات. تورد السيرة التفصيلية في عدن الغد سنة 1947 للميلاد، بينما تصف 14 أكتوبر ميلاده بأنه في أواخر الأربعينيات.
+                - generic [ref=f7e545]:
+                  - text: أبين
+                  - generic [ref=f7e550]: المحافظة المرتبطة
+            - article [ref=f7e554] [cursor=pointer]:
+              - link "عرض صفحة سالم عبد الله عوض" [ref=f7e555]:
+                - /url: /yemen-map/figures/salem-abdullah-awadh
+              - generic [ref=f7e557]:
+                - generic [ref=f7e558]: س ع
+                - generic [ref=f7e559]: معاصرة
+              - generic [ref=f7e560]:
+                - generic [ref=f7e561]:
+                  - generic [ref=f7e562]: الرياضة
+                  - generic [ref=f7e563]: "الميلاد: 1984"
+                - heading "سالم عبد الله عوض" [level=3] [ref=f7e564]
+                - strong [ref=f7e565]: حارس مرمى دولي يمني برز مع حسان واحترف في أندية عمانية
+                - paragraph [ref=f7e566]: سالم عبد الله عوض حارس مرمى يمني من زنجبار بمحافظة أبين، وُلد سنة 1984. بدأ ممارسة اللعبة في حي سواحل، وشارك في فرق الحواري والبطولات الرمضانية التي كانت مجالاً لاكتشاف المواهب. لفت الأنظار في حراسة فريق الوصل الشعبي، ثم تطور عبر الأندية المحلية حتى برز مع حسان. تكشف هذه البداية أهمية المنافسات الأهلية والمدربين المحليين في بناء مسار اللاعبين خارج الأكاديميات الكبيرة.
+                - generic [ref=f7e568]:
+                  - text: أبين
+                  - generic [ref=f7e573]: المحافظة المرتبطة
+  - contentinfo [ref=f7e90]:
+    - generic [ref=f7e91]:
+      - generic [ref=f7e92]:
+        - generic [ref=f7e93]:
+          - link "مبادرة 967" [ref=f7e94] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f7e95]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f7e96]
+          - paragraph [ref=f7e97]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f7e98]:
+            - link "إنستغرام" [ref=f7e99] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f7e107] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f7e115]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f7e116]
+          - link "الأعمال الإعلامية" [ref=f7e117] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f7e118] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f7e119] [cursor=pointer]:
+            - /url: /magazine
+          - link "اليمن بالأرقام" [ref=f7e120] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f7e121] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f7e122] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f7e123]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f7e124]
+          - link "منتجات يمنية" [ref=f7e125] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f7e126] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f7e127] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f7e128] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f7e129]:
+          - heading "مبادرة 967" [level=3] [ref=f7e130]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f7e131] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f7e132] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f7e133] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f7e134] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f7e135] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f7e136]:
+        - generic [ref=f7e137]: © 2026 مبادرة 967
+        - generic [ref=f7e138]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f7e139]:
+          - link "سياسة الخصوصية" [ref=f7e140] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f7e141] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f7e142] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f7e582] [cursor=pointer]
+  - alert [ref=f7e586]

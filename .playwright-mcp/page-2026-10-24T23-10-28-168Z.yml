@@ -1,0 +1,117 @@
+- generic [active] [ref=f4e1]:
+  - link "انتقل إلى المحتوى" [ref=f4e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f4e3]:
+    - generic [ref=f4e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f4e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f4e6]
+      - generic [ref=f4e7]:
+        - link "البحث في المنصة" [ref=f4e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f4e12] [cursor=pointer]
+  - main [ref=f4e14]:
+    - generic [ref=f4e16]:
+      - link "العودة إلى الأعمال" [ref=f4e17] [cursor=pointer]:
+        - /url: /works#works-results
+      - generic [ref=f4e20]:
+        - generic [ref=f4e21]: التاريخ والهوية
+        - generic [ref=f4e23]: إنستغرام
+      - heading "من انا" [level=1] [ref=f4e24]
+      - generic [ref=f4e25]:
+        - paragraph [ref=f4e26]: من أعمال مبادرة 967 الإعلامية والمجتمعية
+        - generic [ref=f4e27]: 13 أكتوبر 2026
+      - link "اقترح تصحيحاً لهذه الصفحة" [ref=f4e30] [cursor=pointer]:
+        - /url: /contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9&referenceTitle=%D9%85%D9%86+%D8%A7%D9%86%D8%A7&referencePath=%2Fworks%2Fwork-mv6uhecd&referenceId=783ec624-1205-48aa-b4d0-6aaaee0484e9#contribution-form
+      - button "حفظ من انا للقراءة لاحقاً" [disabled] [ref=f4e34]: احفظ للقراءة لاحقاً
+    - generic [ref=f4e38]:
+      - generic [ref=f4e39]:
+        - generic [ref=f4e40]:
+          - generic [ref=f4e42]: 967 / MEDIA
+          - generic [ref=f4e43]:
+            - heading "هذا العمل متاح على المنصة الأصلية" [level=2] [ref=f4e47]
+            - paragraph [ref=f4e48]: لا يمكن تضمين رابط هذا العمل مباشرة داخل الموقع.
+            - link "فتح الفيديو على المنصة الأصلية" [ref=f4e49] [cursor=pointer]:
+              - /url: https://www.instagram.com/reels/DbMCbeWhmOD/
+        - generic [ref=f4e54]:
+          - generic [ref=f4e55]: تشغيل المحتوى المضمّن يتم عبر المنصة الأصلية.
+          - link "فتح على المنصة الأصلية" [ref=f4e59] [cursor=pointer]:
+            - /url: https://www.instagram.com/reels/DbMCbeWhmOD/
+      - generic [ref=f4e64]:
+        - generic [ref=f4e65]:
+          - generic [ref=f4e66]: عن هذا العمل
+          - heading "التفاصيل" [level=2] [ref=f4e67]
+          - paragraph [ref=f4e68]: هو ني
+        - complementary [ref=f4e69]:
+          - heading "معلومات العمل" [level=3] [ref=f4e70]
+          - generic [ref=f4e71]:
+            - generic [ref=f4e72]:
+              - term [ref=f4e73]: المنصة
+              - definition [ref=f4e74]: إنستغرام
+            - generic [ref=f4e75]:
+              - term [ref=f4e76]: التصنيف
+              - definition [ref=f4e77]: التاريخ والهوية
+          - link "المنشور الأصلي" [ref=f4e78] [cursor=pointer]:
+            - /url: https://www.instagram.com/reels/DbMCbeWhmOD/
+  - contentinfo [ref=f4e83]:
+    - generic [ref=f4e84]:
+      - generic [ref=f4e85]:
+        - generic [ref=f4e86]:
+          - link "مبادرة 967" [ref=f4e87] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f4e88]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f4e89]
+          - paragraph [ref=f4e90]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f4e91]:
+            - link "إنستغرام" [ref=f4e92] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f4e100] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f4e108]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f4e109]
+          - link "الأعمال الإعلامية" [ref=f4e110] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f4e111] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f4e112] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f4e113] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f4e114] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f4e115] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f4e116] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f4e117]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f4e118]
+          - link "منتجات يمنية" [ref=f4e119] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f4e120] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f4e121] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f4e122] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f4e123]:
+          - heading "مبادرة 967" [level=3] [ref=f4e124]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f4e125] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f4e126] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f4e127] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f4e128] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f4e129] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f4e130]:
+        - generic [ref=f4e131]: © 2026 مبادرة 967
+        - generic [ref=f4e132]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f4e133]:
+          - link "سياسة الخصوصية" [ref=f4e134] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f4e135] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f4e136] [cursor=pointer]:
+          - /url: /search

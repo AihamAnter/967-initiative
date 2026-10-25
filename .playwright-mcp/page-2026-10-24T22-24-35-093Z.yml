@@ -1,0 +1,96 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f1e7]
+    - generic [ref=f1e11]:
+      - button "Open issues overlay" [ref=f1e12]:
+        - generic [ref=f1e13]:
+          - generic [aria-hidden] [ref=f1e14]: "0"
+          - generic [ref=f1e15]: "1"
+        - generic [ref=f1e16]: Issue
+      - button "Collapse issues badge" [ref=f1e17]
+  - link "انتقل إلى المحتوى" [ref=f1e20] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f1e21]:
+    - generic [ref=f1e22]:
+      - link "مبادرة 967 — الرئيسية" [ref=f1e23] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f1e24]
+        - generic [ref=f1e25]:
+          - text: مساحة يمنية
+          - strong [ref=f1e26]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f1e27]:
+        - link "الرئيسية" [ref=f1e28] [cursor=pointer]:
+          - /url: /
+        - group [ref=f1e29]:
+          - generic "المحتوى" [ref=f1e30] [cursor=pointer]
+        - group [ref=f1e33]:
+          - generic "المعرفة" [ref=f1e34] [cursor=pointer]
+        - group [ref=f1e37]:
+          - generic "الأدلة" [ref=f1e38] [cursor=pointer]
+        - group [ref=f1e41]:
+          - generic "المبادرة" [ref=f1e42] [cursor=pointer]
+      - generic [ref=f1e45]:
+        - link "البحث في المنصة" [ref=f1e46] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f1e50] [cursor=pointer]:
+          - /url: /login
+        - link "كن جزءاً من الحكاية" [ref=f1e55] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f1e59]:
+    - alert [ref=f1e61]:
+      - heading "تعذّر تحميل المحتوى" [level=1] [ref=f1e64]
+      - paragraph [ref=f1e65]: حدثت مشكلة في الاتصال. حاول مجدداً بعد قليل.
+      - button "إعادة المحاولة" [ref=f1e66] [cursor=pointer]
+      - paragraph [ref=f1e72]:
+        - link "العودة إلى الرئيسية" [ref=f1e73] [cursor=pointer]:
+          - /url: /
+  - contentinfo [ref=f1e74]:
+    - generic [ref=f1e75]:
+      - generic [ref=f1e76]:
+        - generic [ref=f1e77]:
+          - link "مبادرة 967" [ref=f1e78] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f1e79]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f1e80]
+          - paragraph [ref=f1e81]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - link "إنستغرام" [ref=f1e83] [cursor=pointer]:
+            - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f1e91]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f1e92]
+          - link "الأعمال الإعلامية" [ref=f1e93] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f1e94] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f1e95] [cursor=pointer]:
+            - /url: /magazine
+          - link "اليمن بالأرقام" [ref=f1e96] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f1e97] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f1e98] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f1e99]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f1e100]
+          - link "منتجات يمنية" [ref=f1e101] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f1e102] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f1e103] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f1e104] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f1e105]:
+          - heading "مبادرة 967" [level=3] [ref=f1e106]
+          - link "مشاريعنا" [ref=f1e107] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f1e108] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f1e109] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f1e110]:
+        - generic [ref=f1e111]: © 2026 مبادرة 967
+        - generic [ref=f1e112]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط"
+        - link "ابحث في المنصة" [ref=f1e113] [cursor=pointer]:
+          - /url: /search
+  - alert [ref=f1e117]

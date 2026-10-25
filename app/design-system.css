@@ -1,10 +1,13 @@
 :root {
-  --primary:#176B75; --primary-hover:#10515a; --bg:#F7F4EC; --bg2:#eeeee5;
-  --surface:#FFFFFF; --panel:#FFFFFF; --text:#28343A; --muted:#5e6b6d;
-  --sand:#D6BD94; --green:#66846B; --success:#3f674a; --soft-green:#edf2ec;
-  --soft-primary:#e7f0ee; --line:#d9dfd9; --cream:#F7F4EC; --black:#28343A;
+  --primary:#155e68; --primary-hover:#104a53; --bg:#f8f6f0; --bg2:#eeeee6;
+  --surface:#FFFFFF; --panel:#FFFFFF; --text:#23353b; --muted:#52636b;
+  --sand:#D6BD94; --green:#4d755d; --success:#326548; --soft-green:#eaf2e9;
+  --soft-primary:#e6f1ef; --line:#bdcdcb; --cream:#f8f6f0; --black:#23353b;
+  --blue:#315e91; --soft-blue:#edf3fb; --plum:#74518c; --soft-plum:#f3eef8;
+  --gold:#815b17; --soft-gold:#fbf3e3; --clay:#984b3d; --soft-clay:#faeee9;
+  --control-line:#71888c; --danger:#a3322b; --soft-danger:#fff1ee;
   --red:var(--primary); --red2:var(--primary); --container:1200px;
-  --radius:12px; --radius-sm:6px; --shadow:0 6px 24px #28343a08;
+  --radius:12px; --radius-sm:6px; --shadow:0 4px 18px #23353b0a;
   --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px;
   --font-body:'IBM Plex Sans Arabic',Tahoma,sans-serif;
   --text-sm:.85rem; --text-base:1rem; --title-lg:clamp(1.8rem,3.1vw,2.65rem);

@@ -1,0 +1,90 @@
+- generic [active] [ref=f8e1]:
+  - link "انتقل إلى المحتوى" [ref=f8e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f8e3]:
+    - generic [ref=f8e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f8e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f8e6]
+        - generic [ref=f8e7]:
+          - text: مساحة يمنية
+          - strong [ref=f8e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f8e9]:
+        - link "الرئيسية" [ref=f8e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=f8e11]:
+          - generic "المحتوى" [ref=f8e12] [cursor=pointer]
+        - group [ref=f8e15]:
+          - generic "المعرفة" [ref=f8e16] [cursor=pointer]
+        - group [ref=f8e19]:
+          - generic "الأدلة" [ref=f8e20] [cursor=pointer]
+        - group [ref=f8e23]:
+          - generic "المبادرة" [ref=f8e24] [cursor=pointer]
+      - generic [ref=f8e27]:
+        - link "البحث في المنصة" [ref=f8e28] [cursor=pointer]:
+          - /url: /search
+        - link "كن جزءاً من الحكاية" [ref=f8e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f8e36]:
+    - generic [ref=f8e37]: جارٍ التحقق من الحساب...
+  - contentinfo [ref=f8e40]:
+    - generic [ref=f8e41]:
+      - generic [ref=f8e42]:
+        - generic [ref=f8e43]:
+          - link "مبادرة 967" [ref=f8e44] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f8e45]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f8e46]
+          - paragraph [ref=f8e47]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - link "إنستغرام" [ref=f8e49] [cursor=pointer]:
+            - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f8e57]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f8e58]
+          - link "الأعمال الإعلامية" [ref=f8e59] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f8e60] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f8e61] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f8e62] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f8e63] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f8e64] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f8e65] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f8e66]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f8e67]
+          - link "منتجات يمنية" [ref=f8e68] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f8e69] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f8e70] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f8e71] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f8e72]:
+          - heading "مبادرة 967" [level=3] [ref=f8e73]
+          - link "من نحن — تحقق حفظ" [ref=f8e74] [cursor=pointer]:
+            - /url: /about
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f8e75] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f8e76] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f8e77] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f8e78] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f8e79] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f8e80]:
+        - generic [ref=f8e81]: © 2026 مبادرة 967
+        - generic [ref=f8e82]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f8e83]:
+          - link "سياسة الخصوصية" [ref=f8e84] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f8e85] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f8e86] [cursor=pointer]:
+          - /url: /search

@@ -1,0 +1,101 @@
+- generic [active] [ref=f46e1]:
+  - link "انتقل إلى المحتوى" [ref=f46e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f46e3]:
+    - generic [ref=f46e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f46e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f46e6]
+      - generic [ref=f46e7]:
+        - link "البحث في المنصة" [ref=f46e8] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f46e85] [cursor=pointer]:
+          - /url: /login
+        - button "فتح القائمة" [ref=f46e12] [cursor=pointer]
+  - main [ref=f46e14]:
+    - generic [ref=f46e16]:
+      - navigation "مسار التصفح" [ref=f46e17]:
+        - link "الرئيسية" [ref=f46e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f46e21]: للقراءة لاحقاً
+      - generic [ref=f46e22]: للقراءة لاحقاً
+      - heading "قراءات تنتظرك." [level=1] [ref=f46e23]
+      - paragraph [ref=f46e24]: المواضيع والملفات التي حفظتها، لتعود إليها في وقتك.
+    - generic [ref=f46e90]:
+      - paragraph [ref=f46e94]: محفوظة في هذا المتصفح دون حساب. تحتاج اتصالاً لفتح المحتوى.
+      - generic [ref=f46e95]:
+        - strong [ref=f46e96]: "المحتوى المحفوظ: 1"
+        - link "اكتشف المزيد من المنصة" [ref=f46e97] [cursor=pointer]:
+          - /url: /
+      - list [ref=f46e101]:
+        - listitem [ref=f46e102]:
+          - link "شركة ومنتجات تهامة للصناعات الخفيفة افتح المحتوى" [ref=f46e108] [cursor=pointer]:
+            - /url: /yemeni-products/tehama-light-industries
+            - generic [ref=f46e109]: شركة ومنتجات
+            - heading "تهامة للصناعات الخفيفة" [level=2] [ref=f46e110]
+            - generic [ref=f46e111]: افتح المحتوى
+          - button "إزالة تهامة للصناعات الخفيفة من القائمة" [ref=f46e115] [cursor=pointer]
+  - contentinfo [ref=f46e28]:
+    - generic [ref=f46e29]:
+      - generic [ref=f46e30]:
+        - generic [ref=f46e31]:
+          - link "مبادرة 967" [ref=f46e32] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f46e33]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f46e34]
+          - paragraph [ref=f46e35]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f46e36]:
+            - link "إنستغرام" [ref=f46e37] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f46e45] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f46e53]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f46e54]
+          - link "الأعمال الإعلامية" [ref=f46e55] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f46e56] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f46e57] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f46e58] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f46e59] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f46e60] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f46e61] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f46e62]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f46e63]
+          - link "منتجات يمنية" [ref=f46e64] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f46e65] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f46e66] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f46e67] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f46e68]:
+          - heading "مبادرة 967" [level=3] [ref=f46e69]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f46e70] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f46e71] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f46e72] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f46e73] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f46e74] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f46e75]:
+        - generic [ref=f46e76]: © 2026 مبادرة 967
+        - generic [ref=f46e77]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f46e78]:
+          - link "سياسة الخصوصية" [ref=f46e79] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f46e80] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f46e81] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f46e124] [cursor=pointer]
+  - alert [ref=f46e128]

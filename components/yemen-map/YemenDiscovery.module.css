@@ -3,4 +3,4 @@
 .exploreChoices a:hover{border-color:var(--primary);background:var(--soft-primary)}
 .exploreChoices strong{font-size:15px;color:var(--primary)}
 .exploreChoices span{font-size:12px;color:var(--muted)}
-@media(max-width:600px){.exploreChoices{grid-template-columns:minmax(0,1fr);gap:8px}.exploreChoices a{padding:12px 16px;min-height:64px}}
+@media(max-width:600px){.exploreChoices{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-block:14px}.exploreChoices a{padding:12px;min-height:84px}.exploreChoices strong{font-size:13px}.exploreChoices span{font-size:11px}}

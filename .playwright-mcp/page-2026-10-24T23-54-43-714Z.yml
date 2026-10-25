@@ -1,0 +1,140 @@
+- generic [active] [ref=f36e1]:
+  - link "انتقل إلى المحتوى" [ref=f36e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f36e3]:
+    - generic [ref=f36e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f36e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f36e6]
+      - generic [ref=f36e7]:
+        - link "البحث في المنصة" [ref=f36e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f36e12] [cursor=pointer]
+  - main [ref=f36e14]:
+    - generic [ref=f36e16]:
+      - navigation "مسار التصفح" [ref=f36e17]:
+        - link "الرئيسية" [ref=f36e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f36e21]: للقراءة لاحقاً
+      - generic [ref=f36e22]: للقراءة لاحقاً
+      - heading "قراءات تنتظرك." [level=1] [ref=f36e23]
+      - paragraph [ref=f36e24]: المواضيع والملفات والصفحات التي حفظتها، لتعود إليها في وقتك.
+    - generic [ref=f36e85]:
+      - paragraph [ref=f36e89]: محفوظة في هذا المتصفح دون حساب. تحتاج اتصالاً لفتح المحتوى.
+      - generic [ref=f36e90]:
+        - strong [ref=f36e91]: "المحتوى المحفوظ: 7"
+        - link "اكتشف المزيد من المنصة" [ref=f36e92] [cursor=pointer]:
+          - /url: /
+      - list [ref=f36e96]:
+        - listitem [ref=f36e97]:
+          - link "عدد من المجلة اليمن خلف عناوين الحرب والسلام افتح المحتوى" [ref=f36e101] [cursor=pointer]:
+            - /url: /magazine/issue-2
+            - generic [ref=f36e102]: عدد من المجلة
+            - heading "اليمن خلف عناوين الحرب والسلام" [level=2] [ref=f36e103]
+            - generic [ref=f36e104]: افتح المحتوى
+          - button "إزالة اليمن خلف عناوين الحرب والسلام من القائمة" [ref=f36e108] [cursor=pointer]
+        - listitem [ref=f36e112]:
+          - link "عمل إعلامي من انا افتح المحتوى" [ref=f36e116] [cursor=pointer]:
+            - /url: /works/work-mv6uhecd
+            - generic [ref=f36e117]: عمل إعلامي
+            - heading "من انا" [level=2] [ref=f36e118]
+            - generic [ref=f36e119]: افتح المحتوى
+          - button "إزالة من انا من القائمة" [ref=f36e123] [cursor=pointer]
+        - listitem [ref=f36e127]:
+          - link "صفحة من المنصة من نحن افتح المحتوى" [ref=f36e132] [cursor=pointer]:
+            - /url: /about
+            - generic [ref=f36e133]: صفحة من المنصة
+            - heading "من نحن" [level=2] [ref=f36e134]
+            - generic [ref=f36e135]: افتح المحتوى
+          - button "إزالة من نحن من القائمة" [ref=f36e139] [cursor=pointer]
+        - listitem [ref=f36e143]:
+          - link "مؤشر إحصائي عدد سكان اليمن افتح المحتوى" [ref=f36e147] [cursor=pointer]:
+            - /url: /yemen-in-numbers/indicator/yemen-population
+            - generic [ref=f36e148]: مؤشر إحصائي
+            - heading "عدد سكان اليمن" [level=2] [ref=f36e149]
+            - generic [ref=f36e150]: افتح المحتوى
+          - button "إزالة عدد سكان اليمن من القائمة" [ref=f36e154] [cursor=pointer]
+        - listitem [ref=f36e158]:
+          - link "شخصية يمنية الملكة أروى بنت أحمد الصليحي افتح المحتوى" [ref=f36e164] [cursor=pointer]:
+            - /url: /yemen-map/figures/arwa-al-sulayhi
+            - generic [ref=f36e165]: شخصية يمنية
+            - heading "الملكة أروى بنت أحمد الصليحي" [level=2] [ref=f36e166]
+            - generic [ref=f36e167]: افتح المحتوى
+          - button "إزالة الملكة أروى بنت أحمد الصليحي من القائمة" [ref=f36e171] [cursor=pointer]
+        - listitem [ref=f36e175]:
+          - link "ملف مهني علي سعيد الكروني افتح المحتوى" [ref=f36e181] [cursor=pointer]:
+            - /url: /professionals/ali-carpenter
+            - generic [ref=f36e182]: ملف مهني
+            - heading "علي سعيد الكروني" [level=2] [ref=f36e183]
+            - generic [ref=f36e184]: افتح المحتوى
+          - button "إزالة علي سعيد الكروني من القائمة" [ref=f36e188] [cursor=pointer]
+        - listitem [ref=f36e192]:
+          - link "شركة ومنتجات تهامة للصناعات الخفيفة افتح المحتوى" [ref=f36e198] [cursor=pointer]:
+            - /url: /yemeni-products/tehama-light-industries
+            - generic [ref=f36e199]: شركة ومنتجات
+            - heading "تهامة للصناعات الخفيفة" [level=2] [ref=f36e200]
+            - generic [ref=f36e201]: افتح المحتوى
+          - button "إزالة تهامة للصناعات الخفيفة من القائمة" [ref=f36e205] [cursor=pointer]
+  - contentinfo [ref=f36e28]:
+    - generic [ref=f36e29]:
+      - generic [ref=f36e30]:
+        - generic [ref=f36e31]:
+          - link "مبادرة 967" [ref=f36e32] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f36e33]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f36e34]
+          - paragraph [ref=f36e35]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f36e36]:
+            - link "إنستغرام" [ref=f36e37] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f36e45] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f36e53]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f36e54]
+          - link "الأعمال الإعلامية" [ref=f36e55] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f36e56] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f36e57] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f36e58] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f36e59] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f36e60] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f36e61] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f36e62]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f36e63]
+          - link "منتجات يمنية" [ref=f36e64] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f36e65] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f36e66] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f36e67] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f36e68]:
+          - heading "مبادرة 967" [level=3] [ref=f36e69]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f36e70] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f36e71] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f36e72] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f36e73] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f36e74] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f36e75]:
+        - generic [ref=f36e76]: © 2026 مبادرة 967
+        - generic [ref=f36e77]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f36e78]:
+          - link "سياسة الخصوصية" [ref=f36e79] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f36e80] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f36e81] [cursor=pointer]:
+          - /url: /search
+  - alert [ref=f36e209]

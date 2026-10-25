@@ -20,6 +20,7 @@ export async function createTaskTestDatabase(){
  create policy own_editor on public.editors for select to authenticated using(user_id=auth.uid());grant select on public.editors to authenticated;`);
  for(const u of taskTestUsers){await pg.query('insert into auth.users values($1,$2::jsonb)',[u.id,JSON.stringify({full_name:u.name})]);if(u.role)await pg.query('insert into public.editors(user_id,role) values($1,$2)',[u.id,u.role]);}
  await pg.exec(await readFile(new URL('../../supabase/task-center.sql',import.meta.url),'utf8'));
+ await pg.exec(await readFile(new URL('../../supabase/migrations/202610250002_task_auto_archive.sql',import.meta.url),'utf8'));
  const run=(user,sql,params=[])=>pg.transaction(async tx=>{await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[user||'']);await tx.exec('set local role '+(user?'authenticated':'anon'));return tx.query(sql,params);});
  const normalize=value=>JSON.parse(JSON.stringify(value,(_k,v)=>v));
  const tableNames=['editors','tasks','task_projects','task_subtasks','task_comments','task_activity','task_notifications'];
@@ -29,7 +30,8 @@ export async function createTaskTestDatabase(){
    let result;
    if(name==='task_mutate')result=await run(user,'select public.task_mutate($1,$2,$3,$4::jsonb) result',[args.p_action,args.p_id,args.p_revision,JSON.stringify(args.p_data)]);
    else if(name==='task_team')result=await run(user,'select * from public.task_team()');
-   else if(name==='task_refresh_reminders')result=await run(user,'select public.task_refresh_reminders()');else throw Error('Unsupported test RPC');
+   else if(name==='task_refresh_reminders')result=await run(user,'select public.task_refresh_reminders()');
+   else if(name==='task_archive_completed')result=await run(user,'select public.task_archive_completed() result');else throw Error('Unsupported test RPC');
    return {data:normalize(name==='task_mutate'?result.rows[0].result:result.rows),error:null};
   }catch(e){return {data:null,error:{code:e.code,message:e.message}};}},
   from:table=>{

@@ -1,4 +1,12 @@
 'use client';
+import ValidatedForm,{FormInput,FormTextarea,FormSelect,FormLabel} from './debates/ValidatedForm';
+import {revealInvalidField,trackEditorFiles,publicationIntent} from './admin/formHelpers';
+import useAdminEditor from './admin/useAdminEditor';
+import EditorActions from './admin/EditorActions';
+import AdminListTools,{useAdminList} from './admin/AdminListTools';
+import {ImagePreview} from './admin/AdminImageInput';
+import {fetchAllRows} from '@/lib/pagination';
+
 
 import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Eye, EyeOff, Pencil, Save, Trash2, UserRound, X} from 'lucide-react';
@@ -32,19 +40,11 @@ export default function ProfessionalAdminPanel({db, canDelete = false,initialIte
     ...professionals.map(item => item.category).filter(Boolean),
   ])], [professionals]);
 
+  const editor=useAdminEditor({db,kind:'professional',id:editingId,value:professional,onRestore:setProfessional});
+  const list=useAdminList(professionals,'professionals');
   const loadProfessionals = useCallback(async () => {
-    setLoading(true);
-    const {data, error} = await db.from('professionals').select('*').order('created_at', {ascending: false});
-    setLoading(false);
-    if (error) {
-      setProfessionals([]);
-      setSchemaMissing(error.code === '42P01' || /professionals|schema cache/i.test(error.message || ''));
-      setNotice('خطأ: ' + error.message);
-      return;
-    }
-    setSchemaMissing(false);
-    setProfessionals(data || []);
-  }, [db]);
+    setLoading(true);try{const data=await fetchAllRows(()=>db.from('professionals').select('*',{count:'exact'}).order('created_at',{ascending:false}).order('id'));setProfessionals(data);setSchemaMissing(false);}catch(error){setProfessionals([]);setSchemaMissing(error.code==='42P01'||/professionals|schema cache/i.test(error.message||''));setNotice('خطأ: '+error.message);}finally{setLoading(false);}
+  },[db]);
 
   useEffect(() => { loadProfessionals(); }, [loadProfessionals]);
   useAdminItemTarget({item:initialItem,rows:professionals,loading,onSelect:editProfessional,onMissing:()=>setNotice('خطأ: لم يتم العثور على الملف المطلوب. لم يتغير أي محتوى.')});
@@ -53,23 +53,21 @@ export default function ProfessionalAdminPanel({db, canDelete = false,initialIte
     setProfessional(current => ({...current, [field]: value}));
   }
 
-  function resetForm(clearNotice = true) {
-    setEditingId(null);
-    setProfessional(emptyProfessional());
-    if (clearNotice) setNotice('');
-  }
+  function resetForm(force=false) {if(!force&&!editor.confirm())return;const next=emptyProfessional();setEditingId(null);setProfessional(next);editor.markClean(next);setNotice('');}
 
-  function editProfessional(row) {
+  function editProfessional(row,force=false) {
+    if(!force&&!editor.confirm())return;
     setOriginal(row);
     setEditingId(row.id);
-    setProfessional({
+    const next={
       full_name: row.full_name || '', slug: row.slug || '', profession_title: row.profession_title || '',
       category: row.category || 'البناء والصيانة', location: row.location || '', service_areas: joinList(row.service_areas),
       service_mode: row.service_mode || 'حضوري', years_experience: row.years_experience ?? '', availability: row.availability || '',
       bio: row.bio || '', services: joinList(row.services), skills: joinList(row.skills), languages: joinList(row.languages) || 'العربية',
       phone: row.phone || '', whatsapp: row.whatsapp || '', email: row.email || '', website: row.website || '',
       instagram: row.instagram || '',profile_image_url:row.profile_image_url||'',image_position:row.image_position||'center', is_verified: Boolean(row.is_verified), is_published: Boolean(row.is_published),
-    });
+    };
+    setProfessional(next);editor.markClean(next);
     setNotice('تعدّل الآن ملف: ' + row.full_name);
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
@@ -95,13 +93,13 @@ export default function ProfessionalAdminPanel({db, canDelete = false,initialIte
         availability: professional.availability.trim(), bio: professional.bio.trim(), services, skills: splitList(professional.skills),
         languages: splitList(professional.languages), phone: professional.phone.trim() || null, whatsapp: professional.whatsapp.trim() || null,
         email: professional.email.trim() || null, website: professional.website.trim() || null, instagram: professional.instagram.trim() || null,
-        profile_image_url:professional.profile_image_url.trim()||null,image_position:professional.image_position,is_verified: professional.is_verified, is_published: professional.is_published,
+        profile_image_url:professional.profile_image_url.trim()||null,image_position:professional.image_position,is_verified: professional.is_verified, is_published: publicationIntent(event,professional.is_published),
       };
-      const {error} = editingId ? await saveInlineContent(db,'professional',editingId,original?.revision,contentPatch(original,payload)) : await db.from('professionals').insert(payload);
-      if (error) throw Error(error.message);
-      const message = editingId ? 'تم تحديث الملف المهني بنجاح.' : professional.is_published ? 'تمت إضافة المهني ونشر ملفه في الدليل.' : 'تم حفظ الملف كمسودة.';
-      resetForm(false);
-      form.reset();
+      const result = editingId ? await saveInlineContent(db,'professional',editingId,original?.revision,contentPatch(original,payload)) : await db.from('professionals').insert(payload).select().single();
+      if (result.error) throw Error(result.error.message);
+      const message = editingId ? 'تم تحديث الملف المهني بنجاح.' : payload.is_published ? 'تمت إضافة المهني ونشر ملفه في الدليل.' : 'تم حفظ الملف كمسودة.';
+      await editor.clearDraft();form.reset();
+      if(event.nativeEvent?.submitter?.value==='new')resetForm(true);else editProfessional({...original,...payload,...(result.item||result.data||{}),id:editingId||result.data?.id},true);
       await loadProfessionals();
       setNotice(message);
     } catch (error) {
@@ -134,41 +132,41 @@ export default function ProfessionalAdminPanel({db, canDelete = false,initialIte
       <h2><UserRound size={20}/> {editingId ? 'تعديل الملف المهني' : 'إضافة مهني أو مقدم خدمة'}</h2>
       {schemaMissing && <div className="company-admin-schema"><strong>يلزم تفعيل جدول المهنيين أولاً.</strong><span>شغّل الملف <code>supabase/professionals.sql</code> مرة واحدة داخل Supabase SQL Editor.</span></div>}
       {notice && <p className={'feedback ' + (notice.startsWith('خطأ') ? 'error' : 'success')} role="status">{notice}</p>}
-      <form className="admin-form company-admin-form" onSubmit={saveProfessional}>
-        <div className="company-admin-group"><h3>الهوية المهنية</h3>
-          <div className="form-row"><label>الاسم الكامل<input required value={professional.full_name} onChange={event => setField('full_name', event.target.value)}/></label><label>الرابط المختصر بالإنجليزية<input required dir="ltr" placeholder="ahmed-carpenter" value={professional.slug} onChange={event => setField('slug', event.target.value)}/></label></div>
-          <div className="form-row"><label>المسمى المهني<input required placeholder="نجار أثاث، فني كهرباء..." value={professional.profession_title} onChange={event => setField('profession_title', event.target.value)}/></label><label>التصنيف<input required list="professional-category-options" placeholder="اختر أو اكتب تصنيفاً جديداً" value={professional.category} onChange={event => setField('category', event.target.value)}/><datalist id="professional-category-options">{categories.map(item => <option value={item} key={item}/>)}</datalist></label></div>
-          <div className="form-row"><label>المحافظة أو المدينة<input required value={professional.location} onChange={event => setField('location', event.target.value)}/></label><label>طريقة تقديم الخدمة<select value={professional.service_mode} onChange={event => setField('service_mode', event.target.value)}>{serviceModes.map(item => <option key={item}>{item}</option>)}</select></label></div>
-          <div className="form-row"><label>سنوات الخبرة<input type="number" min="0" max="80" dir="ltr" value={professional.years_experience} onChange={event => setField('years_experience', event.target.value)}/></label><label>حالة التوفر<input placeholder="متاح، حسب موعد مسبق..." value={professional.availability} onChange={event => setField('availability', event.target.value)}/></label></div>
-        </div>
+      <ValidatedForm className="admin-form company-admin-form" onSubmit={saveProfessional} data-editor-key={editor.key} onInvalidCapture={revealInvalidField} onChangeCapture={event=>trackEditorFiles(event,editor)}><EditorActions editor={editor} busy={busy || schemaMissing} value={professional} published={professional.is_published} onCancel={()=>resetForm()}/><fieldset className="admin-editor-fields" disabled={busy}>
+        <details className="company-admin-group" open><summary>الهوية المهنية</summary>
+          <div className="form-row"><FormLabel>الاسم الكامل<FormInput required value={professional.full_name} onChange={event => setField('full_name', event.target.value)}/></FormLabel><FormLabel>الرابط المختصر بالإنجليزية<FormInput required dir="ltr" placeholder="ahmed-carpenter" value={professional.slug} onChange={event => setField('slug', event.target.value)}/></FormLabel></div>
+          <div className="form-row"><FormLabel>المسمى المهني<FormInput required placeholder="نجار أثاث، فني كهرباء..." value={professional.profession_title} onChange={event => setField('profession_title', event.target.value)}/></FormLabel><FormLabel>التصنيف<FormInput required list="professional-category-options" placeholder="اختر أو اكتب تصنيفاً جديداً" value={professional.category} onChange={event => setField('category', event.target.value)}/><datalist id="professional-category-options">{categories.map(item => <option value={item} key={item}/>)}</datalist></FormLabel></div>
+          <div className="form-row"><FormLabel>المحافظة أو المدينة<FormInput required value={professional.location} onChange={event => setField('location', event.target.value)}/></FormLabel><FormLabel>طريقة تقديم الخدمة<FormSelect value={professional.service_mode} onChange={event => setField('service_mode', event.target.value)}>{serviceModes.map(item => <option key={item}>{item}</option>)}</FormSelect></FormLabel></div>
+          <div className="form-row"><FormLabel>سنوات الخبرة<FormInput type="number" min="0" max="80" dir="ltr" value={professional.years_experience} onChange={event => setField('years_experience', event.target.value)}/></FormLabel><FormLabel>حالة التوفر<FormInput placeholder="متاح، حسب موعد مسبق..." value={professional.availability} onChange={event => setField('availability', event.target.value)}/></FormLabel></div>
+        </details>
 
-        <div className="company-admin-group"><h3>الخدمات والخبرة</h3>
-          <label>نبذة مهنية<textarea rows="4" value={professional.bio} onChange={event => setField('bio', event.target.value)}/></label>
-          <div className="form-row"><label>الخدمات المقدمة<textarea required rows="5" placeholder={'خدمة في كل سطر\nتركيب وصيانة\nمعاينة واستشارة'} value={professional.services} onChange={event => setField('services', event.target.value)}/></label><label>المهارات<textarea rows="5" placeholder={'مهارة في كل سطر\nتشخيص أعطال\nتركيب'} value={professional.skills} onChange={event => setField('skills', event.target.value)}/></label></div>
-          <div className="form-row"><label>مناطق تقديم الخدمة<textarea rows="4" placeholder={'صنعاء\nعمران'} value={professional.service_areas} onChange={event => setField('service_areas', event.target.value)}/></label><label>اللغات<textarea rows="4" placeholder={'العربية\nالإنجليزية'} value={professional.languages} onChange={event => setField('languages', event.target.value)}/></label></div>
-        </div>
+        <details className="company-admin-group"><summary>الخدمات والخبرة</summary>
+          <FormLabel>نبذة مهنية<FormTextarea rows="4" value={professional.bio} onChange={event => setField('bio', event.target.value)}/></FormLabel>
+          <div className="form-row"><FormLabel>الخدمات المقدمة<FormTextarea required rows="5" placeholder={'خدمة في كل سطر\nتركيب وصيانة\nمعاينة واستشارة'} value={professional.services} onChange={event => setField('services', event.target.value)}/></FormLabel><FormLabel>المهارات<FormTextarea rows="5" placeholder={'مهارة في كل سطر\nتشخيص أعطال\nتركيب'} value={professional.skills} onChange={event => setField('skills', event.target.value)}/></FormLabel></div>
+          <div className="form-row"><FormLabel>مناطق تقديم الخدمة<FormTextarea rows="4" placeholder={'صنعاء\nعمران'} value={professional.service_areas} onChange={event => setField('service_areas', event.target.value)}/></FormLabel><FormLabel>اللغات<FormTextarea rows="4" placeholder={'العربية\nالإنجليزية'} value={professional.languages} onChange={event => setField('languages', event.target.value)}/></FormLabel></div>
+        </details>
 
-        <div className="company-admin-group"><h3>التواصل</h3>
-          <div className="form-row"><label>رقم الهاتف<input dir="ltr" placeholder="+967..." value={professional.phone} onChange={event => setField('phone', event.target.value)}/></label><label>رقم واتساب<input dir="ltr" placeholder="967..." value={professional.whatsapp} onChange={event => setField('whatsapp', event.target.value)}/></label></div>
-          <div className="form-row"><label>البريد الإلكتروني<input type="email" dir="ltr" value={professional.email} onChange={event => setField('email', event.target.value)}/></label><label>الموقع الإلكتروني<input type="url" dir="ltr" placeholder="https://..." value={professional.website} onChange={event => setField('website', event.target.value)}/></label></div>
-          <label>رابط إنستغرام<input type="url" dir="ltr" placeholder="https://instagram.com/..." value={professional.instagram} onChange={event => setField('instagram', event.target.value)}/></label>
-          <label>رابط صورة الملف المصرح بنشرها<input type="url" dir="ltr" placeholder="https://..." value={professional.profile_image_url} onChange={event=>setField('profile_image_url',event.target.value)}/></label>
-          <label>موضع الصورة<select value={professional.image_position} onChange={event=>setField('image_position',event.target.value)}>{[['center','الوسط'],['top','الأعلى'],['bottom','الأسفل'],['left','اليسار'],['right','اليمين']].map(([value,label])=><option value={value} key={value}>{label}</option>)}</select></label>
-        </div>
+        <details className="company-admin-group"><summary>التواصل</summary>
+          <div className="form-row"><FormLabel>رقم الهاتف<FormInput dir="ltr" placeholder="+967..." value={professional.phone} onChange={event => setField('phone', event.target.value)}/></FormLabel><FormLabel>رقم واتساب<FormInput dir="ltr" placeholder="967..." value={professional.whatsapp} onChange={event => setField('whatsapp', event.target.value)}/></FormLabel></div>
+          <div className="form-row"><FormLabel>البريد الإلكتروني<FormInput type="email" dir="ltr" value={professional.email} onChange={event => setField('email', event.target.value)}/></FormLabel><FormLabel>الموقع الإلكتروني<FormInput type="url" dir="ltr" placeholder="https://..." value={professional.website} onChange={event => setField('website', event.target.value)}/></FormLabel></div>
+          <FormLabel>رابط إنستغرام<FormInput type="url" dir="ltr" placeholder="https://instagram.com/..." value={professional.instagram} onChange={event => setField('instagram', event.target.value)}/></FormLabel>
+          <FormLabel>رابط صورة الملف المصرح بنشرها<FormInput type="url" dir="ltr" placeholder="https://..." value={professional.profile_image_url} onChange={event=>setField('profile_image_url',event.target.value)}/></FormLabel>
+          <ImagePreview url={professional.profile_image_url} position={professional.image_position}/><FormLabel>موضع الصورة<FormSelect value={professional.image_position} onChange={event=>setField('image_position',event.target.value)}>{[['center','الوسط'],['top','الأعلى'],['bottom','الأسفل'],['left','اليسار'],['right','اليمين']].map(([value,label])=><option value={value} key={value}>{label}</option>)}</FormSelect></FormLabel>
+        </details>
 
-        <div className="company-admin-group"><h3>النشر</h3>
-          <p className="small-muted">تحقق من هوية صاحب الملف وموافقته على نشر وسائل الاتصال قبل التوثيق والنشر. عناوين example.com بيانات توضيحية وتتطلب المراجعة.</p><label className="checkline"><input type="checkbox" checked={professional.is_verified} onChange={event => setField('is_verified', event.target.checked)}/> تأكيد التحقق من الملف وموافقة صاحبه</label>
-          <label className="checkline"><input type="checkbox" checked={professional.is_published} onChange={event => setField('is_published', event.target.checked)}/> نشر الملف فور الحفظ</label>
-        </div>
+        <details className="company-admin-group"><summary>النشر</summary>
+          <p className="small-muted">تحقق من هوية صاحب الملف وموافقته على نشر وسائل الاتصال قبل التوثيق والنشر. عناوين example.com بيانات توضيحية وتتطلب المراجعة.</p><FormLabel className="checkline"><FormInput type="checkbox" checked={professional.is_verified} onChange={event => setField('is_verified', event.target.checked)}/> تأكيد التحقق من الملف وموافقة صاحبه</FormLabel>
+          <FormLabel className="checkline"><FormInput type="checkbox" checked={professional.is_published} onChange={event => setField('is_published', event.target.checked)}/> نشر الملف فور الحفظ</FormLabel>
+        </details>
 
-        <div className="company-admin-actions"><button className="btn btn-red" disabled={busy || schemaMissing}><Save size={17}/>{busy ? 'جارٍ الحفظ...' : editingId ? 'حفظ التعديلات' : 'إضافة المهني'}</button>{editingId && <button type="button" className="btn btn-outline" onClick={() => resetForm()}><X size={17}/> إلغاء التعديل</button>}</div>
-      </form>
+
+      </fieldset></ValidatedForm>
     </section>
 
     <section className="admin-panel company-admin-list"><h2>المهنيون ({professionals.length})</h2>
       {loading && <p className="small-muted">جارٍ تحميل الملفات...</p>}
       {!loading && !professionals.length && !schemaMissing && <p className="small-muted">لم تُضف أي ملفات مهنية بعد.</p>}
-      {professionals.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong>{mapProfessional(row).needsReview && <span className="status-badge">بحاجة إلى مراجعة — بيانات تجريبية</span>}<small>{row.profession_title} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editProfessional(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeProfessional(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
+      <AdminListTools list={list} categories={[...new Set(professionals.map(row=>row.category).filter(Boolean))]}/>{list.items.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong>{mapProfessional(row).needsReview && <span className="status-badge">بحاجة إلى مراجعة — بيانات تجريبية</span>}<small>{row.profession_title} · {row.location} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editProfessional(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeProfessional(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
     </section>
   </div>;
 }

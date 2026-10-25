@@ -1,0 +1,287 @@
+- generic [active] [ref=f11e1]:
+  - link "انتقل إلى المحتوى" [ref=f11e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f11e3]:
+    - generic [ref=f11e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f11e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f11e6]
+        - generic [ref=f11e7]:
+          - text: مساحة يمنية
+          - strong [ref=f11e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f11e9]:
+        - link "الرئيسية" [ref=f11e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=f11e11]:
+          - generic "المحتوى" [ref=f11e12] [cursor=pointer]
+        - group [ref=f11e15]:
+          - generic "المعرفة" [ref=f11e16] [cursor=pointer]
+        - group [ref=f11e19]:
+          - generic "الأدلة" [ref=f11e20] [cursor=pointer]
+        - group [ref=f11e23]:
+          - generic "المبادرة" [ref=f11e24] [cursor=pointer]
+      - generic [ref=f11e27]:
+        - link "البحث في المنصة" [ref=f11e28] [cursor=pointer]:
+          - /url: /search
+        - link "كن جزءاً من الحكاية" [ref=f11e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f11e36]:
+    - generic [ref=f11e38]:
+      - navigation "مسار التصفح" [ref=f11e39]:
+        - link "الرئيسية" [ref=f11e40] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f11e43]: دليل الشركات والمنتجات
+      - generic [ref=f11e44]: دليل الشركات والمنتجات
+      - heading "صُنع هنا، في اليمن." [level=1] [ref=f11e45]
+      - paragraph [ref=f11e46]: تعرّف على المنتج المحلي، ومن يصنعه، وأين تجده. دليل ينمو بمعلومات واضحة ومساهمات المجتمع.
+      - generic [ref=f11e47]:
+        - generic [ref=f11e48]:
+          - text: "الشركات المنشورة:"
+          - strong [ref=f11e49]: "111"
+        - generic [ref=f11e50]:
+          - text: "المنتجات المدرجة:"
+          - strong [ref=f11e51]: "178"
+        - link "اقترح شركة أو منتجاً" [ref=f11e52] [cursor=pointer]:
+          - /url: /contribute?type=اقتراح%20شركة%20أو%20منتج
+    - generic [ref=f11e58]:
+      - generic [ref=f11e59]:
+        - textbox "البحث في المنتجات اليمنية" [ref=f11e64]:
+          - /placeholder: ابحث عن شركة، منتج أو مدينة...
+        - combobox "اختيار المحافظة" [ref=f11e69]:
+          - option "كل المحافظات" [selected]
+          - option "الحديدة"
+          - option "اليمن"
+          - option "صنعاء"
+          - option "تعز"
+          - option "عدن"
+          - option "لحج"
+          - option "حضرموت"
+          - option "أبين"
+      - generic [ref=f11e70]:
+        - generic [ref=f11e72]: تصنيف المنتجات
+        - combobox "اختيار تصنيف المنتجات" [ref=f11e73] [cursor=pointer]:
+          - option "الكل" [selected]
+          - option "أغذية ومشروبات"
+          - option "صناعات تحويلية"
+          - option "زراعة وثروة حيوانية"
+          - option "مواد بناء"
+          - option "أدوية وصحة"
+          - option "عناية وعطور"
+          - option "طاقة ومياه"
+          - option "أثاث وديكور"
+          - option "حرف ومنسوجات"
+      - generic [ref=f11e74]:
+        - generic [ref=f11e75]: شركات ومنتجات مطابقة لاختيارك
+        - strong [ref=f11e76]: "عدد النتائج: 111"
+      - generic [ref=f11e77]:
+        - 'link "أغذية ومشروبات الحديدة تهامة للصناعات الخفيفة تهامة للصناعات الخفيفة؛ نشاطها الموثق: وجبات خفيفة — بف. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e78] [cursor=pointer]':
+          - /url: /yemeni-products/tehama-light-industries?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e85]:
+            - generic [ref=f11e86]:
+              - generic [ref=f11e87]: أغذية ومشروبات
+              - generic [ref=f11e88]: الحديدة
+            - heading "تهامة للصناعات الخفيفة" [level=2] [ref=f11e92]
+            - paragraph [ref=f11e93]: "تهامة للصناعات الخفيفة؛ نشاطها الموثق: وجبات خفيفة — بف."
+            - group "المنتجات" [ref=f11e94]:
+              - generic [ref=f11e95]: وجبات خفيفة — بف
+            - generic [ref=f11e96]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية اليمن شركة العلم الصناعية شركة العلم الصناعية؛ نشاطها الموثق: أكياس بولي بروبلين منسوجة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e100] [cursor=pointer]':
+          - /url: /yemeni-products/alalam-industrial?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e107]:
+            - generic [ref=f11e108]:
+              - generic [ref=f11e109]: صناعات تحويلية
+              - generic [ref=f11e110]: اليمن
+            - heading "شركة العلم الصناعية" [level=2] [ref=f11e114]
+            - paragraph [ref=f11e115]: "شركة العلم الصناعية؛ نشاطها الموثق: أكياس بولي بروبلين منسوجة."
+            - group "المنتجات" [ref=f11e116]:
+              - generic [ref=f11e117]: أكياس بولي بروبلين منسوجة
+            - generic [ref=f11e118]: عرض ملف الشركة والتفاصيل
+        - 'link "زراعة وثروة حيوانية الحديدة معمل سهول تهامة لإنتاج المكعبات العلفية معمل سهول تهامة لإنتاج المكعبات العلفية؛ نشاطها الموثق: مكعبات علفية. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e122] [cursor=pointer]':
+          - /url: /yemeni-products/suhool-tehama-feed?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e129]:
+            - generic [ref=f11e130]:
+              - generic [ref=f11e131]: زراعة وثروة حيوانية
+              - generic [ref=f11e132]: الحديدة
+            - heading "معمل سهول تهامة لإنتاج المكعبات العلفية" [level=2] [ref=f11e136]
+            - paragraph [ref=f11e137]: "معمل سهول تهامة لإنتاج المكعبات العلفية؛ نشاطها الموثق: مكعبات علفية."
+            - group "المنتجات" [ref=f11e138]:
+              - generic [ref=f11e139]: مكعبات علفية
+            - generic [ref=f11e140]: عرض ملف الشركة والتفاصيل
+        - 'link "أغذية ومشروبات صنعاء موكا هنترز — نشاط اليمن موكا هنترز — نشاط اليمن؛ نشاطها الموثق: بن يمني مختص، قهوة محمصة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e144] [cursor=pointer]':
+          - /url: /yemeni-products/mocha-hunters?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e151]:
+            - generic [ref=f11e152]:
+              - generic [ref=f11e153]: أغذية ومشروبات
+              - generic [ref=f11e154]: صنعاء
+            - heading "موكا هنترز — نشاط اليمن" [level=2] [ref=f11e158]
+            - paragraph [ref=f11e159]: "موكا هنترز — نشاط اليمن؛ نشاطها الموثق: بن يمني مختص، قهوة محمصة."
+            - group "المنتجات" [ref=f11e160]:
+              - generic [ref=f11e161]: بن يمني مختص
+              - generic [ref=f11e162]: قهوة محمصة
+            - generic [ref=f11e163]: عرض ملف الشركة والتفاصيل
+        - 'link "مواد بناء تعز شركة السعيد لتصنيع الخرسانة والمقاولات شركة السعيد لتصنيع الخرسانة والمقاولات؛ نشاطها الموثق: خرسانة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e167] [cursor=pointer]':
+          - /url: /yemeni-products/alsaeed-concrete?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e174]:
+            - generic [ref=f11e175]:
+              - generic [ref=f11e176]: مواد بناء
+              - generic [ref=f11e177]: تعز
+            - heading "شركة السعيد لتصنيع الخرسانة والمقاولات" [level=2] [ref=f11e181]
+            - paragraph [ref=f11e182]: "شركة السعيد لتصنيع الخرسانة والمقاولات؛ نشاطها الموثق: خرسانة."
+            - group "المنتجات" [ref=f11e183]:
+              - generic [ref=f11e184]: خرسانة
+            - generic [ref=f11e185]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية تعز شركة البحر الأحمر للمنظفات المحدودة شركة البحر الأحمر للمنظفات المحدودة؛ نشاطها الموثق: منظفات. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e189] [cursor=pointer]':
+          - /url: /yemeni-products/red-sea-detergents?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e196]:
+            - generic [ref=f11e197]:
+              - generic [ref=f11e198]: صناعات تحويلية
+              - generic [ref=f11e199]: تعز
+            - heading "شركة البحر الأحمر للمنظفات المحدودة" [level=2] [ref=f11e203]
+            - paragraph [ref=f11e204]: "شركة البحر الأحمر للمنظفات المحدودة؛ نشاطها الموثق: منظفات."
+            - group "المنتجات" [ref=f11e205]:
+              - generic [ref=f11e206]: منظفات
+            - generic [ref=f11e207]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية صنعاء النجار لصناعة البلاستيك النجار لصناعة البلاستيك؛ نشاطها الموثق: مستلزمات كهربائية بلاستيكية، تمديدات ري، تمديدات مياه شرب. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e211] [cursor=pointer]':
+          - /url: /yemeni-products/nagarco-plastics?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e218]:
+            - generic [ref=f11e219]:
+              - generic [ref=f11e220]: صناعات تحويلية
+              - generic [ref=f11e221]: صنعاء
+            - heading "النجار لصناعة البلاستيك" [level=2] [ref=f11e225]
+            - paragraph [ref=f11e226]: "النجار لصناعة البلاستيك؛ نشاطها الموثق: مستلزمات كهربائية بلاستيكية، تمديدات ري، تمديدات مياه شرب."
+            - group "المنتجات" [ref=f11e227]:
+              - generic [ref=f11e228]: مستلزمات كهربائية بلاستيكية
+              - generic [ref=f11e229]: تمديدات ري
+              - generic [ref=f11e230]: تمديدات مياه شرب
+            - generic [ref=f11e231]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية صنعاء مصنع ذي ميس لأنظمة الري والأنابيب البلاستيكية مصنع ذي ميس لأنظمة الري والأنابيب البلاستيكية؛ نشاطها الموثق: أنابيب HDPE، أنابيب LDPE، أنظمة ري. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e235] [cursor=pointer]':
+          - /url: /yemeni-products/zemauss-irrigation?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e242]:
+            - generic [ref=f11e243]:
+              - generic [ref=f11e244]: صناعات تحويلية
+              - generic [ref=f11e245]: صنعاء
+            - heading "مصنع ذي ميس لأنظمة الري والأنابيب البلاستيكية" [level=2] [ref=f11e249]
+            - paragraph [ref=f11e250]: "مصنع ذي ميس لأنظمة الري والأنابيب البلاستيكية؛ نشاطها الموثق: أنابيب HDPE، أنابيب LDPE، أنظمة ري."
+            - group "المنتجات" [ref=f11e251]:
+              - generic [ref=f11e252]: أنابيب HDPE
+              - generic [ref=f11e253]: أنابيب LDPE
+              - generic [ref=f11e254]: أنظمة ري
+            - generic [ref=f11e255]: عرض ملف الشركة والتفاصيل
+        - 'link "أغذية ومشروبات تعز الصفاء للمياه الصفاء للمياه؛ نشاطها الموثق: مياه محلاة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e259] [cursor=pointer]':
+          - /url: /yemeni-products/alsafaa-water-taiz?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e266]:
+            - generic [ref=f11e267]:
+              - generic [ref=f11e268]: أغذية ومشروبات
+              - generic [ref=f11e269]: تعز
+            - heading "الصفاء للمياه" [level=2] [ref=f11e273]
+            - paragraph [ref=f11e274]: "الصفاء للمياه؛ نشاطها الموثق: مياه محلاة."
+            - group "المنتجات" [ref=f11e275]:
+              - generic [ref=f11e276]: مياه محلاة
+            - generic [ref=f11e277]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية الحديدة مصنع ثلوج بيت الفقيه مصنع ثلوج بيت الفقيه؛ نشاطها الموثق: ثلج. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e281] [cursor=pointer]':
+          - /url: /yemeni-products/bait-alfaqih-ice?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e288]:
+            - generic [ref=f11e289]:
+              - generic [ref=f11e290]: صناعات تحويلية
+              - generic [ref=f11e291]: الحديدة
+            - heading "مصنع ثلوج بيت الفقيه" [level=2] [ref=f11e295]
+            - paragraph [ref=f11e296]: "مصنع ثلوج بيت الفقيه؛ نشاطها الموثق: ثلج."
+            - group "المنتجات" [ref=f11e297]:
+              - generic [ref=f11e298]: ثلج
+            - generic [ref=f11e299]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية الحديدة مصنع الضحي لصناعة الأكياس مصنع الضحي لصناعة الأكياس؛ نشاطها الموثق: أكياس محاكة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e303] [cursor=pointer]':
+          - /url: /yemeni-products/aldhahi-bags?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e310]:
+            - generic [ref=f11e311]:
+              - generic [ref=f11e312]: صناعات تحويلية
+              - generic [ref=f11e313]: الحديدة
+            - heading "مصنع الضحي لصناعة الأكياس" [level=2] [ref=f11e317]
+            - paragraph [ref=f11e318]: "مصنع الضحي لصناعة الأكياس؛ نشاطها الموثق: أكياس محاكة."
+            - group "المنتجات" [ref=f11e319]:
+              - generic [ref=f11e320]: أكياس محاكة
+            - generic [ref=f11e321]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية تعز شركة الصناعات المتنوعة ومواد التعبئة — جينباك شركة الصناعات المتنوعة ومواد التعبئة — جينباك؛ نشاطها الموثق: مواد تعبئة، حلويات، وجبات خفيفة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e325] [cursor=pointer]':
+          - /url: /yemeni-products/genpack?from=%2Fyemeni-products%23directory
+          - generic [ref=f11e332]:
+            - generic [ref=f11e333]:
+              - generic [ref=f11e334]: صناعات تحويلية
+              - generic [ref=f11e335]: تعز
+            - heading "شركة الصناعات المتنوعة ومواد التعبئة — جينباك" [level=2] [ref=f11e339]
+            - paragraph [ref=f11e340]: "شركة الصناعات المتنوعة ومواد التعبئة — جينباك؛ نشاطها الموثق: مواد تعبئة، حلويات، وجبات خفيفة."
+            - group "المنتجات" [ref=f11e341]:
+              - generic [ref=f11e342]: مواد تعبئة
+              - generic [ref=f11e343]: حلويات
+              - generic [ref=f11e344]: وجبات خفيفة
+            - generic [ref=f11e345]: عرض ملف الشركة والتفاصيل
+      - navigation "صفحات النتائج" [ref=f11e349]:
+        - button "السابق" [disabled] [ref=f11e350]
+        - generic [ref=f11e353]: 1 من 10
+        - button "التالي" [ref=f11e354] [cursor=pointer]
+    - generic [ref=f11e358]:
+      - generic [ref=f11e359]:
+        - text: هل تعرف منتجاً محلياً يستحق الظهور؟
+        - heading "ساعدنا على توسيع الدليل." [level=2] [ref=f11e360]
+      - link "اقترح إضافة" [ref=f11e361] [cursor=pointer]:
+        - /url: /contribute?type=اقتراح%20شركة%20أو%20منتج
+  - contentinfo [ref=f11e365]:
+    - generic [ref=f11e366]:
+      - generic [ref=f11e367]:
+        - generic [ref=f11e368]:
+          - link "مبادرة 967" [ref=f11e369] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f11e370]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f11e371]
+          - paragraph [ref=f11e372]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f11e373]:
+            - link "إنستغرام" [ref=f11e374] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f11e382] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f11e390]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f11e391]
+          - link "الأعمال الإعلامية" [ref=f11e392] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f11e393] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f11e394] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f11e395] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f11e396] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f11e397] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f11e398] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f11e399]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f11e400]
+          - link "منتجات يمنية" [ref=f11e401] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f11e402] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f11e403] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f11e404] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f11e405]:
+          - heading "مبادرة 967" [level=3] [ref=f11e406]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f11e407] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f11e408] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f11e409] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f11e410] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f11e411] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f11e412]:
+        - generic [ref=f11e413]: © 2026 مبادرة 967
+        - generic [ref=f11e414]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f11e415]:
+          - link "سياسة الخصوصية" [ref=f11e416] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f11e417] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f11e418] [cursor=pointer]:
+          - /url: /search

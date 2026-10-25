@@ -1,3 +1,4 @@
+import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Link from 'next/link';
 import nextDynamic from 'next/dynamic';
 import {notFound} from 'next/navigation';
@@ -40,6 +41,7 @@ export default async function IndicatorPage({params}) {
       {indicator.updated_at && <p className="record-update">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
     </div></section>
     <section className="section stat-indicator-body"><div className="container">
+      <ContentReadingAction kind="indicator" href={detailPath('yemen-in-numbers/indicator',indicator.slug)} title={indicator.name}/>
       <p className="indicator-reading-note">{indicatorReading(indicator)}</p>
       <div className="stat-detail-layout"><div className="stat-chart-panel"><div className="stat-panel-head"><div><span>السنوات المتاحة</span><h2>{yearCount>1?'القيم عبر السنوات':'قيمة سنة واحدة'}</h2></div><span>{indicator.unit}</span></div>{yearCount>1?<IndicatorChart values={indicator.values} unit={indicator.unit} type={indicator.chart_type}/>:<div className="single-year-note"><CalendarDays size={30}/><p>{latest?`تتوفر قيمة معتمدة لسنة ${formatYear(latest.year)} فقط. تظهر تفاصيلها في الجدول أدناه.`:'لا توجد سلسلة معتمدة للرسم حالياً.'}</p></div>}{sourceIds.size > 1 && !indicator.adopted_source_id && <p className="stat-warning"><AlertTriangle size={17}/> توجد مصادر متعددة دون سلسلة معتمدة؛ أوقف الرسم حتى المراجعة. القيم الأصلية متاحة في CSV.</p>}</div>
       <aside className="stat-facts"><h2>بطاقة المؤشر</h2><dl><div><dt><Ruler size={16}/> الوحدة</dt><dd>{indicator.unit}</dd></div><div><dt><ShieldCheck size={16}/> حالة البيانات</dt><dd>{statusLabels[indicator.data_status]}<small className="data-status-help">{dataStatusHelp[indicator.data_status]}</small></dd></div><div><dt><Info size={16}/> اتجاه التحسن</dt><dd>{directionLabels[indicator.improvement_direction]}</dd></div>{latest && <div><dt><CalendarDays size={16}/> طبيعة أحدث قيمة</dt><dd>{valueStatusLabels[latest.value_status]}</dd></div>}</dl></aside></div>

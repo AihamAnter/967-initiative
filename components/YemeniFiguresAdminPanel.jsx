@@ -1,6 +1,14 @@
 'use client';
+import ValidatedForm,{FormInput,FormTextarea,FormSelect,FormLabel} from './debates/ValidatedForm';
+import {revealInvalidField,trackEditorFiles,publicationIntent} from './admin/formHelpers';
+import useAdminEditor from './admin/useAdminEditor';
+import EditorActions from './admin/EditorActions';
+import AdminListTools,{useAdminList} from './admin/AdminListTools';
+import AdminImageInput from './admin/AdminImageInput';
+import {uploadAdminMedia} from '@/lib/adminUpload';
 
-import {useCallback, useEffect, useMemo, useState} from 'react';
+
+import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {Eye, EyeOff, Landmark, Pencil, Save, Trash2, X} from 'lucide-react';
 import {yemenGovernorates, yemeniFigureEras, yemeniFigureFields} from '@/lib/yemeniFigures';
 import {validateMediaUpload} from '@/lib/uploads';
@@ -19,6 +27,7 @@ const cleanSlug = value => String(value || '').trim().toLowerCase().replace(/\s+
 const isUrl = value => !value || Boolean(safeExternalUrl(value));
 
 export default function YemeniFiguresAdminPanel({db, canDelete = false,initialItem = ''}) {
+  const portraitBackup=useRef(null);
   const [figures, setFigures] = useState([]);
   const [figure, setFigure] = useState(emptyFigure);
   const [editingId, setEditingId] = useState(null);
@@ -30,6 +39,8 @@ export default function YemeniFiguresAdminPanel({db, canDelete = false,initialIt
   const [listQuery,setListQuery]=useState('');
   const fields = useMemo(() => [...new Set([...yemeniFigureFields, ...figures.map(item => item.field).filter(Boolean)])], [figures]);
 
+  const editor=useAdminEditor({db,kind:'figure',id:editingId,value:{figure,profile},onRestore:value=>{setFigure(value.figure);setProfile(value.profile);}});
+  const list=useAdminList(figures,'figures');
   const api=useCallback(async(method='GET',body,id)=>{
     const session=await db.auth.getSession();const token=session.data?.session?.access_token;
     if(!token)throw Error('سجل الدخول بحساب تحرير أولًا.');
@@ -45,26 +56,28 @@ export default function YemeniFiguresAdminPanel({db, canDelete = false,initialIt
     setFigure(current => ({...current, [field]: value}));
   }
 
-  function resetForm(clearNotice = true) {
+  function resetForm(clearNotice = true,force=false) {
+    if(!force&&!editor.confirm())return;editor.markClean({figure:emptyFigure(),profile:emptyFigureProfile()});
     setEditingId(null);
     setProfile(emptyFigureProfile());setRevision(null);
     setFigure(emptyFigure());
     if (clearNotice) setNotice('');
   }
 
-  async function editFigure(selected) {
-    setBusy(true);
+  async function editFigure(selected,force=false) {
+    if(!force&&!editor.confirm())return;
+    portraitBackup.current=null;setBusy(true);
     try{
     const result=await api('GET',null,selected.id),row=result.record;setProfile(result.profile);setRevision(result.revision);
     setEditingId(row.id);
-    setFigure({
+    const next={
       full_name: row.full_name || '', slug: row.slug || '', known_for: row.known_for || '', field: row.field || 'الأدب والشعر',
       governorate_id: row.governorate_id || '', era: row.era || 'معاصرة', birth_year: row.birth_year ?? '',
       death_year: row.death_year ?? '', short_bio: row.short_bio || '', image_url: row.image_url || '', website: row.website || '',
       facebook_url: row.facebook_url || '', instagram_url: row.instagram_url || '', x_url: row.x_url || '',
       youtube_url: row.youtube_url || '',image_credit:row.image_credit||'',image_source_url:row.image_source_url||'',
       display_order: row.display_order || 0, is_published: Boolean(row.is_published),
-    });
+    };setFigure(next);editor.markClean({figure:next,profile:result.profile});
     setNotice('تعدّل الآن شخصية: ' + row.full_name);
     window.scrollTo({top: 0, behavior: 'smooth'});
     }catch(error){setNotice('خطأ: '+error.message);}finally{setBusy(false);}
@@ -74,9 +87,7 @@ export default function YemeniFiguresAdminPanel({db, canDelete = false,initialIt
     const {extension, contentType} = await validateMediaUpload(file);
     const filename = (globalThis.crypto?.randomUUID?.() || Date.now().toString(36)) + '.' + extension;
     const path = 'yemeni-figures/' + filename;
-    const {error} = await db.storage.from('media').upload(path, file, {contentType, upsert: false});
-    if (error) throw Error(error.message);
-    return db.storage.from('media').getPublicUrl(path).data.publicUrl;
+    return uploadAdminMedia(db,file,path,contentType);
   }
 
   async function saveFigure(event) {
@@ -99,13 +110,13 @@ export default function YemeniFiguresAdminPanel({db, canDelete = false,initialIt
         death_year: figure.death_year === '' ? null : Number(figure.death_year), short_bio: figure.short_bio.trim(),
         image_url: figure.image_url || null, website: figure.website.trim() || null, facebook_url: figure.facebook_url.trim() || null,
         instagram_url: figure.instagram_url.trim() || null, x_url: figure.x_url.trim() || null, youtube_url: figure.youtube_url.trim() || null,
-        image_credit:figure.image_credit,image_source_url:figure.image_source_url,display_order: Number(figure.display_order) || 0, is_published: figure.is_published,
+        image_credit:figure.image_credit,image_source_url:figure.image_source_url,display_order: Number(figure.display_order) || 0, is_published: publicationIntent(event,figure.is_published),
       };
       if (portrait?.size) payload.image_url = await uploadPortrait(portrait);
-      await api(editingId?'PUT':'POST',{record:{...payload,...(editingId?{id:editingId}:{})},profile:validateFigureProfile(profile),revision});
-      const message = editingId ? 'تم تحديث الشخصية بنجاح.' : figure.is_published ? 'تمت إضافة الشخصية ونشرها في الدليل.' : 'تم حفظ الشخصية كمسودة.';
-      resetForm(false);
-      form.reset();
+      const result=await api(editingId?'PUT':'POST',{record:{...payload,...(editingId?{id:editingId}:{})},profile:validateFigureProfile(profile),revision});
+      const message = editingId ? 'تم تحديث الشخصية بنجاح.' : payload.is_published ? 'تمت إضافة الشخصية ونشرها في الدليل.' : 'تم حفظ الشخصية كمسودة.';
+      await editor.clearDraft();form.reset();
+      if(event.nativeEvent?.submitter?.value==='new')resetForm(false,true);else await editFigure(result.record,true);
       await loadFigures();
       setNotice(message);
     } catch (error) {
@@ -122,39 +133,39 @@ export default function YemeniFiguresAdminPanel({db, canDelete = false,initialIt
     <section className="admin-panel company-admin-editor">
       <h2><Landmark size={20}/> {editingId ? 'تعديل الشخصية' : 'إضافة شخصية يمنية'}</h2>
       {notice && <p className={'feedback ' + (notice.startsWith('خطأ') ? 'error' : 'success')} role="status">{notice}</p>}
-      <form className="admin-form company-admin-form" onSubmit={saveFigure}>
-        <div className="company-admin-group"><h3>الهوية والتصنيف</h3>
-          <div className="form-row"><label>الاسم الكامل<input required value={figure.full_name} onChange={event => setField('full_name', event.target.value)}/></label><label>الرابط المختصر بالإنجليزية<input required dir="ltr" placeholder="figure-name" value={figure.slug} onChange={event => setField('slug', event.target.value)}/></label></div>
-          <label>تعريف مختصر<input required placeholder="شاعر وناقد وأديب يمني" value={figure.known_for} onChange={event => setField('known_for', event.target.value)}/></label>
-          <div className="form-row"><label>المجال<input required list="yemeni-figure-field-options" placeholder="اختر أو اكتب مجالًا جديدًا" value={figure.field} onChange={event => setField('field', event.target.value)}/><datalist id="yemeni-figure-field-options">{fields.map(item => <option value={item} key={item}/>)}</datalist></label><label>المحافظة<select value={figure.governorate_id} onChange={event => setField('governorate_id', event.target.value)}><option value="">غير محددة في المصادر</option>{yemenGovernorates.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label></div>
-          <div className="form-row"><label>الفترة<select value={figure.era} onChange={event => setField('era', event.target.value)}>{yemeniFigureEras.map(item => <option key={item}>{item}</option>)}</select></label><label>ترتيب الظهور<input type="number" min="0" dir="ltr" value={figure.display_order} onChange={event => setField('display_order', event.target.value)}/></label></div>
-          <div className="form-row"><label>سنة الميلاد<input type="number" min="500" max="2100" dir="ltr" value={figure.birth_year} onChange={event => setField('birth_year', event.target.value)}/></label><label>سنة الوفاة<input type="number" min="500" max="2100" dir="ltr" value={figure.death_year} onChange={event => setField('death_year', event.target.value)}/></label></div>
-          <label>نبذة تعريفية<textarea required rows="5" value={figure.short_bio} onChange={event => setField('short_bio', event.target.value)}/></label>
-        </div>
+      <ValidatedForm className="admin-form company-admin-form" onSubmit={saveFigure} data-editor-key={editor.key} onInvalidCapture={revealInvalidField} onChangeCapture={event=>trackEditorFiles(event,editor)}><EditorActions editor={editor} busy={busy} value={{...figure,profile}} published={figure.is_published} onCancel={()=>resetForm()}/><fieldset className="admin-editor-fields" disabled={busy}>
+        <details className="company-admin-group" open><summary>الهوية والتصنيف</summary>
+          <div className="form-row"><FormLabel>الاسم الكامل<FormInput required value={figure.full_name} onChange={event => setField('full_name', event.target.value)}/></FormLabel><FormLabel>الرابط المختصر بالإنجليزية<FormInput required dir="ltr" placeholder="figure-name" value={figure.slug} onChange={event => setField('slug', event.target.value)}/></FormLabel></div>
+          <FormLabel>تعريف مختصر<FormInput required placeholder="شاعر وناقد وأديب يمني" value={figure.known_for} onChange={event => setField('known_for', event.target.value)}/></FormLabel>
+          <div className="form-row"><FormLabel>المجال<FormInput required list="yemeni-figure-field-options" placeholder="اختر أو اكتب مجالًا جديدًا" value={figure.field} onChange={event => setField('field', event.target.value)}/><datalist id="yemeni-figure-field-options">{fields.map(item => <option value={item} key={item}/>)}</datalist></FormLabel><FormLabel>المحافظة<FormSelect value={figure.governorate_id} onChange={event => setField('governorate_id', event.target.value)}><option value="">غير محددة في المصادر</option>{yemenGovernorates.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</FormSelect></FormLabel></div>
+          <div className="form-row"><FormLabel>الفترة<FormSelect value={figure.era} onChange={event => setField('era', event.target.value)}>{yemeniFigureEras.map(item => <option key={item}>{item}</option>)}</FormSelect></FormLabel><FormLabel>ترتيب الظهور<FormInput type="number" min="0" dir="ltr" value={figure.display_order} onChange={event => setField('display_order', event.target.value)}/></FormLabel></div>
+          <div className="form-row"><FormLabel>سنة الميلاد<FormInput type="number" min="500" max="2100" dir="ltr" value={figure.birth_year} onChange={event => setField('birth_year', event.target.value)}/></FormLabel><FormLabel>سنة الوفاة<FormInput type="number" min="500" max="2100" dir="ltr" value={figure.death_year} onChange={event => setField('death_year', event.target.value)}/></FormLabel></div>
+          <FormLabel>نبذة تعريفية<FormTextarea required rows="5" value={figure.short_bio} onChange={event => setField('short_bio', event.target.value)}/></FormLabel>
+        </details>
 
-        <div className="company-admin-group"><h3>الصورة</h3>
-          <label>صورة الشخصية (اختيارية، حتى 5MB)<input type="file" name="portrait" accept="image/png,image/jpeg,image/webp" onChange={()=>{setField('image_credit','');setField('image_source_url','')}}/></label>
-          <label>نسب الصورة وصاحبها<input value={figure.image_credit} onChange={event=>setField('image_credit',event.target.value)}/></label><label>صفحة مصدر الصورة<input type="url" value={figure.image_source_url} onChange={event=>setField('image_source_url',event.target.value)}/></label>
+        <details className="company-admin-group"><summary>الصورة</summary>
+          <FormLabel>صورة الشخصية (اختيارية، حتى 5MB)<AdminImageInput name="portrait" currentUrl={figure.image_url} onSelection={selected=>{if(selected){portraitBackup.current={credit:figure.image_credit,source:figure.image_source_url};setField('image_credit','');setField('image_source_url','');}else if(portraitBackup.current){setField('image_credit',portraitBackup.current.credit);setField('image_source_url',portraitBackup.current.source);portraitBackup.current=null;}}}/></FormLabel>
+          <FormLabel>نسب الصورة وصاحبها<FormInput value={figure.image_credit} onChange={event=>setField('image_credit',event.target.value)}/></FormLabel><FormLabel>صفحة مصدر الصورة<FormInput type="url" value={figure.image_source_url} onChange={event=>setField('image_source_url',event.target.value)}/></FormLabel>
           {figure.image_url && <p className="small-muted">توجد صورة محفوظة حاليًا. اختيار ملف جديد سيستبدلها.</p>}
-        </div>
+        </details>
 
-        <div className="company-admin-group"><h3>الموقع وحسابات التواصل</h3>
-          <div className="form-row"><label>الموقع الإلكتروني<input type="url" dir="ltr" placeholder="https://..." value={figure.website} onChange={event => setField('website', event.target.value)}/></label><label>فيسبوك<input type="url" dir="ltr" placeholder="https://facebook.com/..." value={figure.facebook_url} onChange={event => setField('facebook_url', event.target.value)}/></label></div>
-          <div className="form-row"><label>إنستغرام<input type="url" dir="ltr" placeholder="https://instagram.com/..." value={figure.instagram_url} onChange={event => setField('instagram_url', event.target.value)}/></label><label>منصة X<input type="url" dir="ltr" placeholder="https://x.com/..." value={figure.x_url} onChange={event => setField('x_url', event.target.value)}/></label></div>
-          <label>يوتيوب<input type="url" dir="ltr" placeholder="https://youtube.com/..." value={figure.youtube_url} onChange={event => setField('youtube_url', event.target.value)}/></label>
-        </div>
+        <details className="company-admin-group"><summary>الموقع وحسابات التواصل</summary>
+          <div className="form-row"><FormLabel>الموقع الإلكتروني<FormInput type="url" dir="ltr" placeholder="https://..." value={figure.website} onChange={event => setField('website', event.target.value)}/></FormLabel><FormLabel>فيسبوك<FormInput type="url" dir="ltr" placeholder="https://facebook.com/..." value={figure.facebook_url} onChange={event => setField('facebook_url', event.target.value)}/></FormLabel></div>
+          <div className="form-row"><FormLabel>إنستغرام<FormInput type="url" dir="ltr" placeholder="https://instagram.com/..." value={figure.instagram_url} onChange={event => setField('instagram_url', event.target.value)}/></FormLabel><FormLabel>منصة X<FormInput type="url" dir="ltr" placeholder="https://x.com/..." value={figure.x_url} onChange={event => setField('x_url', event.target.value)}/></FormLabel></div>
+          <FormLabel>يوتيوب<FormInput type="url" dir="ltr" placeholder="https://youtube.com/..." value={figure.youtube_url} onChange={event => setField('youtube_url', event.target.value)}/></FormLabel>
+        </details>
 
         <FigureProfileEditor profile={profile} onChange={setProfile}/>
-        <label className="checkline"><input type="checkbox" checked={figure.is_published} onChange={event => setField('is_published', event.target.checked)}/> نشر الشخصية فور الحفظ</label>
-        <div className="company-admin-actions"><button className="btn btn-red" disabled={busy}><Save size={17}/>{busy ? 'جارٍ الحفظ...' : editingId ? 'حفظ التعديلات' : 'إضافة الشخصية'}</button>{editingId && <button type="button" className="btn btn-outline" onClick={() => resetForm()}><X size={17}/> إلغاء التعديل</button>}</div>
-      </form>
+        <FormLabel className="checkline"><FormInput type="checkbox" checked={figure.is_published} onChange={event => setField('is_published', event.target.checked)}/> نشر الشخصية فور الحفظ</FormLabel>
+
+      </fieldset></ValidatedForm>
     </section>
 
     <section className="admin-panel company-admin-list"><h2>الشخصيات ({figures.length})</h2>
-      <label>البحث في الشخصيات<input type="search" value={listQuery} onChange={event=>setListQuery(event.target.value)} placeholder="اسم الشخصية أو مجالها أو محافظتها"/></label>
+      <AdminListTools list={list}/>
       {loading && <p className="small-muted">جارٍ تحميل الشخصيات...</p>}
       {!loading && !figures.length && <p className="small-muted">لم تُضف أي شخصيات بعد.</p>}
-      {figures.filter(row=>matchesSearch(listQuery,[row.full_name,row.field,row.governorate_name])).map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong><small>{row.field} · {row.governorate_name} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editFigure(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeFigure(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
+      {list.items.map(row => <div className="admin-list-item" key={row.id}><div><strong>{row.full_name}</strong><small>{row.field} · {row.governorate_name} · {row.is_published ? 'منشور' : 'مسودة'}</small></div><div><button disabled={busy} onClick={() => editFigure(row)} title="تعديل"><Pencil size={17}/></button><button disabled={busy} onClick={() => togglePublished(row)} title={row.is_published ? 'إلغاء النشر' : 'نشر'}>{row.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button disabled={busy} onClick={() => removeFigure(row)} title="حذف"><Trash2 size={17}/></button>}</div></div>)}
     </section>
   </div>;
 }

@@ -1,0 +1,116 @@
+- generic [active] [ref=f24e1]:
+  - link "انتقل إلى المحتوى" [ref=f24e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f24e3]:
+    - generic [ref=f24e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f24e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f24e6]
+        - generic [ref=f24e133]:
+          - text: مساحة يمنية
+          - strong [ref=f24e134]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f24e135]:
+        - link "الرئيسية" [ref=f24e136] [cursor=pointer]:
+          - /url: /
+        - group [ref=f24e137]:
+          - generic "المحتوى" [ref=f24e138] [cursor=pointer]
+        - group [ref=f24e141]:
+          - generic "المعرفة" [ref=f24e142] [cursor=pointer]
+        - group [ref=f24e145]:
+          - generic "الأدلة" [ref=f24e146] [cursor=pointer]
+        - group [ref=f24e149]:
+          - generic "المبادرة" [ref=f24e150] [cursor=pointer]
+      - generic [ref=f24e7]:
+        - link "البحث في المنصة" [ref=f24e8] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f24e85] [cursor=pointer]:
+          - /url: /login
+        - link "كن جزءاً من الحكاية" [ref=f24e153] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f24e14]:
+    - generic [ref=f24e16]:
+      - navigation "مسار التصفح" [ref=f24e17]:
+        - link "الرئيسية" [ref=f24e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f24e21]: للقراءة لاحقاً
+      - generic [ref=f24e22]: للقراءة لاحقاً
+      - heading "قراءات تنتظرك." [level=1] [ref=f24e23]
+      - paragraph [ref=f24e24]: الأعمال وأعداد المجلة التي حفظتها، لتعود إليها في وقتك.
+    - generic [ref=f24e90]:
+      - paragraph [ref=f24e94]: محفوظة في هذا المتصفح دون حساب. تحتاج اتصالاً لفتح المحتوى.
+      - generic [ref=f24e95]:
+        - strong [ref=f24e96]: "المحتوى المحفوظ: 0"
+        - link "اكتشف أعمالاً جديدة" [ref=f24e97] [cursor=pointer]:
+          - /url: /works
+      - status [ref=f24e157]: أُزيل «من انا» من القائمة.
+      - generic [ref=f24e159]:
+        - heading "مساحة لما تود العودة إليه." [level=2] [ref=f24e162]
+        - paragraph [ref=f24e163]: احفظ عدداً من المجلة أو عملاً إعلامياً، وستجده هنا عندما يناسبك الوقت.
+        - generic [ref=f24e164]:
+          - link "تصفّح المجلة" [ref=f24e165] [cursor=pointer]:
+            - /url: /magazine
+          - link "اكتشف الأعمال" [ref=f24e168] [cursor=pointer]:
+            - /url: /works
+  - contentinfo [ref=f24e28]:
+    - generic [ref=f24e29]:
+      - generic [ref=f24e30]:
+        - generic [ref=f24e31]:
+          - link "مبادرة 967" [ref=f24e32] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f24e33]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f24e34]
+          - paragraph [ref=f24e35]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f24e36]:
+            - link "إنستغرام" [ref=f24e37] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f24e45] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f24e53]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f24e54]
+          - link "الأعمال الإعلامية" [ref=f24e55] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f24e56] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f24e57] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f24e58] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f24e59] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f24e60] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f24e61] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f24e62]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f24e63]
+          - link "منتجات يمنية" [ref=f24e64] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f24e65] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f24e66] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f24e67] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f24e68]:
+          - heading "مبادرة 967" [level=3] [ref=f24e69]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f24e70] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f24e71] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f24e72] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f24e73] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f24e74] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f24e75]:
+        - generic [ref=f24e76]: © 2026 مبادرة 967
+        - generic [ref=f24e77]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f24e78]:
+          - link "سياسة الخصوصية" [ref=f24e79] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f24e80] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f24e81] [cursor=pointer]:
+          - /url: /search
+  - alert [ref=f24e132]

@@ -1,0 +1,291 @@
+- generic [active] [ref=f1e1]:
+  - link "انتقل إلى المحتوى" [ref=f1e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f1e6]
+        - generic [ref=f1e7]:
+          - text: مساحة يمنية
+          - strong [ref=f1e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f1e9]:
+        - link "الرئيسية" [ref=f1e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=f1e11]:
+          - generic "المحتوى" [ref=f1e12] [cursor=pointer]
+        - group [ref=f1e15]:
+          - generic "المعرفة" [ref=f1e16] [cursor=pointer]
+        - group [ref=f1e19]:
+          - generic "الأدلة" [ref=f1e20] [cursor=pointer]
+        - group [ref=f1e23]:
+          - generic "المبادرة" [ref=f1e24] [cursor=pointer]
+      - generic [ref=f1e27]:
+        - link "البحث في المنصة" [ref=f1e28] [cursor=pointer]:
+          - /url: /search
+        - link "لوحة التحرير" [ref=f1e90] [cursor=pointer]:
+          - /url: /admin
+        - link "كن جزءاً من الحكاية" [ref=f1e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f1e36]:
+    - generic [ref=f1e38]:
+      - generic [ref=f1e39]:
+        - generic [ref=f1e97]:
+          - generic [ref=f1e98]: 967 / CONTROL PANEL
+          - heading "لوحة التحرير" [level=1] [ref=f1e99]
+          - paragraph [ref=f1e100]:
+            - text: مرحباً، أدمن ألف.
+            - generic [ref=f1e101]: أدمن تحرير
+        - button "تسجيل الخروج" [ref=f1e102] [cursor=pointer]
+      - region "ملخص مهام الفريق" [ref=f1e106]:
+        - generic [ref=f1e107]:
+          - generic [ref=f1e108]:
+            - heading "مركز المهام" [level=2] [ref=f1e109]
+            - paragraph [ref=f1e110]: "مهامي اليوم: 0 · المتأخرة: 0 · غير المكتملة: 0"
+            - paragraph [ref=f1e111]: التذكيرات داخل مركز المهام عند فتحه، ولا ترسل إشعارات خارج الموقع.
+          - link "فتح مركز المهام" [ref=f1e112] [cursor=pointer]:
+            - /url: /admin/tasks
+      - generic [ref=f1e113]:
+        - complementary [ref=f1e114]:
+          - navigation "أقسام لوحة التحرير" [ref=f1e115]:
+            - generic [ref=f1e116]:
+              - heading "المحتوى" [level=2] [ref=f1e117]
+              - button "المجلة" [ref=f1e118] [cursor=pointer]
+              - button "الأعمال" [ref=f1e122] [cursor=pointer]
+              - button "صفحات الموقع" [ref=f1e128] [cursor=pointer]
+            - generic [ref=f1e131]:
+              - heading "الأدلة والبيانات" [level=2] [ref=f1e132]
+              - button "منتجات يمنية" [ref=f1e133] [cursor=pointer]
+              - button "مهنيون" [ref=f1e136] [cursor=pointer]
+              - button "شخصيات يمنية" [ref=f1e141] [cursor=pointer]
+              - button "إدارة الإحصائيات" [ref=f1e144] [cursor=pointer]
+              - button "ترتيب اليمن" [ref=f1e147] [cursor=pointer]
+              - button "الخريطة" [ref=f1e150] [cursor=pointer]
+            - generic [ref=f1e153]:
+              - heading "الإدارة والمتابعة" [level=2] [ref=f1e154]
+              - button "الإعدادات" [ref=f1e155] [cursor=pointer]
+              - button "الرسائل" [ref=f1e159] [cursor=pointer]
+            - generic [ref=f1e163]:
+              - heading "الفريق" [level=2] [ref=f1e164]
+              - link "مركز المهام" [ref=f1e165] [cursor=pointer]:
+                - /url: /admin/tasks
+              - link "إدارة المناظرات" [ref=f1e166] [cursor=pointer]:
+                - /url: /admin/debates
+              - button "تحديث البيانات" [ref=f1e167] [cursor=pointer]
+        - generic [ref=f1e169]:
+          - generic [ref=f1e170]:
+            - heading "إضافة شركة أو مصنع" [level=2] [ref=f1e171]
+            - generic [ref=f1e176]:
+              - generic [ref=f1e177]:
+                - generic [ref=f1e178]:
+                  - button "حفظ في المنصة كمسودة" [ref=f1e179] [cursor=pointer]
+                  - button "حفظ مسودة خاصة" [ref=f1e183] [cursor=pointer]
+                  - button "معاينة" [ref=f1e188] [cursor=pointer]
+                  - button "حفظ وإضافة جديد" [ref=f1e192] [cursor=pointer]
+                  - button "إلغاء" [ref=f1e193] [cursor=pointer]
+                - status [ref=f1e194]: المحتوى محفوظ
+              - group [ref=f1e195]:
+                - group [ref=f1e196]:
+                  - generic "البيانات الأساسية" [ref=f1e197] [cursor=pointer]
+                  - generic [ref=f1e198]:
+                    - generic [ref=f1e199]:
+                      - text: اسم الشركة أو المصنع
+                      - textbox "اسم الشركة أو المصنع" [ref=f1e200]
+                    - generic [ref=f1e201]:
+                      - text: الرابط المختصر بالإنجليزية
+                      - textbox "الرابط المختصر بالإنجليزية" [ref=f1e202]:
+                        - /placeholder: yemeni-company
+                  - generic [ref=f1e203]:
+                    - text: الاسم القانوني
+                    - textbox "الاسم القانوني" [ref=f1e204]
+                  - generic [ref=f1e205]:
+                    - generic [ref=f1e206]:
+                      - text: التصنيف
+                      - combobox "التصنيف يمكنك كتابة تصنيف جديد إذا لم تجده في القائمة." [ref=f1e207]: أغذية ومشروبات
+                      - generic [ref=f1e208]: يمكنك كتابة تصنيف جديد إذا لم تجده في القائمة.
+                    - generic [ref=f1e209]:
+                      - text: المحافظة أو المدينة
+                      - textbox "المحافظة أو المدينة" [ref=f1e210]
+                  - generic [ref=f1e211]:
+                    - generic [ref=f1e212]:
+                      - text: حجم المنشأة
+                      - combobox "حجم المنشأة" [ref=f1e213]:
+                        - option "غير محدد" [selected]
+                        - option "ناشئ"
+                        - option "صغير"
+                        - option "متوسط"
+                        - option "كبير"
+                        - option "ضخم"
+                    - generic [ref=f1e214]:
+                      - text: نوع الكيان
+                      - combobox "نوع الكيان يمكنك كتابة نوع كيان جديد." [ref=f1e215]: شركة
+                      - generic [ref=f1e216]: يمكنك كتابة نوع كيان جديد.
+                - group [ref=f1e217]:
+                  - generic "الإدارة والتواصل" [ref=f1e218] [cursor=pointer]
+                  - option "غير محدد" [selected]
+                  - option "1-2"
+                  - option "2-5"
+                  - option "5-10"
+                  - option "10-20"
+                  - option "20-50"
+                  - option "50-100"
+                  - option "100-150"
+                  - option "150-300"
+                  - option "300-600"
+                  - option "600-1000"
+                  - option "أكثر من 1000"
+                - group [ref=f1e219]:
+                  - generic "محتوى صفحة الشركة" [ref=f1e220] [cursor=pointer]
+                - generic [ref=f1e221]:
+                  - generic [ref=f1e222]:
+                    - heading "المنتجات" [level=3] [ref=f1e223]
+                    - button "إضافة منتج" [ref=f1e224] [cursor=pointer]
+                  - generic [ref=f1e227]:
+                    - generic [ref=f1e228]:
+                      - strong [ref=f1e229]: المنتج 1
+                      - button "حذف المنتج" [ref=f1e230] [cursor=pointer]
+                    - generic [ref=f1e234]:
+                      - generic [ref=f1e235]:
+                        - text: اسم المنتج
+                        - textbox "اسم المنتج" [ref=f1e236]
+                      - generic [ref=f1e237]:
+                        - text: الشكل أو العبوة
+                        - textbox "الشكل أو العبوة" [ref=f1e238]
+                    - generic [ref=f1e239]:
+                      - text: وصف المنتج
+                      - textbox "وصف المنتج" [ref=f1e240]
+                    - group "مصادر بيانات المنشأة والمنتج" [ref=f1e241]:
+                      - paragraph [ref=f1e243]: أضف روابط المعلومات المنشورة وتاريخ مراجعتها. اترك التفاصيل غير المنشورة فارغة.
+                      - button "إضافة مصدر" [ref=f1e244] [cursor=pointer]
+                    - generic [ref=f1e246]:
+                      - generic [ref=f1e247]:
+                        - text: حجم المنتج
+                        - textbox "حجم المنتج" [ref=f1e248]:
+                          - /placeholder: صغير، متوسط، 250 مل...
+                      - generic [ref=f1e249]:
+                        - text: الوزن
+                        - textbox "الوزن" [ref=f1e250]:
+                          - /placeholder: 500 جم، 1 كجم...
+                    - generic [ref=f1e251]:
+                      - generic [ref=f1e252]:
+                        - text: الكمية المتوفرة
+                        - spinbutton "الكمية المتوفرة" [ref=f1e253]
+                      - generic [ref=f1e254]:
+                        - text: سعر الجملة
+                        - spinbutton "سعر الجملة" [ref=f1e255]
+                      - generic [ref=f1e256]:
+                        - text: سعر التجزئة
+                        - spinbutton "سعر التجزئة" [ref=f1e257]
+                      - generic [ref=f1e258]:
+                        - text: العملة
+                        - combobox "العملة" [ref=f1e259]:
+                          - option "ريال يمني" [selected]
+                          - option "ريال سعودي"
+                          - option "دولار أمريكي"
+                    - generic [ref=f1e260]:
+                      - text: صورة المنتج — اختيارية (حتى 5MB)
+                      - button "صورة المنتج — اختيارية (حتى 5MB)" [ref=f1e261]
+                - group [ref=f1e262]:
+                  - generic "الصورة والنشر" [ref=f1e263] [cursor=pointer]
+                  - option "الوسط" [selected]
+                  - option "اليسار"
+                  - option "اليمين"
+                  - option "الأعلى"
+                  - option "الأسفل"
+          - generic [ref=f1e264]:
+            - heading "الشركات والمصانع (1)" [level=2] [ref=f1e265]
+            - generic [ref=f1e266]:
+              - generic [ref=f1e267]:
+                - generic [ref=f1e271]: البحث في المحتوى
+                - searchbox "البحث في المحتوى" [ref=f1e272]
+              - generic [ref=f1e273]:
+                - generic [ref=f1e274]: حالة النشر
+                - combobox "حالة النشر" [ref=f1e275]:
+                  - option "كل الحالات" [selected]
+                  - option "منشور"
+                  - option "مسودة"
+              - generic [ref=f1e276]:
+                - generic [ref=f1e277]: التصنيف
+                - combobox "التصنيف" [ref=f1e278]:
+                  - option "كل التصنيفات" [selected]
+                  - option "أغذية ومشروبات"
+              - generic [ref=f1e279]:
+                - generic [ref=f1e280]: الترتيب
+                - combobox "الترتيب" [ref=f1e281]:
+                  - option "آخر تعديل" [selected]
+                  - option "الأحدث إضافة"
+                  - option "الاسم"
+              - generic [ref=f1e282]:
+                - status [ref=f1e283]: 1 نتيجة · صفحة 1 من 1
+                - button "السابق" [disabled] [ref=f1e284]
+                - button "التالي" [disabled] [ref=f1e285]
+            - generic [ref=f1e286]:
+              - generic [ref=f1e287]:
+                - strong [ref=f1e288]: شركة يمنية محلية للتحرير
+                - generic [ref=f1e289]: أغذية ومشروبات · صنعاء · منشور
+              - generic [ref=f1e290]:
+                - button "تعديل" [ref=f1e291] [cursor=pointer]
+                - button "إلغاء النشر" [ref=f1e295] [cursor=pointer]
+  - contentinfo [ref=f1e40]:
+    - generic [ref=f1e41]:
+      - generic [ref=f1e42]:
+        - generic [ref=f1e43]:
+          - link "مبادرة 967" [ref=f1e44] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f1e45]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f1e46]
+          - paragraph [ref=f1e47]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - link "إنستغرام" [ref=f1e49] [cursor=pointer]:
+            - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f1e57]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f1e58]
+          - link "الأعمال الإعلامية" [ref=f1e59] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f1e60] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f1e61] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f1e62] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f1e63] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f1e64] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f1e65] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f1e66]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f1e67]
+          - link "منتجات يمنية" [ref=f1e68] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f1e69] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f1e70] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f1e71] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f1e72]:
+          - heading "مبادرة 967" [level=3] [ref=f1e73]
+          - link "من نحن" [ref=f1e74] [cursor=pointer]:
+            - /url: /about
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f1e75] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f1e76] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f1e77] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f1e78] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f1e79] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f1e80]:
+        - generic [ref=f1e81]: © 2026 مبادرة 967
+        - generic [ref=f1e82]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f1e83]:
+          - link "سياسة الخصوصية" [ref=f1e84] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f1e85] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f1e86] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f1e306] [cursor=pointer]
+  - alert [ref=f1e310]

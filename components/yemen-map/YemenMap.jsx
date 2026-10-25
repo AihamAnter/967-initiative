@@ -16,7 +16,7 @@ import {
 
 const DATA_URL = '/data/yemen-map/yemen-boundaries.json';
 
-export default function YemenMap({focusedGovernorateId, onGovernorateChange, initialDistrictId = null}) {
+export default function YemenMap({focusedGovernorateId, onGovernorateChange, onGovernorateExplore, initialDistrictId = null}) {
   const canvasRef = useRef(null);
   const svgRef = useRef(null);
   const pointers = useRef(new Map());
@@ -34,6 +34,10 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, ini
   const [labelsVisible, setLabelsVisible] = useState(true);
   const [labelSizeMode, setLabelSizeMode] = useState('medium');
   const [districtsVisible, setDistrictsVisible] = useState(false);
+
+  useEffect(() => {
+    if (selectedGovernorate) onGovernorateExplore?.(selectedGovernorate.id, selectedGovernorate.nameAr);
+  }, [selectedGovernorate, onGovernorateExplore]);
 
   useEffect(() => {
     let active = true;

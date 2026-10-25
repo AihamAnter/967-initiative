@@ -1,0 +1,158 @@
+- generic [active] [ref=f51e1]:
+  - link "انتقل إلى المحتوى" [ref=f51e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f51e3]:
+    - generic [ref=f51e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f51e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f51e6]
+      - generic [ref=f51e7]:
+        - link "البحث في المنصة" [ref=f51e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f51e12] [cursor=pointer]
+  - main [ref=f51e14]:
+    - generic [ref=f51e16]:
+      - link "السكان" [ref=f51e17] [cursor=pointer]:
+        - /url: /yemen-in-numbers/population
+      - generic [ref=f51e20]: السكان والمجتمع / مؤشر وطني
+      - generic [ref=f51e21]:
+        - generic [ref=f51e22]:
+          - heading "عدد سكان اليمن" [level=1] [ref=f51e23]
+          - paragraph [ref=f51e24]: إجمالي عدد السكان المقيمين في الجمهورية اليمنية خلال سنة محددة وفق تقديرات المصدر
+        - generic [ref=f51e25]:
+          - generic [ref=f51e26]: أحدث قيمة منشورة
+          - strong [ref=f51e27]: 42,961,653
+          - generic [ref=f51e28]: نسمة
+          - generic [ref=f51e29]: "2026"
+      - generic [ref=f51e30]:
+        - button "مشاركة المؤشر" [ref=f51e31] [cursor=pointer]
+        - button "تنزيل CSV" [ref=f51e38] [cursor=pointer]
+      - paragraph [ref=f51e42]: "آخر تحديث للسجل: 15 أكتوبر 2026 · سنة القياس موضحة بجانب القيمة."
+    - generic [ref=f51e44]:
+      - generic [ref=f51e46]:
+        - button "حفظ عدد سكان اليمن للقراءة لاحقاً" [disabled] [ref=f51e48]: احفظ للقراءة لاحقاً
+        - status [ref=f51e51]
+      - paragraph [ref=f51e52]: 42,961,653 نسمة في 2026 على مستوى اليمن. القيمة تقديرية. تتوفر سنة واحدة؛ لا يمكن استنتاج اتجاه زمني.
+      - generic [ref=f51e53]:
+        - generic [ref=f51e54]:
+          - generic [ref=f51e55]:
+            - generic [ref=f51e56]:
+              - text: السنوات المتاحة
+              - heading "قيمة سنة واحدة" [level=2] [ref=f51e57]
+            - generic [ref=f51e58]: نسمة
+          - paragraph [ref=f51e62]: تتوفر قيمة معتمدة لسنة 2026 فقط. تظهر تفاصيلها في الجدول أدناه.
+        - complementary [ref=f51e63]:
+          - heading "بطاقة المؤشر" [level=2] [ref=f51e64]
+          - generic [ref=f51e65]:
+            - generic [ref=f51e66]:
+              - term [ref=f51e67]: الوحدة
+              - definition [ref=f51e74]: نسمة
+            - generic [ref=f51e75]:
+              - term [ref=f51e76]: حالة البيانات
+              - definition [ref=f51e80]:
+                - text: جزئية
+                - generic [ref=f51e81]: السلسلة المتاحة جزئية؛ لا تعني الشارة نسبة تغير في القيمة.
+            - generic [ref=f51e82]:
+              - term [ref=f51e83]: اتجاه التحسن
+              - definition [ref=f51e86]: يعتمد على السياق
+            - generic [ref=f51e87]:
+              - term [ref=f51e88]: طبيعة أحدث قيمة
+              - definition [ref=f51e91]: تقديري
+      - generic [ref=f51e92]:
+        - heading "البيانات المنشورة للسلسلة المعتمدة" [level=2] [ref=f51e93]
+        - region "الجدول الزمني للمؤشر" [ref=f51e94]:
+          - table [ref=f51e95]:
+            - caption [ref=f51e96]: "عدد سكان اليمن — النطاق الوطني: الجمهورية اليمنية؛ الوحدة: نسمة"
+            - rowgroup [ref=f51e97]:
+              - row [ref=f51e98]:
+                - columnheader "سنة القياس" [ref=f51e99]
+                - columnheader "القيمة" [ref=f51e100]
+                - columnheader "حالة القيمة" [ref=f51e101]
+                - columnheader "المصدر" [ref=f51e102]
+            - rowgroup [ref=f51e103]:
+              - row [ref=f51e104]:
+                - rowheader "2026" [ref=f51e105]
+                - cell "42,961,653" [ref=f51e106]
+                - cell "تقديري" [ref=f51e107]
+                - cell [ref=f51e108]:
+                  - link "عدد سكان اليمن" [ref=f51e109] [cursor=pointer]:
+                    - /url: https://worldpopulationreview.com/countries/yemen
+      - group [ref=f51e111]:
+        - generic "التعريف والمنهجية" [ref=f51e112] [cursor=pointer]
+      - generic [ref=f51e113]:
+        - generic [ref=f51e115]:
+          - text: التوثيق
+          - heading "المصادر والوثائق" [level=2] [ref=f51e116]
+        - article [ref=f51e118]:
+          - generic [ref=f51e119]:
+            - strong [ref=f51e120]: worldpopulationreview.com
+            - generic [ref=f51e121]: السلسلة المعتمدة
+            - group [ref=f51e122]:
+              - generic "تفاصيل المصدر" [ref=f51e123] [cursor=pointer]
+          - link "زيارة المصدر" [ref=f51e124] [cursor=pointer]:
+            - /url: https://worldpopulationreview.com/countries/yemen
+        - link "وثيقة أحدث قيمة" [ref=f51e129] [cursor=pointer]:
+          - /url: https://worldpopulationreview.com/countries/yemen
+        - generic [ref=f51e134]: "تاريخ النشر: 15 أكتوبر 2026"
+  - contentinfo [ref=f51e135]:
+    - generic [ref=f51e136]:
+      - generic [ref=f51e137]:
+        - generic [ref=f51e138]:
+          - link "مبادرة 967" [ref=f51e139] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f51e140]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f51e141]
+          - paragraph [ref=f51e142]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f51e143]:
+            - link "إنستغرام" [ref=f51e144] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f51e152] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f51e160]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f51e161]
+          - link "الأعمال الإعلامية" [ref=f51e162] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f51e163] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f51e164] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f51e165] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f51e166] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f51e167] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f51e168] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f51e169]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f51e170]
+          - link "منتجات يمنية" [ref=f51e171] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f51e172] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f51e173] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f51e174] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f51e175]:
+          - heading "مبادرة 967" [level=3] [ref=f51e176]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f51e177] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f51e178] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f51e179] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f51e180] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f51e181] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f51e182]:
+        - generic [ref=f51e183]: © 2026 مبادرة 967
+        - generic [ref=f51e184]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f51e185]:
+          - link "سياسة الخصوصية" [ref=f51e186] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f51e187] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f51e188] [cursor=pointer]:
+          - /url: /search

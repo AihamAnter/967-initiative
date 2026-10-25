@@ -81,8 +81,8 @@ export default function ContactForm({initialType='',initialReference=null,types=
  }
  return <form id="contribution-form" ref={formRef} className="contact-form" onInput={saveDraft} onChange={saveDraft} onSubmit={handleSubmit} aria-busy={status==='sending'}>
   {reference&&<div className="contribution-reference"><p>مرجع الطلب: <strong>{reference.title}</strong></p><Link href={reference.path}>العودة إلى صفحة المرجع</Link><input type="hidden" name="referenceTitle" value={reference.title}/><input type="hidden" name="referencePath" value={reference.path}/><input type="hidden" name="referenceId" value={reference.id||''}/></div>}
-  <div className="form-row"><label>الاسم <input disabled={status==='sending'} name="name" autoComplete="name" placeholder="اسمك الكريم" required minLength={2} maxLength={100}/></label><label>البريد الإلكتروني <input disabled={status==='sending'} name="email" type="email" dir="ltr" autoComplete="email" placeholder="name@example.com" required maxLength={250}/></label></div>
   <label>{typeLabel} <select disabled={status==='sending'} name="type" required defaultValue={initialType} onChange={changeType}><option value="" disabled>اختر النوع</option>{types.map(v=><option key={v}>{v}</option>)}</select></label>
+  <div className="form-row"><label>الاسم <input disabled={status==='sending'} name="name" autoComplete="name" placeholder="اسمك الكريم" required minLength={2} maxLength={100}/></label><label>البريد الإلكتروني <input disabled={status==='sending'} name="email" type="email" dir="ltr" autoComplete="email" placeholder="name@example.com" required maxLength={250}/></label></div>
   <label>الرسالة <textarea disabled={status==='sending'} name="message" rows="5" placeholder="اكتب رسالتك هنا..." required minLength={10} maxLength={4000}/></label>
   <div className="honeypot" aria-hidden="true"><input name="website" tabIndex={-1} autoComplete="off"/></div>
   {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && <div ref={captchaRef}/>}

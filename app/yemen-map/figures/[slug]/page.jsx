@@ -1,3 +1,4 @@
+import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Image from 'next/image';
 import {toLatinDigits} from '@/lib/format';
 import Link from 'next/link';
@@ -108,6 +109,7 @@ export default async function YemeniFigureProfilePage({params}) {
     <section className="figure-profile-body">
       <div className="container figure-profile-layout">
         <div className="figure-profile-main">
+          <ContentReadingAction kind="figure" href={detailPath('yemen-map/figures',figure.slug)} title={figure.fullName}/>
           {hasDossier ? <FigureDossier profile={figure.profile} figure={figure}/> : <>
           <section>
             <span className="eyebrow">السيرة والتعريف</span>

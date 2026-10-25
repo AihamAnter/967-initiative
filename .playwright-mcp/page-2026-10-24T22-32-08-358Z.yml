@@ -1,0 +1,589 @@
+- generic [active] [ref=f7e1]:
+  - link "انتقل إلى المحتوى" [ref=f7e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f7e3]:
+    - generic [ref=f7e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f7e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f7e6]
+        - generic [ref=f7e7]:
+          - text: مساحة يمنية
+          - strong [ref=f7e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f7e9]:
+        - link "الرئيسية" [ref=f7e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=f7e11]:
+          - generic "المحتوى" [ref=f7e12] [cursor=pointer]
+        - group [ref=f7e15]:
+          - generic "المعرفة" [ref=f7e16] [cursor=pointer]
+        - group [ref=f7e19]:
+          - generic "الأدلة" [ref=f7e20] [cursor=pointer]
+        - group [ref=f7e23]:
+          - generic "المبادرة" [ref=f7e24] [cursor=pointer]
+      - generic [ref=f7e27]:
+        - link "البحث في المنصة" [ref=f7e28] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f7e256] [cursor=pointer]:
+          - /url: /login
+        - link "كن جزءاً من الحكاية" [ref=f7e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f7e36]:
+    - generic [ref=f7e37]:
+      - generic [ref=f7e39]:
+        - generic [ref=f7e40]: أطلس 967 الجغرافي
+        - heading "اكتشف اليمن" [level=1] [ref=f7e41]
+        - paragraph [ref=f7e42]: استكشف المحافظات والمديريات والشخصيات المرتبطة بها.
+      - navigation "اختر طريقة اكتشاف اليمن" [ref=f7e43]:
+        - link "استكشف المحافظات والمديريات الخريطة ومعلومات الأماكن" [ref=f7e44] [cursor=pointer]:
+          - /url: "#map"
+          - strong [ref=f7e45]: استكشف المحافظات والمديريات
+          - generic [ref=f7e46]: الخريطة ومعلومات الأماكن
+        - link "اكتشف الشخصيات اليمنية ابحث بالاسم أو المجال أو المحافظة" [ref=f7e47] [cursor=pointer]:
+          - /url: "#yemeni-figures"
+          - strong [ref=f7e48]: اكتشف الشخصيات اليمنية
+          - generic [ref=f7e49]: ابحث بالاسم أو المجال أو المحافظة
+      - generic [ref=f7e51]:
+        - generic [ref=f7e52]:
+          - heading "اختر مكاناً على الخريطة" [level=2] [ref=f7e54]
+          - paragraph [ref=f7e55]: ابحث عن محافظة أو مديرية، أو اضغط عليها لاستكشافها.
+        - complementary [ref=f7e56]:
+          - generic [ref=f7e61]:
+            - generic [ref=f7e62]:
+              - generic [ref=f7e63]:
+                - generic [ref=f7e64]: جولة مكتملة
+                - heading "اليمن، ثلاث محطات أقرب." [level=3] [ref=f7e65]
+              - generic [aria-hidden] [ref=f7e66]: 3 / 3
+            - paragraph [ref=f7e67]: اختر ثلاث محافظات مختلفة على الخريطة وتعرّف على تفاصيل كل مكان.
+            - progressbar "اليمن، ثلاث محطات أقرب." [ref=f7e68]
+            - list "محطات جولتك" [ref=f7e69]:
+              - listitem [ref=f7e70]:
+                - generic [ref=f7e72]: أبين
+              - listitem [ref=f7e73]:
+                - generic [ref=f7e75]: عدن
+              - listitem [ref=f7e76]:
+                - generic [ref=f7e78]: تعز
+            - generic [ref=f7e79]:
+              - status [ref=f7e80]:
+                - generic [ref=f7e81]: أكملت جولتك! ما زالت أماكن كثيرة تنتظرك.
+              - button "جولة جديدة" [ref=f7e263] [cursor=pointer]
+        - generic [ref=f7e146]:
+          - generic [ref=f7e147]:
+            - generic [ref=f7e148]:
+              - textbox "ابحث عن محافظة أو مديرية" [ref=f7e153]:
+                - /placeholder: ابحث عن محافظة أو مديرية...
+              - combobox "اختيار محافظة" [ref=f7e154]:
+                - option "اختر محافظة"
+                - option "ابين"
+                - option "الضالع"
+                - option "عدن"
+                - option "البيضاء"
+                - option "الحديده"
+                - option "الجوف"
+                - option "المهره"
+                - option "المحويت"
+                - option "عمران"
+                - option "ذمار"
+                - option "حضرموت"
+                - option "حجه"
+                - option "اب"
+                - option "لحج"
+                - option "مارب"
+                - option "ريمه"
+                - option "صعده"
+                - option "صنعاء"
+                - option "امانة العاصمه"
+                - option "شبوه"
+                - option "سقطرى"
+                - option "تعز" [selected]
+            - group "أدوات التحكم بالخريطة" [ref=f7e155]:
+              - button "تكبير" [ref=f7e156] [cursor=pointer]
+              - button "تصغير" [ref=f7e158] [cursor=pointer]
+              - button "عرض اليمن كاملة" [ref=f7e160] [cursor=pointer]:
+                - generic [ref=f7e164]: اليمن كاملة
+              - button "العودة إلى المستوى السابق" [ref=f7e165] [cursor=pointer]
+              - group [ref=f7e168]:
+                - generic "العرض" [ref=f7e169] [cursor=pointer]
+          - generic [ref=f7e174]:
+            - generic [ref=f7e175]:
+              - group "خريطة تفاعلية لليمن" [ref=f7e176]:
+                - button "استكشاف محافظة ابين" [ref=f7e177] [cursor=pointer]
+                - button "استكشاف محافظة الضالع" [ref=f7e178] [cursor=pointer]
+                - button "استكشاف محافظة عدن" [ref=f7e179] [cursor=pointer]
+                - button "استكشاف محافظة البيضاء" [ref=f7e180] [cursor=pointer]
+                - button "استكشاف محافظة الحديده" [ref=f7e181] [cursor=pointer]
+                - button "استكشاف محافظة الجوف" [ref=f7e182] [cursor=pointer]
+                - button "استكشاف محافظة المهره" [ref=f7e183] [cursor=pointer]
+                - button "استكشاف محافظة المحويت" [ref=f7e184] [cursor=pointer]
+                - button "استكشاف محافظة عمران" [ref=f7e185] [cursor=pointer]
+                - button "استكشاف محافظة ذمار" [ref=f7e186] [cursor=pointer]
+                - button "استكشاف محافظة حضرموت" [ref=f7e187] [cursor=pointer]
+                - button "استكشاف محافظة حجه" [ref=f7e188] [cursor=pointer]
+                - button "استكشاف محافظة اب" [ref=f7e189] [cursor=pointer]
+                - button "استكشاف محافظة لحج" [ref=f7e190] [cursor=pointer]
+                - button "استكشاف محافظة مارب" [ref=f7e191] [cursor=pointer]
+                - button "استكشاف محافظة ريمه" [ref=f7e192] [cursor=pointer]
+                - button "استكشاف محافظة صعده" [ref=f7e193] [cursor=pointer]
+                - button "استكشاف محافظة صنعاء" [ref=f7e194] [cursor=pointer]
+                - button "استكشاف محافظة امانة العاصمه" [ref=f7e195] [cursor=pointer]
+                - button "استكشاف محافظة شبوه" [ref=f7e196] [cursor=pointer]
+                - button "استكشاف محافظة سقطرى" [ref=f7e197] [cursor=pointer]
+                - button "استكشاف محافظة تعز" [pressed] [ref=f7e198] [cursor=pointer]
+                - button "استكشاف مديرية المعافر" [ref=f7e936] [cursor=pointer]
+                - button "استكشاف مديرية المخاء" [ref=f7e937] [cursor=pointer]
+                - button "استكشاف مديرية المواسط" [ref=f7e938] [cursor=pointer]
+                - button "استكشاف مديرية المسراخ" [ref=f7e939] [cursor=pointer]
+                - button "استكشاف مديرية المظفر" [ref=f7e940] [cursor=pointer]
+                - button "استكشاف مديرية القاهره" [ref=f7e941] [cursor=pointer]
+                - button "استكشاف مديرية الوازعيه" [ref=f7e942] [cursor=pointer]
+                - button "استكشاف مديرية الصلو" [ref=f7e943] [cursor=pointer]
+                - button "استكشاف مديرية الشمايتين" [ref=f7e944] [cursor=pointer]
+                - button "استكشاف مديرية التعزيه" [ref=f7e945] [cursor=pointer]
+                - button "استكشاف مديرية باب المندب" [ref=f7e946] [cursor=pointer]
+                - button "استكشاف مديرية خدير" [ref=f7e947] [cursor=pointer]
+                - button "استكشاف مديرية حيفان" [ref=f7e948] [cursor=pointer]
+                - button "استكشاف مديرية جبل حبشي" [ref=f7e949] [cursor=pointer]
+                - button "استكشاف مديرية مقبنه" [ref=f7e950] [cursor=pointer]
+                - button "استكشاف مديرية مشرعة وحدنان" [ref=f7e951] [cursor=pointer]
+                - button "استكشاف مديرية ماويه" [ref=f7e952] [cursor=pointer]
+                - button "استكشاف مديرية موزع" [ref=f7e953] [cursor=pointer]
+                - button "استكشاف مديرية صبر الموادم" [ref=f7e954] [cursor=pointer]
+                - button "استكشاف مديرية صاله" [ref=f7e955] [cursor=pointer]
+                - button "استكشاف مديرية سامع" [ref=f7e956] [cursor=pointer]
+                - button "استكشاف مديرية شرعب الرونه" [ref=f7e957] [cursor=pointer]
+                - button "استكشاف مديرية شرعب السلام" [ref=f7e958] [cursor=pointer]
+                - generic "المعافر" [ref=f7e959] [cursor=pointer]
+                - generic "المخاء" [ref=f7e960] [cursor=pointer]
+                - generic "المواسط" [ref=f7e961] [cursor=pointer]
+                - generic "المسراخ" [ref=f7e962] [cursor=pointer]
+                - generic "المظفر" [ref=f7e963] [cursor=pointer]
+                - generic "القاهره" [ref=f7e964] [cursor=pointer]
+                - generic "الوازعيه" [ref=f7e965] [cursor=pointer]
+                - generic "الصلو" [ref=f7e966] [cursor=pointer]
+                - generic "الشمايتين" [ref=f7e967] [cursor=pointer]
+                - generic "التعزيه" [ref=f7e968] [cursor=pointer]
+                - generic "باب المندب" [ref=f7e969] [cursor=pointer]
+                - generic "خدير" [ref=f7e970] [cursor=pointer]
+                - generic "حيفان" [ref=f7e971] [cursor=pointer]
+                - generic "جبل حبشي" [ref=f7e972] [cursor=pointer]
+                - generic "مقبنه" [ref=f7e973] [cursor=pointer]
+                - generic "مشرعة وحدنان" [ref=f7e974] [cursor=pointer]
+                - generic "ماويه" [ref=f7e975] [cursor=pointer]
+                - generic "موزع" [ref=f7e976] [cursor=pointer]
+                - generic "صبر الموادم" [ref=f7e977] [cursor=pointer]
+                - generic "صاله" [ref=f7e978] [cursor=pointer]
+                - generic "سامع" [ref=f7e979] [cursor=pointer]
+                - generic "شرعب الرونه" [ref=f7e980] [cursor=pointer]
+                - generic "شرعب السلام" [ref=f7e981] [cursor=pointer]
+              - generic [ref=f7e221]: اسحب الخريطة للتحريك، واستخدم عجلة الماوس أو الأزرار للتكبير.
+              - generic [ref=f7e222]:
+                - generic [ref=f7e223]: حدود الجمهورية
+                - generic [ref=f7e225]: المحافظات
+                - generic [ref=f7e227]: المديريات
+                - generic [ref=f7e229]: "مصدر الحدود: OCHA Field Information Services Section (FISS) / HDX"
+            - complementary "لوحة معلومات المنطقة" [ref=f7e230]:
+              - generic [ref=f7e231]:
+                - generic [ref=f7e232]:
+                  - generic [ref=f7e233]: محافظة
+                  - heading "تعز" [level=2] [ref=f7e982]
+                - button "إغلاق اللوحة" [ref=f7e290] [cursor=pointer]
+              - generic [ref=f7e294]:
+                - generic [ref=f7e295]:
+                  - generic [ref=f7e296]:
+                    - generic [ref=f7e297]: اسم المحافظة
+                    - strong [ref=f7e298]: تعز
+                  - generic [ref=f7e299]:
+                    - generic [ref=f7e300]: الاسم الإنجليزي
+                    - strong [ref=f7e301]: Ta'iz
+                  - generic [ref=f7e302]:
+                    - generic [ref=f7e303]: المعرّف الإداري
+                    - strong [ref=f7e304]: YE15
+                  - generic [ref=f7e305]:
+                    - generic [ref=f7e306]: المركز الإداري
+                    - strong [ref=f7e307]: تعز
+                  - generic [ref=f7e308]:
+                    - generic [ref=f7e309]: المساحة كم²
+                    - strong [ref=f7e310]: 10,075
+                  - generic [ref=f7e311]:
+                    - generic [ref=f7e312]: السكان
+                    - strong [ref=f7e313]: البيانات غير متوفرة حاليًا
+                  - generic [ref=f7e314]:
+                    - generic [ref=f7e315]: عدد المديريات
+                    - strong [ref=f7e316]: "23"
+                - generic [ref=f7e317]:
+                  - heading "نبذة تعريفية" [level=3] [ref=f7e318]
+                  - paragraph [ref=f7e319]: محافظة كثيفة السكان في جنوب غرب اليمن، تجمع بين مدينة تعز والمرتفعات والأودية وساحل البحر الأحمر.
+                - generic [ref=f7e320]:
+                  - heading "نبذة تاريخية" [level=3] [ref=f7e321]
+                  - paragraph [ref=f7e322]: برزت تعز عاصمةً ومركزاً للعلم والتجارة في مراحل تاريخية مختلفة، واحتفظت بدور ثقافي مهم.
+                - generic [ref=f7e323]:
+                  - heading "الطبيعة والتضاريس" [level=3] [ref=f7e324]
+                  - paragraph [ref=f7e325]: تضم جبل صبر والمرتفعات الزراعية والأودية، وتمتد غرباً نحو المخا وساحل البحر الأحمر.
+                - generic [ref=f7e326]:
+                  - heading "المعالم والأنشطة" [level=3] [ref=f7e327]
+                  - paragraph [ref=f7e328]: قلعة القاهرة، جبل صبر، المدينة القديمة، جامع الجند، المخا وساحل البحر الأحمر.
+                - generic [ref=f7e329]:
+                  - link "اكتشف الشخصيات المرتبطة بمحافظة تعز" [ref=f7e983] [cursor=pointer]:
+                    - /url: "#yemeni-figures"
+                  - heading "المديريات التابعة" [level=3] [ref=f7e334]
+                  - generic [ref=f7e335]:
+                    - button "المعافر" [ref=f7e984] [cursor=pointer]
+                    - button "المخاء" [ref=f7e988] [cursor=pointer]
+                    - button "المواسط" [ref=f7e992] [cursor=pointer]
+                    - button "المسراخ" [ref=f7e996] [cursor=pointer]
+                    - button "المظفر" [ref=f7e1000] [cursor=pointer]
+                    - button "القاهره" [ref=f7e1004] [cursor=pointer]
+                    - button "الوازعيه" [ref=f7e1008] [cursor=pointer]
+                    - button "الصلو" [ref=f7e1012] [cursor=pointer]
+                    - button "الشمايتين" [ref=f7e1016] [cursor=pointer]
+                    - button "التعزيه" [ref=f7e1020] [cursor=pointer]
+                    - button "باب المندب" [ref=f7e1024] [cursor=pointer]
+                    - button "خدير" [ref=f7e1028] [cursor=pointer]
+                    - button "حيفان" [ref=f7e1032] [cursor=pointer]
+                    - button "جبل حبشي" [ref=f7e1036] [cursor=pointer]
+                    - button "مقبنه" [ref=f7e1040] [cursor=pointer]
+                    - button "مشرعة وحدنان" [ref=f7e1044] [cursor=pointer]
+                    - button "ماويه" [ref=f7e1048] [cursor=pointer]
+                    - button "موزع" [ref=f7e1052] [cursor=pointer]
+                    - button "صبر الموادم" [ref=f7e1056] [cursor=pointer]
+                    - button "صاله" [ref=f7e1060] [cursor=pointer]
+                    - button "سامع" [ref=f7e1064] [cursor=pointer]
+                    - button "شرعب الرونه" [ref=f7e1068] [cursor=pointer]
+                    - button "شرعب السلام" [ref=f7e1072] [cursor=pointer]
+              - generic [ref=f7e251]:
+                - generic [ref=f7e252]: "المصدر: Yemen administrative level 0-2 boundaries (COD-AB)"
+                - generic [ref=f7e253]: Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)
+          - group [ref=f7e254]:
+            - 'generic "مصدر الحدود: OCHA / HDX · التفاصيل" [ref=f7e255] [cursor=pointer]'
+      - group [ref=f7e86]:
+        - generic "شخصيات يمنية مرتبطة بالأماكن افتح الدليل وابحث بالاسم أو المجال −" [ref=f7e380] [cursor=pointer]:
+          - generic [ref=f7e88]: شخصيات يمنية مرتبطة بالأماكن
+          - generic [ref=f7e89]: افتح الدليل وابحث بالاسم أو المجال
+          - text: −
+        - generic [ref=f7e382]:
+          - generic [ref=f7e383]:
+            - generic [ref=f7e384]:
+              - generic [ref=f7e385]: ذاكرة وأثر
+              - heading "شخصيات يمنية" [level=2] [ref=f7e386]
+            - paragraph [ref=f7e387]: تعرّف على شخصيات يمنية معاصرة وتاريخية، وابحث بحسب الاسم أو المجال أو المحافظة.
+          - search "البحث وتصفية الشخصيات" [ref=f7e388]:
+            - generic [ref=f7e389]:
+              - generic [ref=f7e393]: ابحث بالاسم
+              - textbox "ابحث بالاسم" [ref=f7e394]:
+                - /placeholder: ابحث باسم الشخصية...
+            - generic [ref=f7e395]:
+              - generic [ref=f7e396]: المجال
+              - combobox "المجال" [ref=f7e397]:
+                - option "الكل" [selected]
+                - option "الأدب والشعر"
+                - option "الإعلام وحقوق الإنسان"
+                - option "الإعلام والصحافة"
+                - option "المجتمع وحقوق الإنسان"
+                - option "السياسة والحكم"
+                - option "الفن والموسيقى"
+                - option "العلم والتعليم"
+                - option "الرياضة"
+                - option "الاقتصاد وريادة الأعمال"
+                - option "التراث والتاريخ"
+            - generic [ref=f7e398]:
+              - generic [ref=f7e399]: المحافظة
+              - combobox "المحافظة" [ref=f7e400]:
+                - option "كل المحافظات"
+                - option "أبين"
+                - option "الضالع"
+                - option "عدن"
+                - option "البيضاء"
+                - option "الحديدة"
+                - option "المحويت"
+                - option "عمران"
+                - option "ذمار"
+                - option "حضرموت"
+                - option "إب"
+                - option "لحج"
+                - option "مأرب"
+                - option "صعدة"
+                - option "صنعاء"
+                - option "أمانة العاصمة"
+                - option "شبوة"
+                - option "تعز" [selected]
+            - generic [ref=f7e401]:
+              - generic [ref=f7e402]: الفترة
+              - combobox "الفترة" [ref=f7e403]:
+                - option "الكل" [selected]
+                - option "معاصرة"
+                - option "تاريخية"
+            - generic [ref=f7e404] [cursor=pointer]:
+              - checkbox "لديها روابط تواصل" [ref=f7e405]
+              - generic [ref=f7e406]: لديها روابط تواصل
+            - button "مسح" [ref=f7e407] [cursor=pointer]
+          - generic [ref=f7e412]:
+            - strong [ref=f7e413]: "41"
+            - generic [ref=f7e414]: شخصية مطابقة
+            - generic [ref=f7e415]: الخريطة والدليل يعرضان المحافظة نفسها
+          - generic [ref=f7e416]:
+            - article [ref=f7e1076] [cursor=pointer]:
+              - link "عرض صفحة أحمد بن علوان" [ref=f7e1077]:
+                - /url: /yemen-map/figures/ahmed-ibn-alwan
+              - generic [ref=f7e1079]:
+                - generic [ref=f7e1080]: أ ع
+                - generic [ref=f7e1081]: تاريخية
+              - generic [ref=f7e1082]:
+                - generic [ref=f7e1083]:
+                  - generic [ref=f7e1084]: الأدب والشعر
+                  - generic [ref=f7e1085]: 1203 – 1267
+                - heading "أحمد بن علوان" [level=3] [ref=f7e1086]
+                - strong [ref=f7e1087]: شاعر ومتصوف يمني
+                - paragraph [ref=f7e1088]: أحمد بن علوان هو إمام الصوفية وفيلسوفهم في عصر الدولة الرسولية في اليمن، نشأ في أحضان الرئاسة والعلم، وكان والده في خدمة السلطان ومن كتابه، وكاد الشيخ أن ينتهج طريق والده في خدمة السلطان، إلا انه تحول إلى طريق التصوف تحت تأثير خارق، ولزم الخلوة والعبادة، واشتهر بحب الوعظ، فقد كان يسلك في وعظه طريقة ابن الجوزي حتى لقب بجوزي اليمن، وله رسائل كثيرة ومؤلفات جمعت في مجلدات منها كتاب (الفتوح المصونة والأسرار المخزونة)، فضلاً عن ديوانه الشعري الذي جاء أغلبه في التصوف، وبعد أن توفي صار لضريحه مكانة مقدسة وتقام زيارة سنوية له في منتصف شهر ربيع الأول من كل عام، سمتها المصادر التاريخية باسم (يوم الجمع المبارك).
+                - generic [ref=f7e1090]:
+                  - text: تعز
+                  - generic [ref=f7e1095]: المحافظة المرتبطة
+            - article [ref=f7e1099] [cursor=pointer]:
+              - link "عرض صفحة عبد القادر قحطان" [ref=f7e1100]:
+                - /url: /yemen-map/figures/q12223209
+              - generic [ref=f7e1102]:
+                - generic [ref=f7e1103]: ع ق
+                - generic [ref=f7e1104]: معاصرة
+              - generic [ref=f7e1105]:
+                - generic [ref=f7e1106]:
+                  - generic [ref=f7e1107]: السياسة والحكم
+                  - generic [ref=f7e1108]: "الميلاد: 1952"
+                - heading "عبد القادر قحطان" [level=3] [ref=f7e1109]
+                - strong [ref=f7e1110]: سياسي يمني
+                - paragraph [ref=f7e1111]: عبد القادر قحطان هو أستاذ القانون المدني في جامعة صنعاء، ورئيس الشرطة الجنائية الدولية في صنعاء سابقا. وُلد في 13 ديسمبر 1952 بمحافظة تعز، وعُين و زيراً للداخلية في حكومة الوفاق الوطني في 7 ديسمبر 2011، واستمر في منصبه حتى إقالته عقب تعديل وزاري في 7 مارس 2014.
+                - generic [ref=f7e1113]:
+                  - text: تعز
+                  - generic [ref=f7e1118]: المحافظة المرتبطة
+            - article [ref=f7e1122] [cursor=pointer]:
+              - link "عرض صفحة صبري الحيقي" [ref=f7e1123]:
+                - /url: /yemen-map/figures/q65640445
+              - generic [ref=f7e1125]:
+                - img "صورة صبري الحيقي" [ref=f7e1126]
+                - generic [ref=f7e1127]: معاصرة
+                - link "حيقي · CC BY-SA 4.0" [ref=f7e1128]:
+                  - /url: https://commons.wikimedia.org/wiki/File:%D8%B5%D8%A8%D8%B1%D9%8A_%D8%A7%D9%84%D8%AD%D9%8A%D9%82%D9%8A_24-8-2019.jpg
+              - generic [ref=f7e1129]:
+                - generic [ref=f7e1130]:
+                  - generic [ref=f7e1131]: الأدب والشعر
+                  - generic [ref=f7e1132]: "الميلاد: 1961"
+                - heading "صبري الحيقي" [level=3] [ref=f7e1133]
+                - strong [ref=f7e1134]: فنان شاعر وناقد، من اليمن.
+                - paragraph [ref=f7e1135]: صبري الحيقي (25 ديسمبر 1961 -)؛ فنان تشكيلي، شاعر، ناقد وباحث يمني. بدأ الكتابة في 1978 في صحيفة الجمهورية الرسمية وكان له عمود في الصفحة الأخيرة بأسم (هواجس) وقد رسم أكثر من مرة كاريكاتير الصفحة الأخيرة في نفس الصحيفة، واستمر في الكتابات النقدية والشعرية اثناء دراسته في تعز حيث اكمل دراسته إلى ثاني ثانوي، وبعد ذلك حصل على وظيفة في وزارة الثقافة وانتقل إلى صنعاء 1980 وهناك اكمل دراسة الثانوية العامة في صنعاء موظفا في الصباح دارسا في الفترة المسائية، محررا فنيا في صحيفة الثورة الرسمية.
+                - generic [ref=f7e1137]:
+                  - text: تعز
+                  - generic [ref=f7e1142]: المحافظة المرتبطة
+            - article [ref=f7e1146] [cursor=pointer]:
+              - link "عرض صفحة أيوب طارش" [ref=f7e1147]:
+                - /url: /yemen-map/figures/q4059062
+              - generic [ref=f7e1149]:
+                - generic [ref=f7e1150]: أ ط
+                - generic [ref=f7e1151]: معاصرة
+              - generic [ref=f7e1152]:
+                - generic [ref=f7e1153]:
+                  - generic [ref=f7e1154]: الفن والموسيقى
+                  - generic [ref=f7e1155]: "الميلاد: 1942"
+                - heading "أيوب طارش" [level=3] [ref=f7e1156]
+                - strong [ref=f7e1157]: مغنٍ وملحن يمني وضع لحن النشيد الوطني
+                - paragraph [ref=f7e1158]: أيوب طارش عبسي مغنٍ وملحن يمني وُلد سنة 1942 في منطقة الأعبوس بمحافظة تعز. ارتبط اسمه بالأغنية اليمنية وبالتعاون مع شعراء منهم عبد الله عبد الوهاب نعمان، المعروف بالفضول. ومن أشهر أعماله لحن النشيد الوطني للجمهورية اليمنية. وتذكر سيرته أغنية بالله عليك وا مسافر من كلمـات أخيه محمد بن طارش ولحنه، ووصول تسجيله إلى إذاعة تعز سنة 1956.
+                - generic [ref=f7e1160]:
+                  - text: تعز
+                  - generic [ref=f7e1165]: المحافظة المرتبطة
+            - article [ref=f7e1169] [cursor=pointer]:
+              - link "عرض صفحة حسن علوان" [ref=f7e1170]:
+                - /url: /yemen-map/figures/q12208000
+              - generic [ref=f7e1172]:
+                - generic [ref=f7e1173]: ح ع
+                - generic [ref=f7e1174]: تاريخية
+              - generic [ref=f7e1175]:
+                - generic [ref=f7e1176]:
+                  - generic [ref=f7e1177]: الفن والموسيقى
+                  - generic [ref=f7e1178]: 1962 – 2020
+                - heading "حسن علوان" [level=3] [ref=f7e1179]
+                - strong [ref=f7e1180]: ممثل يمني
+                - paragraph [ref=f7e1181]: حسن علوان حزام المقطري (1962 - 15 يونيو 2020 ) ممثل ومخرج مسرحي يمني من محافظة تعز، عاش وترعرع في مدينة الحديدة. عمل كممثل ومخرج في فرقة المسرح الوطني في صنعاء، وشارك في العديد من الفعاليات محلياً وعربيا، ودخل مجال الفن قبل التمثيل، كما كان له أغنية باللهجة التهامية (عطاء ورب وكريم) والتي لاقت رواجاً كبيراً في ذلك الوقت (أيام التسعينات)، ثم كانت بدية ظهوره في المسرح كممثل في مسرح فرقة الهواء في الحديدة عام 1977.
+                - generic [ref=f7e1183]:
+                  - text: تعز
+                  - generic [ref=f7e1188]: المحافظة المرتبطة
+            - article [ref=f7e1192] [cursor=pointer]:
+              - link "عرض صفحة عبدالجبار نعمان" [ref=f7e1193]:
+                - /url: /yemen-map/figures/q70463766
+              - generic [ref=f7e1195]:
+                - generic [ref=f7e1196]: ع ن
+                - generic [ref=f7e1197]: تاريخية
+              - generic [ref=f7e1198]:
+                - generic [ref=f7e1199]:
+                  - generic [ref=f7e1200]: الفن والموسيقى
+                  - generic [ref=f7e1201]: 1949 – 2019
+                - heading "عبدالجبار نعمان" [level=3] [ref=f7e1202]
+                - strong [ref=f7e1203]: فنان تشكيلي يمني
+                - paragraph [ref=f7e1204]: من رواد الفن التشكيلي في اليمن واكثرهم شهرة واكثرهم حظا. ربما لأسلوبة الواقعي الأقرب إلى فهم العامة، إضافة إلى إحساسه المتميز في التعامل مع الألوان. أما هاشم علي (فنان تشكيلي) فقد كان أكثر شهرة عند المثقفين، وكان «هاشم على» الوحيد من جيل الرواد الذي يهتم بتدريب وتنشئة وتعليم الفنانين الشباب.
+                - generic [ref=f7e1206]:
+                  - text: تعز
+                  - generic [ref=f7e1211]: المحافظة المرتبطة
+            - article [ref=f7e1215] [cursor=pointer]:
+              - link "عرض صفحة رشاد العليمي" [ref=f7e1216]:
+                - /url: /yemen-map/figures/q12213376
+              - generic [ref=f7e1218]:
+                - img "صورة رشاد العليمي" [ref=f7e1219]
+                - generic [ref=f7e1220]: معاصرة
+                - link "Ali mamon · CC BY-SA 4.0" [ref=f7e1221]:
+                  - /url: https://commons.wikimedia.org/wiki/File:Rashad_al-Alimi_-_2022.jpg
+              - generic [ref=f7e1222]:
+                - generic [ref=f7e1223]:
+                  - generic [ref=f7e1224]: السياسة والحكم
+                  - generic [ref=f7e1225]: "الميلاد: 1954"
+                - heading "رشاد العليمي" [level=3] [ref=f7e1226]
+                - strong [ref=f7e1227]: سياسي يمني تولى رئاسة مجلس القيادة الرئاسي سنة 2022
+                - paragraph [ref=f7e1228]: أصيب العليمي في حادثة تفجير مسجد النهدين الكائن بدار الرئاسة أثناء صلاة الجمعة الذي استهدف الرئيس اليمني السابق علي عبد الله صالح وقيادات في الدولة في 3 يونيو 2011 ونُقل على إثرها مع الرئيس وبقية المصابين إلى السعودية لتلقي العلاج، وعاد إلى صنعاء في 13 يونيو 2012 بعد عام من العلاج في السعودية وألمانيا. تم اختياره رئيسًا لمجلس القيادة الرئاسي اليمني في 7 أبريل 2022.
+                - generic [ref=f7e1230]:
+                  - text: تعز
+                  - generic [ref=f7e1235]: المحافظة المرتبطة
+            - article [ref=f7e1239] [cursor=pointer]:
+              - link "عرض صفحة زيد بن علي الوزير" [ref=f7e1240]:
+                - /url: /yemen-map/figures/q124457762
+              - generic [ref=f7e1242]:
+                - generic [ref=f7e1243]: ز ع
+                - generic [ref=f7e1244]: معاصرة
+              - generic [ref=f7e1245]:
+                - generic [ref=f7e1246]:
+                  - generic [ref=f7e1247]: الأدب والشعر
+                  - generic [ref=f7e1248]: "الميلاد: 1935"
+                - heading "زيد بن علي الوزير" [level=3] [ref=f7e1249]
+                - strong [ref=f7e1250]: كاتب ومفكر إسلامي وسياسي ومؤرخ يمني
+                - paragraph [ref=f7e1251]: زيد بن علي الوزير هو سياسي ومفكر إسلامي وشاعر ومؤرخ يمني ومن مؤسسي اتحاد القوى الشعبية ومؤسس مركز التراث والبحوث اليمني ولد في في دار الشرف بجبل صبر بمحافظة تعز في 26 نوفمبر 1935. في طفولته تلقى علوم القرآن والتجويد والنحو والخط والحساب في مكاتب صنعاء والمحويت، ودرس متن الأزهار والأجرومية، ومبادئ العلوم الإسلامية على يد الشيخ عبد الرزاق الشاحذي والعلامة عبد الله الكبسي.
+                - generic [ref=f7e1253]:
+                  - text: تعز
+                  - generic [ref=f7e1258]: المحافظة المرتبطة
+            - article [ref=f7e1262] [cursor=pointer]:
+              - link "عرض صفحة عبد العزيز قائد المسعودي" [ref=f7e1263]:
+                - /url: /yemen-map/figures/q20412274
+              - generic [ref=f7e1265]:
+                - generic [ref=f7e1266]: ع ع
+                - generic [ref=f7e1267]: معاصرة
+              - generic [ref=f7e1268]:
+                - generic [ref=f7e1269]:
+                  - generic [ref=f7e1270]: العلم والتعليم
+                  - generic [ref=f7e1271]: "الميلاد: 1948"
+                - heading "عبد العزيز قائد المسعودي" [level=3] [ref=f7e1272]
+                - strong [ref=f7e1273]: مؤرخ وأكاديمي يمني متخصص في التاريخ الحديث والمعاصر
+                - paragraph [ref=f7e1274]: عبد العزيز قائد المسعودي (1948)، هو مؤلف وأكاديمي يمني، من مواليد مدينة تربة ذبحان في المعافر (الحجرية) في محافظة تعز وهو أستاذ التاريخ الحديث والمعاصر في جامعة صنعاء. يتصل عمل عبد العزيز قائد المسعودي الأكاديمي بتاريخ اليمن الحديث والمعاصر، وبالحياة السياسية في المنطقة العربية.
+                - generic [ref=f7e1276]:
+                  - text: تعز
+                  - generic [ref=f7e1281]: المحافظة المرتبطة
+            - article [ref=f7e1285] [cursor=pointer]:
+              - link "عرض صفحة أمة العليم السوسوه" [ref=f7e1286]:
+                - /url: /yemen-map/figures/q719638
+              - generic [ref=f7e1288]:
+                - img "صورة أمة العليم السوسوه" [ref=f7e1289]
+                - generic [ref=f7e1290]: معاصرة
+                - link "United Nations Development Programme · CC BY 2.0" [ref=f7e1291]:
+                  - /url: https://commons.wikimedia.org/wiki/File:Amat_Al_Alim_Alsoswa_UNDP_HQ_2010.jpg
+              - generic [ref=f7e1292]:
+                - generic [ref=f7e1293]:
+                  - generic [ref=f7e1294]: السياسة والحكم
+                  - generic [ref=f7e1295]: "الميلاد: 1958"
+                - heading "أمة العليم السوسوه" [level=3] [ref=f7e1296]
+                - strong [ref=f7e1297]: سياسية يمنية
+                - paragraph [ref=f7e1298]: أمة العليم علي السوسوة وزيرة، إعلامية، دبلوماسية، وباحثة يمنية من عائلة بيت السوسوة مدينة ذمار. ولدت في مدينة تعز عام 1958م، ثم استقرّت في مدينة صنعاء. حصلت على شهادة الثانوية العامة سنة 1396ه‍/1976م، ثم التحقت بالعمل في إذاعة تعز، ثم انتقلت إلى تلفزيون صنعاء، وأصبحت كبير المذيعين فيه، وفي عام 1411ه‍/1991م، عُيّنت وكيلاً مساعدًا في وزارة الإعلام، كما عُيّنت سنة 1417ه‍/1997م، في المنصب نفسه، ثم عينت ممثلاً دائمًا لليمن لدى منظمة حظر الأسلحة الكيماوية في هولندا، ثم سفيرة غير مقيمة لدى مملكة السويد، ثم سفيرة غير مقيمة لدى مملكة الدنمارك، ثم سفيرة لدى مملكة هولندا، ثم وزيراً لحقوق الإنسان. كما عملت في الأمم المتحدة كمساعدة للأمين العام للأمم…
+                - generic [ref=f7e1300]:
+                  - text: تعز
+                  - generic [ref=f7e1305]: المحافظة المرتبطة
+            - article [ref=f7e1309] [cursor=pointer]:
+              - link "عرض صفحة عبد العزيز عبد الغني" [ref=f7e1310]:
+                - /url: /yemen-map/figures/q2622743
+              - generic [ref=f7e1312]:
+                - img "صورة عبد العزيز عبد الغني" [ref=f7e1313]
+                - generic [ref=f7e1314]: تاريخية
+                - link "يونيو التصحيحية · CC BY-SA 4.0" [ref=f7e1315]:
+                  - /url: https://commons.wikimedia.org/wiki/File:Abdul_Aziz_Abdul_Ghani_(cropped).jpg
+              - generic [ref=f7e1316]:
+                - generic [ref=f7e1317]:
+                  - generic [ref=f7e1318]: السياسة والحكم
+                  - generic [ref=f7e1319]: 1939 – 2011
+                - heading "عبد العزيز عبد الغني" [level=3] [ref=f7e1320]
+                - strong [ref=f7e1321]: سياسي يمني
+                - paragraph [ref=f7e1322]: عبد العزيز عبد الغني (1939 – 2011 م) سياسي يمني ولد في مديرية حيفان محافظة تعز. أعلن عن وفاته يوم الإثنين 22 أغسطس 2011 الموافق 22 رمضان 1432 هـ في أحد مستشفيات العاصمة السعودية الرياض ، متأثراً بجراحه التي أصيب بها في حادثة تفجير جامع النهدين بدار الرئاسة في صنعاء يوم الجمعة 3 يونيو 2011.
+                - generic [ref=f7e1324]:
+                  - text: تعز
+                  - generic [ref=f7e1329]: المحافظة المرتبطة
+            - article [ref=f7e1333] [cursor=pointer]:
+              - link "عرض صفحة عبد الله جزيلان" [ref=f7e1334]:
+                - /url: /yemen-map/figures/q7498310
+              - generic [ref=f7e1336]:
+                - img "صورة عبد الله جزيلان" [ref=f7e1337]
+                - generic [ref=f7e1338]: تاريخية
+                - link "Alfas11 · CC BY-SA 4.0" [ref=f7e1339]:
+                  - /url: https://commons.wikimedia.org/wiki/File:%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D9%87_%D8%AC%D8%B2%D9%8A%D9%84%D8%A7%D9%86.jpg
+              - generic [ref=f7e1340]:
+                - generic [ref=f7e1341]:
+                  - generic [ref=f7e1342]: السياسة والحكم
+                  - generic [ref=f7e1343]: 1936 – 2010
+                - heading "عبد الله جزيلان" [level=3] [ref=f7e1344]
+                - strong [ref=f7e1345]: سياسي، لواء، نائب رئيس
+                - paragraph [ref=f7e1346]: عبد الله قائد جزيلان عسكري يمني و نائب رئيس مجلس قيادة الثورة الأسبق، ولد في مدينة تعز عام 1936 م ودرس القرآن الكريم بمدرسة الاحمدية، وكان ضمن طلبة البعثة الطلابية الذين سافروا إلى لبنان 1947م؛ لإكمال الدراسة الابتدائية. - بعد عودته إلى الوطن في العام 1956م التحق بالكلية الحربية، وعين أركان حربا لها ثم مديرا لمدرسة الأسلحة.
+                - generic [ref=f7e1348]:
+                  - text: تعز
+                  - generic [ref=f7e1353]: المحافظة المرتبطة
+          - button "عرض المزيد 12" [ref=f7e920] [cursor=pointer]:
+            - text: عرض المزيد
+            - generic [ref=f7e921]: "12"
+  - contentinfo [ref=f7e90]:
+    - generic [ref=f7e91]:
+      - generic [ref=f7e92]:
+        - generic [ref=f7e93]:
+          - link "مبادرة 967" [ref=f7e94] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f7e95]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f7e96]
+          - paragraph [ref=f7e97]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f7e98]:
+            - link "إنستغرام" [ref=f7e99] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f7e107] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f7e115]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f7e116]
+          - link "الأعمال الإعلامية" [ref=f7e117] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f7e118] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f7e119] [cursor=pointer]:
+            - /url: /magazine
+          - link "اليمن بالأرقام" [ref=f7e120] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f7e121] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f7e122] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f7e123]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f7e124]
+          - link "منتجات يمنية" [ref=f7e125] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f7e126] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f7e127] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f7e128] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f7e129]:
+          - heading "مبادرة 967" [level=3] [ref=f7e130]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f7e131] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f7e132] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f7e133] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f7e134] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f7e135] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f7e136]:
+        - generic [ref=f7e137]: © 2026 مبادرة 967
+        - generic [ref=f7e138]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f7e139]:
+          - link "سياسة الخصوصية" [ref=f7e140] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f7e141] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f7e142] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f7e582] [cursor=pointer]
+  - alert [ref=f7e586]

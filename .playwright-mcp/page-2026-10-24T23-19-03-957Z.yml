@@ -1,0 +1,274 @@
+- generic [active] [ref=f11e1]:
+  - link "انتقل إلى المحتوى" [ref=f11e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f11e3]:
+    - generic [ref=f11e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f11e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f11e6]
+      - generic [ref=f11e27]:
+        - link "البحث في المنصة" [ref=f11e28] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f11e422] [cursor=pointer]:
+          - /url: /login
+        - button "فتح القائمة" [ref=f11e427] [cursor=pointer]
+  - main [ref=f11e36]:
+    - generic [ref=f11e38]:
+      - navigation "مسار التصفح" [ref=f11e39]:
+        - link "الرئيسية" [ref=f11e40] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f11e43]: دليل الشركات والمنتجات
+      - generic [ref=f11e44]: دليل الشركات والمنتجات
+      - heading "صُنع هنا، في اليمن." [level=1] [ref=f11e45]
+      - paragraph [ref=f11e46]: تعرّف على المنتج المحلي، ومن يصنعه، وأين تجده. دليل ينمو بمعلومات واضحة ومساهمات المجتمع.
+      - generic [ref=f11e47]:
+        - generic [ref=f11e48]:
+          - text: "الشركات المنشورة:"
+          - strong [ref=f11e49]: "111"
+        - generic [ref=f11e50]:
+          - text: "المنتجات المدرجة:"
+          - strong [ref=f11e51]: "178"
+        - link "اقترح شركة أو منتجاً" [ref=f11e52] [cursor=pointer]:
+          - /url: /contribute?type=اقتراح%20شركة%20أو%20منتج
+    - generic [ref=f11e58]:
+      - generic [ref=f11e59]:
+        - textbox "البحث في المنتجات اليمنية" [ref=f11e64]:
+          - /placeholder: ابحث عن شركة، منتج أو مدينة...
+        - combobox "اختيار المحافظة" [ref=f11e69]:
+          - option "كل المحافظات"
+          - option "الحديدة" [selected]
+          - option "اليمن"
+          - option "صنعاء"
+          - option "تعز"
+          - option "عدن"
+          - option "لحج"
+          - option "حضرموت"
+          - option "أبين"
+      - combobox "اختيار تصنيف المنتجات" [ref=f11e73] [cursor=pointer]:
+        - option "الكل" [selected]
+        - option "أغذية ومشروبات"
+        - option "صناعات تحويلية"
+        - option "زراعة وثروة حيوانية"
+        - option "مواد بناء"
+        - option "أدوية وصحة"
+        - option "عناية وعطور"
+        - option "طاقة ومياه"
+        - option "أثاث وديكور"
+        - option "حرف ومنسوجات"
+      - group "الفلاتر النشطة" [ref=f11e429]:
+        - generic [ref=f11e430]: الفلاتر المطبّقة
+        - 'button "إزالة فلتر المحافظة: الحديدة" [ref=f11e431] [cursor=pointer]':
+          - generic [ref=f11e432]: "المحافظة: الحديدة"
+        - button "مسح الفلاتر" [ref=f11e436] [cursor=pointer]
+      - generic [ref=f11e74]:
+        - generic [ref=f11e75]: شركات ومنتجات مطابقة لاختيارك
+        - strong [ref=f11e76]: "عدد النتائج: 37"
+      - generic [ref=f11e77]:
+        - 'link "أغذية ومشروبات الحديدة تهامة للصناعات الخفيفة تهامة للصناعات الخفيفة؛ نشاطها الموثق: وجبات خفيفة — بف. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e78] [cursor=pointer]':
+          - /url: /yemeni-products/tehama-light-industries?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e85]:
+            - generic [ref=f11e86]:
+              - generic [ref=f11e87]: أغذية ومشروبات
+              - generic [ref=f11e88]: الحديدة
+            - heading "تهامة للصناعات الخفيفة" [level=2] [ref=f11e92]
+            - paragraph [ref=f11e93]: "تهامة للصناعات الخفيفة؛ نشاطها الموثق: وجبات خفيفة — بف."
+            - group "المنتجات" [ref=f11e94]:
+              - generic [ref=f11e95]: وجبات خفيفة — بف
+            - generic [ref=f11e96]: عرض ملف الشركة والتفاصيل
+        - 'link "زراعة وثروة حيوانية الحديدة معمل سهول تهامة لإنتاج المكعبات العلفية معمل سهول تهامة لإنتاج المكعبات العلفية؛ نشاطها الموثق: مكعبات علفية. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e122] [cursor=pointer]':
+          - /url: /yemeni-products/suhool-tehama-feed?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e129]:
+            - generic [ref=f11e130]:
+              - generic [ref=f11e131]: زراعة وثروة حيوانية
+              - generic [ref=f11e132]: الحديدة
+            - heading "معمل سهول تهامة لإنتاج المكعبات العلفية" [level=2] [ref=f11e136]
+            - paragraph [ref=f11e137]: "معمل سهول تهامة لإنتاج المكعبات العلفية؛ نشاطها الموثق: مكعبات علفية."
+            - group "المنتجات" [ref=f11e138]:
+              - generic [ref=f11e139]: مكعبات علفية
+            - generic [ref=f11e140]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية الحديدة مصنع ثلوج بيت الفقيه مصنع ثلوج بيت الفقيه؛ نشاطها الموثق: ثلج. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e437] [cursor=pointer]':
+          - /url: /yemeni-products/bait-alfaqih-ice?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e444]:
+            - generic [ref=f11e445]:
+              - generic [ref=f11e446]: صناعات تحويلية
+              - generic [ref=f11e447]: الحديدة
+            - heading "مصنع ثلوج بيت الفقيه" [level=2] [ref=f11e451]
+            - paragraph [ref=f11e452]: "مصنع ثلوج بيت الفقيه؛ نشاطها الموثق: ثلج."
+            - group "المنتجات" [ref=f11e453]:
+              - generic [ref=f11e454]: ثلج
+            - generic [ref=f11e455]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية الحديدة مصنع الضحي لصناعة الأكياس مصنع الضحي لصناعة الأكياس؛ نشاطها الموثق: أكياس محاكة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e459] [cursor=pointer]':
+          - /url: /yemeni-products/aldhahi-bags?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e466]:
+            - generic [ref=f11e467]:
+              - generic [ref=f11e468]: صناعات تحويلية
+              - generic [ref=f11e469]: الحديدة
+            - heading "مصنع الضحي لصناعة الأكياس" [level=2] [ref=f11e473]
+            - paragraph [ref=f11e474]: "مصنع الضحي لصناعة الأكياس؛ نشاطها الموثق: أكياس محاكة."
+            - group "المنتجات" [ref=f11e475]:
+              - generic [ref=f11e476]: أكياس محاكة
+            - generic [ref=f11e477]: عرض ملف الشركة والتفاصيل
+        - 'link "مواد بناء الحديدة شركة ساس تعمير لتجارة وتعبئة وتغليف الأسمنت شركة ساس تعمير لتجارة وتعبئة وتغليف الأسمنت؛ نشاطها الموثق: أسمنت معبأ. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e481] [cursor=pointer]':
+          - /url: /yemeni-products/sas-tameer-cement?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e488]:
+            - generic [ref=f11e489]:
+              - generic [ref=f11e490]: مواد بناء
+              - generic [ref=f11e491]: الحديدة
+            - heading "شركة ساس تعمير لتجارة وتعبئة وتغليف الأسمنت" [level=2] [ref=f11e495]
+            - paragraph [ref=f11e496]: "شركة ساس تعمير لتجارة وتعبئة وتغليف الأسمنت؛ نشاطها الموثق: أسمنت معبأ."
+            - group "المنتجات" [ref=f11e497]:
+              - generic [ref=f11e498]: أسمنت معبأ
+            - generic [ref=f11e499]: عرض ملف الشركة والتفاصيل
+        - 'link "أغذية ومشروبات الحديدة شركة تهامة لصوامع الغلال ومطاحن الغلال شركة تهامة لصوامع الغلال ومطاحن الغلال؛ نشاطها الموثق: حبوب، مشتقات الحبوب. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e503] [cursor=pointer]':
+          - /url: /yemeni-products/tehama-grain-silos-mills?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e510]:
+            - generic [ref=f11e511]:
+              - generic [ref=f11e512]: أغذية ومشروبات
+              - generic [ref=f11e513]: الحديدة
+            - heading "شركة تهامة لصوامع الغلال ومطاحن الغلال" [level=2] [ref=f11e517]
+            - paragraph [ref=f11e518]: "شركة تهامة لصوامع الغلال ومطاحن الغلال؛ نشاطها الموثق: حبوب، مشتقات الحبوب."
+            - group "المنتجات" [ref=f11e519]:
+              - generic [ref=f11e520]: حبوب
+              - generic [ref=f11e521]: مشتقات الحبوب
+            - generic [ref=f11e522]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية الحديدة شركة الكوسفن للصناعات المتنوعة شركة الكوسفن للصناعات المتنوعة؛ نشاطها الموثق: أمبولات PET لعبوات المشروبات، أغطية عبوات HDPE. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e526] [cursor=pointer]':
+          - /url: /yemeni-products/elko-seven?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e533]:
+            - generic [ref=f11e534]:
+              - generic [ref=f11e535]: صناعات تحويلية
+              - generic [ref=f11e536]: الحديدة
+            - heading "شركة الكوسفن للصناعات المتنوعة" [level=2] [ref=f11e540]
+            - paragraph [ref=f11e541]: "شركة الكوسفن للصناعات المتنوعة؛ نشاطها الموثق: أمبولات PET لعبوات المشروبات، أغطية عبوات HDPE."
+            - group "المنتجات" [ref=f11e542]:
+              - generic [ref=f11e543]: أمبولات PET لعبوات المشروبات
+              - generic [ref=f11e544]: أغطية عبوات HDPE
+            - generic [ref=f11e545]: عرض ملف الشركة والتفاصيل
+        - 'link "أغذية ومشروبات الحديدة شركة شملان للصناعة المحدودة شركة شملان للصناعة المحدودة؛ نشاطها الموثق: مياه معبأة. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e549] [cursor=pointer]':
+          - /url: /yemeni-products/shamlan-industrial?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e556]:
+            - generic [ref=f11e557]:
+              - generic [ref=f11e558]: أغذية ومشروبات
+              - generic [ref=f11e559]: الحديدة
+            - heading "شركة شملان للصناعة المحدودة" [level=2] [ref=f11e563]
+            - paragraph [ref=f11e564]: "شركة شملان للصناعة المحدودة؛ نشاطها الموثق: مياه معبأة."
+            - group "المنتجات" [ref=f11e565]:
+              - generic [ref=f11e566]: مياه معبأة
+            - generic [ref=f11e567]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية الحديدة معمل الزئبق للفيبر جلاس معمل الزئبق للفيبر جلاس؛ نشاطها الموثق: منتجات فيبر جلاس. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e571] [cursor=pointer]':
+          - /url: /yemeni-products/alziibaq-fibreglass?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e578]:
+            - generic [ref=f11e579]:
+              - generic [ref=f11e580]: صناعات تحويلية
+              - generic [ref=f11e581]: الحديدة
+            - heading "معمل الزئبق للفيبر جلاس" [level=2] [ref=f11e585]
+            - paragraph [ref=f11e586]: "معمل الزئبق للفيبر جلاس؛ نشاطها الموثق: منتجات فيبر جلاس."
+            - group "المنتجات" [ref=f11e587]:
+              - generic [ref=f11e588]: منتجات فيبر جلاس
+            - generic [ref=f11e589]: عرض ملف الشركة والتفاصيل
+        - 'link "صناعات تحويلية الحديدة شركة المقبلي للتجارة والصناعة شركة المقبلي للتجارة والصناعة؛ نشاطها الموثق: قطع غيار سيارات. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e593] [cursor=pointer]':
+          - /url: /yemeni-products/almokbily-trading-industry?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e600]:
+            - generic [ref=f11e601]:
+              - generic [ref=f11e602]: صناعات تحويلية
+              - generic [ref=f11e603]: الحديدة
+            - heading "شركة المقبلي للتجارة والصناعة" [level=2] [ref=f11e607]
+            - paragraph [ref=f11e608]: "شركة المقبلي للتجارة والصناعة؛ نشاطها الموثق: قطع غيار سيارات."
+            - group "المنتجات" [ref=f11e609]:
+              - generic [ref=f11e610]: قطع غيار سيارات
+            - generic [ref=f11e611]: عرض ملف الشركة والتفاصيل
+        - 'link "عناية وعطور الحديدة الخط الذهبي لصناعة العطور الخط الذهبي لصناعة العطور؛ نشاطها الموثق: عطور. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e615] [cursor=pointer]':
+          - /url: /yemeni-products/golden-line-perfumes?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e622]:
+            - generic [ref=f11e623]:
+              - generic [ref=f11e624]: عناية وعطور
+              - generic [ref=f11e625]: الحديدة
+            - heading "الخط الذهبي لصناعة العطور" [level=2] [ref=f11e629]
+            - paragraph [ref=f11e630]: "الخط الذهبي لصناعة العطور؛ نشاطها الموثق: عطور."
+            - group "المنتجات" [ref=f11e631]:
+              - generic [ref=f11e632]: عطور
+            - generic [ref=f11e633]: عرض ملف الشركة والتفاصيل
+        - 'link "زراعة وثروة حيوانية الحديدة شركة المراعي اليمنية شركة المراعي اليمنية؛ نشاطها الموثق: ألبان. المنتجات عرض ملف الشركة والتفاصيل" [ref=f11e637] [cursor=pointer]':
+          - /url: /yemeni-products/almaraee-yemen?from=%2Fyemeni-products%3Flocation%3D%25D8%25A7%25D9%2584%25D8%25AD%25D8%25AF%25D9%258A%25D8%25AF%25D8%25A9%23directory
+          - generic [ref=f11e644]:
+            - generic [ref=f11e645]:
+              - generic [ref=f11e646]: زراعة وثروة حيوانية
+              - generic [ref=f11e647]: الحديدة
+            - heading "شركة المراعي اليمنية" [level=2] [ref=f11e651]
+            - paragraph [ref=f11e652]: "شركة المراعي اليمنية؛ نشاطها الموثق: ألبان."
+            - group "المنتجات" [ref=f11e653]:
+              - generic [ref=f11e654]: ألبان
+            - generic [ref=f11e655]: عرض ملف الشركة والتفاصيل
+      - navigation "صفحات النتائج" [ref=f11e659]:
+        - button "السابق" [disabled] [ref=f11e660]
+        - generic [ref=f11e663]: 1 من 4
+        - button "التالي" [ref=f11e664] [cursor=pointer]
+    - generic [ref=f11e358]:
+      - generic [ref=f11e359]:
+        - text: هل تعرف منتجاً محلياً يستحق الظهور؟
+        - heading "ساعدنا على توسيع الدليل." [level=2] [ref=f11e360]
+      - link "اقترح إضافة" [ref=f11e361] [cursor=pointer]:
+        - /url: /contribute?type=اقتراح%20شركة%20أو%20منتج
+  - contentinfo [ref=f11e365]:
+    - generic [ref=f11e366]:
+      - generic [ref=f11e367]:
+        - generic [ref=f11e368]:
+          - link "مبادرة 967" [ref=f11e369] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f11e370]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f11e371]
+          - paragraph [ref=f11e372]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f11e373]:
+            - link "إنستغرام" [ref=f11e374] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f11e382] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f11e390]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f11e391]
+          - link "الأعمال الإعلامية" [ref=f11e392] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f11e393] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f11e394] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f11e395] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f11e396] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f11e397] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f11e398] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f11e399]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f11e400]
+          - link "منتجات يمنية" [ref=f11e401] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f11e402] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f11e403] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f11e404] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f11e405]:
+          - heading "مبادرة 967" [level=3] [ref=f11e406]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f11e407] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f11e408] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f11e409] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f11e410] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f11e411] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f11e412]:
+        - generic [ref=f11e413]: © 2026 مبادرة 967
+        - generic [ref=f11e414]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f11e415]:
+          - link "سياسة الخصوصية" [ref=f11e416] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f11e417] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f11e418] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f11e672] [cursor=pointer]
+  - alert [ref=f11e676]

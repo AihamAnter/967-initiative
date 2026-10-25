@@ -1,0 +1,103 @@
+- generic [active] [ref=f39e1]:
+  - link "انتقل إلى المحتوى" [ref=f39e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f39e3]:
+    - generic [ref=f39e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f39e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f39e6]
+      - generic [ref=f39e7]:
+        - link "البحث في المنصة" [ref=f39e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f39e12] [cursor=pointer]
+  - main [ref=f39e14]:
+    - generic [ref=f39e15]:
+      - link "مبادرة 967 · حساب المستخدم" [ref=f39e16] [cursor=pointer]:
+        - /url: /
+      - heading "تسجيل الدخول" [level=1] [ref=f39e17]
+      - paragraph [ref=f39e18]: يمكنك تصفح 967 دون حساب. أنشئ حساباً للمشاركة في المناظرات، والتصويت، وطرح الأسئلة، ومتابعة مشاركاتك.
+      - generic [ref=f39e19]:
+        - paragraph [ref=f39e20]: الحقول المعلّمة بـ * إلزامية.
+        - group [ref=f39e21]:
+          - generic [ref=f39e22]:
+            - text: البريد الإلكتروني
+            - textbox "البريد الإلكتروني" [ref=f39e23]
+            - generic [aria-hidden] [ref=f39e24]: "*"
+          - generic [ref=f39e25]:
+            - text: كلمة المرور
+            - textbox "كلمة المرور" [ref=f39e26]
+            - generic [aria-hidden] [ref=f39e27]: "*"
+          - button "تسجيل الدخول" [ref=f39e28] [cursor=pointer]
+      - navigation "خيارات الحساب" [ref=f39e29]:
+        - link "تسجيل الدخول" [ref=f39e30] [cursor=pointer]:
+          - /url: /login?next=%2Faccount
+        - link "حساب جديد" [ref=f39e31] [cursor=pointer]:
+          - /url: /register?next=%2Faccount
+        - link "نسيت كلمة المرور" [ref=f39e32] [cursor=pointer]:
+          - /url: /forgot-password
+        - link "حسابي" [ref=f39e33] [cursor=pointer]:
+          - /url: /account
+      - group [ref=f39e34]:
+        - generic "إعادة إرسال رسالة تأكيد البريد" [ref=f39e35] [cursor=pointer]
+  - contentinfo [ref=f39e36]:
+    - generic [ref=f39e37]:
+      - generic [ref=f39e38]:
+        - generic [ref=f39e39]:
+          - link "مبادرة 967" [ref=f39e40] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f39e41]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f39e42]
+          - paragraph [ref=f39e43]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f39e44]:
+            - link "إنستغرام" [ref=f39e45] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f39e53] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f39e61]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f39e62]
+          - link "الأعمال الإعلامية" [ref=f39e63] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f39e64] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f39e65] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f39e66] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f39e67] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f39e68] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f39e69] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f39e70]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f39e71]
+          - link "منتجات يمنية" [ref=f39e72] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f39e73] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f39e74] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f39e75] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f39e76]:
+          - heading "مبادرة 967" [level=3] [ref=f39e77]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f39e78] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f39e79] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f39e80] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f39e81] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f39e82] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f39e83]:
+        - generic [ref=f39e84]: © 2026 مبادرة 967
+        - generic [ref=f39e85]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f39e86]:
+          - link "سياسة الخصوصية" [ref=f39e87] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f39e88] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f39e89] [cursor=pointer]:
+          - /url: /search

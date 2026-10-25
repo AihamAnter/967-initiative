@@ -1,0 +1,61 @@
+/* The editor uses the public palette with denser controls and clear actions. */
+.admin-page>.container{width:min(1440px,calc(100% - 48px))}
+.admin-page .admin-heading h1{font-size:36px;line-height:1.5;margin:8px 0}.admin-page .admin-heading{margin-bottom:20px}.admin-page section[aria-label="ملخص مهام الفريق"]{padding:16px 22px}.admin-page section[aria-label="ملخص مهام الفريق"] h2{font-size:22px}
+.admin-workspace{display:grid;grid-template-columns:215px minmax(0,1fr);gap:26px;align-items:start;margin-top:24px}
+.admin-workspace-main{min-width:0}
+.admin-sidebar{position:sticky;top:105px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+.admin-nav-group+ .admin-nav-group{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.admin-nav-group h2{font-size:12px;letter-spacing:0;color:var(--muted);margin:6px 10px 8px}
+.admin-nav-group button,.admin-nav-group>a{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;text-align:start;padding:9px 12px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--text);font-size:14px}
+.admin-nav-group .selected{color:var(--primary);background:var(--soft-primary);border-color:var(--line);font-weight:600}
+.company-product-row>summary{cursor:pointer;min-height:44px}.company-product-row[open]>summary{margin-bottom:14px}.task-summary-short{display:none}
+.admin-nav-group button:hover,.admin-nav-group>a:hover{background:var(--soft-primary)}
+.admin-mobile-section,.admin-mobile-links{display:none}
+.admin-workspace .admin-panel{border-radius:12px;box-shadow:0 3px 14px #23353b05;min-width:0}
+.admin-workspace .admin-columns,.admin-workspace .company-admin-layout,.admin-workspace .stats-admin-layout{grid-template-columns:minmax(0,1.3fr) minmax(280px,.8fr);align-items:start;gap:20px}
+.admin-workspace .admin-form{gap:18px}
+.admin-workspace .debate-field-label{position:relative;padding-inline-end:12px}.admin-workspace .debate-required-mark{position:absolute;inset-inline-end:0;top:0}
+.admin-editor-fields{display:grid;gap:18px;border:0;padding:0;margin:0;min-width:0}
+.admin-editor-fields:disabled{opacity:.8}
+.admin-required-note{color:var(--muted);font-size:12px;margin:0}
+.admin-form input:user-invalid,.admin-form textarea:user-invalid,.admin-form select:user-invalid{border-color:var(--danger);outline-color:var(--danger);background:var(--soft-danger)}
+.admin-workspace .company-admin-group{border:1px solid var(--line);border-radius:9px;background:var(--surface);min-width:0;overflow:visible;padding:18px}
+.admin-workspace details.company-admin-group>summary{cursor:pointer;color:var(--primary);font-size:17px;font-weight:600;padding:4px 0;min-height:36px}
+.admin-workspace details.company-admin-group[open]>summary{margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.admin-list-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0 20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.admin-list-tools label{display:flex;flex-direction:column;gap:6px;min-width:0;font-size:12px;color:var(--muted)}
+.admin-list-tools input,.admin-list-tools select{width:100%;min-width:0;min-height:44px;padding:8px 10px;border:1px solid var(--control-line);border-radius:6px;background:var(--surface);color:var(--text);font-size:14px}
+.admin-list-tools .admin-list-search{grid-column:1/-1;position:relative}
+.admin-list-search>svg{position:absolute;inset-inline-end:12px;top:14px;color:var(--primary)}
+.admin-list-search input{padding-inline-end:38px}
+.admin-list-pagination{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap;grid-column:1/-1;margin-block:6px}
+.admin-list-pagination>span{flex:1;font-size:12px;color:var(--muted);min-width:120px}
+.admin-list-pagination button{min-height:40px;padding:6px 12px;border:1px solid var(--line);border-radius:6px;color:var(--primary);background:var(--surface);font-size:13px}
+.admin-list-empty{color:var(--muted);font-size:14px;grid-column:1/-1;margin:6px 0}
+.admin-workspace .admin-list-item{padding-block:16px;gap:12px;align-items:flex-start}
+.admin-list-item>div:first-child{min-width:0;flex:1}
+.admin-list-item strong{overflow-wrap:anywhere;font-size:15px}
+.admin-list-item small{font-size:12px;line-height:1.8}
+.admin-list-item>div:last-child{flex-shrink:0}
+.admin-list-item button{min-width:40px;min-height:40px;border-radius:6px}
+.editor-actions{position:sticky;top:100px;z-index:6;display:grid;gap:8px;margin-bottom:6px;padding:14px;background:var(--surface);border:1px solid var(--control-line);border-radius:10px;box-shadow:0 4px 20px #23353b0b}
+.editor-actions-buttons,.editor-dialog-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.editor-actions .btn{font-size:12px;min-height:42px;padding:8px 11px;gap:6px}
+.editor-save-state,.editor-draft-message,.editor-draft-restore{font-size:12px;line-height:1.8;color:var(--muted)}
+.editor-draft-message{margin:0;color:var(--primary)}
+.editor-draft-restore{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--line)}
+.editor-draft-restore button{background:var(--soft-primary);color:var(--primary);padding:5px 10px;border-radius:5px;min-height:36px}
+.editor-content-preview{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:24px;overflow-wrap:anywhere}
+.editor-content-preview>img{width:100%;height:220px;object-fit:contain;background:var(--soft-primary);border-radius:7px;margin-bottom:20px}
+.editor-content-preview h2{font-size:28px;line-height:1.6;margin:10px 0 18px}.editor-content-preview h3{font-size:21px;margin-top:26px}
+.editor-content-preview p{font-size:15px;line-height:2}.editor-preview-note{background:var(--soft-gold);color:var(--gold);font-size:14px;padding:12px 16px;border-radius:7px}
+.admin-image-input{display:grid;gap:10px;min-width:0}.admin-image-preview{display:block;width:100%;max-width:320px;height:180px;object-fit:contain;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.admin-upload-state{display:grid;gap:6px;font-size:12px;color:var(--primary)}.admin-upload-state progress{width:100%;accent-color:var(--primary)}
+.admin-message-layout{display:grid;grid-template-columns:minmax(210px,.6fr) minmax(0,1.4fr);gap:24px;align-items:start}
+.admin-message-list{display:grid;gap:10px}.admin-message-list>button{display:grid;gap:7px;text-align:start;padding:15px;border:1px solid var(--line);border-radius:8px;color:var(--text);background:var(--surface)}
+.admin-message-list>button[aria-pressed=true]{border-color:var(--primary);background:var(--soft-primary)}.admin-message-list span,.admin-message-list small{font-size:12px;color:var(--muted)}
+.admin-message-detail{min-width:0;border-inline-start:1px solid var(--line);padding-inline-start:24px}.admin-message-body{white-space:pre-wrap;overflow-wrap:anywhere;line-height:2;padding-bottom:20px;border-bottom:1px solid var(--line)}
+@media(max-width:1250px){.admin-workspace .admin-columns,.admin-workspace .company-admin-layout,.admin-workspace .stats-admin-layout{grid-template-columns:minmax(0,1fr)}.admin-workspace{grid-template-columns:190px minmax(0,1fr);gap:20px}.admin-nav-group button{font-size:13px}.editor-actions .btn{font-size:12px}}
+@media(max-width:760px){.admin-page>.container{width:calc(100% - 28px)}.admin-workspace{grid-template-columns:minmax(0,1fr);gap:18px}.admin-sidebar{position:static;padding:14px}.admin-sidebar>nav{display:none}.admin-mobile-section{display:grid;gap:8px;font-size:13px}.admin-mobile-section select{min-height:46px;width:100%;border:1px solid var(--control-line);border-radius:6px;padding:9px;background:var(--surface);color:var(--text)}.admin-mobile-links{display:flex;gap:20px;font-size:13px;margin-top:12px;color:var(--primary)}.editor-actions{top:82px;padding:10px}.admin-workspace .admin-panel{padding:18px}.admin-list-tools{gap:10px}.admin-message-layout{grid-template-columns:1fr}.admin-message-list{grid-template-columns:repeat(2,minmax(0,1fr));max-height:320px;overflow:auto}.admin-message-detail{border:0;border-top:1px solid var(--line);padding-inline-start:0;padding-top:20px}.editor-content-preview{padding:18px}.editor-content-preview h2{font-size:24px}.editor-actions .btn{min-height:40px}.admin-list-item{flex-wrap:wrap}.admin-list-item>div:first-child{min-width:180px}}
+@media(prefers-reduced-motion:reduce){.admin-workspace *{scroll-behavior:auto!important}}
+@media(max-width:760px){.admin-page{padding-block:24px 50px}.admin-page .admin-heading{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:12px;margin-bottom:16px}.admin-page .admin-heading h1{font-size:28px;margin:0}.admin-page .admin-heading .eyebrow{display:none}.admin-page .admin-heading p{font-size:12px;margin:8px 0 0}.admin-page .admin-heading>.btn{font-size:0;min-width:44px;width:44px;height:44px;padding:10px}.admin-page section[aria-label="ملخص مهام الفريق"]{padding:14px}.admin-page section[aria-label="ملخص مهام الفريق"]>div{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:12px!important}.admin-page section[aria-label="ملخص مهام الفريق"] h2{font-size:17px}.admin-page section[aria-label="ملخص مهام الفريق"] .small-muted{display:none}.admin-page section[aria-label="ملخص مهام الفريق"] .btn{padding:8px 10px;font-size:12px}.task-summary-full{display:none}.task-summary-short{display:inline}.admin-workspace{margin-top:16px}.admin-workspace .debate-required-note{margin:0 0 8px;font-size:12px}.admin-workspace .debate-field-error{font-size:12px}}

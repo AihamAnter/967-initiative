@@ -3,6 +3,7 @@ import WorkThumbnail from './WorkThumbnail';
 import {ArrowUpLeft, Play, Film} from 'lucide-react';
 import {workThumbnail, parseMediaUrl} from '@/lib/media';
 import {formatArabicDate} from '@/lib/format';
+import SaveForLater from './reading/SaveForLater';
 
 export default function WorkCard({work, index = 0, returnTo}) {
   const thumb = workThumbnail(work);
@@ -25,5 +26,6 @@ export default function WorkCard({work, index = 0, returnTo}) {
   return <article className="work-card">
     {work.is_demo ? <div className="work-card-static">{content}</div> :
       <Link className="work-card-click" href={work.debate_slug?'/debates/'+encodeURIComponent(work.debate_slug):'/works/' + encodeURIComponent(work.slug)+(returnTo?'?from='+encodeURIComponent(returnTo):'')}>{content}</Link>}
+    {!work.is_demo && !work.isDemo && work.slug && <div className="card-save-action"><SaveForLater item={{kind:'work',href:'/works/'+encodeURIComponent(work.slug),title:work.title}}/></div>}
   </article>;
 }

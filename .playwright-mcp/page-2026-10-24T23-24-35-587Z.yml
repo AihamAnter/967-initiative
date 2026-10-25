@@ -1,0 +1,265 @@
+- generic [active] [ref=f23e1]:
+  - link "انتقل إلى المحتوى" [ref=f23e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f23e3]:
+    - generic [ref=f23e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f23e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f23e6]
+      - generic [ref=f23e7]:
+        - link "البحث في المنصة" [ref=f23e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f23e12] [cursor=pointer]
+  - main [ref=f23e14]:
+    - generic [ref=f23e15]:
+      - generic [ref=f23e17]:
+        - generic [ref=f23e18]:
+          - generic [ref=f23e19]: حوار يمني، ومساحة لكل رأي
+          - heading "مناظرات 967 نختلف لنفهم." [level=1] [ref=f23e20]:
+            - text: مناظرات 967
+            - generic [ref=f23e21]: نختلف لنفهم.
+          - paragraph [ref=f23e22]: مساحة يمنية للحوار المنظم، نناقش فيها القضايا المختلفة، ونستمع إلى الآراء المتعارضة، ونمنح الجمهور فرصة السؤال والمشاركة.
+          - generic [ref=f23e23]:
+            - link "استكشف المناظرات" [ref=f23e24] [cursor=pointer]:
+              - /url: "#explore"
+            - link "اقترح موضوعاً" [ref=f23e27] [cursor=pointer]:
+              - /url: /debates/suggest
+            - link "قواعد النقاش وسير المناظرة" [ref=f23e28] [cursor=pointer]:
+              - /url: "#debate-guide"
+          - generic [ref=f23e29]: شاهد بحرية، وشارك بحساب ذي بريد مؤكد.
+        - img "مناظرات 967" [ref=f23e31]
+      - generic [ref=f23e32]:
+        - generic [ref=f23e33]:
+          - generic [ref=f23e34]:
+            - generic [ref=f23e35]:
+              - generic [ref=f23e36]: اكتشف الحوار
+              - heading "المناظرات والأرشيف" [level=2] [ref=f23e37]
+            - generic [ref=f23e38]: 2 مناظرة
+          - generic [ref=f23e39]:
+            - generic [ref=f23e40]:
+              - text: ابحث في المناظرات
+              - searchbox "ابحث في المناظرات" [ref=f23e41]
+            - generic [ref=f23e42]:
+              - text: التصنيف
+              - combobox "التصنيف" [ref=f23e43]:
+                - option "كل القضايا" [selected]
+                - option "سياسية"
+                - option "اقتصادية"
+                - option "اجتماعية"
+                - option "ثقافية وتاريخية"
+                - option "تنموية"
+            - generic [ref=f23e44]:
+              - text: النوع
+              - combobox "النوع" [ref=f23e45]:
+                - option "الكل" [selected]
+                - option "مباشرة خارجياً"
+                - option "مسجلة مسبقاً"
+            - generic [ref=f23e46]:
+              - text: المرحلة
+              - combobox "المرحلة" [ref=f23e47]:
+                - option "كل المراحل" [selected]
+                - option "قادمة"
+                - option "تُبث الآن"
+                - option "مكتملة أو تسجيل متاح"
+                - option "مؤجلة"
+                - option "ملغاة"
+            - generic [ref=f23e48]:
+              - text: الترتيب
+              - combobox "الترتيب" [ref=f23e49]:
+                - option "الأحدث" [selected]
+                - option "الأقدم"
+                - option "العنوان"
+          - generic [ref=f23e50]:
+            - article [ref=f23e51]:
+              - generic [ref=f23e52]: مسجلة مسبقاً
+              - generic [ref=f23e55]:
+                - generic [ref=f23e56]:
+                  - generic [ref=f23e57]: تنموية
+                  - generic [ref=f23e58]: التسجيل متاح
+                - heading [level=3] [ref=f23e59]:
+                  - link "هل يجب أن تصبح الخدمات الحكومية في اليمن رقمية بالكامل خلال خمس سنوات؟" [ref=f23e60] [cursor=pointer]:
+                    - /url: /debates/yemen-digital-services-test
+                - paragraph [ref=f23e61]: هل ينبغي لليمن أن يتجه نحو رقمنة جميع الخدمات الحكومية خلال خمس سنوات، أم أن الإبقاء على الخدمات الحضورية إلى جانب الرقمية هو الخيار الأنسب في ظل الظروف الحالية؟
+                - generic [ref=f23e62]:
+                  - generic [ref=f23e63]: د. سامر المعافري
+                  - generic [ref=f23e64]: م. هدى السقاف
+                - generic [ref=f23e65]: "المدة: 94 دقيقة"
+                - link "شاهد المناظرة" [ref=f23e67] [cursor=pointer]:
+                  - /url: /debates/yemen-digital-services-test
+            - article [ref=f23e71]:
+              - generic [ref=f23e72]: مسجلة مسبقاً
+              - generic [ref=f23e75]:
+                - generic [ref=f23e76]:
+                  - generic [ref=f23e77]: اقتصادية
+                  - generic [ref=f23e78]: التسجيل متاح
+                - heading [level=3] [ref=f23e79]:
+                  - link "هل الرأسمالية أم الاشتراكية أكثر قدرة على تحقيق العدالة والازدهار الاقتصادي؟" [ref=f23e80] [cursor=pointer]:
+                    - /url: /debates/commu-or-soci
+                - paragraph [ref=f23e81]: "أي النظامين أكثر قدرة على تحقيق النمو الاقتصادي، وتوزيع الثروة بعدالة، وضمان حياة كريمة للمواطنين: الرأسمالية أم الاشتراكية؟"
+                - generic [ref=f23e82]:
+                  - generic [ref=f23e83]: سامر الحضرمي
+                  - generic [ref=f23e84]: عبدالقادر الاموي
+                - generic [ref=f23e85]: "المدة: 99 دقيقة"
+                - link "شاهد المناظرة" [ref=f23e87] [cursor=pointer]:
+                  - /url: /debates/commu-or-soci
+        - region [ref=f23e91]:
+          - generic [ref=f23e93]:
+            - generic [ref=f23e94]: حوار منظم، وفرصة متكافئة
+            - heading "قواعد النقاش وسير المناظرة" [level=2] [ref=f23e95]
+          - generic [ref=f23e96]:
+            - region [ref=f23e97]:
+              - generic [ref=f23e103]:
+                - heading "قواعد النقاش" [level=3] [ref=f23e104]
+                - paragraph [ref=f23e105]: مساحة للتعبير، ومسؤولية مشتركة في الحوار.
+              - list [ref=f23e106]:
+                - listitem [ref=f23e107]:
+                  - generic [aria-hidden] [ref=f23e108]: "1"
+                  - generic [ref=f23e109]: حرية التعبير
+                - listitem [ref=f23e110]:
+                  - generic [aria-hidden] [ref=f23e111]: "2"
+                  - generic [ref=f23e112]: الاحترام المتبادل
+                - listitem [ref=f23e113]:
+                  - generic [aria-hidden] [ref=f23e114]: "3"
+                  - generic [ref=f23e115]: تكافؤ الفرص والوقت
+                - listitem [ref=f23e116]:
+                  - generic [aria-hidden] [ref=f23e117]: "4"
+                  - generic [ref=f23e118]: عدم المقاطعة
+                - listitem [ref=f23e119]:
+                  - generic [aria-hidden] [ref=f23e120]: "5"
+                  - generic [ref=f23e121]: الالتزام بالمحاور
+                - listitem [ref=f23e122]:
+                  - generic [aria-hidden] [ref=f23e123]: "6"
+                  - generic [ref=f23e124]: الأدلة والمعلومات
+                - listitem [ref=f23e125]:
+                  - generic [aria-hidden] [ref=f23e126]: "7"
+                  - generic [ref=f23e127]: حق الرد
+                - listitem [ref=f23e128]:
+                  - generic [aria-hidden] [ref=f23e129]: "8"
+                  - generic [ref=f23e130]: الالتزام بالوقت
+                - listitem [ref=f23e131]:
+                  - generic [aria-hidden] [ref=f23e132]: "9"
+                  - generic [ref=f23e133]: الامتثال لإدارة المناظرة
+            - region [ref=f23e134]:
+              - generic [ref=f23e140]:
+                - heading "سير المناظرة" [level=3] [ref=f23e141]
+                - paragraph [ref=f23e142]: من الافتتاح إلى الختام، وقت واضح لكل مرحلة.
+              - list [ref=f23e143]:
+                - listitem [ref=f23e144]:
+                  - generic [aria-hidden] [ref=f23e145]: "1"
+                  - heading "افتتاحية المقدم" [level=4] [ref=f23e146]
+                  - strong [ref=f23e148]: 3 دقائق
+                - listitem [ref=f23e149]:
+                  - generic [aria-hidden] [ref=f23e150]: "2"
+                  - heading "الكلمتان الافتتاحيتان" [level=4] [ref=f23e151]
+                  - generic [ref=f23e152]:
+                    - strong [ref=f23e153]: 4 دقائق
+                    - generic [ref=f23e154]: لكل طرف
+                - listitem [ref=f23e155]:
+                  - generic [aria-hidden] [ref=f23e156]: "3"
+                  - heading "عرض الحجج" [level=4] [ref=f23e157]
+                  - generic [ref=f23e158]:
+                    - strong [ref=f23e159]: 10 دقائق
+                    - generic [ref=f23e160]: لكل طرف
+                - listitem [ref=f23e161]:
+                  - generic [aria-hidden] [ref=f23e162]: "4"
+                  - heading "الرد الأول" [level=4] [ref=f23e163]
+                  - generic [ref=f23e164]:
+                    - strong [ref=f23e165]: 5 دقائق
+                    - generic [ref=f23e166]: لكل طرف
+                - listitem [ref=f23e167]:
+                  - generic [aria-hidden] [ref=f23e168]: "5"
+                  - heading "التعقيب الثاني" [level=4] [ref=f23e169]
+                  - generic [ref=f23e170]:
+                    - strong [ref=f23e171]: 5 دقائق
+                    - generic [ref=f23e172]: لكل طرف
+                - listitem [ref=f23e173]:
+                  - generic [aria-hidden] [ref=f23e174]: "6"
+                  - heading "النقاش المفتوح" [level=4] [ref=f23e175]
+                  - generic [ref=f23e176]:
+                    - strong [ref=f23e177]: 20 دقيقة
+                    - generic [ref=f23e178]: مشتركة
+                - listitem [ref=f23e179]:
+                  - generic [aria-hidden] [ref=f23e180]: "7"
+                  - heading "أسئلة الجمهور" [level=4] [ref=f23e181]
+                  - strong [ref=f23e183]: 10–15 دقيقة
+                - listitem [ref=f23e184]:
+                  - generic [aria-hidden] [ref=f23e185]: "8"
+                  - heading "الكلمات الختامية" [level=4] [ref=f23e186]
+                  - generic [ref=f23e187]:
+                    - strong [ref=f23e188]: 3 دقائق
+                    - generic [ref=f23e189]: لكل طرف
+                - listitem [ref=f23e190]:
+                  - generic [aria-hidden] [ref=f23e191]: "9"
+                  - heading "اختتام المقدم" [level=4] [ref=f23e192]
+                  - strong [ref=f23e194]: دقيقتان
+              - generic [ref=f23e195]:
+                - generic [ref=f23e196]: المدة الإجمالية
+                - strong [ref=f23e200]: 89–94 دقيقة
+        - generic [ref=f23e201]:
+          - generic [ref=f23e204]:
+            - heading "أي قضية تستحق أن نتحاور حولها؟" [level=2] [ref=f23e205]
+            - paragraph [ref=f23e206]: اقترح سؤالاً ومواقف مختلفة. تراجع هيئة التحرير كل مقترح قبل اعتماده.
+          - link "اقترح مناظرة" [ref=f23e207] [cursor=pointer]:
+            - /url: /debates/suggest
+  - contentinfo [ref=f23e208]:
+    - generic [ref=f23e209]:
+      - generic [ref=f23e210]:
+        - generic [ref=f23e211]:
+          - link "مبادرة 967" [ref=f23e212] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f23e213]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f23e214]
+          - paragraph [ref=f23e215]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f23e216]:
+            - link "إنستغرام" [ref=f23e217] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f23e225] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f23e233]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f23e234]
+          - link "الأعمال الإعلامية" [ref=f23e235] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f23e236] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f23e237] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f23e238] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f23e239] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f23e240] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f23e241] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f23e242]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f23e243]
+          - link "منتجات يمنية" [ref=f23e244] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f23e245] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f23e246] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f23e247] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f23e248]:
+          - heading "مبادرة 967" [level=3] [ref=f23e249]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f23e250] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f23e251] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f23e252] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f23e253] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f23e254] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f23e255]:
+        - generic [ref=f23e256]: © 2026 مبادرة 967
+        - generic [ref=f23e257]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f23e258]:
+          - link "سياسة الخصوصية" [ref=f23e259] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f23e260] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f23e261] [cursor=pointer]:
+          - /url: /search

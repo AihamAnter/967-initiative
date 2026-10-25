@@ -1,0 +1,125 @@
+- generic [active] [ref=f33e1]:
+  - link "انتقل إلى المحتوى" [ref=f33e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f33e3]:
+    - generic [ref=f33e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f33e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f33e6]
+      - generic [ref=f33e7]:
+        - link "البحث في المنصة" [ref=f33e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f33e12] [cursor=pointer]
+  - main [ref=f33e14]:
+    - generic [ref=f33e16]:
+      - navigation "مسار التصفح" [ref=f33e17]:
+        - link "الرئيسية" [ref=f33e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f33e21]: من نحن
+      - heading "من نحن" [level=1] [ref=f33e22]
+      - paragraph [ref=f33e23]: تعرّف على مبادرة 967 ورسالتها ومجالات عملها والطاقم المشارك فيها.
+    - generic [ref=f33e25]:
+      - navigation "صفحات مرتبطة" [ref=f33e26]:
+        - link "مركز المساعدة والأسئلة الشائعة" [ref=f33e27] [cursor=pointer]:
+          - /url: /help
+        - link "طلبات الخصوصية والبلاغات" [ref=f33e28] [cursor=pointer]:
+          - /url: /privacy-requests
+      - article "من نحن" [ref=f33e29]:
+        - paragraph [ref=f33e30]:
+          - text: "آخر تحديث:"
+          - time [ref=f33e31]: 19 أكتوبر 2026
+        - paragraph [ref=f33e32]: 967 مبادرة إعلامية ومجتمعية يمنية، تجمع المعرفة والحوار والمشاركة في مساحة مفتوحة لكل اليمنيين.
+        - generic [ref=f33e33]:
+          - heading "رؤيتنا ورسالتنا" [level=2] [ref=f33e34]
+          - paragraph [ref=f33e35]: مجتمع أكثر وعياً ومشاركة، عبر المعرفة الواضحة والحوار المفتوح والعمل المشترك.
+        - generic [ref=f33e36]:
+          - heading "مجالات عملنا" [level=2] [ref=f33e37]
+          - paragraph [ref=f33e38]: إنتاج المحتوى الإعلامي والمعرفي، إتاحة البيانات مع مصادرها، وتطوير مساحات الحوار والمبادرات المجتمعية.
+        - generic [ref=f33e39]:
+          - heading "الطاقم ومهامهم" [level=2] [ref=f33e40]
+          - generic [ref=f33e41]:
+            - article [ref=f33e42]:
+              - heading "ايهم عنتر" [level=3] [ref=f33e43]
+              - strong [ref=f33e44]: مؤسس المبادرة والمنسق العام
+              - paragraph [ref=f33e45]: مؤسس مبادرة 967، يتولى الإشراف على رؤيتها وتوجهاتها العامة، وتطوير مشاريعها الإعلامية والمجتمعية، وتنسيق جهود فرق العمل. يسعى من خلال المبادرة إلى تعزيز الوعي المجتمعي، وتشجيع مشاركة الشباب في مناقشة قضايا اليمن والمساهمة في إيجاد حلول لها.
+            - article [ref=f33e46]:
+              - heading "عبدالرحمن" [level=3] [ref=f33e47]
+              - strong [ref=f33e48]: مدير الإنتاج الإعلامي
+              - paragraph [ref=f33e49]: يشرف على إنتاج المحتوى الإعلامي لمبادرة 967، بما يشمل البرامج المرئية والمقابلات والتقارير الميدانية. ويتولى تنسيق مراحل الإعداد والتصوير والمونتاج، والعمل مع الفريق لتقديم محتوى واضح وجذاب يعكس أهداف المبادرة.
+            - article [ref=f33e50]:
+              - heading "آية خالد" [level=3] [ref=f33e51]
+              - strong [ref=f33e52]: مديرة مجلة 967
+              - paragraph [ref=f33e53]: تتولى إدارة مجلة 967 والإشراف على إعداد أعدادها وتنظيم أقسامها ومحتواها التحريري. وتعمل على تنسيق مساهمات الكتّاب، ومراجعة المواد قبل نشرها، وتطوير المجلة لتكون مساحة معرفية وثقافية تطرح قضايا المجتمع اليمني بأسلوب مبسط ومتنوع.
+            - article [ref=f33e54]:
+              - heading "محمد الصغير" [level=3] [ref=f33e55]
+              - strong [ref=f33e56]: مدير الإدارة التقنية
+              - paragraph [ref=f33e57]: يتولى الإشراف على الجوانب التقنية لمبادرة 967،تقديم الدعم التقني لفرق العمل. ويساهم في تطوير حلول رقمية تدعم مشاريع المبادرة وتُحسّن تجربة المستخدم.
+        - generic [ref=f33e58]:
+          - heading "تواصل معنا" [level=2] [ref=f33e59]
+          - paragraph [ref=f33e60]:
+            - text: للاستفسار عن هذه الصفحة أو إرسال طلب يتعلق ببياناتك أو بالمحتوى، استخدم
+            - link "نموذج التواصل" [ref=f33e61] [cursor=pointer]:
+              - /url: /privacy-requests#contribution-form
+            - text: ، واذكر موضوع طلبك بوضوح.
+  - contentinfo [ref=f33e62]:
+    - generic [ref=f33e63]:
+      - generic [ref=f33e64]:
+        - generic [ref=f33e65]:
+          - link "مبادرة 967" [ref=f33e66] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f33e67]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f33e68]
+          - paragraph [ref=f33e69]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f33e70]:
+            - link "إنستغرام" [ref=f33e71] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f33e79] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f33e87]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f33e88]
+          - link "الأعمال الإعلامية" [ref=f33e89] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f33e90] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f33e91] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f33e92] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f33e93] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f33e94] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f33e95] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f33e96]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f33e97]
+          - link "منتجات يمنية" [ref=f33e98] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f33e99] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f33e100] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f33e101] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f33e102]:
+          - heading "مبادرة 967" [level=3] [ref=f33e103]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f33e104] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f33e105] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f33e106] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f33e107] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f33e108] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f33e109]:
+        - generic [ref=f33e110]: © 2026 مبادرة 967
+        - generic [ref=f33e111]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f33e112]:
+          - link "سياسة الخصوصية" [ref=f33e113] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f33e114] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f33e115] [cursor=pointer]:
+          - /url: /search

@@ -16,7 +16,7 @@ export default async function YemenMapPage({searchParams}) {
   const district = typeof params.district==='string' && /^YE\d{4}$/.test(params.district) ? params.district : null;
   return <div className="ymap-page">
     <link rel="preload" href="/data/yemen-map/yemen-boundaries.json" as="fetch" crossOrigin="anonymous"/>
-    <section className="ymap-hero">
+    <section className="ymap-hero" data-section-tone="green">
       <div className="container">
         <span className="eyebrow">أطلس 967 الجغرافي</span>
         <h1>اكتشف <span>اليمن</span></h1>

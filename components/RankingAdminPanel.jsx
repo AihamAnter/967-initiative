@@ -1,4 +1,9 @@
 'use client';
+import ValidatedForm,{FormInput,FormTextarea,FormSelect,FormLabel} from './debates/ValidatedForm';
+import {revealInvalidField,trackEditorFiles,publicationIntent} from './admin/formHelpers';
+import useAdminEditor from './admin/useAdminEditor';
+import EditorActions from './admin/EditorActions';
+
 
 import {useCallback, useEffect, useId, useMemo, useRef, useState} from 'react';
 import {AlertTriangle, Check, Eye, EyeOff, Library, Pencil, Plus, RefreshCw, Save, Search, Square, X} from 'lucide-react';
@@ -123,6 +128,7 @@ export default function RankingAdminPanel({db,initialItem = ''}) {
   useEffect(() => {load();}, [load]);
   useAdminItemTarget({item:initialItem,rows:indicators,loading,onSelect:openEditor,onMissing:()=>setNotice({type:'error',text:'لم يتم العثور على مؤشر الترتيب المطلوب. لم يتغير أي محتوى.'})});
 
+  const editor=useAdminEditor({db,kind:'ranking',id:draft.id,value:draft,onRestore:value=>{setDraft(value);dirtyRef.current=true;setDirty(true);}});
   const filtered = useMemo(() => indicators.filter(row => {
     const needle = query.trim().toLocaleLowerCase('ar');
     return (!needle || [row.name, row.slug, row.code, row.unit, categoryName(row.category)].join(' ').toLocaleLowerCase('ar').includes(needle))
@@ -137,23 +143,23 @@ export default function RankingAdminPanel({db,initialItem = ''}) {
   const writesDisabled = busy || loading || Boolean(loadError) || setupRequired;
   const selectedRow = indicators.find(row => row.id === draft.id);
 
-  function markClean() {dirtyRef.current = false; setDirty(false); setConflict(false);}
+  function markClean(next) {if(next)editor.markClean(next);dirtyRef.current = false; setDirty(false); setConflict(false);}
   function setField(key, value) {
     setDraft(current => ({...current, [key]:value}));
     dirtyRef.current = true; setDirty(true);
   }
   function focusEditor() {requestAnimationFrame(() => editorHeading.current?.focus());}
   function openEditor(row, preset = false) {
-    if (dirtyRef.current) {
+    if (editor.unprotected) {
       setNotice({type:'error', text:'لديك تعديلات غير محفوظة. احفظها أو اضغط «إلغاء التعديلات» قبل فتح مؤشر آخر.'});
       focusEditor(); return;
     }
     const next = preset ? {...blankDraft(), ...Object.fromEntries(Object.entries(row).filter(([key]) => !['id', 'updated_at', 'snapshot', 'expectedUpdatedAt'].includes(key))), is_published:false} : toDraft(row);
-    setDraft(next); markClean(); setNotice(preset ? {type:'info', text:'أُضيفت بيانات المكتبة إلى مسودة التحرير فقط. راجعها ثم اضغط حفظ؛ لم تُكتب في قاعدة البيانات بعد.'} : null);
+    setDraft(next); markClean(preset?blankDraft():next); setNotice(preset ? {type:'info', text:'أُضيفت بيانات المكتبة إلى مسودة التحرير فقط. راجعها ثم اضغط حفظ؛ لم تُكتب في قاعدة البيانات بعد.'} : null);
     if (preset) {dirtyRef.current = true; setDirty(true);}
     focusEditor();
   }
-  function resetEditor() {setDraft(blankDraft()); markClean(); setNotice(null); focusEditor();}
+  function resetEditor() {if(!editor.confirm())return;setDraft(blankDraft()); markClean(blankDraft()); setNotice(null); focusEditor();}
 
   function mergeSaved(saved, snapshot, original) {
     const updated = {...original, ...saved};
@@ -185,12 +191,12 @@ export default function RankingAdminPanel({db,initialItem = ''}) {
     if (writesDisabled) return;
     setAction('save'); setNotice(null); setConflict(false);
     try {
-      const payload = payloadFor(draft);
+      const payload = {...payloadFor(draft),is_published:publicationIntent(event,draft.is_published)};
       const response = await request('/api/admin/rankings', {indicator:payload, ...(draft.expectedUpdatedAt ? {expectedUpdatedAt:draft.expectedUpdatedAt} : {})});
       if (!response.indicator?.id) throw Error('لم يؤكد الخادم سجل المؤشر المحفوظ. أعد تحميل القائمة للتحقق؛ بقيت مسودتك كما هي.');
       if (!mounted.current) return;
       const saved = mergeSaved(response.indicator, response.indicator.snapshot, selectedRow);
-      setDraft(toDraft(saved)); markClean();
+      setDraft(toDraft(saved)); markClean(toDraft(saved));await editor.clearDraft();
       setNotice({type:'success', text:payload.is_published ? 'تم حفظ المؤشر منشوراً. القيم والترتيب يعتمدان على آخر لقطة صالحة من المصدر.' : 'تم حفظ المؤشر كمسودة؛ لا يظهر في القائمة العامة.'});
     } catch (error) {
       if (mounted.current) {
@@ -209,7 +215,7 @@ export default function RankingAdminPanel({db,initialItem = ''}) {
       if (!row) throw Error('لم نعثر على النسخة المحفوظة. بقيت مسودتك دون تغيير.');
       if (!mounted.current) return;
       setIndicators(sortIndicators(response.indicators)); setSetupRequired(Boolean(response.setupRequired));
-      setDraft(toDraft(row)); markClean(); setNotice({type:'info', text:'حُمّلت النسخة المحفوظة واستُبدلت مسودة التحرير بناءً على اختيارك.'});
+      setDraft(toDraft(row)); markClean(toDraft(row)); setNotice({type:'info', text:'حُمّلت النسخة المحفوظة واستُبدلت مسودة التحرير بناءً على اختيارك.'});
       focusEditor();
     } catch (error) {if (mounted.current) setNotice({type:'error', text:error.message});}
     finally {if (mounted.current) setAction('');}
@@ -278,24 +284,24 @@ export default function RankingAdminPanel({db,initialItem = ''}) {
 
     <div className={styles.layout}>
       <section className="admin-panel" aria-labelledby={`${fieldId}-editor`}><h2 ref={editorHeading} tabIndex={-1} id={`${fieldId}-editor`}><Pencil size={21} aria-hidden="true"/>{draft.id ? 'تعديل المؤشر' : 'إضافة مؤشر'}{dirty && <span className={styles.badge}>تعديلات غير محفوظة</span>}</h2>
-        <form className={`admin-form ${styles.form}`} onSubmit={save}>
+        <ValidatedForm className={`admin-form ${styles.form}`} onSubmit={save} data-editor-key={editor.key} onInvalidCapture={revealInvalidField} onChangeCapture={event=>trackEditorFiles(event,editor)}><EditorActions editor={editor} busy={writesDisabled} value={draft} published={draft.is_published} onCancel={resetEditor} allowNew={false}/>
           <fieldset className={styles.fields} disabled={busy || loading || setupRequired}>
-            <label htmlFor={`${fieldId}-name`}>اسم المؤشر بالعربية<input id={`${fieldId}-name`} value={draft.name} onChange={event => setField('name', event.target.value)} required minLength={2} maxLength={160}/></label>
-            <div className="form-row"><label htmlFor={`${fieldId}-slug`}>الرابط المختصر<input id={`${fieldId}-slug`} dir="ltr" autoCapitalize="none" spellCheck={false} value={draft.slug} onChange={event => setField('slug', event.target.value.toLowerCase().replace(/\s+/g, '-'))} required maxLength={100} pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="gdp-per-capita"/></label><label htmlFor={`${fieldId}-category`}>المجال<select id={`${fieldId}-category`} value={draft.category} onChange={event => setField('category', event.target.value)} required>{rankingCategories.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label></div>
-            <div className="form-row"><label htmlFor={`${fieldId}-code`}>رمز المؤشر في البنك الدولي WDI<input id={`${fieldId}-code`} dir="ltr" autoCapitalize="characters" spellCheck={false} value={draft.code} onChange={event => setField('code', event.target.value.toUpperCase())} required minLength={2} maxLength={80} pattern="[A-Z0-9][A-Z0-9_.]+" placeholder="NY.GDP.PCAP.CD"/></label><label htmlFor={`${fieldId}-unit`}>وحدة القياس<input id={`${fieldId}-unit`} value={draft.unit} onChange={event => setField('unit', event.target.value)} required maxLength={120} placeholder="دولار أمريكي للفرد"/></label></div>
-            <label htmlFor={`${fieldId}-description`}>التوضيح وحدود المقارنة<textarea id={`${fieldId}-description`} rows={4} value={draft.description} onChange={event => setField('description', event.target.value)} maxLength={3000} placeholder="اشرح معنى المؤشر، وما الذي ينبغي مراعاته عند تفسير ترتيب اليمن."/></label>
-            <div className="form-row"><label htmlFor={`${fieldId}-direction`}>ترتيب القيم — من يحتل المرتبة الأولى؟<select id={`${fieldId}-direction`} value={draft.direction} onChange={event => setField('direction', event.target.value)}><option value="desc">القيمة الأكبر أولاً</option><option value="asc">القيمة الأصغر أولاً</option></select></label><label htmlFor={`${fieldId}-better`}>دلالة القيمة<select id={`${fieldId}-better`} value={draft.better} onChange={event => setField('better', event.target.value)}><option value="higher">الأعلى أفضل لهذا المؤشر</option><option value="lower">الأقل أفضل لهذا المؤشر</option><option value="contextual">تحتاج إلى سياق؛ ليست حكماً على التحسن</option></select></label></div>
+            <FormLabel htmlFor={`${fieldId}-name`}>اسم المؤشر بالعربية<FormInput id={`${fieldId}-name`} value={draft.name} onChange={event => setField('name', event.target.value)} required minLength={2} maxLength={160}/></FormLabel>
+            <div className="form-row"><FormLabel htmlFor={`${fieldId}-slug`}>الرابط المختصر<FormInput id={`${fieldId}-slug`} dir="ltr" autoCapitalize="none" spellCheck={false} value={draft.slug} onChange={event => setField('slug', event.target.value.toLowerCase().replace(/\s+/g, '-'))} required maxLength={100} pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="gdp-per-capita"/></FormLabel><FormLabel htmlFor={`${fieldId}-category`}>المجال<FormSelect id={`${fieldId}-category`} value={draft.category} onChange={event => setField('category', event.target.value)} required>{rankingCategories.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</FormSelect></FormLabel></div>
+            <div className="form-row"><FormLabel htmlFor={`${fieldId}-code`}>رمز المؤشر في البنك الدولي WDI<FormInput id={`${fieldId}-code`} dir="ltr" autoCapitalize="characters" spellCheck={false} value={draft.code} onChange={event => setField('code', event.target.value.toUpperCase())} required minLength={2} maxLength={80} pattern="[A-Z0-9][A-Z0-9_.]+" placeholder="NY.GDP.PCAP.CD"/></FormLabel><FormLabel htmlFor={`${fieldId}-unit`}>وحدة القياس<FormInput id={`${fieldId}-unit`} value={draft.unit} onChange={event => setField('unit', event.target.value)} required maxLength={120} placeholder="دولار أمريكي للفرد"/></FormLabel></div>
+            <FormLabel htmlFor={`${fieldId}-description`}>التوضيح وحدود المقارنة<FormTextarea id={`${fieldId}-description`} rows={4} value={draft.description} onChange={event => setField('description', event.target.value)} maxLength={3000} placeholder="اشرح معنى المؤشر، وما الذي ينبغي مراعاته عند تفسير ترتيب اليمن."/></FormLabel>
+            <div className="form-row"><FormLabel htmlFor={`${fieldId}-direction`}>ترتيب القيم — من يحتل المرتبة الأولى؟<FormSelect id={`${fieldId}-direction`} value={draft.direction} onChange={event => setField('direction', event.target.value)}><option value="desc">القيمة الأكبر أولاً</option><option value="asc">القيمة الأصغر أولاً</option></FormSelect></FormLabel><FormLabel htmlFor={`${fieldId}-better`}>دلالة القيمة<FormSelect id={`${fieldId}-better`} value={draft.better} onChange={event => setField('better', event.target.value)}><option value="higher">الأعلى أفضل لهذا المؤشر</option><option value="lower">الأقل أفضل لهذا المؤشر</option><option value="contextual">تحتاج إلى سياق؛ ليست حكماً على التحسن</option></FormSelect></FormLabel></div>
             <p className="field-hint">ترتيب الأرقام ودلالتها قراران منفصلان. ارتفاع عدد السكان مثلاً لا يعني أن البلد «أفضل». استخدم التوضيح لمنع قراءة الترتيب كتقييم شامل لليمن.</p>
-            <div className="form-row"><label htmlFor={`${fieldId}-order`}>ترتيب العرض في المنصة<input id={`${fieldId}-order`} type="number" min={0} max={10000} step={1} value={draft.display_order} onChange={event => setField('display_order', event.target.value)} required/></label><label className="checkline" htmlFor={`${fieldId}-published`}><input id={`${fieldId}-published`} type="checkbox" checked={Boolean(draft.is_published)} onChange={event => setField('is_published', event.target.checked)}/>نشر المؤشر في الصفحة العامة</label></div>
+            <div className="form-row"><FormLabel htmlFor={`${fieldId}-order`}>ترتيب العرض في المنصة<FormInput id={`${fieldId}-order`} type="number" min={0} max={10000} step={1} value={draft.display_order} onChange={event => setField('display_order', event.target.value)} required/></FormLabel><FormLabel className="checkline" htmlFor={`${fieldId}-published`}><FormInput id={`${fieldId}-published`} type="checkbox" checked={Boolean(draft.is_published)} onChange={event => setField('is_published', event.target.checked)}/>نشر المؤشر في الصفحة العامة</FormLabel></div>
           </fieldset>
-          <div className={styles.actions}><button type="submit" className="btn btn-primary" disabled={writesDisabled}><Save size={17} aria-hidden="true"/>{action === 'save' ? 'جارٍ الحفظ…' : draft.is_published ? 'حفظ ونشر المؤشر' : 'حفظ المسودة'}</button><button type="button" className="btn btn-outline" disabled={busy} onClick={resetEditor}><X size={17} aria-hidden="true"/>{dirty ? 'إلغاء التعديلات' : 'مؤشر جديد'}</button></div>
+
           {conflict && <div className={styles.warning}><p>يمكنك الاحتفاظ بمسودتك للمراجعة، أو استبدالها صراحةً بالنسخة الأحدث على الخادم.</p><button type="button" className="btn btn-outline" disabled={busy} onClick={replaceWithSaved}>استبدال المسودة بالنسخة المحفوظة</button></div>}
-        </form>
+        </ValidatedForm>
         {draft.id && <section className={styles.editorSnapshot}><h3>لقطة المصدر المحفوظة لهذا المؤشر</h3><SnapshotFacts snapshot={selectedRow?.snapshot}/><button type="button" className="btn btn-outline" disabled={writesDisabled || dirty || !selectedRow} onClick={() => selectedRow && refreshSingle(selectedRow)}><RefreshCw size={17} aria-hidden="true"/> تحديث لقطة المصدر</button>{dirty && <p className="small-muted">احفظ التعديلات أو ألغها قبل تحديث هذا المؤشر.</p>}</section>}
       </section>
 
       <section className={`admin-panel ${styles.list}`} aria-labelledby={`${fieldId}-list`}><h2 id={`${fieldId}-list`}>المؤشرات {setupRequired ? 'في المعاينة' : 'المحفوظة'} <span className={styles.badge}>{formatNumber(indicators.length)}</span></h2>
-        <div className={styles.filters}><label htmlFor={`${fieldId}-search`}><Search size={17} aria-hidden="true"/>البحث<input id={`${fieldId}-search`} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="اسم، رمز، أو وحدة"/></label><label htmlFor={`${fieldId}-filter-category`}>المجال<select id={`${fieldId}-filter-category`} value={category} onChange={event => setCategory(event.target.value)}><option value="all">جميع المجالات</option>{rankingCategories.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><label htmlFor={`${fieldId}-filter-publication`}>حالة النشر<select id={`${fieldId}-filter-publication`} value={publication} onChange={event => setPublication(event.target.value)}><option value="all">الكل</option><option value="published">منشور</option><option value="draft">مسودة</option></select></label></div>
+        <div className={styles.filters}><FormLabel htmlFor={`${fieldId}-search`}><Search size={17} aria-hidden="true"/>البحث<FormInput id={`${fieldId}-search`} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="اسم، رمز، أو وحدة"/></FormLabel><FormLabel htmlFor={`${fieldId}-filter-category`}>المجال<FormSelect id={`${fieldId}-filter-category`} value={category} onChange={event => setCategory(event.target.value)}><option value="all">جميع المجالات</option>{rankingCategories.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</FormSelect></FormLabel><FormLabel htmlFor={`${fieldId}-filter-publication`}>حالة النشر<FormSelect id={`${fieldId}-filter-publication`} value={publication} onChange={event => setPublication(event.target.value)}><option value="all">الكل</option><option value="published">منشور</option><option value="draft">مسودة</option></FormSelect></FormLabel></div>
         <div className={styles.bulk}><p className="small-muted">المعروض: {formatNumber(filtered.length)}. التحديث الجماعي يشمل هذه القائمة عند بدء الطابور، بطلب واحد في كل مرة.</p><button type="button" className="btn btn-outline" disabled={writesDisabled || !filtered.length} onClick={refreshQueue}><RefreshCw size={17} aria-hidden="true"/>تحديث المؤشرات المعروضة ({formatNumber(filtered.length)})</button></div>
         {(queue.running || queue.total > 0) && <div className={styles.queue}><div role="status" aria-live="polite"><strong>{queue.running ? queueCancelled.current ? 'سيتوقف الطابور بعد اكتمال الطلب الجاري.' : `جارٍ تحديث: ${queue.current}` : queue.cancelled ? 'توقف الطابور بناءً على طلبك.' : 'اكتمل الطابور.'}</strong><p>{formatNumber(queue.completed)} من {formatNumber(queue.total)} · نجح {formatNumber(queue.succeeded)} · تعذر {formatNumber(queue.failed)}</p></div><progress aria-label="تقدم تحديث المؤشرات" value={queue.completed} max={queue.total}/>{queue.running && <button type="button" className="btn btn-outline" onClick={() => {queueCancelled.current = true; setQueue(current => ({...current}));}} disabled={queueCancelled.current}><Square size={15} aria-hidden="true"/>إيقاف بعد الطلب الجاري</button>}{queue.results.some(item => !item.success) && <details><summary>تفاصيل التحديثات غير المكتملة</summary><ul>{queue.results.filter(item => !item.success).map(item => <li key={item.id}><strong>{item.name}</strong>: {item.message}</li>)}</ul></details>}</div>}
         {!loading && !filtered.length && <div className={styles.empty}><p>{indicators.length ? 'لا توجد مؤشرات تطابق البحث والفلاتر.' : 'لم يُحفظ أي مؤشر بعد. اختر معياراً من المكتبة أو أضف مؤشراً جديداً.'}</p>{indicators.length > 0 && <button type="button" className="btn btn-outline" onClick={() => {setQuery(''); setCategory('all'); setPublication('all');}}>مسح البحث والفلاتر</button>}</div>}
@@ -303,7 +309,7 @@ export default function RankingAdminPanel({db,initialItem = ''}) {
       </section>
     </div>
 
-    <details className={`admin-panel ${styles.library}`}><summary><Library size={21} aria-hidden="true"/>مكتبة معايير جاهزة للمراجعة ({formatNumber(library.length)})</summary><p className="small-muted">اختيار معيار يجهز مسودة قابلة للتعديل فقط. راجع العنوان والوحدة والتفسير قبل الحفظ أو النشر؛ لا تضيف الواجهة هذه المكتبة إلى قاعدة البيانات تلقائياً.</p><label htmlFor={`${fieldId}-library-search`}>البحث في المكتبة<input id={`${fieldId}-library-search`} type="search" value={libraryQuery} onChange={event => setLibraryQuery(event.target.value)} placeholder="مثلاً: التعليم أو الصحة أو الكهرباء"/></label><div className={styles.libraryGrid}>{filteredLibrary.map(row => {
+    <details className={`admin-panel ${styles.library}`}><summary><Library size={21} aria-hidden="true"/>مكتبة معايير جاهزة للمراجعة ({formatNumber(library.length)})</summary><p className="small-muted">اختيار معيار يجهز مسودة قابلة للتعديل فقط. راجع العنوان والوحدة والتفسير قبل الحفظ أو النشر؛ لا تضيف الواجهة هذه المكتبة إلى قاعدة البيانات تلقائياً.</p><FormLabel htmlFor={`${fieldId}-library-search`}>البحث في المكتبة<FormInput id={`${fieldId}-library-search`} type="search" value={libraryQuery} onChange={event => setLibraryQuery(event.target.value)} placeholder="مثلاً: التعليم أو الصحة أو الكهرباء"/></FormLabel><div className={styles.libraryGrid}>{filteredLibrary.map(row => {
       const added = !setupRequired && indicators.some(item => item.slug === row.slug || item.code === row.code);
       return <article key={row.slug}><span className="eyebrow">{categoryName(row.category)}</span><h3>{row.name}</h3><code dir="ltr">{row.code}</code><p>{row.description}</p><button type="button" className="btn btn-outline" disabled={busy || loading || setupRequired || added} onClick={() => openEditor(row, true)}><Plus size={16} aria-hidden="true"/>{added ? 'مضاف إلى القائمة' : 'استخدام في مسودة جديدة'}</button></article>;
     })}</div>{!filteredLibrary.length && <p role="status">لا يوجد معيار مطابق في المكتبة. يمكنك إنشاء معيار برمز WDI آخر من نموذج التحرير.</p>}</details>

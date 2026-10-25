@@ -1,0 +1,138 @@
+- generic [active] [ref=f16e1]:
+  - link "انتقل إلى المحتوى" [ref=f16e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f16e3]:
+    - generic [ref=f16e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f16e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f16e6]
+      - generic [ref=f16e7]:
+        - link "البحث في المنصة" [ref=f16e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f16e12] [cursor=pointer]
+  - main [ref=f16e14]:
+    - generic [ref=f16e16]:
+      - navigation "مسار التصفح" [ref=f16e17]:
+        - link "الرئيسية" [ref=f16e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f16e21]: دليل المهنيين
+      - generic [ref=f16e22]: دليل المهنيين
+      - heading "المهارة أقرب إليك." [level=1] [ref=f16e23]
+      - paragraph [ref=f16e24]: اعثر على صاحب المهارة المناسب. تعرّف على خدماته، نطاق عمله، ووسائل الاتصال المنشورة بإذنه.
+      - generic [ref=f16e25]:
+        - generic [ref=f16e26]:
+          - text: "الملفات المنشورة:"
+          - strong [ref=f16e27]: "1"
+        - generic [ref=f16e28]:
+          - text: "المجالات المتاحة:"
+          - strong [ref=f16e29]: "1"
+        - link "اطلب إضافة ملفك" [ref=f16e30] [cursor=pointer]:
+          - /url: /contribute?type=طلب%20إضافة%20ملف%20مهني
+    - generic [ref=f16e36]:
+      - generic [ref=f16e37]:
+        - textbox "البحث عن مهني" [ref=f16e42]:
+          - /placeholder: ابحث بالاسم، المهنة أو الخدمة...
+        - combobox "اختيار المهنة" [ref=f16e45] [cursor=pointer]:
+          - option "كل المهن" [selected]
+          - option "نجارة وأثاث"
+        - combobox "منطقة تقديم الخدمة" [ref=f16e50] [cursor=pointer]:
+          - option "كل مناطق الخدمة" [selected]
+          - option "سقطرى"
+          - option "أمانة العاصمة"
+          - option "صنعاء"
+        - combobox "طريقة تقديم الخدمة" [ref=f16e57] [cursor=pointer]:
+          - option "كل طرق الخدمة" [selected]
+          - option "حضوري"
+          - option "عن بُعد"
+          - option "حضوري وعن بُعد"
+      - generic [ref=f16e58]:
+        - generic [ref=f16e59]: المهنيون المطابقون لبحثك
+        - strong [ref=f16e60]: "عدد النتائج: 1"
+      - article [ref=f16e62] [cursor=pointer]:
+        - link "عرض ملف علي سعيد الكروني" [ref=f16e63]:
+          - /url: /professionals/ali-carpenter?from=%2Fprofessionals%23professionals-directory
+        - generic:
+          - generic:
+            - generic: نجارة وأثاث
+            - generic: حضوري
+          - generic: سقطرى
+          - heading "علي سعيد الكروني" [level=2]
+          - generic: بيانات بحاجة إلى مراجعة
+          - strong: نجار أثاث وديكورات
+          - generic: "يخدم: أمانة العاصمة، صنعاء"
+          - paragraph: نجار يمني متخصص في تصميم وتصنيع الأثاث المنزلي والمكتبي، بخبرة تزيد عن 8 سنوات في أعمال النجارة والديكورات الخشبية. أقدم خدمات تفصيل غرف النوم والمطابخ والخزائن والأبواب، بالإضافة إلى صيانة الأثاث وتركيبه. أحرص على جودة التنفيذ والالتزام بالمواعيد وتقديم حلول تناسب احتياجات العملاء وميزانياتهم.
+          - generic:
+            - generic: تفصيل غرف النوم والخزائن
+            - generic: تصميم وتركيب المطابخ الخشبية
+            - generic: تصنيع الأبواب والنوافذ
+          - generic:
+            - generic: عرض الملف
+            - link "مراسلة علي سعيد الكروني عبر واتساب" [ref=f16e66]:
+              - /url: https://wa.me/967777000456
+              - generic [ref=f16e69]: واتساب
+    - generic [ref=f16e71]:
+      - generic [ref=f16e72]:
+        - text: المهارات المحلية تستحق أن تُرى
+        - heading "قدّم ملفك إلى فريق التحرير للمراجعة." [level=2] [ref=f16e73]
+      - link "طلب إضافة ملف" [ref=f16e74] [cursor=pointer]:
+        - /url: /contribute?type=طلب%20إضافة%20ملف%20مهني
+  - contentinfo [ref=f16e78]:
+    - generic [ref=f16e79]:
+      - generic [ref=f16e80]:
+        - generic [ref=f16e81]:
+          - link "مبادرة 967" [ref=f16e82] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f16e83]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f16e84]
+          - paragraph [ref=f16e85]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f16e86]:
+            - link "إنستغرام" [ref=f16e87] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f16e95] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f16e103]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f16e104]
+          - link "الأعمال الإعلامية" [ref=f16e105] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f16e106] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f16e107] [cursor=pointer]:
+            - /url: /magazine
+          - link "اليمن بالأرقام" [ref=f16e108] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f16e109] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f16e110] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f16e111]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f16e112]
+          - link "منتجات يمنية" [ref=f16e113] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f16e114] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f16e115] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f16e116] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f16e117]:
+          - heading "مبادرة 967" [level=3] [ref=f16e118]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f16e119] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f16e120] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f16e121] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f16e122] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f16e123] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f16e124]:
+        - generic [ref=f16e125]: © 2026 مبادرة 967
+        - generic [ref=f16e126]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f16e127]:
+          - link "سياسة الخصوصية" [ref=f16e128] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f16e129] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f16e130] [cursor=pointer]:
+          - /url: /search

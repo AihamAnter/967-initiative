@@ -1,0 +1,99 @@
+- generic [active] [ref=f16e1]:
+  - link "انتقل إلى المحتوى" [ref=f16e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f16e3]:
+    - generic [ref=f16e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f16e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f16e6]
+      - generic [ref=f16e7]:
+        - link "البحث في المنصة" [ref=f16e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f16e12] [cursor=pointer]
+  - main [ref=f16e14]:
+    - generic [ref=f16e16]:
+      - navigation "مسار التصفح" [ref=f16e17]:
+        - link "الرئيسية" [ref=f16e18] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f16e21]: مجلة 967
+      - generic [ref=f16e22]: مجلة 967
+      - heading "صفحات من الحكاية اليمنية." [level=1] [ref=f16e23]
+      - paragraph [ref=f16e24]: ملفات وقصص وأفكار تقرأها في وقتك. افتح العدد من المتصفح أو احتفظ بنسختك بصيغة PDF.
+    - article [ref=f16e27] [cursor=pointer]:
+      - img "غلاف اليمن خلف عناوين الحرب والسلام" [ref=f16e29]
+      - generic [ref=f16e30]:
+        - generic [ref=f16e31]: أحدث إصدار
+        - generic [ref=f16e32]: العدد 2
+        - heading "اليمن خلف عناوين الحرب والسلام" [level=2] [ref=f16e33]
+        - paragraph [ref=f16e34]: يناقش قضايا الانسان واليمن
+        - time [ref=f16e35]: 13 أكتوبر 2026
+        - generic [ref=f16e38]:
+          - link "اقرأ العدد" [ref=f16e39]:
+            - /url: /magazine/issue-2
+          - generic [ref=f16e42]:
+            - button "حفظ اليمن خلف عناوين الحرب والسلام للقراءة لاحقاً" [disabled] [ref=f16e44]: احفظ للقراءة لاحقاً
+            - status [ref=f16e47]
+          - link "تحميل PDF" [ref=f16e48]:
+            - /url: https://faadtmvgeafgrzpvtnab.supabase.co/storage/v1/object/public/media/pdf/c4a27c3f-19ab-4ca9-ad64-0b7934fa5689.pdf
+  - contentinfo [ref=f16e52]:
+    - generic [ref=f16e53]:
+      - generic [ref=f16e54]:
+        - generic [ref=f16e55]:
+          - link "مبادرة 967" [ref=f16e56] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f16e57]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f16e58]
+          - paragraph [ref=f16e59]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f16e60]:
+            - link "إنستغرام" [ref=f16e61] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f16e69] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f16e77]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f16e78]
+          - link "الأعمال الإعلامية" [ref=f16e79] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f16e80] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f16e81] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f16e82] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f16e83] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f16e84] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f16e85] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f16e86]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f16e87]
+          - link "منتجات يمنية" [ref=f16e88] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f16e89] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f16e90] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f16e91] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f16e92]:
+          - heading "مبادرة 967" [level=3] [ref=f16e93]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f16e94] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f16e95] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f16e96] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f16e97] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f16e98] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f16e99]:
+        - generic [ref=f16e100]: © 2026 مبادرة 967
+        - generic [ref=f16e101]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f16e102]:
+          - link "سياسة الخصوصية" [ref=f16e103] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f16e104] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f16e105] [cursor=pointer]:
+          - /url: /search

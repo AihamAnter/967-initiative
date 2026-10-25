@@ -1,0 +1,252 @@
+- generic [ref=f6e1]:
+  - link "انتقل إلى المحتوى" [ref=f6e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f6e3]:
+    - generic [ref=f6e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f6e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f6e6]
+      - generic [ref=f6e7]:
+        - link "البحث في المنصة" [ref=f6e8] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f6e110] [cursor=pointer]:
+          - /url: /login
+        - button "فتح القائمة" [ref=f6e12] [cursor=pointer]
+  - main [ref=f6e14]:
+    - generic [ref=f6e15]:
+      - generic [ref=f6e17]:
+        - generic [ref=f6e18]: أطلس 967 الجغرافي
+        - heading "اكتشف اليمن" [level=1] [ref=f6e19]
+        - paragraph [ref=f6e20]: استكشف المحافظات والمديريات والشخصيات المرتبطة بها.
+      - navigation "اختر طريقة اكتشاف اليمن" [ref=f6e21]:
+        - link "استكشف المحافظات والمديريات الخريطة ومعلومات الأماكن" [ref=f6e22] [cursor=pointer]:
+          - /url: "#map"
+          - strong [ref=f6e23]: استكشف المحافظات والمديريات
+          - generic [ref=f6e24]: الخريطة ومعلومات الأماكن
+        - link "اكتشف الشخصيات اليمنية ابحث بالاسم أو المجال أو المحافظة" [ref=f6e25] [cursor=pointer]:
+          - /url: "#yemeni-figures"
+          - strong [ref=f6e26]: اكتشف الشخصيات اليمنية
+          - generic [ref=f6e27]: ابحث بالاسم أو المجال أو المحافظة
+      - generic [ref=f6e29]:
+        - generic [ref=f6e30]:
+          - heading "اختر مكاناً على الخريطة" [level=2] [ref=f6e32]
+          - paragraph [ref=f6e33]: ابحث عن محافظة أو مديرية، أو اضغط عليها لاستكشافها.
+        - complementary [ref=f6e34]:
+          - group [ref=f6e35]:
+            - 'generic "اليمن، ثلاث محطات أقرب. جولة اكتشاف · المحطات: 0 من 3 0 عرض الجولة" [active] [ref=f6e249] [cursor=pointer]':
+              - generic [ref=f6e37]:
+                - strong [ref=f6e38]: اليمن، ثلاث محطات أقرب.
+                - generic [ref=f6e39]: "جولة اكتشاف · المحطات: 0 من 3"
+                - progressbar "اليمن، ثلاث محطات أقرب." [ref=f6e40]
+              - generic [ref=f6e41]: عرض الجولة
+          - status [ref=f6e45]: "المحطات المستكشفة: 0 من 3."
+        - generic [ref=f6e131]:
+          - generic [ref=f6e132]:
+            - generic [ref=f6e133]:
+              - textbox "ابحث عن محافظة أو مديرية" [ref=f6e138]:
+                - /placeholder: ابحث عن محافظة أو مديرية...
+              - combobox "اختيار محافظة" [ref=f6e139]:
+                - option "اختر محافظة" [selected]
+                - option "ابين"
+                - option "الضالع"
+                - option "عدن"
+                - option "البيضاء"
+                - option "الحديده"
+                - option "الجوف"
+                - option "المهره"
+                - option "المحويت"
+                - option "عمران"
+                - option "ذمار"
+                - option "حضرموت"
+                - option "حجه"
+                - option "اب"
+                - option "لحج"
+                - option "مارب"
+                - option "ريمه"
+                - option "صعده"
+                - option "صنعاء"
+                - option "امانة العاصمه"
+                - option "شبوه"
+                - option "سقطرى"
+                - option "تعز"
+            - group "أدوات التحكم بالخريطة" [ref=f6e140]:
+              - button "تكبير" [ref=f6e141] [cursor=pointer]
+              - button "تصغير" [ref=f6e143] [cursor=pointer]
+              - button "عرض اليمن كاملة" [ref=f6e145] [cursor=pointer]
+              - button "العودة إلى المستوى السابق" [disabled] [ref=f6e149]
+              - group [ref=f6e152]:
+                - generic "العرض" [ref=f6e153] [cursor=pointer]
+          - generic [ref=f6e158]:
+            - generic [ref=f6e159]:
+              - group "خريطة تفاعلية لليمن" [ref=f6e160]:
+                - button "استكشاف محافظة ابين" [ref=f6e161] [cursor=pointer]
+                - button "استكشاف محافظة الضالع" [ref=f6e162] [cursor=pointer]
+                - button "استكشاف محافظة عدن" [ref=f6e163] [cursor=pointer]
+                - button "استكشاف محافظة البيضاء" [ref=f6e164] [cursor=pointer]
+                - button "استكشاف محافظة الحديده" [ref=f6e165] [cursor=pointer]
+                - button "استكشاف محافظة الجوف" [ref=f6e166] [cursor=pointer]
+                - button "استكشاف محافظة المهره" [ref=f6e167] [cursor=pointer]
+                - button "استكشاف محافظة المحويت" [ref=f6e168] [cursor=pointer]
+                - button "استكشاف محافظة عمران" [ref=f6e169] [cursor=pointer]
+                - button "استكشاف محافظة ذمار" [ref=f6e170] [cursor=pointer]
+                - button "استكشاف محافظة حضرموت" [ref=f6e171] [cursor=pointer]
+                - button "استكشاف محافظة حجه" [ref=f6e172] [cursor=pointer]
+                - button "استكشاف محافظة اب" [ref=f6e173] [cursor=pointer]
+                - button "استكشاف محافظة لحج" [ref=f6e174] [cursor=pointer]
+                - button "استكشاف محافظة مارب" [ref=f6e175] [cursor=pointer]
+                - button "استكشاف محافظة ريمه" [ref=f6e176] [cursor=pointer]
+                - button "استكشاف محافظة صعده" [ref=f6e177] [cursor=pointer]
+                - button "استكشاف محافظة صنعاء" [ref=f6e178] [cursor=pointer]
+                - button "استكشاف محافظة امانة العاصمه" [ref=f6e179] [cursor=pointer]
+                - button "استكشاف محافظة شبوه" [ref=f6e180] [cursor=pointer]
+                - button "استكشاف محافظة سقطرى" [ref=f6e181] [cursor=pointer]
+                - button "استكشاف محافظة تعز" [ref=f6e182] [cursor=pointer]
+                - generic "ابين" [ref=f6e183] [cursor=pointer]
+                - generic "الضالع" [ref=f6e184] [cursor=pointer]
+                - generic "عدن" [ref=f6e185] [cursor=pointer]
+                - generic "البيضاء" [ref=f6e186] [cursor=pointer]
+                - generic "الحديده" [ref=f6e187] [cursor=pointer]
+                - generic "الجوف" [ref=f6e188] [cursor=pointer]
+                - generic "المهره" [ref=f6e189] [cursor=pointer]
+                - generic "المحويت" [ref=f6e190] [cursor=pointer]
+                - generic "عمران" [ref=f6e191] [cursor=pointer]
+                - generic "ذمار" [ref=f6e192] [cursor=pointer]
+                - generic "حضرموت" [ref=f6e193] [cursor=pointer]
+                - generic "حجه" [ref=f6e194] [cursor=pointer]
+                - generic "اب" [ref=f6e195] [cursor=pointer]
+                - generic "لحج" [ref=f6e196] [cursor=pointer]
+                - generic "مارب" [ref=f6e197] [cursor=pointer]
+                - generic "ريمه" [ref=f6e198] [cursor=pointer]
+                - generic "صعده" [ref=f6e199] [cursor=pointer]
+                - generic "صنعاء" [ref=f6e200] [cursor=pointer]
+                - generic "امانة العاصمه" [ref=f6e201] [cursor=pointer]
+                - generic "شبوه" [ref=f6e202] [cursor=pointer]
+                - generic "سقطرى" [ref=f6e203] [cursor=pointer]
+                - generic "تعز" [ref=f6e204] [cursor=pointer]
+              - generic [ref=f6e205]:
+                - generic [ref=f6e206]: حدود الجمهورية
+                - generic [ref=f6e208]: المحافظات
+                - generic [ref=f6e210]: المديريات
+                - generic [ref=f6e212]: "مصدر الحدود: OCHA Field Information Services Section (FISS) / HDX"
+            - complementary "لوحة معلومات المنطقة" [ref=f6e213]:
+              - generic [ref=f6e215]:
+                - generic [ref=f6e216]: أطلس 967
+                - heading "اكتشف اليمن" [level=2] [ref=f6e217]
+              - generic [ref=f6e218]:
+                - paragraph [ref=f6e223]: اختر محافظة من الخريطة أو استخدم البحث لعرض المديريات والمعلومات المتاحة. لا تُعرض أرقام غير موثقة؛ الحقول غير المتوفرة تظهر بوضوح.
+                - generic [ref=f6e224]:
+                  - generic [ref=f6e225]:
+                    - term [ref=f6e226]: المحافظات
+                    - definition [ref=f6e227]: "22"
+                  - generic [ref=f6e228]:
+                    - term [ref=f6e229]: المديريات
+                    - definition [ref=f6e230]: "335"
+                  - generic [ref=f6e231]:
+                    - term [ref=f6e232]: المصدر
+                    - definition [ref=f6e233]: OCHA Field Information Services Section (FISS) / HDX
+              - generic [ref=f6e234]:
+                - generic [ref=f6e235]: "المصدر: Yemen administrative level 0-2 boundaries (COD-AB)"
+                - generic [ref=f6e236]: Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)
+          - group [ref=f6e237]:
+            - 'generic "مصدر الحدود: OCHA / HDX · التفاصيل" [ref=f6e238] [cursor=pointer]'
+      - group [ref=f6e49]:
+        - generic "شخصيات يمنية مرتبطة بالأماكن افتح الدليل وابحث بالاسم أو المجال +" [ref=f6e50] [cursor=pointer]:
+          - generic [ref=f6e51]: شخصيات يمنية مرتبطة بالأماكن
+          - generic [ref=f6e52]: افتح الدليل وابحث بالاسم أو المجال
+          - text: +
+        - option "الكل" [selected]
+        - option "الأدب والشعر"
+        - option "الإعلام وحقوق الإنسان"
+        - option "الإعلام والصحافة"
+        - option "المجتمع وحقوق الإنسان"
+        - option "السياسة والحكم"
+        - option "الفن والموسيقى"
+        - option "العلم والتعليم"
+        - option "الرياضة"
+        - option "الاقتصاد وريادة الأعمال"
+        - option "التراث والتاريخ"
+        - option "كل المحافظات" [selected]
+        - option "أبين"
+        - option "الضالع"
+        - option "عدن"
+        - option "البيضاء"
+        - option "الحديدة"
+        - option "المحويت"
+        - option "عمران"
+        - option "ذمار"
+        - option "حضرموت"
+        - option "إب"
+        - option "لحج"
+        - option "مأرب"
+        - option "صعدة"
+        - option "صنعاء"
+        - option "أمانة العاصمة"
+        - option "شبوة"
+        - option "تعز"
+        - option "الكل" [selected]
+        - option "معاصرة"
+        - option "تاريخية"
+  - contentinfo [ref=f6e53]:
+    - generic [ref=f6e54]:
+      - generic [ref=f6e55]:
+        - generic [ref=f6e56]:
+          - link "مبادرة 967" [ref=f6e57] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f6e58]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f6e59]
+          - paragraph [ref=f6e60]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f6e61]:
+            - link "إنستغرام" [ref=f6e62] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f6e70] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f6e78]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f6e79]
+          - link "الأعمال الإعلامية" [ref=f6e80] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f6e81] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f6e82] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f6e83] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f6e84] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f6e85] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f6e86] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f6e87]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f6e88]
+          - link "منتجات يمنية" [ref=f6e89] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f6e90] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f6e91] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f6e92] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f6e93]:
+          - heading "مبادرة 967" [level=3] [ref=f6e94]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f6e95] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f6e96] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f6e97] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f6e98] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f6e99] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f6e100]:
+        - generic [ref=f6e101]: © 2026 مبادرة 967
+        - generic [ref=f6e102]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f6e103]:
+          - link "سياسة الخصوصية" [ref=f6e104] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f6e105] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f6e106] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f6e244] [cursor=pointer]
+  - alert [ref=f6e248]

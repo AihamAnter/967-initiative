@@ -30,6 +30,7 @@ import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 import {collectionDefaults,listReturnPath} from '@/lib/listState';
 import InlineTarget from '@/components/inline/InlineTarget';
 import {buildCorrectionHref} from '@/lib/contributions';
+import ContentReadingAction from '@/components/reading/ContentReadingAction';
 
 export const dynamic = 'force-dynamic';
 
@@ -84,6 +85,7 @@ export default async function YemeniCompanyPage({params,searchParams}) {
     <section className="company-profile-body">
       <div className="container company-profile-layout">
         <div className="company-profile-main">
+          <ContentReadingAction kind="company" href={detailPath('yemeni-products',company.id)} title={company.name}/>
           {company.story && <section>
             <span className="eyebrow">قصة المنشأة</span>
             <h2>عن {company.name}</h2>

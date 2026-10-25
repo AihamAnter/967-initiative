@@ -1,0 +1,163 @@
+- generic [active] [ref=f50e1]:
+  - link "انتقل إلى المحتوى" [ref=f50e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f50e3]:
+    - generic [ref=f50e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f50e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f50e6]
+      - generic [ref=f50e7]:
+        - link "البحث في المنصة" [ref=f50e8] [cursor=pointer]:
+          - /url: /search
+        - button "فتح القائمة" [ref=f50e12] [cursor=pointer]
+  - main [ref=f50e14]:
+    - generic [ref=f50e16]:
+      - img "صورة علي سعيد الكروني" [ref=f50e17]
+      - link "العودة إلى دليل المهنيين" [ref=f50e18] [cursor=pointer]:
+        - /url: /professionals#professionals-directory
+      - generic [ref=f50e21]:
+        - generic [ref=f50e22]: نجارة وأثاث
+        - generic [ref=f50e23]: سقطرى
+      - heading "علي سعيد الكروني" [level=1] [ref=f50e27]
+      - generic [ref=f50e28]: بيانات بحاجة إلى مراجعة إدارية
+      - strong [ref=f50e29]: نجار أثاث وديكورات
+      - paragraph [ref=f50e30]: نجار يمني متخصص في تصميم وتصنيع الأثاث المنزلي والمكتبي، بخبرة تزيد عن 8 سنوات في أعمال النجارة والديكورات الخشبية. أقدم خدمات تفصيل غرف النوم والمطابخ والخزائن والأبواب، بالإضافة إلى صيانة الأثاث وتركيبه. أحرص على جودة التنفيذ والالتزام بالمواعيد وتقديم حلول تناسب احتياجات العملاء وميزانياتهم.
+      - link "تواصل عبر واتساب" [ref=f50e32] [cursor=pointer]:
+        - /url: https://wa.me/967777000456?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%89%20%D9%85%D9%84%D9%81%D9%83%20%D9%81%D9%8A%20%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9%20967%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%86%D8%AC%D8%A7%D8%B1%20%D8%A3%D8%AB%D8%A7%D8%AB%20%D9%88%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A7%D8%AA.
+    - generic [ref=f50e41]:
+      - generic [ref=f50e42]:
+        - generic [ref=f50e44]:
+          - button "حفظ علي سعيد الكروني للقراءة لاحقاً" [disabled] [ref=f50e46]: احفظ للقراءة لاحقاً
+          - status [ref=f50e49]
+        - generic [ref=f50e50]:
+          - generic [ref=f50e51]: الخدمات
+          - heading "ما الذي يقدمه؟" [level=2] [ref=f50e52]
+          - generic [ref=f50e53]:
+            - generic [ref=f50e54]:
+              - generic [ref=f50e55]: "01"
+              - strong [ref=f50e56]: تفصيل غرف النوم والخزائن
+            - generic [ref=f50e57]:
+              - generic [ref=f50e58]: "02"
+              - strong [ref=f50e59]: تصميم وتركيب المطابخ الخشبية
+            - generic [ref=f50e60]:
+              - generic [ref=f50e61]: "03"
+              - strong [ref=f50e62]: تصنيع الأبواب والنوافذ
+            - generic [ref=f50e63]:
+              - generic [ref=f50e64]: "04"
+              - strong [ref=f50e65]: تفصيل الأثاث المكتبي
+            - generic [ref=f50e66]:
+              - generic [ref=f50e67]: "05"
+              - strong [ref=f50e68]: تركيب الديكورات والألواح الخشبية
+            - generic [ref=f50e69]:
+              - generic [ref=f50e70]: "06"
+              - strong [ref=f50e71]: صيانة وترميم الأثاث القديم
+            - generic [ref=f50e72]:
+              - generic [ref=f50e73]: "07"
+              - strong [ref=f50e74]: تركيب الرفوف ووحدات التخزين
+            - generic [ref=f50e75]:
+              - generic [ref=f50e76]: "08"
+              - strong [ref=f50e77]: تقديم استشارات في اختيار الأخشاب والتصاميم
+        - generic [ref=f50e78]:
+          - generic [ref=f50e79]: المهارات
+          - heading "خبرات ومهارات عملية" [level=2] [ref=f50e80]
+          - generic [ref=f50e81]:
+            - generic [ref=f50e82]: النجارة اليدوية والحديثة
+            - generic [ref=f50e87]: تصميم وتنفيذ الأثاث حسب الطلب
+            - generic [ref=f50e92]: استخدام ماكينات قص وتشكيل الأخشاب
+            - generic [ref=f50e97]: قراءة المخططات والمقاسات
+            - generic [ref=f50e102]: تركيب المطابخ وغرف النوم
+            - generic [ref=f50e107]: معالجة وصيانة الأخشاب
+            - generic [ref=f50e112]: التشطيب والدهان الخشبي
+            - generic [ref=f50e117]: إدارة المشاريع والالتزام بالمواعيد
+        - generic [ref=f50e122]:
+          - generic [ref=f50e123]: نطاق الخدمة
+          - heading "أين يمكن طلب الخدمة؟" [level=2] [ref=f50e124]
+          - generic [ref=f50e125]:
+            - generic [ref=f50e126]: أمانة العاصمة
+            - generic [ref=f50e130]: صنعاء
+      - complementary [ref=f50e134]:
+        - generic [ref=f50e135]:
+          - heading "بيانات مهنية" [level=2] [ref=f50e136]
+          - generic [ref=f50e142]:
+            - text: المهنة
+            - strong [ref=f50e143]: نجار أثاث وديكورات
+          - generic [ref=f50e147]:
+            - text: الخبرة بالسنوات
+            - strong [ref=f50e148]: "8"
+          - generic [ref=f50e154]:
+            - text: طريقة الخدمة
+            - strong [ref=f50e155]: حضوري
+          - generic [ref=f50e160]:
+            - text: التوفر
+            - strong [ref=f50e161]: متاح
+          - generic [ref=f50e167]:
+            - text: اللغات
+            - strong [ref=f50e168]: العربية، الانجليزية
+        - generic [ref=f50e169]:
+          - heading "تواصل مع المهني" [level=2] [ref=f50e170]
+          - link "واتساب" [ref=f50e171] [cursor=pointer]:
+            - /url: https://wa.me/967777000456
+        - link "اقترح تصحيحاً لهذه الصفحة" [ref=f50e179] [cursor=pointer]:
+          - /url: /contribute?type=%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD+%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A9&referenceTitle=%D8%B9%D9%84%D9%8A+%D8%B3%D8%B9%D9%8A%D8%AF+%D8%A7%D9%84%D9%83%D8%B1%D9%88%D9%86%D9%8A&referencePath=%2Fprofessionals%2Fali-carpenter&referenceId=4b691948-23e6-4177-8ed5-392c416faf88#contribution-form
+  - contentinfo [ref=f50e182]:
+    - generic [ref=f50e183]:
+      - generic [ref=f50e184]:
+        - generic [ref=f50e185]:
+          - link "مبادرة 967" [ref=f50e186] [cursor=pointer]:
+            - /url: /
+            - img "مبادرة 967" [ref=f50e187]
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f50e188]
+          - paragraph [ref=f50e189]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - generic [ref=f50e190]:
+            - link "إنستغرام" [ref=f50e191] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+            - link "يوتيوب" [ref=f50e199] [cursor=pointer]:
+              - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f50e207]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f50e208]
+          - link "الأعمال الإعلامية" [ref=f50e209] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f50e210] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f50e211] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f50e212] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f50e213] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f50e214] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f50e215] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f50e216]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f50e217]
+          - link "منتجات يمنية" [ref=f50e218] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f50e219] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f50e220] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f50e221] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f50e222]:
+          - heading "مبادرة 967" [level=3] [ref=f50e223]
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f50e224] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f50e225] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f50e226] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f50e227] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f50e228] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f50e229]:
+        - generic [ref=f50e230]: © 2026 مبادرة 967
+        - generic [ref=f50e231]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f50e232]:
+          - link "سياسة الخصوصية" [ref=f50e233] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f50e234] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f50e235] [cursor=pointer]:
+          - /url: /search

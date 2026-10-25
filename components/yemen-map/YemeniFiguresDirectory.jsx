@@ -3,7 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {useEffect, useMemo, useState} from 'react';
-import {ArrowUpLeft, AtSign, Facebook, Globe2, MapPinned, RotateCcw, Search, Youtube} from 'lucide-react';
+import {ArrowUpLeft, AtSign, Facebook, Globe2, MapPinned, Search, Youtube} from 'lucide-react';
+import ActiveFilters from '@/components/ActiveFilters';
+import SaveForLater from '@/components/reading/SaveForLater';
 import {matchesSearch} from '@/lib/search';
 import {yemenGovernorates, yemeniFigureEras, yemeniFigureFields} from '@/lib/yemeniFigures';
 import {formatNumber, toLatinDigits} from '@/lib/format';
@@ -53,7 +55,6 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
     });
   }, [era, field, figures, query, selectedGovernorateId, withSocial]);
 
-  const hasFilters = Boolean(query || field !== 'الكل' || selectedGovernorateId || era !== 'الكل' || withSocial);
   const visibleFigures = filteredFigures.slice(0, visibleCount);
 
   useEffect(() => { setVisibleCount(12); }, [era, field, query, selectedGovernorateId, withSocial]);
@@ -81,9 +82,8 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
         <label><span>المحافظة</span><select value={selectedGovernorateId || ''} onChange={event => onGovernorateChange(event.target.value || null)}><option value="">كل المحافظات</option>{governorates.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
         <label><span>الفترة</span><select value={era} onChange={event => setEra(event.target.value)}><option>الكل</option>{yemeniFigureEras.map(item => <option key={item}>{item}</option>)}</select></label>
         <label className="yfigures-check"><input type="checkbox" checked={withSocial} onChange={event => setWithSocial(event.target.checked)}/><span>لديها روابط تواصل</span></label>
-        <button type="button" className="yfigures-reset" onClick={resetFilters} disabled={!hasFilters} title="مسح الفلاتر"><RotateCcw size={18}/><span>مسح</span></button>
       </div>
-
+      <ActiveFilters filters={[query&&{key:'q',label:'البحث: '+query,onRemove:()=>setQuery('')},field!=='الكل'&&{key:'field',label:'المجال: '+field,onRemove:()=>setField('الكل')},selectedGovernorateId&&{key:'governorate',label:'المحافظة: '+(yemenGovernorates.find(item=>item.id===selectedGovernorateId)?.name||'غير متاحة'),onRemove:()=>onGovernorateChange(null)},era!=='الكل'&&{key:'era',label:'الفترة: '+era,onRemove:()=>setEra('الكل')},withSocial&&{key:'social',label:'لديها روابط تواصل',onRemove:()=>setWithSocial(false)}]} onClear={resetFilters}/>
       <div className="yfigures-results-bar" aria-live="polite"><strong>{formatNumber(filteredFigures.length)}</strong><span>شخصية مطابقة</span>{selectedGovernorateId && <small>الخريطة والدليل يعرضان المحافظة نفسها</small>}</div>
 
       {filteredFigures.length ? <div className="yfigures-grid">
@@ -108,6 +108,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
                 {links.length === 0 && <ArrowUpLeft className="yfigure-open-icon" size={20} aria-hidden="true"/>}
               </div>
             </div>
+            <div className="card-save-action"><SaveForLater item={{kind:'figure',href:'/yemen-map/figures/'+encodeURIComponent(figure.slug),title:figure.fullName}}/></div>
           </article>;
         })}
       </div> : <div className="yfigures-empty"><Search size={28}/><h3>لا توجد نتائج مطابقة</h3><p>جرّب تغيير المجال أو المحافظة أو مسح عبارة البحث.</p><button type="button" className="btn btn-outline" onClick={resetFilters}>مسح الفلاتر</button></div>}
