@@ -6,8 +6,8 @@ import {useEffect, useMemo, useState} from 'react';
 import {ArrowUpLeft, AtSign, Facebook, Globe2, MapPinned, Search, Youtube} from 'lucide-react';
 import ActiveFilters from '@/components/ActiveFilters';
 import SaveForLater from '@/components/reading/SaveForLater';
-import {matchesSearch} from '@/lib/search';
-import {yemenGovernorates, yemeniFigureEras, yemeniFigureFields} from '@/lib/yemeniFigures';
+import {figureFilterDefaults,readFigureFilters,figureFilterSearch,filterFigures} from '@/lib/figureFilters';
+import {yemenGovernorates, yemeniFigureEras} from '@/lib/yemeniFigures';
 import {formatNumber, toLatinDigits} from '@/lib/format';
 
 const socialLinks = figure => [
@@ -28,44 +28,22 @@ function figureInitials(name) {
     .map(word => word.replace(/^ال/, '').slice(0, 1)).join(' ');
 }
 
-export default function YemeniFiguresDirectory({figures, selectedGovernorateId, onGovernorateChange, embedded=false}) {
-  const [query, setQuery] = useState('');
-  const [field, setField] = useState('الكل');
-  const [era, setEra] = useState('الكل');
-  const [withSocial, setWithSocial] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(12);
-
-  const fields = useMemo(() => [...new Set([
-    ...yemeniFigureFields,
-    ...figures.map(figure => figure.field).filter(Boolean),
-  ])], [figures]);
-
-  const governorates = useMemo(() => yemenGovernorates.filter(governorate =>
-    figures.some(figure => figure.governorateId === governorate.id)
-  ), [figures]);
-
-  const filteredFigures = useMemo(() => {
-    return figures.filter(figure => {
-      const matchesName = matchesSearch(query,[figure.fullName,figure.knownFor,figure.shortBio]);
-      const matchesField = field === 'الكل' || figure.field === field;
-      const matchesGovernorate = !selectedGovernorateId || figure.governorateId === selectedGovernorateId;
-      const matchesEra = era === 'الكل' || figure.era === era;
-      const matchesSocial = !withSocial || socialLinks(figure).length > 0;
-      return matchesName && matchesField && matchesGovernorate && matchesEra && matchesSocial;
-    });
-  }, [era, field, figures, query, selectedGovernorateId, withSocial]);
-
-  const visibleFigures = filteredFigures.slice(0, visibleCount);
-
-  useEffect(() => { setVisibleCount(12); }, [era, field, query, selectedGovernorateId, withSocial]);
-
-  function resetFilters() {
-    setQuery('');
-    setField('الكل');
-    setEra('الكل');
-    setWithSocial(false);
-    onGovernorateChange(null);
-  }
+export default function YemeniFiguresDirectory({figures, selectedGovernorateId,selectedDistrictId=null, onGovernorateChange, embedded=false}) {
+  const [filters,setFilters]=useState(figureFilterDefaults),[ready,setReady]=useState(false),[more,setMore]=useState(false);
+  const {figureQ:query,field,era,social:withSocial,photo,century,birthFrom,birthTo,figureSort,visible:visibleCount}=filters;
+  const change=patch=>setFilters(f=>({...f,visible:12,...patch}));
+  useEffect(()=>{const load=()=>{const f=readFigureFilters(location.search);setFilters(f);setMore(Boolean(f.photo||f.social||f.century||f.birthFrom||f.birthTo));setReady(true);};load();window.addEventListener('popstate',load);return()=>window.removeEventListener('popstate',load);},[]);
+  useEffect(()=>{if(!ready)return;const p=figureFilterSearch(location.search,filters);const url=location.pathname+(p.size?'?'+p:'')+location.hash;if(url!==location.pathname+location.search+location.hash)history.replaceState(history.state,'',url);},[filters,ready]);
+  const fields=useMemo(()=>[...new Set(figures.map(f=>f.field).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar')),[figures]);
+  const governorates=useMemo(()=>yemenGovernorates.filter(g=>figures.some(f=>f.governorateId===g.id)),[figures]);
+  const centuries=useMemo(()=>[...new Set(figures.filter(f=>Number.isInteger(f.birthYear)).map(f=>Math.ceil(f.birthYear/100)))].sort((a,b)=>a-b),[figures]);
+  const filteredFigures=useMemo(()=>filterFigures(figures,{...filters,region:selectedGovernorateId}),[figures,filters,selectedGovernorateId]);
+  const visibleFigures=filteredFigures.slice(0,visibleCount);
+  const hasAddedDates=figures.some(f=>f.createdAt&&Number.isFinite(Date.parse(f.createdAt)));
+  function resetFilters(){setFilters({...figureFilterDefaults});onGovernorateChange(null);}
+  const returnParams=figureFilterSearch('',filters);if(selectedGovernorateId)returnParams.set('region',selectedGovernorateId);
+  if(selectedDistrictId)returnParams.set('district',selectedDistrictId);
+  const returnTo='/yemen-map'+(returnParams.size?'?'+returnParams:'')+'#yemeni-figures';
 
   return <section className="yfigures-section" id={embedded?undefined:'yemeni-figures'}>
     <div className="container yfigures-container">
@@ -77,20 +55,26 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
       {figures.some(figure=>figure.isDemo) && <p className="data-disclosure">يتضمن العرض ملفات من الكتالوج التجريبي للمشروع. هذه الملفات موسومة كتوضيحية وتحتاج مراجعة مصادرها قبل اعتمادها كمحتوى منشور.</p>}
 
       <div className="yfigures-filters" role="search" aria-label="البحث وتصفية الشخصيات">
-        <label className="yfigures-search"><Search size={19}/><span className="sr-only">ابحث بالاسم</span><input value={query} onChange={event => setQuery(event.target.value)} placeholder="ابحث باسم الشخصية..."/></label>
-        <label><span>المجال</span><select value={field} onChange={event => setField(event.target.value)}><option>الكل</option>{fields.map(item => <option key={item}>{item}</option>)}</select></label>
-        <label><span>المحافظة</span><select value={selectedGovernorateId || ''} onChange={event => onGovernorateChange(event.target.value || null)}><option value="">كل المحافظات</option>{governorates.map(item => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
-        <label><span>الفترة</span><select value={era} onChange={event => setEra(event.target.value)}><option>الكل</option>{yemeniFigureEras.map(item => <option key={item}>{item}</option>)}</select></label>
-        <label className="yfigures-check"><input type="checkbox" checked={withSocial} onChange={event => setWithSocial(event.target.checked)}/><span>لديها روابط تواصل</span></label>
+        <label className="yfigures-search"><Search size={19}/><span className="sr-only">ابحث بالاسم</span><input value={query} onChange={e=>change({figureQ:e.target.value})} placeholder="ابحث باسم الشخصية..."/></label>
+        <label><span>المجال</span><select value={field} onChange={e=>change({field:e.target.value})}><option>الكل</option>{fields.map(item=><option key={item}>{item}</option>)}</select></label>
+        <label><span>المحافظة المرتبطة</span><select value={selectedGovernorateId||''} onChange={e=>{setFilters(f=>({...f,visible:12}));onGovernorateChange(e.target.value||null);}}><option value="">كل المحافظات</option>{governorates.map(g=><option value={g.id} key={g.id}>{g.name}</option>)}</select></label>
+        <label><span>الفترة</span><select value={era} onChange={e=>change({era:e.target.value})}><option>الكل</option>{yemeniFigureEras.map(item=><option key={item}>{item}</option>)}</select></label>
       </div>
-      <ActiveFilters filters={[query&&{key:'q',label:'البحث: '+query,onRemove:()=>setQuery('')},field!=='الكل'&&{key:'field',label:'المجال: '+field,onRemove:()=>setField('الكل')},selectedGovernorateId&&{key:'governorate',label:'المحافظة: '+(yemenGovernorates.find(item=>item.id===selectedGovernorateId)?.name||'غير متاحة'),onRemove:()=>onGovernorateChange(null)},era!=='الكل'&&{key:'era',label:'الفترة: '+era,onRemove:()=>setEra('الكل')},withSocial&&{key:'social',label:'لديها روابط تواصل',onRemove:()=>setWithSocial(false)}]} onClear={resetFilters}/>
-      <div className="yfigures-results-bar" aria-live="polite"><strong>{formatNumber(filteredFigures.length)}</strong><span>شخصية مطابقة</span>{selectedGovernorateId && <small>الخريطة والدليل يعرضان المحافظة نفسها</small>}</div>
+      <details className="yfigures-extra-filters" open={more} onToggle={e=>setMore(e.currentTarget.open)}><summary>المزيد من الفلاتر <span>{[withSocial,photo,century,birthFrom,birthTo].filter(Boolean).length||''}</span></summary><div className="yfigures-filters">
+        <label className="yfigures-check"><input type="checkbox" checked={withSocial} onChange={e=>change({social:e.target.checked})}/><span>لديها روابط تواصل</span></label>
+        <label className="yfigures-check"><input type="checkbox" checked={photo} onChange={e=>change({photo:e.target.checked})}/><span>لديها صورة مسجلة</span></label>
+        <label><span>قرن الميلاد المسجل</span><select value={century} onChange={e=>change({century:e.target.value})}><option value="">كل القرون</option>{centuries.map(c=><option key={c} value={c}>القرن {formatNumber(c)}</option>)}</select></label>
+        <label><span>سنة الميلاد من</span><input type="number" min="500" max="2100" value={birthFrom} onChange={e=>change({birthFrom:e.target.value})}/></label>
+        <label><span>سنة الميلاد إلى</span><input type="number" min="500" max="2100" value={birthTo} onChange={e=>change({birthTo:e.target.value})}/></label>
+      </div><p>الارتباط بالمحافظة لا يعني مكان الميلاد. التصفية الزمنية تستخدم سنوات الميلاد المسجلة فقط وتستبعد التواريخ المجهولة.</p></details>
+      <ActiveFilters filters={[query&&{key:'q',label:'البحث: '+query,onRemove:()=>change({figureQ:''})},field!=='الكل'&&{key:'field',label:'المجال: '+field,onRemove:()=>change({field:'الكل'})},selectedGovernorateId&&{key:'region',label:'المحافظة: '+(yemenGovernorates.find(g=>g.id===selectedGovernorateId)?.name||'غير متاحة'),onRemove:()=>onGovernorateChange(null)},era!=='الكل'&&{key:'era',label:'الفترة: '+era,onRemove:()=>change({era:'الكل'})},withSocial&&{key:'social',label:'روابط تواصل',onRemove:()=>change({social:false})},photo&&{key:'photo',label:'صورة مسجلة',onRemove:()=>change({photo:false})},century&&{key:'century',label:'قرن الميلاد: '+century,onRemove:()=>change({century:''})},birthFrom&&{key:'birthFrom',label:'الميلاد من: '+birthFrom,onRemove:()=>change({birthFrom:''})},birthTo&&{key:'birthTo',label:'الميلاد إلى: '+birthTo,onRemove:()=>change({birthTo:''})}]} onClear={resetFilters}/>
+      <div className="yfigures-results-bar"><span role="status" aria-live="polite"><strong>{formatNumber(filteredFigures.length)}</strong> شخصية مطابقة</span>{selectedGovernorateId&&<small>الخريطة والدليل يعرضان المحافظة نفسها</small>}<label className="yfigures-sort">الترتيب<select value={figureSort} onChange={e=>change({figureSort:e.target.value})}><option value="default">ترتيب الدليل</option><option value="alpha">أبجديًا</option><option value="field">حسب المجال</option><option value="oldest">الميلاد: الأقدم أولًا</option><option value="youngest">الميلاد: الأحدث أولًا</option>{hasAddedDates&&<option value="newest">الأحدث إضافة في قاعدة البيانات</option>}</select></label></div>
 
       {filteredFigures.length ? <div className="yfigures-grid">
         {visibleFigures.map(figure => {
           const links = socialLinks(figure);
           return <article className="yfigure-card" key={figure.id}>
-            <Link className="yfigure-card-hitarea" href={`/yemen-map/figures/${figure.slug}`} aria-label={`عرض صفحة ${figure.fullName}`}><span className="sr-only">عرض صفحة {figure.fullName}</span></Link>
+            <Link className="yfigure-card-hitarea" href={'/yemen-map/figures/'+figure.slug+'?from='+encodeURIComponent(returnTo)} aria-label={`عرض صفحة ${figure.fullName}`}><span className="sr-only">عرض صفحة {figure.fullName}</span></Link>
             <div className="yfigure-image">
               {figure.imageUrl ? <Image src={figure.imageUrl} alt={figure.imageKind==='context'?figure.imageCredit:`صورة ${figure.fullName}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
               <span className="yfigure-era">{figure.era}</span>
@@ -112,7 +96,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId, 
           </article>;
         })}
       </div> : <div className="yfigures-empty"><Search size={28}/><h3>لا توجد نتائج مطابقة</h3><p>جرّب تغيير المجال أو المحافظة أو مسح عبارة البحث.</p><button type="button" className="btn btn-outline" onClick={resetFilters}>مسح الفلاتر</button></div>}
-      {visibleCount < filteredFigures.length && <button type="button" className="yfigures-more" onClick={() => setVisibleCount(count => count + 12)}>عرض المزيد <span>{Math.min(12, filteredFigures.length - visibleCount)}</span></button>}
+      {visibleCount < filteredFigures.length && <button type="button" className="yfigures-more" onClick={() => setFilters(f=>({...f,visible:f.visible+12}))}>عرض المزيد <span>{Math.min(12, filteredFigures.length - visibleCount)}</span></button>}
     </div>
   </section>;
 }
