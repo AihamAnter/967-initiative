@@ -18,6 +18,8 @@ test('task center: PostgreSQL RLS, triggers, atomic RPCs and immutable audit (is
  insert into auth.users(id,raw_user_meta_data) values ('${A}','{"full_name":"Admin A"}'),('${B}','{"full_name":"Admin B"}'),('${C}','{"full_name":"Management C"}'),('${outsider}','{}');
  insert into public.editors(user_id,role) values('${A}','admin'),('${B}','admin'),('${C}','management');`);
  await db.exec(await readFile(new URL('../supabase/task-center.sql',import.meta.url),'utf8'));
+ await db.exec(await readFile(new URL('../supabase/migrations/202610250002_task_auto_archive.sql',import.meta.url),'utf8'));
+ await db.exec(await readFile(new URL('../supabase/migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
  const as=async(user,fn)=>{await db.exec('reset role');await db.query("select set_config('request.jwt.claim.sub',$1,false)",[user||'']);await db.exec('set role '+(user===null?'anon':'authenticated'));try{return await fn();}finally{await db.exec('reset role');}};
  const sql=(text,params=[])=>db.query(text,params);
  const rpc=async(action,id=null,revision=null,data={})=>(await sql('select public.task_mutate($1,$2,$3,$4::jsonb) result',[action,id,revision,JSON.stringify(data)])).rows[0].result;
@@ -85,9 +87,9 @@ test('task center: PostgreSQL RLS, triggers, atomic RPCs and immutable audit (is
  await t.test('all editors comment on any task; only author/management moderate; audit cannot be edited',async()=>{
   for(const user of [A,B,C])await as(user,()=>rpc('comment_save',c,1,{body:'تعليق '+user}));
   const comment=(await sql('select * from public.task_comments where task_id=$1 and author_id=$2',[c,A])).rows[0];
-  await as(B,()=>denied(()=>rpc('comment_save',c,1,{id:comment.id,body:'ممنوع'})));
-  await as(A,()=>rpc('comment_save',c,1,{id:comment.id,body:'تعليق معدّل'}));assert.ok((await sql('select * from public.task_comments where id=$1',[comment.id])).rows[0].edited_at);
-  await as(C,()=>rpc('comment_delete',c,1,{id:comment.id}));
+  await as(B,()=>denied(()=>rpc('comment_save',c,1,{id:comment.id,comment_revision:1,body:'ممنوع'})));
+  await as(A,()=>rpc('comment_save',c,1,{id:comment.id,comment_revision:1,body:'تعليق معدّل'}));assert.ok((await sql('select * from public.task_comments where id=$1',[comment.id])).rows[0].edited_at);
+  await as(C,()=>rpc('comment_delete',c,1,{id:comment.id,comment_revision:2}));
   await as(A,async()=>{await denied(()=>sql("update public.task_activity set action='forged'"));await denied(()=>sql('delete from public.task_activity'));await denied(()=>sql("insert into public.task_activity(action) values('forged')"));});
   assert.ok((await sql("select * from public.task_activity where task_id=$1 and action='comment_update'",[c])).rows.length);
  });

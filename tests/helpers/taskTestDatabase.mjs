@@ -8,7 +8,7 @@ export const taskTestUsers=[
  {id:'cccccccc-cccc-4ccc-8ccc-cccccccccccc',role:'management',name:'إدارة جيم'},
  {id:'dddddddd-dddd-4ddd-8ddd-dddddddddddd',role:null,name:'مستخدم عادي'},
 ];
-export async function createTaskTestDatabase(){
+export async function createTaskTestDatabase({collaboration=true}={}){
  const tokenUser=token=>{if(taskTestUsers.some(u=>u.id===token))return token;try{if(!token.endsWith('.local-browser-fixture'))return null;const sub=JSON.parse(Buffer.from(token.split('.')[1],'base64url')).sub;return taskTestUsers.some(u=>u.id===sub)?sub:null;}catch{return null;}};
  const pg=new PGlite();
  await pg.exec(`create role anon nologin;create role authenticated nologin;create schema auth;
@@ -21,9 +21,10 @@ export async function createTaskTestDatabase(){
  for(const u of taskTestUsers){await pg.query('insert into auth.users values($1,$2::jsonb)',[u.id,JSON.stringify({full_name:u.name})]);if(u.role)await pg.query('insert into public.editors(user_id,role) values($1,$2)',[u.id,u.role]);}
  await pg.exec(await readFile(new URL('../../supabase/task-center.sql',import.meta.url),'utf8'));
  await pg.exec(await readFile(new URL('../../supabase/migrations/202610250002_task_auto_archive.sql',import.meta.url),'utf8'));
+ if(collaboration)await pg.exec(await readFile(new URL('../../supabase/migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
  const run=(user,sql,params=[])=>pg.transaction(async tx=>{await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[user||'']);await tx.exec('set local role '+(user?'authenticated':'anon'));return tx.query(sql,params);});
  const normalize=value=>JSON.parse(JSON.stringify(value,(_k,v)=>v));
- const tableNames=['editors','tasks','task_projects','task_subtasks','task_comments','task_activity','task_notifications'];
+ const tableNames=['editors','tasks','task_members','task_projects','task_subtasks','task_comments','task_activity','task_notifications'];
  function client(user){return {
   auth:{getUser:async token=>{const u=taskTestUsers.find(x=>x.id===tokenUser(token));return u?{data:{user:{id:u.id,email_confirmed_at:'2026-01-01',user_metadata:{full_name:u.name}}},error:null}:{data:{user:null},error:{status:401}};}},
   rpc:async(name,args={})=>{try{

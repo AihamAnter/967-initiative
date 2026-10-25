@@ -1,8 +1,8 @@
 import {readFile} from 'node:fs/promises';
 import {createDebateTestDatabase,debateTestUsers} from './debateTestDatabase.mjs';
 export {debateTestUsers as inlineTestUsers};
-export async function createInlineEditorTestDatabase(){
- const base=await createDebateTestDatabase(),{pg,run}=base;
+export async function createInlineEditorTestDatabase(options){
+ const base=await createDebateTestDatabase(options),{pg,run}=base;
  await pg.exec('create role service_role nologin bypassrls;grant usage on schema public to service_role;');
  const sql=name=>readFile(new URL('../../supabase/'+name,import.meta.url),'utf8');
  const schema=await sql('schema.sql');

@@ -1,8 +1,8 @@
 import {readFile} from 'node:fs/promises';
 import {createTaskTestDatabase,taskTestUsers} from './taskTestDatabase.mjs';
 export const debateTestUsers=[...taskTestUsers,{id:'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',role:null,name:'مستخدم غير مؤكد',unconfirmed:true},{id:'ffffffff-ffff-4fff-8fff-ffffffffffff',role:null,name:'مشارك ثان'}];
-export async function createDebateTestDatabase(){
- const base=await createTaskTestDatabase(),{pg,run}=base;
+export async function createDebateTestDatabase(options){
+ const base=await createTaskTestDatabase(options),{pg,run}=base;
  await pg.exec("alter table auth.users add column email_confirmed_at timestamptz;alter table auth.users add column email text;alter table auth.users add column created_at timestamptz default now();create table public.works(id uuid primary key default gen_random_uuid(),slug text unique,title text,summary text,category text,platform text,external_url text,thumbnail_url text,published_at timestamptz default now(),is_published boolean default false,created_at timestamptz default now());alter table public.works enable row level security;");
  for(const u of debateTestUsers){await pg.query("insert into auth.users(id,raw_user_meta_data,email_confirmed_at,email) values($1,$2::jsonb,$3,$4) on conflict(id) do update set email_confirmed_at=excluded.email_confirmed_at,email=excluded.email",[u.id,JSON.stringify({display_name:u.name,audience_terms:true}),u.unconfirmed?null:new Date().toISOString(),'user-'+u.id[0]+'@example.test']);}
  await pg.exec(await readFile(new URL('../../supabase/migrations/202610200001_debates.sql',import.meta.url),'utf8'));

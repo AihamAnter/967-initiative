@@ -9,10 +9,15 @@ export function TaskCard({task,onOpen,onStatus,busy,kanban=false}){
  const canComplete=task.can_edit&&(!task.requires_review||task.manager);
  return <article className={`${styles.taskCard} ${kanban?styles.kanbanCard:''}`} draggable={kanban&&task.can_edit&&!busy} onDragStart={e=>{e.dataTransfer.setData('text/task-id',task.id);e.dataTransfer.effectAllowed='move';}}>
   <button className={`${styles.completion} ${task.status==='completed'?styles.done:''}`} disabled={busy||!canComplete||task.status==='cancelled'} aria-label={task.status==='completed'?'إعادة فتح المهمة '+task.title:'إكمال المهمة '+task.title} onClick={()=>onStatus(task,task.status==='completed'?'in_progress':'completed')}><CheckCircle2 size={23}/></button>
-  <div className={styles.taskContent}><span className={styles.projectName}>{task.project_name}</span><button className={styles.taskTitle} onClick={()=>onOpen(task.id)}>{task.title}<ArrowUpRight size={15}/></button><TaskBadges task={task}/><div className={styles.taskMeta}><span>{task.assignee_name}</span><span><Clock3 size={14}/>{dueLabel(task)}</span></div>{task.subtasks.total>0&&<div className={styles.progress}><progress max={task.subtasks.total} value={task.subtasks.completed} aria-label="إنجاز الخطوات"/><small>{task.subtasks.completed.toLocaleString('ar-u-nu-latn',{numberingSystem:'latn'})} / {task.subtasks.total.toLocaleString('ar-u-nu-latn',{numberingSystem:'latn'})} خطوة · {Math.round(task.subtasks.completed/task.subtasks.total*100).toLocaleString('ar-u-nu-latn',{numberingSystem:'latn'})}٪</small></div>}
+  <div className={styles.taskContent}><span className={styles.projectName}>{task.project_name}</span><button className={styles.taskTitle} onClick={()=>onOpen(task.id)}>{task.title}<ArrowUpRight size={15}/></button><TaskBadges task={task}/><div className={styles.taskMeta}><span>{task.assignee_name}</span><span><Clock3 size={14}/>{dueLabel(task)}</span></div><TaskParticipants task={task}/>{task.subtasks.total>0&&<div className={styles.progress}><progress max={task.subtasks.total} value={task.subtasks.completed} aria-label="إنجاز الخطوات"/><small>{task.subtasks.completed.toLocaleString('ar-u-nu-latn',{numberingSystem:'latn'})} / {task.subtasks.total.toLocaleString('ar-u-nu-latn',{numberingSystem:'latn'})} خطوة · {Math.round(task.subtasks.completed/task.subtasks.total*100).toLocaleString('ar-u-nu-latn',{numberingSystem:'latn'})}٪</small></div>}
    {kanban&&<label className={styles.statusSelect}>نقل إلى<select disabled={!task.can_edit||busy} value={task.status} onChange={e=>onStatus(task,e.target.value)}>{Object.entries(TASK_STATUSES).map(([v,label])=><option key={v} value={v} disabled={v==='completed'&&!canComplete}>{label}</option>)}</select></label>}
   </div>
  </article>;
+}
+export function TaskParticipants({task}){
+ const ids=task.participant_ids||[],names=task.participant_names||[];
+ if(!ids.length)return null;
+ return <div className={styles.cardParticipants} aria-label="الأعضاء المشاركون">{ids.slice(0,3).map((id,i)=><span key={id} title={names[i]||'عضو سابق'}><i aria-hidden="true">{(names[i]||'ع').charAt(0)}</i>{names[i]||'عضو سابق'}</span>)}{ids.length>3&&<small title={names.join('، ')}>+{ids.length-3}</small>}</div>;
 }
 export function TaskKanban({tasks,onOpen,onStatus,busy}){
  const [over,setOver]=useState(null);
