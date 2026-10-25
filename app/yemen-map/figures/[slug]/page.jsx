@@ -1,10 +1,10 @@
+import ContextBackLink from '@/components/ContextBackLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Image from 'next/image';
 import {toLatinDigits} from '@/lib/format';
 import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
 import {
-  ArrowRight,
   ArrowUpLeft,
   AtSign,
   BookOpenText,
@@ -83,7 +83,7 @@ export default async function YemeniFigureProfilePage({params}) {
     <section className="figure-profile-hero">
       <div className="container figure-profile-hero-grid">
         <div className="figure-profile-copy">
-          <Link href={'/yemen-map'+(figure.governorateId?'?region='+encodeURIComponent(figure.governorateId):'')+'#yemeni-figures'} className="back-link"><ArrowRight size={17}/> العودة إلى شخصيات يمنية</Link>
+          <ContextBackLink fallback="/yemen-map#yemeni-figures" label="العودة إلى شخصيات يمنية"/>
           <div className="figure-profile-tags">
             <span>{figure.era}</span>
             <span>{figure.field}</span>

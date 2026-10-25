@@ -1,8 +1,9 @@
+import ContextBackLink from '@/components/ContextBackLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Link from '@/components/SiteLink';
 import nextDynamic from 'next/dynamic';
 import {notFound} from 'next/navigation';
-import {AlertTriangle, ArrowRight, CalendarDays, ExternalLink, Info, Ruler, ShieldCheck} from 'lucide-react';
+import {AlertTriangle, CalendarDays, ExternalLink, Info, Ruler, ShieldCheck} from 'lucide-react';
 import IndicatorActions from '@/components/IndicatorActions';
 import InlineTarget from '@/components/inline/InlineTarget';
 import {getStatIndicator} from '@/lib/data';
@@ -34,7 +35,7 @@ export default async function IndicatorPage({params}) {
     <JsonLd data={indicatorSchema(indicator)}/>
     <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:indicator.domain.name, path:detailPath('yemen-in-numbers', indicator.domain.slug)}, {name:indicator.name, path:detailPath('yemen-in-numbers/indicator', indicator.slug)}])}/>
     <section className="stat-indicator-head"><div className="container">
-      <Link className="back-link" href={'/yemen-in-numbers/' + indicator.domain.slug}><ArrowRight size={17}/> {indicator.domain.name}</Link>
+      <ContextBackLink fallback={'/yemen-in-numbers/'+indicator.domain.slug} label={indicator.domain.name}/>
       <span className="eyebrow">{indicator.domain.section?.name} / مؤشر وطني</span>
       <div className="stat-indicator-title"><div><h1>{indicator.name}</h1><p>{indicator.short_description || indicator.definition}</p></div>{latest ? <div className="stat-latest"><span>أحدث قيمة منشورة</span><strong dir="ltr">{formatNumber(latest.value, {maximumFractionDigits: 3})}</strong><b>{indicator.unit}</b><small>{formatYear(latest.year)}</small></div> : <div className="stat-latest stat-no-latest"><span>لا توجد قيمة منشورة</span></div>}</div>
       <IndicatorActions indicator={indicator}/>

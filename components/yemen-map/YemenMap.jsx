@@ -99,7 +99,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, onG
     setSelectedDistrict(district);
     setDistrictsVisible(true);
     fitBounds(district.bounds, 0.18);
-    onGovernorateChange?.(district.governorateId);
+    onGovernorateChange?.(district.governorateId,district.id);
   }, [data, fitBounds, onGovernorateChange]);
 
   const resetMap = useCallback(() => {
@@ -131,6 +131,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, onG
   }, [data, fitBounds, focusedGovernorateId, selectedDistrict, selectedGovernorate]);
 
   useEffect(()=>{
+    if(!initialDistrictId){appliedDistrict.current=null;setSelectedDistrict(null);return;}
     if(!data || !initialDistrictId || appliedDistrict.current===initialDistrictId)return;
     appliedDistrict.current=initialDistrictId;
     const district=data.districts.find(item=>item.id===initialDistrictId);
@@ -141,10 +142,11 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, onG
     if (selectedDistrict && selectedGovernorate) {
       setSelectedDistrict(null);
       fitBounds(selectedGovernorate.bounds, 0.12);
+      onGovernorateChange?.(selectedGovernorate.id);
       return;
     }
     resetMap();
-  }, [fitBounds, resetMap, selectedDistrict, selectedGovernorate]);
+  }, [fitBounds, resetMap, selectedDistrict, selectedGovernorate,onGovernorateChange]);
 
   const zoom = useCallback((factor) => {
     setViewBox(current => {

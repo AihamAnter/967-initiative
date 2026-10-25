@@ -1,7 +1,8 @@
+import ContextBackLink from '@/components/ContextBackLink';
 export const dynamic='force-dynamic';
 import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
-import {ArrowRight,CalendarDays,BookOpen} from 'lucide-react';
+import {CalendarDays,BookOpen} from 'lucide-react';
 import {getIssue} from '@/lib/data';
 import {formatArabicDate,formatNumber} from '@/lib/format';
 import PdfReader from '@/components/PdfReader';
@@ -14,6 +15,6 @@ export async function generateMetadata({params}){const {slug}=await params;const
 export default async function IssuePage({params}){const {slug}=await params,issue=await getIssue(slug);if(!issue)notFound();return <>
  <InlineTarget kind="issue" id={issue.id} slug={issue.slug} title={issue.title} href={detailPath('magazine',issue.slug)} isDemo={issue.is_demo}/>
  <JsonLd data={issueSchema(issue)}/><JsonLd data={breadcrumbSchema([{name:'مجلة 967', path:'/magazine'}, {name:issue.title, path:detailPath('magazine', issue.slug)}])}/>
- <section className="reader-intro"><div className="container"><Link href="/magazine" className="back-link"><ArrowRight size={17}/> العودة إلى أرشيف المجلة</Link><span className="eyebrow">{issue.is_demo?'نسخة استعراضية — ليست عدداً رسمياً':`مجلة 967 / العدد ${formatNumber(issue.number)}`}</span><h1>{issue.title}</h1><p>{issue.summary}</p><span className="issue-date"><CalendarDays size={16}/>{formatArabicDate(issue.issue_date+'T12:00:00')}</span></div></section>
+ <section className="reader-intro"><div className="container"><ContextBackLink fallback="/magazine" label="العودة إلى أرشيف المجلة"/><span className="eyebrow">{issue.is_demo?'نسخة استعراضية — ليست عدداً رسمياً':`مجلة 967 / العدد ${formatNumber(issue.number)}`}</span><h1>{issue.title}</h1><p>{issue.summary}</p><span className="issue-date"><CalendarDays size={16}/>{formatArabicDate(issue.issue_date+'T12:00:00')}</span></div></section>
  <section className="reader-section"><div className="container"><ContentReadingAction kind="issue" href={detailPath('magazine',issue.slug)} title={issue.title}/><PdfReader url={issue.pdf_url} title={issue.title}/><CorrectionLink title={issue.title} path={detailPath('magazine',issue.slug)} id={issue.id}/></div></section>
  </>}

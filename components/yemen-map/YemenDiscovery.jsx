@@ -12,6 +12,8 @@ const YemeniFiguresDirectory=dynamic(()=>import('./YemeniFiguresDirectory'),{loa
 
 export default function YemenDiscovery({showFigures=true, initialGovernorateId = null, initialDistrictId = null}) {
   const [selectedGovernorateId, setSelectedGovernorateId] = useState(initialGovernorateId);
+  const [selectedDistrictId,setSelectedDistrictId]=useState(initialDistrictId);
+  useEffect(()=>{const sync=()=>{const p=new URLSearchParams(location.search);setSelectedGovernorateId(p.get('region')||null);setSelectedDistrictId(p.get('district')||null);};window.addEventListener('popstate',sync);return()=>window.removeEventListener('popstate',sync);},[]);
   const [exploredPlaces, explorePlace, restartTour, tourSaved] = useExplorationTrail('967-map-tour-v1', yemenGovernorates);
   const directoryRef=useRef(null);
   const [directoryOpen,setDirectoryOpen]=useState(Boolean(initialGovernorateId)),[figures,setFigures]=useState(null),[figureError,setFigureError]=useState(''),[figureAttempt,setFigureAttempt]=useState(0);
@@ -28,8 +30,10 @@ export default function YemenDiscovery({showFigures=true, initialGovernorateId =
     return()=>controller.abort();
   },[showFigures,directoryOpen,figures,figureAttempt]);
 
-  function handleMapGovernorateChange(governorateId) {
+  function handleMapGovernorateChange(governorateId,districtId=null) {
     setSelectedGovernorateId(governorateId);
+    setSelectedDistrictId(districtId);
+    const p=new URLSearchParams(location.search);if(governorateId)p.set('region',governorateId);else p.delete('region');if(districtId)p.set('district',districtId);else p.delete('district');history.replaceState(history.state,'',location.pathname+(p.size?'?'+p:'')+location.hash);
   }
 
   return <>
@@ -46,7 +50,7 @@ export default function YemenDiscovery({showFigures=true, initialGovernorateId =
         <ExplorationProgress items={exploredPlaces} title="اليمن، ثلاث محطات أقرب." description="اختر ثلاث محافظات مختلفة على الخريطة وتعرّف على تفاصيل كل مكان." completeLabel="أكملت جولتك! ما زالت أماكن كثيرة تنتظرك." onRestart={restartTour} persistent={tourSaved}/>
         <YemenMap
           focusedGovernorateId={selectedGovernorateId}
-          initialDistrictId={initialDistrictId}
+          initialDistrictId={selectedDistrictId}
           onGovernorateChange={handleMapGovernorateChange}
           onGovernorateExplore={explorePlace}
           showFigures={showFigures}
@@ -57,6 +61,7 @@ export default function YemenDiscovery({showFigures=true, initialGovernorateId =
       embedded
       figures={figures}
       selectedGovernorateId={selectedGovernorateId}
+      selectedDistrictId={selectedDistrictId}
       onGovernorateChange={setSelectedGovernorateId}
     />:figureError?<div className="container section"><p className="feedback error" role="alert">{figureError}</p><button type="button" className="btn btn-outline" onClick={()=>setFigureAttempt(value=>value+1)}>إعادة تحميل الشخصيات</button></div>:<p className="container section" role="status">جارٍ تحميل الشخصيات المنشورة…</p>)}</details>}
   </>;

@@ -1,6 +1,7 @@
+import ContextBackLink from '@/components/ContextBackLink';
 import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
-import {ArrowRight, ArrowUpLeft, Database} from 'lucide-react';
+import {ArrowUpLeft, Database} from 'lucide-react';
 import IndicatorCard from '@/components/IndicatorCard';
 import {getStatDomain} from '@/lib/data';
 import {formatNumber} from '@/lib/format';
@@ -23,7 +24,7 @@ export default async function StatDomainPage({params}) {
   return <>
     <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:domain.name, path:detailPath('yemen-in-numbers', domain.slug)}])}/>
     <section className="stat-page-head"><div className="container">
-      <Link className="back-link" href="/yemen-in-numbers"><ArrowRight size={17}/> العودة إلى اليمن بالأرقام</Link>
+      <ContextBackLink fallback="/yemen-in-numbers" label="العودة إلى اليمن بالأرقام"/>
       <span className="eyebrow">{domain.section?.name || 'مجال وطني'}</span>
       <div className="stat-page-title"><div><h1>{domain.name}</h1><p>{domain.description}</p></div><strong>{formatNumber(domain.indicators.filter(x=>x.latestValue).length)}<span>ذات قيم متاحة من {formatNumber(domain.indicators.length)} مؤشر معرّف</span></strong></div>
     </div></section>

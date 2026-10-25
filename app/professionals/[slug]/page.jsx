@@ -1,15 +1,15 @@
+import ContextBackLink from '@/components/ContextBackLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Link from '@/components/SiteLink';
 import ProfileAvatar from '@/components/design/ProfileAvatar';
 import {notFound} from 'next/navigation';
-import {ArrowRight, ArrowUpLeft, BadgeCheck, BriefcaseBusiness, CalendarDays, ExternalLink, Globe2, Languages, Mail, MapPin, MessageCircle, Phone, UserRoundCheck} from 'lucide-react';
+import {ArrowUpLeft, BadgeCheck, BriefcaseBusiness, CalendarDays, ExternalLink, Globe2, Languages, Mail, MapPin, MessageCircle, Phone, UserRoundCheck} from 'lucide-react';
 import {getProfessional, getProfessionals} from '@/lib/data';
 import {relatedProjections} from '@/lib/relatedContent';
 import {formatNumber} from '@/lib/format';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
 import {whatsappUrl} from '@/lib/contactLinks';
-import {collectionDefaults,listReturnPath} from '@/lib/listState';
 import InlineTarget from '@/components/inline/InlineTarget';
 import CorrectionLink from '@/components/CorrectionLink';
 
@@ -27,21 +27,19 @@ function ContactLink({href, icon: Icon, label, external = false}) {
   return <a className="professional-contact-link" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}><Icon size={18}/><span>{label}</span>{external && <ExternalLink size={14}/>}</a>;
 }
 
-export default async function ProfessionalProfilePage({params,searchParams}) {
+export default async function ProfessionalProfilePage({params}) {
   const {slug} = await params;
   const person = await getProfessional(slug);
   if (!person) notFound();
   const professionals = await getProfessionals(relatedProjections.professionals);
   const related = professionals.filter(item => item.id !== person.id && item.category === person.category).slice(0, 3);
-  const query=await searchParams;
-  const returnTo=listReturnPath(query.from,'/professionals',collectionDefaults.professionals,'#professionals-directory');
 
   return <>
     <InlineTarget kind="professional" id={person.databaseId} slug={person.id} title={person.fullName} href={detailPath('professionals',person.id)} isDemo={person.isDemo}/>
     <JsonLd data={breadcrumbSchema([{name:'المهنيون', path:'/professionals'}, {name:person.fullName, path:detailPath('professionals', person.id)}])}/>
     <section className="professional-profile-hero">
       <div className="professional-profile-copy">
-        <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>
+        <ContextBackLink fallback="/professionals#professionals-directory" label="العودة إلى دليل المهنيين"/>
         <div className="professional-profile-identity">
         <ProfileAvatar className="professional-profile-avatar" name={person.fullName} src={person.profileImageUrl} imagePosition={person.imagePosition}/>
         <div>

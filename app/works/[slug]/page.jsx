@@ -1,7 +1,8 @@
+import ContextBackLink from '@/components/ContextBackLink';
 export const dynamic = 'force-dynamic';
 import Link from '@/components/SiteLink';
 import {notFound,redirect} from 'next/navigation';
-import {ArrowRight, CalendarDays, ArrowUpLeft, ExternalLink} from 'lucide-react';
+import {CalendarDays, ArrowUpLeft, ExternalLink} from 'lucide-react';
 import {getWorks} from '@/lib/data';
 import {formatArabicDate} from '@/lib/format';
 import {safeExternalUrl, workThumbnail} from '@/lib/media';
@@ -10,7 +11,6 @@ import WorkCard from '@/components/WorkCard';
 import InlineTarget from '@/components/inline/InlineTarget';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd, workSchema} from '@/lib/seo-schema';
-import {collectionDefaults,listReturnPath} from '@/lib/listState';
 import CorrectionLink from '@/components/CorrectionLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 
@@ -26,7 +26,7 @@ export async function generateMetadata({params}) {
   });
 }
 
-export default async function WorkDetails({params,searchParams}) {
+export default async function WorkDetails({params}) {
   const {slug} = await params;
   const works = await getWorks();
   const work = works.find(item => item.slug === slug);
@@ -36,15 +36,13 @@ export default async function WorkDetails({params,searchParams}) {
   if (related.length < 3) related.push(...works.filter(item => item.id !== work.id && !related.some(x => x.id === item.id)).slice(0, 3 - related.length));
   const date = work.published_at ? new Date(work.published_at) : null;
   const external = safeExternalUrl(work.external_url);
-  const query=await searchParams;
-  const returnTo=listReturnPath(query.from,'/works',collectionDefaults.works,'#works-results');
 
   return <>
     <InlineTarget kind="work" id={work.id} slug={work.slug} title={work.title} href={detailPath('works',work.slug)} isDemo={work.is_demo||work.isDemo}/>
     <JsonLd data={workSchema(work)}/>
     <JsonLd data={breadcrumbSchema([{name:'الأعمال الإعلامية', path:'/works'}, {name:work.title, path:detailPath('works', work.slug)}])}/>
     <section className="work-detail-head"><div className="container">
-      <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى الأعمال</Link>
+      <ContextBackLink fallback="/works#works-results" label="العودة إلى الأعمال"/>
       <div className="work-detail-taxonomy"><span>{work.category}</span><span className="work-detail-dot"/><span>{work.platform}</span></div>
       <h1>{work.title}</h1>
       <div className="work-detail-subhead">
