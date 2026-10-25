@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import PageIntro from './PageIntro';
 import {formatArabicDate} from '@/lib/format';
 

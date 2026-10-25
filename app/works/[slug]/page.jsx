@@ -1,5 +1,5 @@
 export const dynamic = 'force-dynamic';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {notFound,redirect} from 'next/navigation';
 import {ArrowRight, CalendarDays, ArrowUpLeft, ExternalLink} from 'lucide-react';
 import {getWorks} from '@/lib/data';

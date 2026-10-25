@@ -1,0 +1,485 @@
+[
+  {
+    "slug": "mukalla-iron-steel-misc",
+    "name": "شركة المكلا للحديد والصلب — حديد مِسك",
+    "category": "مواد بناء",
+    "location": "حضرموت",
+    "entity_type": "مصنع",
+    "legal_name": "شركة المكلا للحديد والصلب المحدودة",
+    "summary": "منشأة صناعية في المكلا متخصصة في إنتاج حديد التسليح، وتعرّف منتجاتها بعلامة «حديد مِسك».",
+    "story": "يعرض الموقع الرسمي مصنع قوالب الحديد ومصنع الدرفلة ومختبرات مراقبة الجودة. يقع مقر المنشأة في حضرموت على طريق الريان — سيئون، وتُعرض مواصفات المنتجات من خلال موقعها.",
+    "website": "https://www.yemenmisc.com",
+    "products": [
+      {
+        "name": "حديد التسليح",
+        "description": "حديد تسليح للبناء، وفق أصناف ومقاسات يعلنها المصنع.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.yemenmisc.com/",
+            "title": "www.yemenmisc.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "almomayaz-plus-carton",
+    "name": "المميز بلاس للصناعات الكرتونية",
+    "category": "صناعات تحويلية",
+    "location": "الحديدة",
+    "entity_type": "مصنع",
+    "summary": "شركة يمنية تصنع الكرتون المضلع وعبوات التغليف في مدينة باجل بمحافظة الحديدة.",
+    "story": "يذكر الموقع الرسمي تأسيس الشركة في 2020 وبدء الإنتاج في نوفمبر 2022. تشمل منتجاتها عبوات مخصصة للقطاعات الصناعية والزراعية والتجارية.",
+    "website": "https://www.almomayazplus.com",
+    "products": [
+      {
+        "name": "كراتين المانجو",
+        "description": "عبوات كرتونية لتغليف المانجو.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.almomayazplus.com/",
+            "title": "www.almomayazplus.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "كراتين الرمان",
+        "description": "عبوات كرتونية لتغليف الرمان.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.almomayazplus.com/",
+            "title": "www.almomayazplus.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "كراتين الأدوية",
+        "description": "صناديق كرتونية تطبع حسب طلب المنشآت.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.almomayazplus.com/",
+            "title": "www.almomayazplus.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "cartobox-hadramout",
+    "name": "مصنع كارتوبوكس للكرتون والتغليف",
+    "category": "صناعات تحويلية",
+    "location": "حضرموت",
+    "entity_type": "مصنع",
+    "summary": "مصنع في شبام بحضرموت يقدّم الكرتون المضلع ومواد التغليف والطباعة على العبوات.",
+    "story": "يعرض الموقع الرسمي صناديق للشحن والتخزين والعرض، وعبوات غذائية وحلول تغليف وتصميم مخصصة. يذكر الموقع عنوان المصنع في مديرية شبام بمحافظة حضرموت.",
+    "website": "https://cartobox-ye.com",
+    "products": [
+      {
+        "name": "صناديق الكرتون المضلع",
+        "description": "صناديق للتخزين والشحن والعرض.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://cartobox-ye.com/",
+            "title": "cartobox-ye.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "عبوات التغليف الغذائي",
+        "description": "عبوات مخصصة للمنتجات الغذائية والاستهلاكية.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://cartobox-ye.com/",
+            "title": "cartobox-ye.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "مواد التغليف البلاستيكية",
+        "description": "أكياس ومواد تغليف بأحجام واستخدامات متعددة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://cartobox-ye.com/",
+            "title": "cartobox-ye.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "petromaster-industrial-complex",
+    "name": "مجمع بتروماستر الصناعي",
+    "category": "صناعات تحويلية",
+    "location": "الحديدة",
+    "entity_type": "منشأة إنتاج",
+    "summary": "مجمع صناعي في الحديدة يعرّف بمصانع للكراتين والبلاستيك والبراميل ضمن منشآته.",
+    "story": "تجمع صفحات الموقع الرسمي معلومات مصانع المجمع وتحدد عنوانه في الحديدة، كيلو 16.",
+    "website": "https://www.petromr.com",
+    "products": [
+      {
+        "name": "عبوات الكرتون",
+        "description": "منتجات مصنع الكراتين في المجمع.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.petromr.com/factories/topic/14",
+            "title": "www.petromr.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "منتجات البلاستيك",
+        "description": "مجال إنتاج معلن ضمن قائمة مصانع المجمع.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.petromr.com/factories/topic/14",
+            "title": "www.petromr.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "البراميل",
+        "description": "مجال إنتاج معلن ضمن قائمة مصانع المجمع.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.petromr.com/factories/topic/14",
+            "title": "www.petromr.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "arabian-plastic-packaging-ampc",
+    "name": "الشركة العربية لصناعة البلاستيك والتغليف",
+    "category": "صناعات تحويلية",
+    "location": "اليمن",
+    "entity_type": "شركة",
+    "summary": "شركة يمنية متخصصة في البلاستيك والتغليف، وإحدى شركات مجموعة الحثرة الصناعية والتجارية.",
+    "story": "يعرّف الموقع الرسمي الشركة باسم الشركة العربية لصناعة البلاستيك والتغليف المحدودة.",
+    "website": "https://www.ampcye.com",
+    "products": [
+      {
+        "name": "منتجات البلاستيك والتغليف",
+        "description": "مواد ومنتجات في مجال البلاستيك والتغليف كما يعرّف نشاط الشركة الرسمي.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.ampcye.com/ar/about-us-ar2",
+            "title": "www.ampcye.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "yemen-eye-yeasco",
+    "name": "عين اليمن للتصدير والخدمات الاستشارية",
+    "category": "زراعة وثروة حيوانية",
+    "location": "اليمن",
+    "entity_type": "شركة",
+    "summary": "منشأة يمنية تعمل في إنتاج وتصدير العسل والبن وتقديم الاستشارات والتدريب الزراعي.",
+    "story": "يذكر تعريف الشركة الرسمي انطلاقها عام 1997 على يد مهندسين زراعيين. تعرض منتجات العسل بعلامة «عسل عين اليمن»، والبن بعلامة «قهوة الفردوس»، إلى جانب خدمات لتطوير الإنتاج الزراعي.",
+    "website": "https://ar.yeasco.com",
+    "products": [
+      {
+        "name": "عسل عين اليمن",
+        "description": "عسل يمني معروض ضمن منتجات المنشأة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://ar.yeasco.com/about-us",
+            "title": "ar.yeasco.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "قهوة الفردوس",
+        "description": "بن يمني ضمن العلامات التي تعرّف بها المنشأة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://ar.yeasco.com/about-us",
+            "title": "ar.yeasco.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "alrawda-agricultural-company",
+    "name": "شركة الروضة للإنتاج الزراعي والحيواني",
+    "category": "زراعة وثروة حيوانية",
+    "location": "حضرموت",
+    "entity_type": "شركة",
+    "summary": "شركة يمنية مقرها تريم في حضرموت، تعمل في الإنتاج الزراعي والحيواني وتسويق المنتجات المحلية.",
+    "story": "يذكر موقع الشركة أنها تأسست عام 2021، وأن نطاق البيع والتصدير المعلن يشمل البذور والعسل داخل اليمن وخارجه.",
+    "website": "https://www.alrawdaco.com",
+    "products": [
+      {
+        "name": "العسل",
+        "description": "منتج مدرج ضمن نطاق البيع والتصدير المعلن.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.alrawdaco.com/about/",
+            "title": "www.alrawdaco.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "البذور",
+        "description": "منتج مدرج ضمن نطاق البيع والتصدير المعلن.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.alrawdaco.com/about/",
+            "title": "www.alrawdaco.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "mukiras-apiaries",
+    "name": "مناحل مكيراس",
+    "category": "زراعة وثروة حيوانية",
+    "location": "البيضاء",
+    "entity_type": "منشأة إنتاج",
+    "summary": "منشأة يمنية تعرّف بتخصصها في إنتاج العسل اليمني وتوزيعه، مع فروع داخل اليمن.",
+    "story": "يعرض الموقع أصنافًا من العسل ومنتجات طبيعية أخرى، ويذكر فروعًا في مكيراس والبيضاء وعدن وصنعاء.",
+    "website": "https://mukiras.com",
+    "products": [
+      {
+        "name": "العسل اليمني",
+        "description": "عسل يمني ضمن مجموعة منتجات المناحل.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://mukiras.com/",
+            "title": "mukiras.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "aashab-al-tabea",
+    "name": "مؤسسة أعشاب الطبيعة",
+    "category": "أغذية ومشروبات",
+    "location": "تعز",
+    "entity_type": "مؤسسة",
+    "summary": "مؤسسة يمنية في تعز تنتج وتبيع الأعشاب والتوابل والزيوت والعسل ومنتجات غذائية أخرى.",
+    "story": "يذكر التعريف الرسمي انطلاق المؤسسة عام 2010، ويعرض مقرها في تعز وفروعًا أخرى.",
+    "website": "https://aashabaltabea.com",
+    "products": [
+      {
+        "name": "الأعشاب والتوابل",
+        "description": "أعشاب وتوابل ضمن المنتجات المعلنة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://aashabaltabea.com/s/p115194",
+            "title": "aashabaltabea.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "الزيوت الطبيعية",
+        "description": "زيوت ضمن نطاق الإنتاج والبيع المعلن.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://aashabaltabea.com/s/p115194",
+            "title": "aashabaltabea.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "العسل",
+        "description": "عسل يمني ضمن منتجات المؤسسة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://aashabaltabea.com/s/p115194",
+            "title": "aashabaltabea.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "alwanoh-yemeni-honey",
+    "name": "ألوانه للعسل اليمني",
+    "category": "أغذية ومشروبات",
+    "location": "صنعاء",
+    "entity_type": "منشأة إنتاج",
+    "summary": "علامة يمنية للعسل ومنتجات النحل، بدأت في صنعاء وتعرض منتجاتها عبر فروع داخل اليمن وخارجه.",
+    "story": "يرجع موقع المنشأة بدايتها إلى عام 1990. يعرض نطاق منتجاتها العسل ومركباته وشمع النحل والزيوت الطبيعية.",
+    "website": "https://alwanh.com",
+    "products": [
+      {
+        "name": "العسل اليمني",
+        "description": "أصناف من العسل وفق العرض الرسمي للمنشأة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://alwanh.com/about-us/",
+            "title": "alwanh.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "كريمات شمع النحل",
+        "description": "منتجات عناية قائمة على شمع النحل ضمن النطاق المعلن.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://alwanh.com/about-us/",
+            "title": "alwanh.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "الزيوت الطبيعية",
+        "description": "زيوت طبيعية ضمن نطاق منتجات المنشأة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://alwanh.com/about-us/",
+            "title": "alwanh.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "all-fruits-yemeni-honey",
+    "name": "كل الثمرات للعسل اليمني",
+    "category": "أغذية ومشروبات",
+    "location": "اليمن",
+    "entity_type": "شركة",
+    "summary": "شركة تعرّف بتخصصها في إنتاج العسل اليمني وترويجه وبيعه عبر فروع في اليمن وخارجه.",
+    "story": "يذكر موقع الشركة تأسيسها عام 2004. ولها فروع في اليمن وبعض دول الخليج العربي بحسب موقعها.",
+    "website": "https://www.all-fruits.com",
+    "products": [
+      {
+        "name": "العسل اليمني",
+        "description": "عسل يمني ضمن النشاط الأساسي المعلن للشركة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://www.all-fruits.com/",
+            "title": "www.all-fruits.com — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "alshifaa-yemeni-honey-presses",
+    "name": "معاصر الشفاء ومملكة العسل اليمني",
+    "category": "أغذية ومشروبات",
+    "location": "صنعاء",
+    "entity_type": "مؤسسة",
+    "summary": "مؤسسة يمنية تعرّف بالعسل ومنتجات النحل والزيوت المعصورة والصابون الطبيعي.",
+    "story": "يذكر الموقع الرسمي تأسيس المؤسسة عام 1991 ويحدد عنوانها في الحصبة بصنعاء.",
+    "website": "https://alshifaa.store",
+    "products": [
+      {
+        "name": "العسل ومنتجات النحل",
+        "description": "عسل ومستخلصات خلية النحل ضمن المنتجات المعلنة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://alshifaa.store/about",
+            "title": "alshifaa.store — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "الزيوت المعصورة",
+        "description": "زيوت معصورة ضمن نطاق عمل المؤسسة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://alshifaa.store/about",
+            "title": "alshifaa.store — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      {
+        "name": "الصابون الطبيعي",
+        "description": "صابون طبيعي ضمن المنتجات المعلنة.",
+        "format": "",
+        "sources": [
+          {
+            "url": "https://alshifaa.store/about",
+            "title": "alshifaa.store — التعريف والمنتجات",
+            "type": "official-company",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      }
+    ]
+  }
+]

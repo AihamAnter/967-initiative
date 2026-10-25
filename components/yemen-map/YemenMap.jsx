@@ -1,6 +1,5 @@
 'use client';
 import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {browserDb} from '@/lib/supabase';
 import MapControls from './MapControls';
 import MapLegend from './MapLegend';
 import MapSearch from './MapSearch';
@@ -16,7 +15,7 @@ import {
 
 const DATA_URL = '/data/yemen-map/yemen-boundaries.json';
 
-export default function YemenMap({focusedGovernorateId, onGovernorateChange, onGovernorateExplore, initialDistrictId = null}) {
+export default function YemenMap({focusedGovernorateId, onGovernorateChange, onGovernorateExplore, initialDistrictId = null,showFigures=true}) {
   const canvasRef = useRef(null);
   const svgRef = useRef(null);
   const pointers = useRef(new Map());
@@ -26,6 +25,7 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, onG
   const [loadError, setLoadError] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [profiles, setProfiles] = useState({});
+  const [profileError,setProfileError]=useState('');
   const [query, setQuery] = useState('');
   const [viewBox, setViewBox] = useState(null);
   const [hovered, setHovered] = useState(null);
@@ -51,23 +51,13 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, onG
   }, [attempt]);
 
   useEffect(() => {
-    const db = browserDb();
-    if (!db) return;
     let active = true;
-    const loadProfiles=()=>Promise.all([
-      db.from('governorates').select('*'),
-      db.from('districts').select('*'),
-    ]).then(([governorates, districts]) => {
-      if (!active) return;
-      const next = {};
-      if (!governorates.error) for (const item of governorates.data || []) next[item.id] = item;
-      if (!districts.error) for (const item of districts.data || []) next[item.id] = item;
-      setProfiles(next);
-    }).catch(() => {});
+    const controller=new AbortController();
+    const loadProfiles=()=>fetch('/api/map-profiles',{cache:'no-store',signal:controller.signal}).then(async response=>{if(!response.ok)throw Error();return response.json();}).then(result=>{if(active){setProfiles(result.profiles);setProfileError('');}}).catch(error=>{if(active&&error.name!=='AbortError')setProfileError('تعذر تحميل المعلومات الموسعة للأماكن. ما زالت الحدود والبحث الجغرافي متاحين.');});
     loadProfiles();
     const refresh=event=>{if(['governorate','district'].includes(event.detail?.target?.kind))loadProfiles();};
     window.addEventListener('967:inline-content-saved',refresh);
-    return () => { active = false;window.removeEventListener('967:inline-content-saved',refresh); };
+    return () => { active = false;controller.abort();window.removeEventListener('967:inline-content-saved',refresh); };
   }, []);
 
   const selectedRegion = selectedDistrict || selectedGovernorate;
@@ -388,6 +378,8 @@ export default function YemenMap({focusedGovernorateId, onGovernorateChange, onG
       </div>
 
       <RegionInfoPanel
+        profileError={profileError}
+        showFigures={showFigures}
         country={data.country}
         region={selectedRegion}
         regionType={selectedType}

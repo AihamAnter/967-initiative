@@ -1,6 +1,6 @@
 'use client';
 import {useCallback,useEffect,useRef,useState} from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {useRouter} from 'next/navigation';
 import useAudience,{audienceRequest} from './useAudience';
 import useLiveDebateResults from './useLiveDebateResults';

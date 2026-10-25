@@ -1,10 +1,12 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
+import {pageIsVisible} from '@/lib/pageVisibility';
 import {ArrowUpLeft, AtSign, Facebook, Instagram, Youtube} from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import {defaultSiteSettings} from '@/lib/siteSettings';
 import {contentPagePath} from '@/lib/contentPages';
 export default function Footer({settings=defaultSiteSettings}) {
-  const pages=(settings.contentPages||[]).filter(page=>page.showInFooter);
+  const pages=(settings.contentPages||[]).filter(page=>page.showInFooter&&page.isPublished!==false);
+  const Link=({href,...props})=>pageIsVisible(href,settings.pageVisibility,settings.contentPages||[])?<NextLink href={href} {...props}/>:null;
   const socials=[{key:'instagram',label:'إنستغرام',icon:Instagram},{key:'youtube',label:'يوتيوب',icon:Youtube},{key:'facebook',label:'فيسبوك',icon:Facebook},{key:'tiktok',label:'تيك توك',icon:AtSign}].filter(item=>settings[item.key]);
   return <footer className="platform-footer"><div className="container">
     <div className="platform-footer-grid"><div className="footer-about"><Link href="/" aria-label="مبادرة 967"><BrandLogo light/></Link><h2>{settings.footerTitle}</h2><p>{settings.footerDescription}</p><div className="footer-socials">{socials.map(({key,label,icon:Icon})=><a href={settings[key]} target="_blank" rel="noopener noreferrer" key={key}><Icon size={19}/><span>{label}</span><ArrowUpLeft size={15}/></a>)}</div></div>

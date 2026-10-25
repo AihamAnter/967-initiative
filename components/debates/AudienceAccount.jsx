@@ -1,7 +1,7 @@
 'use client';
 import ValidatedForm,{FormInput,FormTextarea,FormSelect,FormLabel} from './ValidatedForm';
 import {useCallback,useEffect,useRef,useState} from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import useAudience,{audienceRequest} from './useAudience';
 import {browserDb} from '@/lib/supabase';
 import {COMMENT_STATUSES,QUESTION_STATUSES,SUGGESTION_STATUSES} from '@/lib/debates';

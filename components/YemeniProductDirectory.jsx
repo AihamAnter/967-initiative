@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {useMemo} from 'react';
 import {ArrowUpLeft, ChevronDown, MapPin, Package, Search, SlidersHorizontal, X} from 'lucide-react';
 import {formatNumber} from '@/lib/format';
@@ -11,6 +11,7 @@ import {collectionDefaults,listStateSearch} from '@/lib/listState';
 import Pagination from './Pagination';
 import ActiveFilters from './ActiveFilters';
 import SaveForLater from './reading/SaveForLater';
+import ContentSurface from './design/ContentSurface';
 
 export default function YemeniProductDirectory({companies}) {
   const [{q:query,page,category,location},update]=useListState(collectionDefaults.products);
@@ -70,7 +71,7 @@ export default function YemeniProductDirectory({companies}) {
     </div>
 
     {results.length ? <div className={'company-grid collection-results results-count-'+Math.min(results.length,3)}>{results.slice((currentPage-1)*12,currentPage*12).map(company =>
-      <article className="saveable-card" key={company.id}><Link className="company-card" href={'/yemeni-products/' + company.id+'?from='+encodeURIComponent(returnTo)}>
+      <ContentSurface kind="product" className="saveable-card" key={company.id}><Link className="company-card" href={'/yemeni-products/' + company.id+'?from='+encodeURIComponent(returnTo)}>
         <div className="company-media">
           {company.imageUrl ? <Image src={company.imageUrl || '/images/yemeni-products-hero.png'} alt={company.products.join('، ')} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" style={{objectPosition: company.imagePosition}}/> : <div className="company-placeholder"><Package size={42} strokeWidth={1}/></div>}
           {company.scale && <span>{company.scale}</span>}
@@ -82,7 +83,7 @@ export default function YemeniProductDirectory({companies}) {
           <div className="company-products" role="group" aria-label="المنتجات">{company.products.map(product => <span key={product}>{product}</span>)}</div>
           <span className="company-expand">عرض ملف الشركة والتفاصيل <ArrowUpLeft size={17}/></span>
         </div>
-      </Link><div className="card-save-action"><SaveForLater item={{kind:'company',href:'/yemeni-products/'+encodeURIComponent(company.id),title:company.name}}/></div></article>
+      </Link><div className="card-save-action"><SaveForLater compact item={{kind:'company',href:'/yemeni-products/'+encodeURIComponent(company.id),title:company.name}}/></div></ContentSurface>
     )}</div> : <div className="products-empty">
       <Package size={34}/><h2>لا توجد نتائج مطابقة</h2><p>جرّب كلمة أخرى أو اعرض جميع القطاعات والمحافظات.</p>
       <button type="button" className="btn btn-outline" onClick={clearFilters}>إزالة عوامل التصفية</button>

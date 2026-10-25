@@ -1,53 +1,89 @@
-import Link from 'next/link';
-import {pageMetadata} from '@/lib/seo';
-import Image from 'next/image';
-import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, Compass, Film, Handshake, MapPin, MessagesSquare, Package, PenLine, UsersRound} from 'lucide-react';
+import NextLink from 'next/link';
+import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
-import HomeDebates from '@/components/debates/HomeDebates';
-import SectionHeading from '@/components/SectionHeading';
-import WorkCard from '@/components/WorkCard';
-import IndicatorCard from '@/components/IndicatorCard';
+import YemeniMotif from '@/components/design/YemeniMotif';
+import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
 import {getIssues, getWorks, getStatIndicators, getYemeniCompanies, getProfessionals, getSiteSettings} from '@/lib/data';
-import {formatArabicDate} from '@/lib/format';
-import {canOptimizeImage} from '@/lib/media';
+import {getDebateCatalog} from '@/lib/debateServer';
+import {selectHomeContent,homeProjections} from '@/lib/homeContent';
+import {pageIsVisible,sectionIsVisible} from '@/lib/pageVisibility';
+import {pageMetadata} from '@/lib/seo';
 import styles from './home.module.css';
-import SaveForLater from '@/components/reading/SaveForLater';
 
 export const dynamic = 'force-dynamic';
 export const metadata = pageMetadata({title:'967 | اليمن، أقرب إليك', description:'مساحة يمنية مفتوحة للمعرفة والإعلام والثقافة والبيانات والمشاركة المجتمعية.', path:'/'});
+
 const destinations = [
-  {href: '/magazine', title: 'مجلة 967', text: 'مساحة للقراءة والتأمل', icon: BookOpen, tone: 'plum'},
-  {href: '/works', title: 'الأعمال الإعلامية', text: 'حكايات من زوايا مختلفة', icon: Film, tone: 'clay'},
-  {href: '/yemen-in-numbers', title: 'اليمن بالأرقام', text: 'بيانات تضعك في الصورة', icon: ChartNoAxesCombined, tone: 'blue'},
-  {href: '/yemen-map', title: 'اكتشف اليمن', text: 'أماكن وقصص وشخصيات', icon: Compass, tone: 'green'},
-  {href: '/yemeni-products', title: 'منتجات يمنية', text: 'اعرف ما يُصنع في بلدك', icon: Package, tone: 'gold'},
-  {href: '/professionals', title: 'المهنيون', text: 'مهارات أقرب إلى احتياجك', icon: UsersRound, tone: 'primary'},
+  {href:'/works', title:'شاهد حكاية', text:'الأعمال الإعلامية', icon:Film, tone:'coral'},
+  {href:'/magazine', title:'خذ وقتك للقراءة', text:'مجلة 967', icon:BookOpen, tone:'violet'},
+  {href:'/yemen-in-numbers', title:'افهم الصورة', text:'اليمن بالأرقام', icon:ChartNoAxesCombined, tone:'cobalt'},
+  {href:'/yemen-map', title:'اكتشف مكانًا', text:'أطلس اليمن', icon:Compass, tone:'leaf'},
+  {href:'/yemeni-products', title:'صُنع في اليمن', text:'دليل المنتجات', icon:Package, tone:'sun'},
+  {href:'/professionals', title:'اعثر على مهارة', text:'دليل المهنيين', icon:UsersRound, tone:'brand'},
 ];
+
 export default async function Home() {
-  const [works, issues, indicators, companies, professionals, settings] = await Promise.all([getWorks(), getIssues(), getStatIndicators(), getYemeniCompanies(), getProfessionals(), getSiteSettings()]);
-  const latest = issues[0];
-  const highlights = indicators.filter(item => item.latestValue).sort((a, b) => Number(b.latestValue.year) - Number(a.latestValue.year)).slice(0, 3);
-  const additions = [...companies.filter(x => !x.isDemo).slice(0, 1).map(x => ({title: x.name, description: x.summary, href: '/yemeni-products/' + x.id, type: 'من دليل المنتجات'})), ...professionals.filter(x => !x.isDemo).slice(0, 1).map(x => ({title: x.fullName, description: x.professionTitle, href: '/professionals/' + x.id, type: 'من دليل المهنيين'}))];
-  return <div className="home-page">
-    <section className="home-hero"><div className="container home-hero-grid">
-      <div className="home-hero-copy"><span className="eyebrow">{settings.heroEyebrow}</span><h1>{settings.heroTitle} {settings.heroHighlight&&<span>{settings.heroHighlight}</span>}</h1><p>{settings.heroDescription}</p><SearchForm placeholder={settings.searchPlaceholder}/><div className="hero-suggestions"><span>ابدأ من هنا</span><Link href="/yemen-map">اكتشف مكاناً</Link><Link href="/magazine">اقرأ حكاية</Link><Link href="/yemen-in-numbers">تحقّق من رقم</Link></div></div>
-      <Link href="/yemen-map" className="home-map-visual" aria-label="استكشف محافظات اليمن ومديرياتها في الأطلس التفاعلي"><span className="map-caption"><span/> أرض واحدة، حكايات كثيرة</span><Image src="/images/yemen-preview.svg" width={1343} height={760} priority alt="خريطة اليمن ومحافظاتها وجزرها" className="home-map-image" sizes="(max-width: 760px) 90vw, (max-width: 1440px) 45vw, 600px"/><span className="map-discover"><span><strong>تعرّف على اليمن، مكاناً بمكان.</strong><span>المحافظات والمديريات في أطلس تفاعلي</span></span><ArrowUpLeft size={22}/></span></Link>
-    </div></section>
-    <section className="section home-discovery" aria-label="أدوات استكشاف اليمن"><div className="container"><SectionHeading kicker="أقسام المنصة" title="اختر ما تود اكتشافه." copy="قراءة، معرفة، أو مهارة تحتاجها. كل أقسام 967 أمامك."/><div className="quick-grid">{destinations.map(({href, title, text, icon: Icon, tone}) => <Link href={href} className="quick-link" data-tone={tone} key={href}><Icon size={25} strokeWidth={1.5}/><h2>{title}</h2><span>{text}</span><ArrowUpLeft size={17} className="quick-arrow"/></Link>)}</div></div></section>
-    <HomeDebates/>
-    <section className="section home-latest"><div className="container"><SectionHeading kicker="من المنصة" title="مساحة للاكتشاف، كل يوم." copy="أحدث ما نُشر من أعمال وإصدارات وإضافات إلى أدلة 967." href="/works" linkLabel="المكتبة الإعلامية"/>
-      <div className={works.length===1&&latest?styles.featurePair:undefined}>
-      {works.length > 0 && <div className={`work-grid home-work-grid${works.length === 1 ? ' home-work-single' : ''}`}>{works.slice(0, 3).map((work, index) => <WorkCard work={work} index={index} key={work.id}/>)}</div>}
-      {latest && <article className="home-issue"><Link href={'/magazine/' + latest.slug} className="home-issue-cover">{latest.cover_url ? <Image src={latest.cover_url} alt={'غلاف ' + latest.title} width={450} height={600} sizes="(max-width: 600px) 210px, 240px" unoptimized={!canOptimizeImage(latest.cover_url)}/> : <BookOpen size={56} aria-hidden="true"/>}</Link><div><span className="eyebrow">أحدث إصدار · العدد {latest.number}</span><h3><Link href={'/magazine/' + latest.slug}>{latest.title}</Link></h3><p>{latest.summary}</p><time dateTime={latest.issue_date}>{formatArabicDate(latest.issue_date)}</time><div className="spotlight-actions"><Link href={'/magazine/' + latest.slug} className="btn btn-primary">اقرأ العدد <ArrowLeft size={17}/></Link>{!latest.is_demo&&<SaveForLater item={{kind:'issue',href:'/magazine/'+encodeURIComponent(latest.slug),title:latest.title}}/>}</div></div></article>}
+  const [works, issues, indicators, companies, professionals, settings, debateCatalog] = await Promise.all([
+    getWorks(homeProjections.works), getIssues(homeProjections.issues), getStatIndicators(), getYemeniCompanies(homeProjections.companies), getProfessionals(homeProjections.professionals), getSiteSettings(), getDebateCatalog(),
+  ]);
+  const content = selectHomeContent({works, issues, indicators, companies, professionals, debates:debateCatalog.debates});
+  const visible=id=>sectionIsVisible(id,settings.pageVisibility);
+  const Link=({href,...props})=>pageIsVisible(href,settings.pageVisibility,settings.contentPages||[])?<NextLink href={href} {...props}/>:null;
+  const showStories=visible('works')||visible('debates');
+  const showLead=visible(content.leadKind==='debate'?'debates':'works');
+  const lead = content.leadKind === 'debate' ? content.debate : content.work;
+  const secondaryKind = content.leadKind === 'debate' ? 'video' : 'debate';
+  const secondary = secondaryKind === 'video' ? content.work : content.debate;
+  const remainingIndicators = content.highlights.slice(1);
+  const moreContent = content.moreWorks.length > 0 || content.moreIssues.length > 0;
+
+  return <div className={`home-page ${styles.page}`}>
+    <section className={styles.hero} aria-labelledby="home-title">
+      <div className="container">
+        <div className={styles.intro}>
+          <div className={styles.titleBlock}><span className={styles.kicker}><span aria-hidden="true"/>{settings.heroEyebrow}</span><h1 id="home-title">{settings.heroTitle} {settings.heroHighlight && <span>{settings.heroHighlight}</span>}</h1></div>
+          <div className={styles.introCopy}><p>{settings.heroDescription}</p><SearchForm placeholder={settings.searchPlaceholder}/></div>
+        </div>
+        {settings.pageVisibilityUnavailable&&<p className="stat-warning" role="status">تعذر تحميل أقسام المنصة مؤقتًا. أعد تحديث الصفحة للمحاولة.</p>}
+        {(showStories||visible('magazine')||visible('statistics'))&&<><div className={styles.curatedHeading}><span>من 967، إليك.</span><span>حكاية، قراءة، ورقم يفتح سؤالًا جديدًا.</span></div>
+        <div className={styles.mosaic} data-flexible={!(showLead&&visible('magazine')&&visible('statistics'))||undefined} aria-label="مختارات من محتوى المنصة">
+          {showLead&&<div className={styles.leadSlot}><HomeStoryCard kind={content.leadKind} item={lead} featured/></div>}
+          {visible('magazine')&&<div className={styles.issueSlot}><HomeIssueCard issue={content.issue}/></div>}
+          {(visible(secondaryKind==='video'?'works':'debates')||visible('statistics'))&&<div className={styles.sideStack}>{visible(secondaryKind==='video'?'works':'debates')&&<HomeStoryCard kind={secondaryKind} item={secondary}/>} {visible('statistics')&&<HomeIndicatorCard indicator={content.highlights[0]} compact/>}</div>}
+        </div></>}
       </div>
-      {additions.length > 0 && <div className="latest-additions">{additions.map(item => <Link href={item.href} key={item.href}><span className="eyebrow">{item.type}</span><h3>{item.title}</h3><p>{item.description}</p><ArrowUpLeft size={18}/></Link>)}</div>}
-      {!works.length && !latest && !additions.length && <div className="quiet-empty"><BookOpen size={28}/><div><h3>المحتوى يبدأ من هنا.</h3><p>لا يوجد محتوى منشور في المكتبة بعد. استكشف الأقسام أو اقترح موضوعاً نعمل عليه معاً.</p></div><Link href="/contribute?type=اقتراح%20موضوع" className="btn btn-outline">اقترح موضوعاً <PenLine size={17}/></Link></div>}
+    </section>
+
+    <section className={styles.discovery} aria-labelledby="explore-title"><div className="container">
+      <div className={styles.smallHeading}><h2 id="explore-title">فضولك، يحدد البداية.</h2><Link href="/search">ابحث في كل المنصة <ArrowLeft size={16} aria-hidden="true"/></Link></div>
+      <div className={styles.destinations}>{destinations.map(({href,title,text,icon:Icon,tone}) => <Link key={href} href={href} className={styles.destination} data-tone={tone}><Icon size={25} strokeWidth={1.6} aria-hidden="true"/><div><h3>{title}</h3><span>{text}</span></div><ArrowUpLeft className={styles.destinationArrow} size={15} aria-hidden="true"/></Link>)}</div>
     </div></section>
-    <section className="section home-numbers"><div className="container"><SectionHeading kicker="اليمن بالأرقام" title="وراء كل رقم، صورة أوضح." copy="مؤشرات وطنية مع سنة القياس والمصدر. المعرفة تبدأ برقم يمكن التحقّق منه." href="/yemen-in-numbers" linkLabel="استكشف جميع المؤشرات"/>{highlights.length ? <div className="stat-indicator-grid">{highlights.map(item => <IndicatorCard key={item.id} indicator={item}/>)}</div> : <div className="numbers-empty"><ChartNoAxesCombined size={35}/><p>المؤشرات ذات القيم الموثقة ستظهر هنا عند نشرها.</p><Link className="text-link" href="/yemen-in-numbers">تصفح مجالات المرصد <ArrowLeft size={16}/></Link></div>}</div></section>
-    <section className="participate-banner" id="contact"><div className="container"><div><span>{settings.participationEyebrow}</span><h2>{settings.participationTitle}</h2></div><Link href="/contribute" className="btn btn-white">{settings.participationButtonLabel} <ArrowUpLeft size={19}/></Link></div></section>
-    <details className={styles.aboutDisclosure}><summary className="container">عن المبادرة ومشاريع 967 <span>تعرّف على رؤيتنا ومسارات العمل</span></summary>
-    <section className="section home-about" id="about"><div className="container about-platform"><div><span className="eyebrow">عن المبادرة</span><h2>{settings.aboutTitle}</h2><div className="about-words">{settings.aboutTags.map((word, index) => <span key={index}>{word}</span>)}</div></div><div><p className="lead">{settings.aboutDescription}</p><details open><summary>رؤيتنا ورسالتنا</summary><p>{settings.aboutVision}</p></details><details><summary>مجالات عملنا</summary><p>{settings.aboutFields}</p></details></div></div></section>
-    <section className="section home-projects" id="projects"><div className="container"><SectionHeading kicker="من الفكرة إلى الأثر" title="مسارات نعمل على تطويرها." copy="نعرض حالة كل مشروع بوضوح، ونعلن تفاصيل الأنشطة عند إطلاقها."/><div className="project-list">{[{icon: MapPin, title: '967 في الشارع', status: 'مخطط له', text: 'لقاءات واستطلاعات ميدانية للاستماع إلى تجارب الناس وأسئلتهم.'}, {icon: MessagesSquare, title: 'مناظرات 967', status: settings.debatesProjectStatus, href:'/debates', text: 'حوارات منظمة تتيح للرؤى المختلفة مساحة للفهم والنقاش.'}, {icon: Handshake, title: 'مشاريع مجتمعية', status: 'مخطط لها', text: 'مبادرات في المعرفة والخدمات والمشاركة تُعلن عند إطلاقها.'}].map(({icon: Icon, title, status, text, href}) => <article key={title}><Icon size={24}/><div><h3>{href?<Link href={href}>{title} <ArrowUpLeft size={16}/></Link>:title}</h3><p>{text}</p></div><span className="status-badge">{status}</span></article>)}</div></div></section>
-    </details>
+
+    {moreContent && <section className={styles.moreContent} aria-labelledby="latest-title"><div className="container">
+      <div className={styles.sectionHeading}><div><span className={styles.sectionKicker}>من المكتبة</span><h2 id="latest-title">حكايات أخرى، تستحق وقتك.</h2></div><Link href="/works" className={styles.sectionLink}>تصفح الأعمال <ArrowLeft size={17} aria-hidden="true"/></Link></div>
+      <div className={styles.moreGrid}>{content.moreWorks.map(work => <HomeStoryCard kind="video" item={work} featured key={'work-'+work.id}/>)}{content.moreIssues.map(issue => <HomeIssueCard issue={issue} compact key={'issue-'+issue.id}/>)}</div>
+    </div></section>}
+
+    {visible('statistics')&&<section className={styles.numbers} aria-labelledby="numbers-title"><div className={`container ${styles.numbersGrid}`}>
+      <div className={styles.numbersIntro}><span className={styles.sectionKicker}>اليمن بالأرقام</span><h2 id="numbers-title">لنفهم الواقع،<br/>نقترب من أرقامه.</h2><p>مؤشرات وطنية، مع سنة القياس والمصدر. وراء كل رقم، مساحة للفهم.</p><Link href="/yemen-in-numbers" className={styles.lightLink}>استكشف المؤشرات <ArrowLeft size={17} aria-hidden="true"/></Link><Link href="/yemen-ranking" className={styles.rankingLink}>أين يقف اليمن عالميًا؟ <ArrowUpLeft size={17} aria-hidden="true"/></Link></div>
+      <div className={styles.numberCards}>{remainingIndicators.length ? remainingIndicators.map(indicator => <HomeIndicatorCard indicator={indicator} key={indicator.id}/>) : <Link href="/yemen-in-numbers" className={styles.numberInvitation}><ChartNoAxesCombined size={36} aria-hidden="true"/><h3>ابدأ بسؤال، واكتشف المؤشرات.</h3><span>المجالات والمصادر وسنوات القياس <ArrowUpLeft size={18} aria-hidden="true"/></span></Link>}</div>
+    </div></section>}
+
+    {(visible('products')||visible('professionals')||visible('atlas'))&&<section className={styles.community} aria-labelledby="community-title"><div className="container">
+      <div className={styles.sectionHeading}><div><span className={styles.sectionKicker}>من الناس، ومن البلد</span><h2 id="community-title">أشياء تُصنع. ومهارات تُنجز.</h2></div><span className={styles.sectionNote}>اكتشف الأدلة، واقترب ممن حولك.</span></div>
+      <div className={styles.communityGrid}>{visible('products')&&<HomeDirectoryCard kind="product" item={content.company}/>} {visible('professionals')&&<HomeDirectoryCard kind="profile" item={content.professional}/>}</div>
+      <Link href="/yemen-map" className={styles.atlasLink}><Compass size={21} aria-hidden="true"/><span>وكل مكان، له حكاية.<strong>استكشف محافظات اليمن وأماكنه وشخصياته.</strong></span><ArrowUpLeft size={20} aria-hidden="true"/></Link>
+    </div></section>}
+
+    {visible('contribute')&&<section className={styles.participate} id="contact"><div className={`container ${styles.participateInner}`}><div><span>{settings.participationEyebrow}</span><h2>{settings.participationTitle}</h2></div><Link href="/contribute">{settings.participationButtonLabel}<ArrowUpLeft size={20} aria-hidden="true"/></Link><YemeniMotif className={styles.participationMotif}/></div></section>}
+
+    <section className={styles.about} aria-label="عن المبادرة ومشاريعها"><div className={`container ${styles.aboutGrid}`}>
+      <details id="about" className={styles.disclosure}><summary><div><span>تعرّف على 967</span><h2>مساحة تتسع لنا جميعًا.</h2></div><ChevronDown size={21} aria-hidden="true"/></summary><div className={styles.disclosureBody}><h3>{settings.aboutTitle}</h3><p>{settings.aboutDescription}</p><div className={styles.aboutTags}>{settings.aboutTags.map((tag,index) => <span key={index}>{tag}</span>)}</div><h3>رؤيتنا ورسالتنا</h3><p>{settings.aboutVision}</p><h3>مجالات عملنا</h3><p>{settings.aboutFields}</p><Link href="/about" className={styles.sectionLink}>المزيد عن المبادرة <ArrowUpLeft size={16} aria-hidden="true"/></Link></div></details>
+      <details id="projects" className={styles.disclosure}><summary><div><span>من الفكرة إلى الأثر</span><h2>مسارات نعمل على تطويرها.</h2></div><ChevronDown size={21} aria-hidden="true"/></summary><div className={styles.disclosureBody}>{[
+        {icon:MapPin,title:'967 في الشارع',status:'مخطط له',text:'لقاءات واستطلاعات ميدانية للاستماع إلى تجارب الناس وأسئلتهم.'},
+        {icon:MessagesSquare,title:'مناظرات 967',status:settings.debatesProjectStatus,href:'/debates',text:'حوارات منظمة تتيح للرؤى المختلفة مساحة للفهم والنقاش.'},
+        {icon:Handshake,title:'مشاريع مجتمعية',status:'مخطط لها',text:'مبادرات في المعرفة والخدمات والمشاركة تُعلن عند إطلاقها.'},
+      ].filter(item=>!item.href||pageIsVisible(item.href,settings.pageVisibility)).map(({icon:Icon,title,status,text,href}) => <article className={styles.project} key={title}><Icon size={22} aria-hidden="true"/><div><h3>{href ? <Link href={href}>{title}</Link> : title}</h3><p>{text}</p><span>{status}</span></div></article>)}</div></details>
+    </div></section>
   </div>;
 }

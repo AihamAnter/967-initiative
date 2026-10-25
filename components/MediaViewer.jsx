@@ -2,6 +2,7 @@
 import {useEffect,useState} from 'react';
 import {ExternalLink, LoaderCircle, Play, PlayCircle, ShieldCheck} from 'lucide-react';
 import {mediaLabel, parseMediaUrl, workThumbnail} from '@/lib/media';
+import WorkThumbnail from './WorkThumbnail';
 
 export default function MediaViewer({work}) {
   const [activated, setActivated] = useState(false);
@@ -20,7 +21,7 @@ export default function MediaViewer({work}) {
   return <div className="media-frame-outer">
     <div className={'media-frame media-frame-' + (canEmbed ? media.ratio : 'landscape')}>
       {!activated || !canEmbed || failed ? <>
-        {thumbnail && <img className="media-cover" src={thumbnail} alt="" onError={event=>{event.currentTarget.style.display='none';}}/>}
+        {thumbnail && <WorkThumbnail className="media-cover" src={thumbnail} priority sizes="(max-width:700px) 100vw, 900px"/>}
         <div className="media-cover-shade" />
         <div className="media-cover-brand">967 <span>/</span> MEDIA</div>
         {canEmbed && !failed ? <button type="button" className="media-play" onClick={() => {setLoading(true);setActivated(true);}} aria-label={(providerMayBlock?'محاولة تشغيل العمل هنا: ':'تشغيل العمل هنا: ') + work.title + '، المصدر: ' + mediaLabel(media.kind)}>

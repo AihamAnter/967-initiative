@@ -1,0 +1,1273 @@
+[
+  {
+    "record": {
+      "slug": "amr-gamal",
+      "full_name": "عمرو جمال",
+      "known_for": "مخرج سينمائي ومسرحي، ومؤسس فرقة خليج عدن المسرحية",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "YE24",
+      "governorate_name": "عدن",
+      "era": "معاصرة",
+      "short_bio": "عمرو جمال مخرج يمني يرتبط عمله بمدينة عدن. أسس فرقة خليج عدن المسرحية عام 2005، وجمع بين كتابة العروض وإخراجها والعمل السينمائي. تتناول أعماله الحياة الاجتماعية وتجارب الناس والذاكرة الثقافية للمدينة.\n\nأخرج فيلم «عشرة أيام قبل الزفة» الذي صدر عام 2018، ثم «المرهقون» عام 2023. شارك الفيلم الثاني في مهرجان برلين السينمائي وحصل على جائزة منظمة العفو الدولية، كما عُرض في مهرجان عمّان السينمائي الدولي.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 300
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "عمرو جمال مخرج يمني يرتبط عمله بمدينة عدن. أسس فرقة خليج عدن المسرحية عام 2005، وجمع بين كتابة العروض وإخراجها والعمل السينمائي. تتناول أعماله الحياة الاجتماعية وتجارب الناس والذاكرة الثقافية للمدينة."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "أخرج فيلم «عشرة أيام قبل الزفة» الذي صدر عام 2018، ثم «المرهقون» عام 2023. شارك الفيلم الثاني في مهرجان برلين السينمائي وحصل على جائزة منظمة العفو الدولية، كما عُرض في مهرجان عمّان السينمائي الدولي."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "id": "event-1",
+          "year": 2005,
+          "dateLabel": "",
+          "title": "تأسيس فرقة خليج عدن المسرحية",
+          "description": "",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "عشرة أيام قبل الزفة",
+          "kind": "عمل منشور",
+          "year": 2018,
+          "description": "",
+          "url": "https://aiff.jo/narrative-jury/amr-gamal/",
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "work-2",
+          "title": "المرهقون",
+          "kind": "عمل منشور",
+          "year": 2023,
+          "description": "",
+          "url": "https://aiff.jo/narrative-jury/amr-gamal/",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "مهرجان عمّان السينمائي الدولي — عمرو جمال",
+          "url": "https://aiff.jo/narrative-jury/amr-gamal/",
+          "publisher": "aiff.jo",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "sara-ishaq",
+      "full_name": "سارة إسحاق",
+      "known_for": "مخرجة ومنتجة أفلام يمنية اسكتلندية، تعمل أيضًا في تدريب صناع الأفلام",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "سارة إسحاق صانعة أفلام يمنية اسكتلندية. من أعمالها الوثائقية «بيت التوت»، الذي عُرض للمرة الأولى في مهرجان أمستردام الدولي للأفلام الوثائقية عام 2013. تتقاطع تجربتها مع حكايات اليمن والعائلة والذاكرة والتحولات الاجتماعية.\n\nبدأت تقديم تدريب في صناعة الأفلام الوثائقية في اليمن منذ 2015، وأسهمت في تأسيس أكاديمية قمرة عام 2017. تجمع تجربتها بين الإخراج والإنتاج والإرشاد، ودعم صناع الأفلام اليمنيين والعرب للوصول إلى أدوات السرد والتطوير.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 301
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "سارة إسحاق صانعة أفلام يمنية اسكتلندية. من أعمالها الوثائقية «بيت التوت»، الذي عُرض للمرة الأولى في مهرجان أمستردام الدولي للأفلام الوثائقية عام 2013. تتقاطع تجربتها مع حكايات اليمن والعائلة والذاكرة والتحولات الاجتماعية."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "بدأت تقديم تدريب في صناعة الأفلام الوثائقية في اليمن منذ 2015، وأسهمت في تأسيس أكاديمية قمرة عام 2017. تجمع تجربتها بين الإخراج والإنتاج والإرشاد، ودعم صناع الأفلام اليمنيين والعرب للوصول إلى أدوات السرد والتطوير."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "id": "event-1",
+          "year": 2017,
+          "dateLabel": "",
+          "title": "المشاركة في تأسيس أكاديمية قمرة",
+          "description": "",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "بيت التوت",
+          "kind": "عمل منشور",
+          "year": 2013,
+          "description": "",
+          "url": "https://www.saraishaq.com/films",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "سارة إسحاق — الأفلام",
+          "url": "https://www.saraishaq.com/films",
+          "publisher": "www.saraishaq.com",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        },
+        {
+          "id": "source-2",
+          "title": "سارة إسحاق — التدريب والإرشاد",
+          "url": "https://www.saraishaq.com/training",
+          "publisher": "www.saraishaq.com",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "khadija-al-salami",
+      "full_name": "خديجة السلامي",
+      "known_for": "مخرجة ومنتجة وكاتبة يمنية، تناولت في أفلامها قضايا النساء والمجتمع",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "YE13",
+      "governorate_name": "أمانة العاصمة",
+      "era": "معاصرة",
+      "short_bio": "خديجة السلامي مخرجة ومنتجة يمنية ولدت في صنعاء عام 1966، وفق سجل الهوية الاستنادي في WorldCat. يشمل عملها السينما والكتابة، ومن الأعمال المرتبطة باسمها «دموع سبأ» وفيلم «أنا نجوم بنت العاشرة ومطلقة».\n\nيدرج الصندوق العربي للثقافة والفنون مشروعها «الصرخة» ضمن مشروعاته المدعومة. يتناول المشروع مشاركة النساء اليمنيات في التحولات السياسية والاجتماعية، ويطرح أسئلة حول حضورهن وصوتهن في المجال العام.",
+      "is_published": true,
+      "birth_year": 1966,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 302
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "خديجة السلامي مخرجة ومنتجة يمنية ولدت في صنعاء عام 1966، وفق سجل الهوية الاستنادي في WorldCat. يشمل عملها السينما والكتابة، ومن الأعمال المرتبطة باسمها «دموع سبأ» وفيلم «أنا نجوم بنت العاشرة ومطلقة»."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "يدرج الصندوق العربي للثقافة والفنون مشروعها «الصرخة» ضمن مشروعاته المدعومة. يتناول المشروع مشاركة النساء اليمنيات في التحولات السياسية والاجتماعية، ويطرح أسئلة حول حضورهن وصوتهن في المجال العام."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "timeline": [],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "دموع سبأ",
+          "kind": "عمل منشور",
+          "year": null,
+          "description": "",
+          "url": "https://entities.oclc.org/worldcat/entity/E39PBJmTmrM9yqf6TCmXQkjHmd.html",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "work-2",
+          "title": "أنا نجوم بنت العاشرة ومطلقة",
+          "kind": "عمل منشور",
+          "year": null,
+          "description": "",
+          "url": "https://entities.oclc.org/worldcat/entity/E39PBJmTmrM9yqf6TCmXQkjHmd.html",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "work-3",
+          "title": "الصرخة",
+          "kind": "عمل منشور",
+          "year": null,
+          "description": "",
+          "url": "https://entities.oclc.org/worldcat/entity/E39PBJmTmrM9yqf6TCmXQkjHmd.html",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "WorldCat — خديجة السلامي",
+          "url": "https://entities.oclc.org/worldcat/entity/E39PBJmTmrM9yqf6TCmXQkjHmd.html",
+          "publisher": "entities.oclc.org",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        },
+        {
+          "id": "source-2",
+          "title": "آفاق — مشروع الصرخة",
+          "url": "https://www.arabculturefund.org/data/resources/47.pdf",
+          "publisher": "www.arabculturefund.org",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "alia-ali",
+      "full_name": "علياء علي",
+      "known_for": "فنانة متعددة الوسائط تستكشف التراث اليمني واللغة والنسيج والذاكرة",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "علياء علي فنانة تنطلق ممارستها من التراث الثقافي اليمني ومن تجارب التنقل والذاكرة. تعمل بالتصوير الفوتوغرافي والنسيج والنحت والتركيب الفني، وتبحث في طرق انتقال المعرفة واللغة والهوية عبر المواد والأماكن.\n\nقدّم متحف فيكتوريا وألبرت في لندن أبحاثها ضمن برنامج زمالة جميل، ومن بينها حديث عام 2025 حول التراث اليمني وآثار جرى تهريبها. تربط أعمالها بين دراسة الماضي وتخيّل المستقبل، مع اهتمام بالسياقات التي تُعرض فيها الأشياء وتُفسّر.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 303
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "علياء علي فنانة تنطلق ممارستها من التراث الثقافي اليمني ومن تجارب التنقل والذاكرة. تعمل بالتصوير الفوتوغرافي والنسيج والنحت والتركيب الفني، وتبحث في طرق انتقال المعرفة واللغة والهوية عبر المواد والأماكن."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "قدّم متحف فيكتوريا وألبرت في لندن أبحاثها ضمن برنامج زمالة جميل، ومن بينها حديث عام 2025 حول التراث اليمني وآثار جرى تهريبها. تربط أعمالها بين دراسة الماضي وتخيّل المستقبل، مع اهتمام بالسياقات التي تُعرض فيها الأشياء وتُفسّر."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "id": "event-1",
+          "year": 2025,
+          "dateLabel": "",
+          "title": "زمالة جميل في متحف فيكتوريا وألبرت",
+          "description": "",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "BORDERLAND",
+          "kind": "عمل منشور",
+          "year": 2017,
+          "description": "",
+          "url": "https://www.alia-ali.com/about",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "work-2",
+          "title": "FLUX",
+          "kind": "عمل منشور",
+          "year": 2020,
+          "description": "",
+          "url": "https://www.alia-ali.com/about",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "علياء علي — السيرة وبيان الفنانة",
+          "url": "https://www.alia-ali.com/about",
+          "publisher": "www.alia-ali.com",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        },
+        {
+          "id": "source-2",
+          "title": "متحف فيكتوريا وألبرت — التراث اليمني مع علياء علي",
+          "url": "https://www.vam.ac.uk/event/gxbxnmm2nR/trade-trafficking-and-translation-oct-2025",
+          "publisher": "www.vam.ac.uk",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "thana-faroq",
+      "full_name": "ثناء فاروق",
+      "known_for": "مُصوّرة وكاتبة وفنانة يمنية تستكشف الهجرة والذاكرة والانتماء",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "ثناء فاروق مصوّرة وفنانة وكاتبة يمنية. تستخدم الصورة والنص والشهادات الشخصية لاستكشاف الهجرة والذاكرة وما يتركه الانتقال من مكان إلى آخر في حياة الأفراد. ترتكز مشروعاتها على علاقات ممتدة وتعاون مع الأشخاص الذين تروي حكاياتهم.\n\nمن أعمالها كتاب «لا أتعرف إلى نفسي في الظلال» ومشروع «كيف سنستقبل الشمس». حصلت على دعم من مؤسسة المجتمع المفتوح عام 2018، ومن برنامج التصوير الوثائقي العربي المدعوم من مؤسستي الأمير كلاوس وماغنوم عام 2019.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 304
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "ثناء فاروق مصوّرة وفنانة وكاتبة يمنية. تستخدم الصورة والنص والشهادات الشخصية لاستكشاف الهجرة والذاكرة وما يتركه الانتقال من مكان إلى آخر في حياة الأفراد. ترتكز مشروعاتها على علاقات ممتدة وتعاون مع الأشخاص الذين تروي حكاياتهم."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "من أعمالها كتاب «لا أتعرف إلى نفسي في الظلال» ومشروع «كيف سنستقبل الشمس». حصلت على دعم من مؤسسة المجتمع المفتوح عام 2018، ومن برنامج التصوير الوثائقي العربي المدعوم من مؤسستي الأمير كلاوس وماغنوم عام 2019."
+          ],
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "id": "event-1",
+          "year": 2018,
+          "dateLabel": "",
+          "title": "دعم من مؤسسة المجتمع المفتوح",
+          "description": "",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "لا أتعرف إلى نفسي في الظلال",
+          "kind": "عمل منشور",
+          "year": null,
+          "description": "",
+          "url": "https://thanafaroq.com/s/Full-Bio-Thana-Faroq.pdf",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        },
+        {
+          "id": "work-2",
+          "title": "كيف سنستقبل الشمس",
+          "kind": "عمل منشور",
+          "year": null,
+          "description": "",
+          "url": "https://thanafaroq.com/s/Full-Bio-Thana-Faroq.pdf",
+          "sourceIds": [
+            "source-1",
+            "source-2"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "ثناء فاروق — السيرة المهنية",
+          "url": "https://thanafaroq.com/s/Full-Bio-Thana-Faroq.pdf",
+          "publisher": "thanafaroq.com",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        },
+        {
+          "id": "source-2",
+          "title": "ثناء فاروق — الموقع الرسمي",
+          "url": "https://thanafaroq.com/",
+          "publisher": "thanafaroq.com",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "boushra-almutawakel",
+      "full_name": "بشرى المتوكل",
+      "known_for": "فنانة ومصوّرة يمنية وعضو مؤسس في جماعة الحلقة الفنية",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "YE13",
+      "governorate_name": "أمانة العاصمة",
+      "era": "معاصرة",
+      "short_bio": "بشرى المتوكل فنانة يمنية ولدت في صنعاء. درست إدارة الأعمال الدولية في الجامعة الأمريكية بواشنطن، ثم جعلت التصوير الفوتوغرافي محورًا لممارستها الفنية. وهي من الأعضاء المؤسسين لجماعة الحلقة الفنية في صنعاء.\n\nيذكر كتالوج مؤسسة تشكيل أنها كُرّمت في جامعة صنعاء عام 1999 بوصفها أول مصوّرة يمنية. نُشرت أعمالها وعُرضت دوليًا، واقتنت أعمالًا لها مؤسسات منها المتحف البريطاني ومتحف الفنون الجميلة في بوسطن ومؤسسة بارجيل.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 305
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "بشرى المتوكل فنانة يمنية ولدت في صنعاء. درست إدارة الأعمال الدولية في الجامعة الأمريكية بواشنطن، ثم جعلت التصوير الفوتوغرافي محورًا لممارستها الفنية. وهي من الأعضاء المؤسسين لجماعة الحلقة الفنية في صنعاء."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "يذكر كتالوج مؤسسة تشكيل أنها كُرّمت في جامعة صنعاء عام 1999 بوصفها أول مصوّرة يمنية. نُشرت أعمالها وعُرضت دوليًا، واقتنت أعمالًا لها مؤسسات منها المتحف البريطاني ومتحف الفنون الجميلة في بوسطن ومؤسسة بارجيل."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "id": "event-1",
+          "year": 1999,
+          "dateLabel": "",
+          "title": "تكريم من جامعة صنعاء بحسب كتالوج تشكيل",
+          "description": "",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "works": [],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "مؤسسة تشكيل — كتالوج Made in Tashkeel 2021",
+          "url": "https://tashkeel.org/volumes/exhibitions/Made-in-Tashkeel-2021-Catalogue.pdf",
+          "publisher": "tashkeel.org",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "murad-subay",
+      "full_name": "مراد سبيع",
+      "known_for": "فنان يمني اشتهر بمبادرات الفن الجداري والمشاركة المجتمعية",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "مراد سبيع فنان يمني يستخدم الرسم في الفضاء العام لفتح نقاش حول حياة الناس والحرب وحقوق الإنسان. ارتبط اسمه بحملات جداريات شارك فيها فنانون وسكان، من بينها حملة «لوّن جدار شارعك».\n\nفي مقابلة مع معهد دول الخليج العربية تحدث عن تحوّل تجربته الفنية مع أحداث 2011، وعن دور الشارع في إتاحة التعبير. تتناول تجربته العلاقة بين الفن والمجتمع، وكيف يمكن للصورة أن توثّق تجربة مشتركة وتدعو إلى النقاش.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 306
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "مراد سبيع فنان يمني يستخدم الرسم في الفضاء العام لفتح نقاش حول حياة الناس والحرب وحقوق الإنسان. ارتبط اسمه بحملات جداريات شارك فيها فنانون وسكان، من بينها حملة «لوّن جدار شارعك»."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "في مقابلة مع معهد دول الخليج العربية تحدث عن تحوّل تجربته الفنية مع أحداث 2011، وعن دور الشارع في إتاحة التعبير. تتناول تجربته العلاقة بين الفن والمجتمع، وكيف يمكن للصورة أن توثّق تجربة مشتركة وتدعو إلى النقاش."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "لوّن جدار شارعك",
+          "kind": "عمل منشور",
+          "year": null,
+          "description": "",
+          "url": "https://agsi.org/analysis/street-art-in-yemen-artists-fight-war-through-graffiti/",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "معهد دول الخليج العربية — حوار مع مراد سبيع",
+          "url": "https://agsi.org/analysis/street-art-in-yemen-artists-fight-war-through-graffiti/",
+          "publisher": "agsi.org",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "nadia-al-kawkabani",
+      "full_name": "نادية الكوكباني",
+      "known_for": "روائية وقاصّة يمنية وأستاذة في العمارة",
+      "field": "الأدب والشعر",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "نادية الكوكباني كاتبة يمنية وأستاذة في العمارة. تنشر الرواية والقصة القصيرة، ومن مجموعاتها «زفرة ياسمين» و«دحرجات» و«تقشير غيم». يجمع حضورها المهني بين التعليم المعماري والكتابة الأدبية.\n\nمن رواياتها «حب ليس إلا» و«عقيلات» و«صنعائي» و«سوق علي محسن». يذكر تعريفها المنشور في مجلة literatur.review حصولها على جائزة سعاد الصباح للقصة عام 2000، وجائزة رئيس الجمهورية عام 2001، إضافة إلى جوائز كتارا للروايات غير المنشورة.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 307
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "نادية الكوكباني كاتبة يمنية وأستاذة في العمارة. تنشر الرواية والقصة القصيرة، ومن مجموعاتها «زفرة ياسمين» و«دحرجات» و«تقشير غيم». يجمع حضورها المهني بين التعليم المعماري والكتابة الأدبية."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "من رواياتها «حب ليس إلا» و«عقيلات» و«صنعائي» و«سوق علي محسن». يذكر تعريفها المنشور في مجلة literatur.review حصولها على جائزة سعاد الصباح للقصة عام 2000، وجائزة رئيس الجمهورية عام 2001، إضافة إلى جوائز كتارا للروايات غير المنشورة."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الأدب والشعر",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "زفرة ياسمين",
+          "kind": "عمل منشور",
+          "year": 2001,
+          "description": "",
+          "url": "https://literatur.review/en/user/113",
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "work-2",
+          "title": "حب ليس إلا",
+          "kind": "عمل منشور",
+          "year": 2006,
+          "description": "",
+          "url": "https://literatur.review/en/user/113",
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "work-3",
+          "title": "صنعائي",
+          "kind": "عمل منشور",
+          "year": 2013,
+          "description": "",
+          "url": "https://literatur.review/en/user/113",
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "work-4",
+          "title": "سوق علي محسن",
+          "kind": "عمل منشور",
+          "year": 2016,
+          "description": "",
+          "url": "https://literatur.review/en/user/113",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "literatur.review — صفحة الكاتبة نادية الكوكباني",
+          "url": "https://literatur.review/en/user/113",
+          "publisher": "literatur.review",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "farea-al-muslimi",
+      "full_name": "فارع المسلمي",
+      "known_for": "باحث وكاتب يمني، ومشارك في تأسيس مركز صنعاء للدراسات الاستراتيجية",
+      "field": "البحث والسياسات العامة",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "فارع المسلمي باحث وكاتب يمني يركز على اليمن ومنطقة الخليج. شارك في تأسيس مركز صنعاء للدراسات الاستراتيجية عام 2014، وتولى رئاسة مجلسه حتى 2022. نشر تحليلاته في منابر عربية ودولية وعمل في مؤسسات بحثية معنية بالمنطقة.\n\nتعرّفه مؤسسة تشاتام هاوس بصفته زميلًا باحثًا في برنامج الشرق الأوسط وشمال أفريقيا. اختاره الأمين العام للأمم المتحدة عام 2016 ضمن مجموعة الخبراء الاستشارية لدراسة تقدم الشباب والسلام والأمن.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 308
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "فارع المسلمي باحث وكاتب يمني يركز على اليمن ومنطقة الخليج. شارك في تأسيس مركز صنعاء للدراسات الاستراتيجية عام 2014، وتولى رئاسة مجلسه حتى 2022. نشر تحليلاته في منابر عربية ودولية وعمل في مؤسسات بحثية معنية بالمنطقة."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "تعرّفه مؤسسة تشاتام هاوس بصفته زميلًا باحثًا في برنامج الشرق الأوسط وشمال أفريقيا. اختاره الأمين العام للأمم المتحدة عام 2016 ضمن مجموعة الخبراء الاستشارية لدراسة تقدم الشباب والسلام والأمن."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "البحث والسياسات العامة",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "id": "event-1",
+          "year": 2014,
+          "dateLabel": "",
+          "title": "المشاركة في تأسيس مركز صنعاء",
+          "description": "",
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "event-2",
+          "year": 2016,
+          "dateLabel": "",
+          "title": "الانضمام إلى مجموعة خبراء دراسة الشباب والسلام والأمن",
+          "description": "",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "works": [],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "تشاتام هاوس — فارع المسلمي",
+          "url": "https://www.chathamhouse.org/about-us/our-people/farea-al-muslimi",
+          "publisher": "www.chathamhouse.org",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "maysaa-shuja-al-deen",
+      "full_name": "ميساء شجاع الدين",
+      "known_for": "باحثة يمنية في التاريخ السياسي وتحليل النزاع والحركات المسلحة",
+      "field": "البحث والسياسات العامة",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "ميساء شجاع الدين باحثة يمنية تكتب في التاريخ السياسي وتحليل النزاع والأيديولوجيا والحركات المسلحة. تنشر دراساتها ومقالاتها من خلال مركز صنعاء للدراسات الاستراتيجية ومنابر إعلامية عربية ودولية.\n\nحصلت على الماجستير في الدراسات الإسلامية من الجامعة الأمريكية بالقاهرة، وركزت رسالتها على التحولات في الزيدية. تشمل مجالات خبرتها المعلنة العدالة الانتقالية والتاريخ السياسي اليمني وحرب المعلومات والدعاية.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 309
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "ميساء شجاع الدين باحثة يمنية تكتب في التاريخ السياسي وتحليل النزاع والأيديولوجيا والحركات المسلحة. تنشر دراساتها ومقالاتها من خلال مركز صنعاء للدراسات الاستراتيجية ومنابر إعلامية عربية ودولية."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "حصلت على الماجستير في الدراسات الإسلامية من الجامعة الأمريكية بالقاهرة، وركزت رسالتها على التحولات في الزيدية. تشمل مجالات خبرتها المعلنة العدالة الانتقالية والتاريخ السياسي اليمني وحرب المعلومات والدعاية."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "البحث والسياسات العامة",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [],
+      "works": [],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "مركز صنعاء — ميساء شجاع الدين",
+          "url": "https://sanaacenter.org/member/maysaa-shuja-aldeen",
+          "publisher": "sanaacenter.org",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "ibi-ibrahim",
+      "full_name": "إيبي إبراهيم",
+      "known_for": "فنان وكاتب وصانع أفلام يمني، ومؤسس مؤسسة رموز",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "إيبي إبراهيم فنان وكاتب وصانع أفلام وموسيقي يمني. تتناول أعماله مفهوم البيت والتنقل والهوية وتجارب الإزاحة، ويستخدم الصورة والسرد لتقديم حكايات من المجتمع اليمني وطرح أسئلة ثقافية واجتماعية.\n\nأسس مؤسسة رموز، وهي مؤسسة مستقلة تدعم الفنون والأدب الناشئين في اليمن. تعرض صفحة «الفن في السفارات» التابعة لوزارة الخارجية الأمريكية تجربته وأحد أعماله ضمن مجموعتها، وتشير إلى مشاركاته واقتناء أعماله في مؤسسات مختلفة.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 310
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "إيبي إبراهيم فنان وكاتب وصانع أفلام وموسيقي يمني. تتناول أعماله مفهوم البيت والتنقل والهوية وتجارب الإزاحة، ويستخدم الصورة والسرد لتقديم حكايات من المجتمع اليمني وطرح أسئلة ثقافية واجتماعية."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "أسس مؤسسة رموز، وهي مؤسسة مستقلة تدعم الفنون والأدب الناشئين في اليمن. تعرض صفحة «الفن في السفارات» التابعة لوزارة الخارجية الأمريكية تجربته وأحد أعماله ضمن مجموعتها، وتشير إلى مشاركاته واقتناء أعماله في مؤسسات مختلفة."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "America",
+          "kind": "عمل منشور",
+          "year": null,
+          "description": "",
+          "url": "https://art.state.gov/personnel/ibi_ibrahim/",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "الفن في السفارات — إيبي إبراهيم",
+          "url": "https://art.state.gov/personnel/ibi_ibrahim/",
+          "publisher": "art.state.gov",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  },
+  {
+    "record": {
+      "slug": "bader-ben-hirsi",
+      "full_name": "بدر بن حرسي",
+      "known_for": "مخرج وكاتب سيناريو فيلم «يوم جديد في صنعاء القديمة»",
+      "field": "الفنون البصرية والسينما",
+      "governorate_id": "",
+      "governorate_name": "",
+      "era": "معاصرة",
+      "short_bio": "بدر بن حرسي مخرج وكاتب سيناريو يرتبط اسمه بفيلم «يوم جديد في صنعاء القديمة». صدر الفيلم عام 2005، ويقدّم حكاية روائية تدور أحداثها في المدينة القديمة وتجمع بين قصة عاطفية وتفاصيل الحياة الاجتماعية.\n\nأدرج مهرجان بيروت الدولي للسينما الفيلم ضمن دورته السابعة عام 2006، وسجّله بوصفه إنتاجًا يمنيًا باللغة العربية والإنجليزية. تولى بن حرسي إخراج الفيلم وكتابة السيناريو، وقدّم العمل صنعاء بوصفها فضاءً للحكاية والشخصيات.",
+      "is_published": true,
+      "birth_year": null,
+      "death_year": null,
+      "image_url": null,
+      "image_source_url": null,
+      "website": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "x_url": null,
+      "youtube_url": null,
+      "image_credit": "",
+      "display_order": 311
+    },
+    "profile": {
+      "version": 1,
+      "historicity": "documented",
+      "reviewedAt": "2026-10-25",
+      "sections": [
+        {
+          "id": "biography",
+          "title": "التعريف والمسيرة",
+          "paragraphs": [
+            "بدر بن حرسي مخرج وكاتب سيناريو يرتبط اسمه بفيلم «يوم جديد في صنعاء القديمة». صدر الفيلم عام 2005، ويقدّم حكاية روائية تدور أحداثها في المدينة القديمة وتجمع بين قصة عاطفية وتفاصيل الحياة الاجتماعية."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        },
+        {
+          "id": "practice",
+          "title": "العمل والإسهام",
+          "paragraphs": [
+            "أدرج مهرجان بيروت الدولي للسينما الفيلم ضمن دورته السابعة عام 2006، وسجّله بوصفه إنتاجًا يمنيًا باللغة العربية والإنجليزية. تولى بن حرسي إخراج الفيلم وكتابة السيناريو، وقدّم العمل صنعاء بوصفها فضاءً للحكاية والشخصيات."
+          ],
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "field",
+          "label": "المجال",
+          "value": "الفنون البصرية والسينما",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "timeline": [],
+      "works": [
+        {
+          "id": "work-1",
+          "title": "يوم جديد في صنعاء القديمة",
+          "kind": "عمل منشور",
+          "year": 2005,
+          "description": "",
+          "url": "https://www.beirutfilmfestival.org/films/a-new-day-in-old-sanaa/",
+          "sourceIds": [
+            "source-1"
+          ]
+        }
+      ],
+      "gallery": [],
+      "sources": [
+        {
+          "id": "source-1",
+          "title": "مهرجان بيروت الدولي للسينما — يوم جديد في صنعاء القديمة",
+          "url": "https://www.beirutfilmfestival.org/films/a-new-day-in-old-sanaa/",
+          "publisher": "www.beirutfilmfestival.org",
+          "accessedAt": "2026-10-25",
+          "license": "",
+          "licenseUrl": "",
+          "revisionUrl": ""
+        }
+      ],
+      "notes": [],
+      "license": null
+    }
+  }
+]

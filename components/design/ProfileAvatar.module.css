@@ -1,0 +1,2 @@
+.avatar { position:relative; display:grid; place-items:center; overflow:hidden; border-radius:50%; width:96px; height:96px; flex-shrink:0; background:var(--color-brand-soft); color:var(--color-brand-strong); font-size:30px; font-weight:600; }
+.avatar img { object-fit:cover; }

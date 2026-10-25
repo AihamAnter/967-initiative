@@ -1,7 +1,8 @@
 import YemenDiscovery from '@/components/yemen-map/YemenDiscovery';
 import {pageMetadata} from '@/lib/seo';
-import {getYemeniFigures} from '@/lib/data';
-import {yemenGovernorates,toFigureDirectoryCard} from '@/lib/yemeniFigures';
+import {getSiteSettings} from '@/lib/data';
+import {sectionIsVisible} from '@/lib/pageVisibility';
+import {yemenGovernorates} from '@/lib/yemeniFigures';
 
 export const metadata = pageMetadata({
   title: 'اكتشف اليمن',
@@ -10,7 +11,7 @@ export const metadata = pageMetadata({
 });
 
 export default async function YemenMapPage({searchParams}) {
-  const figures = await getYemeniFigures();
+  const settings=await getSiteSettings();
   const params = await searchParams;
   const region = yemenGovernorates.some(x=>x.id===params.region) ? params.region : null;
   const district = typeof params.district==='string' && /^YE\d{4}$/.test(params.district) ? params.district : null;
@@ -23,6 +24,6 @@ export default async function YemenMapPage({searchParams}) {
         <p>استكشف المحافظات والمديريات والشخصيات المرتبطة بها.</p>
       </div>
     </section>
-    <YemenDiscovery key={(region||'')+':'+(district||'')} figures={figures.map(toFigureDirectoryCard)} initialGovernorateId={region} initialDistrictId={district}/>
+    <YemenDiscovery key={(region||'')+':'+(district||'')} showFigures={sectionIsVisible('figures',settings.pageVisibility)} initialGovernorateId={region} initialDistrictId={district}/>
   </div>;
 }

@@ -10,9 +10,10 @@ import {useRouter} from 'next/navigation';
 import {Plus,Save,Trash2,RefreshCw,ArrowUp,ArrowDown,ArrowUpLeft,FileText} from 'lucide-react';
 import {builtInPages,contentPagePath,pageKinds} from '@/lib/contentPages';
 import {formatArabicDate} from '@/lib/format';
+import PageVisibilityPanel from './PageVisibilityPanel';
 
 const newId=()=>crypto.randomUUID();
-const emptyPage=()=>({id:newId(),slug:'',kind:'article',title:'',description:'',summary:'',order:40,showInFooter:true,sections:[],faqs:[],team:[]});
+const emptyPage=()=>({id:newId(),slug:'',kind:'article',title:'',description:'',summary:'',order:40,showInFooter:true,isPublished:true,sections:[],faqs:[],team:[]});
 
 export default function ContentPagesAdminPanel({db,initialItem=''}){
  const router=useRouter();
@@ -62,12 +63,12 @@ export default function ContentPagesAdminPanel({db,initialItem=''}){
   finally{saving.current=false;if(mounted.current)setBusy(false);}
  }
  const tools=(key,index,item)=> <div className="content-editor-row-tools"><button type="button" aria-label={`نقل العنصر ${index+1} للأعلى`} onClick={()=>moveRow(key,index,-1)} disabled={index===0}><ArrowUp size={16}/></button><button type="button" aria-label={`نقل العنصر ${index+1} للأسفل`} onClick={()=>moveRow(key,index,1)} disabled={index===form[key].length-1}><ArrowDown size={16}/></button><button type="button" onClick={()=>removeRow(key,item.id)}><Trash2 size={16}/> إزالة العنصر</button></div>;
- return <div className="content-pages-admin">
+ return <div className="content-pages-admin"><PageVisibilityPanel db={db}/>
   <header className="site-settings-heading"><div><h2><FileText size={22}/> إدارة صفحات الموقع</h2><p>أضف الصفحات والأقسام والأسئلة وأعضاء الطاقم، أو عدّلها. احفظ مسودة خاصة دون تغيير النسخة المنشورة. استخدم «نشر التعديلات» عندما تجهز الصفحة.</p></div><button type="button" className="btn btn-outline" disabled={busy||loading} onClick={()=>{if(discard())load();}}><RefreshCw size={17}/> إعادة تحميل المحفوظ</button></header>
   {feedback&&<p className={'feedback '+(feedback.error?'error':'success')} role={feedback.error?'alert':'status'}>{feedback.text}</p>}
   {loading?<p role="status">جارٍ تحميل صفحات الموقع…</p>:!form?<button className="btn btn-outline" type="button" onClick={load}>إعادة المحاولة</button>:<div className="content-editor-layout">
    <aside className="admin-panel content-editor-list"><h3>الصفحات ({pages.length})</h3><button type="button" className="btn btn-outline" disabled={busy} onClick={()=>{if(discard())select(emptyPage());}}><Plus size={17}/> إضافة صفحة</button>
-    {pages.map(page=><article className={form.id===page.id?'selected':''} key={page.id}><button type="button" className="content-page-select" disabled={busy} aria-pressed={form.id===page.id} onClick={()=>{if(discard())select(page);}}><strong>{page.title}</strong><small dir="ltr">{contentPagePath(page)}</small></button>{canDelete&&<button type="button" className="content-page-delete" disabled={busy} aria-label={'حذف صفحة '+page.title} onClick={()=>remove(page)}><Trash2 size={17}/></button>}</article>)}
+    {pages.map(page=><article className={form.id===page.id?'selected':''} key={page.id}><button type="button" className="content-page-select" disabled={busy} aria-pressed={form.id===page.id} onClick={()=>{if(discard())select(page);}}><strong>{page.title}{page.isPublished===false&&<span className="status-badge"> مخفية</span>}</strong><small dir="ltr">{contentPagePath(page)}</small></button>{canDelete&&<button type="button" className="content-page-delete" disabled={busy} aria-label={'حذف صفحة '+page.title} onClick={()=>remove(page)}><Trash2 size={17}/></button>}</article>)}
     {!pages.length&&<p>لا توجد صفحات محفوظة. يمكنك إضافة صفحة جديدة من الزر أعلاه.</p>}
     {!canDelete&&<p className="small-muted">الحذف النهائي للصفحات متاح لحساب الإدارة. يمكنك تعديل المحتوى وإضافة عناصره.</p>}
    </aside>
@@ -76,7 +77,7 @@ export default function ContentPagesAdminPanel({db,initialItem=''}){
     <div className="form-row"><FormLabel>الرابط المختصر بالإنجليزية<FormInput required dir="ltr" maxLength={80} pattern="[a-z0-9]+(-[a-z0-9]+)*" readOnly={pages.some(page=>page.id===form.id)&&Object.hasOwn(builtInPages,form.slug)} value={form.slug} placeholder="our-story" onChange={event=>{const slug=event.target.value;setForm(current=>({...current,slug,...(Object.hasOwn(builtInPages,slug)?{kind:builtInPages[slug]}:{})}));}}/><small>تظل روابط الصفحات الأساسية ثابتة. الصفحات الجديدة لها رابط ضمن /pages/.</small></FormLabel><FormLabel>نوع الصفحة<FormSelect value={form.kind} disabled={Object.hasOwn(builtInPages,form.slug)} onChange={event=>setField('kind',event.target.value)}>{Object.entries(pageKinds).map(([value,label])=><option value={value} key={value}>{label}</option>)}</FormSelect></FormLabel></div>
     <FormLabel>وصف الصفحة والبحث<FormTextarea rows={2} required maxLength={600} value={form.description} onChange={event=>setField('description',event.target.value)}/></FormLabel>
     <FormLabel>ملخص البداية<FormTextarea rows={3} maxLength={1800} value={form.summary} onChange={event=>setField('summary',event.target.value)}/></FormLabel>
-    <div className="form-row"><FormLabel>ترتيب الظهور<FormInput type="number" min={0} max={10000} required value={form.order} onChange={event=>setField('order',event.target.value===''?'':Number(event.target.value))}/></FormLabel><FormLabel className="checkline"><FormInput type="checkbox" checked={form.showInFooter} onChange={event=>setField('showInFooter',event.target.checked)}/> إظهار رابط الصفحة في الفوتر</FormLabel></div>
+    <FormLabel className="checkline"><FormInput type="checkbox" checked={form.isPublished!==false} onChange={event=>setField('isPublished',event.target.checked)}/> إظهار الصفحة للزوار (أزل التحديد لإخفائها مع الاحتفاظ بمحتواها)</FormLabel><div className="form-row"><FormLabel>ترتيب الظهور<FormInput type="number" min={0} max={10000} required value={form.order} onChange={event=>setField('order',event.target.value===''?'':Number(event.target.value))}/></FormLabel><FormLabel className="checkline"><FormInput type="checkbox" checked={form.showInFooter} onChange={event=>setField('showInFooter',event.target.checked)}/> إظهار رابط الصفحة في الفوتر</FormLabel></div>
     <section className="content-editor-collection"><h4>أقسام الصفحة</h4><p className="small-muted">اكتب فقرات عادية. للروابط استخدم [النص](https://example.com)، وللقوائم ابدأ السطر بشرطة ومسافة.</p>
      {form.sections.map((item,index)=><fieldset className="content-editor-item" key={item.id}><legend>قسم {index+1}</legend>{tools('sections',index,item)}<FormLabel>عنوان القسم<FormInput required maxLength={180} value={item.title} onChange={event=>rowChange('sections',item.id,{title:event.target.value})}/></FormLabel><FormLabel>النص<FormTextarea required rows={5} maxLength={6000} value={item.text} onChange={event=>rowChange('sections',item.id,{text:event.target.value})}/></FormLabel></fieldset>)}
      <button type="button" className="btn btn-outline" disabled={form.sections.length>=40} onClick={()=>addRow('sections')}><Plus size={17}/> إضافة قسم</button>

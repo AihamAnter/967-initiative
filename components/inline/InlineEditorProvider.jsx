@@ -2,7 +2,7 @@
 import {createContext,useCallback,useContext,useEffect,useMemo,useRef,useState} from 'react';
 import dynamic from 'next/dynamic';
 import {usePathname} from 'next/navigation';
-import {browserDb} from '@/lib/supabase';
+import useSessionDb from '@/components/useSessionDb';
 
 const Runtime=dynamic(()=>import('./InlineEditorRuntime'),{ssr:false});
 const noop=()=>{};
@@ -13,6 +13,7 @@ export function useInlineEditor(){return useContext(Context);}
 // Only this small session gate is loaded for visitors. No administrative data
 // or editor UI is rendered until the server has verified the current account.
 export default function InlineEditorProvider({children}){
+ const {db}=useSessionDb();
  const pathname=usePathname(),[actor,setActor]=useState(null),[enabled,setEnabledState]=useState(false),[panel,setPanel]=useState(null),[registration,setRegistration]=useState(null),[change,setChange]=useState({revision:0,target:null}),[notice,setNotice]=useState(null);
  const pageTarget=registration?.pathname===pathname?registration.target:null;
  const [permissionNotice,setPermissionNotice]=useState('');
@@ -21,7 +22,7 @@ export default function InlineEditorProvider({children}){
  actorRef.current=actor;
  const clear=useCallback(reason=>{identityVersion.current++;actorRef.current=null;setActor(null);setEnabledState(false);setPanel(null);setNotice(null);setChange(current=>({revision:current.revision+1,target:null}));if(typeof reason==='string')setPermissionNotice(reason);dirty.current=false;busy.current=false;},[]);
  useEffect(()=>{
-  const db=browserDb();if(!db)return;
+  if(!db)return;
   let live=true;const timers=new Set(),epoch=generation;
   const verify=async session=>{
    const current=++generation.current;
@@ -47,11 +48,11 @@ export default function InlineEditorProvider({children}){
   });
   recheck();const interval=setInterval(recheck,60000);window.addEventListener('focus',recheck);document.addEventListener('visibilitychange',recheck);
   return()=>{live=false;epoch.current++;verifyRef.current=null;timers.forEach(clearTimeout);clearInterval(interval);subscription.unsubscribe();window.removeEventListener('focus',recheck);document.removeEventListener('visibilitychange',recheck);};
- },[clear]);
+ },[clear,db]);
  useEffect(()=>{setPanel(null);dirty.current=false;busy.current=false;},[pathname]);
  const request=useCallback(async(path,body,options={})=>{
   if(!path.startsWith('/api/admin/'))throw Error('مسار إدارة غير صالح.');
-  const db=browserDb();const {data,error}=db?await db.auth.getSession():{data:{},error:true};
+  const {data,error}=db?await db.auth.getSession():{data:{},error:true};
   if(error||!data.session){clear();throw Object.assign(Error('انتهت الجلسة. سجل الدخول مجدداً.'),{status:401});}
   const id=data.session.user.id,current=identityVersion.current;
   const control=new AbortController(),timeout=setTimeout(()=>control.abort(),60000),abort=()=>control.abort();options.signal?.addEventListener('abort',abort,{once:true});if(options.signal?.aborted)control.abort();
@@ -85,7 +86,7 @@ export default function InlineEditorProvider({children}){
    throw Object.assign(Error(result.error||'تعذر حفظ الإجراء. حاول مجدداً.'),{status:response.status});
   }
   return result;
- },[clear]);
+ },[clear,db]);
  const close=useCallback(()=>{if(busy.current)return false;if(dirty.current&&!confirm('لديك تغييرات غير محفوظة. هل تريد إغلاق المحرر وفقدها؟'))return false;dirty.current=false;setPanel(null);return true;},[]);
  const open=useCallback(next=>{if(!actorRef.current||busy.current)return;if(dirty.current&&!confirm('لديك تغييرات غير محفوظة. هل تريد الانتقال وفقدها؟'))return;dirty.current=false;setPanel(next);},[]);
  const setEnabled=useCallback(value=>{if(!actorRef.current)return;if(!value&&busy.current)return;if(!value&&dirty.current&&!confirm('لديك تغييرات غير محفوظة. هل تريد إيقاف التحرير وفقدها؟'))return;setEnabledState(value);try{localStorage.setItem(preference(actorRef.current.id),value?'1':'0');}catch{}if(!value){dirty.current=false;setPanel(null);setNotice(null);}},[]);

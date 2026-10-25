@@ -1,5 +1,5 @@
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import nextDynamic from 'next/dynamic';
 import {notFound} from 'next/navigation';
 import {AlertTriangle, ArrowRight, CalendarDays, ExternalLink, Info, Ruler, ShieldCheck} from 'lucide-react';

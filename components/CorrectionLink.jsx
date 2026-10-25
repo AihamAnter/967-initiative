@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {PenLine} from 'lucide-react';
 import {buildCorrectionHref} from '@/lib/contributions';
 

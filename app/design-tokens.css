@@ -1,0 +1,85 @@
+/* 967 visual foundation. New components use semantic tokens; legacy aliases
+   preserve the existing header, navigation and layouts during the staged rollout. */
+:root {
+  --color-brand: #007f86;
+  --color-brand-strong: #00646c;
+  --color-brand-hover: #004f57;
+  --color-brand-soft: #d9f4ef;
+  --color-ink: #172e3b;
+  --color-muted: #475e6b;
+  --color-paper: #fffaf2;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f2ece2;
+  --color-border: #ccd6d9;
+  --color-control-border: #718691;
+
+  --color-coral: #cf432f;
+  --color-coral-ink: #a83223;
+  --color-coral-soft: #ffe3d8;
+  --color-violet: #7040c5;
+  --color-violet-soft: #eee4ff;
+  --color-cobalt: #2855d9;
+  --color-cobalt-soft: #e3ebff;
+  --color-sun: #f6bc36;
+  --color-sun-ink: #704500;
+  --color-sun-soft: #fff0bf;
+  --color-leaf: #16734e;
+  --color-leaf-soft: #dcf3e5;
+  --color-danger: #b32d35;
+  --color-danger-soft: #ffe9e9;
+  --color-debate-blue: #195caf;
+  --color-debate-red: #c9232b;
+
+  --font-body: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  --font-size-caption: .8125rem;
+  --font-size-label: .875rem;
+  --font-size-body: 1.0625rem;
+  --font-size-lead: 1.1875rem;
+  --font-size-card-title: clamp(1.1875rem, 1.6vw, 1.4375rem);
+  --font-size-section-title: clamp(1.75rem, 2.8vw, 2.5rem);
+  --font-size-display: clamp(2.25rem, 4.5vw, 4.5rem);
+  --font-weight-body: 400;
+  --font-weight-label: 500;
+  --font-weight-heading: 600;
+  --font-weight-display: 700;
+  --leading-body: 1.9;
+  --leading-heading: 1.5;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --radius-control: 8px;
+  --radius-card: 14px;
+  --radius-editorial: 4px;
+  --radius-pill: 999px;
+  --shadow-card: 0 6px 22px #172e3b0a;
+  --shadow-raised: 0 12px 28px #172e3b12;
+  --motion-fast: 160ms;
+  --motion-normal: 220ms;
+  --focus-ring: 3px solid var(--color-brand-strong);
+  --target-size: 44px;
+  --content-width: 1200px;
+  --collection-width: 1280px;
+  --home-width: 1360px;
+
+  /* Compatibility values are intentionally unchanged outside the content area. */
+  --primary: #155e68; --primary-hover: #104a53; --bg: #f8f6f0; --bg2: #eeeee6;
+  --surface: #fff; --panel: #fff; --text: #23353b; --muted: #52636b;
+  --sand: #d6bd94; --green: #4d755d; --success: #326548; --soft-green: #eaf2e9;
+  --soft-primary: #e6f1ef; --line: #bdcdcb; --cream: #f8f6f0; --black: #23353b;
+  --blue: #315e91; --soft-blue: #edf3fb; --plum: #74518c; --soft-plum: #f3eef8;
+  --gold: #815b17; --soft-gold: #fbf3e3; --clay: #984b3d; --soft-clay: #faeee9;
+  --control-line: #71888c; --danger: #a3322b; --soft-danger: #fff1ee;
+  --red: var(--primary); --red2: var(--primary); --container: var(--content-width);
+  --radius: 12px; --radius-sm: 6px; --shadow: 0 4px 18px #23353b0a;
+  --text-sm: .85rem; --text-base: 1rem; --title-lg: clamp(1.8rem, 3.1vw, 2.65rem);
+  color-scheme: light;
+}

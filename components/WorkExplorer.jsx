@@ -1,6 +1,6 @@
 'use client';
 import {useMemo} from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {Search} from 'lucide-react';
 import WorkCard from './WorkCard';
 import Pagination from './Pagination';

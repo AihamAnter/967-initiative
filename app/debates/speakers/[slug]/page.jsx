@@ -1,6 +1,6 @@
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import DebateLogo from '@/components/debates/DebateLogo';
 import {notFound} from 'next/navigation';
 import {getDebateSpeaker} from '@/lib/debateServer';

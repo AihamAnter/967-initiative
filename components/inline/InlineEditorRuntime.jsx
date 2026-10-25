@@ -1,4 +1,7 @@
 'use client';
+import '@/app/debates.css';
+import '@/app/admin-workspace.css';
+import '@/app/inline-editor.css';
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {usePathname,useRouter,useSearchParams} from 'next/navigation';
 import {ShieldCheck,Pencil,ClipboardList,LayoutDashboard,Power,Check,X,History,Link as LinkIcon,Flag} from 'lucide-react';

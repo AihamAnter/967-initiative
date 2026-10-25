@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-25",
+  "mode": "apply",
+  "beforeFigures": 270,
+  "beforeCompanies": 111,
+  "pendingFigures": [
+    {
+      "slug": "amr-gamal",
+      "name": "عمرو جمال"
+    },
+    {
+      "slug": "sara-ishaq",
+      "name": "سارة إسحاق"
+    },
+    {
+      "slug": "khadija-al-salami",
+      "name": "خديجة السلامي"
+    },
+    {
+      "slug": "alia-ali",
+      "name": "علياء علي"
+    },
+    {
+      "slug": "thana-faroq",
+      "name": "ثناء فاروق"
+    },
+    {
+      "slug": "boushra-almutawakel",
+      "name": "بشرى المتوكل"
+    },
+    {
+      "slug": "murad-subay",
+      "name": "مراد سبيع"
+    },
+    {
+      "slug": "nadia-al-kawkabani",
+      "name": "نادية الكوكباني"
+    },
+    {
+      "slug": "farea-al-muslimi",
+      "name": "فارع المسلمي"
+    },
+    {
+      "slug": "maysaa-shuja-al-deen",
+      "name": "ميساء شجاع الدين"
+    },
+    {
+      "slug": "ibi-ibrahim",
+      "name": "إيبي إبراهيم"
+    },
+    {
+      "slug": "bader-ben-hirsi",
+      "name": "بدر بن حرسي"
+    }
+  ],
+  "pendingCompanies": [
+    {
+      "slug": "mukalla-iron-steel-misc",
+      "name": "شركة المكلا للحديد والصلب — حديد مِسك",
+      "products": 1
+    },
+    {
+      "slug": "almomayaz-plus-carton",
+      "name": "المميز بلاس للصناعات الكرتونية",
+      "products": 3
+    },
+    {
+      "slug": "cartobox-hadramout",
+      "name": "مصنع كارتوبوكس للكرتون والتغليف",
+      "products": 3
+    },
+    {
+      "slug": "petromaster-industrial-complex",
+      "name": "مجمع بتروماستر الصناعي",
+      "products": 3
+    },
+    {
+      "slug": "arabian-plastic-packaging-ampc",
+      "name": "الشركة العربية لصناعة البلاستيك والتغليف",
+      "products": 1
+    },
+    {
+      "slug": "yemen-eye-yeasco",
+      "name": "عين اليمن للتصدير والخدمات الاستشارية",
+      "products": 2
+    },
+    {
+      "slug": "alrawda-agricultural-company",
+      "name": "شركة الروضة للإنتاج الزراعي والحيواني",
+      "products": 2
+    },
+    {
+      "slug": "mukiras-apiaries",
+      "name": "مناحل مكيراس",
+      "products": 1
+    },
+    {
+      "slug": "aashab-al-tabea",
+      "name": "مؤسسة أعشاب الطبيعة",
+      "products": 3
+    },
+    {
+      "slug": "alwanoh-yemeni-honey",
+      "name": "ألوانه للعسل اليمني",
+      "products": 3
+    },
+    {
+      "slug": "all-fruits-yemeni-honey",
+      "name": "كل الثمرات للعسل اليمني",
+      "products": 1
+    },
+    {
+      "slug": "alshifaa-yemeni-honey-presses",
+      "name": "معاصر الشفاء ومملكة العسل اليمني",
+      "products": 3
+    }
+  ],
+  "skippedFigures": [],
+  "skippedCompanies": [],
+  "sharedDomainReview": [],
+  "baselineFigureHash": "27e6bb914d3db00f534a1ddf7a2bfb3596a683ac7bdeca536fad11fdab2695a3",
+  "baselineCompanyHash": "c8a6a11342ef8aba3d1ed0a555d461e813a6871397027798eda7f5056cce31e1",
+  "insertedFigures": [
+    {
+      "id": "537c70e3-75d6-49e1-af91-a2d2dc704537",
+      "slug": "amr-gamal"
+    },
+    {
+      "id": "6318bef6-b8ca-4162-9e99-b886453182e4",
+      "slug": "sara-ishaq"
+    },
+    {
+      "id": "73d35a05-5099-40b8-8751-101987ccf6fc",
+      "slug": "khadija-al-salami"
+    },
+    {
+      "id": "fc392e31-1894-42c1-aad5-eafa3ca14794",
+      "slug": "alia-ali"
+    },
+    {
+      "id": "a89392f0-426d-4398-a7b4-28004478d82e",
+      "slug": "thana-faroq"
+    },
+    {
+      "id": "af6fe3d4-a341-47b9-b848-465810d5b30d",
+      "slug": "boushra-almutawakel"
+    },
+    {
+      "id": "39551128-e663-4041-8b20-8a861c752331",
+      "slug": "murad-subay"
+    },
+    {
+      "id": "a3496233-75c8-4ed1-876a-20dfd03db44d",
+      "slug": "nadia-al-kawkabani"
+    },
+    {
+      "id": "f6cb8916-16b5-4058-af44-da7d082a299d",
+      "slug": "farea-al-muslimi"
+    },
+    {
+      "id": "7437c6cd-4d4c-477b-bb09-4537c12ccfcc",
+      "slug": "maysaa-shuja-al-deen"
+    },
+    {
+      "id": "12c62343-b916-4bcb-a692-12cbbc39990b",
+      "slug": "ibi-ibrahim"
+    },
+    {
+      "id": "5f29b96e-e7d4-4953-a14c-b8e3568455f3",
+      "slug": "bader-ben-hirsi"
+    }
+  ],
+  "insertedCompanies": [
+    {
+      "id": "ec88f14c-ee16-4dfa-844a-32ec369da354",
+      "slug": "mukalla-iron-steel-misc",
+      "name": "شركة المكلا للحديد والصلب — حديد مِسك",
+      "is_published": true
+    },
+    {
+      "id": "3c7a6a64-94fe-4bb0-96d4-4c1a3a472c68",
+      "slug": "almomayaz-plus-carton",
+      "name": "المميز بلاس للصناعات الكرتونية",
+      "is_published": true
+    },
+    {
+      "id": "0a85a6d9-c728-4407-a572-46d9b299bda2",
+      "slug": "cartobox-hadramout",
+      "name": "مصنع كارتوبوكس للكرتون والتغليف",
+      "is_published": true
+    },
+    {
+      "id": "387f99c7-fe40-4520-a8b5-198d5981a5f4",
+      "slug": "petromaster-industrial-complex",
+      "name": "مجمع بتروماستر الصناعي",
+      "is_published": true
+    },
+    {
+      "id": "162e2da0-98ae-4af4-8922-fe513d8f4c0b",
+      "slug": "arabian-plastic-packaging-ampc",
+      "name": "الشركة العربية لصناعة البلاستيك والتغليف",
+      "is_published": true
+    },
+    {
+      "id": "acdac81c-ba04-4015-9ec8-4b3222a2a2b8",
+      "slug": "yemen-eye-yeasco",
+      "name": "عين اليمن للتصدير والخدمات الاستشارية",
+      "is_published": true
+    },
+    {
+      "id": "18eb3338-71ba-4d07-a76d-29a19c9c2eae",
+      "slug": "alrawda-agricultural-company",
+      "name": "شركة الروضة للإنتاج الزراعي والحيواني",
+      "is_published": true
+    },
+    {
+      "id": "1253bdfe-1e19-48ff-8cfe-c278c7cd3baf",
+      "slug": "mukiras-apiaries",
+      "name": "مناحل مكيراس",
+      "is_published": true
+    },
+    {
+      "id": "280c3b93-8493-4028-b4a6-0c77320692ef",
+      "slug": "aashab-al-tabea",
+      "name": "مؤسسة أعشاب الطبيعة",
+      "is_published": true
+    },
+    {
+      "id": "289e71ae-656e-49d4-9cba-16a0e92673f5",
+      "slug": "alwanoh-yemeni-honey",
+      "name": "ألوانه للعسل اليمني",
+      "is_published": true
+    },
+    {
+      "id": "ffbb52ff-4498-4b9c-8ce3-aca8c1392ef1",
+      "slug": "all-fruits-yemeni-honey",
+      "name": "كل الثمرات للعسل اليمني",
+      "is_published": true
+    },
+    {
+      "id": "7dadf2c1-1a7d-4d2f-ad06-67af28bfd43c",
+      "slug": "alshifaa-yemeni-honey-presses",
+      "name": "معاصر الشفاء ومملكة العسل اليمني",
+      "is_published": true
+    }
+  ],
+  "existingFiguresUnchanged": true,
+  "existingCompaniesUnchanged": true,
+  "afterFigures": 282,
+  "afterCompanies": 123,
+  "completedAt": "2026-10-25T08:12:17.566Z",
+  "companiesVerified": true
+}

@@ -1,13 +1,14 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {ArrowUpLeft, CalendarDays, Database} from 'lucide-react';
 import {formatNumber, formatYear} from '@/lib/format';
 import {statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
 import {sourceLabel,dataStatusHelp} from '@/lib/indicatorPresentation';
 import SaveForLater from './reading/SaveForLater';
+import ContentSurface from './design/ContentSurface';
 
 export default function IndicatorCard({indicator}) {
   const latest = indicator.latestValue;
-  return <article className="saveable-card"><Link className="stat-indicator-card" href={'/yemen-in-numbers/indicator/' + indicator.slug}>
+  return <ContentSurface kind="indicator" className="saveable-card"><Link className="stat-indicator-card" href={'/yemen-in-numbers/indicator/' + indicator.slug}>
     <div className="stat-card-top">
       <span>{indicator.domain?.name || 'مؤشر وطني'}</span>
       <span title={dataStatusHelp[indicator.data_status]} className={'stat-status stat-status-' + indicator.data_status}>{statusLabels[indicator.data_status] || indicator.data_status}</span>
@@ -23,5 +24,5 @@ export default function IndicatorCard({indicator}) {
       <span>المصدر: {sourceLabel(latest?.source||indicator.adopted_source,indicator.name)}</span>
     </div>
     <span className="stat-card-open">عرض تفاصيل المؤشر <ArrowUpLeft size={16}/></span>
-  </Link><div className="card-save-action"><SaveForLater item={{kind:'indicator',href:'/yemen-in-numbers/indicator/'+encodeURIComponent(indicator.slug),title:indicator.name}}/></div></article>;
+  </Link><div className="card-save-action"><SaveForLater compact item={{kind:'indicator',href:'/yemen-in-numbers/indicator/'+encodeURIComponent(indicator.slug),title:indicator.name}}/></div></ContentSurface>;
 }

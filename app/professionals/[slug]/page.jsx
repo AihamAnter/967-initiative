@@ -1,9 +1,10 @@
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from '@/components/SiteLink';
+import ProfileAvatar from '@/components/design/ProfileAvatar';
 import {notFound} from 'next/navigation';
 import {ArrowRight, ArrowUpLeft, BadgeCheck, BriefcaseBusiness, CalendarDays, ExternalLink, Globe2, Languages, Mail, MapPin, MessageCircle, Phone, UserRoundCheck} from 'lucide-react';
 import {getProfessional, getProfessionals} from '@/lib/data';
+import {relatedProjections} from '@/lib/relatedContent';
 import {formatNumber} from '@/lib/format';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
@@ -30,7 +31,7 @@ export default async function ProfessionalProfilePage({params,searchParams}) {
   const {slug} = await params;
   const person = await getProfessional(slug);
   if (!person) notFound();
-  const professionals = await getProfessionals();
+  const professionals = await getProfessionals(relatedProjections.professionals);
   const related = professionals.filter(item => item.id !== person.id && item.category === person.category).slice(0, 3);
   const query=await searchParams;
   const returnTo=listReturnPath(query.from,'/professionals',collectionDefaults.professionals,'#professionals-directory');
@@ -40,11 +41,14 @@ export default async function ProfessionalProfilePage({params,searchParams}) {
     <JsonLd data={breadcrumbSchema([{name:'المهنيون', path:'/professionals'}, {name:person.fullName, path:detailPath('professionals', person.id)}])}/>
     <section className="professional-profile-hero">
       <div className="professional-profile-copy">
-        {person.profileImageUrl&&<Image src={person.profileImageUrl} alt={'صورة '+person.fullName} width={96} height={96} unoptimized style={{width:96,height:96,borderRadius:'50%',objectFit:'cover',objectPosition:person.imagePosition}}/>}
         <Link href={returnTo} className="back-link"><ArrowRight size={17}/> العودة إلى دليل المهنيين</Link>
+        <div className="professional-profile-identity">
+        <ProfileAvatar className="professional-profile-avatar" name={person.fullName} src={person.profileImageUrl} imagePosition={person.imagePosition}/>
+        <div>
         <div className="professional-profile-labels"><span>{person.category}</span><span><MapPin size={13}/>{person.location}</span>{person.isVerified && <span className="verified"><BadgeCheck size={14}/> ملف موثق</span>}</div>
         <h1>{person.fullName}</h1>{person.isDemo && <span className="status-badge">نموذج تجريبي — ليس ملفاً موثقاً</span>}{person.needsReview && !person.isDemo && <span className="status-badge">بيانات بحاجة إلى مراجعة إدارية</span>}
         <strong>{person.professionTitle}</strong>
+        </div></div>
         <p>{person.bio}</p>
         <div className="professional-profile-actions">
           {person.whatsapp && <ContactLink href={whatsappUrl(person.whatsapp,`مرحباً، وصلت إلى ملفك في مبادرة 967 وأرغب في الاستفسار عن ${person.professionTitle}.`)} icon={MessageCircle} label="تواصل عبر واتساب" external/>}

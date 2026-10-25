@@ -1,4 +1,5 @@
 'use client';
+import '@/app/debates.css';
 import {Children,createContext,forwardRef,isValidElement,useContext,useId,useRef,useState} from 'react';
 
 const ValidationContext=createContext(null);
@@ -6,8 +7,9 @@ const ValidationContext=createContext(null);
 function messageFor(control,validate){
  control.setCustomValidity('');
  const value=control.value;
+ const password=control.type==='password'||['current-password','new-password'].includes(control.autocomplete);
  if(control.required&&typeof value==='string'&&!value.trim())control.setCustomValidity('هذا الحقل إلزامي.');
- else if(value&&['text','email','url','password','textarea'].includes(control.type)&&control.minLength>0&&(control.type==='password'?value.length:value.trim().length)<control.minLength)control.setCustomValidity(`أدخل ${control.minLength} أحرف على الأقل.`);
+ else if(value&&['text','email','url','password','textarea'].includes(control.type)&&control.minLength>0&&(password?value.length:value.trim().length)<control.minLength)control.setCustomValidity(`أدخل ${control.minLength} أحرف على الأقل.`);
  else if(value&&control.type==='url'){
   try{const url=new URL(value);if(url.protocol!=='https:'||!url.hostname||url.username||url.password)control.setCustomValidity('أدخل رابط HTTPS صالحاً، مثل https://example.com.');}
   catch{control.setCustomValidity('أدخل رابطاً صحيحاً، مثل https://example.com.');}

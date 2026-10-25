@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
 import {
   ArrowRight,
@@ -24,6 +24,7 @@ import {
   UsersRound,
 } from 'lucide-react';
 import {getYemeniCompanies, getYemeniCompany} from '@/lib/data';
+import {relatedProjections} from '@/lib/relatedContent';
 import {formatNumber,formatArabicDate} from '@/lib/format';
 import {detailPath, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, JsonLd} from '@/lib/seo-schema';
@@ -61,7 +62,7 @@ export default async function YemeniCompanyPage({params,searchParams}) {
   const {id} = await params;
   const company = await getYemeniCompany(id);
   if (!company) notFound();
-  const companies = await getYemeniCompanies();
+  const companies = await getYemeniCompanies(relatedProjections.companies);
   const related = companies.filter(item => item.id !== company.id && item.category === company.category).slice(0, 2);
   const mapQuery = [company.address, company.location, 'اليمن'].filter(Boolean).join('، ');
   const googleMapsUrl = company.googleMapsUrl || (company.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}` : null);

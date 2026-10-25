@@ -2,7 +2,7 @@
 import DebateLogo from './DebateLogo';
 import ValidatedForm,{FormInput,FormTextarea,FormSelect,FormLabel} from './ValidatedForm';
 import {useState} from 'react';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import useAudience,{audienceRequest} from './useAudience';
 export default function DebateSuggestion(){
  const {user,ready}=useAudience(),[busy,setBusy]=useState(false),[notice,setNotice]=useState('');

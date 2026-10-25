@@ -1,0 +1,139 @@
+/* Stage 1: content tokens, typography and reusable content surfaces only.
+   Keep hero geometry, collection grids and the header/navigation untouched. */
+.visual-foundation {
+  --primary: var(--color-brand-strong);
+  --primary-hover: var(--color-brand-hover);
+  --red: var(--primary);
+  --red2: var(--primary);
+  --text: var(--color-ink);
+  --black: var(--color-ink);
+  --muted: var(--color-muted);
+  --bg: var(--color-paper);
+  --bg2: var(--color-surface-alt);
+  --surface: var(--color-surface);
+  --panel: var(--color-surface);
+  --cream: var(--color-paper);
+  --line: var(--color-border);
+  --control-line: var(--color-control-border);
+  --soft-primary: var(--color-brand-soft);
+  --sand: var(--color-sun);
+  --blue: var(--color-cobalt);
+  --soft-blue: var(--color-cobalt-soft);
+  --plum: var(--color-violet);
+  --soft-plum: var(--color-violet-soft);
+  --gold: var(--color-sun-ink);
+  --soft-gold: var(--color-sun-soft);
+  --clay: var(--color-coral-ink);
+  --soft-clay: var(--color-coral-soft);
+  --green: var(--color-leaf);
+  --success: var(--color-leaf);
+  --soft-green: var(--color-leaf-soft);
+  --danger: var(--color-danger);
+  --soft-danger: var(--color-danger-soft);
+  /* Red and blue retain their existing meaning and exact hues. */
+  --debate-blue: var(--color-debate-blue);
+  --debate-red: var(--color-debate-red);
+  color: var(--text);
+  background: var(--bg);
+}
+
+.visual-foundation :is(.section-head p, .home-hero-copy > p, .page-intro > .container > p) {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--leading-body);
+  color: var(--muted);
+}
+.visual-foundation .section-head h2 { font-weight: var(--font-weight-heading); }
+.visual-foundation .eyebrow { font-size: var(--font-size-label); font-weight: var(--font-weight-label); }
+.visual-foundation .text-link { font-size: var(--font-size-label); }
+.visual-foundation :is(a, button, summary, input, select, textarea):focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--space-1);
+}
+.visual-foundation ::selection { background: var(--color-sun); color: var(--color-ink); }
+
+.visual-foundation :is(.content-surface, .content-badge) {
+  --content-accent: var(--color-coral-ink);
+  --content-soft: var(--color-coral-soft);
+}
+.visual-foundation [data-content-kind="issue"] { --content-accent: var(--color-violet); --content-soft: var(--color-violet-soft); }
+.visual-foundation [data-content-kind="debate"] { --content-accent: var(--color-debate-blue); --content-soft: var(--color-cobalt-soft); }
+.visual-foundation [data-content-kind="indicator"] { --content-accent: var(--color-cobalt); --content-soft: var(--color-cobalt-soft); }
+.visual-foundation [data-content-kind="profile"] { --content-accent: var(--color-brand-strong); --content-soft: var(--color-brand-soft); }
+.visual-foundation [data-content-kind="product"] { --content-accent: var(--color-sun-ink); --content-soft: var(--color-sun-soft); }
+
+.visual-foundation .content-surface {
+  position: relative;
+  min-width: 0;
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.visual-foundation .content-surface[data-content-kind="video"] { border-block-end: 4px solid var(--content-accent); }
+.visual-foundation .content-surface[data-content-kind="issue"] {
+  border-radius: var(--radius-editorial) var(--radius-card) var(--radius-card) var(--radius-editorial);
+  border-inline-start: 5px solid var(--content-accent);
+  background-color: var(--content-soft);
+}
+.visual-foundation .content-surface[data-content-kind="debate"] {
+  border-block-start: 5px solid transparent;
+  background-image: linear-gradient(var(--surface), var(--surface)), linear-gradient(90deg, var(--color-debate-red) 50%, var(--color-debate-blue) 50%);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+}
+.visual-foundation .content-surface[data-content-kind="indicator"] { border-block-start: 5px solid var(--content-accent); }
+.visual-foundation .content-surface[data-content-kind="profile"] { border-inline-start: 5px solid var(--content-accent); }
+.visual-foundation .content-surface[data-content-kind="product"] { border-block-end: 5px solid var(--color-sun); }
+.visual-foundation .content-surface :is(.work-card-meta, .work-card-link, .issue-open, .issue-date, .professional-card-kicker, .company-overline) { color: var(--content-accent); }
+.visual-foundation .content-surface :is(h2, h3) { font-weight: var(--font-weight-heading); }
+.visual-foundation .content-surface > .stat-indicator-card { border-block-start: 0; }
+.visual-foundation .content-surface .stat-card-value strong {
+  color: var(--color-cobalt);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-display);
+}
+.visual-foundation .content-surface :is(.work-card p, .debate-card-body > p, .stat-indicator-card > p) {
+  font-size: 1rem;
+  line-height: var(--leading-body);
+}
+.visual-foundation .content-surface .card-save-action { border-color: var(--line); }
+.visual-foundation .content-surface .reading-save-button { color: var(--content-accent); }
+.visual-foundation .content-surface .reading-save-button[aria-pressed="true"] { background: var(--content-soft); border-color: var(--content-accent); }
+.visual-foundation .content-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--content-soft);
+  color: var(--content-accent);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-heading);
+  line-height: 1.8;
+}
+.yemeni-motif { display: block; width: 160px; height: auto; pointer-events: none; }
+.visual-foundation .content-surface .work-card-placeholder {
+  color: var(--color-ink);
+  background: linear-gradient(120deg, var(--color-coral-soft), var(--color-sun-soft));
+}
+.visual-foundation .content-surface .work-card-placeholder > .yemeni-motif {
+  position: absolute;
+  inset-inline-end: -18px;
+  inset-block-end: -16px;
+  width: 175px;
+  color: var(--color-coral);
+  opacity: .2;
+}
+.visual-foundation .content-surface .work-card-placeholder > .lucide { color: var(--content-accent); opacity: 1; }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .visual-foundation .content-surface { transition: box-shadow var(--motion-normal), border-color var(--motion-fast); }
+  .visual-foundation .content-surface:has(a):hover { box-shadow: var(--shadow-raised); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visual-foundation .content-surface { transition: none; }
+}
+.page-intro-motif,.page-intro-art {display:none;}

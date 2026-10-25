@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {getDebateCatalog} from '@/lib/debateServer';
 import {DEBATE_EMPTY,selectFeaturedDebate} from '@/lib/debates';
 import DebateCard from './DebateCard';

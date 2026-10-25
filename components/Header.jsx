@@ -4,7 +4,8 @@ import {usePathname} from 'next/navigation';
 import {useEffect, useRef, useState} from 'react';
 import {ArrowUpLeft, ChevronDown, LayoutDashboard, LogIn, Menu, Search, X} from 'lucide-react';
 import BrandLogo from './BrandLogo';
-import {browserDb} from '@/lib/supabase';
+import useSessionDb from './useSessionDb';
+import {usePageVisibility} from './PageVisibilityProvider';
 
 const baseGroups = [
   {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967'], ['/debates', 'مناظرات 967'], ['/read-later', 'للقراءة لاحقاً']]},
@@ -13,7 +14,9 @@ const baseGroups = [
   {label: 'المبادرة', links: [['/#about', 'من نحن'], ['/#projects', 'مشاريعنا'], ['/contribute', 'تواصل وشارك']]},
 ];
 export default function Header({actionLabel='كن جزءاً من الحكاية',contentLinks=[]}) {
-  const groups=baseGroups.map(group=>group.label==='المبادرة'?{...group,links:[...contentLinks.filter(item=>['about','help','privacy-requests'].includes(item.slug)).map(item=>[item.href,item.title]),['/#projects','مشاريعنا'],['/contribute','تواصل وشارك']]}:group);
+  const {isVisible}=usePageVisibility();
+  const {db,ready:sessionReady}=useSessionDb();
+  const groups=baseGroups.map(group=>group.label==='المبادرة'?{...group,links:[...contentLinks.filter(item=>['about','help','privacy-requests'].includes(item.slug)).map(item=>[item.href,item.title]),['/#projects','مشاريعنا'],['/contribute','تواصل وشارك']]}:group).map(group=>({...group,links:group.links.filter(([href])=>isVisible(href))})).filter(group=>group.links.length);
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const [signedIn, setSignedIn] = useState(null);
@@ -26,8 +29,7 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
     if (open) header.current?.querySelector('#main-navigation a')?.focus();
   }, [open]);
   useEffect(() => {
-    const db = browserDb();
-    if (!db) {setSignedIn(false); return;}
+    if (!db) {if(sessionReady)setSignedIn(false);return;}
     let active = true;
     let sessionChanged = false;
     let requestId = 0;
@@ -67,7 +69,7 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
       if (active && !sessionChanged) updateSession(null);
     });
     return () => {active = false; requestId++; timers.forEach(timer => window.clearTimeout(timer)); subscription.unsubscribe();};
-  }, []);
+  }, [db,sessionReady]);
   useEffect(() => {
     const onKey = event => {
       const disclosure=header.current?.querySelector('details[open]');
@@ -95,6 +97,6 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
       <div className="mobile-navigation-groups">{groups.map(group=><div key={group.label}><span>{group.label}</span>{group.links.map(([href,label])=><Link href={href} key={href} aria-current={active(href)?'page':undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>)}</div>
       <Link href="/search" className="mobile-search-link" onClick={close}><Search size={18}/> البحث في المنصة</Link>
     </nav>
-    <div className="header-tools"><Link href="/search" className="header-search" aria-label="البحث في المنصة" onClick={close}><Search size={21}/></Link>{signedIn === false && <Link href="/login" className="header-login" aria-current={path === '/login' ? 'page' : undefined} onClick={close}><LogIn size={17} aria-hidden="true"/><span>تسجيل الدخول</span></Link>}{signedIn === true && canEdit && <Link href="/admin" className="header-login" aria-current={path === '/admin' ? 'page' : undefined} onClick={close}><LayoutDashboard size={17} aria-hidden="true"/><span>لوحة التحرير</span></Link>}{signedIn === true && !canEdit && <Link href="/account" className="header-login" onClick={close}>حسابي</Link>}<Link href="/contribute" className="header-action" onClick={close}>{actionLabel} <ArrowUpLeft size={16}/></Link><button ref={toggle} type="button" className="menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button></div>
+    <div className="header-tools"><Link href="/search" className="header-search" aria-label="البحث في المنصة" onClick={close}><Search size={21}/></Link>{signedIn === false && <Link href="/login" className="header-login" aria-current={path === '/login' ? 'page' : undefined} onClick={close}><LogIn size={17} aria-hidden="true"/><span>تسجيل الدخول</span></Link>}{signedIn === true && canEdit && <Link href="/admin" className="header-login" aria-current={path === '/admin' ? 'page' : undefined} onClick={close}><LayoutDashboard size={17} aria-hidden="true"/><span>لوحة التحرير</span></Link>}{signedIn === true && !canEdit && <Link href="/account" className="header-login" onClick={close}>حسابي</Link>}{isVisible('/contribute')&&<Link href="/contribute" className="header-action" onClick={close}>{actionLabel} <ArrowUpLeft size={16}/></Link>}<button ref={toggle} type="button" className="menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button></div>
   </div></header>;
 }

@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {useState,useEffect,useRef,useCallback} from 'react';
 import {Send,CheckCircle2,AlertCircle} from 'lucide-react';
 import {contributionTypes} from '@/lib/contributions';

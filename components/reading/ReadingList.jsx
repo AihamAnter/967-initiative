@@ -1,7 +1,8 @@
 'use client';
 
 import {useState} from 'react';
-import Link from 'next/link';
+import {usePageVisibility} from '../PageVisibilityProvider';
+import Link from '@/components/SiteLink';
 import {ArrowUpLeft, BarChart3, BookOpen, Bookmark, BriefcaseBusiness, Building2, ChartNoAxesCombined, FileText, Film, Map, MessagesSquare, Search, UserRound, UsersRound, X} from 'lucide-react';
 import useReadingList, {removeReadingItem} from './useReadingList';
 import {formatNumber} from '@/lib/format';
@@ -10,7 +11,9 @@ import {READING_KINDS} from '@/lib/readingList';
 const kindIcons={work:Film,issue:BookOpen,figure:UsersRound,company:Building2,professional:BriefcaseBusiness,indicator:BarChart3,domain:ChartNoAxesCombined,debate:MessagesSquare,speaker:UserRound,ranking:ChartNoAxesCombined,map:Map,timeline:ChartNoAxesCombined,search:Search,page:FileText};
 
 export default function ReadingList() {
-  const {items,ready,available} = useReadingList();
+  const {items:storedItems,ready,available} = useReadingList();
+  const {isVisible}=usePageVisibility();
+  const items=storedItems.filter(item=>isVisible(item.href));
   const [message,setMessage] = useState('');
   function remove(item) {
     try {removeReadingItem(item.href);setMessage(`أُزيل «${item.title}» من القائمة.`);}

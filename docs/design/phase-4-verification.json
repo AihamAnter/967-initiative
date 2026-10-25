@@ -1,0 +1,235 @@
+{
+  "date": "2026-10-25",
+  "build": "Optimized Next.js production build passed. Two existing image warnings in PDF canvas previews.",
+  "unitTests": {
+    "total": 310,
+    "passed": 309,
+    "skipped": 1,
+    "failed": 0
+  },
+  "browser": {
+    "publicRoutes": 60,
+    "responsiveLayouts": 300,
+    "widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "accessibilityChecks": 120,
+    "newFeatureScenarios": [
+      {
+        "name": "visibility permissions and invalid inputs",
+        "passed": true
+      },
+      {
+        "name": "hide and restore public sections through editorial UI",
+        "passed": true
+      },
+      {
+        "name": "section visibility conflicts preserve the winning revision",
+        "passed": true
+      },
+      {
+        "name": "hide figures independently of geographical discovery",
+        "passed": true
+      },
+      {
+        "name": "managed page hides and restores without deleting staff or text",
+        "passed": true
+      },
+      {
+        "name": "slow visibility responses cannot overwrite a newer editorial draft",
+        "passed": true
+      },
+      {
+        "name": "figure directory loads on demand, retries and supports direct links",
+        "passed": true
+      },
+      {
+        "name": "district editorial save, sources, public map and search",
+        "passed": true
+      },
+      {
+        "name": "debate cover remains visible during delayed, successful and failed image loads",
+        "passed": true
+      },
+      {
+        "name": "district conflicts, unknown associations and incomplete numeric claims",
+        "passed": true
+      },
+      {
+        "name": "editor visibility and district controls fit small screens and accessibility checks",
+        "passed": true
+      },
+      {
+        "name": "auth field validation and password visibility",
+        "passed": true
+      },
+      {
+        "name": "password recovery code, confirmation mismatch, new password login and expiry",
+        "passed": true
+      },
+      {
+        "name": "discussion design, filters, pagination and guest draft handoff",
+        "passed": true
+      }
+    ],
+    "editorAndDiscussionAccessibilityChecks": 6,
+    "accountScenarios": 4,
+    "existingInteractionScenarios": 10,
+    "liveContentSmoke": [
+      {
+        "query": "عمرو جمال",
+        "href": "/yemen-map/figures/amr-gamal",
+        "passed": true
+      },
+      {
+        "query": "المكلا للحديد",
+        "href": "/yemeni-products/mukalla-iron-steel-misc",
+        "passed": true
+      },
+      {
+        "query": "شبام",
+        "href": "/yemen-map?region=YE19&district=YE1908#map",
+        "passed": true
+      },
+      {
+        "name": "Published addition is searchable in the lazy figure directory",
+        "passed": true
+      },
+      {
+        "name": "Public district profiles include all 335 identities and documented Shibam history",
+        "passed": true
+      }
+    ],
+    "runtimeErrors": [],
+    "overflowFindings": [],
+    "automatedAccessibilityViolations": []
+  },
+  "performance": {
+    "environment": "Local production Next.js build, live public source data, default Lighthouse mobile simulation. External assets allowed. Lab samples, not field Core Web Vitals.",
+    "samples": [
+      {
+        "route": "/",
+        "score": 75,
+        "lcpMs": 4461.501249999999,
+        "cls": 0.022962000121207107,
+        "tbtMs": 76.5,
+        "transferBytes": 609273,
+        "scriptsBytes": 150027,
+        "cssBytes": 54338
+      },
+      {
+        "route": "/yemen-map",
+        "score": 78,
+        "lcpMs": 5198.892,
+        "cls": 0.00218893832876487,
+        "tbtMs": 28.5,
+        "transferBytes": 981733,
+        "scriptsBytes": 173360,
+        "cssBytes": 57645
+      },
+      {
+        "route": "/yemen-in-numbers/indicator/yemen-population",
+        "score": 82,
+        "lcpMs": 4308.502724999999,
+        "cls": 0.0023014195298202093,
+        "tbtMs": 67.5,
+        "transferBytes": 699760,
+        "scriptsBytes": 288307,
+        "cssBytes": 55447
+      },
+      {
+        "route": "/search?q=967",
+        "score": 88,
+        "lcpMs": 3850.847249999999,
+        "cls": 0.00204657260105646,
+        "tbtMs": 49,
+        "transferBytes": 494261,
+        "scriptsBytes": 152637,
+        "cssBytes": 48158
+      },
+      {
+        "route": "/debates/yemen-digital-services-test",
+        "score": 73,
+        "lcpMs": 4743.058000000001,
+        "cls": 0.002309499794466807,
+        "tbtMs": 286.5,
+        "transferBytes": 704031,
+        "scriptsBytes": 249044,
+        "cssBytes": 74423
+      }
+    ],
+    "limitation": "Single local lab samples per route, variable network and source responses; not field INP. Search baseline had incomplete data before the schema compatibility fix."
+  },
+  "scope": {
+    "code": "Local workspace; not committed, pushed or deployed",
+    "productionWrites": "Only 12 approved figures, 12 approved companies with 26 products, and one targeted account FAQ correction. Previous content preserved.",
+    "accountTesting": "Isolated local PGlite fixture; no test accounts, emails, passwords or discussion posts written to production.",
+    "districts": "335 administrative profiles, 13 researched expanded descriptions; no invented population or area values."
+  },
+  "publicRoutes": [
+    "/",
+    "/about",
+    "/account",
+    "/account/activity",
+    "/auth/callback",
+    "/contribute",
+    "/debates",
+    "/debates/speakers/test-samer-almaafri",
+    "/debates/suggest",
+    "/debates/yemen-digital-services-test",
+    "/forgot-password",
+    "/help",
+    "/login",
+    "/magazine",
+    "/magazine/demo",
+    "/magazine/issue-2",
+    "/privacy",
+    "/privacy-requests",
+    "/professionals",
+    "/professionals/ali-carpenter",
+    "/read-later",
+    "/register",
+    "/search?q=967",
+    "/terms",
+    "/update-password",
+    "/works",
+    "/works/work-mv6uhecd",
+    "/yemen-in-numbers",
+    "/yemen-in-numbers/gdp",
+    "/yemen-in-numbers/indicator/yemen-population",
+    "/yemen-in-numbers/timeline",
+    "/yemen-map",
+    "/yemen-map/figures/alia-ali",
+    "/yemen-map/figures/amr-gamal",
+    "/yemen-map/figures/arwa-al-sulayhi",
+    "/yemen-map/figures/bader-ben-hirsi",
+    "/yemen-map/figures/boushra-almutawakel",
+    "/yemen-map/figures/farea-al-muslimi",
+    "/yemen-map/figures/ibi-ibrahim",
+    "/yemen-map/figures/khadija-al-salami",
+    "/yemen-map/figures/maysaa-shuja-al-deen",
+    "/yemen-map/figures/murad-subay",
+    "/yemen-map/figures/nadia-al-kawkabani",
+    "/yemen-map/figures/sara-ishaq",
+    "/yemen-map/figures/thana-faroq",
+    "/yemen-ranking",
+    "/yemeni-products",
+    "/yemeni-products/aashab-al-tabea",
+    "/yemeni-products/all-fruits-yemeni-honey",
+    "/yemeni-products/almomayaz-plus-carton",
+    "/yemeni-products/alrawda-agricultural-company",
+    "/yemeni-products/alshifaa-yemeni-honey-presses",
+    "/yemeni-products/alwanoh-yemeni-honey",
+    "/yemeni-products/arabian-plastic-packaging-ampc",
+    "/yemeni-products/cartobox-hadramout",
+    "/yemeni-products/mukalla-iron-steel-misc",
+    "/yemeni-products/mukiras-apiaries",
+    "/yemeni-products/petromaster-industrial-complex",
+    "/yemeni-products/tehama-light-industries",
+    "/yemeni-products/yemen-eye-yeasco"
+  ]
+}

@@ -1,7 +1,7 @@
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Image from 'next/image';
 import {toLatinDigits} from '@/lib/format';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
 import {
   ArrowRight,
@@ -22,6 +22,7 @@ import {breadcrumbSchema, figureSchema, JsonLd} from '@/lib/seo-schema';
 import FigureDossier from '@/components/FigureDossier';
 import InlineTarget from '@/components/inline/InlineTarget';
 import CorrectionLink from '@/components/CorrectionLink';
+import {relatedProjections} from '@/lib/relatedContent';
 
 export const dynamic = 'force-dynamic';
 
@@ -59,7 +60,7 @@ function ProfileFact({icon: Icon, label, value, ltr = false}) {
 
 export default async function YemeniFigureProfilePage({params}) {
   const {slug} = await params;
-  const [figure, figures] = await Promise.all([getYemeniFigure(slug), getYemeniFigures()]);
+  const [figure, figures] = await Promise.all([getYemeniFigure(slug), getYemeniFigures(relatedProjections.figures)]);
   if (!figure) notFound();
 
   const links = socialLinks(figure);
@@ -154,7 +155,7 @@ export default async function YemeniFigureProfilePage({params}) {
       <div className="container">
         <div className="figure-profile-related-head"><div><span className="eyebrow">شخصيات مرتبطة</span><h2>ملفات أخرى للاستكشاف</h2></div><Link className="text-link" href="/yemen-map#yemeni-figures">عرض الدليل <ArrowUpLeft size={16}/></Link></div>
         <div className="figure-profile-related-grid">{related.map(item => <Link href={`/yemen-map/figures/${item.slug}`} key={item.id}>
-          <div><span>{item.field} · {item.governorateName}</span><h3>{item.fullName}</h3><p>{toLatinDigits(item.knownFor)}</p></div><ArrowUpLeft size={20}/>
+          <div><span>{[item.field,item.governorateName].filter(Boolean).join(' · ')}</span><h3>{item.fullName}</h3><p>{toLatinDigits(item.knownFor)}</p></div><ArrowUpLeft size={20}/>
         </Link>)}</div>
       </div>
     </section>}

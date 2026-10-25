@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {pageMetadata} from '@/lib/seo';
 import {ArrowUpLeft, BarChart3, Database} from 'lucide-react';
 import PageIntro from '@/components/PageIntro';

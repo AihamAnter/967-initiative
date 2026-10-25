@@ -72,7 +72,7 @@ export default function InlineContentEditor({target,onSaved,onDirtyChange,onBusy
   finally{if(mounted.current)setBusy(false);}
  }
  const advanced=<a className="btn btn-outline" href={target.adminHref} aria-disabled={busy||undefined} onClick={event=>{if(busy)event.preventDefault();}}>فتح المحرر الكامل <ArrowUpLeft size={16}/></a>;
- if(specialized)return <div className="inline-content-editor"><p>{target.isDemo?'هذا محتوى استعراضي ولا يرتبط بسجل قابل للتحرير.':!canEditInlineTarget(target)?'افتح المحرر الكامل لاختيار السجل والتحقق من بياناته.':target.kind==='statistic'?'راجع السنة والوحدة والمصدر والمنهجية في المحرر المتخصص قبل تغيير أي قيمة.':'تُحسب المراتب من بيانات الدول. افتح المؤشر ومصدره في المحرر المتخصص.'}</p>{advanced}</div>;
+ if(specialized)return <div className="inline-content-editor"><p>{target.isDemo?'هذا محتوى استعراضي ولا يرتبط بسجل قابل للتحرير.':!canEditInlineTarget(target)?'افتح المحرر الكامل لاختيار السجل والتحقق من بياناته.':target.kind==='district'?'افتح ملف المديرية لتحرير النبذة والتاريخ والطبيعة والاقتصاد والمعالم، وتوثيق الأرقام والصور بمصادرها.':target.kind==='statistic'?'راجع السنة والوحدة والمصدر والمنهجية في المحرر المتخصص قبل تغيير أي قيمة.':'تُحسب المراتب من بيانات الدول. افتح المؤشر ومصدره في المحرر المتخصص.'}</p>{advanced}</div>;
  return <div className="inline-content-editor">
   <p>تعديل {inlineTargetKinds[target.kind]?.label} · تُحمّل أحدث نسخة قبل الحفظ.</p>
   {['governorate','district'].includes(target.kind)&&<p className="small-muted">هذه البيانات وصفية. الحدود والإحداثيات والهوية الإدارية ثابتة هنا.</p>}

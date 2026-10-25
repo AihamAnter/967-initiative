@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
 import {ArrowRight, ArrowUpLeft, Database} from 'lucide-react';
 import IndicatorCard from '@/components/IndicatorCard';

@@ -1,6 +1,5 @@
 /* Public platform refinements. Keep readers, forms, and long articles at their
    established widths; collections and the home page have room to breathe. */
-:root { --collection-width:1280px; --home-width:1360px; }
 
 .content-text{white-space:pre-line}
 .help-search{display:grid;gap:8px;margin-block:20px 12px;font-size:15px;color:var(--primary)}

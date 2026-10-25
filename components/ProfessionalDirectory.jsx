@@ -1,6 +1,7 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
+import ProfileAvatar from './design/ProfileAvatar';
 import {useMemo} from 'react';
 import {ArrowUpLeft, BadgeCheck, ChevronDown, Mail, MapPin, MessageCircle, Phone, Search, SlidersHorizontal, UserSearch, X} from 'lucide-react';
 import {serviceModes} from '@/lib/professionals';
@@ -12,6 +13,7 @@ import {collectionDefaults,listStateSearch} from '@/lib/listState';
 import Pagination from './Pagination';
 import ActiveFilters from './ActiveFilters';
 import SaveForLater from './reading/SaveForLater';
+import ContentSurface from './design/ContentSurface';
 
 export default function ProfessionalDirectory({professionals}) {
   const [{q:query,page,category,location,mode},update]=useListState(collectionDefaults.professionals);
@@ -49,13 +51,12 @@ export default function ProfessionalDirectory({professionals}) {
     <ActiveFilters filters={[query&&{key:'q',label:'البحث: '+query,onRemove:()=>setQuery('')},category!=='الكل'&&{key:'category',label:'المهنة: '+category,onRemove:()=>setCategory('الكل')},location!=='كل المحافظات'&&{key:'location',label:'المنطقة: '+location,onRemove:()=>setLocation('كل المحافظات')},mode!=='كل طرق الخدمة'&&{key:'mode',label:'الخدمة: '+mode,onRemove:()=>setMode('كل طرق الخدمة')}]} onClear={clearFilters}/>
     <div className="professionals-results" aria-live="polite"><span>المهنيون المطابقون لبحثك</span><strong>عدد النتائج: {formatNumber(results.length)}</strong></div>
 
-    {results.length ? <div className={'professional-grid collection-results results-count-'+Math.min(results.length,3)}>{results.slice((currentPage-1)*12,currentPage*12).map(person => <article className="professional-card" key={person.id}>
+    {results.length ? <div className={'professional-grid collection-results results-count-'+Math.min(results.length,3)}>{results.slice((currentPage-1)*12,currentPage*12).map(person => <ContentSurface kind="profile" className="professional-card" key={person.id}>
       <Link className="professional-card-hitarea" href={'/professionals/' + person.id+'?from='+encodeURIComponent(returnTo)} aria-label={'عرض ملف ' + person.fullName}><span className="sr-only">عرض ملف {person.fullName}</span></Link>
       <div className="professional-card-body">
         <div className="professional-card-kicker"><span>{person.category}</span><span>{person.serviceMode}</span></div>
         <div className="professional-card-meta"><span><MapPin size={13}/>{person.location}</span>{person.isVerified && <span className="professional-verified"><BadgeCheck size={14}/> موثق</span>}</div>
-        <h2>{person.fullName}</h2>{person.isDemo&&<span className="status-badge">نموذج تجريبي</span>}{person.needsReview&&!person.isDemo&&<span className="status-badge">بيانات بحاجة إلى مراجعة</span>}
-        <strong>{person.professionTitle}</strong>
+        <div className="professional-card-heading"><ProfileAvatar className="professional-card-avatar" name={person.fullName} src={person.profileImageUrl} imagePosition={person.imagePosition}/><div><h2>{person.fullName}</h2><strong>{person.professionTitle}</strong></div></div>{person.isDemo&&<span className="status-badge">نموذج تجريبي</span>}{person.needsReview&&!person.isDemo&&<span className="status-badge">بيانات بحاجة إلى مراجعة</span>}
         {person.serviceAreas.length>0&&<span className="service-area-note">يخدم: {person.serviceAreas.join('، ')}</span>}
         <p>{person.bio}</p>
         <div className="professional-service-tags">{person.services.slice(0, 3).map(service => <span key={service}>{service}</span>)}</div>
@@ -64,8 +65,8 @@ export default function ProfessionalDirectory({professionals}) {
           <div className="professional-card-contact">{person.phone && <a href={'tel:' + person.phone} title="اتصال" aria-label={'الاتصال بـ ' + person.fullName}><Phone size={16}/></a>}{person.whatsapp && <a className="whatsapp-card-link" href={whatsappUrl(person.whatsapp)} target="_blank" rel="noopener noreferrer" title="واتساب" aria-label={'مراسلة ' + person.fullName + ' عبر واتساب'}><MessageCircle size={16}/><span>واتساب</span></a>}{person.email && <a href={'mailto:' + person.email} title="بريد إلكتروني" aria-label={'مراسلة ' + person.fullName + ' بالبريد الإلكتروني'}><Mail size={16}/></a>}{!person.phone&&!person.whatsapp&&!person.email&&<span className="small-muted">التواصل المباشر غير متاح حالياً</span>}</div>
         </div>
       </div>
-      <div className="card-save-action"><SaveForLater item={{kind:'professional',href:'/professionals/'+encodeURIComponent(person.id),title:person.fullName}}/></div>
-    </article>)}</div> : <div className="professionals-empty"><UserSearch size={38}/><h2>لا توجد نتائج مطابقة</h2><p>جرّب مهنة أو محافظة أخرى، أو أزل عوامل التصفية.</p><button type="button" className="btn btn-outline" onClick={clearFilters}>عرض جميع المهنيين</button></div>}
+      <div className="card-save-action"><SaveForLater compact item={{kind:'professional',href:'/professionals/'+encodeURIComponent(person.id),title:person.fullName}}/></div>
+    </ContentSurface>)}</div> : <div className="professionals-empty"><UserSearch size={38}/><h2>لا توجد نتائج مطابقة</h2><p>جرّب مهنة أو محافظة أخرى، أو أزل عوامل التصفية.</p><button type="button" className="btn btn-outline" onClick={clearFilters}>عرض جميع المهنيين</button></div>}
     <Pagination page={currentPage} count={results.length} onChange={setPage}/>
   </div>;
 }
