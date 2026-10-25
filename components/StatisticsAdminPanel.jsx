@@ -107,19 +107,13 @@ export default function StatisticsAdminPanel({db, canDelete = false,initialItem 
       };
       if (!payload.name || !payload.slug || !payload.domain_id || !payload.unit) throw Error('الاسم والرابط والمجال والوحدة حقول إلزامية.');
       if (payload.is_published && payload.hide_when_incomplete && payload.data_status !== 'complete') throw Error('المؤشر مخفي عند عدم اكتمال البيانات. غيّر الحالة إلى مكتملة أو ألغِ خيار الإخفاء قبل النشر.');
-      const result = editingIndicator
-        ? await db.from('stat_indicators').update(payload).eq('id', editingIndicator).select().single()
-        : await db.from('stat_indicators').insert(payload).select().single();
+      const sourceIds = [...new Set([...indicator.source_ids, indicator.adopted_source_id].filter(Boolean))];
+      const response = await db.rpc('editorial_statistic_save',{p_id:editingIndicator||null,p_revision:editingIndicator?indicator.updated_at:null,p_data:payload,p_source_ids:sourceIds});
+      const result={data:response.data?.record,error:response.error};
+      if(result.error?.code==='40001')throw Error('عُدّل المؤشر في جلسة أخرى. أعد تحميله قبل الحفظ.');
       if (result.error) throw Error(result.error.message);
       const id = result.data.id;
-      const sourceIds = [...new Set([...indicator.source_ids, indicator.adopted_source_id].filter(Boolean))];
-      const deleted = await db.from('stat_indicator_sources').delete().eq('indicator_id', id);
-      if (deleted.error) throw Error(deleted.error.message);
-      if (sourceIds.length) {
-        const linked = await db.from('stat_indicator_sources').insert(sourceIds.map(sourceId => ({indicator_id: id, source_id: sourceId, is_adopted: sourceId === indicator.adopted_source_id})));
-        if (linked.error) throw Error(linked.error.message);
-      }
-      await indicatorEditor.clearDraft();setNotice('تم حفظ المؤشر ومصادره.');if(event.nativeEvent?.submitter?.value==='new'){setIndicator(emptyIndicator);setEditingIndicator(null);indicatorEditor.markClean(emptyIndicator);}else{const next={...indicator,is_published:payload.is_published};setIndicator(next);setEditingIndicator(id);indicatorEditor.markClean(next);}await loadAll();
+      await indicatorEditor.clearDraft();setNotice('تم حفظ المؤشر ومصادره.');if(event.nativeEvent?.submitter?.value==='new'){setIndicator(emptyIndicator);setEditingIndicator(null);indicatorEditor.markClean(emptyIndicator);}else{const next={...indicator,...result.data,source_ids:sourceIds,adopted_source_id:result.data.adopted_source_id||''};setIndicator(next);setEditingIndicator(id);indicatorEditor.markClean(next);}await loadAll();
     } catch (error) { setNotice('خطأ: ' + error.message); }
     setBusy(false);
   }

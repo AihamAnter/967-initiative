@@ -22,7 +22,9 @@ export async function POST(request) {
     if (current.error) throw current.error;
     if (!current.data || current.data.code !== initial.data.code) return rankingFailure('تغير رمز المؤشر أثناء الجلب. أعد المحاولة باستخدام النسخة الحالية.', 409);
     const summary = {...getRankingSnapshotSummary(dataset), indicatorCode: dataset.indicatorCode};
-    const result = await auth.db.from('ranking_snapshots').upsert({indicator_id: id, payload: dataset, summary}, {onConflict: 'indicator_id'}).select('updated_at').single();
+    const response=await auth.db.rpc('editorial_service_save',{p_kind:'ranking',p_id:id,p_revision:initial.data.updated_at,p_data:{payload:dataset,summary},p_actor:auth.user.id,p_action:'snapshot'});
+    const result={data:response.data?.record,error:response.error};
+    if(result.error?.code==='40001')return rankingFailure('تغير المؤشر أثناء جلب البيانات. أعد تحميل القائمة.',409);
     if (isMissingRankingSchema(result.error)) return rankingFailure('جدول بيانات الترتيب غير مفعّل. شغّل ملف الإعداد أولاً.', 503);
     if (result.error) throw result.error;
     // Refresh updates the snapshot only, never the publication flag or the

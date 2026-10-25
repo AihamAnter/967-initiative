@@ -1,7 +1,7 @@
 import {getRankingCatalog} from '@/lib/rankingData';
 import {defaultRankingIndicators} from '@/lib/rankingCatalog';
 import {authorizeRankingEditor, isRankingId, rankingFailure, rankingJson, validateRankingIndicator} from '@/lib/rankingAdmin';
-import {isMissingRankingSchema, rankingIndicatorFields} from '@/lib/rankingRepository';
+import {isMissingRankingSchema} from '@/lib/rankingRepository';
 import {readJsonObject, RequestValidationError} from '@/lib/requestSecurity';
 
 export const runtime = 'nodejs';
@@ -27,9 +27,10 @@ export async function POST(request) {
     if (id !== undefined && id !== null && !isRankingId(id)) throw new RequestValidationError('معرّف المؤشر غير صالح.');
     const expected = body.expectedUpdatedAt;
     if (expected !== undefined && (!id || typeof expected !== 'string' || expected.length > 50 || !Number.isFinite(Date.parse(expected)))) throw new RequestValidationError('تاريخ نسخة المؤشر غير صالح.');
-    let query = id ? auth.db.from('ranking_indicators').update(payload).eq('id', id) : auth.db.from('ranking_indicators').insert(payload);
-    if (id && expected) query = query.eq('updated_at', expected);
-    const result = await query.select(rankingIndicatorFields).maybeSingle();
+    if(id&&!expected)throw new RequestValidationError('نسخة المؤشر مطلوبة. أعد تحميل القائمة.',409);
+    const response=await auth.db.rpc('editorial_service_save',{p_kind:'ranking',p_id:id||null,p_revision:expected||null,p_data:payload,p_actor:auth.user.id,p_action:'update'});
+    const result={data:response.data?.record,error:response.error};
+    if(result.error?.code==='40001')return rankingFailure('عُدّل المؤشر في جلسة أخرى. حدّث القائمة قبل الحفظ.',409);
     if (isMissingRankingSchema(result.error)) return rankingFailure('يلزم تشغيل supabase/yemen-ranking.sql في بيئة معتمدة أولاً.', 503);
     if (result.error?.code === '23505') return rankingFailure('الرابط المختصر مستخدم بالفعل. اختر رابطاً آخر.', 409);
     if (result.error) throw result.error;

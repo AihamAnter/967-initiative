@@ -26,6 +26,7 @@ const validContentUrl=(value,original)=>!value||value===original||safeExternalUr
 export default function InlineContentEditor({target,onSaved,onDirtyChange,onBusyChange}){
  const {request}=useInlineEditor();
  const [loaded,setLoaded]=useState(null),[draft,setDraft]=useState({}),[products,setProducts]=useState([]),[publication,setPublication]=useState(false),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[feedback,setFeedback]=useState(null);
+ const [correction,setCorrection]=useState(false);
  const loadVersion=useRef(0),mounted=useRef(true);
  const fields=schemas[target.kind]||noFields,specialized=Boolean(inlineTargetKinds[target.kind]?.advanced)||!canEditInlineTarget(target);
  const invalidateLoad=useCallback(()=>{loadVersion.current++;},[]);
@@ -63,7 +64,7 @@ export default function InlineContentEditor({target,onSaved,onDirtyChange,onBusy
    let result;
    if(target.kind==='figure')result=await request('/api/admin/figures',{record:{...loaded.item,...patch},profile:loaded.profile,revision:loaded.revision},{method:'PUT'});
    else if(target.kind==='page')result=await request('/api/admin/pages',{page:{...loaded.item,...patch},revision:loaded.revision},{method:'PUT'});
-   else result=await request('/api/admin/inline',{action:'content_save',kind:target.kind,id:target.id,revision:loaded.revision,data:patch});
+   else result=await request('/api/admin/inline',{action:'content_save',kind:target.kind,id:target.id,revision:loaded.revision,data:patch,intent:correction?'correction':'update'});
    if(!mounted.current)return;
    onDirtyChange?.(false);setFeedback({error:false,text:'تم حفظ التعديلات بنجاح.'});
    await onSaved?.(target,result);
@@ -83,6 +84,7 @@ export default function InlineContentEditor({target,onSaved,onDirtyChange,onBusy
    {fields.map(({key,label,multiline,list:ignoredList,number:ignoredNumber,...props})=><FormLabel key={key}>{label}{multiline?<FormTextarea {...props} rows={key==='short_bio'?7:3} value={draft[key]??''} onChange={event=>{setDraft(current=>({...current,[key]:event.target.value}));setFeedback(null);}}/>:<FormInput {...props} type={props.type==='url'?'text':props.type} inputMode={props.type==='url'?'url':undefined} validate={props.type==='url'?value=>validContentUrl(value,loaded.item[key]):undefined} value={draft[key]??''} dir={props.type==='url'||props.type==='email'?'ltr':undefined} onChange={event=>{setDraft(current=>({...current,[key]:event.target.value}));setFeedback(null);}}/>}</FormLabel>)}
    {target.kind==='company'&&<details className="inline-products"><summary>المنتجات ({products.length})</summary>{products.map((product,index)=><fieldset key={index}><legend>المنتج {index+1}</legend><FormLabel>اسم المنتج<FormInput required value={product.name||''} onChange={event=>changeProduct(index,'name',event.target.value)}/></FormLabel><FormLabel>وصف المنتج<FormTextarea value={product.description||''} onChange={event=>changeProduct(index,'description',event.target.value)}/></FormLabel><FormLabel>رابط الصورة<FormInput type="text" inputMode="url" dir="ltr" validate={value=>validContentUrl(value,loaded.item.products?.[index]?.image_url)} value={product.image_url||''} onChange={event=>changeProduct(index,'image_url',event.target.value)}/></FormLabel><button type="button" className="btn btn-outline" disabled={products.length<=1} onClick={()=>{if(window.confirm('إزالة هذا المنتج من القائمة عند الحفظ؟'))setProducts(current=>current.filter((_,i)=>i!==index));}}><Trash2 size={15}/> إزالة المنتج</button></fieldset>)}<button type="button" className="btn btn-outline" onClick={()=>setProducts(current=>[...current,{name:'',description:'',image_url:null,currency:'YER',sources:[]}])}><Plus size={15}/> إضافة منتج</button><p className="small-muted">يحفظ النموذج ترتيب المنتجات وبيانات الأسعار والمصادر الحالية. تعديل الأسعار والملفات متاح في المحرر الكامل.</p></details>}
    {Object.hasOwn(loaded.item,'is_published')&&<FormLabel className="checkline"><FormInput type="checkbox" checked={publication} onChange={event=>setPublication(event.target.checked)}/> منشور للعامة</FormLabel>}
+   {!specialized&&['issue','work','company','professional','governorate','district'].includes(target.kind)&&<FormLabel className="checkline"><FormInput type="checkbox" checked={correction} onChange={e=>setCorrection(e.target.checked)}/> هذا التعديل تصحيح لمعلومة منشورة</FormLabel>}
    <div className="inline-content-actions"><button className="btn btn-primary" disabled={busy||!dirty}><Save size={17}/>{busy?'جارٍ الحفظ…':'حفظ التعديلات'}</button>{advanced}<button type="button" className="btn btn-outline" disabled={busy} onClick={()=>{if(!dirty||window.confirm('إعادة تحميل المحفوظ وتجاهل تعديلاتك؟'))load();}}><RefreshCw size={16}/> إعادة تحميل المحفوظ</button></div>
   </fieldset></ValidatedForm>}
  </div>;
