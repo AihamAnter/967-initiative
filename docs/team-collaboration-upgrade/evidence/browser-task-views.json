@@ -1,0 +1,26 @@
+{
+  "production": false,
+  "checkedAt": "2026-10-25T20:10:02.343Z",
+  "results": [
+    {
+      "width": 1440,
+      "view": "kanban",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "view": "calendar",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "view": "kanban",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "view": "calendar",
+      "overflow": false
+    }
+  ]
+}

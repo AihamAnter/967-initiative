@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-25 20:14:37 UTC",
+  "branch": "feat/967-team-collaboration-audit",
+  "baseCommit": "56ab115b025c507391252526beb808a97296e057",
+  "tests": {
+    "command": "node --test --test-concurrency=2 tests/*.test.mjs",
+    "total": 324,
+    "passed": 323,
+    "failed": 0,
+    "skipped": 1,
+    "skipReason": "Optional external PostgreSQL management concurrency test; TEST_POSTGRES_ADMIN_URL unset"
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 2,
+    "existingWarnings": [
+      "components/PdfReader.jsx:15",
+      "components/PdfReader.jsx:21"
+    ]
+  },
+  "build": {
+    "success": true,
+    "command": "npm run build",
+    "environment": "NEXT_VALIDATION_BUILD=1; isolated local Supabase fixture"
+  },
+  "playwright": {
+    "mcp": true,
+    "viewports": [
+      1440,
+      390
+    ],
+    "reports": [
+      "browser-results.json",
+      "browser-coverage-results.json",
+      "browser-task-views.json"
+    ]
+  },
+  "productionWrites": false,
+  "productionDeployment": false,
+  "mainMerged": false
+}

@@ -1,0 +1,111 @@
+{
+  "production": false,
+  "checkedAt": "2026-10-25T19:47:51.003Z",
+  "checks": [
+    "verified service APIs: private figure profile, district supplement, visibility, rankings and first page save without backfill",
+    "failed and identical editorial writes do not increase contribution counts",
+    "UI primary reassignment and participant filtering",
+    "UI reply edit and tombstone deletion; notification panel",
+    "direct entry, contextual and actual search return at both widths; account retains existing navigation"
+  ],
+  "navigation": [
+    {
+      "width": 1440,
+      "path": "/works/local-nav-work",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 1440,
+      "path": "/magazine/local-nav-issue",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 1440,
+      "path": "/yemeni-products/local-nav-company",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 1440,
+      "path": "/professionals/local-nav-professional",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 1440,
+      "path": "/yemen-map/figures/local-figure",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 1440,
+      "path": "/yemen-in-numbers/indicator/local-nav-indicator",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 1440,
+      "path": "/yemen-in-numbers/local-nav-domain",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 1440,
+      "path": "/debates/local-prerecorded",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/works/local-nav-work",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/magazine/local-nav-issue",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/yemeni-products/local-nav-company",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/professionals/local-nav-professional",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/yemen-map/figures/local-figure",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/yemen-in-numbers/indicator/local-nav-indicator",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/yemen-in-numbers/local-nav-domain",
+      "direct": true,
+      "context": true
+    },
+    {
+      "width": 390,
+      "path": "/debates/local-prerecorded",
+      "direct": true,
+      "context": true
+    }
+  ],
+  "activePath": "/account/activity",
+  "errors": []
+}

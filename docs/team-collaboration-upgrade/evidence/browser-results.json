@@ -1,0 +1,18 @@
+{
+  "origin": "http://127.0.0.1:3149",
+  "production": false,
+  "checkedAt": "2026-10-25T18:27:46.948Z",
+  "checks": [
+    "UI editorial create then five verified edits, publish/unpublish: 8 operations, one content entity",
+    "delayed send regression: newer typing is preserved",
+    "UI: primary plus three participants, step, root comment and reply",
+    "UI: participant step completion, reply to reply, explicit failure preserves draft",
+    "API via MCP: two session CAS 200/409 and author permissions",
+    "tombstones preserve descendants; member removal revokes step permission",
+    "1440/390 responsive, permalink, member dashboard, combined filters, contextual return and keyboard: 1440",
+    "1440/390 responsive, permalink, member dashboard, combined filters, contextual return and keyboard: 390",
+    "anonymous 401 and ordinary account 403 for contributions"
+  ],
+  "task": "5ccf3353-eca5-4756-ba13-279c93d6f78b",
+  "errors": []
+}

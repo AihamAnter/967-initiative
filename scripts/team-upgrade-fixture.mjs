@@ -1,0 +1,142 @@
+// Isolated integration server: no .env files, no external network, no real users.
+import {createServer} from 'node:http';
+import {randomUUID} from 'node:crypto';
+import {readFile} from 'node:fs/promises';
+import {createInlineEditorTestDatabase,inlineTestUsers} from '../tests/helpers/inlineEditorTestDatabase.mjs';
+import {seedDebateFixtures} from '../tests/helpers/debateFixtures.mjs';
+process.on('uncaughtException',error=>{console.error(JSON.stringify({message:error.message,code:error.code,where:error.where}));process.exit(1);});
+const port=3449,origin='http://127.0.0.1:3149',upgraded=process.env.TEAM_UPGRADE_APPLY==='1';
+const db=await createInlineEditorTestDatabase({collaboration:false});
+await db.pg.exec(await readFile(new URL('../supabase/migrations/202610250001_editor_workspace.sql',import.meta.url),'utf8'));
+// PGlite has gen_random_uuid built in but no separately packaged pgcrypto extension.
+await db.pg.exec((await readFile(new URL('../supabase/yemen-in-numbers.sql',import.meta.url),'utf8')).replace(/create extension if not exists pgcrypto;/i,''));
+await db.pg.exec(await readFile(new URL('../supabase/yemen-ranking.sql',import.meta.url),'utf8'));
+const users=[...inlineTestUsers,{id:'77777777-7777-4777-8777-777777777777',role:'admin',name:'عضو محلي ثالث'},{id:'88888888-8888-4888-8888-888888888888',role:'admin',name:'عضو محلي رابع'}];
+for(const user of users.slice(inlineTestUsers.length)){
+ await db.pg.query('insert into auth.users(id,raw_user_meta_data,email_confirmed_at,email) values($1,$2::jsonb,now(),$3)',[user.id,JSON.stringify({full_name:user.name}),'user-'+user.id[0]+'@example.test']);
+ await db.pg.query('insert into public.editors(user_id,role) values($1,$2)',[user.id,user.role]);
+}
+const manager=users.find(u=>u.role==='management'),primary=users.find(u=>u.role==='admin');
+const localTask=await db.run(manager.id,"select public.task_mutate('create',null,null,$1::jsonb) result",[JSON.stringify({title:'إعداد ملف العدد الجديد — اختبار محلي',description:'مهمة اصطناعية لمراجعة مركز الفريق دون أي بيانات إنتاجية.',assigned_to:primary.id,priority:'high',due_date:new Date().toISOString().slice(0,10),due_timezone:'Asia/Aden',recurrence:'weekly',requires_review:true})]);
+const localTaskId=localTask.rows[0].result.id;
+await db.run(primary.id,"select public.task_mutate('subtask_save',$1,1,$2::jsonb)",[localTaskId,JSON.stringify({title:'مراجعة المصادر وترتيب الفقرات'})]);
+await db.run(primary.id,"select public.task_mutate('comment_save',$1,2,$2::jsonb)",[localTaskId,JSON.stringify({body:'تعليق اصطناعي محلي قبل تطوير النقاش.'})]);
+if(upgraded)await db.pg.exec(await readFile(new URL('../supabase/migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
+for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/migrations/'+file,import.meta.url),'utf8'));
+await db.pg.exec(await readFile(new URL('../supabase/add-site-settings.sql',import.meta.url),'utf8'));
+const figureSql=await readFile(new URL('../supabase/yemeni-figures.sql',import.meta.url),'utf8');
+await db.pg.exec(figureSql.slice(0,figureSql.indexOf('-- Figure portraits')));
+await db.pg.query("insert into public.yemeni_figures(slug,full_name,known_for,field,governorate_id,governorate_name,era,short_bio,is_published) values('local-figure','شخصية الاختبار المحلي','بيانات معزولة لا تنشر','الأدب','YE19','حضرموت','معاصرة','ملف للتحقق من ربط دليل الشخصيات بالمحافظة.',true)");
+await db.pg.exec('grant all on all tables in schema public to service_role;');
+const fixture=await seedDebateFixtures(db);
+await fixture.update(fixture.live,{publication_status:'published',comments_open:true,questions_open:true});
+await fixture.update(fixture.recorded,{publication_status:'published',recording_published:true,stage:'recording_available'});
+const bounds=JSON.parse(await readFile(new URL('../public/data/yemen-map/yemen-boundaries.json',import.meta.url),'utf8'));
+for(const g of bounds.governorates)await db.pg.query('insert into public.governorates(id,name_ar,name_en) values($1,$2,$3)',[g.id,g.nameAr,g.nameEn]);
+for(const d of bounds.districts)await db.pg.query('insert into public.districts(id,governorate_id,name_ar,name_en) values($1,$2,$3,$4)',[d.id,d.governorateId,d.nameAr,d.nameEn]);
+// Baseline fixtures precede audit activation; tests then create real local events.
+for(let i=0;i<15;i++)await db.pg.query('insert into public.yemeni_figures(slug,full_name,known_for,field,governorate_id,governorate_name,era,birth_year,image_url,website,short_bio,is_published,created_at) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,true,$12)',[
+ 'fixture-figure-'+i,'شخصية محلية '+String(i+1).padStart(2,'0'),'بيانات اختبار مستقلة',i%2?'الأدب والشعر':'العلم والتعليم',i%3?'YE19':'YE15',i%3?'حضرموت':'تعز',i%2?'تاريخية':'معاصرة',i%4===0?null:1800+i*10,i%2?'/images/yemen-preview.svg':null,i%3?'https://example.test':null,'نبذة اصطناعية للتأكد من الفلاتر والعودة فقط.',new Date(Date.UTC(2026,9,i+1)).toISOString()]);
+await db.pg.exec('alter table auth.users add column banned_until timestamptz');
+await db.pg.exec(await readFile(new URL('../supabase/migrations/202610230001_prelaunch_roles_rls.sql',import.meta.url),'utf8'));
+if(upgraded)for(const name of ['202610250005_editorial_contributions.sql','202610250006_contributions_report.sql'])await db.pg.exec(await readFile(new URL('../supabase/migrations/'+name,import.meta.url),'utf8'));
+const profileFiles=new Map();
+const tokenMap=new Map(),passwords=new Map(users.map(u=>['user-'+u.id[0]+'@example.test',{id:u.id,password:'Local-test-967!'}])),revoked=new Set(),codes=new Map(),mailbox=[];
+let confirmEmail=true;
+const jsonSafe=value=>JSON.parse(JSON.stringify(value,(key,item)=>key==='due_date'&&typeof item==='string'?item.slice(0,10):item));
+const ident=value=>{if(!/^[a-z_]+$/.test(value))throw Error('Invalid fixture identifier');return '"'+value+'"';};
+const userFor=async id=>{const row=(await db.pg.query('select * from auth.users where id=$1',[id])).rows[0];return row?{id,email:row.email,email_confirmed_at:row.email_confirmed_at,aud:'authenticated',role:'authenticated',user_metadata:row.raw_user_meta_data,app_metadata:{provider:'email',providers:['email']},created_at:row.created_at}:null;};
+async function sessionFor(id){const enc=value=>Buffer.from(JSON.stringify(value)).toString('base64url'),token=enc({alg:'HS256',typ:'JWT'})+'.'+enc({sub:id,role:'authenticated',aud:'authenticated',exp:Math.floor(Date.now()/1000)+3600,iat:Math.floor(Date.now()/1000),session_id:randomUUID()})+'.local-browser-fixture';tokenMap.set(token,id);return {access_token:token,token_type:'bearer',expires_in:3600,expires_at:Math.floor(Date.now()/1000)+3600,refresh_token:'local-refresh-'+id,user:await userFor(id)};}
+const cors={'Content-Type':'application/json','Cache-Control':'no-store','Access-Control-Allow-Origin':origin,'Access-Control-Allow-Headers':'authorization,apikey,content-type,x-client-info,x-supabase-api-version,prefer,range,accept-profile,content-profile','Access-Control-Allow-Methods':'GET,POST,PUT,PATCH,DELETE,OPTIONS','Access-Control-Expose-Headers':'Content-Range,x-supabase-api-version','X-Supabase-Api-Version':'2024-01-01'};
+async function sqlFor(uid,service,sql,params=[]){if(!service)return db.run(uid,sql,params);return db.pg.transaction(async tx=>{await tx.exec('set local role service_role');return tx.query(sql,params);});}
+const server=createServer(async(req,res)=>{
+ const send=(body,status=200,extra={})=>{res.writeHead(status,{...cors,...extra});res.end(body===null?'':JSON.stringify(jsonSafe(body)));};
+ if(req.method==='OPTIONS')return send(null,204);
+ try{
+  const url=new URL(req.url,'http://127.0.0.1:'+port),pathname=url.pathname;
+  let raw='';for await(const part of req){raw+=part;if(raw.length>700000)throw Error('Fixture body too large');}const body=raw?JSON.parse(raw):{};
+  const token=req.headers.authorization?.replace(/^Bearer\s+/i,'')||'',uid=revoked.has(token)?null:tokenMap.get(token)||null,service=token==='fixture-service';
+  if(pathname==='/fixture/state')return send({production:false,upgraded,task:localTaskId,live:fixture.live,recorded:fixture.recorded,users,mailbox,confirmEmail});
+  if(pathname==='/fixture/session')return send(await sessionFor(body.user_id));
+  if(pathname==='/fixture/auth-mode'){confirmEmail=body.confirmEmail;return send({ok:true});}
+  if(pathname==='/fixture/confirm'){await db.pg.query('update auth.users set email_confirmed_at=now() where email=$1',[body.email]);return send({ok:true});}
+  if(pathname==='/fixture/revoke'){revoked.add(body.token);return send({ok:true});}
+  if(pathname==='/fixture/clear-rate'){await db.pg.exec('delete from public.debate_rate_limits');return send({ok:true});}
+  if(pathname==='/fixture/setting'){await db.pg.query('insert into public.site_settings(key,value,updated_at) values($1,$2::jsonb,now()) on conflict(key) do update set value=excluded.value,updated_at=excluded.updated_at',[body.key,JSON.stringify(body.value)]);return send({ok:true});}
+  if(pathname==='/fixture/arena-seed'){
+   const id=body.debate_id||fixture.live;
+   await db.pg.query("delete from public.debate_comments where debate_id=$1",[id]);await db.pg.query("delete from public.debate_questions where debate_id=$1",[id]);
+   await db.pg.query("insert into public.debate_comments(debate_id,user_id,body,status,created_at) select $1,$2,'تعليق محلي '||n||' — نناقش الفكرة ونراجع مصادرها باحترام.','approved',now()-interval '1 hour'+n*interval '1 minute' from generate_series(1,35)n",[id,inlineTestUsers[5].id]);
+   await db.pg.query("insert into public.debate_questions(debate_id,user_id,body,status,anonymous,created_at) select $1,$2,'سؤال محلي '||n||' — كيف يمكن تطبيق هذه الفكرة في الواقع؟','approved',n%2=0,now()-interval '1 hour'+n*interval '1 minute' from generate_series(1,15)n",[id,inlineTestUsers[5].id]);
+   return send({ok:true});
+  }
+  if(pathname==='/auth/v1/settings')return send({external:{email:true},disable_signup:false,mailer_autoconfirm:!confirmEmail});
+  if(pathname==='/auth/v1/signup'){
+   if(passwords.has(body.email))return send({msg:'User already registered',code:'user_already_exists'},422);
+   const id=randomUUID();await db.pg.query('insert into auth.users(id,email,raw_user_meta_data,email_confirmed_at) values($1,$2,$3::jsonb,$4)',[id,body.email,JSON.stringify(body.data||{}),confirmEmail?null:new Date().toISOString()]);passwords.set(body.email,{id,password:body.password});inlineTestUsers.push({id,role:null,name:body.data?.display_name});
+   if(!confirmEmail)return send(await sessionFor(id));mailbox.push({kind:'signup',email:body.email,redirectTo:url.searchParams.get('redirect_to')});return send(await userFor(id));
+  }
+  if(pathname==='/auth/v1/token'){
+   const grant=url.searchParams.get('grant_type');
+   if(grant==='pkce'){const id=codes.get(body.auth_code);if(!id)return send({code:'flow_state_expired'},400);codes.delete(body.auth_code);return send(await sessionFor(id));}
+   const entry=grant==='refresh_token'?{id:String(body.refresh_token).replace('local-refresh-','')}:passwords.get(body.email);
+   if(!entry||grant!=='refresh_token'&&entry.password!==body.password)return send({code:'invalid_credentials'},400);
+   const user=await userFor(entry.id);if(!user?.email_confirmed_at)return send({code:'email_not_confirmed'},400);return send(await sessionFor(entry.id));
+  }
+  if(pathname==='/auth/v1/recover'){
+   const entry=passwords.get(body.email);if(entry){const code=randomUUID();codes.set(code,entry.id);mailbox.push({kind:'recovery',email:body.email,code,redirectTo:url.searchParams.get('redirect_to')});}return send({});
+  }
+  if(pathname==='/auth/v1/resend'){mailbox.push({kind:'resend',email:body.email});return send({});}
+  if(pathname==='/auth/v1/user'){
+   if(!uid)return send({code:'bad_jwt'},401);
+   if(req.method==='PUT'){if(body.password){const user=await userFor(uid);passwords.set(user.email,{id:uid,password:body.password});}if(body.data)await db.pg.query('update auth.users set raw_user_meta_data=raw_user_meta_data||$2::jsonb where id=$1',[uid,JSON.stringify(body.data)]);}
+   return send(await userFor(uid));
+  }
+  if(pathname==='/auth/v1/logout'){revoked.add(token);return send(null,204);}
+  if(pathname.startsWith('/storage/v1/object/')){
+   if(!service)return send({error:'Private local storage'},403);
+   const key=decodeURIComponent(pathname.replace('/storage/v1/object/','').replace(/^authenticated\//,''));
+   if(req.method==='POST'){if(profileFiles.has(key))return send({statusCode:'409',error:'Duplicate'},409);profileFiles.set(key,raw);return send({Key:key});}
+   if(req.method==='GET'){if(!profileFiles.has(key))return send({statusCode:'404',message:'Object not found'},404);res.writeHead(200,{...cors,'Content-Type':'application/json'});return res.end(profileFiles.get(key));}
+   if(req.method==='DELETE'){for(const prefix of body.prefixes||[])profileFiles.delete(key+'/'+prefix);return send([]);}
+  }
+  if(pathname.startsWith('/rest/v1/rpc/')){
+   const name=pathname.split('/').at(-1);if(!/^(debate|inline|task|editor|editorial)_[a-z_]+$/.test(name))return send({code:'PGRST202'},404);
+   const args=req.method==='GET'?Object.fromEntries(url.searchParams):body,entries=Object.entries(args),params=entries.map(([,value])=>typeof value==='object'&&value!==null?JSON.stringify(value):value);
+   if(name==='task_team'){const result=await sqlFor(uid,service,'select * from public.task_team()');return send(result.rows);}
+   const result=await sqlFor(uid,service,'select public.'+ident(name)+'('+entries.map(([key],i)=>ident(key)+'=> '+(key==='p_source_ids'?'array(select jsonb_array_elements_text($'+(i+1)+'::jsonb))::uuid[]':'$'+(i+1)+(['p_data','p_value','p_filters','p_page_baseline'].includes(key)?'::jsonb':''))).join(',')+') result',params);
+   return send(result.rows[0]?.result??null);
+  }
+  if(pathname.startsWith('/rest/v1/')){
+   const table=pathname.split('/').at(-1);if(!/^[a-z_]+$/.test(table))return send({code:'PGRST205'},404);
+   const exists=(await db.pg.query('select to_regclass($1) name',['public.'+table])).rows[0].name;if(!exists)return send([],200,{'Content-Range':'*/0'});
+   const params=[],bind=value=>{params.push(value);return '$'+params.length;},conditions=[];
+   for(const [key,value]of url.searchParams){if(['select','order','limit','offset','on_conflict'].includes(key))continue;if(value.startsWith('eq.'))conditions.push(ident(key)+'='+bind(value.slice(3)));else if(value==='is.null')conditions.push(ident(key)+' is null');else if(value.startsWith('in.('))conditions.push(ident(key)+'::text=any('+bind(value.slice(4,-1).split(','))+'::text[])');else if(value.startsWith('like.'))conditions.push(ident(key)+' like '+bind(value.slice(5)));}
+   const where=conditions.length?' where '+conditions.join(' and '):'',single=String(req.headers.accept).includes('application/vnd.pgrst.object+json');
+   if(req.method==='GET'||req.method==='HEAD'){
+    const columns=url.searchParams.get('select')||'*';let select=columns==='*'?'r.*':columns.includes('(')?'r.*':columns.split(',').map(ident).join(',');
+    if(columns.includes('source:stat_sources('))select+=', (select to_jsonb(s) from public.stat_sources s where s.id=r.source_id) source';
+    if(columns.includes('section:stat_sections(')&&table==='stat_domains')select+=', (select to_jsonb(s) from public.stat_sections s where s.id=r.section_id) section';
+    if(columns.includes('domain:stat_domains('))select+=", (select to_jsonb(d)||jsonb_build_object('section',(select to_jsonb(s) from public.stat_sections s where s.id=d.section_id)) from public.stat_domains d where d.id=r.domain_id) domain";
+    if(columns.includes('adopted_source:stat_sources'))select+=', (select to_jsonb(s) from public.stat_sources s where s.id=r.adopted_source_id) adopted_source';
+    const order=(url.searchParams.get('order')||'').split(',').filter(Boolean).map(value=>{const [key,direction]=value.split('.');return ident(key)+(direction==='desc'?' desc':' asc');}).join(',');
+    const offset=Number(url.searchParams.get('offset')||0),limit=Number(url.searchParams.get('limit')||1000);
+    if(!Number.isInteger(offset)||!Number.isInteger(limit)||offset<0||limit<1)throw Error('Invalid fixture pagination');
+    const result=await sqlFor(uid,service,'select '+select+' from public.'+ident(table)+' r'+where+(order?' order by '+order:'')+' limit '+limit+' offset '+offset,params),count=(await sqlFor(uid,service,'select count(*)::int n from public.'+ident(table)+where,params)).rows[0].n;
+    return send(single?result.rows[0]??null:result.rows,200,{'Content-Range':result.rows.length?`${offset}-${offset+result.rows.length-1}/${count}`:`*/${count}`});
+   }
+   if(req.method==='POST'){
+    const rows=Array.isArray(body)?body:[body],keys=Object.keys(rows[0]);if(rows.some(row=>JSON.stringify(Object.keys(row))!==JSON.stringify(keys)))throw Error('Fixture bulk rows need identical columns');
+    const arrayTypes=new Map((await db.pg.query("select a.attname,format_type(a.atttypid,a.atttypmod) kind from pg_attribute a join pg_type t on t.oid=a.atttypid where a.attrelid=$1::regclass and a.attnum>0 and not a.attisdropped and t.typcategory='A'",['public.'+table])).rows.map(r=>[r.attname,r.kind]));
+    const values=rows.map(row=>'('+keys.map(key=>{const value=row[key],bound=bind(typeof value==='object'&&value!==null?JSON.stringify(value):value);return arrayTypes.has(key)&&Array.isArray(value)?'array(select jsonb_array_elements_text('+bound+'::jsonb))::'+arrayTypes.get(key):bound;}).join(',')+')');
+    const conflict=url.searchParams.get('on_conflict'),merge=String(req.headers.prefer).includes('resolution=merge-duplicates');let suffix='';if(merge&&conflict){const conflictKeys=conflict.split(',');suffix=' on conflict('+conflictKeys.map(ident).join(',')+') do update set '+keys.filter(k=>!conflictKeys.includes(k)).map(k=>ident(k)+'=excluded.'+ident(k)).join(',');}
+    const result=await sqlFor(uid,service,'insert into public.'+ident(table)+'('+keys.map(ident).join(',')+') values'+values.join(',')+suffix+' returning *',params);return send(single?result.rows[0]:result.rows,201);
+   }
+   if(req.method==='PATCH'){const setters=Object.entries(body).map(([key,value])=>ident(key)+'='+bind(typeof value==='object'&&value!==null?JSON.stringify(value):value));const result=await sqlFor(uid,service,'update public.'+ident(table)+' set '+setters.join(',')+where+' returning *',params);return send(single?result.rows[0]??null:result.rows);}
+   if(req.method==='DELETE'){const result=await sqlFor(uid,service,'delete from public.'+ident(table)+where+' returning *',params);return send(single?result.rows[0]??null:result.rows);}
+  }
+  return send({error:'Unsupported isolated fixture endpoint'},404);
+ }catch(error){send({code:error.code||'fixture_failure',message:error.message},['42501'].includes(error.code)?403:['23505','40001'].includes(error.code)?409:400);}
+});
+server.listen(port,'127.0.0.1',()=>console.log('Isolated team upgrade fixture ready: '+port+'; upgraded='+upgraded));
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>server.close(async()=>{await db.close();process.exit(0);}));
