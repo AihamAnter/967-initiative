@@ -103,5 +103,5 @@ test('migration and importer keep protected writes, revisions, source gating and
  assert.match(sql,/Published university requires a source/);assert.match(sql,/Published medical center requires a source/);
  assert.match(sql,/Management role required/);assert.match(sql,/directory_batch/);
  assert.match(importer,/if\(!apply\)/);assert.match(importer,/DIRECTORY_IMPORT_CONFIRM/);assert.match(importer,/DIRECTORY_PUBLISH_CONFIRM/);
- assert.match(importer,/previewDiff/);assert.match(importer,/directoryBundleDiff/);assert.match(importer,/if\(lookup\.data&&!updateExisting\)/);assert.doesNotMatch(importer,/\.delete\(/);
+ assert.match(importer,/previewDiff/);assert.match(importer,/enrichedOnly/);assert.match(importer,/directoryBundleDiff/);assert.match(importer,/if\(lookup\.data&&!updateExisting\)/);assert.doesNotMatch(importer,/\.delete\(/);
 });

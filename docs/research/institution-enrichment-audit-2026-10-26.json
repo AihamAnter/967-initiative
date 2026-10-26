@@ -1273,8 +1273,18 @@
     ]
   },
   "publication": {
-    "production_import_applied": false,
+    "production_import_applied": true,
     "production_migration_applied": false,
-    "source_records_marked_published": 1
+    "source_records_marked_published": 1,
+    "created": 1,
+    "updated": 17,
+    "failed": 0,
+    "verified_public_counts": {
+      "universities": 115,
+      "medical_centers": 161,
+      "programs": 74,
+      "specialties": 14,
+      "services": 21
+    }
   }
 }

@@ -5,7 +5,7 @@ import {directoryBundleDiff} from '../lib/directoryImportMerge.js';
 
 const argv=process.argv.slice(2),args=new Set(argv);
 const option=name=>argv.find(value=>value.startsWith(`--${name}=`))?.slice(name.length+3);
-const kind=option('kind')||'all',apply=args.has('--apply'),previewDiff=args.has('--preview-diff'),updateExisting=args.has('--update-existing'),overwriteExisting=args.has('--overwrite-existing'),preservePublication=args.has('--preserve-publication');
+const kind=option('kind')||'all',apply=args.has('--apply'),previewDiff=args.has('--preview-diff'),updateExisting=args.has('--update-existing'),overwriteExisting=args.has('--overwrite-existing'),preservePublication=args.has('--preserve-publication'),enrichedOnly=args.has('--enriched-only');
 const limit=option('limit')?Number(option('limit')):Infinity,reportPath=option('report');
 if(!['all','universities','medical-centers'].includes(kind))throw Error('Use --kind=universities, --kind=medical-centers, or --kind=all.');
 if((!Number.isFinite(limit)&&limit!==Infinity)||limit<1)throw Error('--limit must be a positive number.');
@@ -49,8 +49,10 @@ function validate(records,label){
  return {records:records.length,stableKeys:keys.size,slugs:slugs.size};
 }
 
-const batches=definitions.map(definition=>{const body=JSON.parse(fs.readFileSync(definition.file,'utf8')),records=body.records.slice(0,limit);return {definition,records,summary:validate(records,definition.kind)};});
-const summary={mode:apply?'apply':previewDiff?'preview-diff':'offline-dry-run',updateExisting,overwriteExisting,preservePublication,collections:batches.map(({definition,summary:item})=>({kind:definition.kind,...item}))};
+const enrichment=enrichedOnly?JSON.parse(fs.readFileSync('data/directories/enrichment-2026-10-26.json','utf8')):null;
+const enrichedKeys=enrichment?new Set([...enrichment.universities,...enrichment.medical_centers,...enrichment.medical_additions].map(row=>row.stable_key)):null;
+const batches=definitions.map(definition=>{const body=JSON.parse(fs.readFileSync(definition.file,'utf8')),records=body.records.filter(row=>!enrichedKeys||enrichedKeys.has(row.stable_key)).slice(0,limit);return {definition,records,summary:validate(records,definition.kind)};});
+const summary={mode:apply?'apply':previewDiff?'preview-diff':'offline-dry-run',updateExisting,overwriteExisting,preservePublication,enrichedOnly,collections:batches.map(({definition,summary:item})=>({kind:definition.kind,...item}))};
 console.log(JSON.stringify(summary,null,2));
 if(!apply&&!previewDiff){console.log('Offline validation complete. No database connection was opened and no rows were written.');process.exit(0);}
 
