@@ -56,7 +56,7 @@ test('live debate results: exact aggregates, change notifications and owner-only
  });
  await t.test('the migration can be reapplied and preserves previously hidden final results',async()=>{
   await db.pg.query('update public.debates set results=$2::jsonb,results_published=false where id=$1',[d.id,JSON.stringify({before:{suppressed:true}})]);
-  await db.pg.exec(await readFile(new URL('../supabase/migrations/202610200003_debates_live_results.sql',import.meta.url),'utf8'));
+  await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/202610200003_debates_live_results.sql',import.meta.url),'utf8'));
   assert.equal((await f.get(d.id)).live_results_enabled,false);
   const tables=(await db.pg.query("select tablename from pg_publication_tables where pubname='supabase_realtime' and schemaname='public'")).rows.map(r=>r.tablename);
   assert.ok(tables.includes('debate_result_updates'));assert.ok(!tables.includes('debate_votes'));

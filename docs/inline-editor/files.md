@@ -1,5 +1,7 @@
 # جرد ملفات التحرير المباشر — 967
 
+> **تنبيه بتاريخ 26 أكتوبر 2026:** ملفات SQL ذات التواريخ القديمة المذكورة هنا موجودة في أرشيف للرجوع إليها وللاختبارات التاريخية؛ ليست ترحيلات نشطة، ولا تُشغَّل على إنتاج 967. الـBaseline الحالي المرشح هو `supabase/migrations/20261026215718_remote_schema.sql` ولم تُسوَّ حالته في سجل الإنتاج بعد.
+
 يشمل الجرد تغييرات هذه المهمة على الفرع `feat/inline-editor` مقارنةً بـ`main`، ولا يشمل ملفات البيئة أو الأدوات ومجلدات البناء المتجاهلة.
 
 ## الملفات المعدلة (37)
@@ -128,7 +130,7 @@
 - [scripts/inline-editor-preview-fixture.mjs](../../scripts/inline-editor-preview-fixture.mjs)
 - [scripts/test-inline-editor-browser.mjs](../../scripts/test-inline-editor-browser.mjs)
 - [scripts/test-inline-editor-session.mjs](../../scripts/test-inline-editor-session.mjs)
-- [supabase/migrations/202610210001_inline_editor.sql](../../supabase/migrations/202610210001_inline_editor.sql)
+- [supabase/archive/legacy-migrations/202610210001_inline_editor.sql](../../supabase/archive/legacy-migrations/202610210001_inline_editor.sql)
 - [supabase/yemen-map-profile-seed.sql](../../supabase/yemen-map-profile-seed.sql)
 - [tests/helpers/inlineEditorTestDatabase.mjs](../../tests/helpers/inlineEditorTestDatabase.mjs)
 - [tests/inline-editor-api.test.mjs](../../tests/inline-editor-api.test.mjs)

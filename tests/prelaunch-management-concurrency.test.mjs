@@ -24,7 +24,7 @@ test('S-02 real PostgreSQL: two independent sessions cannot remove both manageme
  for(const role of ['anon','authenticated','service_role'])if(!(await admin.query('select exists(select 1 from pg_roles where rolname=$1) found',[role])).rows[0].found){await admin.query('create role '+role+' nologin');createdRoles.push(role);}
  control=new Client({connectionString:target.href,application_name:'967-guard-control'});await control.connect();
  await control.query("create table public.editors(user_id text primary key,role text not null);insert into public.editors values('one','management'),('two','management');");
- await control.query(await readFile(new URL('../supabase/migrations/202610230002_management_guard.sql',import.meta.url),'utf8'));
+ await control.query(await readFile(new URL('../supabase/archive/legacy-migrations/202610230002_management_guard.sql',import.meta.url),'utf8'));
  for(const isolation of ['read committed','repeatable read'])for(const operation of ['demote','delete']){
   await t.test(isolation+' '+operation,async()=>{
    await control.query("insert into public.editors values('one','management'),('two','management') on conflict(user_id) do update set role='management'");

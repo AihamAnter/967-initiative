@@ -138,8 +138,8 @@ test('visibility, reading later, sitemap and schema include only public director
 });
 
 test('migration and importer keep protected writes, revisions, source gating and explicit apply confirmation',()=>{
- const sql=fs.readFileSync(new URL('../supabase/migrations/202610250007_institution_directories.sql',import.meta.url),'utf8');
- const safetySql=fs.readFileSync(new URL('../supabase/migrations/202610260001_institution_directory_data_safety.sql',import.meta.url),'utf8');
+ const sql=fs.readFileSync(new URL('../supabase/archive/legacy-migrations/202610250007_institution_directories.sql',import.meta.url),'utf8');
+ const safetySql=fs.readFileSync(new URL('../supabase/archive/legacy-migrations/202610260001_institution_directory_data_safety.sql',import.meta.url),'utf8');
  const importer=fs.readFileSync(new URL('../scripts/import-institution-directories.mjs',import.meta.url),'utf8');
  for(const table of ['universities','university_programs','university_branches','university_sources','medical_centers','medical_center_specialties','medical_center_services','medical_center_hours','medical_center_branches','medical_center_sources'])assert.ok(sql.includes(`'${table}'`),`${table} is included in the protected table loop`);
  assert.match(sql,/alter table public\.%I enable row level security/);

@@ -235,7 +235,7 @@ test('967 debates: isolated PostgreSQL, Auth boundary, privacy and complete work
   // Simulate an old installation with a reserved URL before the corrective migration.
   await db.pg.exec('alter table public.debates disable trigger debate_slug_route_guard');
   const legacy=(await db.pg.query("insert into public.debates(slug,title,question,debate_type,first_published_at) values('suggest','رابط قديم للاختبار','سؤال للاختبار المحلي','prerecorded',now()) returning *")).rows[0];
-  const migration=await import('node:fs/promises').then(fs=>fs.readFile(new URL('../supabase/migrations/202610200002_debates_review_fixes.sql',import.meta.url),'utf8'));
+  const migration=await import('node:fs/promises').then(fs=>fs.readFile(new URL('../supabase/archive/legacy-migrations/202610200002_debates_review_fixes.sql',import.meta.url),'utf8'));
   await db.pg.exec(migration);
   denied(await db.client(A.id).rpc('debate_admin_mutate',{p_action:'save',p_id:legacy.id,p_revision:legacy.revision,p_data:{slug:'repaired-legacy-route',reason:'إصلاح رابط قديم'}}));
   denied(await db.client(M.id).rpc('debate_admin_mutate',{p_action:'save',p_id:legacy.id,p_revision:legacy.revision,p_data:{slug:'repaired-legacy-route'}}));

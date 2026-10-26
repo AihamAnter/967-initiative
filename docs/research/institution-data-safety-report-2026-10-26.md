@@ -1,5 +1,7 @@
 # تقرير إصلاح سلامة بيانات دليلي المؤسسات
 
+> **تنبيه بتاريخ 26 أكتوبر 2026:** ملفات SQL ذات التواريخ القديمة المذكورة هنا موجودة في أرشيف للرجوع إليها وللاختبارات التاريخية؛ ليست ترحيلات نشطة، ولا تُشغَّل على إنتاج 967. الـBaseline الحالي المرشح هو `supabase/migrations/20261026215718_remote_schema.sql` ولم تُسوَّ حالته في سجل الإنتاج بعد.
+
 تاريخ التنفيذ: **2026-10-26**  
 الفرع: `fix/institution-directory-data-safety`  
 حالة الإنتاج: **لم تحدث أي كتابة على Supabase الإنتاجي، ولم يُدمج الفرع في `main`، ولم يُنشر إلى Vercel.**
@@ -24,7 +26,7 @@
 - `lib/directoryImportMerge.js`: تمثيل موحد للمصادر، إزالة تكرار metadata من الملاحظات، هوية URL ثابتة، وحماية `stable_key` و`slug`.
 - `scripts/import-institution-directories.mjs`: مسودات افتراضية، قائمة نشر فردية، تأكيدان منفصلان، ومنع الاستبدال الجماعي.
 - `scripts/apply-directory-enrichment.mjs`: استخدام هوية المصدر والتمثيل الموحد نفسيهما.
-- `supabase/migrations/202610260001_institution_directory_data_safety.sql`: أعمدة metadata مستقلة، حفظ RPC متوافق، no-op دلالي، حماية الهوية، وحاجز نشر استيراد جديد.
+- `supabase/archive/legacy-migrations/202610260001_institution_directory_data_safety.sql`: أعمدة metadata مستقلة، حفظ RPC متوافق، no-op دلالي، حماية الهوية، وحاجز نشر استيراد جديد.
 - `lib/institutionDirectories.js`: حداثة الأدلة ومؤشر الجودة متعدد الأبعاد.
 - `lib/data.js` و`lib/operationalEvents.js`: منع Fallback الإنتاجي الصامت وتسجيل تعطل الدليل.
 - `lib/institutionAdminPayload.js` و`components/InstitutionAdminPanel.jsx`: إدخال/إخراج تواريخ المصدر المنفصلة مع دعم الصيغة القديمة.

@@ -7,7 +7,7 @@ import {seedDebateFixtures} from '../tests/helpers/debateFixtures.mjs';
 process.on('uncaughtException',error=>{console.error(JSON.stringify({message:error.message,code:error.code,where:error.where}));process.exit(1);});
 const port=3449,origin='http://127.0.0.1:3149',upgraded=process.env.TEAM_UPGRADE_APPLY==='1';
 const db=await createInlineEditorTestDatabase({collaboration:false});
-await db.pg.exec(await readFile(new URL('../supabase/migrations/202610250001_editor_workspace.sql',import.meta.url),'utf8'));
+await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/202610250001_editor_workspace.sql',import.meta.url),'utf8'));
 // PGlite has gen_random_uuid built in but no separately packaged pgcrypto extension.
 await db.pg.exec((await readFile(new URL('../supabase/yemen-in-numbers.sql',import.meta.url),'utf8')).replace(/create extension if not exists pgcrypto;/i,''));
 await db.pg.exec(await readFile(new URL('../supabase/yemen-ranking.sql',import.meta.url),'utf8'));
@@ -21,8 +21,8 @@ const localTask=await db.run(manager.id,"select public.task_mutate('create',null
 const localTaskId=localTask.rows[0].result.id;
 await db.run(primary.id,"select public.task_mutate('subtask_save',$1,1,$2::jsonb)",[localTaskId,JSON.stringify({title:'مراجعة المصادر وترتيب الفقرات'})]);
 await db.run(primary.id,"select public.task_mutate('comment_save',$1,2,$2::jsonb)",[localTaskId,JSON.stringify({body:'تعليق اصطناعي محلي قبل تطوير النقاش.'})]);
-if(upgraded)await db.pg.exec(await readFile(new URL('../supabase/migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
-for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/migrations/'+file,import.meta.url),'utf8'));
+if(upgraded)await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
+for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/'+file,import.meta.url),'utf8'));
 await db.pg.exec(await readFile(new URL('../supabase/add-site-settings.sql',import.meta.url),'utf8'));
 const figureSql=await readFile(new URL('../supabase/yemeni-figures.sql',import.meta.url),'utf8');
 await db.pg.exec(figureSql.slice(0,figureSql.indexOf('-- Figure portraits')));
@@ -38,8 +38,8 @@ for(const d of bounds.districts)await db.pg.query('insert into public.districts(
 for(let i=0;i<15;i++)await db.pg.query('insert into public.yemeni_figures(slug,full_name,known_for,field,governorate_id,governorate_name,era,birth_year,image_url,website,short_bio,is_published,created_at) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,true,$12)',[
  'fixture-figure-'+i,'شخصية محلية '+String(i+1).padStart(2,'0'),'بيانات اختبار مستقلة',i%2?'الأدب والشعر':'العلم والتعليم',i%3?'YE19':'YE15',i%3?'حضرموت':'تعز',i%2?'تاريخية':'معاصرة',i%4===0?null:1800+i*10,i%2?'/images/yemen-preview.svg':null,i%3?'https://example.test':null,'نبذة اصطناعية للتأكد من الفلاتر والعودة فقط.',new Date(Date.UTC(2026,9,i+1)).toISOString()]);
 await db.pg.exec('alter table auth.users add column banned_until timestamptz');
-await db.pg.exec(await readFile(new URL('../supabase/migrations/202610230001_prelaunch_roles_rls.sql',import.meta.url),'utf8'));
-if(upgraded)for(const name of ['202610250005_editorial_contributions.sql','202610250006_contributions_report.sql'])await db.pg.exec(await readFile(new URL('../supabase/migrations/'+name,import.meta.url),'utf8'));
+await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/202610230001_prelaunch_roles_rls.sql',import.meta.url),'utf8'));
+if(upgraded)for(const name of ['202610250005_editorial_contributions.sql','202610250006_contributions_report.sql'])await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/'+name,import.meta.url),'utf8'));
 const profileFiles=new Map();
 const tokenMap=new Map(),passwords=new Map(users.map(u=>['user-'+u.id[0]+'@example.test',{id:u.id,password:'Local-test-967!'}])),revoked=new Set(),codes=new Map(),mailbox=[];
 let confirmEmail=true;

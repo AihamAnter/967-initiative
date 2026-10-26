@@ -36,7 +36,7 @@ test('upload progress uses the validated media type and reaches 100 only after S
 });
 test('24-hour task archiving is bounded, idempotent, audited, private and reversible; private drafts and message workflow use real PostgreSQL',async t=>{
  const fixture=await createTaskTestDatabase(),{pg,run}=fixture;
- const migration=name=>readFile(new URL('../supabase/migrations/'+name,import.meta.url),'utf8');
+ const migration=name=>readFile(new URL('../supabase/archive/legacy-migrations/'+name,import.meta.url),'utf8');
  await pg.exec(await migration('202610250001_editor_workspace.sql'));
  await pg.exec(`create table public.messages(id uuid primary key default gen_random_uuid(),name text not null,email text not null,type text not null,message text not null,status text not null default 'new',created_at timestamptz default clock_timestamp());alter table public.messages enable row level security;grant select on public.messages to authenticated;`);
  await pg.exec(await migration('202610250003_message_workspace.sql'));

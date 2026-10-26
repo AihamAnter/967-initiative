@@ -1,5 +1,7 @@
 # تقرير بيانات الجامعات والمعاهد والمراكز الطبية
 
+> **تنبيه بتاريخ 26 أكتوبر 2026:** ملفات SQL ذات التواريخ القديمة المذكورة هنا موجودة في أرشيف للرجوع إليها وللاختبارات التاريخية؛ ليست ترحيلات نشطة، ولا تُشغَّل على إنتاج 967. الـBaseline الحالي المرشح هو `supabase/migrations/20261026215718_remote_schema.sql` ولم تُسوَّ حالته في سجل الإنتاج بعد.
+
 > هذا تقرير خط أساس بتاريخ 2026-10-25. راجع تقرير الإثراء الأحدث: `docs/research/institution-enrichment-report-2026-10-26.md`.
 
 تاريخ التقرير: **2026-10-25**
@@ -74,7 +76,7 @@
 
 ## تعليمات الاستيراد
 
-1. راجع `supabase/migrations/202610250007_institution_directories.sql` وطبّقه أولًا في مشروع Supabase معزول.
+1. راجع `supabase/archive/legacy-migrations/202610250007_institution_directories.sql` وطبّقه أولًا في مشروع Supabase معزول.
 2. شغّل الاختبار المعزول: `node --test tests/institution-directory-database.test.mjs`.
 3. شغّل المحاكاة: `npm run data:directories -- --kind=all`.
 4. راجع كل سجل قبل النشر. الاستيراد الفعلي يحول السجلات إلى مسودات افتراضيًا، ويتجاوز أي `stable_key` موجود دون تعديله.

@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
 import {createInlineEditorTestDatabase,inlineTestUsers} from './helpers/inlineEditorTestDatabase.mjs';
 import {seedDebateFixtures} from './helpers/debateFixtures.mjs';import {handleDebateRequest} from '../lib/debateApi.js';
-const sql=name=>readFile(new URL('../supabase/migrations/'+name,import.meta.url),'utf8');
+const sql=name=>readFile(new URL('../supabase/archive/legacy-migrations/'+name,import.meta.url),'utf8');
 const lifecycle='202610220002_debate_recording_lifecycle.sql',oldRepair='202610220003_debate_discussion_publication_repair.sql',portable='202610220004_debate_discussion_publication_portable.sql';
 const crlf=text=>text.replace(/\r?\n/g,'\r\n');
 for(const mode of ['failed-crlf','reformatted-source','uppercase-keywords','already-repaired'])test('portable publication repair: '+mode,async t=>{
