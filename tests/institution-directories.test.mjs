@@ -43,9 +43,19 @@ test('source metadata round-trips once without duplicating note dates',()=>{
  const canonical=normalizeDirectorySource(legacy);
  assert.equal(canonical.note,'ملاحظة');assert.equal(canonical.source_published_at,'2023');assert.equal(canonical.status_as_of,'2023');
  const text=serializeInstitutionSources([canonical]),parsed=parseInstitutionSources(text);
- assert.deepEqual(parsed[0],Object.fromEntries(Object.entries(canonical).filter(([key])=>!['document_url','supports','conflict_note'].includes(key))));
+ assert.equal(parsed[0].url,canonical.url);assert.equal(parsed[0].note,canonical.note);assert.equal(parsed[0].source_published_at,canonical.source_published_at);assert.equal(parsed[0].status_as_of,canonical.status_as_of);
  const first=directoryBundleDiff({id:'db',stable_key:'x',slug:'x',sources:[legacy]},{stable_key:'x',slug:'x',sources:[canonical]},['sources']);
  assert.equal(first.changed,false);assert.equal(first.relations.sources.length,1);
+});
+
+test('directory editor round-trips advanced source metadata safely',()=>{
+ const sample={title:'وثيقة رسمية',url:'https://example.org/source',publisher:'جهة رسمية',source_type:'government',checked_at:'2026-10-26',source_published_at:'2023-09',accessed_at:'2026-10-26',status_as_of:'2023-09',information_verified_at:'2026-10-20',document_url:'https://example.org/document',supports:['identity','services'],conflict_note:'تعارض | مرجع قديم',note:'النص | هنا\nسطر ثان'};
+ const text=serializeInstitutionSources([sample]);
+ assert.deepEqual(parseInstitutionSources(text),[sample]);
+ assert.deepEqual(parseInstitutionSources(serializeInstitutionSources([{...sample,note:'وصف معدّل'}]))[0],{...sample,note:'وصف معدّل'});
+ assert.equal(parseInstitutionSources('دليل | https://example.org | حكومة | government | 2026-10-26 | ملاحظة')[0].note,'ملاحظة');
+ assert.throws(()=>parseInstitutionSources(text.replace('https://example.org/document','javascript:alert(1)')),/رابط الوثيقة/);
+ assert.throws(()=>parseInstitutionSources(text.replace('["identity","services"]','{"not":"an array"}')),/نطاق المصدر/);
 });
 
 test('directory fallback is impossible in production and allowed only outside it',()=>{
