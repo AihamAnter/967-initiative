@@ -20,8 +20,8 @@ export async function createTaskTestDatabase({collaboration=true}={}){
  create policy own_editor on public.editors for select to authenticated using(user_id=auth.uid());grant select on public.editors to authenticated;`);
  for(const u of taskTestUsers){await pg.query('insert into auth.users values($1,$2::jsonb)',[u.id,JSON.stringify({full_name:u.name})]);if(u.role)await pg.query('insert into public.editors(user_id,role) values($1,$2)',[u.id,u.role]);}
  await pg.exec(await readFile(new URL('../../supabase/task-center.sql',import.meta.url),'utf8'));
- await pg.exec(await readFile(new URL('../../supabase/migrations/202610250002_task_auto_archive.sql',import.meta.url),'utf8'));
- if(collaboration)await pg.exec(await readFile(new URL('../../supabase/migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
+ await pg.exec(await readFile(new URL('../../supabase/archive/legacy-migrations/202610250002_task_auto_archive.sql',import.meta.url),'utf8'));
+ if(collaboration)await pg.exec(await readFile(new URL('../../supabase/archive/legacy-migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
  const run=(user,sql,params=[])=>pg.transaction(async tx=>{await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[user||'']);await tx.exec('set local role '+(user?'authenticated':'anon'));return tx.query(sql,params);});
  const normalize=value=>JSON.parse(JSON.stringify(value,(_k,v)=>v));
  const tableNames=['editors','tasks','task_members','task_projects','task_subtasks','task_comments','task_activity','task_notifications'];

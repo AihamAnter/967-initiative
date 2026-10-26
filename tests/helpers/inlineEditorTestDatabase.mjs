@@ -11,7 +11,7 @@ export async function createInlineEditorTestDatabase(options){
  await pg.exec(await sql('yemen-map.sql'));
  for(const table of ['issues','yemeni_companies','professionals'])await pg.exec(`alter table public.${table} enable row level security;grant select on public.${table} to anon,authenticated;grant insert,update,delete on public.${table} to authenticated;create policy fixture_public on public.${table} for select to anon,authenticated using(is_published);create policy fixture_editor on public.${table} for all to authenticated using(public.debate_role() is not null) with check(public.debate_role() is not null);`);
  await pg.exec('grant insert,update,delete on public.works to authenticated;create policy fixture_works_write on public.works for all to authenticated using(public.debate_role() is not null) with check(public.debate_role() is not null);');
- await pg.exec(await sql('migrations/202610210001_inline_editor.sql'));
+ await pg.exec(await sql('archive/legacy-migrations/202610210001_inline_editor.sql'));
  const normalize=value=>JSON.parse(JSON.stringify(value));
  const ident=value=>{if(!/^[a-z_]+$/.test(value))throw Error('Unsafe identifier');return '"'+value+'"';};
  function client(user){const c=base.client(user);return {...c,

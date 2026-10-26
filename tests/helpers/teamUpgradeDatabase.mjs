@@ -9,7 +9,7 @@ export async function createTeamUpgradeDatabase(){
   await base.pg.query('insert into auth.users(id,raw_user_meta_data) values($1,$2::jsonb)',[user.id,JSON.stringify({full_name:user.name})]);
   await base.pg.query('insert into public.editors(user_id,role) values($1,$2)',[user.id,user.role]);
  }
- await base.pg.exec(await readFile(new URL('../../supabase/migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
+ await base.pg.exec(await readFile(new URL('../../supabase/archive/legacy-migrations/202610250004_task_collaboration.sql',import.meta.url),'utf8'));
  const mutate=async(user,action,id=null,revision=null,data={})=>(await base.run(user,'select public.task_mutate($1,$2,$3,$4::jsonb) result',[action,id,revision,JSON.stringify(data)])).rows[0].result;
  const task=async id=>(await base.pg.query('select * from public.tasks where id=$1',[id])).rows[0];
  return {...base,mutate,task};

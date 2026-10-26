@@ -22,10 +22,10 @@ export async function createPrelaunchSecurityDatabase(){
  await pg.query("update public.editors set role=case when user_id in ($1,$2) then 'management' else 'admin' end",[securityUsers.manager,securityUsers.manager2]);
  await pg.exec((await securitySql('yemen-in-numbers.sql')).split('insert into public.stat_sections')[0].replace('create extension if not exists pgcrypto;',''));
  await pg.exec(await securitySql('task-center.sql'));
- await pg.exec(await securitySql('migrations/202610200001_debates.sql'));
+ await pg.exec(await securitySql('archive/legacy-migrations/202610200001_debates.sql'));
  const run=(user,sql,params=[],role=user?'authenticated':'anon')=>pg.transaction(async tx=>{
   await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[user||'']);await tx.exec('set local role '+role);return tx.query(sql,params);
  });
- const migrate=async()=>{for(const file of ['202610230001_prelaunch_roles_rls.sql','202610230002_management_guard.sql','202610230003_contact_workflow.sql'])await pg.exec(await securitySql('migrations/'+file));};
+ const migrate=async()=>{for(const file of ['202610230001_prelaunch_roles_rls.sql','202610230002_management_guard.sql','202610230003_contact_workflow.sql'])await pg.exec(await securitySql('archive/legacy-migrations/'+file));};
  return {pg,run,migrate,close:()=>pg.close()};
 }
