@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-10-25",
+  "universities": {
+    "total": 115,
+    "governorates": 14,
+    "with_location": 96,
+    "with_contact": 62,
+    "needs_review": 19,
+    "by_governorate": {
+      "أمانة العاصمة": 37,
+      "غير محددة": 19,
+      "إب": 10,
+      "البيضاء": 3,
+      "تعز": 3,
+      "ذمار": 6,
+      "عدن": 2,
+      "حضرموت": 3,
+      "شبوة": 1,
+      "الحديدة": 11,
+      "عمران": 7,
+      "صنعاء": 3,
+      "حجة": 5,
+      "المحويت": 4,
+      "الضالع": 1
+    },
+    "by_type": {
+      "university": 53,
+      "community_college": 47,
+      "independent_college": 15
+    }
+  },
+  "medical_centers": {
+    "total": 160,
+    "governorates": 22,
+    "with_location": 160,
+    "with_contact": 0,
+    "needs_review": 160,
+    "by_governorate": {
+      "إب": 10,
+      "أبين": 7,
+      "البيضاء": 7,
+      "الجوف": 7,
+      "الحديدة": 7,
+      "الضالع": 7,
+      "المحويت": 7,
+      "المهرة": 7,
+      "أمانة العاصمة": 7,
+      "تعز": 10,
+      "حجة": 7,
+      "حضرموت": 7,
+      "ذمار": 7,
+      "ريمة": 7,
+      "سقطرى": 7,
+      "شبوة": 7,
+      "صعدة": 7,
+      "صنعاء": 7,
+      "عدن": 7,
+      "عمران": 7,
+      "لحج": 7,
+      "مأرب": 7
+    },
+    "by_type": {
+      "hospital": 122,
+      "referral_hospital": 11,
+      "health_center": 18,
+      "specialized_hospital": 9
+    }
+  }
+}
