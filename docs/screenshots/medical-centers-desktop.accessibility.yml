@@ -1,0 +1,141 @@
+- generic [active] [ref=f3e1]:
+  - link "انتقل إلى المحتوى" [ref=f3e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "مبادرة 967 — الرئيسية" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - img "مبادرة 967" [ref=f3e6]
+        - generic [ref=f3e7]:
+          - text: مساحة يمنية
+          - strong [ref=f3e8]: للمعرفة والمشاركة
+      - navigation "التنقل الرئيسي" [ref=f3e9]:
+        - link "الرئيسية" [ref=f3e10] [cursor=pointer]:
+          - /url: /
+        - group [ref=f3e11]:
+          - generic "المحتوى" [ref=f3e12] [cursor=pointer]
+        - group [ref=f3e15]:
+          - generic "المعرفة" [ref=f3e16] [cursor=pointer]
+        - group [ref=f3e19]:
+          - generic "الأدلة" [ref=f3e20] [cursor=pointer]
+        - group [ref=f3e23]:
+          - generic "المبادرة" [ref=f3e24] [cursor=pointer]
+      - generic [ref=f3e27]:
+        - link "البحث في المنصة" [ref=f3e28] [cursor=pointer]:
+          - /url: /search
+        - link "تسجيل الدخول" [ref=f3e514] [cursor=pointer]:
+          - /url: /login
+        - link "كن جزءاً من الحكاية" [ref=f3e32] [cursor=pointer]:
+          - /url: /contribute
+  - main [ref=f3e36]:
+    - generic [ref=f3e37]:
+      - generic [ref=f3e39]:
+        - navigation "مسار التصفح" [ref=f3e40]:
+          - link "الرئيسية" [ref=f3e41] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f3e44]: الدليل الصحي
+        - generic [ref=f3e45]: الدليل الصحي
+        - heading "دليل المراكز الطبية" [level=1] [ref=f3e46]
+        - paragraph [ref=f3e47]: ابحث في المنشآت الصحية اليمنية الموثقة في القائمة الرسمية المتاحة. بيانات التشغيل مؤرخة ولا تُستخدم لتأكيد أن المنشأة مفتوحة الآن أو أن خدمة بعينها متاحة حاليًا.
+        - generic [ref=f3e48]:
+          - generic [ref=f3e49]
+          - generic [ref=f3e51]
+          - link "اقترح منشأة صحية" [ref=f3e53] [cursor=pointer]:
+            - /url: /contribute?type=%D8%A7%D9%82%D8%AA%D8%B1%D8%A7%D8%AD%20%D9%85%D8%B1%D9%83%D8%B2%20%D8%B7%D8%A8%D9%8A
+      - paragraph [ref=f3e61]:
+        - strong [ref=f3e62]: "قبل الزيارة:"
+        - text: تحقّق هاتفيًا أو من الجهة الصحية المحلية. لا توجد في البيانات الحالية أرقام اتصال أو ساعات عمل موثقة لمعظم السجلات، وحالة التشغيل المعروضة تعود إلى ديسمبر 2023.
+      - generic [ref=f3e65]:
+        - generic [ref=f3e66]:
+          - textbox "البحث في المراكز الطبية" [ref=f3e71]:
+            - /placeholder: ابحث باسم المنشأة أو التخصص أو الخدمة...
+          - generic [ref=f3e72]
+          - generic [ref=f3e76]
+          - generic [ref=f3e80]
+          - generic [ref=f3e84]
+          - generic [ref=f3e88]
+          - generic [ref=f3e92]
+          - generic [ref=f3e96]
+          - generic [ref=f3e100]
+        - generic [ref=f3e104]:
+          - generic [ref=f3e105]: المنشآت الطبية المطابقة
+          - strong [ref=f3e106]: 160 نتيجة
+        - generic [ref=f3e107]:
+          - article [ref=f3e108]
+          - article [ref=f3e137]
+          - article [ref=f3e166]
+          - article [ref=f3e195]
+          - article [ref=f3e224]
+          - article [ref=f3e253]
+          - article [ref=f3e282]
+          - article [ref=f3e311]
+          - article [ref=f3e340]
+          - article [ref=f3e369]
+          - article [ref=f3e398]
+          - article [ref=f3e427]
+        - navigation "صفحات النتائج" [ref=f3e456]:
+          - button "السابق" [disabled] [ref=f3e457]
+          - generic [ref=f3e460]: 1 من 14
+          - button "التالي" [ref=f3e461] [cursor=pointer]
+  - contentinfo [ref=f3e464]:
+    - generic [ref=f3e465]:
+      - generic [ref=f3e466]:
+        - generic [ref=f3e467]:
+          - link "مبادرة 967" [ref=f3e468] [cursor=pointer]:
+            - /url: /
+          - heading "من اليمن. ولكل اليمنيين." [level=2] [ref=f3e470]
+          - paragraph [ref=f3e471]: مساحة نلتقي فيها على المعرفة، ونفتح بها أبواب الحوار والمشاركة.
+          - link "إنستغرام" [ref=f3e473] [cursor=pointer]:
+            - /url: https://www.instagram.com/yemen967_/
+        - generic [ref=f3e481]:
+          - heading "المحتوى والمعرفة" [level=3] [ref=f3e482]
+          - link "الأعمال الإعلامية" [ref=f3e483] [cursor=pointer]:
+            - /url: /works
+          - link "مناظرات 967" [ref=f3e484] [cursor=pointer]:
+            - /url: /debates
+          - link "مجلة 967" [ref=f3e485] [cursor=pointer]:
+            - /url: /magazine
+          - link "للقراءة لاحقاً" [ref=f3e486] [cursor=pointer]:
+            - /url: /read-later
+          - link "اليمن بالأرقام" [ref=f3e487] [cursor=pointer]:
+            - /url: /yemen-in-numbers
+          - link "ترتيب اليمن" [ref=f3e488] [cursor=pointer]:
+            - /url: /yemen-ranking
+          - link "اكتشف اليمن" [ref=f3e489] [cursor=pointer]:
+            - /url: /yemen-map
+        - generic [ref=f3e490]:
+          - heading "الأدلة والمجتمع" [level=3] [ref=f3e491]
+          - link "منتجات يمنية" [ref=f3e492] [cursor=pointer]:
+            - /url: /yemeni-products
+          - link "المهنيون" [ref=f3e493] [cursor=pointer]:
+            - /url: /professionals
+          - link "شخصيات يمنية" [ref=f3e494] [cursor=pointer]:
+            - /url: /yemen-map#yemeni-figures
+          - link "ساهم في المنصة" [ref=f3e495] [cursor=pointer]:
+            - /url: /contribute
+        - generic [ref=f3e496]:
+          - heading "مبادرة 967" [level=3] [ref=f3e497]
+          - link "من نحن" [ref=f3e498] [cursor=pointer]:
+            - /url: /about
+          - link "مركز المساعدة والأسئلة الشائعة" [ref=f3e499] [cursor=pointer]:
+            - /url: /help
+          - link "طلبات الخصوصية والبلاغات" [ref=f3e500] [cursor=pointer]:
+            - /url: /privacy-requests
+          - link "مشاريعنا" [ref=f3e501] [cursor=pointer]:
+            - /url: /#projects
+          - link "أرسل تصحيحاً" [ref=f3e502] [cursor=pointer]:
+            - /url: /contribute?type=تصحيح%20معلومة
+          - link "دخول المحررين" [ref=f3e503] [cursor=pointer]:
+            - /url: /admin
+      - generic [ref=f3e504]:
+        - generic [ref=f3e505]: © 2026 مبادرة 967
+        - generic [ref=f3e506]: المعرفة تجمعنا، والمشاركة تقرّبنا.
+        - navigation "الخصوصية والشروط" [ref=f3e507]:
+          - link "سياسة الخصوصية" [ref=f3e508] [cursor=pointer]:
+            - /url: /privacy
+          - link "شروط الاستخدام" [ref=f3e509] [cursor=pointer]:
+            - /url: /terms
+        - link "ابحث في المنصة" [ref=f3e510] [cursor=pointer]:
+          - /url: /search
+  - button "Open Next.js Dev Tools" [ref=f3e524] [cursor=pointer]
+  - alert [ref=f3e528]
