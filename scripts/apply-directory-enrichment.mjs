@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import process from 'node:process';
+import {directoryRelationKeys,normalizeDirectorySource} from '../lib/directoryImportMerge.js';
 
 const write=process.argv.includes('--write');
 const root=new URL('../',import.meta.url),read=path=>JSON.parse(fs.readFileSync(new URL(path,root),'utf8'));
@@ -10,8 +11,9 @@ const relationKeys={
  specialties:row=>String(row.name||'').trim(),services:row=>String(row.name||'').trim(),hours:row=>String(row.label||'').trim(),branches:row=>[row.name,row.city].map(value=>String(value||'').trim()).join('|'),sources:row=>String(row.url||row.document_url||'').trim(),
 };
 function mergeRows(current,incoming,relation){
- const output=clone(current||[]),positions=new Map(output.map((row,index)=>[relationKeys[relation](row),index]));
- for(const row of incoming||[]){const key=relationKeys[relation](row);if(positions.has(key))output[positions.get(key)]={...output[positions.get(key)],...clone(row)};else{positions.set(key,output.length);output.push(clone(row));}}
+ const normalize=relation==='sources'?normalizeDirectorySource:clone,keyFor=directoryRelationKeys[relation]||relationKeys[relation];
+ const output=(current||[]).map(normalize),positions=new Map(output.map((row,index)=>[keyFor(row),index]));
+ for(const raw of incoming||[]){const row=normalize(raw),key=keyFor(row);if(positions.has(key))output[positions.get(key)]={...output[positions.get(key)],...row};else{positions.set(key,output.length);output.push(row);}}
  return output;
 }
 function applyUpdates(dataset,updates,relations){

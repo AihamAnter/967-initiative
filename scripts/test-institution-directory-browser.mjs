@@ -19,9 +19,14 @@ await page.waitForURL(/\/universities\/edu-6620fcddf773/);
 assert.equal(await page.locator('.institution-programs article').count(),14);
 assert.ok(await page.getByRole('link',{name:/المصدر/}).count()>=14);
 assert.match(await page.locator('.institution-sources').innerText(),/تم الوصول/);
+const educationBack=await page.locator('a.back-link').getAttribute('href');
+assert.equal(new URL(educationBack,base).searchParams.get('q'),'جامعة صنعاء');
+await page.locator('a.back-link').click();await page.waitForURL(/\/universities/);
+assert.equal(await page.locator('.institution-search input').inputValue(),'جامعة صنعاء');
 
 await page.goto(`${base}/medical-centers`,{waitUntil:'networkidle'});
 assert.match(await page.locator('.directory-summary').innerText(),/161|١٦١/);
+assert.equal((await page.locator('.institution-filter > span:first-child').allTextContents()).includes('الطوارئ'),false,'empty emergency filter is hidden');
 const medicalSearch=page.locator('.institution-search input');
 await medicalSearch.fill('هيئة مستشفي الثورة العام تعز');
 await page.locator('.institution-card').first().waitFor();

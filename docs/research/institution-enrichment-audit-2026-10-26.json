@@ -1274,7 +1274,12 @@
   },
   "publication": {
     "production_import_applied": true,
-    "production_migration_applied": false,
+    "production_import_date": "2026-10-26",
+    "production_import_recorded_by_commit": "011fe9e",
+    "base_directory_schema_present": true,
+    "production_migration_applied_during_enrichment_import": false,
+    "data_safety_migration": "202610260001_institution_directory_data_safety.sql",
+    "data_safety_migration_applied_to_production": false,
     "source_records_marked_published": 1,
     "created": 1,
     "updated": 17,
