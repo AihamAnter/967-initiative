@@ -1,12 +1,14 @@
 # ترحيلات قاعدة البيانات
 
+> **تنبيه بتاريخ 26 أكتوبر 2026:** ملفات SQL ذات التواريخ القديمة المذكورة هنا موجودة في أرشيف للرجوع إليها وللاختبارات التاريخية؛ ليست ترحيلات نشطة، ولا تُشغَّل على إنتاج 967. الـBaseline الحالي المرشح هو `supabase/migrations/20261026215718_remote_schema.sql` ولم تُسوَّ حالته في سجل الإنتاج بعد.
+
 هذه ملفات مراجعة، اختُبرت على PostgreSQL المعزول عبر PGlite. لم تُشغّل على Supabase الإنتاجي، ولا تعيد تهيئة جدول أو تستبدل بيانات قديمة.
 
 | الترتيب | الملف | التغيير |
 | --- | --- | --- |
-| 1 | [202610250004_task_collaboration.sql](../../supabase/migrations/202610250004_task_collaboration.sql) | أعضاء متعددون، آباء التعليقات والنسخ والشواهد النصية، تنبيهات، إجراءات إنجاز ضيقة وتوافق task_mutate |
-| 2 | [202610250005_editorial_contributions.sql](../../supabase/migrations/202610250005_editorial_contributions.sql) | سجل غير قابل لتعديل المحررين، تاريخ التفعيل، Triggers، RPC للخدمة/المؤشر وتصحيح المحتوى، تجميع حفظ المناظرة |
-| 3 | [202610250006_contributions_report.sql](../../supabase/migrations/202610250006_contributions_report.sql) | التقرير والفلاتر والترقيم وحالة روابط المؤشرات التابعة |
+| 1 | [202610250004_task_collaboration.sql](../../supabase/archive/legacy-migrations/202610250004_task_collaboration.sql) | أعضاء متعددون، آباء التعليقات والنسخ والشواهد النصية، تنبيهات، إجراءات إنجاز ضيقة وتوافق task_mutate |
+| 2 | [202610250005_editorial_contributions.sql](../../supabase/archive/legacy-migrations/202610250005_editorial_contributions.sql) | سجل غير قابل لتعديل المحررين، تاريخ التفعيل، Triggers، RPC للخدمة/المؤشر وتصحيح المحتوى، تجميع حفظ المناظرة |
+| 3 | [202610250006_contributions_report.sql](../../supabase/archive/legacy-migrations/202610250006_contributions_report.sql) | التقرير والفلاتر والترقيم وحالة روابط المؤشرات التابعة |
 
 ## الشروط السابقة
 
