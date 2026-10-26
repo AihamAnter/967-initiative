@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-10-26",
+  "before": {
+    "universities": {
+      "total": 115,
+      "governorates": 14,
+      "with_location": 96,
+      "with_contact": 62,
+      "with_website": 0,
+      "with_address": 62,
+      "with_programs": 0,
+      "programs": 0,
+      "needs_review": 19
+    },
+    "medical_centers": {
+      "total": 160,
+      "governorates": 22,
+      "with_location": 160,
+      "with_contact": 0,
+      "with_website": 0,
+      "with_address": 0,
+      "with_specialties": 0,
+      "specialties": 0,
+      "with_services": 0,
+      "services": 0,
+      "needs_review": 160
+    }
+  },
+  "after": {
+    "universities": {
+      "total": 115,
+      "governorates": 14,
+      "with_location": 96,
+      "with_contact": 69,
+      "with_website": 7,
+      "with_address": 65,
+      "with_programs": 7,
+      "programs": 74,
+      "with_specialties": 0,
+      "specialties": 0,
+      "with_services": 0,
+      "services": 0,
+      "with_depth": 7,
+      "needs_review": 20,
+      "by_governorate": {
+        "أمانة العاصمة": 37,
+        "غير محددة": 19,
+        "إب": 10,
+        "البيضاء": 3,
+        "تعز": 3,
+        "ذمار": 6,
+        "عدن": 2,
+        "حضرموت": 3,
+        "شبوة": 1,
+        "الحديدة": 11,
+        "عمران": 7,
+        "صنعاء": 3,
+        "حجة": 5,
+        "المحويت": 4,
+        "الضالع": 1
+      },
+      "by_type": {
+        "university": 53,
+        "community_college": 47,
+        "independent_college": 15
+      }
+    },
+    "medical_centers": {
+      "total": 161,
+      "governorates": 22,
+      "with_location": 161,
+      "with_contact": 2,
+      "with_website": 2,
+      "with_address": 2,
+      "with_programs": 0,
+      "programs": 0,
+      "with_specialties": 5,
+      "specialties": 14,
+      "with_services": 10,
+      "services": 21,
+      "with_depth": 10,
+      "needs_review": 160,
+      "by_governorate": {
+        "إب": 10,
+        "أبين": 7,
+        "البيضاء": 7,
+        "الجوف": 7,
+        "الحديدة": 8,
+        "الضالع": 7,
+        "المحويت": 7,
+        "المهرة": 7,
+        "أمانة العاصمة": 7,
+        "تعز": 10,
+        "حجة": 7,
+        "حضرموت": 7,
+        "ذمار": 7,
+        "ريمة": 7,
+        "سقطرى": 7,
+        "شبوة": 7,
+        "صعدة": 7,
+        "صنعاء": 7,
+        "عدن": 7,
+        "عمران": 7,
+        "لحج": 7,
+        "مأرب": 7
+      },
+      "by_type": {
+        "hospital": 122,
+        "referral_hospital": 12,
+        "health_center": 18,
+        "specialized_hospital": 9
+      }
+    }
+  },
+  "enriched": {
+    "universities": [
+      "جامعة صنعاء",
+      "جامعة تعز",
+      "جامعة عدن",
+      "جامعة حضرموت",
+      "جامعة إب",
+      "جامعة ذمار",
+      "جامعة العلوم والتكنولوجيا"
+    ],
+    "medical_centers": [
+      "هيئة مستشفي الثورة العام تعز",
+      "هيئة مستشفى ابن سيناء",
+      "هيئة مستشفى شبوة العام",
+      "هيئة مستشفى الجمهورية النموذجي",
+      "هيئة مستشفى الثورة - الظهار اب",
+      "مستشفى القطن العام",
+      "مستشفى تريم",
+      "مستشفى ردفان العام",
+      "مستشفى المالح الريفي",
+      "مستشفى الشهيد محمد هايل لالمومة و الطفولة"
+    ],
+    "medical_additions": [
+      "هيئة مستشفى الثورة العام بالحديدة"
+    ]
+  },
+  "source_audit": {
+    "sources_added": 42,
+    "conflicts": [
+      {
+        "url": "https://www.thawrahosp-taiz.com/",
+        "note": "تظهر في الموقع مواد حديثة غير مرتبطة بالمستشفى؛ لذلك لا يُعتمد وحده لإثبات التشغيل الحالي."
+      }
+    ],
+    "without_publication_or_status_date": [
+      "https://su.edu.ye/fcit/ar/",
+      "https://su.edu.ye/chm/ar/index.php",
+      "https://su.edu.ye/ce/ar/",
+      "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+      "https://www.moheye.net/taiz-uninversity/",
+      "https://www.aden-univ.net/jur/117",
+      "https://hu.edu.ye/",
+      "https://hu.edu.ye/compfac/cs/",
+      "https://www.ibbuniv.edu.ye/main-web/public/index.php",
+      "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+      "https://www.ibbuniv.edu.ye/administrative-science/index",
+      "https://tu.edu.ye/",
+      "https://tu.edu.ye/faculty/id/fci",
+      "https://www.tu.edu.ye/faculty/view/midcine/3008/1255",
+      "https://www.thawrahosp-taiz.com/",
+      "https://www.moh-ye.org/?page_id=5954",
+      "https://www.moh-ye.org/?page_id=5954",
+      "https://www.moh-ye.org/?page_id=5954",
+      "https://www.moh-ye.org/?page_id=5954",
+      "https://www.moh-ye.org/?page_id=5954",
+      "https://www.ye.thawrahosp-hod.com/%D8%B9%D9%86%D8%A7/"
+    ]
+  },
+  "publication": {
+    "production_import_applied": false,
+    "production_migration_applied": false,
+    "source_records_marked_published": 1
+  }
+}

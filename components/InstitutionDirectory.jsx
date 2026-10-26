@@ -28,7 +28,7 @@ export default function InstitutionDirectory({kind,items}){
     governorates:optionList(ALL.governorate,items.map(item=>item.governorate)),
     cities:optionList(ALL.city,items.filter(item=>state.governorate===ALL.governorate||item.governorate===state.governorate).map(item=>item.city)),
     types:optionList(ALL.type,items.map(item=>item.type)),ownerships:optionList(ALL.ownership,items.map(item=>item.ownership)),
-    focuses:optionList(ALL.focus,items.flatMap(item=>item.programs||[]).map(row=>row.field)),levels:optionList(ALL.level,items.flatMap(item=>item.educationLevels||[])),modes:optionList(ALL.mode,items.flatMap(item=>item.studyModes||[])),
+    focuses:optionList(ALL.focus,items.flatMap(item=>item.programs||[]).map(row=>row.field)),levels:optionList(ALL.level,items.flatMap(item=>[...(item.educationLevels||[]),...(item.programs||[]).map(row=>row.qualification)])),modes:optionList(ALL.mode,items.flatMap(item=>[...(item.studyModes||[]),...(item.programs||[]).map(row=>row.study_mode)])),
     specialties:optionList(ALL.specialty,items.flatMap(item=>relationNames(item.specialties||[]))),services:optionList(ALL.service,items.flatMap(item=>relationNames(item.services||[]))),
   }),[items,state.governorate]);
   const results=useMemo(()=>items.filter(item=>{
@@ -44,8 +44,8 @@ export default function InstitutionDirectory({kind,items}){
       &&(state.emergency==='الكل'||state.emergency==='موثق'&&item.emergencyAvailable===true)
       ||!medical
       &&(state.focus===ALL.focus||item.programs.some(row=>row.field===state.focus))
-      &&(state.level===ALL.level||item.educationLevels.includes(state.level))
-      &&(state.mode===ALL.mode||item.studyModes.includes(state.mode));
+      &&(state.level===ALL.level||item.educationLevels.includes(state.level)||item.programs.some(row=>row.qualification===state.level))
+      &&(state.mode===ALL.mode||item.studyModes.includes(state.mode)||item.programs.some(row=>row.study_mode===state.mode));
   }).sort((a,b)=>state.sort==='newest'?String(b.createdAt||'').localeCompare(String(a.createdAt||'')):state.sort==='updated'?String(b.updatedAt||b.verifiedAt||'').localeCompare(String(a.updatedAt||a.verifiedAt||'')):a.name.localeCompare(b.name,'ar')),[items,medical,state]);
   const page=Math.min(state.page,Math.max(1,Math.ceil(results.length/pageSize))),basePath=medical?'/medical-centers':'/universities',anchor=medical?'#medical-directory':'#universities-directory';
   const returnTo=basePath+listStateSearch('',{...state,page},defaults)+anchor;
@@ -77,7 +77,7 @@ export default function InstitutionDirectory({kind,items}){
         <div className="institution-card-icon">{medical?<Stethoscope size={32}/>:<GraduationCap size={34}/>}</div>
         <div className="institution-card-body"><div className="institution-card-meta"><span>{item.typeLabel}</span><span>{item.ownershipLabel}</span></div><h2>{item.name}</h2>
           <p className="institution-location"><MapPin size={15}/>{[item.governorate,item.city].filter(Boolean).join(' · ')||'الموقع يحتاج استكمالًا'}</p><p>{item.summary}</p>
-          <div className="institution-tags">{(medical?[...relationNames(item.specialties),...relationNames(item.services)]:uniqCard([...item.programs.map(row=>row.field),...item.educationLevels])).slice(0,4).map(value=><span key={value}>{value}</span>)}</div>
+          <div className="institution-tags">{uniqCard(medical?[...relationNames(item.specialties),...relationNames(item.services)]:[...item.programs.map(row=>row.field),...item.educationLevels]).slice(0,4).map(value=><span key={value}>{value}</span>)}</div>
           {medical&&item.phone&&<span className="institution-phone"><Phone size={14}/>{item.phone}</span>}<span className="institution-details-link">عرض التفاصيل <ArrowUpLeft size={16}/></span>
         </div>
       </Link><div className="card-save-action"><SaveForLater compact item={{kind:medical?'medicalCenter':'university',href:`${basePath}/${encodeURIComponent(item.id)}`,title:item.name}}/></div>

@@ -1,11 +1,20 @@
 {
-  "generated_at": "2026-10-25",
+  "generated_at": "2026-10-26",
   "universities": {
     "total": 115,
     "governorates": 14,
     "with_location": 96,
-    "with_contact": 62,
-    "needs_review": 19,
+    "with_contact": 69,
+    "with_website": 7,
+    "with_address": 65,
+    "with_programs": 7,
+    "programs": 74,
+    "with_specialties": 0,
+    "specialties": 0,
+    "with_services": 0,
+    "services": 0,
+    "with_depth": 7,
+    "needs_review": 20,
     "by_governorate": {
       "أمانة العاصمة": 37,
       "غير محددة": 19,
@@ -30,17 +39,26 @@
     }
   },
   "medical_centers": {
-    "total": 160,
+    "total": 161,
     "governorates": 22,
-    "with_location": 160,
-    "with_contact": 0,
+    "with_location": 161,
+    "with_contact": 2,
+    "with_website": 2,
+    "with_address": 2,
+    "with_programs": 0,
+    "programs": 0,
+    "with_specialties": 5,
+    "specialties": 14,
+    "with_services": 10,
+    "services": 21,
+    "with_depth": 10,
     "needs_review": 160,
     "by_governorate": {
       "إب": 10,
       "أبين": 7,
       "البيضاء": 7,
       "الجوف": 7,
-      "الحديدة": 7,
+      "الحديدة": 8,
       "الضالع": 7,
       "المحويت": 7,
       "المهرة": 7,
@@ -61,7 +79,7 @@
     },
     "by_type": {
       "hospital": 122,
-      "referral_hospital": 11,
+      "referral_hospital": 12,
       "health_center": 18,
       "specialized_hospital": 9
     }

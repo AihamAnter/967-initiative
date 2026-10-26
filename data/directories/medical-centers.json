@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25",
-  "source_policy": "Operating status is historical and explicitly dated 2023-12-31; it must not be presented as open now.",
+  "generated_at": "2026-10-26",
+  "source_policy": "Service evidence is dated per source and does not imply current availability. Call the facility before travel; missing facts remain empty.",
   "records": [
     {
       "stable_key": "mophp:1101024",
@@ -533,7 +533,7 @@
       "institution_type": "referral_hospital",
       "ownership": "government",
       "operator_name": "حكومي",
-      "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى مرجعي /.",
+      "summary": "مستشفى حكومي مرجعي في مدينة إب. توجد دراسة مؤسسية منشورة في 2022 تصف عدداً من الأقسام، لكنها لا تكفي لإثبات توافرها الحالي؛ لذلك بقي السجل بحاجة إلى مراجعة.",
       "governorate": "إب",
       "city": "اب الظهار",
       "district": "اب الظهار",
@@ -552,7 +552,7 @@
       "operating_status": "fully_operational",
       "operating_status_as_of": "2023-12-31",
       "verification_status": "needs_review",
-      "verified_at": "2023-12-31",
+      "verified_at": "2026-10-26",
       "facility_presence": "موجود",
       "care_level": "Tertiary Health Care",
       "access_status": "يتم الوصول بشكل كامل",
@@ -560,7 +560,13 @@
       "equipment_status": "سليمة ( أو ضرر ضئيل )",
       "is_published": true,
       "revision": 1,
-      "specialties": [],
+      "specialties": [
+        {
+          "name": "الباطنية",
+          "source_url": "https://21umas.edu.ye/wp-content/uploads/2022/12/%D8%A3%D8%AB%D8%B1-%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D9%85%D8%B9%D8%A7%D9%8A%D9%8A%D8%B1-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D9%86%D9%81%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D8%AF-%D9%85%D9%86-%D8%A7%D9%84%D8%B9%D8%AF%D9%88%D9%89-%D9%88%D8%A7%D9%84%D8%B3%D9%8A%D8%B7%D8%B1%D8%A9-%D8%B9%D9%84%D9%8A%D9%87%D8%A7-%D9%81%D9%8A-%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%8A%D8%A7%D8%AA-%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D8%A5%D8%A8-3.pdf",
+          "display_order": 10
+        }
+      ],
       "services": [],
       "hours": [],
       "branches": [],
@@ -579,6 +585,20 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://21umas.edu.ye/wp-content/uploads/2022/12/%D8%A3%D8%AB%D8%B1-%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D9%85%D8%B9%D8%A7%D9%8A%D9%8A%D8%B1-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D9%86%D9%81%D8%A7%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%AD%D8%AF-%D9%85%D9%86-%D8%A7%D9%84%D8%B9%D8%AF%D9%88%D9%89-%D9%88%D8%A7%D9%84%D8%B3%D9%8A%D8%B7%D8%B1%D8%A9-%D8%B9%D9%84%D9%8A%D9%87%D8%A7-%D9%81%D9%8A-%D9%85%D8%B3%D8%AA%D8%B4%D9%81%D9%8A%D8%A7%D8%AA-%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D8%A5%D8%A8-3.pdf",
+          "title": "دراسة عن إدارة النفايات الطبية في مستشفيات مدينة إب",
+          "publisher": "جامعة 21 سبتمبر للعلوم الطبية والتطبيقية",
+          "source_type": "institutional",
+          "source_published_at": "2022-12",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2022",
+          "supports": [
+            "identity",
+            "specialties"
+          ],
+          "note": "دراسة أكاديمية قديمة نسبياً وليست دليلاً تشغيلياً حالياً."
         }
       ]
     },
@@ -4361,17 +4381,17 @@
       "institution_type": "referral_hospital",
       "ownership": "government",
       "operator_name": "حكومي",
-      "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى مرجعي /.",
+      "summary": "مستشفى حكومي مرجعي في تعز. وُثقت خدمات الطوارئ والتشخيص والعلاج ومركز الغسيل الكلوي من مصادر مؤسسية وحكومية، لكن التشغيل الحالي لبعض الخدمات يحتاج تحققاً مباشراً بسبب تنبيه رسمي في أكتوبر 2026.",
       "governorate": "تعز",
       "city": "صاله",
       "district": "صاله",
-      "address": "",
+      "address": "شارع الثورة، تعز، اليمن",
       "latitude": null,
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
-      "phone": null,
+      "website": "https://www.thawrahosp-taiz.com/",
+      "phone": "04-205777 / 04-205999 / 04-205444",
       "emergency_phone": null,
       "email": null,
       "social_links": [],
@@ -4380,7 +4400,7 @@
       "operating_status": "fully_operational",
       "operating_status_as_of": "2023-12-31",
       "verification_status": "needs_review",
-      "verified_at": "2023-12-31",
+      "verified_at": "2026-10-26",
       "facility_presence": "موجود",
       "care_level": "Tertiary Health Care",
       "access_status": "يتم الوصول بشكل كامل",
@@ -4388,8 +4408,39 @@
       "equipment_status": "تالفة جزئيا : بحاجة إلى إصالحات متوسطة أو كبيرة، لكنها أقل من تكلفة شراء معدات جديدة",
       "is_published": true,
       "revision": 1,
-      "specialties": [],
-      "services": [],
+      "specialties": [
+        {
+          "name": "غسيل الكلى",
+          "source_url": "https://www.moh-ye.org/?p=11521",
+          "display_order": 10
+        }
+      ],
+      "services": [
+        {
+          "name": "الطوارئ",
+          "details": "يذكر موقع المستشفى خدمة الطوارئ؛ يجب الاتصال للتحقق من الجاهزية الحالية.",
+          "source_url": "https://www.thawrahosp-taiz.com/",
+          "display_order": 10
+        },
+        {
+          "name": "التشخيص والعلاج",
+          "details": "خدمات تشخيصية وعلاجية وفق الموقع المؤسسي.",
+          "source_url": "https://www.thawrahosp-taiz.com/",
+          "display_order": 20
+        },
+        {
+          "name": "غسيل الكلى",
+          "details": "ذكر تقرير الوزارة في 20 مارس 2024 مركز الغسيل الكلوي وتنفيذ 5000 جلسة.",
+          "source_url": "https://www.moh-ye.org/?p=11521",
+          "display_order": 30
+        },
+        {
+          "name": "المشورة والفحص لفيروس نقص المناعة (PITC)",
+          "details": "مدرج ضمن مواقع تقديم الخدمة في دليل البرنامج الوطني.",
+          "source_url": "https://www.moh-ye.org/?page_id=5954",
+          "display_order": 40
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -4407,6 +4458,46 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://www.thawrahosp-taiz.com/",
+          "title": "الموقع المؤسسي لهيئة مستشفى الثورة العام بتعز",
+          "publisher": "هيئة مستشفى الثورة العام - تعز",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "website",
+            "phone",
+            "address",
+            "services"
+          ],
+          "conflict_note": "تظهر في الموقع مواد حديثة غير مرتبطة بالمستشفى؛ لذلك لا يُعتمد وحده لإثبات التشغيل الحالي."
+        },
+        {
+          "url": "https://www.moh-ye.org/?p=11521",
+          "title": "خدمات مركز الغسيل الكلوي في هيئة مستشفى الثورة بتعز",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "source_published_at": "2024-03-20",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2024-03-20",
+          "supports": [
+            "specialties",
+            "services"
+          ]
+        },
+        {
+          "url": "https://www.moh-ye.org/?p=13785",
+          "title": "تنبيه عن تعطل خدمات صحية في تعز",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "source_published_at": "2026-10-10",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2026-10-10",
+          "supports": [
+            "current_status_warning"
+          ],
+          "note": "مصدر تحذيري حديث؛ لا يُستنتج منه إغلاق المستشفى كله."
         }
       ]
     },
@@ -4853,7 +4944,14 @@
       "is_published": true,
       "revision": 1,
       "specialties": [],
-      "services": [],
+      "services": [
+        {
+          "name": "المشورة والفحص لفيروس نقص المناعة (PITC)",
+          "details": "مدرج ضمن مواقع تقديم الخدمة في دليل البرنامج الوطني.",
+          "source_url": "https://www.moh-ye.org/?page_id=5954",
+          "display_order": 10
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -4871,6 +4969,17 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://www.moh-ye.org/?page_id=5954",
+          "title": "مواقع خدمات المشورة والفحص والوقاية من انتقال فيروس نقص المناعة",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "services"
+          ],
+          "note": "الصفحة غير مؤرخة؛ يلزم الاتصال للتحقق من الاستمرار."
         }
       ]
     },
@@ -4969,7 +5078,14 @@
       "is_published": true,
       "revision": 1,
       "specialties": [],
-      "services": [],
+      "services": [
+        {
+          "name": "المشورة والفحص لفيروس نقص المناعة (PITC)",
+          "details": "مدرج ضمن مواقع تقديم الخدمة في دليل البرنامج الوطني.",
+          "source_url": "https://www.moh-ye.org/?page_id=5954",
+          "display_order": 10
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -4987,6 +5103,17 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://www.moh-ye.org/?page_id=5954",
+          "title": "مواقع خدمات المشورة والفحص والوقاية من انتقال فيروس نقص المناعة",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "services"
+          ],
+          "note": "الصفحة غير مؤرخة؛ يلزم الاتصال للتحقق من الاستمرار."
         }
       ]
     },
@@ -5173,7 +5300,7 @@
       "institution_type": "referral_hospital",
       "ownership": "government",
       "operator_name": "حكومي",
-      "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى مرجعي /.",
+      "summary": "مستشفى مرجعي في المكلا. تؤكد رئاسة الوزراء في مارس 2026 مشروع إعادة تأهيل وتوسعة، بينما توثق تغطية محلية في 2024 أقساماً وخدمات محددة؛ يجب التحقق المباشر من جاهزية كل خدمة.",
       "governorate": "حضرموت",
       "city": "مدينة المكال",
       "district": "مدينة المكال",
@@ -5192,7 +5319,7 @@
       "operating_status": "fully_operational",
       "operating_status_as_of": "2023-12-31",
       "verification_status": "needs_review",
-      "verified_at": "2023-12-31",
+      "verified_at": "2026-10-26",
       "facility_presence": "موجود",
       "care_level": "Tertiary Health Care",
       "access_status": "يتم الوصول بشكل كامل",
@@ -5200,8 +5327,38 @@
       "equipment_status": "تالفة جزئيا : بحاجة إلى إصالحات متوسطة أو كبيرة، لكنها أقل من تكلفة شراء معدات جديدة",
       "is_published": true,
       "revision": 1,
-      "specialties": [],
-      "services": [],
+      "specialties": [
+        {
+          "name": "العناية المركزة",
+          "source_url": "https://www.aden-tm.net/news/282660",
+          "display_order": 10
+        },
+        {
+          "name": "الأشعة",
+          "source_url": "https://www.aden-tm.net/news/282660",
+          "display_order": 20
+        }
+      ],
+      "services": [
+        {
+          "name": "الطوارئ",
+          "details": "موثقة في تغطية منشورة عام 2024؛ الجاهزية الحالية تحتاج اتصالاً مباشراً.",
+          "source_url": "https://www.aden-tm.net/news/282660",
+          "display_order": 10
+        },
+        {
+          "name": "المختبر",
+          "details": "خدمة مختبرية مذكورة في المصدر.",
+          "source_url": "https://www.aden-tm.net/news/282660",
+          "display_order": 20
+        },
+        {
+          "name": "العمليات الصغرى",
+          "details": "مذكورة ضمن الخدمات في المصدر.",
+          "source_url": "https://www.aden-tm.net/news/282660",
+          "display_order": 30
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -5219,6 +5376,33 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://pmo-ye.net/post/11371",
+          "title": "مشروع إعادة تأهيل وتوسعة مستشفى ابن سينا",
+          "publisher": "رئاسة مجلس الوزراء اليمنية",
+          "source_type": "government",
+          "source_published_at": "2026-03-10",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2026-03-10",
+          "supports": [
+            "identity",
+            "development_status"
+          ]
+        },
+        {
+          "url": "https://www.aden-tm.net/news/282660",
+          "title": "خدمات وأقسام هيئة مستشفى ابن سينا",
+          "publisher": "عدن تايم",
+          "source_type": "independent",
+          "source_published_at": "2024",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2024",
+          "supports": [
+            "specialties",
+            "services"
+          ],
+          "note": "مصدر محلي مستقل؛ لا يثبت التوافر الحالي للخدمات."
         }
       ]
     },
@@ -6797,7 +6981,7 @@
       "institution_type": "referral_hospital",
       "ownership": "government",
       "operator_name": "حكومي",
-      "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى مرجعي /.",
+      "summary": "مستشفى حكومي عام في عتق. وثقت بوابة محافظة شبوة أقساماً تخصصية وخدمات طوارئ وعمليات وعناية مركزة في 2023 و2024؛ الجاهزية الحالية تحتاج تحققاً مباشراً.",
       "governorate": "شبوة",
       "city": "شبوه عتق",
       "district": "شبوه عتق",
@@ -6816,7 +7000,7 @@
       "operating_status": "fully_operational",
       "operating_status_as_of": "2023-12-31",
       "verification_status": "needs_review",
-      "verified_at": "2023-12-31",
+      "verified_at": "2026-10-26",
       "facility_presence": "موجود",
       "care_level": "Tertiary Health Care",
       "access_status": "يتم الوصول بشكل كامل",
@@ -6824,8 +7008,58 @@
       "equipment_status": "سليمة ( أو ضرر ضئيل )",
       "is_published": true,
       "revision": 1,
-      "specialties": [],
-      "services": [],
+      "specialties": [
+        {
+          "name": "الباطنية",
+          "source_url": "https://shabwa-gov.com/archives/12105",
+          "display_order": 10
+        },
+        {
+          "name": "المسالك البولية",
+          "source_url": "https://shabwa-gov.com/archives/12105",
+          "display_order": 20
+        },
+        {
+          "name": "العظام",
+          "source_url": "https://shabwa-gov.com/archives/12105",
+          "display_order": 30
+        },
+        {
+          "name": "العيون",
+          "source_url": "https://shabwa-gov.com/archives/12105",
+          "display_order": 40
+        },
+        {
+          "name": "الأنف والأذن والحنجرة",
+          "source_url": "https://shabwa-gov.com/archives/12105",
+          "display_order": 50
+        },
+        {
+          "name": "العناية المركزة",
+          "source_url": "https://shabwa-gov.com/archives/14585",
+          "display_order": 60
+        }
+      ],
+      "services": [
+        {
+          "name": "الطوارئ",
+          "details": "موثقة في مصدر حكومي محلي لعام 2023.",
+          "source_url": "https://shabwa-gov.com/archives/12105",
+          "display_order": 10
+        },
+        {
+          "name": "العمليات الجراحية",
+          "details": "موثقة في مصدري 2023 و2024.",
+          "source_url": "https://shabwa-gov.com/archives/14585",
+          "display_order": 20
+        },
+        {
+          "name": "العناية المركزة",
+          "details": "وحدة من ثمانية أسرة مع أجهزة تنفس ومراقبة حسب تقرير 11 فبراير 2024.",
+          "source_url": "https://shabwa-gov.com/archives/14585",
+          "display_order": 30
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -6842,6 +7076,33 @@
             "location",
             "ownership",
             "operating_status"
+          ]
+        },
+        {
+          "url": "https://shabwa-gov.com/archives/12105",
+          "title": "خدمات هيئة مستشفى شبوة العام",
+          "publisher": "بوابة محافظة شبوة",
+          "source_type": "government",
+          "source_published_at": "2023-09",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2023-09",
+          "supports": [
+            "specialties",
+            "services"
+          ]
+        },
+        {
+          "url": "https://shabwa-gov.com/archives/14585",
+          "title": "افتتاح وتجهيز وحدة العناية المركزة",
+          "publisher": "بوابة محافظة شبوة",
+          "source_type": "government",
+          "source_published_at": "2024-02-11",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2024-02-11",
+          "supports": [
+            "specialties",
+            "services",
+            "equipment"
           ]
         }
       ]
@@ -8015,7 +8276,7 @@
       "institution_type": "referral_hospital",
       "ownership": "government",
       "operator_name": "حكومي",
-      "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى مرجعي /.",
+      "summary": "مستشفى حكومي مرجعي في عدن. يوثق مصدر وزارة الصحة الصادر في مايو 2023 تقديم خدمات علاجية وتشخيصية، من دون تفاصيل كافية لإثبات توافر تخصص بعينه حالياً.",
       "governorate": "عدن",
       "city": "خور مكسر",
       "district": "خور مكسر",
@@ -8034,7 +8295,7 @@
       "operating_status": "fully_operational",
       "operating_status_as_of": "2023-12-31",
       "verification_status": "needs_review",
-      "verified_at": "2023-12-31",
+      "verified_at": "2026-10-26",
       "facility_presence": "موجود",
       "care_level": "Tertiary Health Care",
       "access_status": "يتم الوصول بشكل كامل",
@@ -8043,7 +8304,20 @@
       "is_published": true,
       "revision": 1,
       "specialties": [],
-      "services": [],
+      "services": [
+        {
+          "name": "الخدمات العلاجية",
+          "details": "وصف عام في مصدر وزارة الصحة لعام 2023.",
+          "source_url": "https://moh-ye.org/?p=7557",
+          "display_order": 10
+        },
+        {
+          "name": "الخدمات التشخيصية",
+          "details": "وصف عام في مصدر وزارة الصحة لعام 2023.",
+          "source_url": "https://moh-ye.org/?p=7557",
+          "display_order": 20
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -8061,6 +8335,20 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://moh-ye.org/?p=7557",
+          "title": "خدمات هيئة مستشفى الجمهورية النموذجي بعدن",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "source_published_at": "2023-05-22",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2023-05-22",
+          "supports": [
+            "identity",
+            "services"
+          ],
+          "note": "المصدر عام وقديم نسبياً؛ لا يثبت التوافر الحالي لكل خدمة."
         }
       ]
     },
@@ -8797,7 +9085,14 @@
       "is_published": true,
       "revision": 1,
       "specialties": [],
-      "services": [],
+      "services": [
+        {
+          "name": "المشورة والفحص لفيروس نقص المناعة (PITC)",
+          "details": "مدرج ضمن مواقع تقديم الخدمة في دليل البرنامج الوطني.",
+          "source_url": "https://www.moh-ye.org/?page_id=5954",
+          "display_order": 10
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -8815,6 +9110,17 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://www.moh-ye.org/?page_id=5954",
+          "title": "مواقع خدمات المشورة والفحص والوقاية من انتقال فيروس نقص المناعة",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "services"
+          ],
+          "note": "الصفحة غير مؤرخة؛ يلزم الاتصال للتحقق من الاستمرار."
         }
       ]
     },
@@ -8855,7 +9161,14 @@
       "is_published": true,
       "revision": 1,
       "specialties": [],
-      "services": [],
+      "services": [
+        {
+          "name": "المشورة والفحص لفيروس نقص المناعة (PITC)",
+          "details": "مدرج ضمن مواقع تقديم الخدمة في دليل البرنامج الوطني.",
+          "source_url": "https://www.moh-ye.org/?page_id=5954",
+          "display_order": 10
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -8873,6 +9186,17 @@
             "ownership",
             "operating_status"
           ]
+        },
+        {
+          "url": "https://www.moh-ye.org/?page_id=5954",
+          "title": "مواقع خدمات المشورة والفحص والوقاية من انتقال فيروس نقص المناعة",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "services"
+          ],
+          "note": "الصفحة غير مؤرخة؛ يلزم الاتصال للتحقق من الاستمرار."
         }
       ]
     },
@@ -9261,7 +9585,14 @@
       "is_published": true,
       "revision": 1,
       "specialties": [],
-      "services": [],
+      "services": [
+        {
+          "name": "الوقاية من انتقال فيروس نقص المناعة من الأم للطفل (PMTCT)",
+          "details": "مدرج ضمن مواقع تقديم الخدمة في دليل البرنامج الوطني.",
+          "source_url": "https://www.moh-ye.org/?page_id=5954",
+          "display_order": 10
+        }
+      ],
       "hours": [],
       "branches": [],
       "sources": [
@@ -9278,6 +9609,159 @@
             "location",
             "ownership",
             "operating_status"
+          ]
+        },
+        {
+          "url": "https://www.moh-ye.org/?page_id=5954",
+          "title": "مواقع خدمات المشورة والفحص والوقاية من انتقال فيروس نقص المناعة",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "services"
+          ],
+          "note": "الصفحة غير مؤرخة؛ يلزم الاتصال للتحقق من الاستمرار."
+        }
+      ]
+    },
+    {
+      "stable_key": "official-site:thawrahosp-hod.com",
+      "official_code": null,
+      "slug": "health-thawra-hodeidah",
+      "name_ar": "هيئة مستشفى الثورة العام بالحديدة",
+      "name_en": null,
+      "institution_type": "referral_hospital",
+      "ownership": "government",
+      "operator_name": "",
+      "summary": "مستشفى حكومي مرجعي في الحديدة. يذكر الموقع المؤسسي سعة 500 سرير وخدمات تخصصية وتشخيصية، وتوثق أخبار حكومية توسعات في 2023 و2024؛ يلزم الاتصال للتحقق من الجاهزية الحالية.",
+      "governorate": "الحديدة",
+      "city": "الحديدة",
+      "district": "",
+      "address": "شارع محمد علي عثمان، الحديدة، اليمن",
+      "latitude": null,
+      "longitude": null,
+      "map_url": null,
+      "logo_url": null,
+      "website": "https://www.ye.thawrahosp-hod.com/",
+      "phone": "009673250125",
+      "emergency_phone": null,
+      "email": "info@thawrahosp-hod.com",
+      "social_links": [],
+      "booking_url": null,
+      "emergency_available": null,
+      "operating_status": "unknown",
+      "operating_status_as_of": null,
+      "verification_status": "verified",
+      "verified_at": "2026-10-26",
+      "facility_presence": "",
+      "care_level": "",
+      "access_status": "",
+      "building_status": "",
+      "equipment_status": "",
+      "is_published": true,
+      "revision": 1,
+      "specialties": [
+        {
+          "name": "العناية المركزة",
+          "source_url": "https://www.ye.thawrahosp-hod.com/%D8%B9%D9%86%D8%A7/",
+          "display_order": 10
+        },
+        {
+          "name": "الأورام",
+          "source_url": "https://moh.gov.ye/en/news/1778",
+          "display_order": 20
+        },
+        {
+          "name": "الثلاسيميا",
+          "source_url": "https://moh.gov.ye/en/news/1778",
+          "display_order": 30
+        },
+        {
+          "name": "طب الأطفال والعناية المركزة لحديثي الولادة",
+          "source_url": "https://moh.gov.ye/ar/news/3181",
+          "display_order": 40
+        }
+      ],
+      "services": [
+        {
+          "name": "المختبر",
+          "details": "مذكور ضمن إحصاءات الخدمات الرسمية لعام 2023.",
+          "source_url": "https://moh.gov.ye/en/news/1778",
+          "display_order": 10
+        },
+        {
+          "name": "الأشعة",
+          "details": "مذكورة ضمن إحصاءات الخدمات الرسمية لعام 2023.",
+          "source_url": "https://moh.gov.ye/en/news/1778",
+          "display_order": 20
+        },
+        {
+          "name": "العمليات الجراحية",
+          "details": "مذكورة ضمن إحصاءات الخدمات الرسمية لعام 2023.",
+          "source_url": "https://moh.gov.ye/en/news/1778",
+          "display_order": 30
+        },
+        {
+          "name": "المناظير",
+          "details": "مذكورة ضمن إحصاءات الخدمات الرسمية لعام 2023.",
+          "source_url": "https://moh.gov.ye/en/news/1778",
+          "display_order": 40
+        }
+      ],
+      "hours": [],
+      "branches": [],
+      "sources": [
+        {
+          "url": "https://www.ye.thawrahosp-hod.com/%D8%B9%D9%86%D8%A7/",
+          "title": "عن هيئة مستشفى الثورة العام بالحديدة",
+          "publisher": "هيئة مستشفى الثورة العام بالحديدة",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "identity",
+            "address",
+            "phone",
+            "email",
+            "website",
+            "capacity",
+            "specialties"
+          ]
+        },
+        {
+          "url": "https://moh.gov.ye/en/news/1778",
+          "title": "إحصاءات وخدمات هيئة مستشفى الثورة بالحديدة",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "source_published_at": "2023-02-07",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2023-02-07",
+          "supports": [
+            "specialties",
+            "services"
+          ]
+        },
+        {
+          "url": "https://moh.gov.ye/ar/news/3418",
+          "title": "توسعة خدمات هيئة مستشفى الثورة بالحديدة",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "source_published_at": "2024-09-17",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2024-09-17",
+          "supports": [
+            "development_status"
+          ]
+        },
+        {
+          "url": "https://moh.gov.ye/ar/news/3181",
+          "title": "افتتاح العناية المركزة لحديثي الولادة والأطفال",
+          "publisher": "وزارة الصحة العامة والسكان",
+          "source_type": "government",
+          "source_published_at": "2023-12-11",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2023-12-11",
+          "supports": [
+            "specialties"
           ]
         }
       ]

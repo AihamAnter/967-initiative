@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25",
-  "source_policy": "Official directory identity is not presented as accreditation. Missing facts remain empty.",
+  "generated_at": "2026-10-26",
+  "source_policy": "Official and institutional sources are linked per claim. Publication, access, and status dates remain distinct; missing facts remain empty.",
   "records": [
     {
       "stable_key": "caqa:جامعه الرازي",
@@ -184,7 +184,7 @@
       "institution_type": "university",
       "ownership": "government",
       "founded_year": null,
-      "summary": "مؤسسة تعليم عالٍ مدرجة في دليل المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في اليمن.",
+      "summary": "جامعة حكومية في إب. يعرض الموقع الرسمي 11 كلية و65 برنامج بكالوريوس و34 برنامج دراسات عليا و14 برنامج دبلوم.",
       "governorate": "إب",
       "city": "",
       "district": "",
@@ -193,25 +193,173 @@
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
-      "phone": null,
-      "email": null,
+      "website": "https://www.ibbuniv.edu.ye/",
+      "phone": "04-408069 / 04-408183",
+      "email": "contact@ibbuniv.edu.ye",
       "social_links": [],
-      "admission_info": "",
+      "admission_info": "تتضمن صفحة القبول الرسمية إعلانات العام 2026/2027، ومنها برامج الحوسبة؛ يجب مراجعة الإعلان الأحدث لكل برنامج.",
       "tuition_info": "",
       "tuition_as_of": null,
-      "registration_url": null,
+      "registration_url": "https://www.ibbuniv.edu.ye/pages/%D8%A7%D8%B9%D9%84%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84-%D9%88%D8%A7%D9%84%D9%82%D8%A8%D9%88%D9%84",
       "languages": [],
       "study_modes": [],
-      "education_levels": [],
+      "education_levels": [
+        "دبلوم",
+        "بكالوريوس",
+        "دراسات عليا"
+      ],
       "accreditation_status": "not_asserted",
       "accrediting_body": "",
       "operating_status": "unknown",
       "verification_status": "verified",
-      "verified_at": "2026-10-25",
+      "verified_at": "2026-10-26",
       "is_published": true,
       "revision": 1,
-      "programs": [],
+      "programs": [
+        {
+          "faculty": "كلية العلوم",
+          "department": "الحاسوب وتقنية المعلومات",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 10
+        },
+        {
+          "faculty": "كلية العلوم",
+          "department": "الحاسوب وتقنية المعلومات",
+          "name": "تقنية المعلومات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 20
+        },
+        {
+          "faculty": "كلية العلوم",
+          "department": "الحاسوب وتقنية المعلومات",
+          "name": "الأمن السيبراني",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 30
+        },
+        {
+          "faculty": "كلية العلوم",
+          "department": "الحاسوب وتقنية المعلومات",
+          "name": "الذكاء الاصطناعي",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 40
+        },
+        {
+          "faculty": "كلية العلوم",
+          "department": "الرياضيات",
+          "name": "الرياضيات والحاسوب",
+          "field": "العلوم والحوسبة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 50
+        },
+        {
+          "faculty": "كلية العلوم",
+          "department": "الأحياء",
+          "name": "الأحياء",
+          "field": "العلوم الأساسية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 60
+        },
+        {
+          "faculty": "كلية العلوم",
+          "department": "الكيمياء",
+          "name": "الكيمياء",
+          "field": "العلوم الأساسية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 70
+        },
+        {
+          "faculty": "كلية العلوم",
+          "department": "الفيزياء",
+          "name": "الفيزياء",
+          "field": "العلوم الأساسية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "display_order": 80
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "السياحة والفندقة",
+          "field": "العلوم الإدارية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/administrative-science/index",
+          "display_order": 90
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "الإدارة العامة",
+          "field": "العلوم الإدارية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/administrative-science/index",
+          "display_order": 100
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "المحاسبة",
+          "field": "العلوم الإدارية والمالية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/administrative-science/index",
+          "display_order": 110
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "إدارة الأعمال",
+          "field": "العلوم الإدارية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/administrative-science/index",
+          "display_order": 120
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "العلوم المالية والمصرفية",
+          "field": "العلوم الإدارية والمالية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.ibbuniv.edu.ye/administrative-science/index",
+          "display_order": 130
+        }
+      ],
       "branches": [],
       "sources": [
         {
@@ -234,6 +382,53 @@
             "identity",
             "location",
             "ownership"
+          ]
+        },
+        {
+          "url": "https://www.ibbuniv.edu.ye/main-web/public/index.php",
+          "title": "الموقع الرسمي لجامعة إب",
+          "publisher": "جامعة إب",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "website",
+            "phone",
+            "email",
+            "college_count",
+            "program_count"
+          ]
+        },
+        {
+          "url": "https://www.ibbuniv.edu.ye/science/pages/%D9%86%D8%A8%D8%B0%D8%A9-%D8%B9%D9%86-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9",
+          "title": "نبذة عن كلية العلوم وبرامجها",
+          "publisher": "جامعة إب",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs"
+          ]
+        },
+        {
+          "url": "https://www.ibbuniv.edu.ye/administrative-science/index",
+          "title": "كلية العلوم الإدارية",
+          "publisher": "جامعة إب",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs"
+          ]
+        },
+        {
+          "url": "https://www.ibbuniv.edu.ye/pages/%D8%A7%D8%B9%D9%84%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84-%D9%88%D8%A7%D9%84%D9%82%D8%A8%D9%88%D9%84",
+          "title": "إعلانات التسجيل والقبول",
+          "publisher": "جامعة إب",
+          "source_type": "official_site",
+          "source_published_at": "2026",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2026-2027",
+          "supports": [
+            "admission_info",
+            "programs"
           ]
         }
       ]
@@ -532,7 +727,7 @@
       "institution_type": "university",
       "ownership": "government",
       "founded_year": null,
-      "summary": "مؤسسة تعليم عالٍ مدرجة في دليل المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في اليمن.",
+      "summary": "جامعة حكومية في تعز. قائمة البرامج هنا مستخرجة من بوابة شؤون الطلبة وصفحات الجامعة الرسمية، وليست بديلاً عن دليل القبول السنوي.",
       "governorate": "تعز",
       "city": "",
       "district": "",
@@ -541,25 +736,238 @@
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
+      "website": "https://taiz.edu.ye/",
       "phone": null,
       "email": null,
       "social_links": [],
-      "admission_info": "",
+      "admission_info": "تتوفر وثيقة رسمية لتخصصات العام الجامعي 2026/2027؛ شروط القبول والنسب تُراجع من الوثيقة الأصلية.",
       "tuition_info": "",
       "tuition_as_of": null,
-      "registration_url": null,
+      "registration_url": "https://studentaffairs.taiz.edu.ye/",
       "languages": [],
       "study_modes": [],
-      "education_levels": [],
+      "education_levels": [
+        "بكالوريوس",
+        "دراسات عليا"
+      ],
       "accreditation_status": "not_asserted",
       "accrediting_body": "",
       "operating_status": "unknown",
       "verification_status": "verified",
-      "verified_at": "2026-10-25",
+      "verified_at": "2026-10-26",
       "is_published": true,
       "revision": 1,
-      "programs": [],
+      "programs": [
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "الطب والجراحة",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 10
+        },
+        {
+          "faculty": "كلية طب الأسنان",
+          "department": "",
+          "name": "طب وجراحة الفم والأسنان",
+          "field": "طب الأسنان",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 20
+        },
+        {
+          "faculty": "كلية الصيدلة",
+          "department": "",
+          "name": "الصيدلة",
+          "field": "الصيدلة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 30
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "المختبرات الطبية",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 40
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "التمريض",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 50
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "المحاسبة",
+          "field": "العلوم الإدارية والمالية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 60
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "إدارة الأعمال",
+          "field": "العلوم الإدارية والمالية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 70
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "العلوم المالية والمصرفية",
+          "field": "العلوم الإدارية والمالية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 80
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "التسويق",
+          "field": "العلوم الإدارية والمالية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 90
+        },
+        {
+          "faculty": "كلية الحاسوب وتقنية المعلومات",
+          "department": "",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 100
+        },
+        {
+          "faculty": "كلية الحاسوب وتقنية المعلومات",
+          "department": "",
+          "name": "تقنية المعلومات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 110
+        },
+        {
+          "faculty": "كلية الحاسوب وتقنية المعلومات",
+          "department": "",
+          "name": "الأمن السيبراني",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 120
+        },
+        {
+          "faculty": "كلية الحاسوب وتقنية المعلومات",
+          "department": "",
+          "name": "الذكاء الاصطناعي",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 130
+        },
+        {
+          "faculty": "كلية الحاسوب وتقنية المعلومات",
+          "department": "",
+          "name": "علم البيانات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "display_order": 140
+        },
+        {
+          "faculty": "كلية الهندسة وتقنية المعلومات",
+          "department": "",
+          "name": "هندسة البرمجيات",
+          "field": "الهندسة والحوسبة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.moheye.net/taiz-uninversity/",
+          "display_order": 150
+        },
+        {
+          "faculty": "كلية الهندسة وتقنية المعلومات",
+          "department": "",
+          "name": "هندسة الاتصالات والحاسوب",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.moheye.net/taiz-uninversity/",
+          "display_order": 160
+        },
+        {
+          "faculty": "كلية الهندسة وتقنية المعلومات",
+          "department": "",
+          "name": "الهندسة الصناعية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.moheye.net/taiz-uninversity/",
+          "display_order": 170
+        },
+        {
+          "faculty": "كلية الهندسة وتقنية المعلومات",
+          "department": "",
+          "name": "هندسة الميكاترونكس والروبوتات",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.moheye.net/taiz-uninversity/",
+          "display_order": 180
+        },
+        {
+          "faculty": "كلية الهندسة وتقنية المعلومات",
+          "department": "",
+          "name": "هندسة الشبكات",
+          "field": "الهندسة والحوسبة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.moheye.net/taiz-uninversity/",
+          "display_order": 190
+        }
+      ],
       "branches": [],
       "sources": [
         {
@@ -582,6 +990,40 @@
             "identity",
             "location",
             "ownership"
+          ]
+        },
+        {
+          "url": "https://studentaffairs.taiz.edu.ye/control/uploads/2027TaizUniversityTaksos.pdf",
+          "title": "دليل تخصصات جامعة تعز 2026/2027",
+          "publisher": "جامعة تعز - نيابة شؤون الطلبة",
+          "source_type": "institutional",
+          "source_published_at": "2026",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2026-2027",
+          "supports": [
+            "programs",
+            "admission_info"
+          ]
+        },
+        {
+          "url": "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+          "title": "الكليات والتخصصات",
+          "publisher": "جامعة تعز - شؤون الطلبة",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs"
+          ]
+        },
+        {
+          "url": "https://www.moheye.net/taiz-uninversity/",
+          "title": "جامعة تعز",
+          "publisher": "وزارة التعليم العالي والبحث العلمي",
+          "source_type": "government",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "identity",
+            "programs"
           ]
         }
       ]
@@ -718,7 +1160,7 @@
       "institution_type": "university",
       "ownership": "government",
       "founded_year": null,
-      "summary": "مؤسسة تعليم عالٍ مدرجة في دليل المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في اليمن.",
+      "summary": "جامعة حكومية متعددة الكليات في عدن. تم توثيق الكليات وبرامج الحوسبة المحددة من موقع الجامعة الرسمي.",
       "governorate": "عدن",
       "city": "",
       "district": "",
@@ -727,25 +1169,95 @@
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
+      "website": "https://www.aden-univ.net/",
       "phone": null,
       "email": null,
       "social_links": [],
-      "admission_info": "",
+      "admission_info": "تؤكد أخبار الجامعة الرسمية استمرار برامج الحوسبة المدرجة للعام 2025/2026 ومشروعاتها في 2026؛ تفاصيل القبول تُراجع في إعلان العام نفسه.",
       "tuition_info": "",
       "tuition_as_of": null,
       "registration_url": null,
       "languages": [],
       "study_modes": [],
-      "education_levels": [],
+      "education_levels": [
+        "بكالوريوس",
+        "دراسات عليا"
+      ],
       "accreditation_status": "not_asserted",
       "accrediting_body": "",
       "operating_status": "unknown",
       "verification_status": "verified",
-      "verified_at": "2026-10-25",
+      "verified_at": "2026-10-26",
       "is_published": true,
       "revision": 1,
-      "programs": [],
+      "programs": [
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "نظم المعلومات الحاسوبية",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.aden-univ.net/news/14438",
+          "display_order": 10
+        },
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.aden-univ.net/news/14438",
+          "display_order": 20
+        },
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "الأمن السيبراني",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.aden-univ.net/news/14438",
+          "display_order": 30
+        },
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "الذكاء الاصطناعي",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.aden-univ.net/news/14438",
+          "display_order": 40
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "الهندسة المدنية",
+          "name": "الهندسة المدنية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.aden-univ.net/jur/144",
+          "display_order": 50
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "",
+          "name": "هندسة الشبكات",
+          "field": "الهندسة والحوسبة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.aden-univ.net/news/15375",
+          "display_order": 60
+        }
+      ],
       "branches": [],
       "sources": [
         {
@@ -768,6 +1280,42 @@
             "identity",
             "location",
             "ownership"
+          ]
+        },
+        {
+          "url": "https://www.aden-univ.net/jur/117",
+          "title": "كليات جامعة عدن",
+          "publisher": "جامعة عدن",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "faculties",
+            "education_levels"
+          ]
+        },
+        {
+          "url": "https://www.aden-univ.net/news/14438",
+          "title": "برامج كلية الحاسوب وتكنولوجيا المعلومات للعام 2025/2026",
+          "publisher": "جامعة عدن",
+          "source_type": "official_site",
+          "source_published_at": "2025",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2025-2026",
+          "supports": [
+            "programs",
+            "admission_info"
+          ]
+        },
+        {
+          "url": "https://www.aden-univ.net/news/15375",
+          "title": "برامج ومشروعات كلية الحاسوب وتكنولوجيا المعلومات",
+          "publisher": "جامعة عدن",
+          "source_type": "official_site",
+          "source_published_at": "2026",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2026",
+          "supports": [
+            "programs"
           ]
         }
       ]
@@ -1351,19 +1899,19 @@
       "name_en": null,
       "institution_type": "university",
       "ownership": "government",
-      "founded_year": null,
-      "summary": "مؤسسة تعليم عالٍ مدرجة في دليل المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في اليمن.",
+      "founded_year": 1996,
+      "summary": "جامعة حكومية في ذمار تأسست عام 1996، ويذكر موقعها الرسمي أنها تضم 13 كلية.",
       "governorate": "ذمار",
       "city": "",
       "district": "",
-      "address": "",
+      "address": "ذمار، اليمن",
       "latitude": null,
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
-      "phone": null,
-      "email": null,
+      "website": "https://tu.edu.ye/",
+      "phone": "+967-06-425051 / +967-06-425573",
+      "email": "info@tu.edu.ye",
       "social_links": [],
       "admission_info": "",
       "tuition_info": "",
@@ -1371,15 +1919,97 @@
       "registration_url": null,
       "languages": [],
       "study_modes": [],
-      "education_levels": [],
+      "education_levels": [
+        "بكالوريوس",
+        "ماجستير",
+        "دكتوراه"
+      ],
       "accreditation_status": "not_asserted",
       "accrediting_body": "",
       "operating_status": "unknown",
       "verification_status": "verified",
-      "verified_at": "2026-10-25",
+      "verified_at": "2026-10-26",
       "is_published": true,
       "revision": 1,
-      "programs": [],
+      "programs": [
+        {
+          "faculty": "كلية الحاسبات والمعلوماتية",
+          "department": "علوم الحاسوب",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://tu.edu.ye/faculty/id/fci",
+          "display_order": 10
+        },
+        {
+          "faculty": "كلية الحاسبات والمعلوماتية",
+          "department": "تقنية المعلومات",
+          "name": "تقنية المعلومات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://tu.edu.ye/faculty/id/fci",
+          "display_order": 20
+        },
+        {
+          "faculty": "كلية الحاسبات والمعلوماتية",
+          "department": "علوم الحاسوب",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "ماجستير",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://tu.edu.ye/faculty/id/fci",
+          "display_order": 30
+        },
+        {
+          "faculty": "كلية الطب البشري",
+          "department": "",
+          "name": "الطب والجراحة",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "الإنجليزية",
+          "study_mode": "دوام كامل",
+          "source_url": "https://www.tu.edu.ye/faculty/view/midcine/3008/1255",
+          "display_order": 40
+        },
+        {
+          "faculty": "كلية الصيدلة",
+          "department": "",
+          "name": "دكتور صيدلة",
+          "field": "الصيدلة",
+          "qualification": "دكتور صيدلة مهني",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.tu.edu.ye/userfiles/files/%D8%A7%D9%84%D8%AE%D8%B7%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%20%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9%20%D8%B0%D9%85%D8%A7%D8%B1%2022-26.pdf",
+          "display_order": 50
+        },
+        {
+          "faculty": "كلية العلوم الطبية التطبيقية",
+          "department": "",
+          "name": "المختبرات الطبية",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.tu.edu.ye/userfiles/files/%D8%A7%D9%84%D8%AE%D8%B7%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%20%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9%20%D8%B0%D9%85%D8%A7%D8%B1%2022-26.pdf",
+          "display_order": 60
+        },
+        {
+          "faculty": "كلية التمريض",
+          "department": "",
+          "name": "التمريض",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://www.tu.edu.ye/userfiles/files/%D8%A7%D9%84%D8%AE%D8%B7%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%20%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9%20%D8%B0%D9%85%D8%A7%D8%B1%2022-26.pdf",
+          "display_order": 70
+        }
+      ],
       "branches": [],
       "sources": [
         {
@@ -1403,6 +2033,57 @@
             "location",
             "ownership"
           ]
+        },
+        {
+          "url": "https://tu.edu.ye/",
+          "title": "الموقع الرسمي لجامعة ذمار",
+          "publisher": "جامعة ذمار",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "website",
+            "phone",
+            "email",
+            "address",
+            "founded_year",
+            "college_count"
+          ]
+        },
+        {
+          "url": "https://tu.edu.ye/faculty/id/fci",
+          "title": "كلية الحاسبات والمعلوماتية",
+          "publisher": "جامعة ذمار",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs"
+          ]
+        },
+        {
+          "url": "https://www.tu.edu.ye/faculty/view/midcine/3008/1255",
+          "title": "مواصفات برنامج الطب والجراحة",
+          "publisher": "جامعة ذمار",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs",
+            "language",
+            "study_mode",
+            "duration"
+          ]
+        },
+        {
+          "url": "https://www.tu.edu.ye/userfiles/files/%D8%A7%D9%84%D8%AE%D8%B7%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%20%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9%20%D8%B0%D9%85%D8%A7%D8%B1%2022-26.pdf",
+          "title": "الخطة الاستراتيجية لجامعة ذمار 2022–2026",
+          "publisher": "جامعة ذمار",
+          "source_type": "institutional",
+          "source_published_at": "2022",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2022-2026",
+          "supports": [
+            "programs"
+          ],
+          "note": "مصدر مؤسسي للفترة 2022–2026؛ يجب التحقق من استمرار كل برنامج عند التقديم."
         }
       ]
     },
@@ -2086,7 +2767,7 @@
       "institution_type": "university",
       "ownership": "government",
       "founded_year": null,
-      "summary": "مؤسسة تعليم عالٍ مدرجة في دليل المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في اليمن.",
+      "summary": "جامعة حكومية تضم برامج أكاديمية متعددة. البرامج المدرجة هنا مقتصرة على ما أمكن توثيقه من صفحات الكليات والأدلة الرسمية.",
       "governorate": "أمانة العاصمة",
       "city": "",
       "district": "",
@@ -2095,25 +2776,184 @@
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
+      "website": "https://su.edu.ye/",
       "phone": null,
       "email": null,
       "social_links": [],
-      "admission_info": "",
+      "admission_info": "نشرت الجامعة إعلانات قبول للعام 2025/2026 لبعض الكليات؛ يجب الرجوع إلى إعلان الكلية الأحدث قبل التقديم.",
       "tuition_info": "",
       "tuition_as_of": null,
       "registration_url": null,
       "languages": [],
       "study_modes": [],
-      "education_levels": [],
+      "education_levels": [
+        "بكالوريوس",
+        "ماجستير",
+        "دكتوراه"
+      ],
       "accreditation_status": "not_asserted",
       "accrediting_body": "",
       "operating_status": "unknown",
       "verification_status": "verified",
-      "verified_at": "2026-10-25",
+      "verified_at": "2026-10-26",
       "is_published": true,
       "revision": 1,
-      "programs": [],
+      "programs": [
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "نظم المعلومات",
+          "name": "نظم المعلومات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/fcit/ar/",
+          "display_order": 10
+        },
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "تقنية المعلومات",
+          "name": "تقنية المعلومات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/fcit/ar/",
+          "display_order": 20
+        },
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "علوم الحاسوب",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/fcit/ar/",
+          "display_order": 30
+        },
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "الأمن السيبراني",
+          "name": "الأمن السيبراني",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/fcit/ar/",
+          "display_order": 40
+        },
+        {
+          "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "department": "الذكاء الاصطناعي وعلم البيانات",
+          "name": "الذكاء الاصطناعي وعلم البيانات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/fcit/ar/",
+          "display_order": 50
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "الطب والجراحة",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/chm/ar/index.php",
+          "display_order": 60
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "المختبرات الطبية",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/chm/ar/index.php",
+          "display_order": 70
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "التمريض",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/chm/ar/index.php",
+          "display_order": 80
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "الهندسة المدنية",
+          "name": "الهندسة المدنية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/ce/ar/civil.php",
+          "display_order": 90
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "",
+          "name": "الهندسة المعمارية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/ce/ar/",
+          "display_order": 100
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "",
+          "name": "الهندسة الميكانيكية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/ce/ar/",
+          "display_order": 110
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "",
+          "name": "هندسة الميكاترونكس",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/ce/ar/",
+          "display_order": 120
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "",
+          "name": "الهندسة الطبية الحيوية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/ce/ar/",
+          "display_order": 130
+        },
+        {
+          "faculty": "كلية الصيدلة",
+          "department": "",
+          "name": "العلوم الصيدلانية",
+          "field": "الصيدلة",
+          "qualification": "بكالوريوس صيدلة",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://su.edu.ye/wp-content/uploads/sites/25/2023/03/Pharmaceutical-sciences-program-specification-document.pdf",
+          "display_order": 140
+        }
+      ],
       "branches": [],
       "sources": [
         {
@@ -2136,6 +2976,50 @@
             "identity",
             "location",
             "ownership"
+          ]
+        },
+        {
+          "url": "https://su.edu.ye/fcit/ar/",
+          "title": "كلية الحاسوب وتكنولوجيا المعلومات",
+          "publisher": "جامعة صنعاء",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "website",
+            "programs",
+            "faculty_contact"
+          ]
+        },
+        {
+          "url": "https://su.edu.ye/chm/ar/index.php",
+          "title": "كلية الطب والعلوم الصحية",
+          "publisher": "جامعة صنعاء",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs"
+          ]
+        },
+        {
+          "url": "https://su.edu.ye/ce/ar/",
+          "title": "كلية الهندسة",
+          "publisher": "جامعة صنعاء",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs"
+          ]
+        },
+        {
+          "url": "https://su.edu.ye/34983/",
+          "title": "إعلان القبول بكلية الطب والعلوم الصحية 2025/2026",
+          "publisher": "جامعة صنعاء",
+          "source_type": "official_site",
+          "source_published_at": "2025-06-30",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2025-2026",
+          "supports": [
+            "admission_info"
           ]
         }
       ]
@@ -2198,18 +3082,18 @@
       "institution_type": "university",
       "ownership": "government",
       "founded_year": null,
-      "summary": "مؤسسة تعليم عالٍ مدرجة في دليل المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في اليمن.",
+      "summary": "جامعة حكومية في حضرموت. يذكر موقعها الرسمي 13 كلية و48 برنامج بكالوريوس، وتعرض صفحة الإحصاءات الأكاديمية 104 برامج نشطة في 2025.",
       "governorate": "حضرموت",
       "city": "",
       "district": "",
-      "address": "",
+      "address": "فوة، المكلا، حضرموت، اليمن",
       "latitude": null,
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
-      "phone": null,
-      "email": null,
+      "website": "https://hu.edu.ye/",
+      "phone": "009675360863 / 009675360865 / 009675360867",
+      "email": "info@hu.edu.ye",
       "social_links": [],
       "admission_info": "",
       "tuition_info": "",
@@ -2217,15 +3101,42 @@
       "registration_url": null,
       "languages": [],
       "study_modes": [],
-      "education_levels": [],
+      "education_levels": [
+        "بكالوريوس",
+        "ماجستير",
+        "دكتوراه"
+      ],
       "accreditation_status": "not_asserted",
       "accrediting_body": "",
       "operating_status": "unknown",
       "verification_status": "verified",
-      "verified_at": "2026-10-25",
+      "verified_at": "2026-10-26",
       "is_published": true,
       "revision": 1,
-      "programs": [],
+      "programs": [
+        {
+          "faculty": "كلية الحاسبات وتقنية المعلومات",
+          "department": "علوم الحاسوب",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://hu.edu.ye/compfac/cs/",
+          "display_order": 10
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "الطب والجراحة",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://hu.edu.ye/details/13300",
+          "display_order": 20
+        }
+      ],
       "branches": [],
       "sources": [
         {
@@ -2249,6 +3160,57 @@
             "location",
             "ownership"
           ]
+        },
+        {
+          "url": "https://hu.edu.ye/",
+          "title": "الموقع الرسمي لجامعة حضرموت",
+          "publisher": "جامعة حضرموت",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "website",
+            "address",
+            "phone",
+            "email",
+            "college_count",
+            "program_count"
+          ]
+        },
+        {
+          "url": "https://hu.edu.ye/acadamic-stats",
+          "title": "الإحصاءات الأكاديمية",
+          "publisher": "جامعة حضرموت",
+          "source_type": "official_site",
+          "source_published_at": "2025",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2025",
+          "supports": [
+            "education_levels",
+            "program_count"
+          ]
+        },
+        {
+          "url": "https://hu.edu.ye/compfac/cs/",
+          "title": "قسم علوم الحاسوب",
+          "publisher": "جامعة حضرموت",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "supports": [
+            "programs"
+          ]
+        },
+        {
+          "url": "https://hu.edu.ye/details/13300",
+          "title": "برنامج الطب والجراحة وإجراءات الاعتماد",
+          "publisher": "جامعة حضرموت",
+          "source_type": "official_site",
+          "source_published_at": "2026-07-05",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2026-07-05",
+          "supports": [
+            "programs"
+          ],
+          "note": "لا تُعامل إجراءات الاعتماد المذكورة بوصفها اعتماداً نهائياً."
         }
       ]
     },
@@ -2260,34 +3222,181 @@
       "institution_type": "university",
       "ownership": "private",
       "founded_year": null,
-      "summary": "مؤسسة تعليم عالٍ مدرجة في دليل المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي وضمان جودة التعليم العالي في اليمن.",
+      "summary": "جامعة خاصة متعددة المجالات. بيانات الاتصال والبرامج العامة موثقة من موقع الجامعة الرسمي، مع استخدام دليل مؤسسي أقدم للتفاصيل التي تحتاج إعادة تحقق سنوية.",
       "governorate": "أمانة العاصمة",
       "city": "",
       "district": "",
-      "address": "",
+      "address": "شارع الستين، مذبح، صنعاء، اليمن",
       "latitude": null,
       "longitude": null,
       "map_url": null,
       "logo_url": null,
-      "website": null,
-      "phone": null,
-      "email": null,
+      "website": "https://ust.edu.ye/ar/",
+      "phone": "777761641 / 716000700",
+      "email": "info@ust.edu.ye",
       "social_links": [],
-      "admission_info": "",
+      "admission_info": "يعرض الموقع الرسمي التسجيل وبرامج العام 2026/2027؛ تُراجع الشروط والرسوم من صفحة القبول الأحدث.",
       "tuition_info": "",
       "tuition_as_of": null,
-      "registration_url": null,
+      "registration_url": "https://ust.edu.ye/ar/",
       "languages": [],
       "study_modes": [],
-      "education_levels": [],
+      "education_levels": [
+        "بكالوريوس",
+        "دراسات عليا"
+      ],
       "accreditation_status": "not_asserted",
       "accrediting_body": "",
       "operating_status": "unknown",
-      "verification_status": "verified",
-      "verified_at": "2026-10-25",
+      "verification_status": "needs_review",
+      "verified_at": "2026-10-26",
       "is_published": true,
       "revision": 1,
-      "programs": [],
+      "programs": [
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "الطب والجراحة",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 10
+        },
+        {
+          "faculty": "كلية طب الأسنان",
+          "department": "",
+          "name": "طب وجراحة الفم والأسنان",
+          "field": "طب الأسنان",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 20
+        },
+        {
+          "faculty": "كلية الصيدلة",
+          "department": "",
+          "name": "الصيدلة",
+          "field": "الصيدلة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 30
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "المختبرات الطبية",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 40
+        },
+        {
+          "faculty": "كلية الطب والعلوم الصحية",
+          "department": "",
+          "name": "التمريض",
+          "field": "الطب والعلوم الصحية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 50
+        },
+        {
+          "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "علوم الحاسوب",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 60
+        },
+        {
+          "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "تقنية المعلومات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 70
+        },
+        {
+          "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "نظم المعلومات",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 80
+        },
+        {
+          "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+          "department": "",
+          "name": "الأمن السيبراني",
+          "field": "الحوسبة وتقنية المعلومات",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/ar/",
+          "display_order": 90
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "",
+          "name": "الهندسة المعمارية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/wp-content/uploads/2020/07/hasust.pdf",
+          "display_order": 100
+        },
+        {
+          "faculty": "كلية الهندسة",
+          "department": "",
+          "name": "الهندسة المدنية",
+          "field": "الهندسة",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/wp-content/uploads/2020/07/hasust.pdf",
+          "display_order": 110
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "إدارة الأعمال",
+          "field": "العلوم الإدارية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/wp-content/uploads/2020/07/hasust.pdf",
+          "display_order": 120
+        },
+        {
+          "faculty": "كلية العلوم الإدارية",
+          "department": "",
+          "name": "المحاسبة",
+          "field": "العلوم الإدارية والمالية",
+          "qualification": "بكالوريوس",
+          "language": "",
+          "study_mode": "",
+          "source_url": "https://ust.edu.ye/wp-content/uploads/2020/07/hasust.pdf",
+          "display_order": 130
+        }
+      ],
       "branches": [],
       "sources": [
         {
@@ -2311,6 +3420,35 @@
             "location",
             "ownership"
           ]
+        },
+        {
+          "url": "https://ust.edu.ye/ar/",
+          "title": "الموقع الرسمي لجامعة العلوم والتكنولوجيا",
+          "publisher": "جامعة العلوم والتكنولوجيا",
+          "source_type": "official_site",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2026-2027",
+          "supports": [
+            "website",
+            "phone",
+            "email",
+            "address",
+            "program_categories",
+            "admission_info"
+          ]
+        },
+        {
+          "url": "https://ust.edu.ye/wp-content/uploads/2020/07/hasust.pdf",
+          "title": "دليل الجامعة الأكاديمي",
+          "publisher": "جامعة العلوم والتكنولوجيا",
+          "source_type": "institutional",
+          "source_published_at": "2020",
+          "accessed_at": "2026-10-26",
+          "status_as_of": "2020",
+          "supports": [
+            "programs"
+          ],
+          "note": "دليل قديم؛ تُعرض تفاصيله مع تنبيه لإعادة التحقق من استمرار البرنامج."
         }
       ]
     },
