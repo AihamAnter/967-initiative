@@ -1,5 +1,7 @@
 # جرد ملفات تنفيذ مناظرات 967
 
+> **تنبيه بتاريخ 26 أكتوبر 2026:** ملفات SQL ذات التواريخ القديمة المذكورة هنا موجودة في أرشيف للرجوع إليها وللاختبارات التاريخية؛ ليست ترحيلات نشطة، ولا تُشغَّل على إنتاج 967. الـBaseline الحالي المرشح هو `supabase/migrations/20261026215718_remote_schema.sql` ولم تُسوَّ حالته في سجل الإنتاج بعد.
+
 هذا الجرد يشمل الملفات الجديدة والمعدلة في شجرة العمل، ولا يشمل مجلدات البناء أو الأدوات المؤقتة المتجاهلة في Git.
 
 ## Modified files (17)
@@ -141,9 +143,9 @@
 - [scripts/test-debate-live-results.mjs](../../scripts/test-debate-live-results.mjs)
 - [scripts/test-debate-review.mjs](../../scripts/test-debate-review.mjs)
 - [scripts/test-debate-validation.mjs](../../scripts/test-debate-validation.mjs)
-- [supabase/migrations/202610200001_debates.sql](../../supabase/migrations/202610200001_debates.sql)
-- [supabase/migrations/202610200002_debates_review_fixes.sql](../../supabase/migrations/202610200002_debates_review_fixes.sql)
-- [supabase/migrations/202610200003_debates_live_results.sql](../../supabase/migrations/202610200003_debates_live_results.sql)
+- [supabase/archive/legacy-migrations/202610200001_debates.sql](../../supabase/archive/legacy-migrations/202610200001_debates.sql)
+- [supabase/archive/legacy-migrations/202610200002_debates_review_fixes.sql](../../supabase/archive/legacy-migrations/202610200002_debates_review_fixes.sql)
+- [supabase/archive/legacy-migrations/202610200003_debates_live_results.sql](../../supabase/archive/legacy-migrations/202610200003_debates_live_results.sql)
 - [tests/auth-errors.test.mjs](../../tests/auth-errors.test.mjs)
 - [tests/debates-database.test.mjs](../../tests/debates-database.test.mjs)
 - [tests/debates-live-results.test.mjs](../../tests/debates-live-results.test.mjs)
