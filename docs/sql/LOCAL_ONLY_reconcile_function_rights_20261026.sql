@@ -120,11 +120,16 @@ BEGIN
    RAISE EXCEPTION 'Expected 96 local functions; got %',actual_count;
  END IF;
  IF EXISTS (
+   WITH local_functions AS (
+     SELECT p.oid,
+       n.nspname||'.'||p.proname||'('||pg_get_function_identity_arguments(p.oid)||')' AS sig
+     FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+     WHERE n.nspname='public'
+   )
    SELECT 1
-   FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
-   FULL JOIN expected_public_function_rights e ON
-    e.sig=n.nspname||'.'||p.proname||'('||pg_get_function_identity_arguments(p.oid)||')'
-   WHERE e.sig IS NULL OR p.oid IS NULL
+   FROM local_functions l
+   FULL JOIN expected_public_function_rights e USING(sig)
+   WHERE e.sig IS NULL OR l.oid IS NULL
  ) THEN
    RAISE EXCEPTION 'Function signatures do not match production. Aborting.';
  END IF;
