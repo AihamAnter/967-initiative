@@ -1,6 +1,6 @@
 'use client';
 import {useEditorProtection} from './EditorProtection';
-const groups=[['المحتوى',['issues','works','pages']],['الأدلة والبيانات',['companies','professionals','figures','statistics','rankings','map']],['الإدارة والمتابعة',['messages','settings','admins']]];
+const groups=[['المحتوى',['issues','works','pages']],['الأدلة والبيانات',['companies','professionals','universities','medicalCenters','figures','statistics','rankings','map']],['الإدارة والمتابعة',['messages','settings','admins']]];
 export default function AdminNavigation({tabs,tab,onChange,onRefresh}) {
   const protection=useEditorProtection();
   const choose=id=>protection.requestLeave(()=>onChange(id));
