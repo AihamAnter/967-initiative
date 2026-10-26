@@ -2,8 +2,8 @@
   "generated_at": "2026-10-26",
   "policy": "حقائق موثقة فقط. تاريخ نشر المصدر وتاريخ الوصول وتاريخ الحالة حقول مستقلة. لا تعني إضافة خدمة قديمة أنها متاحة الآن.",
   "baseline": {
-    "universities": {"total":115,"governorates":14,"with_location":96,"with_contact":62,"with_website":0,"with_address":62,"with_programs":0,"programs":0,"needs_review":19},
-    "medical_centers": {"total":160,"governorates":22,"with_location":160,"with_contact":0,"with_website":0,"with_address":0,"with_specialties":0,"specialties":0,"with_services":0,"services":0,"needs_review":160}
+    "universities": {"total":115,"governorates":14,"with_location":96,"with_contact":62,"with_phone":62,"with_website":0,"with_address":62,"with_map":0,"with_programs":0,"programs":0,"needs_review":19,"source_rows":154},
+    "medical_centers": {"total":160,"governorates":22,"with_location":160,"with_contact":0,"with_phone":0,"with_website":0,"with_address":0,"with_map":0,"with_specialties":0,"specialties":0,"with_services":0,"services":0,"needs_review":160,"source_rows":160}
   },
   "universities": [
     {

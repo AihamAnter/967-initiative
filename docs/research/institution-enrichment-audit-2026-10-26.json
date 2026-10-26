@@ -6,24 +6,30 @@
       "governorates": 14,
       "with_location": 96,
       "with_contact": 62,
+      "with_phone": 62,
       "with_website": 0,
       "with_address": 62,
+      "with_map": 0,
       "with_programs": 0,
       "programs": 0,
-      "needs_review": 19
+      "needs_review": 19,
+      "source_rows": 154
     },
     "medical_centers": {
       "total": 160,
       "governorates": 22,
       "with_location": 160,
       "with_contact": 0,
+      "with_phone": 0,
       "with_website": 0,
       "with_address": 0,
+      "with_map": 0,
       "with_specialties": 0,
       "specialties": 0,
       "with_services": 0,
       "services": 0,
-      "needs_review": 160
+      "needs_review": 160,
+      "source_rows": 160
     }
   },
   "after": {
@@ -32,8 +38,10 @@
       "governorates": 14,
       "with_location": 96,
       "with_contact": 69,
+      "with_phone": 66,
       "with_website": 7,
       "with_address": 65,
+      "with_map": 0,
       "with_programs": 7,
       "programs": 74,
       "with_specialties": 0,
@@ -42,6 +50,8 @@
       "services": 0,
       "with_depth": 7,
       "needs_review": 20,
+      "source_rows": 178,
+      "unique_source_urls": 64,
       "by_governorate": {
         "أمانة العاصمة": 37,
         "غير محددة": 19,
@@ -70,8 +80,10 @@
       "governorates": 22,
       "with_location": 161,
       "with_contact": 2,
+      "with_phone": 2,
       "with_website": 2,
       "with_address": 2,
+      "with_map": 0,
       "with_programs": 0,
       "programs": 0,
       "with_specialties": 5,
@@ -80,6 +92,8 @@
       "services": 21,
       "with_depth": 10,
       "needs_review": 160,
+      "source_rows": 178,
+      "unique_source_urls": 15,
       "by_governorate": {
         "إب": 10,
         "أبين": 7,
@@ -138,8 +152,1096 @@
       "هيئة مستشفى الثورة العام بالحديدة"
     ]
   },
+  "verification_queue": {
+    "universities": [
+      {
+        "stable_key": "caqa:جامعه النخبه الدوليه للعلوم والتكنولوجيا",
+        "name": "جامعة النخبة الدولية للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه الوحده للعلوم والتكنولوجيا",
+        "name": "جامعة الوحدة للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه ابن النفيس",
+        "name": "جامعة ابن النفيس",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:الجامعه الماليزيه الدوليه اب",
+        "name": "الجامعة الماليزية الدولية - إب",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه ازال للعلوم والتكنولوجيا",
+        "name": "جامعة آزال للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه تونتك الدوليه للتكنولوجيا",
+        "name": "جامعة تونتك الدولية للتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:الجامعه العربيه للعلوم و التقنيه",
+        "name": "الجامعة العربية للعلوم و التقنية",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه الاكاديميين العرب للعلوم والتكنولوجيا",
+        "name": "جامعة الأكاديميين العرب للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه اقرا للعلوم والتكنولوجيا",
+        "name": "جامعة اقرأ للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه صعده",
+        "name": "جامعة صعدة",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه دار العلوم الشرعيه الحديده",
+        "name": "جامعة دار العلوم الشرعية-الحديدة",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه جبله للعلوم الطبيه والصحيه",
+        "name": "جامعة جبلة للعلوم الطبية والصحية",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه دار السلام الدوليه للعلوم والتكنولوجيا",
+        "name": "جامعة دار السلام الدولية للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه حجه",
+        "name": "جامعة حجة",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه العلوم والتكنولوجيا",
+        "name": "جامعة العلوم والتكنولوجيا",
+        "status": "needs_review",
+        "status_as_of": "2026-10-26"
+      },
+      {
+        "stable_key": "caqa:جامعه اليمن والخليج للعلوم والتكنولوجيا",
+        "name": "جامعة اليمن والخليج للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه الاتحاد للعلوم والتكنولوجيا",
+        "name": "جامعة الاتحاد للعلوم والتكنولوجيا",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه الاندلس للعلوم والتقنيه",
+        "name": "جامعة الأندلس للعلوم والتقنية",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه الحضاره",
+        "name": "جامعة الحضارة",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      },
+      {
+        "stable_key": "caqa:جامعه الرشيد الذكيه",
+        "name": "جامعة الرشيد الذكية",
+        "status": "incomplete",
+        "status_as_of": "2026-10-25"
+      }
+    ],
+    "medical_centers": [
+      {
+        "stable_key": "mophp:1101024",
+        "name": "مستشفى رحاب الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1102001",
+        "name": "مستشفى يريم",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1103009",
+        "name": "مستشفى الرضمة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1106004",
+        "name": "مستشفى الشهيد علي عبدالمغني",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1109019",
+        "name": "مستشفى الحزم الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1111011",
+        "name": "مستشفي العدين العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1112005",
+        "name": "مستشفى جبلة الجامعي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1116007",
+        "name": "مستشفى القاعدة العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1118002",
+        "name": "مستشفى ناصر العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1119017",
+        "name": "هيئة مستشفى الثورة - الظهار اب",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1201004",
+        "name": "مستشفى الشهيد صالح ناصرمحمد",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1202009",
+        "name": "مستشفى الشهيد عوض احمد عوض",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1204014",
+        "name": "مستشفى الشهيد محنف العام لودر",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1206015",
+        "name": "مستشفى رصد - يافع",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1209008",
+        "name": "مستشفى احور الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1210005",
+        "name": "مستشفى زنجبار",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1211033",
+        "name": "مستشفى الخبر",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1401002",
+        "name": "مستشفى الساحة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1405003",
+        "name": "مستشفي الشهيد صالح عثمان بالناصفه",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1406005",
+        "name": "المستشفى الريفى بذى ناعم ( مستشفي الوحدة الريفي حاليا",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1409007",
+        "name": "مستشفى الثورة العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1413005",
+        "name": "مستشفى رداع المركزي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1416004",
+        "name": "مستشفي العرش الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1421002",
+        "name": "مستشفى بني وهب",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1601009",
+        "name": "المركز الصحي االبرق",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1601015",
+        "name": "المركز الصحي اليتمة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1601020",
+        "name": "المركز الصحي عضيل",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1604003",
+        "name": "المركز الصحي الزاهر",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1604005",
+        "name": "المركز الصحي سوق دعام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1605005",
+        "name": "هيئة مستشفى الحزم م / الجوف",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1610001",
+        "name": "مستشفى برط العنان العـــام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1801014",
+        "name": "المستشفى الريفي الزهرة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1802030",
+        "name": "مستشفى اللحية الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1805002",
+        "name": "المستشفى الريفي المنيرة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1806030",
+        "name": "مستشفي االمومه و الطفوله",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1807004",
+        "name": "المستشفى الريفي الزيدية",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1813018",
+        "name": "المستشفى الريفي كمران الخيري",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1815013",
+        "name": "المستشفى الريفي السخنه",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3003003",
+        "name": "مستشفى السالم",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3003013",
+        "name": "المستشفى الريفي غول الديمة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3004002",
+        "name": "مستشفى الشهداء الثالثة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3004015",
+        "name": "مستشفى لصبور الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3006017",
+        "name": "مستشفى النصر الضالع",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3006033",
+        "name": "مستشفى محمد بن زايد العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3008017",
+        "name": "مستشفى نورصة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2701006",
+        "name": "المركز الصحي األهجر",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2702021",
+        "name": "مستشفى الطويلة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2703016",
+        "name": "مستشفى الرجم الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2704021",
+        "name": "مستشفى الخبت الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2706015",
+        "name": "مستشفى حفاش الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2708003",
+        "name": "مستشفى االمومة والطفولة مدينة المحويت",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2708008",
+        "name": "المستشفى الجمهوري العام بالمحويت",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2802002",
+        "name": "المركزالصحي حات",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2803001",
+        "name": "مستشفى حوف الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2804009",
+        "name": "مستشفى الغيضة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2804020",
+        "name": "المركز الصحي الفيدمي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2807007",
+        "name": "مستشفى سيحوت",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2808002",
+        "name": "مستشفى قشن العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2809008",
+        "name": "مستشفى حصوين الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1301001",
+        "name": "المركز الصحي الرئيسي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1302003",
+        "name": "المستشفى التخصصي لألمومة األمنة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1305010",
+        "name": "مستشفى السبعين",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1307002",
+        "name": "هيئة المستشفى الجمهوري التعليمي - االمانة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1308024",
+        "name": "مستشفى الشهيد هاني طومر ( مستشفى 22 مايوسابقا",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1308028",
+        "name": "مستشفى األم والطفل ( بداخل جامعة صنعاء - مديرية معين )",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1310012",
+        "name": "مستشفي فلسطين لالمومة والطفولة ( مستشفى زايد سابقا )",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1503018",
+        "name": "مستشفى الحرية الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1504013",
+        "name": "مستشفى هجدة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1504015",
+        "name": "مستشفى البرح الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1504024",
+        "name": "مستشفى النصرشمير",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1505008",
+        "name": "مستشفى المخاء",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1511009",
+        "name": "مستشفى المسراخ المحوري",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1514036",
+        "name": "مستشفى خليفة العام بالتربة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1516007",
+        "name": "مستشفى حيفان الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1519003",
+        "name": "مستشفى الوحدة الريفي لالمومه والطفولة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1519011",
+        "name": "هيئة مستشفي الثورة العام تعز",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1703002",
+        "name": "المستشفى الريفي ميدي بالمدينة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1704009",
+        "name": "مستشفي عبس",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1709003",
+        "name": "المستشفى الريفي كحالن الشرف",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1711011",
+        "name": "مستشفى الشهيد د / ياسر وثاب ( مستشفى خيران المحرق سابقا )",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1713004",
+        "name": "مستشفى قفل شمر",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1715001",
+        "name": "مستشفى المحابشة المحوري",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1720005",
+        "name": "المستشفي الشهيد شرف الكحالني",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1907018",
+        "name": "مستشفى القطن العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1908003",
+        "name": "مستشفى شبام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1911016",
+        "name": "مستشفى تريم",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1913018",
+        "name": "مستشفى الريدة الشرقيه",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1914006",
+        "name": "مستشفى مديرية الديس الشرقية",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1915003",
+        "name": "مستشفى الشحر العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:1927005",
+        "name": "هيئة مستشفى ابن سيناء",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2001015",
+        "name": "مستشفى البردون الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2001026",
+        "name": "مستشفى زراجه الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2002001",
+        "name": "مستشفى الوحدة التعليمي الجامعي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2003001",
+        "name": "مستشفى مدينة الشرق الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2005004",
+        "name": "مستشفى 26 سبتمبر الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2008006",
+        "name": "مستشفى ذماراالمومه والطفوله",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2008017",
+        "name": "هيئة مستشفى ذمار العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3101001",
+        "name": "المركز الصحي حجام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3101004",
+        "name": "المركز الصحي 22 مايو الربوع بني خولي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3101006",
+        "name": "المركز الصحي رواس",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3101009",
+        "name": "مستشفى الميثاق",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3102011",
+        "name": "مستشفى المسجدين المحوري ( السلفية )",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3103014",
+        "name": "مستشفى الثاليا العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3104008",
+        "name": "مستشفى مسور الريفي - مركز العارضة سابقا )",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3201002",
+        "name": "المركز الصحي نوجد",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3201004",
+        "name": "مستشفى خليفة بن زايد",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3201005",
+        "name": "المركز الصحي قاضب",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3201007",
+        "name": "الوحدة الصحية سلمهو",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3201009",
+        "name": "المركز الصحي دكسم",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3201010",
+        "name": "المركز الصحي قرية",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:3202003",
+        "name": "مستشفى قلنسية",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2102002",
+        "name": "مستشفى الطلح",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2104001",
+        "name": "مستشفى عرماء",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2105004",
+        "name": "مستشفى عسيالن",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2107001",
+        "name": "مستشفى الشهيد الدفيعه بيحان",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2109006",
+        "name": "مستشفى واسط",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2110022",
+        "name": "مستشفى نصاب العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:21130010",
+        "name": "هيئة مستشفى شبوة العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2201004",
+        "name": "المستشفى الريفي باقم",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2203002",
+        "name": "المستشفى الريفي منبه",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2205002",
+        "name": "مستشفى رازح الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2209014",
+        "name": "المستشفى الريفي ساقين",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2211012",
+        "name": "ممستشفى الطلح العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2212004",
+        "name": "المستشفى الريفي دماج",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2215001",
+        "name": "هيئة المستشفي الجمهوري العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2301004",
+        "name": "مستشفى همدان",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2301009",
+        "name": "مستشفي االمومه والطفوله قاع الرقه",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2301016",
+        "name": "مستشفى 22 مايو ضالع همدان",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2302017",
+        "name": "مستشفى عومرة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2304025",
+        "name": "مستشفى غضران",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2305002",
+        "name": "مسشتفى سيان الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2307014",
+        "name": "هيئة مستشفى 26 سبتمبر - متنة بني مطر صنعاء",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2401004",
+        "name": "المركز الصحي العماد",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2402001",
+        "name": "مستشفى االمراض النفسيه والعصبيه",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2403003",
+        "name": "مستشفى 22 مايو الجراحي العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2404002",
+        "name": "مستشفى صالح الدين",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2404009",
+        "name": "مستشفى مصافي عدن",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2407001",
+        "name": "مستشفى عدن العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2408011",
+        "name": "هيئة مستشفى الجمهورية النموذجي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2901009",
+        "name": "مستشفي حرف سفيان المحوري",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2904006",
+        "name": "مستشفى القفلة المحوري",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2908002",
+        "name": "مستشفى حبور الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2909001",
+        "name": "مستشفى ذيبين الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2911001",
+        "name": "مستشفى ريدة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2913021",
+        "name": "مستشفي السودة الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2915024",
+        "name": "هيئة مستشفى الرئيس صالح الصماد ( مستشفى 22 مايو المركزي التعليمي سابقا )",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2502001",
+        "name": "مستشفى اكتوبر العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2502021",
+        "name": "مستشفى السالم الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2503002",
+        "name": "مستشفى المفلحي الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2506004",
+        "name": "مستشفى حالمين الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2506013",
+        "name": "مركز االمومة والطفولة حالمين",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2507002",
+        "name": "مستشفى ردفان العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2508010",
+        "name": "مستشفى المالح الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2601006",
+        "name": "مستشفى 7 يوليو الجفرة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2606005",
+        "name": "مستشفى المحجزة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2608003",
+        "name": "مستشفي رحبه الريفي",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2609011",
+        "name": "مستشفى حريب العام",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2609013",
+        "name": "مستشفي الوطن",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2610002",
+        "name": "مستشفى ماهلية",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      },
+      {
+        "stable_key": "mophp:2612003",
+        "name": "مستشفى الشهيد محمد هايل لالمومة و الطفولة",
+        "status": "needs_review",
+        "status_as_of": "2023-12-31"
+      }
+    ]
+  },
   "source_audit": {
     "sources_added": 42,
+    "total_source_rows": 356,
+    "unique_source_urls": 79,
     "conflicts": [
       {
         "url": "https://www.thawrahosp-taiz.com/",
