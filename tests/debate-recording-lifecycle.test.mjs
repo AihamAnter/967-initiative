@@ -5,7 +5,7 @@ import {createInlineEditorTestDatabase,inlineTestUsers} from './helpers/inlineEd
 import {seedDebateFixtures} from './helpers/debateFixtures.mjs';
 import {handleDebateRequest} from '../lib/debateApi.js';
 import {currentPollPhase,pollOpen,questionsAvailable,QUESTIONS_AFTER_RECORDING_MESSAGE} from '../lib/debates.js';
-const migration=file=>readFile(new URL('../supabase/migrations/'+file,import.meta.url),'utf8');
+const migration=file=>readFile(new URL('../supabase/archive/legacy-migrations/'+file,import.meta.url),'utf8');
 const instant='202610220001_debates_instant_discussion.sql',lifecycle='202610220002_debate_recording_lifecycle.sql';
 
 test('recording lifecycle: real PostgreSQL guards, API errors, preserved participation and live privacy',async t=>{

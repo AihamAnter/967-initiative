@@ -5,7 +5,7 @@ import {createInlineEditorTestDatabase,inlineTestUsers} from './helpers/inlineEd
 import {seedDebateFixtures} from './helpers/debateFixtures.mjs';
 import {handleDebateRequest} from '../lib/debateApi.js';
 import {participationNotice} from '../lib/debatePublication.js';
-const sql=name=>readFile(new URL('../supabase/migrations/'+name,import.meta.url),'utf8');
+const sql=name=>readFile(new URL('../supabase/archive/legacy-migrations/'+name,import.meta.url),'utf8');
 const repair='202610220003_debate_discussion_publication_repair.sql';
 for(const ordered of [false,true])test('publication repair: '+(ordered?'ordered migrations':'lifecycle present but instant policy absent, matching deployed defaults'),async t=>{
  const db=await createInlineEditorTestDatabase();t.after(()=>db.close());if(ordered)await db.pg.exec(await sql('202610220001_debates_instant_discussion.sql'));await db.pg.exec(await sql('202610220002_debate_recording_lifecycle.sql'));

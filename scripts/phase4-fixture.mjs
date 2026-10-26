@@ -6,7 +6,7 @@ import {createInlineEditorTestDatabase,inlineTestUsers} from '../tests/helpers/i
 import {seedDebateFixtures} from '../tests/helpers/debateFixtures.mjs';
 const port=3439,origin='http://127.0.0.1:3139';
 const db=await createInlineEditorTestDatabase();
-for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/migrations/'+file,import.meta.url),'utf8'));
+for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/'+file,import.meta.url),'utf8'));
 await db.pg.exec(await readFile(new URL('../supabase/add-site-settings.sql',import.meta.url),'utf8'));
 const figureSql=await readFile(new URL('../supabase/yemeni-figures.sql',import.meta.url),'utf8');
 await db.pg.exec(figureSql.slice(0,figureSql.indexOf('-- Figure portraits')));

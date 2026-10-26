@@ -9,7 +9,7 @@ import {seedDebateFixtures} from '../tests/helpers/debateFixtures.mjs';
 const prelaunch=process.argv.includes('--prelaunch');
 const fixturePort=Number(process.env.DEBATE_FIXTURE_PORT||3417),previewOrigin=process.env.DEBATE_PREVIEW_ORIGIN||'http://127.0.0.1:3117';
 const db=await (prelaunch?createInlineEditorTestDatabase():createDebateTestDatabase());
-if(prelaunch)for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/migrations/'+file,import.meta.url),'utf8'));
+if(prelaunch)for(const file of ['202610220001_debates_instant_discussion.sql','202610220002_debate_recording_lifecycle.sql','202610220003_debate_discussion_publication_repair.sql','202610220004_debate_discussion_publication_portable.sql'])await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/'+file,import.meta.url),'utf8'));
 const fixture=await seedDebateFixtures(db);
 await fixture.update(fixture.live,{publication_status:'published',live_url:'https://www.youtube.com/watch?v=abcdefghijk',live_platform:'YouTube'});
 await fixture.update(fixture.recorded,{publication_status:'published',recording_published:true,stage:'recording_available',summary:{introduction:'مقدمة محايدة خضعت للمراجعة المحلية.',arguments:'حجج الموقف الأول: المشاركة المباشرة.\nحجج الموقف الثاني: تنظيم المشاركة.\nالموقف الثالث: التوازن بين المقاربتين.',conclusion:'عرض المواقف دون اختيار فائز.'},summary_published:true});

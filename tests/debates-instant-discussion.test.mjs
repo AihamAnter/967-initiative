@@ -25,7 +25,7 @@ test('instant discussion publishes at the database boundary while retaining mode
  const legacy={comments:{},questions:{}};
  for(const status of ['pending','hidden','rejected','deleted'])legacy.comments[status]=(await db.pg.query('insert into public.debate_comments(debate_id,user_id,body,status) values($1,$2,$3,$4) returning id',[f.recorded,member.id,'تعليق قديم لاختبار نقل السياسة '+status,status])).rows[0].id;
  for(const status of ['new','hidden','rejected'])legacy.questions[status]=(await db.pg.query('insert into public.debate_questions(debate_id,user_id,body,status) values($1,$2,$3,$4) returning id',[f.recorded,member.id,'سؤال قديم لاختبار نقل سياسة النشر '+status,status])).rows[0].id;
- await db.pg.exec(await readFile(new URL('../supabase/migrations/202610220001_debates_instant_discussion.sql',import.meta.url),'utf8'));
+ await db.pg.exec(await readFile(new URL('../supabase/archive/legacy-migrations/202610220001_debates_instant_discussion.sql',import.meta.url),'utf8'));
  t.beforeEach(()=>db.pg.exec('delete from public.debate_rate_limits'));
  let commentId,questionId;
 
