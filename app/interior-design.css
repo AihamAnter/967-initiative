@@ -503,3 +503,23 @@
   font-variant-numeric:tabular-nums;
 }
 .interior-page[data-area="statistics"] .stat-card-value .stat-value-context { flex-basis:100%; min-width:0; }
+
+/* Magazine: graceful empty state when a published entry has no PDF asset. */
+.interior-page[data-area="magazine"] .reader-unavailable {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:260px;
+  text-align:center;
+  padding:28px 20px;
+  border:1px dashed var(--color-violet);
+  border-radius:12px;
+  color:var(--color-ink);
+  background:var(--color-violet-soft);
+}
+.interior-page[data-area="magazine"] .reader-unavailable > svg { color:var(--color-violet); }
+.interior-page[data-area="magazine"] .reader-unavailable h2,
+.interior-page[data-area="magazine"] .reader-unavailable p { margin:0; max-width:55ch; }
+.interior-page[data-area="magazine"] .spotlight-actions { flex-wrap:wrap; }
