@@ -5,7 +5,6 @@ import {ArrowUpLeft,BookOpen,CalendarDays,MapPinned,Search,ScrollText,SlidersHor
 import {historyEras,historyKinds,historyEntryPath,historyYear} from '@/lib/yemenHistory';
 import styles from './HistoryExplorer.module.css';
 
-function yearRange(era){return era?.period||'التاريخ اليمني';}
 function normalized(s){return String(s||'').normalize('NFKD').replace(/[\u064B-\u065F]/g,'').replace(/[أإآ]/g,'ا').toLowerCase();}
 export default function HistoryExplorer({entries,initialEra='',initialType=''}) {
  const [era,setEra]=useState(initialEra),[type,setType]=useState(initialType),[query,setQuery]=useState(''),[mode,setMode]=useState('cards'),[more,setMore]=useState(12);
