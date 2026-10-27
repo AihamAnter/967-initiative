@@ -7,7 +7,7 @@ export default function ContextBackLink({fallback,label='العودة إلى ا�
  const source=safeNavigationSource(useSearchParams().get('from'));
  if(contextOnly&&!source)return null;
  const href=source||fallback;
- const names={'/search':'العودة إلى نتائج البحث','/read-later':'العودة إلى القراءة لاحقًا','/yemen-map':'العودة إلى اكتشف اليمن','/universities':'العودة إلى نتائج دليل الجامعات والمعاهد','/medical-centers':'العودة إلى نتائج دليل المراكز الطبية','/account/activity':'العودة إلى مشاركاتي'};
+ const names={'/search':'العودة إلى نتائج البحث','/read-later':'العودة إلى القراءة لاحقًا','/yemen-map':'العودة إلى اكتشف اليمن','/yemeni-figures':'العودة إلى شخصيات يمنية','/universities':'العودة إلى نتائج دليل الجامعات والمعاهد','/medical-centers':'العودة إلى نتائج دليل المراكز الطبية','/account/activity':'العودة إلى مشاركاتي'};
  const text=source?(names[source.split(/[?#]/)[0]]||label):label;
  return <Link href={href} className={className}>{leading||<ArrowRight size={17}/>} {children||text}</Link>;
 }
