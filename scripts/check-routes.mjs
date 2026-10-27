@@ -1,6 +1,6 @@
 // Read-only HTTP smoke check. Never submits a contact message or changes CMS records.
 const base = process.env.CHECK_BASE_URL || 'http://127.0.0.1:3000';
-const routes = ['/', '/works', '/magazine', '/yemen-in-numbers', '/yemen-in-numbers/timeline', '/yemen-map', '/yemeni-products', '/professionals', '/search', '/search?q='+encodeURIComponent('اليمن'), '/search?q='+encodeURIComponent('كلمةغيرموجودةتماما')+'&type=works', '/contribute', '/admin', '/magazine/demo', '/robots.txt', '/yemen-map/figures/arwa-al-sulayhi'];
+const routes = ['/', '/works', '/magazine', '/yemen-in-numbers', '/yemen-in-numbers/timeline', '/yemen-map', '/yemeni-figures', '/yemeni-products', '/professionals', '/search', '/search?q='+encodeURIComponent('اليمن'), '/search?q='+encodeURIComponent('كلمةغيرموجودةتماما')+'&type=works', '/contribute', '/admin', '/magazine/demo', '/robots.txt', '/yemeni-figures/arwa-al-sulayhi'];
 let failures = 0;
 const check = async (route, expected = 200) => {
   try {
@@ -15,7 +15,7 @@ const check = async (route, expected = 200) => {
 for (let index=0;index<routes.length;index+=3) await Promise.all(routes.slice(index,index+3).map(route=>check(route)));
 const sitemap = await check('/sitemap.xml');
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>new URL(match[1]).pathname);
-for (const prefix of ['/works/', '/magazine/', '/professionals/', '/yemeni-products/', '/yemen-map/figures/', '/yemen-in-numbers/indicator/', '/yemen-in-numbers/']) {
+for (const prefix of ['/works/', '/magazine/', '/professionals/', '/yemeni-products/', '/yemeni-figures/', '/yemen-in-numbers/indicator/', '/yemen-in-numbers/']) {
   const route = urls.find(url=>url.startsWith(prefix) && (prefix!=='/yemen-in-numbers/' || !url.includes('/indicator/') && !url.endsWith('/timeline')));
   if (route) await check(route);
 }
