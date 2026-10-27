@@ -12,7 +12,14 @@ import ActiveFilters from '@/components/ActiveFilters';
 export default function DebateExplorer({debates=[],available=true,initial={}}){
  const seed=debateListState(new URLSearchParams(Object.entries(initial).filter(([,v])=>typeof v==='string')));
  const [query,setQuery]=useState(seed.q),[category,setCategory]=useState(seed.category),[type,setType]=useState(seed.type),[stage,setStage]=useState(seed.stage),[sort,setSort]=useState(seed.sort),[page,setPage]=useState(seed.page);
- const filtered=useMemo(()=>debates.filter(d=>(!category||d.category===category)&&(!type||d.debate_type===type)&&matchesDebateStage(d,stage)&&matchesSearch(query,[d.title,d.question,d.description,...(d.participants||[]).map(p=>p.speaker.name)])).sort((a,b)=>sort==='title'?a.title.localeCompare(b.title,'ar'):(sort==='oldest'?1:-1)*(Date.parse(a.scheduled_at||a.created_at)-Date.parse(b.scheduled_at||b.created_at))),[debates,category,type,stage,query,sort]);
+ const filtered=useMemo(()=>debates.filter(d=>(!category||d.category===category)&&(!type||d.debate_type===type)&&matchesDebateStage(d,stage)&&matchesSearch(query,[d.title,d.question,d.description,...(d.participants||[]).map(p=>p.speaker.name)])).sort((a,b)=>{
+  if(sort==='title')return a.title.localeCompare(b.title,'ar');
+  const aDate=Date.parse(a.scheduled_at||a.created_at||''),bDate=Date.parse(b.scheduled_at||b.created_at||'');
+  // Missing dates always sort last instead of producing NaN and unstable order.
+  if(!Number.isFinite(aDate))return Number.isFinite(bDate)?1:a.title.localeCompare(b.title,'ar');
+  if(!Number.isFinite(bDate))return -1;
+  return (sort==='oldest'?aDate-bDate:bDate-aDate)||a.title.localeCompare(b.title,'ar');
+ }),[debates,category,type,stage,query,sort]);
  const {pages,current,featured,items}=debateExplorerPage(filtered,selectFeaturedDebate(debates),page);
  useEffect(()=>{const restore=()=>{const next=debateListState(location.search);setQuery(next.q);setCategory(next.category);setType(next.type);setStage(next.stage);setSort(next.sort);setPage(next.page);};window.addEventListener('popstate',restore);return()=>window.removeEventListener('popstate',restore);},[]);
  useEffect(()=>{const params=new URLSearchParams();for(const [k,v] of Object.entries({q:query,category,type,stage,sort:sort==='newest'?'':sort,page:current>1?String(current):''}))if(v)params.set(k,v);history.replaceState(history.state,'','/debates'+(params.size?'?'+params:'')+location.hash);},[query,category,type,stage,sort,current]);
