@@ -91,7 +91,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,o
                 {links.length === 0 && <ArrowUpLeft className="yfigure-open-icon" size={20} aria-hidden="true"/>}
               </div>
             </div>
-            <div className="card-save-action"><SaveForLater compact item={{kind:'figure',href:'/yemeni-figures/'+encodeURIComponent(figure.slug),title:figure.fullName}}/></div>
+            <div className="card-save-action">{/* Preserve saved-item identity; old bookmark paths redirect to the new profile. */}<SaveForLater compact item={{kind:'figure',href:'/yemen-map/figures/'+encodeURIComponent(figure.slug),title:figure.fullName}}/></div>
           </article>;
         })}
       </div> : <div className="yfigures-empty"><Search size={28}/><h3>لا توجد نتائج مطابقة</h3><p>جرّب تغيير المجال أو المحافظة أو مسح عبارة البحث.</p><button type="button" className="btn btn-outline" onClick={resetFilters}>مسح الفلاتر</button></div>}
