@@ -5,7 +5,7 @@ import {sectionIsVisible} from '@/lib/pageVisibility';
 import {yemenGovernorates} from '@/lib/yemeniFigures';
 
 export const metadata = pageMetadata({
-  title: 'اكتشف اليمن',
+  title: 'خريطة اليمن',
   description: 'أطلس تفاعلي لمحافظات اليمن ومديرياتها وأماكنها ومعالمها.',
   path:'/yemen-map',
 });
@@ -19,8 +19,8 @@ export default async function YemenMapPage({searchParams}) {
     <link rel="preload" href="/data/yemen-map/yemen-boundaries.json" as="fetch" crossOrigin="anonymous"/>
     <section className="ymap-hero" data-section-tone="green">
       <div className="container">
-        <span className="eyebrow">أطلس 967 الجغرافي</span>
-        <h1>اكتشف <span>اليمن</span></h1>
+        <span className="eyebrow">المعرفة / خريطة اليمن</span>
+        <h1>خريطة <span>اليمن</span></h1>
         <p>استكشف محافظات اليمن ومديرياته وتعرّف على تاريخ الأماكن وطبيعتها ومعالمها.</p>
       </div>
     </section>
