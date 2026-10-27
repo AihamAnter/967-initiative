@@ -3,6 +3,8 @@ import {pageMetadata} from '@/lib/seo';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {yemenGovernorates} from '@/lib/yemeniFigures';
+import KnowledgePageIntro from '@/components/knowledge/KnowledgePageIntro';
+import Link from '@/components/SiteLink';
 
 export const metadata = pageMetadata({
   title: 'خريطة اليمن',
@@ -17,13 +19,15 @@ export default async function YemenMapPage({searchParams}) {
   const district = typeof params.district==='string' && /^YE\d{4}$/.test(params.district) ? params.district : null;
   return <div className="ymap-page">
     <link rel="preload" href="/data/yemen-map/yemen-boundaries.json" as="fetch" crossOrigin="anonymous"/>
-    <section className="ymap-hero" data-section-tone="green">
-      <div className="container">
-        <span className="eyebrow">المعرفة / خريطة اليمن</span>
-        <h1>خريطة <span>اليمن</span></h1>
-        <p>استكشف محافظات اليمن ومديرياته وتعرّف على تاريخ الأماكن وطبيعتها ومعالمها.</p>
+    <KnowledgePageIntro
+      title="خريطة اليمن"
+      category="أطلس 967 الجغرافي"
+      description="استكشف محافظات اليمن ومديرياته وتعرّف على تاريخ الأماكن وطبيعتها ومعالمها.">
+      <div className="directory-summary">
+        <a href="#map">استكشف الخريطة</a>
+        <Link href="/yemeni-figures">شخصيات يمنية</Link>
       </div>
-    </section>
+    </KnowledgePageIntro>
     <YemenDiscovery key={(region||'')+':'+(district||'')} showFigures={sectionIsVisible('figures',settings.pageVisibility)} initialGovernorateId={region} initialDistrictId={district}/>
   </div>;
 }

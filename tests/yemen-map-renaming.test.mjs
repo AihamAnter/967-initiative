@@ -14,7 +14,9 @@ test('Khareetat Al-Yemen is the name everywhere without changing the existing ro
  assert.equal(readingPathInfo('/yemen-map').title,'خريطة اليمن');
  const map=read('app/yemen-map/page.jsx');
  assert.ok(map.includes("title: 'خريطة اليمن'"));
- assert.ok(map.includes('<h1>خريطة <span>اليمن</span></h1>'));
+ assert.ok(map.includes('title="خريطة اليمن"'));
+ assert.ok(map.includes('<KnowledgePageIntro'));
+ assert.ok(read('components/knowledge/KnowledgePageIntro.jsx').includes('<PageIntro tone="blue"'));
  for(const path of ['components/Header.jsx','components/Footer.jsx','components/ContextBackLink.jsx','components/reading/ReadingList.jsx','app/llms.txt/route.js']){
   const source=read(path);
   assert.ok(source.includes('خريطة اليمن'),path);
