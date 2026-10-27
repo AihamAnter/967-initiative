@@ -25,10 +25,10 @@ async function snapshot(db,id){
   ownerRows(db,'account_saved_items',id),
   db.from('account_notifications').select('*').eq('user_id',id).order('created_at',{ascending:false}).limit(50),
   db.from('account_notifications').select('id',{head:true,count:'exact'}).eq('user_id',id).is('read_at',null),
-  db.from('messages').select('id,type,message,status,created_at').eq('user_id',id).order('created_at',{ascending:false}).limit(50)
+  db.from('messages').select('id,type,message,status,created_at',{count:'exact'}).eq('user_id',id).order('created_at',{ascending:false}).limit(50)
  ]);
  failed(prefs.error);failed(notifications.error);failed(unread.error);failed(submissions.error);
- return {preferences:{...defaults,...prefs.data},collections:collections.slice(0,30),saved:saved.slice(0,100),notifications:notifications.data||[],unread:unread.count||0,submissions:submissions.data||[]};
+ return {preferences:{...defaults,...prefs.data},collections:collections.slice(0,30),saved:saved.slice(0,100),notifications:notifications.data||[],unread:unread.count||0,submissions:submissions.data||[],submissionTotal:submissions.count||0};
 }
 async function perform(db,id,body){
  const action=body.action;
