@@ -452,3 +452,26 @@
   white-space:normal;
   overflow-wrap:anywhere;
 }
+
+
+/* Product directory: an illustrative badge must not stretch from top to bottom.
+   The legacy .company-media>span rule anchors the other (scale) badge below. */
+.interior-page[data-area="products"] .company-media > .company-illustrative-label {
+  position:absolute;
+  top:10px;
+  bottom:auto;
+  right:10px;
+  left:auto;
+  width:max-content;
+  max-width:calc(100% - 20px);
+  height:auto;
+  z-index:3;
+  padding:5px 9px;
+  border:0;
+  border-radius:6px;
+  background:rgba(16,25,38,.88);
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  line-height:1.4;
+}
