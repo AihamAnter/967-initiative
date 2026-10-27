@@ -475,3 +475,13 @@
   font-weight:600;
   line-height:1.4;
 }
+
+
+/* Keep directory cards scannable; the company detail page retains the full summary. */
+.interior-page[data-area="products"] .company-main > p {
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  overflow-wrap:anywhere;
+}
