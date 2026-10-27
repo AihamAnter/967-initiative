@@ -485,3 +485,21 @@
   overflow:hidden;
   overflow-wrap:anywhere;
 }
+
+/* Prevent large published numbers from exceeding statistic collection cards. */
+.interior-page[data-area="statistics"] .stat-card-value {
+  container-type:inline-size;
+  flex-wrap:wrap;
+  min-width:0;
+}
+.interior-page[data-area="statistics"] .stat-card-value > strong {
+  display:block;
+  min-width:0;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  font-size:clamp(12px,var(--card-number-font,12cqi),34px);
+  line-height:1.3;
+  font-variant-numeric:tabular-nums;
+}
+.interior-page[data-area="statistics"] .stat-card-value .stat-value-context { flex-basis:100%; min-width:0; }
