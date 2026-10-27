@@ -91,7 +91,8 @@ async function execute(request,writing){
   // programs, medical services or evidence. Preserve every stored source field.
   const record=Object.fromEntries(recordFields[kind].map(key=>[key,Object.hasOwn(patch,key)?patch[key]:item[key]]));
   const relations=Object.fromEntries(Object.entries(config.relations).map(([arg,key])=>[arg,(item[key]||[]).map(row=>{
-   const {id:relationId,university_id:universityId,medical_center_id:medicalCenterId,created_at,updated_at,...rest}=row;
+   const rest={...row};
+   for(const field of ['id','university_id','medical_center_id'])delete rest[field];
    return rest;
   })]));
   const {data,error}=await db.rpc(config.rpc,{p_id:id,p_revision:body.revision,p_record:record,...relations,p_origin:'admin:directory'});
