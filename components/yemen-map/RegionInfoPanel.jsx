@@ -28,12 +28,12 @@ export default function RegionInfoPanel({
   const isGovernorate = regionType === 'governorate';
   const profile = region ? profiles[region.id] || {} : {};
   const districtList = isGovernorate ? districts.filter(item => item.governorateId === region.id) : [];
-  const title = region?.nameAr || 'اكتشف اليمن';
+  const title = region?.nameAr || 'خريطة اليمن';
   const descriptiveFields=[['description','نبذة تعريفية'],['history','نبذة تاريخية'],['geography','الطبيعة والتضاريس'],['economy','الاقتصاد وسبل العيش'],['landmarks','المعالم والأنشطة']];
 
   return <aside className={'ymap-info-panel ' + (region ? 'has-region' : '')} aria-label="لوحة معلومات المنطقة">
     <div className="ymap-info-head">
-      <div><span className="eyebrow">{region ? (isDistrict ? 'مديرية' : 'محافظة') : 'أطلس 967'}</span><h2>{title}</h2></div>
+      <div><span className="eyebrow">{region ? (isDistrict ? 'مديرية' : 'محافظة') : 'خريطة اليمن'}</span><h2>{title}</h2></div>
       {region && <button type="button" onClick={onClose} title="إغلاق اللوحة" aria-label="إغلاق اللوحة"><X size={18}/></button>}
     </div>
 
