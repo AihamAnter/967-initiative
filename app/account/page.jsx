@@ -1,4 +1,5 @@
-import AudienceAccount from '@/components/debates/AudienceAccount';
+import AccountWorkspace from '@/components/account/AccountWorkspace';
 import {pageMetadata} from '@/lib/seo';
-export const metadata=pageMetadata({title:'حساب المستخدم',path:'/account',noindex:true,nofollow:true});
-export default function Page(){return <AudienceAccount activity={false}/>;}
+export const metadata=pageMetadata({title:'حسابي | 967',description:'مساحتك للمحفوظات والمساهمات والإشعارات.',path:'/account',noindex:true,nofollow:true});
+const tabs=new Set(['overview','saved','collections','notifications','contributions','activity','profile','settings']);
+export default async function Page({searchParams}){const params=await searchParams;const tab=typeof params?.tab==='string'&&tabs.has(params.tab)?params.tab:'overview';return <AccountWorkspace initialTab={tab}/>;}
