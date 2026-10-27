@@ -75,7 +75,7 @@ export default function InstitutionDirectory({kind,items}){
     <div className="institution-results-line" aria-live="polite"><span>{medical?'المنشآت الطبية المطابقة':'المؤسسات التعليمية المطابقة'}</span><strong>{formatNumber(results.length)} نتيجة</strong></div>
     {results.length?<div className="institution-grid">{results.slice((page-1)*pageSize,page*pageSize).map(item=><ContentSurface kind="directory" className="institution-card" key={item.id}>
       <Link className="institution-card-link" href={`${basePath}/${encodeURIComponent(item.id)}?from=${encodeURIComponent(returnTo)}`}>
-        <div className="institution-card-icon">{medical?<Stethoscope size={32}/>:<GraduationCap size={34}/>}</div>
+        <div className="institution-card-icon">{item.logoUrl ? <img src={item.logoUrl} alt={`شعار ${item.name}`} loading="lazy" decoding="async" referrerPolicy="no-referrer" style={{width:'100%',height:'100%',maxWidth:62,maxHeight:62,objectFit:'contain'}}/> : medical?<Stethoscope size={32}/>:<GraduationCap size={34}/>}</div>
         <div className="institution-card-body"><div className="institution-card-meta"><span>{item.typeLabel}</span><span>{item.ownershipLabel}</span></div><h2>{item.name}</h2>
           <p className="institution-location"><MapPin size={15}/>{[item.governorate,item.city].filter(Boolean).join(' · ')||'الموقع يحتاج استكمالًا'}</p><p>{item.summary}</p>
           <div className="institution-tags">{uniqCard(medical?[...relationNames(item.specialties),...relationNames(item.services)]:[...item.programs.map(row=>row.field),...item.educationLevels]).slice(0,4).map(value=><span key={value}>{value}</span>)}</div>
