@@ -14,7 +14,7 @@ export const metadata = pageMetadata({title:'البحث في منصة 967', desc
 export default async function SearchPage({searchParams}) {
   const params = await searchParams;
   const settings=await getSiteSettings();
-  const typeSections={works:'/works',debates:'/debates',issues:'/magazine',indicators:'/yemen-in-numbers',figures:'/yemeni-figures',companies:'/yemeni-products',professionals:'/professionals',places:'/yemen-map',domains:'/yemen-in-numbers'};
+  const typeSections={works:'/works',debates:'/debates',issues:'/magazine',indicators:'/yemen-in-numbers',figures:'/yemeni-figures',history:'/yemen-history',companies:'/yemeni-products',professionals:'/professionals',places:'/yemen-map',domains:'/yemen-in-numbers'};
   const availableTypes=Object.entries(searchTypes).filter(([key])=>!typeSections[key]||pageIsVisible(typeSections[key],settings.pageVisibility));
   const query = typeof params.q === 'string' ? params.q.slice(0, 150).trim() : '';
   const type = availableTypes.some(([key])=>key===params.type) ? params.type : 'all';
