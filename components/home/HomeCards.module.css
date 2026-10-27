@@ -135,3 +135,14 @@
   .invitation h2 { font-size:16px; }
   .invitation .action { font-size:12px; }
 }
+
+/* Numeric homepage tiles use their own width for long values, not viewport size. */
+.value { container-type:inline-size; min-width:0; }
+.value strong, .compactIndicator .value strong {
+  font-size:clamp(12px,var(--card-number-font,12cqi),42px);
+  max-width:100%;
+  min-width:0;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  line-height:1.3;
+}
