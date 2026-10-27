@@ -2,6 +2,7 @@
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {Save,RefreshCw,ArrowUpLeft,Plus,Trash2} from 'lucide-react';
 import {useInlineEditor} from './InlineEditorProvider';
+import InlineAdvancedEditor from './InlineAdvancedEditor';
 import {contentPatch} from '@/lib/inlineContentClient';
 import {canEditInlineTarget,inlineTargetKinds} from '@/lib/inlineEditorTargets';
 import {safeExternalUrl} from '@/lib/media';
@@ -23,7 +24,7 @@ const draftFor=(item,fields)=>Object.fromEntries(fields.map(spec=>[spec.key,spec
 const noFields=[];
 const validContentUrl=(value,original)=>!value||value===original||safeExternalUrl(value)?'':'أدخل رابط HTTP أو HTTPS صالحاً دون بيانات دخول.';
 
-export default function InlineContentEditor({target,onSaved,onDirtyChange,onBusyChange}){
+function BaseInlineContentEditor({target,onSaved,onDirtyChange,onBusyChange}){
  const {request}=useInlineEditor();
  const [loaded,setLoaded]=useState(null),[draft,setDraft]=useState({}),[products,setProducts]=useState([]),[publication,setPublication]=useState(false),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[feedback,setFeedback]=useState(null);
  const [correction,setCorrection]=useState(false);
@@ -88,4 +89,12 @@ export default function InlineContentEditor({target,onSaved,onDirtyChange,onBusy
    <div className="inline-content-actions"><button className="btn btn-primary" disabled={busy||!dirty}><Save size={17}/>{busy?'جارٍ الحفظ…':'حفظ التعديلات'}</button>{advanced}<button type="button" className="btn btn-outline" disabled={busy} onClick={()=>{if(!dirty||window.confirm('إعادة تحميل المحفوظ وتجاهل تعديلاتك؟'))load();}}><RefreshCw size={16}/> إعادة تحميل المحفوظ</button></div>
   </fieldset></ValidatedForm>}
  </div>;
+}
+
+
+// Keep hooks for each editor in their own mounted component. Advanced kinds
+// get the same inline modal and authenticated save flow, not a redirect.
+export default function InlineContentEditor(props){
+ if(['university','medical_center','statistic','ranking','district'].includes(props.target.kind))return <InlineAdvancedEditor {...props}/>;
+ return <BaseInlineContentEditor {...props}/>;
 }
