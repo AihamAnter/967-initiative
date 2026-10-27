@@ -15,6 +15,8 @@ import {buildSitemap, isIndexableDeployment} from '@/lib/seo';
 import {getDebateCatalog} from '@/lib/debateServer';
 import {collectPublicSources} from '@/lib/publicSourceCollection';
 import {recordOperationalEvent} from '@/lib/operationalEvents';
+import {readHistoryCatalog} from '@/lib/historyRepository';
+import {serverDb} from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,5 +26,6 @@ export default async function sitemap() {
     const result=await getDebateCatalog();if(!result.available)throw new Error('Unavailable');return result.debates;
   }},{onUnavailable:source=>recordOperationalEvent('source_unavailable',{source,area:'sitemap'})});
   const settings=await getSiteSettings();
-  return buildSitemap({...data,pageVisibility:settings.pageVisibility});
+  let history=[];try{history=(await readHistoryCatalog(serverDb())).entries;}catch{recordOperationalEvent('source_unavailable',{source:'pages',area:'sitemap'});}
+  return buildSitemap({...data,history,pageVisibility:settings.pageVisibility});
 }
