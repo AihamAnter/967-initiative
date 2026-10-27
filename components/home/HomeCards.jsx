@@ -58,9 +58,11 @@ export function HomeIndicatorCard({indicator, compact = false}) {
   if (!indicator?.latestValue) return <HomeInvitation kind="indicator"/>;
   const href = '/yemen-in-numbers/indicator/' + encodeURIComponent(indicator.slug);
   const value = indicator.latestValue;
+  const valueText = formatNumber(value.value, {maximumFractionDigits:2});
+  const fontScale = `${Math.max(4, Math.min(16, 125 / valueText.length))}cqi`;
   const source = sourceLabel(value.source || indicator.adopted_source, indicator.name);
   return <ContentSurface kind="indicator" className={`${styles.card} ${styles.indicator} ${compact ? styles.compactIndicator : ''}`} data-home-indicator>
-    <Link href={href} className={styles.indicatorLink}><div className={styles.meta}><span>{indicator.domain?.name || 'اليمن بالأرقام'}</span><span>{formatYear(value.year)}</span></div><h2>{indicator.name}</h2><div className={styles.value}><strong dir="ltr">{formatNumber(value.value, {maximumFractionDigits:2})}</strong><span>{indicator.unit}</span></div><div className={styles.source}><span>المصدر: {source}</span><span className={styles.valueKind}>{valueStatusLabels[value.value_status] || 'نوع القيمة غير محدد'}</span></div></Link>
+    <Link href={href} className={styles.indicatorLink}><div className={styles.meta}><span>{indicator.domain?.name || 'اليمن بالأرقام'}</span><span>{formatYear(value.year)}</span></div><h2>{indicator.name}</h2><div className={styles.value}><strong dir="ltr" style={{'--card-number-font': fontScale}}>{valueText}</strong><span>{indicator.unit}</span></div><div className={styles.source}><span>المصدر: {source}</span><span className={styles.valueKind}>{valueStatusLabels[value.value_status] || 'نوع القيمة غير محدد'}</span></div></Link>
     {!compact && <CardFooter href={href} label="تفاصيل المؤشر" title={indicator.name} saveItem={{kind:'indicator', href, title:indicator.name}}/>}
   </ContentSurface>;
 }
