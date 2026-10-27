@@ -9,6 +9,8 @@ import {historyKinds,historyEras,historyEntryPath,historyYear} from '@/lib/yemen
 import {pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema,JsonLd} from '@/lib/seo-schema';
 import CorrectionLink from '@/components/CorrectionLink';
+import ContentReadingAction from '@/components/reading/ContentReadingAction';
+import HistoryEditAction from '@/components/history/HistoryEditAction';
 import styles from '../HistoryPage.module.css';
 
 export const dynamic='force-dynamic';
@@ -40,6 +42,8 @@ export default async function YemenHistoryDetail({params}){
   </div></header>
   <div className={'container '+styles.articleGrid}>
    <article className={styles.articleBody}>
+    <ContentReadingAction kind="history" href={historyEntryPath(item.slug)} title={item.title}/>
+    <HistoryEditAction slug={item.slug}/>
     {item.certainty&&<p className={styles.warning}><ScrollText size={17}/> درجة التوثيق: {item.certainty}. يُرجى مراجعة المصادر قبل نقل التواريخ أو الاستنتاجات.</p>}
     {item.paragraphs.map((p,i)=><p key={i}>{p}</p>)}
     {item.governorate&&<aside className={styles.geoNote}><h2>استكشف المكان المعاصر</h2><p>الارتباط الجغرافي هنا يشير إلى محافظة معاصرة، وليس إلى حدود الدولة التاريخية أو مجال نفوذها.</p><Link href={'/yemen-map?region='+encodeURIComponent(item.governorate)+'#map'}>افتح الموقع على خريطة اليمن <MapPinned size={16}/></Link></aside>}
