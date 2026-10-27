@@ -19,14 +19,15 @@ async function ownerRows(db,table,user,columns='*'){
  failed(error,'تعذّر تحميل بيانات حسابك.');return data||[];
 }
 async function snapshot(db,id){
- const [prefs,collections,saved,notifications]=await Promise.all([
+ const [prefs,collections,saved,notifications,unread]=await Promise.all([
   db.from('account_preferences').select('*').eq('user_id',id).maybeSingle(),
   ownerRows(db,'account_collections',id),
   ownerRows(db,'account_saved_items',id),
-  db.from('account_notifications').select('*').eq('user_id',id).order('created_at',{ascending:false}).limit(50)
+  db.from('account_notifications').select('*').eq('user_id',id).order('created_at',{ascending:false}).limit(50),
+  db.from('account_notifications').select('id',{head:true,count:'exact'}).eq('user_id',id).is('read_at',null)
  ]);
- failed(prefs.error);failed(notifications.error);
- return {preferences:{...defaults,...prefs.data},collections:collections.slice(0,30),saved:saved.slice(0,100),notifications:notifications.data||[],unread:(notifications.data||[]).filter(x=>!x.read_at).length};
+ failed(prefs.error);failed(notifications.error);failed(unread.error);
+ return {preferences:{...defaults,...prefs.data},collections:collections.slice(0,30),saved:saved.slice(0,100),notifications:notifications.data||[],unread:unread.count||0};
 }
 async function perform(db,id,body){
  const action=body.action;
@@ -40,7 +41,7 @@ async function perform(db,id,body){
    const {data,error}=await db.from('account_collections').select('id').eq('user_id',id).eq('id',collection).maybeSingle();failed(error);ensure(data,'هذه المجموعة غير موجودة.',404);}
   const existing=await ownerRows(db,'account_saved_items',id,'href');ensure(new Set([...existing.map(x=>x.href),...distinct.keys()]).size<=100,'الحد الأقصى 100 مادة محفوظة.',409);
   const rows=[...distinct.values()].map(item=>({...item,user_id:id,...(action==='save'&&collection?{collection_id:collection}:{})}));
-  const {error}=await db.from('account_saved_items').upsert(rows,{onConflict:'user_id,href',ignoreDuplicates:action==='import'});failed(error);
+  const {error}=await db.from('account_saved_items').upsert(rows,{onConflict:'user_id,href',ignoreDuplicates:true});failed(error);
   return {success:true,count:rows.length};
  }
  if(action==='remove'){
@@ -100,7 +101,7 @@ async function handler(request){
    return json(await snapshot(db,user.id));
   }
   ensure(request.method==='POST','طريقة الطلب غير متاحة.',405);
-  const body=await readJsonObject(request,35000);
+  const body=await readJsonObject(request,400000);
   return json(await perform(db,user.id,body));
  }catch(error){return json({error:error instanceof RequestValidationError?error.message:'تعذّر تنفيذ الطلب. حاول لاحقاً.'},error instanceof RequestValidationError?error.status:503);}
 }
