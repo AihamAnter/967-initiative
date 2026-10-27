@@ -40,7 +40,7 @@ try{
  });
  await run('hide figures independently of geographical discovery',async()=>{
   const first=(await api('/api/admin/page-visibility')).body;await api('/api/admin/page-visibility','PUT',{sections:{...first.sections,figures:false},revision:first.revision});
-  await guest.goto(base+'/yemen-map');await guest.locator('.ymap-canvas svg').waitFor();assert.equal(await guest.locator('#yemeni-figures').count(),0);assert.equal(await guest.locator('a[href="#yemeni-figures"]').count(),0);
+  await guest.goto(base+'/yemen-map');await guest.locator('.ymap-canvas svg').waitFor();assert.equal(await guest.locator('#yemeni-figures').count(),0);assert.equal((await guest.request.get(base+'/yemeni-figures')).status(),404);
   const current=(await api('/api/admin/page-visibility')).body;await api('/api/admin/page-visibility','PUT',{sections:{...current.sections,figures:true},revision:current.revision});
  });
  await run('managed page hides and restores without deleting staff or text',async()=>{
