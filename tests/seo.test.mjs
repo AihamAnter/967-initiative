@@ -76,6 +76,9 @@ test('sitemap includes published canonical details, skips demo, draft and empty 
   assert.ok(urls.includes(`${DEFAULT_SITE_ORIGIN}/yemen-in-numbers/populated`));
   assert.ok(!urls.some(url => url.endsWith('/empty') || url.endsWith('/demo') || url.endsWith('/draft') || url.includes('/admin') || url.includes('/search')));
   assert.ok(urls.includes(`${DEFAULT_SITE_ORIGIN}/yemeni-products/${encodeURIComponent('شركة يمنية')}`));
+  assert.ok(urls.includes(`${DEFAULT_SITE_ORIGIN}/yemeni-figures`));
+  assert.ok(urls.includes(`${DEFAULT_SITE_ORIGIN}/yemeni-figures/real`));
+  assert.ok(!urls.includes(`${DEFAULT_SITE_ORIGIN}/yemen-map/figures/real`));
   assert.ok(!Object.hasOwn(result.find(item => item.url.endsWith('/indicator/indicator')), 'lastModified'));
   assert.equal(result.find(item => item.url.endsWith('/magazine/real')).lastModified, '2025-01-02T00:00:00.000Z');
   assert.equal(new Set(urls).size, urls.length);
