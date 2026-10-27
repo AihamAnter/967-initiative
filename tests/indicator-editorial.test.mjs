@@ -44,7 +44,7 @@ test('editorial validation prevents accidental publication before review and nev
 });
 
 test('database migration has RLS, authenticated-only RPC and a draft default',async()=>{
-  const migration=await readFile(new URL('../supabase/migrations/20261026235000_stat_indicator_editorial.sql',import.meta.url),'utf8');
+  const migration=await readFile(new URL('../supabase/migrations/20261027004810_stat_indicator_editorial.sql',import.meta.url),'utf8');
   assert.match(migration,/alter table public\.stat_indicator_editorial enable row level security/i);
   assert.match(migration,/is_published boolean not null default false/i);
   assert.match(migration,/public\.editorial_can_read\(\)/i);
