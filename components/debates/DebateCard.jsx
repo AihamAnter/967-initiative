@@ -1,6 +1,6 @@
 import Link from '@/components/SiteLink';
 import {ArrowUpLeft} from 'lucide-react';
-import {DEBATE_TYPES,DEBATE_STAGES,formatDebateDateTime,debateDateLabel,httpsUrl,recordingHasPublished,publicRecordingAvailable,recordingOverdue,RECORDING_OVERDUE_MESSAGE} from '@/lib/debates';
+import {DEBATE_TYPES,DEBATE_STAGES,formatDebateDateTime,debateDateLabel,httpsUrl,recordingHasPublished,publicRecordingAvailable,recordingOverdue,questionsAvailable,RECORDING_OVERDUE_MESSAGE} from '@/lib/debates';
 import DebateCover from './DebateCover';
 import InlineActions from '@/components/inline/InlineActions';
 import {createInlineTarget} from '@/lib/inlineEditorTargets';
@@ -15,7 +15,7 @@ export default function DebateCard({debate,featured=false}) {
       {!recordingOverdue(debate)&&debate.scheduled_at&&!['cancelled','postponed'].includes(debate.stage)&&(debate.debate_type!=='prerecorded'||!recordingHasPublished(debate))&&<p className="debate-date">{debateDateLabel(debate)}: <time dateTime={debate.scheduled_at}>{formatDebateDateTime(debate.scheduled_at)}</time></p>}
       {debate.duration_seconds&&<span className="small-muted">المدة: {Math.ceil(debate.duration_seconds/60)} دقيقة</span>}
       {featured&&debate.debate_type==='external_live'&&debate.live_platform&&<p className="small-muted">{debate.live_platform} {httpsUrl(debate.live_url)&&<a href={httpsUrl(debate.live_url)} target="_blank" rel="noopener noreferrer">صفحة البث الخارجي</a>}</p>}
-      <div className="debate-card-footer"><div className="debate-actions"><Link className="btn btn-primary" href={'/debates/'+debate.slug}>{publicRecordingAvailable(debate)?'شاهد المناظرة':'تفاصيل المناظرة'} <ArrowUpLeft size={16}/></Link>{featured&&<><Link href={'/debates/'+debate.slug+'#polls'}>شارك برأيك</Link>{!recordingHasPublished(debate)&&<Link href={'/debates/'+debate.slug+'#questions'}>اطرح سؤالاً</Link>}</>}</div><div className="debate-card-tools"><SaveForLater compact item={{kind:'debate',href:'/debates/'+encodeURIComponent(debate.slug),title:debate.title}}/><InlineActions target={createInlineTarget({kind:'debate',id:debate.id,slug:debate.slug,title:debate.title,href:'/debates/'+debate.slug})}/></div></div>
+      <div className="debate-card-footer"><div className="debate-actions"><Link className="btn btn-primary" href={'/debates/'+debate.slug}>{publicRecordingAvailable(debate)?'شاهد المناظرة':'تفاصيل المناظرة'} <ArrowUpLeft size={16}/></Link>{featured&&<><Link href={'/debates/'+debate.slug+'#polls'}>شارك برأيك</Link>{questionsAvailable(debate)&&<Link href={'/debates/'+debate.slug+'#questions'}>اطرح سؤالاً</Link>}</>}</div><div className="debate-card-tools"><SaveForLater compact item={{kind:'debate',href:'/debates/'+encodeURIComponent(debate.slug),title:debate.title}}/><InlineActions target={createInlineTarget({kind:'debate',id:debate.id,slug:debate.slug,title:debate.title,href:'/debates/'+debate.slug})}/></div></div>
     </div>
   </ContentSurface>;
 }
