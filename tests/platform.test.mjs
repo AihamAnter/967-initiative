@@ -57,11 +57,11 @@ test('search excludes drafts and private fields while labeling visible examples'
   assert.ok(!JSON.stringify(items).includes('123'));
 });
 
-test('every figure visible in Discover Yemen is searchable, including catalog examples',()=>{
+test('every figure in the independent Yemeni figures section is searchable, including catalog examples',()=>{
   const items=buildSearchIndex({figures:yemeniFiguresCatalog});
   assert.equal(items.length,yemeniFiguresCatalog.length);
   for(const figure of yemeniFiguresCatalog){
-    const match=items.find(x=>x.href==='/yemen-map/figures/'+encodeURIComponent(figure.slug));
+    const match=items.find(x=>x.href==='/yemeni-figures/'+encodeURIComponent(figure.slug));
     assert.ok(match&&matchesSearchResult(figure.fullName,match),figure.fullName);
     assert.equal(match.isDemo,Boolean(figure.isDemo));
   }
