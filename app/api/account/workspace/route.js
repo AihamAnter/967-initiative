@@ -19,15 +19,16 @@ async function ownerRows(db,table,user,columns='*'){
  failed(error,'تعذّر تحميل بيانات حسابك.');return data||[];
 }
 async function snapshot(db,id){
- const [prefs,collections,saved,notifications,unread]=await Promise.all([
+ const [prefs,collections,saved,notifications,unread,submissions]=await Promise.all([
   db.from('account_preferences').select('*').eq('user_id',id).maybeSingle(),
   ownerRows(db,'account_collections',id),
   ownerRows(db,'account_saved_items',id),
   db.from('account_notifications').select('*').eq('user_id',id).order('created_at',{ascending:false}).limit(50),
-  db.from('account_notifications').select('id',{head:true,count:'exact'}).eq('user_id',id).is('read_at',null)
+  db.from('account_notifications').select('id',{head:true,count:'exact'}).eq('user_id',id).is('read_at',null),
+  db.from('messages').select('id,type,message,status,created_at').eq('user_id',id).order('created_at',{ascending:false}).limit(50)
  ]);
- failed(prefs.error);failed(notifications.error);failed(unread.error);
- return {preferences:{...defaults,...prefs.data},collections:collections.slice(0,30),saved:saved.slice(0,100),notifications:notifications.data||[],unread:unread.count||0};
+ failed(prefs.error);failed(notifications.error);failed(unread.error);failed(submissions.error);
+ return {preferences:{...defaults,...prefs.data},collections:collections.slice(0,30),saved:saved.slice(0,100),notifications:notifications.data||[],unread:unread.count||0,submissions:submissions.data||[]};
 }
 async function perform(db,id,body){
  const action=body.action;
