@@ -3,6 +3,7 @@ import {useCallback,useEffect,useMemo,useState} from 'react';
 import {BookOpenText,RefreshCw,Save,FileText} from 'lucide-react';
 import ValidatedForm,{FormInput,FormTextarea,FormLabel} from './debates/ValidatedForm';
 import IndicatorEditorial from './IndicatorEditorial';
+import useAdminEditor from './admin/useAdminEditor';
 import {
   emptyIndicatorEditorial,electricityEditorialDraft,editorialFieldLimits,
   normalizeIndicatorEditorial,editorialReferencesToText,parseEditorialReferences,validateIndicatorEditorial,
@@ -28,6 +29,7 @@ export default function IndicatorEditorialAdmin({db,indicator,onDirtyChange}) {
   const [notice,setNotice]=useState('');
   const [preview,setPreview]=useState(false);
   const [schemaMissing,setSchemaMissing]=useState(false);
+  const editor=useAdminEditor({db,kind:'statistic',id:'editorial_'+indicator.id,value:form,onRestore:setForm,active:true});
   const dirty=useMemo(()=>JSON.stringify(form)!==JSON.stringify(saved),[form,saved]);
   useEffect(()=>{onDirtyChange?.(dirty);return()=>onDirtyChange?.(false);},[dirty,onDirtyChange]);
   useEffect(()=>{
@@ -47,10 +49,10 @@ export default function IndicatorEditorialAdmin({db,indicator,onDirtyChange}) {
         'تعذر تحميل النص المعرفي. تحقق من صلاحيات المحرر والاتصال.');
       setSchemaMissing(dbError.code==='42P01'||dbError.code==='PGRST205');
     } else {
-      const next=formFrom(data);setOriginal(data);setSaved(next);setForm(next);
+      const next=formFrom(data);setOriginal(data);setSaved(next);setForm(next);editor.markClean(next);
     }
     setLoading(false);
-  },[db,indicator.id]);
+  },[db,indicator.id,editor.markClean]);
 
   useEffect(()=>{load();},[load]);
 
@@ -70,7 +72,7 @@ export default function IndicatorEditorialAdmin({db,indicator,onDirtyChange}) {
     try {
       payload=validateIndicatorEditorial({...form,reference_links:parseEditorialReferences(form.references_text)});
     }catch(err){setError(err.message);return;}
-    if(payload.is_published&&!saved.is_published&&!window.confirm('سيظهر الشرح المعرفي للزوار فور الحفظ في البيئة المتصلة. هل تم تدقيق جميع الأرقام والمراجع؟'))return;
+    if(payload.is_published&&!window.confirm('سيظهر هذا النص أو تحديثه فوراً للزوار في البيئة المتصلة. هل تمت مراجعة جميع الأرقام والمراجع؟'))return;
     setSaving(true);
     try {
       const {data,error:dbError}=await db.rpc('editorial_stat_indicator_enrichment_save',{
@@ -82,7 +84,7 @@ export default function IndicatorEditorialAdmin({db,indicator,onDirtyChange}) {
         if(dbError.code==='PGRST202')throw new Error('دالة حفظ الإثراء غير موجودة؛ يجب اختبار Migration الجديدة وتطبيقها أولاً.');
         throw new Error(dbError.message||'تعذر حفظ النص.');
       }
-      const next=formFrom(data);setOriginal(data);setSaved(next);setForm(next);
+      const next=formFrom(data);setOriginal(data);setSaved(next);setForm(next);editor.markClean(next);await editor.clearDraft();
       setNotice(data.is_published?'حُفظت القراءة المعرفية ونُشرت.':'حُفظت مسودة القراءة المعرفية دون نشر.');
     }catch(err){setError(err.message);}
     finally{setSaving(false);}
@@ -114,11 +116,14 @@ export default function IndicatorEditorialAdmin({db,indicator,onDirtyChange}) {
         </FormLabel>
         <p className="small-muted">لا يمكن نشر الشرح دون خلاصة وحدود واضحة ورابط مرجع وتاريخ مراجعة. النشر لا يغيّر قيم المؤشر.</p>
         <div className="admin-form-actions" style={{display:'flex',gap:10,flexWrap:'wrap'}}>
+          <button className="btn btn-outline" type="button" disabled={saving||editor.draftBusy} onClick={()=>editor.saveDraft().catch(err=>setError(err.message))}>حفظ مسودة خاصة بالحساب</button>
+          {editor.draft&&<button className="btn btn-outline" type="button" onClick={editor.restoreDraft}>استعادة المسودة الخاصة</button>}
           <button className="btn btn-red" type="submit" disabled={!dirty||saving||schemaMissing}><Save size={17}/> {saving?'جارٍ الحفظ…':'حفظ النص المعرفي'}</button>
           <button className="btn btn-outline" type="button" onClick={()=>setPreview(x=>!x)}><FileText size={17}/> {preview?'إخفاء المعاينة':'معاينة عرض الزائر'}</button>
           <button className="btn btn-outline" type="button" onClick={reset}>تراجع عن التعديلات</button>
           <button className="btn btn-outline" type="button" onClick={()=>{if(!dirty||window.confirm('تجاهل التعديلات غير المحفوظة وإعادة التحميل؟'))load();}}><RefreshCw size={16}/> إعادة تحميل</button>
         </div>
+        {editor.draftMessage&&<p className="small-muted" role="status">{editor.draftMessage}</p>}
         {indicator.slug==='access-to-electricity'&&<button className="btn btn-outline" type="button" onClick={loadElectricityDraft}>تحميل نموذج إثراء الكهرباء غير المنشور</button>}
       </fieldset>
     </ValidatedForm>}
