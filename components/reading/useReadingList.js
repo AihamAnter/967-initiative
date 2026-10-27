@@ -1,6 +1,8 @@
 'use client';
 
 import {useSyncExternalStore} from 'react';
+import {browserDb} from '@/lib/supabase';
+import {audienceRequest} from '@/components/debates/useAudience';
 import {parseReadingList, readingContentItem, READING_LIST_KEY, READING_LIST_LIMIT} from '@/lib/readingList';
 
 const CHANGE_EVENT = '967:reading-list-change';
@@ -26,6 +28,18 @@ function subscribe(listener) {
   return () => {window.removeEventListener('storage', storage);window.removeEventListener(CHANGE_EVENT, listener);};
 }
 
+// Saving locally remains usable offline. When signed in, persist the specific
+// user-initiated change to the private account library. Existing anonymous items
+// are never silently imported into a possibly different person's account.
+function mirrorToAccount(body) {
+ try {
+  const db=browserDb();
+  if(!db)return;
+  void db.auth.getSession().then(({data,error})=>{
+   if(!error&&data.session)return audienceRequest('/api/account/workspace',body);
+  }).catch(()=>{ /* Local copy remains; account offers explicit import. */ });
+ }catch{ /* Local-only fallback when Supabase is unavailable. */ }
+}
 function write(items) {
   localStorage.setItem(READING_LIST_KEY, JSON.stringify(items));
   window.dispatchEvent(new Event(CHANGE_EVENT));
@@ -35,14 +49,22 @@ export function toggleReadingItem(value) {
   const item = readingContentItem(value);
   if (!item) throw new Error('تعذر حفظ هذا المحتوى.');
   const current = parseReadingList(localStorage.getItem(READING_LIST_KEY));
-  if (current.some(entry => entry.href === item.href)) {write(current.filter(entry => entry.href !== item.href));return false;}
+  if (current.some(entry => entry.href === item.href)) {
+   write(current.filter(entry => entry.href !== item.href));
+   mirrorToAccount({action:'remove',href:item.href,kind:item.kind,title:item.title});
+   return false;
+  }
   if (current.length >= READING_LIST_LIMIT) throw new Error('قائمتك تضم 100 عنصر. أزل عنصراً قبل حفظ محتوى جديد.');
   write([item,...current]);
+  mirrorToAccount({action:'save',item});
   return true;
 }
 
 export function removeReadingItem(href) {
-  write(parseReadingList(localStorage.getItem(READING_LIST_KEY)).filter(item => item.href !== href));
+  const current=parseReadingList(localStorage.getItem(READING_LIST_KEY));
+  const item=current.find(x=>x.href===href);
+  write(current.filter(entry=>entry.href!==href));
+  if(item)mirrorToAccount({action:'remove',href:item.href,kind:item.kind,title:item.title});
 }
 
 export default function useReadingList() {
