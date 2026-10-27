@@ -4,6 +4,7 @@ import {revealInvalidField,trackEditorFiles,publicationIntent} from './admin/for
 import useAdminEditor from './admin/useAdminEditor';
 import EditorActions from './admin/EditorActions';
 import AdminListTools,{useAdminList} from './admin/AdminListTools';
+import IndicatorEditorialAdmin from './IndicatorEditorialAdmin';
 
 
 import {useCallback, useEffect, useMemo, useState} from 'react';
@@ -50,6 +51,7 @@ export default function StatisticsAdminPanel({db, canDelete = false,initialItem 
   const [replaceDuplicates, setReplaceDuplicates] = useState(false);
   const [csvRows, setCsvRows] = useState([]);
   const [showPreview, setShowPreview] = useState(false);
+  const [editorialDirty,setEditorialDirty] = useState(false);
 
   const indicatorEditor=useAdminEditor({db,kind:'statistic',id:editingIndicator,value:indicator,onRestore:setIndicator,active:view==='indicators'});
   const sourceEditor=useAdminEditor({db,kind:'statistic_source',id:editingSource,value:source,onRestore:setSource,active:view==='sources'});
@@ -88,8 +90,8 @@ export default function StatisticsAdminPanel({db, canDelete = false,initialItem 
   const selectedIndicator = indicators.find(item => item.id === selectedIndicatorId);
   const selectedValues = values.filter(item => item.indicator_id === selectedIndicatorId);
 
-  function resetIndicator() {if(!indicatorEditor.confirm())return;indicatorEditor.markClean(emptyIndicator); setIndicator(emptyIndicator); setEditingIndicator(null); setShowPreview(false); }
-  function editIndicator(item) {if(!indicatorEditor.confirm())return;
+  function resetIndicator() {if(editorialDirty&&!window.confirm('لديك تعديلات معرفية غير محفوظة. هل تريد تجاهلها؟'))return;if(!indicatorEditor.confirm())return;indicatorEditor.markClean(emptyIndicator); setIndicator(emptyIndicator); setEditingIndicator(null); setShowPreview(false); }
+  function editIndicator(item) {if(editorialDirty&&!window.confirm('لديك تعديلات معرفية غير محفوظة. هل تريد تجاهلها؟'))return;if(!indicatorEditor.confirm())return;
     const sourceIds = links.filter(link => link.indicator_id === item.id).map(link => link.source_id);
     setIndicator({...emptyIndicator, ...item, adopted_source_id: item.adopted_source_id || '', source_ids: sourceIds});
     setEditingIndicator(item.id); setShowPreview(false); window.scrollTo({top: 0, behavior: 'smooth'});
@@ -228,7 +230,7 @@ export default function StatisticsAdminPanel({db, canDelete = false,initialItem 
   return <div className="stats-admin">
     <div className="stats-admin-nav">{[
       ['indicators', 'المؤشرات والمجالات', BarChart3], ['values', 'القيم وCSV', FileSpreadsheet], ['sources', 'المصادر', Link2],
-    ].map(([id, label, Icon]) => <button key={id} className={view === id ? 'selected' : ''} onClick={() => (view==='indicators'?indicatorEditor:view==='values'?valueEditor:sourceEditor).leave(()=>{setView(id);setNotice('');})}><Icon size={17}/>{label}</button>)}</div>
+    ].map(([id, label, Icon]) => <button key={id} className={view === id ? 'selected' : ''} onClick={() => {if(editorialDirty&&view==='indicators'&&id!==view&&!window.confirm('لديك تعديلات معرفية غير محفوظة. هل تريد تجاهلها؟'))return;(view==='indicators'?indicatorEditor:view==='values'?valueEditor:sourceEditor).leave(()=>{setView(id);setNotice('');});}}><Icon size={17}/>{label}</button>)}</div>
     {notice && <p className={'feedback ' + (notice.startsWith('خطأ') ? 'error' : 'success')} role="status">{notice}</p>}
 
     {view === 'indicators' && <div className="stats-admin-layout">
@@ -247,6 +249,7 @@ export default function StatisticsAdminPanel({db, canDelete = false,initialItem 
 
           {showPreview && <div className="stat-admin-preview"><span>{domains.find(item => item.id === indicator.domain_id)?.name || 'المجال'}</span><h3>{indicator.name || 'اسم المؤشر'}</h3><p>{indicator.short_description || 'سيظهر الوصف المختصر هنا.'}</p><strong>{indicator.unit || 'الوحدة'}</strong><small>{indicator.is_published ? 'جاهز للنشر' : 'مسودة'}</small></div>}
         </fieldset></ValidatedForm>
+        {editingIndicator&&<IndicatorEditorialAdmin key={editingIndicator} db={db} indicator={indicators.find(item=>item.id===editingIndicator)||indicator} onDirtyChange={setEditorialDirty}/>}
       </section>
       <section className="admin-panel"><h2>المؤشرات ({formatNumber(filteredIndicators.length)})</h2><AdminListTools list={indicatorList}/><div className="stats-admin-filters"><FormSelect aria-label="المجال" value={domainFilter} onChange={event => setDomainFilter(event.target.value)}><option value="all">كل المجالات</option>{domains.map(domain => <option value={domain.id} key={domain.id}>{domain.name}</option>)}</FormSelect></div>{indicatorList.items.map(item => <div className="admin-list-item" key={item.id}><div><strong>{item.name}</strong><small>{item.domain?.name} · {item.unit} · {item.is_published ? 'منشور' : 'مسودة'}</small></div><div><button title="تعديل" onClick={() => editIndicator(item)}><Pencil size={17}/></button><button title={item.is_published ? 'إلغاء النشر' : 'نشر'} onClick={() => toggleIndicator(item)}>{item.is_published ? <EyeOff size={17}/> : <Eye size={17}/>}</button>{canDelete && <button title="حذف" onClick={() => deleteIndicator(item)}><Trash2 size={17}/></button>}</div></div>)}{!filteredIndicators.length && <p className="small-muted">لا توجد مؤشرات مطابقة.</p>}</section>
     </div>}
