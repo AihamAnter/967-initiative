@@ -2,6 +2,7 @@ import Link from '@/components/SiteLink';
 import ContextBackLink from '@/components/ContextBackLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import CorrectionLink from '@/components/CorrectionLink';
+import InstitutionLogo from '@/components/InstitutionLogo';
 import InlineTarget from '@/components/inline/InlineTarget';
 import {ArrowUpLeft,Building2,CalendarDays,ExternalLink,Globe2,GraduationCap,Mail,MapPin,Phone,Share2,ShieldAlert,Stethoscope} from 'lucide-react';
 import {detailPath} from '@/lib/seo';
@@ -26,7 +27,7 @@ export default function InstitutionDetail({kind,item,related}){
  const hasContact=item.phone||item.email||item.website||item.mapUrl||(medical&&item.bookingUrl)||(!medical&&item.registrationUrl);
  return <>
   <InlineTarget kind={medical?'medical_center':'university'} id={item.databaseId} slug={item.id} title={item.name} href={href}/>
-  <section className="institution-detail-hero"><div className="container"><ContextBackLink fallback={`/${base}#${medical?'medical':'universities'}-directory`} label={`العودة إلى ${medical?'دليل المراكز الطبية':'دليل الجامعات والمعاهد'}`}/><div className="institution-detail-heading"><div className="institution-detail-icon">{item.logoUrl ? <img src={item.logoUrl} alt={`شعار ${item.name}`} decoding="async" referrerPolicy="no-referrer" style={{width:'100%',height:'100%',maxWidth:84,maxHeight:84,objectFit:'contain'}}/> : <Icon size={42}/>}</div><div><div className="institution-card-meta"><span>{item.typeLabel}</span><span>{item.ownershipLabel}</span></div><h1>{item.name}</h1>{item.englishName&&<p dir="ltr">{item.englishName}</p>}<p className="institution-location"><MapPin size={16}/>{location||'الموقع التفصيلي غير متاح في المصدر'}</p></div></div><p className="institution-lead">{item.summary}</p>
+  <section className="institution-detail-hero"><div className="container"><ContextBackLink fallback={`/${base}#${medical?'medical':'universities'}-directory`} label={`العودة إلى ${medical?'دليل المراكز الطبية':'دليل الجامعات والمعاهد'}`}/><div className="institution-detail-heading"><div className="institution-detail-icon"><InstitutionLogo src={item.logoUrl} name={item.name} maxSize={84}><Icon size={42}/></InstitutionLogo></div><div><div className="institution-card-meta"><span>{item.typeLabel}</span><span>{item.ownershipLabel}</span></div><h1>{item.name}</h1>{item.englishName&&<p dir="ltr">{item.englishName}</p>}<p className="institution-location"><MapPin size={16}/>{location||'الموقع التفصيلي غير متاح في المصدر'}</p></div></div><p className="institution-lead">{item.summary}</p>
   <div className="institution-status" data-status={item.verificationStatus}><ShieldAlert size={20}/><div><strong>{verificationLabels[item.verificationStatus]||'حالة التحقق غير محددة'}</strong>{medical&&<span>{operatingLabels[item.operatingStatus]||'حالة التشغيل غير مؤكدة'}{item.operatingStatusAsOf?` وفق بيانات ${dateLabel(item.operatingStatusAsOf)}؛ لا يعني ذلك أنها مفتوحة الآن.`:'.'}</span>}{!medical&&item.accreditationStatus!=='verified'&&<span>الإدراج لا يمثل إثباتًا للاعتماد الأكاديمي أو حالة التشغيل الحالية.</span>}</div></div>
   </div></section>
   <section className="institution-detail-body"><div className="container institution-detail-layout"><main><ContentReadingAction kind={medical?'medicalCenter':'university'} href={href} title={item.name}/>
