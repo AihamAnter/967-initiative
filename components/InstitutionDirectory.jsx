@@ -24,7 +24,7 @@ function SelectFilter({label,value,onChange,children}){return <label className="
 export default function InstitutionDirectory({kind,items}){
   const medical=kind==='medical',defaults=medical?collectionDefaults.medicalCenters:collectionDefaults.universities;
   const [state,update]=useListState(defaults);
-  const set=(key,value)=>update({[key]:value,page:1});
+  const set=(key,value)=>update(key==='governorate'?{governorate:value,city:ALL.city,page:1}:{[key]:value,page:1});
   const hasEmergencyData=medical&&items.some(item=>item.emergencyAvailable===true);
   const fields=useMemo(()=>({
     governorates:optionList(ALL.governorate,items.map(item=>item.governorate)),
