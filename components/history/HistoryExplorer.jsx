@@ -4,10 +4,11 @@ import Link from '@/components/SiteLink';
 import {ArrowUpLeft,BookOpen,CalendarDays,MapPinned,Search,ScrollText,SlidersHorizontal,Layers,GitCompareArrows} from 'lucide-react';
 import {historyEras,historyKinds,historyEntryPath,historyYear} from '@/lib/yemenHistory';
 import styles from './HistoryExplorer.module.css';
+import HistoryTimeline from './HistoryTimeline';
 
 function normalized(s){return String(s||'').normalize('NFKD').replace(/[\u064B-\u065F]/g,'').replace(/[أإآ]/g,'ا').toLowerCase();}
 export default function HistoryExplorer({entries,initialEra='',initialType=''}) {
- const [era,setEra]=useState(initialEra),[type,setType]=useState(initialType),[query,setQuery]=useState(''),[mode,setMode]=useState('cards'),[more,setMore]=useState(12);
+ const [era,setEra]=useState(initialEra),[type,setType]=useState(initialType),[query,setQuery]=useState(''),[mode,setMode]=useState('timeline'),[more,setMore]=useState(12);
  const [first,setFirst]=useState(''),[second,setSecond]=useState('');
  useEffect(()=>{
   const onBack=()=>{const p=new URLSearchParams(location.search);setEra(p.get('era')||'');setType(p.get('type')||'');};
@@ -25,14 +26,14 @@ export default function HistoryExplorer({entries,initialEra='',initialType=''}) 
  const states=published.filter(e=>e.kind==='state');
  const a=states.find(e=>e.slug===first),b=states.find(e=>e.slug===second);
  return <div className={styles.wrap}>
-  <div className={styles.eras} aria-label="العصور التاريخية">
+  <div className={styles.eras} aria-label="اختر عصراً تاريخياً لاستكشاف محطاته على الخط الزمني">
    {historyEras.map((item,index)=><button key={item.id} className={era===item.id?styles.eraSelected:styles.era} type="button" onClick={()=>change(era===item.id?'':item.id,type)} aria-pressed={era===item.id}>
     <span className={styles.eraNumber}>{String(index+1).padStart(2,'0')}</span>
     <strong>{item.title}</strong><small>{item.period}</small>
    </button>)}
   </div>
   <section className={styles.intro}>
-   <div><span className="eyebrow">تصفح الأرشيف</span><h2>{era?historyEras.find(x=>x.id===era)?.title:'العصور والدول والأحداث'}</h2><p>{era?historyEras.find(x=>x.id===era)?.summary:'اقرأ الأحداث والسير والآثار في سياقها الزمني، مع إظهار المصادر والفترات التقريبية.'}</p></div>
+   <div><span className="eyebrow">رحلة عبر الزمن</span><h2>{era?historyEras.find(x=>x.id===era)?.title:'العصور والدول والأحداث'}</h2><p>{era?historyEras.find(x=>x.id===era)?.summary:'اقرأ الأحداث والسير والآثار في سياقها الزمني، مع إظهار المصادر والفترات التقريبية.'}</p></div>
    <div className={styles.stats}><span><strong>{published.length.toLocaleString('ar')}</strong> مادة معرفية</span><span><strong>{historyEras.length.toLocaleString('ar')}</strong> عصور</span></div>
   </section>
   <section className={styles.controls} aria-label="خيارات استكشاف تاريخ اليمن">
@@ -41,14 +42,13 @@ export default function HistoryExplorer({entries,initialEra='',initialType=''}) 
    <div className={styles.viewModes} role="group" aria-label="طريقة العرض"><button type="button" className={mode==='cards'?styles.active:''} aria-pressed={mode==='cards'} onClick={()=>setMode('cards')}><Layers size={17}/> البطاقات</button><button type="button" className={mode==='timeline'?styles.active:''} aria-pressed={mode==='timeline'} onClick={()=>setMode('timeline')}><CalendarDays size={17}/> الخط الزمني</button></div>
   </section>
   <div className={styles.resultCount} role="status">المواد المطابقة: <strong>{selected.length.toLocaleString('ar')}</strong> {era&&<button onClick={()=>change('',type)} type="button">جميع العصور ×</button>}</div>
-  {selected.length===0?<div className={styles.empty}>لا توجد مواد مطابقة. جرّب إزالة الفلاتر أو استخدام عبارة أخرى. <button type="button" onClick={()=>{change('','');setQuery('');}}>إعادة ضبط البحث</button></div>:
-   <div className={mode==='timeline'?styles.timeline:styles.cards}>{selected.slice(0,more).map((entry,i)=><article key={entry.slug} className={mode==='timeline'?styles.timelineItem:styles.card}>
+  {selected.length===0?<div className={styles.empty}>لا توجد مواد مطابقة. جرّب إزالة الفلاتر أو استخدام عبارة أخرى. <button type="button" onClick={()=>{change('','');setQuery('');}}>إعادة ضبط البحث</button></div>:mode==='timeline'?<HistoryTimeline entries={selected}/>:<div className={styles.cards}>{selected.slice(0,more).map((entry,i)=><article key={entry.slug} className={styles.card}>
     <div className={styles.cardTop}><span className={styles.kind}>{historyKinds[entry.kind]}</span><span className={styles.date}>{historyYear(entry.year)}</span></div>
     <h3><Link href={historyEntryPath(entry.slug)}>{entry.title}</Link></h3><small className={styles.period}>{entry.period}</small>
     <p>{entry.summary}</p>
     <div className={styles.cardBottom}><span><BookOpen size={15}/> {entry.sources?.length||0} مصادر</span>{entry.location&&<span><MapPinned size={15}/>{entry.location}</span>}<Link href={historyEntryPath(entry.slug)} aria-label={'قراءة '+entry.title}>اقرأ الملف <ArrowUpLeft size={16}/></Link></div>
    </article>)}</div>}
-  {selected.length>more&&<button className={styles.more} type="button" onClick={()=>setMore(x=>x+12)}>عرض المزيد ({Math.min(12,selected.length-more).toLocaleString('ar')})</button>}
+  {mode==='cards'&&selected.length>more&&<button className={styles.more} type="button" onClick={()=>setMore(x=>x+12)}>عرض المزيد ({Math.min(12,selected.length-more).toLocaleString('ar')})</button>}
   <section id="compare" className={styles.compare} aria-labelledby="history-compare-heading">
    <div><span className="eyebrow">معرفة في سياقها</span><h2 id="history-compare-heading"><GitCompareArrows size={24}/> قارن بين دولتين</h2><p>قارن التواريخ التقريبية ومراكز الارتباط والمراجع، دون افتراض تطابق الحدود القديمة مع الخريطة الحديثة.</p></div>
    <div className={styles.compareSelectors}><label>الدولة الأولى<select value={first} onChange={e=>setFirst(e.target.value)}><option value="">اختر دولة</option>{states.map(x=><option key={x.slug} value={x.slug}>{x.title}</option>)}</select></label><label>الدولة الثانية<select value={second} onChange={e=>setSecond(e.target.value)}><option value="">اختر دولة</option>{states.map(x=><option key={x.slug} value={x.slug}>{x.title}</option>)}</select></label></div>
