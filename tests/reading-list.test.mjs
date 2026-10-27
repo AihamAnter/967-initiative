@@ -12,7 +12,7 @@ test('saved reading entries require matching public paths and bounded plain titl
 });
 
 test('saved content types and legacy public page bookmarks remain readable',()=>{
-  const examples={work:'/works/film',issue:'/magazine/issue-2',figure:'/yemen-map/figures/arwa',company:'/yemeni-products/tehama',professional:'/professionals/ali',indicator:'/yemen-in-numbers/indicator/population',domain:'/yemen-in-numbers/population',debate:'/debates/discussion',speaker:'/debates/speakers/ali',ranking:'/yemen-ranking',map:'/yemen-map',timeline:'/yemen-in-numbers/timeline',search:'/search',page:'/pages/about-us'};
+  const examples={work:'/works/film',issue:'/magazine/issue-2',figure:'/yemeni-figures/arwa',company:'/yemeni-products/tehama',professional:'/professionals/ali',indicator:'/yemen-in-numbers/indicator/population',domain:'/yemen-in-numbers/population',debate:'/debates/discussion',speaker:'/debates/speakers/ali',ranking:'/yemen-ranking',map:'/yemen-map',timeline:'/yemen-in-numbers/timeline',search:'/search',page:'/pages/about-us'};
   for(const [kind,href] of Object.entries(examples)){
     assert.equal(readingPathInfo(href)?.kind,kind,href);
     assert.deepEqual(readingListItem({kind,href,title:'عنوان'}),{kind,href,title:'عنوان'});
@@ -22,7 +22,7 @@ test('saved content types and legacy public page bookmarks remain readable',()=>
 });
 
 test('new saves accept individual topics and profiles, never directories or general pages',()=>{
-  for(const [kind,href] of [['company','/yemeni-products/tehama'],['figure','/yemen-map/figures/arwa'],['professional','/professionals/ali'],['work','/works/film'],['issue','/magazine/issue-2'],['indicator','/yemen-in-numbers/indicator/population'],['debate','/debates/discussion'],['speaker','/debates/speakers/ali']]){
+  for(const [kind,href] of [['company','/yemeni-products/tehama'],['figure','/yemeni-figures/arwa'],['professional','/professionals/ali'],['work','/works/film'],['issue','/magazine/issue-2'],['indicator','/yemen-in-numbers/indicator/population'],['debate','/debates/discussion'],['speaker','/debates/speakers/ali']]){
     const item={kind,href,title:'عنوان'};
     assert.deepEqual(readingContentItem(item),item);
   }
@@ -58,6 +58,7 @@ test('existing work and magazine saves survive alongside new content and canonic
   assert.deepEqual(list.slice(0,3),[...legacy,company]);
   assert.equal(list.length,4);
   assert.equal(readingListItem({kind:'figure',href:'/yemen-map/figures/'+encodeURIComponent('الملكة أروى'),title:'الملكة أروى'}).title,'الملكة أروى');
+  assert.equal(readingPathInfo('/yemeni-figures/arwa').kind,'figure');
 });
 
 test('corrupt browser storage, duplicates, unexpected fields and oversized lists never leak into reading links',()=>{
