@@ -17,7 +17,7 @@ const destinations = [
   {href:'/works', title:'شاهد حكاية', text:'الأعمال الإعلامية', icon:Film, tone:'coral'},
   {href:'/magazine', title:'خذ وقتك للقراءة', text:'مجلة 967', icon:BookOpen, tone:'violet'},
   {href:'/yemen-in-numbers', title:'افهم الصورة', text:'اليمن بالأرقام', icon:ChartNoAxesCombined, tone:'cobalt'},
-  {href:'/yemen-map', title:'اكتشف مكانًا', text:'أطلس اليمن', icon:Compass, tone:'leaf'},
+  {href:'/yemen-map', title:'خريطة اليمن', text:'المحافظات والمديريات', icon:Compass, tone:'leaf'},
   {href:'/yemeni-products', title:'صُنع في اليمن', text:'دليل المنتجات', icon:Package, tone:'sun'},
   {href:'/professionals', title:'اعثر على مهارة', text:'دليل المهنيين', icon:UsersRound, tone:'brand'},
 ];
