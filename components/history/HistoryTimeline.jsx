@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useMemo,useRef,useState} from 'react';
 import Link from '@/components/SiteLink';
-import {ArrowLeft,ArrowRight,ArrowUpLeft,BookOpen,CalendarDays,ChevronLeft,ChevronRight,MapPin,MoveHorizontal} from 'lucide-react';
+import {ArrowLeft,ArrowUpLeft,BookOpen,CalendarDays,ChevronLeft,ChevronRight,MapPin,MoveHorizontal} from 'lucide-react';
 import {chronologicalHistory,boundedTimelineIndex,timelineAdjacentIndex} from '@/lib/historyTimeline';
 import {historyEras,historyKinds,historyEntryPath,historyYear} from '@/lib/yemenHistory';
 import styles from './HistoryTimeline.module.css';
@@ -27,7 +27,10 @@ export default function HistoryTimeline({entries}){
  useEffect(()=>{
   // A filter can remove the selected stop: restore a valid focus without
   // scrolling the entire webpage to the timeline.
-  if(!stops.some(item=>item.slug===selectedSlug))setSelectedSlug(stops[0]?.slug||'');
+  if(!stops.some(item=>item.slug===selectedSlug)){
+   setSelectedSlug(stops[0]?.slug||'');
+   if(railRef.current)railRef.current.scrollTo({left:0,behavior:'auto'});
+  }
  },[stops,selectedSlug]);
  useEffect(()=>{stopRefs.current=stopRefs.current.slice(0,stops.length);},[stops.length]);
 
@@ -43,7 +46,7 @@ export default function HistoryTimeline({entries}){
   </header>
   <div className={styles.navigator} role="group" aria-label="الانتقال المباشر عبر السنوات">
    <label htmlFor="yemen-history-scrub">انتقل على المحور</label>
-   <input id="yemen-history-scrub" type="range" dir="ltr" min={0} max={Math.max(0,size-1)} value={selectedIndex} step={1}
+   <input id="yemen-history-scrub" type="range" dir="rtl" min={0} max={Math.max(0,size-1)} value={selectedIndex} step={1}
     aria-label="اختيار محطة تاريخية" aria-valuetext={selected?.title+'، '+historyYear(selected?.year)}
     onChange={event=>chooseIndex(Number(event.target.value))}/>
    <span className={styles.scrubDate}>{historyYear(selected?.year)}</span>
