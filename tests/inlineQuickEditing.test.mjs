@@ -47,7 +47,7 @@ test('new read/write route verifies editor roles and rejects arbitrary fields',(
 test('quick directory save keeps source metadata and relation groups intact',()=>{
  for(const key of ['p_programs','p_specialties','p_services','p_hours','p_branches','p_sources'])assert.ok(endpoint.includes(key));
  for(const key of ['sources:university_sources(*)','sources:medical_center_sources(*)'])assert.ok(endpoint.includes(key));
- assert.ok(endpoint.includes('const {id:relationId'));
+ assert.ok(endpoint.includes("for(const field of ['id','university_id','medical_center_id'])delete rest[field]"));
  assert.ok(endpoint.includes('return rest;'));
  assert.ok(endpoint.includes('directory_save_university'));
  assert.ok(endpoint.includes('directory_save_medical_center'));
