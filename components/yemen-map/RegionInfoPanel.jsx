@@ -69,7 +69,7 @@ export default function RegionInfoPanel({
       {Array.isArray(profile.sources)&&profile.sources.length>0&&<section className="ymap-profile-sources"><h3>مصادر معلومات المكان</h3><ul>{profile.sources.filter(item=>safeExternalUrl(item.url)).map((item,index)=><li key={index}><a href={safeExternalUrl(item.url)} target="_blank" rel="noopener noreferrer">{item.title}<ArrowUpLeft size={13}/></a></li>)}</ul></section>}
 
       {isGovernorate && <section>
-        {showFigures&&<a className="text-link" href="#yemeni-figures">اكتشف الشخصيات المرتبطة بمحافظة {region.nameAr}<ArrowUpLeft size={14}/></a>}
+        {showFigures&&<a className="text-link" href={"/yemeni-figures?region="+encodeURIComponent(region.id)}>اكتشف الشخصيات المرتبطة بمحافظة {region.nameAr}<ArrowUpLeft size={14}/></a>}
         <h3>المديريات التابعة</h3>
         <div className="ymap-district-list">
           {districtList.map(district => <button type="button" key={district.id} onClick={() => onDistrictSelect(district)}>
