@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 const base=process.env.CHECK_BASE_URL||'http://127.0.0.1:3000';
 const cases=[
-  {q:'أروى',type:'figures',href:'/yemen-map/figures/arwa-al-sulayhi',label:true},
-  {q:'اَرْوَى',type:'figures',href:'/yemen-map/figures/arwa-al-sulayhi'},
-  {q:'البردوني',type:'figures',href:'/yemen-map/figures/'},
+  {q:'أروى',type:'figures',href:'/yemeni-figures/arwa-al-sulayhi',label:true},
+  {q:'اَرْوَى',type:'figures',href:'/yemeni-figures/arwa-al-sulayhi'},
+  {q:'البردوني',type:'figures',href:'/yemeni-figures/'},
   {q:'عبس',type:'places',href:'district=YE1704'},
   {q:'حضرموت',type:'places',href:'region=YE19'},
   {q:'من نحن',type:'pages',href:'/#about'},

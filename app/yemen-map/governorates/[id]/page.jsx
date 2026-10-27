@@ -77,7 +77,7 @@ export default async function GovernorateProfilePage({params}){
           <p>وفق حدود الخريطة الإدارية في 967.</p>
           <ul>{districts.map(d=><li key={d.id}><Link href={'/yemen-map?region='+id+'&district='+encodeURIComponent(d.id)+'#map'}>{d.nameAr}</Link></li>)}</ul>
         </section>
-        {sectionIsVisible('figures',settings.pageVisibility)&&<Link className={styles.figureLink} href={'/yemen-map?region='+id+'#yemeni-figures'}>تصفح الشخصيات المرتبطة بمحافظة {heading}</Link>}
+        {sectionIsVisible('figures',settings.pageVisibility)&&<Link className={styles.figureLink} href={'/yemeni-figures?region='+encodeURIComponent(id)}>تصفح الشخصيات المرتبطة بمحافظة {heading}</Link>}
       </aside>
     </div>
   </main>;

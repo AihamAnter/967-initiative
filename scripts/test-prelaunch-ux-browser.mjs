@@ -55,11 +55,13 @@ try {
   await go(page,'/works/inline-work');assert.equal(await page.locator('.media-frame iframe').count(),0);await page.getByRole('button',{name:/محاولة تشغيل العمل هنا/}).waitFor();assert.equal(await page.locator('.media-viewer-footer a').getAttribute('href'),work.external_url);
   await rest('works','PATCH',{external_url:'https://example.test/platform-video'},'?id=eq.'+state.ids.work);await go(page,'/works/inline-work');await page.getByRole('link',{name:'فتح الفيديو على المنصة الأصلية'}).waitFor();assert.equal(await page.locator('.media-play').count(),0);await capture(page,'video-external');
  });
- await scenario('K-05: map/directory choices preserve the map node, governorate and existing deep links',async()=>{
-  await go(page,'/yemen-map?region=YE13#map');await page.locator('.ymap-canvas > svg').waitFor();await page.evaluate(()=>{window.__uxMap=document.querySelector('.ymap-canvas > svg');});
-  await page.getByRole('link',{name:'اكتشف الشخصيات اليمنية',exact:false}).click();assert.equal(await page.locator('#yemeni-figures').getAttribute('open'),'');assert.equal(await page.locator('.yfigures-filters select').nth(1).inputValue(),'YE13');
-  await page.getByRole('link',{name:'استكشف المحافظات والمديريات',exact:false}).click();assert.equal(await page.evaluate(()=>window.__uxMap===document.querySelector('.ymap-canvas > svg')),true);
-  await page.getByRole('link',{name:'اكتشف الشخصيات اليمنية',exact:false}).click();await capture(page,'map-directory');await go(page,'/yemen-map#yemeni-figures');await page.waitForFunction(()=>document.querySelector('#yemeni-figures')?.open===true);assert.equal(await page.locator('#yemeni-figures').getAttribute('open'),'');
+ await scenario('K-05: atlas remains geographic while the figures directory keeps filtered deep links',async()=>{
+  await go(page,'/yemen-map?region=YE13#map');await page.locator('.ymap-canvas > svg').waitFor();
+  assert.equal(await page.locator('.figures-directory-shell').count(),0);
+  await go(page,'/yemeni-figures?region=YE13');await page.locator('.yfigures-filters').waitFor();
+  assert.equal(await page.locator('.yfigures-filters select').nth(1).inputValue(),'YE13');
+  await capture(page,'figures-directory');
+  await go(page,'/yemen-map#yemeni-figures');await page.waitForURL('**/yemeni-figures');
  });
  await scenario('K-06: search states scope, PDF and expanded biography limitations and retains filters',async()=>{
   await go(page,'/search?q=zzzzzzzzzzzz&type=works&mode=phrase&scope=title&exclude=abc');await page.getByText('لا يشمل البحث النص الكامل داخل ملفات PDF',{exact:false}).waitFor();assert.equal(await page.locator('[name="scope"]').inputValue(),'title');assert.equal(await page.locator('[name="mode"]').inputValue(),'phrase');assert.equal(await page.locator('[name="exclude"]').inputValue(),'abc');assert.equal(await page.locator('.search-result').count(),0);await capture(page,'search-empty');

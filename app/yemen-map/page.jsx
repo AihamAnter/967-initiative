@@ -6,7 +6,7 @@ import {yemenGovernorates} from '@/lib/yemeniFigures';
 
 export const metadata = pageMetadata({
   title: 'اكتشف اليمن',
-  description: 'أطلس تفاعلي لمحافظات اليمن ومديرياتها ودليل لشخصيات يمنية معاصرة وتاريخية.',
+  description: 'أطلس تفاعلي لمحافظات اليمن ومديرياتها وأماكنها ومعالمها.',
   path:'/yemen-map',
 });
 
@@ -21,7 +21,7 @@ export default async function YemenMapPage({searchParams}) {
       <div className="container">
         <span className="eyebrow">أطلس 967 الجغرافي</span>
         <h1>اكتشف <span>اليمن</span></h1>
-        <p>استكشف المحافظات والمديريات والشخصيات المرتبطة بها.</p>
+        <p>استكشف محافظات اليمن ومديرياته وتعرّف على تاريخ الأماكن وطبيعتها ومعالمها.</p>
       </div>
     </section>
     <YemenDiscovery key={(region||'')+':'+(district||'')} showFigures={sectionIsVisible('figures',settings.pageVisibility)} initialGovernorateId={region} initialDistrictId={district}/>

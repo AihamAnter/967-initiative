@@ -28,7 +28,7 @@ function figureInitials(name) {
     .map(word => word.replace(/^ال/, '').slice(0, 1)).join(' ');
 }
 
-export default function YemeniFiguresDirectory({figures, selectedGovernorateId,selectedDistrictId=null, onGovernorateChange, embedded=false}) {
+export default function YemeniFiguresDirectory({figures, selectedGovernorateId,onGovernorateChange}) {
   const [filters,setFilters]=useState(figureFilterDefaults),[ready,setReady]=useState(false),[more,setMore]=useState(false);
   const {figureQ:query,field,era,social:withSocial,photo,century,birthFrom,birthTo,figureSort,visible:visibleCount}=filters;
   const change=patch=>setFilters(f=>({...f,visible:12,...patch}));
@@ -42,10 +42,9 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,s
   const hasAddedDates=figures.some(f=>f.createdAt&&Number.isFinite(Date.parse(f.createdAt)));
   function resetFilters(){setFilters({...figureFilterDefaults});onGovernorateChange(null);}
   const returnParams=figureFilterSearch('',filters);if(selectedGovernorateId)returnParams.set('region',selectedGovernorateId);
-  if(selectedDistrictId)returnParams.set('district',selectedDistrictId);
-  const returnTo='/yemen-map'+(returnParams.size?'?'+returnParams:'')+'#yemeni-figures';
+  const returnTo='/yemeni-figures'+(returnParams.size?'?'+returnParams:'');
 
-  return <section className="yfigures-section" id={embedded?undefined:'yemeni-figures'}>
+  return <section className="yfigures-section" id="yemeni-figures">
     <div className="container yfigures-container">
       <header className="yfigures-head">
         <div><span className="eyebrow">ذاكرة وأثر</span><h2>شخصيات <span>يمنية</span></h2></div>
@@ -68,13 +67,13 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,s
         <label><span>سنة الميلاد إلى</span><input type="number" min="500" max="2100" value={birthTo} onChange={e=>change({birthTo:e.target.value})}/></label>
       </div><p>الارتباط بالمحافظة لا يعني مكان الميلاد. التصفية الزمنية تستخدم سنوات الميلاد المسجلة فقط وتستبعد التواريخ المجهولة.</p></details>
       <ActiveFilters filters={[query&&{key:'q',label:'البحث: '+query,onRemove:()=>change({figureQ:''})},field!=='الكل'&&{key:'field',label:'المجال: '+field,onRemove:()=>change({field:'الكل'})},selectedGovernorateId&&{key:'region',label:'المحافظة: '+(yemenGovernorates.find(g=>g.id===selectedGovernorateId)?.name||'غير متاحة'),onRemove:()=>onGovernorateChange(null)},era!=='الكل'&&{key:'era',label:'الفترة: '+era,onRemove:()=>change({era:'الكل'})},withSocial&&{key:'social',label:'روابط تواصل',onRemove:()=>change({social:false})},photo&&{key:'photo',label:'صورة مسجلة',onRemove:()=>change({photo:false})},century&&{key:'century',label:'قرن الميلاد: '+century,onRemove:()=>change({century:''})},birthFrom&&{key:'birthFrom',label:'الميلاد من: '+birthFrom,onRemove:()=>change({birthFrom:''})},birthTo&&{key:'birthTo',label:'الميلاد إلى: '+birthTo,onRemove:()=>change({birthTo:''})}]} onClear={resetFilters}/>
-      <div className="yfigures-results-bar"><span role="status" aria-live="polite"><strong>{formatNumber(filteredFigures.length)}</strong> شخصية مطابقة</span>{selectedGovernorateId&&<small>الخريطة والدليل يعرضان المحافظة نفسها</small>}<label className="yfigures-sort">الترتيب<select value={figureSort} onChange={e=>change({figureSort:e.target.value})}><option value="default">ترتيب الدليل</option><option value="alpha">أبجديًا</option><option value="field">حسب المجال</option><option value="oldest">الميلاد: الأقدم أولًا</option><option value="youngest">الميلاد: الأحدث أولًا</option>{hasAddedDates&&<option value="newest">الأحدث إضافة في قاعدة البيانات</option>}</select></label></div>
+      <div className="yfigures-results-bar"><span role="status" aria-live="polite"><strong>{formatNumber(filteredFigures.length)}</strong> شخصية مطابقة</span>{selectedGovernorateId&&<small>تظهر الشخصيات المرتبطة بالمحافظة المحددة</small>}<label className="yfigures-sort">الترتيب<select value={figureSort} onChange={e=>change({figureSort:e.target.value})}><option value="default">ترتيب الدليل</option><option value="alpha">أبجديًا</option><option value="field">حسب المجال</option><option value="oldest">الميلاد: الأقدم أولًا</option><option value="youngest">الميلاد: الأحدث أولًا</option>{hasAddedDates&&<option value="newest">الأحدث إضافة في قاعدة البيانات</option>}</select></label></div>
 
       {filteredFigures.length ? <div className="yfigures-grid">
         {visibleFigures.map(figure => {
           const links = socialLinks(figure);
           return <article className="yfigure-card" key={figure.id}>
-            <Link className="yfigure-card-hitarea" href={'/yemen-map/figures/'+figure.slug+'?from='+encodeURIComponent(returnTo)} aria-label={`عرض صفحة ${figure.fullName}`}><span className="sr-only">عرض صفحة {figure.fullName}</span></Link>
+            <Link className="yfigure-card-hitarea" href={'/yemeni-figures/'+figure.slug+'?from='+encodeURIComponent(returnTo)} aria-label={`عرض صفحة ${figure.fullName}`}><span className="sr-only">عرض صفحة {figure.fullName}</span></Link>
             <div className="yfigure-image">
               {figure.imageUrl ? <Image src={figure.imageUrl} alt={figure.imageKind==='context'?figure.imageCredit:`صورة ${figure.fullName}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
               <span className="yfigure-era">{figure.era}</span>
@@ -92,7 +91,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,s
                 {links.length === 0 && <ArrowUpLeft className="yfigure-open-icon" size={20} aria-hidden="true"/>}
               </div>
             </div>
-            <div className="card-save-action"><SaveForLater compact item={{kind:'figure',href:'/yemen-map/figures/'+encodeURIComponent(figure.slug),title:figure.fullName}}/></div>
+            <div className="card-save-action">{/* Preserve saved-item identity; old bookmark paths redirect to the new profile. */}<SaveForLater compact item={{kind:'figure',href:'/yemen-map/figures/'+encodeURIComponent(figure.slug),title:figure.fullName}}/></div>
           </article>;
         })}
       </div> : <div className="yfigures-empty"><Search size={28}/><h3>لا توجد نتائج مطابقة</h3><p>جرّب تغيير المجال أو المحافظة أو مسح عبارة البحث.</p><button type="button" className="btn btn-outline" onClick={resetFilters}>مسح الفلاتر</button></div>}

@@ -13,7 +13,7 @@ const fetchPage = async (path, agent = 'OAI-SearchBot/1.4') => {
 };
 const attributes = tag => Object.fromEntries([...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
 const meta = (html, name) => [...html.matchAll(/<meta\s[^>]*>/gi)].map(match => attributes(match[0])).find(attrs => attrs.name === name || attrs.property === name)?.content;
-const routes = ['/', '/works', '/magazine', '/contribute', '/yemen-map', '/professionals', '/yemeni-products', '/yemen-in-numbers', '/yemen-in-numbers/timeline', '/search', '/admin', '/magazine/demo', '/yemen-map/figures/arwa-al-sulayhi', '/yemen-in-numbers/gdp'];
+const routes = ['/', '/works', '/magazine', '/contribute', '/yemen-map', '/yemeni-figures', '/professionals', '/yemeni-products', '/yemen-in-numbers', '/yemen-in-numbers/timeline', '/search', '/admin', '/magazine/demo', '/yemeni-figures/arwa-al-sulayhi', '/yemen-in-numbers/gdp'];
 const sitemap = await fetchPage('/sitemap.xml');
 const sitemapUrls = [...sitemap.text.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
 for (const prefix of ['/works/', '/magazine/', '/professionals/', '/yemeni-products/', '/yemen-in-numbers/indicator/']) {
@@ -46,9 +46,9 @@ for (const path of routes) {
 }
 
 for (const agent of ['Bingbot/2.0', 'PerplexityBot/1.0', 'ChatGPT-User/1.0', 'Perplexity-User/1.0']) {
-  const {text} = await fetchPage('/yemen-map/figures/arwa-al-sulayhi', agent);
+  const {text} = await fetchPage('/yemeni-figures/arwa-al-sulayhi', agent);
   const head = text.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || '';
-  result(`${agent} blocking metadata`, Boolean(meta(head, 'og:title')?.includes('أروى') && /noindex/.test(meta(head, 'robots') || '') === (preview || isDemoFigure('/yemen-map/figures/arwa-al-sulayhi', text))));
+  result(`${agent} blocking metadata`, Boolean(meta(head, 'og:title')?.includes('أروى') && /noindex/.test(meta(head, 'robots') || '') === (preview || isDemoFigure('/yemeni-figures/arwa-al-sulayhi', text))));
 }
 
 const robots = await fetchPage('/robots.txt');
@@ -60,7 +60,7 @@ const guide = await fetchPage('/llms.txt');
 result('optional AI reading guide', guide.status === 200 && guide.headers.get('content-type')?.includes('text/plain') && guide.text.includes(origin + '/sitemap.xml') && !guide.text.includes('/admin'));
 const demoPdf = await fetch(base + '/demo/967-demo.pdf');
 result('demo PDF noindex header', demoPdf.ok && /noindex/i.test(demoPdf.headers.get('x-robots-tag') || ''));
-for (const path of ['/missing-seo-test-route', '/works/missing-seo-test', '/magazine/missing-seo-test', '/professionals/missing-seo-test', '/yemeni-products/missing-seo-test', '/yemen-in-numbers/indicator/missing-seo-test', '/yemen-map/figures/missing-seo-test']) {
+for (const path of ['/missing-seo-test-route', '/works/missing-seo-test', '/magazine/missing-seo-test', '/professionals/missing-seo-test', '/yemeni-products/missing-seo-test', '/yemen-in-numbers/indicator/missing-seo-test', '/yemeni-figures/missing-seo-test']) {
   const response = await fetchPage(path);
   result(`${path} genuine 404`, response.status === 404, {status:response.status});
 }

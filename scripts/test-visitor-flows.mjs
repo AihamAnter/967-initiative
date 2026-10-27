@@ -64,11 +64,12 @@ await scenario('Directories match separate fields and service areas; WhatsApp us
  const wa=page.locator('.whatsapp-card-link').first();assert.equal(new URL(await wa.getAttribute('href')).hostname,'wa.me');assert.equal(new URL(await wa.getAttribute('href')).pathname,'/967777000456');
  const href=await page.locator('.professional-card-hitarea').first().getAttribute('href');detailRoutes.add(new URL(href,base).pathname);await page.locator('.professional-card-hitarea').first().click();await page.waitForURL(base+href);assert.ok(await page.getByRole('link',{name:'تواصل عبر واتساب',exact:true}).count());
 });
-await scenario('Atlas is visible early; display options work and a place opens its figures',async()=>{
+await scenario('Atlas remains geographic and the figures directory has an independent route',async()=>{
  await go('/yemen-map');await page.locator('.ymap-canvas>svg').waitFor();report.metrics.mapTop390=await page.locator('.ymap-canvas').evaluate(el=>el.getBoundingClientRect().top);assert.ok(report.metrics.mapTop390<550);
- assert.equal(await page.locator('.figures-directory-shell').getAttribute('open'),null);
+ assert.equal(await page.locator('.figures-directory-shell').count(),0);
  await page.locator('.ymap-display-options summary').click();await page.getByRole('button',{name:'حجم أسماء كبير',exact:true}).click();assert.equal(await page.getByRole('button',{name:'حجم أسماء كبير',exact:true}).getAttribute('aria-pressed'),'true');
- await page.locator('.ymap-display-options summary').click();await page.locator('.ymap-search-wrap select').selectOption({label:'صنعاء'});await settled();assert.notEqual(await page.locator('.figures-directory-shell').getAttribute('open'),null);
+ await page.locator('.ymap-display-options summary').click();await page.locator('.ymap-search-wrap select').selectOption({label:'صنعاء'});await settled();
+ await go('/yemeni-figures?region=YE13');await page.locator('.yfigures-filters').waitFor();assert.equal(await page.locator('.yfigures-filters select').nth(1).inputValue(),'YE13');
 });
 await scenario('One-year indicator gives a brief explanation and no misleading trend chart',async()=>{
  await go('/yemen-in-numbers');const href=await page.locator('.stats-latest .stat-indicator-card').first().getAttribute('href');detailRoutes.add(href);await go(href);
@@ -81,7 +82,7 @@ await scenario('Indicator search ranks its title ahead of a broad category menti
  assert.ok((await page.locator('.stat-explorer .stat-indicator-grid h3').allTextContents()).includes('عدد سكان اليمن'));
  await page.locator('.stat-search input').fill('عدد سكان');await settled();assert.equal(await page.locator('.stat-explorer .stat-indicator-card').count(),1);
 });
-for(const route of ['/','/works','/professionals','/yemeni-products','/contribute','/yemen-map','/search?q='+encodeURIComponent('صنعاء'),'/yemen-in-numbers',...detailRoutes]){
+for(const route of ['/','/works','/professionals','/yemeni-products','/contribute','/yemen-map','/yemeni-figures','/search?q='+encodeURIComponent('صنعاء'),'/yemen-in-numbers',...detailRoutes]){
  await go(route);
  for(const width of [320,390,768,1024,1440,1920]){
   await page.setViewportSize({width,height:1000});await settled();

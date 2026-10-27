@@ -40,7 +40,7 @@ try{
  });
  await run('hide figures independently of geographical discovery',async()=>{
   const first=(await api('/api/admin/page-visibility')).body;await api('/api/admin/page-visibility','PUT',{sections:{...first.sections,figures:false},revision:first.revision});
-  await guest.goto(base+'/yemen-map');await guest.locator('.ymap-canvas svg').waitFor();assert.equal(await guest.locator('#yemeni-figures').count(),0);assert.equal(await guest.locator('a[href="#yemeni-figures"]').count(),0);
+  await guest.goto(base+'/yemen-map');await guest.locator('.ymap-canvas svg').waitFor();assert.equal(await guest.locator('#yemeni-figures').count(),0);assert.equal((await guest.request.get(base+'/yemeni-figures')).status(),404);
   const current=(await api('/api/admin/page-visibility')).body;await api('/api/admin/page-visibility','PUT',{sections:{...current.sections,figures:true},revision:current.revision});
  });
  await run('managed page hides and restores without deleting staff or text',async()=>{
@@ -56,14 +56,14 @@ try{
   await page.route('**/api/admin/page-visibility',async route=>{if(route.request().method()!=='GET')return route.continue();const index=++reads,response=await route.fetch();if(index===1){await new Promise(resolve=>setTimeout(resolve,2500));await route.fulfill({response});releaseFirst();}else await route.fulfill({response});});
   await page.goto(base+'/admin?tab=pages');const panel=page.locator('.page-visibility-panel');await panel.getByRole('button',{name:'إخفاء الأعمال الإعلامية',exact:true}).click();assert.ok(reads>=2,'Strict Mode must exercise overlapping reads');await staleReturned;assert.equal(await panel.getByRole('button',{name:'استعادة الأعمال الإعلامية',exact:true}).count(),1);assert.equal(await panel.getByRole('button',{name:'حفظ الظهور',exact:true}).isEnabled(),true);await page.context().close();
  });
- await run('figure directory loads on demand, retries and supports direct links',async()=>{
-  const page=await pageFor();let requests=0;
-  await page.route('**/api/figures',route=>{requests++;return requests===1?route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'Local fixture outage'})}):route.continue();});
-  await page.goto(base+'/yemen-map');await page.locator('.ymap-canvas svg').waitFor();assert.equal(requests,0);assert.equal(await page.locator('.yfigures-filters').count(),0);
-  await page.locator('#yemeni-figures summary').click();await page.getByRole('button',{name:'إعادة تحميل الشخصيات',exact:true}).click();await page.locator('.yfigures-filters').waitFor();assert.equal(requests,2);
-  await page.locator('#yemeni-figures summary').click();await page.locator('#yemeni-figures summary').click();await page.locator('.yfigures-filters').waitFor();assert.equal(requests,2);
-  await page.goto(base+'/yemen-map#yemeni-figures');await page.locator('.yfigures-filters').waitFor();assert.equal(await page.locator('#yemeni-figures').evaluate(el=>el.open),true);
-  await page.goto(base+'/yemen-map?region=YE19#map');await page.locator('.yfigures-filters').waitFor();assert.equal(await page.locator('.yfigures-filters select').nth(1).inputValue(),'YE19');await page.context().close();
+ await run('figures are independent of the atlas and old anchors redirect',async()=>{
+  const page=await pageFor();
+  await page.goto(base+'/yemen-map');await page.locator('.ymap-canvas svg').waitFor();
+  assert.equal(await page.locator('.yfigures-filters').count(),0);
+  await page.goto(base+'/yemeni-figures?region=YE19');await page.locator('.yfigures-filters').waitFor();
+  assert.equal(await page.locator('.yfigures-filters select').nth(1).inputValue(),'YE19');
+  await page.goto(base+'/yemen-map#yemeni-figures');await page.waitForURL('**/yemeni-figures');
+  await page.context().close();
  });
  await run('district editorial save, sources, public map and search',async()=>{
   await admin.goto(base+'/admin?tab=map&region=district&item=YE1908');const editor=admin.locator('.district-profile-editor');await editor.getByRole('heading',{name:'مديرية شبام',exact:true}).waitFor();

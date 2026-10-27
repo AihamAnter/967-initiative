@@ -5,7 +5,8 @@ import {figureFilterDefaults,readFigureFilters,figureFilterSearch,filterFigures}
 test('contextual return keeps bounded internal list state and rejects redirects or secrets',()=>{
  for(const input of ['https://evil.test/search','//evil.test/search','/\\evil.test/search','/%2f%2fevil.test','/admin','/api/admin/tasks','javascript:alert(1)','/search\n'])assert.equal(safeNavigationSource(input),null,input);
  const source=safeNavigationSource('/search?q=اليمن&type=figures&scope=title&exclude=سابق&access_token=secret#results');assert.ok(source.includes('scope=title'));assert.ok(!source.includes('secret'));
- const href=new URL(contextualHref('/yemen-map/figures/local',source),'https://local.test');assert.equal(href.searchParams.get('from'),source);
+ const href=new URL(contextualHref('/yemeni-figures/local',source),'https://local.test');assert.equal(href.searchParams.get('from'),source);
+ assert.equal(safeNavigationSource('/yemeni-figures?region=YE19&figureQ=%D8%A3%D8%B1%D9%88%D9%89').startsWith('/yemeni-figures'),true);
  assert.equal(contextualHref('/login',source),'/login');assert.equal(contextualHref('https://external.test/path',source),'https://external.test/path');
  assert.equal(new URL(contextualHref('/works/local?from=%2Fread-later',source),'https://local.test').searchParams.get('from'),'/read-later');
  assert.equal(navigationMemoryPath('/yemen-map?photo=1&era=تاريخية#yemeni-figures'),navigationMemoryPath('/yemen-map?era=تاريخية&photo=1'));

@@ -11,14 +11,18 @@ test('missing visibility settings preserve published sections; malformed saved s
 });
 test('hiding a section covers its details, queries and anchors without matching a similarly named path',()=>{
  const visibility=validatePageVisibility({works:false,atlas:false,debates:false});
- for(const href of ['/works','/works/story?q=x#watch','/debates/speakers/person','/yemen-map','/yemen-map?district=YE1908#map','/yemen-map/figures/person'])assert.equal(pageIsVisible(href,visibility),false,href);
+ for(const href of ['/works','/works/story?q=x#watch','/debates/speakers/person','/yemen-map','/yemen-map?district=YE1908#map'])assert.equal(pageIsVisible(href,visibility),false,href);
  for(const href of ['/','/admin?tab=pages','/login','/register','/account','/forgot-password','/works-other','/magazine'])assert.equal(pageIsVisible(href,visibility),true,href);
- assert.equal(sectionIsVisible('figures',visibility),false);
+ assert.equal(sectionIsVisible('figures',visibility),true);
+ assert.equal(pageIsVisible('/yemeni-figures',visibility),true);
+ assert.equal(pageIsVisible('/yemeni-figures/person',visibility),true);
 });
 test('figures can be hidden separately while geographical discovery remains available',()=>{
  const visibility=validatePageVisibility({figures:false});
  assert.equal(pageIsVisible('/yemen-map?region=YE19#map',visibility),true);
  assert.equal(pageIsVisible('/yemen-map#yemeni-figures',visibility),false);
+ assert.equal(pageIsVisible('/yemeni-figures',visibility),false);
+ assert.equal(pageIsVisible('/yemeni-figures/person',visibility),false);
  assert.equal(pageIsVisible('/yemen-map/figures/person',visibility),false);
  assert.equal(pageIsVisible('/pages/%ZZ',visibility),false);
 });
@@ -36,5 +40,6 @@ test('sitemap omits hidden sections, descendants and managed pages while retaini
  const pages=createDefaultContentPages().map(page=>({...page,isPublished:page.slug!=='about'}));
  const entries=buildSitemap({pageVisibility:{works:false,atlas:false},contentPages:pages,works:[{slug:'story',is_published:true}],figures:[{slug:'person',is_published:true}],issues:[{slug:'issue-1',is_published:true}]},{NODE_ENV:'production',VERCEL_ENV:'production'});
  const paths=entries.map(item=>new URL(item.url).pathname);
- assert.ok(!paths.includes('/about'));assert.ok(!paths.some(path=>/^\/(works|yemen-map)(\/|$)/.test(path)));assert.ok(paths.includes('/magazine/issue-1'));assert.ok(paths.includes('/privacy'));
+ assert.ok(!paths.includes('/about'));assert.ok(!paths.some(path=>/^\/(works|yemen-map)(\/|$)/.test(path)));
+ assert.ok(paths.includes('/yemeni-figures/person'));assert.ok(paths.includes('/magazine/issue-1'));assert.ok(paths.includes('/privacy'));
 });

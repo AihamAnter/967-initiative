@@ -31,6 +31,7 @@ test('demo targets and route-only fallbacks cannot activate incomplete editors',
 test('public routes resolve content and legal page links but never arbitrary admin pages',()=>{
  assert.equal(resolveInlineTarget('/magazine/issue-1').kind,'issue');
  assert.equal(resolveInlineTarget('/yemen-map/figures/figure-name').kind,'figure');
+ assert.equal(resolveInlineTarget('/yemeni-figures/figure-name').kind,'figure');
  assert.equal(resolveInlineTarget('/yemen-in-numbers/indicator/population').advanced,true);
  assert.equal(resolveInlineTarget('/privacy').adminHref,'/admin?tab=pages&item=privacy');
  assert.equal(resolveInlineTarget('/admin/users'),null);
