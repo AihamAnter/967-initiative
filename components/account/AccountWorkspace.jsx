@@ -1,9 +1,9 @@
 'use client';
 
-import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
+import {useCallback,useEffect,useRef,useState} from 'react';
 import Link from '@/components/SiteLink';
 import Image from 'next/image';
-import {Activity,ArrowLeft,ArrowUpLeft,Bell,BookOpen,BookmarkCheck,CheckCircle2,ChevronLeft,Clock3,Download,FileText,FolderPlus,HeartHandshake,Inbox,LockKeyhole,MessageSquare,Plus,RefreshCw,Settings2,ShieldCheck,Trash2,Upload,UserRound,UsersRound,X} from 'lucide-react';
+import {Activity,ArrowLeft,ArrowUpLeft,Bell,BookOpen,BookmarkCheck,CheckCircle2,ChevronLeft,Download,FolderPlus,Inbox,LockKeyhole,MessageSquare,Plus,RefreshCw,Settings2,Trash2,Upload,UserRound,UsersRound,X} from 'lucide-react';
 import useAudience,{audienceRequest} from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import useReadingList,{removeReadingItem} from '@/components/reading/useReadingList';
@@ -17,11 +17,9 @@ const views=[
  {id:'collections',label:'مجموعاتي',icon:BookOpen},
  {id:'notifications',label:'الإشعارات',icon:Bell},
  {id:'contributions',label:'مشاركاتي',icon:MessageSquare},
- {id:'activity',label:'سجل نشاطي',icon:Clock3},
  {id:'profile',label:'الملف الشخصي',icon:UserRound},
  {id:'settings',label:'الإعدادات والخصوصية',icon:Settings2}
 ];
-const statusLabels={...COMMENT_STATUSES,...QUESTION_STATUSES,...SUGGESTION_STATUSES};
 const simpleTime=date=>date?formatArabicDate(date):'';
 const emptyWorkspace={preferences:{bio:'',governorate:'',website:'',social_url:'',notify_replies:true,notify_moderation:true},saved:[],collections:[],notifications:[],unread:0,submissions:[],submissionTotal:0};
 const tabName=(id)=>views.find(x=>x.id===id)?.label||views[0].label;
@@ -62,14 +60,6 @@ export default function AccountWorkspace({initialTab='overview'}){
  const totals=account?Object.fromEntries(['debate_comments','debate_questions','debate_suggestions','debate_votes'].map(k=>[k,account[k]?.total||0])):{};
  const totalParticipation=Object.values(totals).reduce((a,b)=>a+b,0)+(workspace.submissionTotal||0);
  const profile=account?.profile;
- const activity=useMemo(()=>{
-  if(!account)return [];
-  const types=[['debate_comments','تعليق',MessageSquare],['debate_questions','سؤال',FileText],['debate_suggestions','مقترح مناظرة',HeartHandshake],['debate_votes','تصويت خاص',ShieldCheck]];
-  const events=types.flatMap(([key,label])=>(account[key]?.items||[]).map(i=>({id:key+i.id,kind:label,title:i.debate_title||i.title||label,time:i.created_at,href:i.debate_slug?'/debates/'+i.debate_slug:'/account/activity',detail:key==='debate_votes'?'تصويت خاص لا يظهر للآخرين':(statusLabels[i.status]||'')})));
-  events.push(...(workspace.submissions||[]).map(i=>({id:'contribution'+i.id,kind:'مساهمة في تواصل وشارك',title:i.type,time:i.created_at,href:'/account?tab=contributions',detail:({new:'تم الاستلام',in_progress:'قيد المتابعة',resolved:'تمت المعالجة'})[i.status]||'قيد المراجعة'})));
-  events.push(...workspace.saved.map(i=>({id:'save'+i.id,kind:'حفظ مادة',title:i.title,time:i.created_at,href:i.href,detail:'ضمن محفوظات حسابك'})));
-  return events.sort((a,b)=>new Date(b.time)-new Date(a.time));
- },[account,workspace.saved,workspace.submissions]);
  const saved=workspace.saved.filter(i=>filter==='all'||(filter.startsWith('group:')?i.collection_id===filter.slice(6):i.kind===filter));
  const kinds=[...new Set(workspace.saved.map(i=>i.kind))];
  async function saveProfile(e){e.preventDefault();if(!profileForm)return;
@@ -131,7 +121,7 @@ export default function AccountWorkspace({initialTab='overview'}){
        {label:'مشاركاتي',n:totalParticipation,icon:MessageSquare,to:'contributions'},
        {label:'الإشعارات الجديدة',n:workspace.unread,icon:Bell,to:'notifications'},
       ].map(({label,n,icon:Icon,to})=><button className={styles.stat} key={label} onClick={()=>go(to)}><Icon size={21}/><strong>{n.toLocaleString('ar')}</strong><span>{label}</span><ChevronLeft size={15} className={styles.statArrow}/></button>)}</div>
-      <div className={styles.columns}><section className={styles.panel}><div className={styles.panelTitle}><h3>آخر نشاطاتك</h3><button type="button" onClick={()=>go('activity')}>الكل <ArrowLeft size={15}/></button></div>{activity.length?activity.slice(0,4).map(x=><Link key={x.id} className={styles.feedItem} href={x.href}><span className={styles.feedDot}/><span><strong>{x.kind}</strong><small>{x.title}</small></span><time>{simpleTime(x.time)}</time></Link>):<Empty icon={Clock3} text="ستظهر مشاركاتك ومحفوظاتك الجديدة هنا."/>}</section><section className={styles.panel}><div className={styles.panelTitle}><h3>محفوظات للعودة إليها</h3><button type="button" onClick={()=>go('saved')}>عرض الكل <ArrowLeft size={15}/></button></div>{workspace.saved.length?workspace.saved.slice(0,4).map(x=><Link key={x.id} className={styles.feedItem} href={x.href}><BookOpen size={17}/><span><strong>{x.title}</strong><small>فتح المادة</small></span><ArrowUpLeft size={15}/></Link>):<Empty icon={BookmarkCheck} text="لم تحفظ محتوى بعد. استخدم زر «للقراءة لاحقاً» داخل صفحات الموقع."/>}</section></div>
+      <section className={styles.panel}><div className={styles.panelTitle}><h3>محفوظات للعودة إليها</h3><button type="button" onClick={()=>go('saved')}>عرض الكل <ArrowLeft size={15}/></button></div>{workspace.saved.length?workspace.saved.slice(0,4).map(x=><Link key={x.id} className={styles.feedItem} href={x.href}><BookOpen size={17}/><span><strong>{x.title}</strong><small>فتح المادة</small></span><ArrowUpLeft size={15}/></Link>):<Empty icon={BookmarkCheck} text="لم تحفظ محتوى بعد. استخدم زر «للقراءة لاحقاً» داخل صفحات الموقع."/>}</section>
      </>}
      {tab==='saved'&&<section className={styles.panel}><div className={styles.panelTitle}><h3>مكتبتي الخاصة</h3><span className={styles.count}>{workspace.saved.length} / 100</span></div><p className={styles.hint}>محفوظات حسابك متاحة من أجهزتك بعد تسجيل الدخول. محفوظات المتصفح القديمة لا تُنقل دون موافقتك.</p>
       {local.items?.length>0&&<div className={styles.import}><div><strong>لديك {local.items.length} مادة محفوظة في هذا المتصفح.</strong><small>انقلها مرة واحدة إلى حسابك للاحتفاظ بها عبر الأجهزة. لن تُحذف النسخة المحلية.</small></div><button className={styles.secondaryButton} disabled={busy} onClick={()=>run(()=>request({action:'import',items:local.items.slice(0,100)}))}>استيراد المحفوظات</button></div>}
@@ -157,7 +147,6 @@ export default function AccountWorkspace({initialTab='overview'}){
       ].map(([key,label,statuses])=><div className={styles.contributionBlock} key={key}><h4>{label} <span>{totals[key]||0}</span></h4>{(account[key]?.items||[]).length?(account[key].items.map(i=><article key={i.id} className={styles.contribution}><strong>{i.debate_title||i.title||label}</strong><p>{i.body||i.title||(key==='debate_votes'?'اختيارك محفوظ ويظل خاصاً بحسابك.':'')}</p><div><small>{statuses[i.status]||''}</small><time>{simpleTime(i.created_at)}</time>{i.debate_slug&&<Link href={'/debates/'+i.debate_slug}>المناظرة <ArrowUpLeft size={13}/></Link>}</div></article>)): <p className={styles.hint}>لا توجد مشاركات من هذا النوع في هذه الصفحة.</p>}</div>)}
       <div className={styles.pager}><button disabled={page<=1||busy} onClick={()=>setPage(x=>x-1)}>السابق</button><span>صفحة {page}</span><button disabled={busy||!Object.keys(totals).some(k=>totals[k]>page*20)} onClick={()=>setPage(x=>x+1)}>التالي</button></div>
      </section>}
-     {tab==='activity'&&<section className={styles.panel}><h3>خط زمني شخصي</h3><p className={styles.hint}>هذا السجل مبني على مشاركاتك المحفوظة في المناظرات ومحتواك المحفوظ، ولا يسجل الصفحات التي تزورها في الخلفية.</p>{activity.length?activity.map(x=><Link key={x.id} className={styles.timelineItem} href={x.href}><span className={styles.timelineDot}/><div><strong>{x.kind}: {x.title}</strong><small>{x.detail}</small></div><time>{simpleTime(x.time)}</time></Link>):<Empty icon={Activity} text="لا يوجد نشاط محفوظ بعد."/>}</section>}
      {tab==='profile'&&<section className={styles.panel}><h3>ملفي الشخصي</h3>{profileForm&&<form className={styles.accountForm} onSubmit={saveProfile}>
       <div className={styles.pictureLine}><div className={styles.preview}>{profileForm.avatar_url?<Image unoptimized width={74} height={74} src={profileForm.avatar_url} alt="معاينة صورة الملف"/>:<UserRound size={28}/>}</div><div><label className={styles.uploadButton}><Upload size={16}/> رفع صورة جديدة<input type="file" accept="image/jpeg,image/png,image/webp" hidden disabled={busy} onChange={e=>{uploadAvatar(e.target.files?.[0]);e.target.value='';}}/></label><small>حتى 2MB — تنشر ملفات الصور على رابط عام؛ يمكنك إخفاء ظهور الصورة بجوار التعليقات.</small></div></div>
       <div className={styles.formGrid}><label>اسم العرض *<input required minLength={2} maxLength={60} value={profileForm.display_name} onChange={e=>setProfileForm(f=>({...f,display_name:e.target.value}))}/></label><label>البريد الإلكتروني<input readOnly dir="ltr" value={user.email||''}/></label><label>المحافظة (اختيارية)<input maxLength={100} value={profileForm.governorate} onChange={e=>setProfileForm(f=>({...f,governorate:e.target.value}))}/></label><label>الموقع الشخصي<input type="url" placeholder="https://" maxLength={300} value={profileForm.website} onChange={e=>setProfileForm(f=>({...f,website:e.target.value}))}/></label><label className={styles.wide}>نبذة قصيرة<textarea maxLength={600} rows={4} value={profileForm.bio} onChange={e=>setProfileForm(f=>({...f,bio:e.target.value}))}/></label><label className={styles.wide}>رابط اجتماعي اختياري<input type="url" placeholder="https://" maxLength={300} value={profileForm.social_url} onChange={e=>setProfileForm(f=>({...f,social_url:e.target.value}))}/></label></div>
