@@ -8,9 +8,9 @@ const archiveDirectory=new URL('../supabase/archive/legacy-migrations/',import.m
 const baselineName='20261026215718_remote_schema.sql';
 const baselineSha256='56c2b7914d356266aad40d96a6fe86be1619dd83c06492ea047670db31269d93';
 
-test('only the verified baseline is in the active Supabase migrations directory',async()=>{
+test('the verified baseline remains intact and the next reviewed schema migration is active',async()=>{
  const names=(await readdir(activeDirectory)).filter(name=>name.endsWith('.sql')).sort();
- assert.deepEqual(names,[baselineName]);
+ assert.deepEqual(names,[baselineName,'20261027004810_stat_indicator_editorial.sql']);
  const baseline=await readFile(new URL(baselineName,activeDirectory));
  assert.equal(createHash('sha256').update(baseline).digest('hex'),baselineSha256);
 });
