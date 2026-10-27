@@ -29,7 +29,7 @@ test('editorial migration: draft isolation, guarded writes, published reads and 
   await pg.query('insert into auth.users(id,email_confirmed_at) values($1,now()),($2,now())',[ids.editor,ids.visitor]);
   await pg.query("insert into public.editors values($1,'admin')",[ids.editor]);
   await pg.query('insert into public.stat_indicators(id,is_published,hide_when_incomplete,data_status) values($1,true,false,\'partial\')',[ids.indicator]);
-  const migration=await readFile(new URL('../supabase/migrations/20261026235000_stat_indicator_editorial.sql',import.meta.url),'utf8');
+  const migration=await readFile(new URL('../supabase/migrations/20261027004810_stat_indicator_editorial.sql',import.meta.url),'utf8');
   await pg.exec(migration);
   const run=async(user,sql,params=[])=>pg.transaction(async tx=>{
     await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[user||'']);
