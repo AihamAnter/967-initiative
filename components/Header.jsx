@@ -9,7 +9,7 @@ import {usePageVisibility} from './PageVisibilityProvider';
 
 const baseGroups = [
   {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967'], ['/debates', 'مناظرات 967'], ['/read-later', 'للقراءة لاحقاً']]},
-  {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-ranking', 'ترتيب اليمن'], ['/yemen-map', 'خريطة اليمن'], ['/yemeni-figures', 'شخصيات يمنية']]},
+  {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-ranking', 'ترتيب اليمن'], ['/yemen-map', 'خريطة اليمن'], ['/yemeni-figures', 'شخصيات يمنية'], ['/yemen-history', 'تاريخ اليمن']]},
   {label: 'الأدلة', links: [['/yemeni-products', 'منتجات يمنية'], ['/professionals', 'المهنيون'], ['/universities', 'الجامعات والمعاهد'], ['/medical-centers', 'المراكز الطبية']]},
   {label: 'المبادرة', links: [['/#about', 'من نحن'], ['/#projects', 'مشاريعنا'], ['/contribute', 'تواصل وشارك']]},
 ];
