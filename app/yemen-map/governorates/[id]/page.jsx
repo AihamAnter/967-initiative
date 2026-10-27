@@ -16,7 +16,7 @@ export async function generateMetadata({params}) {
   const item=yemenGovernorates.find(item=>item.id===id);
   if(!item)return {};
   return pageMetadata({
-    title:item.name+' | اكتشف اليمن',
+    title:item.name+' | خريطة اليمن',
     description:'ملف موسع عن محافظة '+item.name+' يشمل التاريخ والجغرافيا والاقتصاد والمعالم والمديريات، ضمن أطلس مبادرة 967.',
     path:'/yemen-map/governorates/'+id,
   });
@@ -45,7 +45,7 @@ export default async function GovernorateProfilePage({params}){
     <header className={styles.hero}>
       <div className="container">
         <Link className={styles.back} href={'/yemen-map?region='+encodeURIComponent(id)+'#map'}>العودة إلى الخريطة التفاعلية</Link>
-        <span className={styles.kicker}>أطلس مبادرة 967 / محافظات اليمن</span>
+        <span className={styles.kicker}>خريطة اليمن / المحافظات</span>
         <h1>{heading}</h1>
         <p>{profile.description?.split(/\n\s*\n/)[0]||'ملف معرفي عن المحافظة.'}</p>
         <div className={styles.facts}>
