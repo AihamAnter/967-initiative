@@ -429,3 +429,26 @@
   .interior-page .debate-detail-nav a { font-size:12px; }
   .interior-page .debate-speaker-profile { flex-direction:column; padding:18px; }
 }
+
+/* Yemen in Numbers: keep full values inside the blue latest-value card.
+   Inline --stat-value-font is derived from formatted character count. */
+.interior-page[data-area="statistics"] .stat-indicator-title {
+  min-width:0;
+}
+.interior-page[data-area="statistics"] .stat-latest {
+  width:100%;
+  max-width:300px;
+  min-width:0;
+  box-sizing:border-box;
+  container-type:inline-size;
+}
+.interior-page[data-area="statistics"] .stat-latest strong {
+  display:block;
+  min-width:0;
+  max-width:100%;
+  font-size:clamp(12px,var(--stat-value-font,11cqi),50px);
+  font-variant-numeric:tabular-nums;
+  line-height:1.3;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
