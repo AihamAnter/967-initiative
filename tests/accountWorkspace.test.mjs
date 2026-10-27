@@ -13,10 +13,14 @@ const bookmarks=read('components/reading/useReadingList.js');
 const account=read('app/account/page.jsx');
 const reading=read('components/reading/ReadingList.jsx');
 
-test('the account page supports all selected sections, excluding interests and team access',()=>{
- for(const tab of ['overview','saved','collections','notifications','contributions','activity','profile','settings'])
+test('the account page shows selected sections without personal activity history',()=>{
+ for(const tab of ['overview','saved','collections','notifications','contributions','profile','settings'])
   assert.match(ui,new RegExp("id:'"+tab+"'"));
- assert.ok(!/id:'(interests|team|follows)'/.test(ui));
+ assert.ok(!/id:'(interests|team|follows|activity)'/.test(ui));
+ assert.ok(!ui.includes("tab==='activity'"));
+ assert.ok(!ui.includes('آخر نشاطاتك'));
+ assert.ok(!account.includes("'activity'"));
+ assert.ok(ui.includes("id:'contributions'"));
  assert.ok(account.includes('<AccountWorkspace initialTab={tab}/>'));
  assert.ok(read('app/account/activity/page.jsx').includes('initialTab="contributions"'));
 });
