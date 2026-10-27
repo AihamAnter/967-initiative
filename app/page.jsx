@@ -35,7 +35,9 @@ export default async function Home() {
   const secondaryKind = content.leadKind === 'debate' ? 'video' : 'debate';
   const secondary = secondaryKind === 'video' ? content.work : content.debate;
   const remainingIndicators = content.highlights.slice(1);
-  const moreContent = content.moreWorks.length > 0 || content.moreIssues.length > 0;
+  const extraWorks = visible('works') ? content.moreWorks : [];
+  const extraIssues = visible('magazine') ? content.moreIssues : [];
+  const moreContent = extraWorks.length > 0 || extraIssues.length > 0;
 
   return <div className={`home-page ${styles.page}`}>
     <section className={styles.hero} aria-labelledby="home-title">
@@ -60,8 +62,8 @@ export default async function Home() {
     </div></section>
 
     {moreContent && <section className={styles.moreContent} aria-labelledby="latest-title"><div className="container">
-      <div className={styles.sectionHeading}><div><span className={styles.sectionKicker}>من المكتبة</span><h2 id="latest-title">حكايات أخرى، تستحق وقتك.</h2></div><Link href="/works" className={styles.sectionLink}>تصفح الأعمال <ArrowLeft size={17} aria-hidden="true"/></Link></div>
-      <div className={styles.moreGrid}>{content.moreWorks.map(work => <HomeStoryCard kind="video" item={work} featured key={'work-'+work.id}/>)}{content.moreIssues.map(issue => <HomeIssueCard issue={issue} compact key={'issue-'+issue.id}/>)}</div>
+      <div className={styles.sectionHeading}><div><span className={styles.sectionKicker}>من المكتبة</span><h2 id="latest-title">حكايات أخرى، تستحق وقتك.</h2></div>{extraWorks.length>0 ? <Link href="/works" className={styles.sectionLink}>تصفح الأعمال <ArrowLeft size={17} aria-hidden="true"/></Link> : <Link href="/magazine" className={styles.sectionLink}>تصفح أعداد المجلة <ArrowLeft size={17} aria-hidden="true"/></Link>}</div>
+      <div className={styles.moreGrid}>{extraWorks.map(work => <HomeStoryCard kind="video" item={work} featured key={'work-'+work.id}/>)}{extraIssues.map(issue => <HomeIssueCard issue={issue} compact key={'issue-'+issue.id}/>)}</div>
     </div></section>}
 
     {visible('statistics')&&<section className={styles.numbers} aria-labelledby="numbers-title"><div className={`container ${styles.numbersGrid}`}>
@@ -72,7 +74,7 @@ export default async function Home() {
     {(visible('products')||visible('professionals')||visible('atlas'))&&<section className={styles.community} aria-labelledby="community-title"><div className="container">
       <div className={styles.sectionHeading}><div><span className={styles.sectionKicker}>من الناس، ومن البلد</span><h2 id="community-title">أشياء تُصنع. ومهارات تُنجز.</h2></div><span className={styles.sectionNote}>اكتشف الأدلة، واقترب ممن حولك.</span></div>
       <div className={styles.communityGrid}>{visible('products')&&<HomeDirectoryCard kind="product" item={content.company}/>} {visible('professionals')&&<HomeDirectoryCard kind="profile" item={content.professional}/>}</div>
-      <Link href="/yemen-map" className={styles.atlasLink}><Compass size={21} aria-hidden="true"/><span>وكل مكان، له حكاية.<strong>استكشف محافظات اليمن وأماكنه وشخصياته.</strong></span><ArrowUpLeft size={20} aria-hidden="true"/></Link>
+      {visible('atlas')&&<Link href="/yemen-map" className={styles.atlasLink}><Compass size={21} aria-hidden="true"/><span>وكل مكان، له حكاية.<strong>استكشف محافظات اليمن وأماكنه وشخصياته.</strong></span><ArrowUpLeft size={20} aria-hidden="true"/></Link>}
     </div></section>}
 
     {visible('contribute')&&<section className={styles.participate} id="contact"><div className={`container ${styles.participateInner}`}><div><span>{settings.participationEyebrow}</span><h2>{settings.participationTitle}</h2></div><Link href="/contribute">{settings.participationButtonLabel}<ArrowUpLeft size={20} aria-hidden="true"/></Link><YemeniMotif className={styles.participationMotif}/></div></section>}
