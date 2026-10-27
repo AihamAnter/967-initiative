@@ -8,7 +8,7 @@ import useAdminEditor from './admin/useAdminEditor';
 import styles from './history/HistoryAdminPanel.module.css';
 
 const blank=()=>({slug:'',title:'',kind:'event',era:'modern',year:1990,period:'',summary:'',paragraphs:[''],sources:[{title:'',url:''}],related:[],location:'',governorate:'',figureQuery:'',certainty:'',isPublished:false});
-export default function HistoryAdminPanel({db,canDelete=false}){
+export default function HistoryAdminPanel({db,canDelete=false,initialItem=''}){
  const [entries,setEntries]=useState([]),[form,setForm]=useState(null),[revision,setRevision]=useState(null),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[search,setSearch]=useState('');
  const [saved,setSaved]=useState('');
  const editor=useAdminEditor({db,kind:'page',id:form?.slug?'history-'+form.slug:null,value:form,onRestore:setForm});
@@ -25,10 +25,10 @@ export default function HistoryAdminPanel({db,canDelete=false}){
  const choose=entry=>{const next=structuredClone(entry);setForm(next);setSaved(JSON.stringify(next));setMessage('');editor.markClean(next);};
  const load=useCallback(async()=>{
   setLoading(true);setMessage('');
-  try{const data=await api();if(!mounted.current)return;setEntries(data.entries);setRevision(data.revision);const next=data.entries[0]||blank();setForm(structuredClone(next));setSaved(JSON.stringify(next));editor.markClean(next);}
+  try{const data=await api();if(!mounted.current)return;setEntries(data.entries);setRevision(data.revision);const next=data.entries.find(x=>x.slug===initialItem)||data.entries[0]||blank();setForm(structuredClone(next));setSaved(JSON.stringify(next));editor.markClean(next);}
   catch(error){if(mounted.current)setMessage('خطأ: '+error.message);}
   finally{if(mounted.current)setLoading(false);}
- },[api,editor.markClean]);
+ },[api,editor.markClean,initialItem]);
  useEffect(()=>{mounted.current=true;load();return()=>{mounted.current=false;};},[load]);
  const patch=(key,value)=>{setForm(f=>({...f,[key]:value}));setMessage('');};
  const pick=entry=>{if(!editor.confirm())return;choose(entry);};

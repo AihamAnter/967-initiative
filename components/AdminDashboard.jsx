@@ -122,7 +122,7 @@ export default function AdminDashboard({initialTab='issues',initialItem='',initi
  {tab==='universities'&&<InstitutionAdminPanel db={db} kind="university" canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='medicalCenters'&&<InstitutionAdminPanel db={db} kind="medical" canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='figures'&&<YemeniFiguresAdminPanel db={db} canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
- {tab==='history'&&<HistoryAdminPanel db={db} canDelete={isManagement}/>}
+ {tab==='history'&&<HistoryAdminPanel db={db} canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='statistics'&&<StatisticsAdminPanel db={db} canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='rankings'&&<RankingAdminPanel db={db} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='map'&&<MapAdminPanel db={db} initialItem={tab===initialTab?initialItem:''} initialRegion={initialRegion}/>}
