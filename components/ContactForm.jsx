@@ -1,5 +1,6 @@
 'use client';
 import Link from '@/components/SiteLink';
+import {browserDb} from '@/lib/supabase';
 import {useState,useEffect,useRef,useCallback} from 'react';
 import {Send,CheckCircle2,AlertCircle} from 'lucide-react';
 import {contributionTypes} from '@/lib/contributions';
@@ -33,6 +34,19 @@ export default function ContactForm({initialType='',initialReference=null,types=
    if(!initialType&&types.includes(draft.type))formRef.current.elements.namedItem('type').value=draft.type;
    setDraftStatus('استعدنا مسودتك في هذه التبويبة.');
   }catch{ /* A blocked session store does not prevent writing a message. */ }
+  // Fill an empty contact form from the signed-in profile, without replacing
+  // an existing draft or a deliberately changed contact email.
+  useEffect(()=>{let active=true;const db=browserDb();if(!db)return;
+   db.auth.getUser().then(({data,error})=>{
+    if(!active||error||!data?.user||!formRef.current)return;
+    const form=formRef.current;
+    const email=form.elements.namedItem('email');
+    const name=form.elements.namedItem('name');
+    if(email&&!email.value)email.value=data.user.email||'';
+    if(name&&!name.value)name.value=data.user.user_metadata?.display_name||'';
+   }).catch(()=>{});
+   return()=>{active=false;};
+  },[]);
   // Restore only when the form mounts; choosing a type never replaces the fields.
   // eslint-disable-next-line react-hooks/exhaustive-deps
  },[]);
@@ -71,7 +85,12 @@ export default function ContactForm({initialType='',initialReference=null,types=
   saveDraft();
   const controller=new AbortController(),timeout=window.setTimeout(()=>controller.abort(),25000);
   try{
-   const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:controller.signal});
+   // Optional account association. Never send the account id from the browser.
+   // The server verifies the JWT and requires the email to match the account.
+   let session=null;
+   try{const db=browserDb();if(db){const result=await db.auth.getSession();if(!result.error)session=result.data.session;}}catch{}
+   const headers={'Content-Type':'application/json',...(session?{'Authorization':'Bearer '+session.access_token}:{})};
+   const res=await fetch('/api/contact',{method:'POST',headers,body:JSON.stringify(payload),signal:controller.signal});
    const json=await res.json().catch(()=>null);
    if(!res.ok||json?.ok!==true)throw new Error(typeof json?.error==='string'?json.error:'تعذر إرسال الرسالة حالياً. حاول مجدداً لاحقاً.');
    setStatus('sent');setMsg('تم استلام رسالتك للمراجعة. شكراً لمساهمتك.');resetFields();
