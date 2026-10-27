@@ -29,6 +29,9 @@ export default async function IndicatorPage({params}) {
   const indicator = await getStatIndicator(slug);
   if (!indicator) notFound();
   const latest = indicator.latestValue;
+  const latestDisplayValue = latest ? formatNumber(latest.value, {maximumFractionDigits: 3}) : null;
+  // Scale long numbers to the actual width of the value card without abbreviating their values.
+  const latestFontScale = latestDisplayValue ? `${Math.max(4, Math.min(17, 125 / Math.max(1, latestDisplayValue.length)))}cqi` : null;
   const sourceIds = new Set(indicator.allValues.map(value => value.source_id));
   const yearCount=new Set(indicator.values.map(value=>value.year)).size;
   return <>
@@ -38,7 +41,7 @@ export default async function IndicatorPage({params}) {
     <section className="stat-indicator-head"><div className="container">
       <ContextBackLink fallback={'/yemen-in-numbers/'+indicator.domain.slug} label={indicator.domain.name}/>
       <span className="eyebrow">{indicator.domain.section?.name} / مؤشر وطني</span>
-      <div className="stat-indicator-title"><div><h1>{indicator.name}</h1><p>{indicator.short_description || indicator.definition}</p></div>{latest ? <div className="stat-latest"><span>أحدث قيمة منشورة</span><strong dir="ltr">{formatNumber(latest.value, {maximumFractionDigits: 3})}</strong><b>{indicator.unit}</b><small>{formatYear(latest.year)}</small></div> : <div className="stat-latest stat-no-latest"><span>لا توجد قيمة منشورة</span></div>}</div>
+      <div className="stat-indicator-title"><div><h1>{indicator.name}</h1><p>{indicator.short_description || indicator.definition}</p></div>{latest ? <div className="stat-latest"><span>أحدث قيمة منشورة</span><strong dir="ltr" style={{'--stat-value-font': latestFontScale}}>{latestDisplayValue}</strong><b>{indicator.unit}</b><small>{formatYear(latest.year)}</small></div> : <div className="stat-latest stat-no-latest"><span>لا توجد قيمة منشورة</span></div>}</div>
       <IndicatorActions indicator={indicator}/>
       {indicator.updated_at && <p className="record-update">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
     </div></section>
