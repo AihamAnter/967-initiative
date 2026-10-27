@@ -49,6 +49,6 @@ export default function ReadingList() {
         <Link href={item.href}><span>{READING_KINDS[item.kind]}</span><h2>{item.title}</h2><span>افتح المحتوى <ArrowUpLeft size={15}/></span></Link>
         <button type="button" className="reading-remove" onClick={()=>remove(item)} aria-label={`إزالة ${item.title} من القائمة`}><X size={17} aria-hidden="true"/><span>إزالة</span></button>
       </li>;
-    })}</ul> : <div className="empty-state"><Bookmark size={36} aria-hidden="true"/><h2>مساحة لما تود العودة إليه.</h2><p>احفظ ملف شخصية أو شركة أو مهني، أو مؤشراً أو مناظرة أو عملاً أو عدداً من المجلة، لتعود إليه عندما يناسبك الوقت.</p><div className="reading-empty-actions"><Link className="btn btn-primary" href="/magazine">تصفّح المجلة <BookOpen size={17}/></Link><Link className="btn btn-outline" href="/yemen-map">اكتشف اليمن <Map size={17}/></Link></div></div>}
+    })}</ul> : <div className="empty-state"><Bookmark size={36} aria-hidden="true"/><h2>مساحة لما تود العودة إليه.</h2><p>احفظ ملف شخصية أو شركة أو مهني، أو مؤشراً أو مناظرة أو عملاً أو عدداً من المجلة، لتعود إليه عندما يناسبك الوقت.</p><div className="reading-empty-actions"><Link className="btn btn-primary" href="/magazine">تصفّح المجلة <BookOpen size={17}/></Link><Link className="btn btn-outline" href="/yemen-map">خريطة اليمن <Map size={17}/></Link></div></div>}
   </div>;
 }
