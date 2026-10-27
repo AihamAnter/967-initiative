@@ -63,7 +63,8 @@ export default function RegionInfoPanel({
       </div>
       {safeImageUrl(profile.image_url)&&profile.image_credit&&safeExternalUrl(profile.image_source_url)&&<figure className="ymap-region-photo"><Image unoptimized width={480} height={280} src={safeImageUrl(profile.image_url)} alt={'منظر من '+title} loading="lazy"/><figcaption>{profile.image_credit} <a href={safeExternalUrl(profile.image_source_url)} target="_blank" rel="noopener noreferrer">مصدر الصورة</a></figcaption></figure>}
 
-      {descriptiveFields.filter(([key])=>profile[key]).map(([key,label])=><section key={key}><h3>{label}</h3><p>{profile[key]}</p></section>)}
+      {isGovernorate&&<a className="text-link" href={"/yemen-map/governorates/"+encodeURIComponent(region.id)}>اقرأ الملف المعرفي الكامل لمحافظة {title}<ArrowUpLeft size={16} aria-hidden="true"/></a>}
+      {descriptiveFields.filter(([key])=>profile[key]).map(([key,label])=><section key={key}><h3>{label}</h3>{String(profile[key]).split(/\n\s*\n/).filter(Boolean).map((text,index)=><p key={index}>{text}</p>)}</section>)}
       {descriptiveFields.some(([key])=>!profile[key])&&<p className="ymap-profile-pending">قيد التوثيق: {descriptiveFields.filter(([key])=>!profile[key]).map(([,label])=>label).join('، ')}.</p>}
       {Array.isArray(profile.sources)&&profile.sources.length>0&&<section className="ymap-profile-sources"><h3>مصادر معلومات المكان</h3><ul>{profile.sources.filter(item=>safeExternalUrl(item.url)).map((item,index)=><li key={index}><a href={safeExternalUrl(item.url)} target="_blank" rel="noopener noreferrer">{item.title}<ArrowUpLeft size={13}/></a></li>)}</ul></section>}
 
