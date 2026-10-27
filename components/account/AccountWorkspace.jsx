@@ -113,7 +113,7 @@ export default function AccountWorkspace({initialTab='overview'}){
   </header>
   <div className={styles.shell}>
    <nav className={styles.sidebar} aria-label="أقسام الحساب">
-    {views.map(({id,label,icon:Icon})=><button key={id} type="button" aria-current={tab===id?'page':undefined} className={tab===id?styles.activeNav:styles.navItem} onClick={()=>go(id)}><Icon size={18}/><span>{label}</span>{id==='notifications'&&workspace.notifications.filter(x=>!x.read_at).length>0&&<b>{workspace.notifications.filter(x=>!x.read_at).length}</b>}</button>)}
+    {views.map(({id,label,icon:Icon})=><button key={id} type="button" aria-current={tab===id?'page':undefined} className={tab===id?styles.activeNav:styles.navItem} onClick={()=>go(id)}><Icon size={18}/><span>{label}</span>{id==='notifications'&&workspace.unread>0&&<b>{workspace.unread}</b>}</button>)}
     <div className={styles.sidebarFooter}><Link href="/debates"><ArrowUpLeft size={16}/> تصفّح المناظرات</Link><Link href="/help"><ArrowUpLeft size={16}/> مركز المساعدة</Link></div>
    </nav>
    <div className={styles.main}>
@@ -128,7 +128,7 @@ export default function AccountWorkspace({initialTab='overview'}){
       <div className={styles.statGrid}>{[
        {label:'المواد المحفوظة',n:workspace.saved.length,icon:BookmarkCheck,to:'saved'},
        {label:'مشاركاتي',n:totalParticipation,icon:MessageSquare,to:'contributions'},
-       {label:'الإشعارات الجديدة',n:workspace.notifications.filter(x=>!x.read_at).length,icon:Bell,to:'notifications'},
+       {label:'الإشعارات الجديدة',n:workspace.unread,icon:Bell,to:'notifications'},
       ].map(({label,n,icon:Icon,to})=><button className={styles.stat} key={label} onClick={()=>go(to)}><Icon size={21}/><strong>{n.toLocaleString('ar')}</strong><span>{label}</span><ChevronLeft size={15} className={styles.statArrow}/></button>)}</div>
       <div className={styles.columns}><section className={styles.panel}><div className={styles.panelTitle}><h3>آخر نشاطاتك</h3><button type="button" onClick={()=>go('activity')}>الكل <ArrowLeft size={15}/></button></div>{activity.length?activity.slice(0,4).map(x=><Link key={x.id} className={styles.feedItem} href={x.href}><span className={styles.feedDot}/><span><strong>{x.kind}</strong><small>{x.title}</small></span><time>{simpleTime(x.time)}</time></Link>):<Empty icon={Clock3} text="ستظهر مشاركاتك ومحفوظاتك الجديدة هنا."/>}</section><section className={styles.panel}><div className={styles.panelTitle}><h3>محفوظات للعودة إليها</h3><button type="button" onClick={()=>go('saved')}>عرض الكل <ArrowLeft size={15}/></button></div>{workspace.saved.length?workspace.saved.slice(0,4).map(x=><Link key={x.id} className={styles.feedItem} href={x.href}><BookOpen size={17}/><span><strong>{x.title}</strong><small>فتح المادة</small></span><ArrowUpLeft size={15}/></Link>):<Empty icon={BookmarkCheck} text="لم تحفظ محتوى بعد. استخدم زر «للقراءة لاحقاً» داخل صفحات الموقع."/>}</section></div>
      </>}
