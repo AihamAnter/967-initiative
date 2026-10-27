@@ -523,3 +523,10 @@
 .interior-page[data-area="magazine"] .reader-unavailable h2,
 .interior-page[data-area="magazine"] .reader-unavailable p { margin:0; max-width:55ch; }
 .interior-page[data-area="magazine"] .spotlight-actions { flex-wrap:wrap; }
+
+@media (max-width: 380px) {
+  /* Covers and issue titles are unreadably narrow in a two-column archive. */
+  .interior-page[data-area="magazine"] .issue-grid {
+    grid-template-columns:minmax(0,1fr);
+  }
+}
