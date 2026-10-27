@@ -34,6 +34,10 @@ export default function ContactForm({initialType='',initialReference=null,types=
    if(!initialType&&types.includes(draft.type))formRef.current.elements.namedItem('type').value=draft.type;
    setDraftStatus('استعدنا مسودتك في هذه التبويبة.');
   }catch{ /* A blocked session store does not prevent writing a message. */ }
+
+  // Restore only when the form mounts; choosing a type never replaces the fields.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[]);
   // Fill an empty contact form from the signed-in profile, without replacing
   // an existing draft or a deliberately changed contact email.
   useEffect(()=>{let active=true;const db=browserDb();if(!db)return;
@@ -47,9 +51,6 @@ export default function ContactForm({initialType='',initialReference=null,types=
    }).catch(()=>{});
    return()=>{active=false;};
   },[]);
-  // Restore only when the form mounts; choosing a type never replaces the fields.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
- },[]);
  useEffect(()=>{if(initialType){formRef.current.elements.namedItem('type').value=initialType;saveDraft();}},[initialType,saveDraft]);
  function changeType(event){
   const url=new URL(window.location.href);url.searchParams.set('type',event.target.value);
