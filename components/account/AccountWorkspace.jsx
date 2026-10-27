@@ -23,7 +23,7 @@ const views=[
 ];
 const statusLabels={...COMMENT_STATUSES,...QUESTION_STATUSES,...SUGGESTION_STATUSES};
 const simpleTime=date=>date?formatArabicDate(date):'';
-const emptyWorkspace={preferences:{bio:'',governorate:'',website:'',social_url:'',notify_replies:true,notify_moderation:true},saved:[],collections:[],notifications:[],unread:0};
+const emptyWorkspace={preferences:{bio:'',governorate:'',website:'',social_url:'',notify_replies:true,notify_moderation:true},saved:[],collections:[],notifications:[],unread:0,submissions:[],submissionTotal:0};
 const tabName=(id)=>views.find(x=>x.id===id)?.label||views[0].label;
 
 export default function AccountWorkspace({initialTab='overview'}){
@@ -60,15 +60,16 @@ export default function AccountWorkspace({initialTab='overview'}){
  };
  const request=(value)=>audienceRequest('/api/account/workspace',value);
  const totals=account?Object.fromEntries(['debate_comments','debate_questions','debate_suggestions','debate_votes'].map(k=>[k,account[k]?.total||0])):{};
- const totalParticipation=Object.values(totals).reduce((a,b)=>a+b,0);
+ const totalParticipation=Object.values(totals).reduce((a,b)=>a+b,0)+(workspace.submissionTotal||0);
  const profile=account?.profile;
  const activity=useMemo(()=>{
   if(!account)return [];
   const types=[['debate_comments','تعليق',MessageSquare],['debate_questions','سؤال',FileText],['debate_suggestions','مقترح مناظرة',HeartHandshake],['debate_votes','تصويت خاص',ShieldCheck]];
   const events=types.flatMap(([key,label])=>(account[key]?.items||[]).map(i=>({id:key+i.id,kind:label,title:i.debate_title||i.title||label,time:i.created_at,href:i.debate_slug?'/debates/'+i.debate_slug:'/account/activity',detail:key==='debate_votes'?'تصويت خاص لا يظهر للآخرين':(statusLabels[i.status]||'')})));
+  events.push(...(workspace.submissions||[]).map(i=>({id:'contribution'+i.id,kind:'مساهمة في تواصل وشارك',title:i.type,time:i.created_at,href:'/account?tab=contributions',detail:({new:'تم الاستلام',in_progress:'قيد المتابعة',resolved:'تمت المعالجة'})[i.status]||'قيد المراجعة'})));
   events.push(...workspace.saved.map(i=>({id:'save'+i.id,kind:'حفظ مادة',title:i.title,time:i.created_at,href:i.href,detail:'ضمن محفوظات حسابك'})));
   return events.sort((a,b)=>new Date(b.time)-new Date(a.time));
- },[account,workspace.saved]);
+ },[account,workspace.saved,workspace.submissions]);
  const saved=workspace.saved.filter(i=>filter==='all'||(filter.startsWith('group:')?i.collection_id===filter.slice(6):i.kind===filter));
  const kinds=[...new Set(workspace.saved.map(i=>i.kind))];
  async function saveProfile(e){e.preventDefault();if(!profileForm)return;
@@ -141,7 +142,13 @@ export default function AccountWorkspace({initialTab='overview'}){
       {workspace.collections.length?workspace.collections.map(g=><div className={styles.groupRow} key={g.id}><BookOpen size={20}/><div><strong>{g.name}</strong><small>{workspace.saved.filter(x=>x.collection_id===g.id).length} مادة</small></div><button type="button" className={styles.secondaryButton} disabled={busy} onClick={()=>{const next=window.prompt('اسم المجموعة الجديد',g.name);if(next!==null)run(()=>request({action:'collection_rename',id:g.id,name:next}));}}>تعديل الاسم</button><button type="button" className={styles.iconButton} disabled={busy} aria-label={'حذف مجموعة '+g.name} onClick={()=>{if(window.confirm('حذف المجموعة؟ ستبقى المواد محفوظة دون مجموعة.'))run(()=>request({action:'collection_delete',id:g.id}));}}><Trash2 size={17}/></button></div>):<Empty icon={FolderPlus} text="أنشئ أول مجموعة لتنظيم قراءاتك."/>}
      </section>}
      {tab==='notifications'&&<section className={styles.panel}><div className={styles.panelTitle}><h3>تحديثات تهمك</h3><button type="button" disabled={busy||!workspace.notifications.some(x=>!x.read_at)} onClick={()=>run(()=>request({action:'notification_read',id:null}))}>تحديد الكل كمقروء</button></div><p className={styles.hint}>تصلك هنا الردود على تعليقاتك وتحديثات مراجعة مشاركات المناظرات. لا تُرسل رسائل بريد تلقائياً من هذه الصفحة.</p>{workspace.notifications.length?workspace.notifications.map(n=><div key={n.id} className={n.read_at?styles.noticeRead:styles.noticeUnread}><Bell size={19}/><div><strong>{n.title}</strong><p>{n.description}</p><small>{simpleTime(n.created_at)}</small></div>{n.href&&<Link href={n.href}>فتح <ArrowUpLeft size={15}/></Link>}{!n.read_at&&<button type="button" disabled={busy} onClick={()=>run(()=>request({action:'notification_read',id:n.id}))}>تمت القراءة</button>}</div>):<Empty icon={Inbox} text="لا توجد إشعارات حتى الآن."/>}</section>}
-     {tab==='contributions'&&<section className={styles.panel}><h3>مشاركاتي في مناظرات 967</h3><p className={styles.hint}>يشمل هذا السجل تعليقاتك وأسئلتك ومقترحاتك وتصويتاتك الخاصة. رسائل «تواصل وشارك» القديمة غير مرتبطة حالياً بمعرّف حساب، فلا يمكن نسبتها إليك بأمان.</p>
+     {tab==='contributions'&&<section className={styles.panel}><h3>مساهماتي في الموقع</h3><p className={styles.hint}>مساهمات «تواصل وشارك» المرسلة حديثاً من حسابك، بالإضافة إلى مشاركات المناظرات. الرسائل القديمة أو المرسلة دون تسجيل دخول لا يمكن نسبتها إلى حساب بالاعتماد على البريد فقط.</p>
+      <div className={styles.contributionBlock}><h4>تواصل وشارك <span>{workspace.submissionTotal||0}</span></h4>
+      {(workspace.submissions||[]).length?workspace.submissions.map(item=><article className={styles.contribution} key={item.id}>
+       <strong>{item.type}</strong><p>{item.message}</p><div><small>{({new:'تم الاستلام',in_progress:'قيد المتابعة',resolved:'تمت المعالجة'})[item.status]||'قيد المراجعة'}</small><time>{simpleTime(item.created_at)}</time></div>
+      </article>):<p className={styles.hint}>لم ترسل مساهمة مرتبطة بحسابك بعد.</p>}
+      <Link className={styles.secondaryButton} href="/contribute">إرسال تصحيح أو اقتراح <ArrowUpLeft size={15}/></Link></div>
+      <h3>مشاركاتي في المناظرات</h3>
       {[
        ['debate_comments','تعليقاتي',COMMENT_STATUSES],
        ['debate_questions','أسئلتي',QUESTION_STATUSES],
