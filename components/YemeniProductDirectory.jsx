@@ -73,7 +73,7 @@ export default function YemeniProductDirectory({companies}) {
     {results.length ? <div className={'company-grid collection-results results-count-'+Math.min(results.length,3)}>{results.slice((currentPage-1)*12,currentPage*12).map(company =>
       <ContentSurface kind="product" className="saveable-card" key={company.id}><Link className="company-card" href={'/yemeni-products/' + company.id+'?from='+encodeURIComponent(returnTo)}>
         <div className="company-media">
-          {company.imageUrl ? <Image src={company.imageUrl || '/images/yemeni-products-hero.png'} alt={company.products.join('، ')} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" style={{objectPosition: company.imagePosition}}/> : <div className="company-placeholder"><Package size={42} strokeWidth={1}/></div>}
+          {company.imageUrl ? <><Image src={company.imageUrl} alt={company.imageUrl.includes('/wiki/Special:FilePath/') ? 'صورة توضيحية لفئة المنتجات، لا تمثل منتجات '+company.name : company.products.join('، ')} fill unoptimized={company.imageUrl.includes('/wiki/Special:FilePath/')} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" style={{objectPosition: company.imagePosition}}/>{company.imageUrl.includes('/wiki/Special:FilePath/')&&<span style={{position:'absolute',top:10,right:10,zIndex:2,color:'#fff',background:'rgba(16,25,38,.86)',padding:'4px 9px',borderRadius:6,fontSize:11,fontWeight:600}}>صورة توضيحية</span>}</> : <div className="company-placeholder"><Package size={42} strokeWidth={1}/></div>}
           {company.scale && <span>{company.scale}</span>}
         </div>
         <div className="company-main">
