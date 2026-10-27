@@ -22,7 +22,7 @@ function MedicalIdentity({name,maxSize}) {
   role="img"
   aria-label={'علامة تعريفية توضيحية لمنشأة '+name+'، ليست شعاراً رسمياً'}
   title="علامة تعريفية غير رسمية"
-  style={{position:'relative',display:'grid',placeItems:'center',width:side,height:side,minWidth:side,borderRadius:'22%',border:'1px solid '+ink+'22',background:tint,color:ink,fontWeight:800,fontSize:side*.35,letterSpacing:'-.04em',lineHeight:1,overflow:'hidden'}}
+  style={{position:'relative',display:'grid',placeItems:'center',width:'100%',height:'100%',maxWidth:side,maxHeight:side,minWidth:0,aspectRatio:'1 / 1',borderRadius:'22%',border:'1px solid '+ink+'22',background:tint,color:ink,fontWeight:800,fontSize:side*.35,letterSpacing:'-.04em',lineHeight:1,overflow:'hidden'}}
  ><span aria-hidden="true">{mark}</span><span aria-hidden="true" style={{position:'absolute',left:side*.1,bottom:side*.07,fontSize:side*.15,fontWeight:700,opacity:.55}}>+</span></span>;
 }
 
