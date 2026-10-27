@@ -57,6 +57,10 @@ export default function YemenDiscovery({showFigures=true, initialGovernorateId =
         />
       </div>
     </section>
+    <section className={'container '+styles.governorateCatalog} aria-label="ملفات محافظات اليمن">
+      <header><div><span className="eyebrow">اعرف المكان</span><h2>ملفات المحافظات الـ22</h2></div><p>اقرأ عن تاريخ المحافظة وطبيعتها واقتصادها ومعالمها في صفحة مستقلة، أو استكشف مديرياتها على الخريطة.</p></header>
+      <div className={styles.governorateGrid}>{yemenGovernorates.map(item=><a key={item.id} href={'/yemen-map/governorates/'+item.id}>{item.name}<ArrowUpLeft size={14} aria-hidden="true"/></a>)}</div>
+    </section>
     {showFigures&&<details className="figures-directory-shell" id="yemeni-figures" ref={directoryRef} open={directoryOpen} onToggle={event=>setDirectoryOpen(event.currentTarget.open)}><summary><span>شخصيات يمنية مرتبطة بالأماكن</span><span>افتح الدليل وابحث بالاسم أو المجال</span></summary>{directoryOpen&&(figures?<YemeniFiguresDirectory
       embedded
       figures={figures}
