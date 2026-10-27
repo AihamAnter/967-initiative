@@ -68,8 +68,8 @@ begin
   end if;
   if p_data is null or jsonb_typeof(p_data) <> 'object'
      or exists (
-       select 1 from jsonb_object_keys(p_data) as key
-       where key <> all(array['intro','why_it_matters','historical_context','limitations','source_notes','reference_links','reviewed_on','is_published'])
+       select 1 from jsonb_object_keys(p_data) as fields(field)
+       where fields.field <> all(array['intro','why_it_matters','historical_context','limitations','source_notes','reference_links','reviewed_on','is_published'])
      ) then
     raise exception 'Invalid editorial payload' using errcode = '22023';
   end if;
