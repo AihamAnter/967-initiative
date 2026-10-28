@@ -8,6 +8,8 @@ import {pageMetadata} from '@/lib/seo';
 import styles from './games.module.css';
 import {dailyGameUrl,utcDay} from '@/lib/dailyGame';
 
+// UTC daily game selection must be computed for each request, not at build time.
+export const dynamic='force-dynamic';
 export const metadata=pageMetadata({title:'ألعاب 967',description:'ألعاب معرفية تفاعلية عن تاريخ اليمن وجغرافيته وتراثه، مع أسئلة موثقة وتحديات يومية ونقاط.',path:'/games'});
 const games=[
  {id:'quiz',number:'01',title:'اختبر معرفتك باليمن',subtitle:'KNOWLEDGE QUEST',description:'10 أسئلة في كل جولة. إجابات سريعة، نقاط مكتسبة، ومعلومات جديدة تكتشفها مع كل سؤال.',href:'/games/quiz',icon:BookOpenCheck,active:true},
