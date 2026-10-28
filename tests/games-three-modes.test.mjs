@@ -88,8 +88,8 @@ test('Yemen map game uses all the existing governorate codes and real local atla
   assert.ok(yemenGovernorates.some(g=>g.id===task.regionId&&g.name===task.name));
  }
  const code=read('components/games/ArcadeBoards.jsx');
- assert.ok(code.includes('geometryToPath(region.geometry)'));
- assert.ok(code.includes('boundsToViewBox(data.country.bounds'));
+ assert.ok(code.includes('arcadeRegionPath(region.geometry,projection)'));
+ assert.ok(code.includes('arcadeMapProjection(data.country.bounds'));
  assert.ok(code.includes('onKeyDown'));
  assert.ok(code.includes('aria-label='));
 });
