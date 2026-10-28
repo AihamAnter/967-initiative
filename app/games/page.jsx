@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
-import {ArrowLeft,ArrowUpLeft,BookOpenCheck,CalendarDays,Gamepad2,MapPinned,Play,ScrollText,Shuffle,ShieldCheck,Sparkles,Trophy,Zap} from 'lucide-react';
+import {ArrowLeft,ArrowUpLeft,BookOpenCheck,CalendarDays,Gamepad2,MapPinned,Play,ScrollText,Shuffle,ShieldCheck,Sparkles,Trophy,Zap,UsersRound,Scale,Link2,SpellCheck,ScanSearch} from 'lucide-react';
 import ArcadeIntro from '@/components/games/ArcadeIntro';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
@@ -17,6 +17,13 @@ const games=[
  {id:'timeline',number:'03',title:'رتب التاريخ',subtitle:'TIME ATTACK',description:'ضع محطات تاريخ اليمن بالترتيب الصحيح.',href:'/games/timeline',icon:ScrollText,active:true},
  {id:'map',number:'04',title:'أين تقع؟',subtitle:'MAP CHALLENGE',description:'تحدَّ ذاكرتك الجغرافية على خريطة اليمن.',href:'/games/map',icon:Shuffle,active:true},
 ];
+const newGames=[
+ {id:'who',number:'05',title:'من أنا؟',english:'WHO AM I?',description:'تلميحات متدرجة عن شخصيات يمنية مشهورة.',icon:UsersRound,feature:'تعرّف على الشخصية'},
+ {id:'bigger',number:'06',title:'أيهما أكبر؟',english:'HIGHER OR LOWER',description:'قارن المحافظات والجبال في تحديات رقمية.',icon:Scale,feature:'قارن واختر'},
+ {id:'connect',number:'07',title:'اربط المعلومة',english:'MATCH QUEST',description:'ثلاث وصلات تجمع التاريخ بالثقافة والجغرافيا.',icon:Link2,feature:'صِل العلاقات'},
+ {id:'yemenword',number:'08',title:'خمن الإجابة اليمنية',english:'WORD QUEST',description:'رتّب الحروف لتكشف اسمًا أو مكانًا أو حدثًا يمنيًا.',icon:SpellCheck,feature:'ركّب الحروف'},
+ {id:'object',number:'09',title:'ما هذا الشيء؟',english:'OBJECT QUEST',description:'صور لمفردات وقطع ومواقع تراثية يمنية.',icon:ScanSearch,feature:'اكتشف الصورة'},
+];
 export default async function GamesPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
@@ -31,11 +38,11 @@ export default async function GamesPage(){
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
-    <div className={styles.sectionHeading}><div><span className={styles.sectionEyebrow}><span/> GAME SELECT / 01</span><h2 id="games-heading">اختر ساحة التحدي</h2><p>اختر بين أربع ألعاب حرة، وتحدٍ رسمي واحد يومياً لجميع اللاعبين مع 7 ثوانٍ لكل مهمة.</p></div><span className={styles.availableCount}><span/> أربع ألعاب متاحة الآن</span></div>
+    <div className={styles.sectionHeading}><div><span className={styles.sectionEyebrow}><span/> GAME SELECT / 01</span><h2 id="games-heading">اختر ساحة التحدي</h2><p>تسع ألعاب متنوعة؛ استكشف وجرّب بحرية، وشارك في تحدٍ رسمي واحد يوميًا مدته 7 ثوانٍ لكل مهمة.</p></div><span className={styles.availableCount}><span/> تسع ألعاب متاحة الآن</span></div>
     <div className={styles.gameGrid}>
      <Link href={featured.href} className={[styles.gameCard,styles.featuredCard].join(' ')}>
       <div className={styles.gameCardHalo} aria-hidden="true"/>
-      <div className={styles.cardTop}><span className={styles.serial}>{featured.number} <span>/ 04</span></span><span className={styles.liveState}><Zap size={14} fill="currentColor" aria-hidden="true"/> متاحة الآن</span></div>
+      <div className={styles.cardTop}><span className={styles.serial}>{featured.number} <span>/ 09</span></span><span className={styles.liveState}><Zap size={14} fill="currentColor" aria-hidden="true"/> متاحة الآن</span></div>
       <div className={styles.featureVisual} aria-hidden="true"><span className={styles.featureVisualRing}/><FeaturedIcon size={85} strokeWidth={1.25}/><span className={styles.featureXP}>+100 XP</span></div>
       <div className={styles.cardDetails}><span className={styles.cardEnglish}>{featured.subtitle}</span><h3>{featured.title}</h3><p>{featured.description}</p></div>
       <span className={styles.playNow}>العب الآن <ArrowUpLeft size={20} aria-hidden="true"/></span>
@@ -43,19 +50,35 @@ export default async function GamesPage(){
      {upcoming.map(game=>{
       const Icon=game.icon;
       return <Link href={game.href} className={[styles.gameCard,styles.upcomingCard,styles['game_'+game.id]||''].join(' ')} key={game.id}>
-       <div className={styles.cardTop}><span className={styles.serial}>{game.number} <span>/ 04</span></span><span className={styles.liveState}><Zap size={13} aria-hidden="true"/> العب الآن</span></div>
+       <div className={styles.cardTop}><span className={styles.serial}>{game.number} <span>/ 09</span></span><span className={styles.liveState}><Zap size={13} aria-hidden="true"/> العب الآن</span></div>
        <div className={styles.miniVisual} aria-hidden="true"><div className={styles.miniOrb}/><Icon size={59} strokeWidth={1.3}/></div>
        <div className={styles.cardDetails}><span className={styles.cardEnglish}>{game.subtitle}</span><h3>{game.title}</h3><p>{game.description}</p></div>
        <span className={styles.cardComing}>العب الآن <ArrowUpLeft size={17} aria-hidden="true"/></span>
       </Link>;
      })}
     </div>
+    <section className={styles.moreGames} aria-labelledby="new-games-heading">
+     <div className={styles.sectionHeading}><div>
+      <span className={styles.sectionEyebrow}><span/> NEW GAMES / 02</span>
+      <h2 id="new-games-heading">خمس مغامرات جديدة</h2>
+      <p>شخصيات مألوفة، مقارنات حقيقية، تحديات توصيل وأحرف، وصور من تراث اليمن.</p>
+     </div><span className={styles.availableCount}>متاحة الآن · 05</span></div>
+     <div className={styles.newGameGrid}>
+      {newGames.map(({id,number,title,english,description,icon:Icon,feature})=><Link href={'/games/'+id} key={id} className={[styles.newGameCard,styles['newGame_'+id]].join(' ')}>
+       <div className={styles.cardTop}><span className={styles.serial}>{number} <span>/ 09</span></span><span className={styles.liveState}><Zap size={12}/> العب الآن</span></div>
+       <span className={styles.newGameIcon}><Icon size={32} strokeWidth={1.65}/></span>
+       <span className={styles.cardEnglish}>{english}</span>
+       <h3>{title}</h3><p>{description}</p>
+       <span className={styles.newPlay}>{feature} <ArrowUpLeft size={17}/></span>
+      </Link>)}
+     </div>
+    </section>
     <Link href={dailyUrl} className={styles.dailyStrip}>
      <span className={styles.dailyEmblem}><Trophy size={31} strokeWidth={1.7} aria-hidden="true"/></span>
      <span className={styles.dailyText}><span className={styles.dailyEyebrow}>DAILY CHALLENGE / كل يوم فرصة جديدة</span><strong>هل تستطيع التفوق على نتيجتك أمس؟</strong><small>لعبة واحدة موحدة للجميع كل يوم · محاولة واحدة لكل حساب · 7 ثوانٍ لكل مهمة.</small></span>
      <span className={styles.dailyAction}>العب تحدي اليوم <ArrowUpLeft size={20} aria-hidden="true"/></span>
     </Link>
-    <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب الأربع</small></span><ArrowUpLeft size={20}/></Link>
+    <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب التسع</small></span><ArrowUpLeft size={20}/></Link>
     <div className={styles.infoRow}>
      <span><Gamepad2 size={19} aria-hidden="true"/> بدون تسجيل</span>
      <span><ShieldCheck size={19} aria-hidden="true"/> نتائج الجولات الحرة محلية والتحديات الرسمية موثقة</span>

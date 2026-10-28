@@ -3,13 +3,14 @@ import {ArrowLeft,Gamepad2,Hexagon,Orbit,Play,ScanLine,Sparkles} from 'lucide-re
 import styles from '@/app/games/games.module.css';
 
 export default function ArcadeIntro({compact=false,title='ألعاب 967',description,children}){
+ const actualTitle=compact&&title==='ألعاب 967'?'اختبر معرفتك باليمن':title;
  return <header className={compact?[styles.hero,styles.heroCompact].join(' '):styles.hero}>
   <div className={styles.sky} aria-hidden="true"><span/><span/><span/></div>
   <div className={styles.heroInner}>
    <div className={styles.heroCopy}>
-    <nav className={styles.crumbs} aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><ArrowLeft size={13} aria-hidden="true"/>{compact?<><Link href="/games">ألعاب 967</Link><ArrowLeft size={13} aria-hidden="true"/><span aria-current="page">اختبر معرفتك</span></>:<span aria-current="page">ألعاب 967</span>}</nav>
+    <nav className={styles.crumbs} aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><ArrowLeft size={13} aria-hidden="true"/>{compact?<><Link href="/games">ألعاب 967</Link><ArrowLeft size={13} aria-hidden="true"/><span aria-current="page">{actualTitle}</span></>:<span aria-current="page">ألعاب 967</span>}</nav>
     <span className={styles.overline}><span className={styles.onlineDot}/><Gamepad2 size={17} aria-hidden="true"/> <span dir="ltr">967 / ARCADE</span> <span className={styles.overlineSeparator} aria-hidden="true">—</span> المعرفة بشكل مختلف</span>
-    <h1 className={styles.heroTitle}>{compact?'اختبر معرفتك باليمن':title}<em>{compact?'العب. اكتشف. وتحدَّ نفسك.':'جاهز للتحدي؟'}</em></h1>
+    <h1 className={styles.heroTitle}>{actualTitle}<em>{compact?'العب. اكتشف. وتحدَّ نفسك.':'جاهز للتحدي؟'}</em></h1>
     <p className={styles.heroDescription}>{description}</p>
     {children&&<div className={styles.heroActions}>{children}</div>}
     {!compact&&<div className={styles.heroFacts}><span><Play size={13} aria-hidden="true"/> اللعب مجاني</span><span><Sparkles size={14} aria-hidden="true"/> معلومات موثقة</span><span><ScanLine size={14} aria-hidden="true"/> تحديات تتجدد</span></div>}

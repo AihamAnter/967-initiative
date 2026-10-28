@@ -190,3 +190,21 @@
 .leaderboardStrip{display:flex;align-items:center;gap:16px;padding:23px 25px;margin-top:18px;border-radius:16px;border:1px solid #4a7991;background:linear-gradient(110deg,#123b3e,#161c3e);color:#b6ffda;transition:border-color .2s}
 .leaderboardStrip:hover{border-color:#a8ffcc}.leaderboardStrip span{display:grid;gap:5px;flex:1}.leaderboardStrip strong{color:#fff;font-size:18px}.leaderboardStrip small{color:#bacbe3;font-size:12px;line-height:1.7}
 @media(max-width:540px){.leaderboardStrip{padding:18px}.leaderboardStrip strong{font-size:16px}}
+
+/* New 967 arcade modes: retain the original four cards while giving the five fresh modes their own grid. */
+.moreGames{margin-top:62px}
+.newGameGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.newGameCard{position:relative;display:flex;flex-direction:column;min-height:275px;padding:22px;border-radius:17px;border:1px solid #3c4e6e;background:linear-gradient(145deg,#18263b,#11192e);color:#f0f6ff;transition:border-color .2s,transform .2s;overflow:hidden}
+.newGameCard::after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;inset-inline-end:-80px;top:15px;background:radial-gradient(circle,#7bcbbb19,transparent 65%);pointer-events:none}
+.newGameCard:hover{border-color:#99ffd1;transform:translateY(-3px)}
+.newGameIcon{width:62px;height:62px;display:grid;place-items:center;border:1px solid #619d9e;border-radius:16px;background:#1a4947;color:#b7ffdd;margin:16px 0}
+.newGameCard .cardEnglish{font-size:10px;color:#95d8f5;letter-spacing:.09em}
+.newGameCard h3{font-size:23px;margin:7px 0;color:#fff}.newGameCard p{font-size:12px;color:#bbcbda;line-height:1.8;flex:1;margin:0 0 19px}
+.newPlay{display:flex;align-items:center;justify-content:space-between;color:#b3ffd5;font-weight:800;font-size:12px;border-top:1px solid #3f5364;padding-top:14px}
+.newGame_bigger{background:linear-gradient(145deg,#212039,#131d33)}.newGame_bigger .newGameIcon{color:#c5b4ff;background:#322a59;border-color:#8a79bd}
+.newGame_connect .newGameIcon{color:#c7e1ff;background:#1c3757;border-color:#597caa}
+.newGame_yemenword .newGameIcon{color:#ffdda6;background:#423023;border-color:#96754a}
+.newGame_object .newGameIcon{color:#fac4c4;background:#472c3e;border-color:#aa6a91}
+@media(max-width:950px){.newGameGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.moreGames{margin-top:40px}.newGameGrid{grid-template-columns:1fr;gap:12px}.newGameCard{min-height:210px;padding:19px}.newGameIcon{width:52px;height:52px;margin:12px 0}.newGameCard h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.newGameCard:hover{transform:none}}
