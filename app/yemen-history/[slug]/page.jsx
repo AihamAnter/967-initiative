@@ -11,6 +11,7 @@ import {breadcrumbSchema,JsonLd} from '@/lib/seo-schema';
 import CorrectionLink from '@/components/CorrectionLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import HistoryEditAction from '@/components/history/HistoryEditAction';
+import HistoryMedia from '@/components/history/HistoryMedia';
 import styles from '../HistoryPage.module.css';
 
 export const dynamic='force-dynamic';
@@ -45,7 +46,9 @@ export default async function YemenHistoryDetail({params}){
     <ContentReadingAction kind="history" href={historyEntryPath(item.slug)} title={item.title}/>
     <HistoryEditAction slug={item.slug}/>
     {item.certainty&&<p className={styles.warning}><ScrollText size={17}/> درجة التوثيق: {item.certainty}. يُرجى مراجعة المصادر قبل نقل التواريخ أو الاستنتاجات.</p>}
-    {item.paragraphs.map((p,i)=><p key={i}>{p}</p>)}
+    {item.paragraphs.slice(0,1).map((p,i)=><p key={i}>{p}</p>)}
+    <HistoryMedia entry={item}/>
+    {item.paragraphs.slice(1).map((p,i)=><p key={i}>{p}</p>)}
     {item.governorate&&<aside className={styles.geoNote}><h2>استكشف المكان المعاصر</h2><p>الارتباط الجغرافي هنا يشير إلى محافظة معاصرة، وليس إلى حدود الدولة التاريخية أو مجال نفوذها.</p><Link href={'/yemen-map?region='+encodeURIComponent(item.governorate)+'#map'}>افتح الموقع على خريطة اليمن <MapPinned size={16}/></Link></aside>}
     {item.figureQuery&&sectionIsVisible('figures',settings.pageVisibility)&&<p className={styles.figureLink}>تابع السيرة في <Link href={'/yemeni-figures?figureQ='+encodeURIComponent(item.figureQuery)}>شخصيات يمنية <ArrowUpLeft size={16}/></Link></p>}
     <section className={styles.references} aria-labelledby="references-heading"><h2 id="references-heading">المصادر والمراجع</h2><p>المراجع تساعد على التحقق والاستزادة؛ وقد تتناول فترة تاريخية أوسع من هذا المدخل. التفاصيل المختلف عليها تحتاج إلى مصادر متخصصة.</p><ol>{item.sources.map((source,i)=><li key={i}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}<ExternalLink size={15}/></a></li>)}</ol></section>
