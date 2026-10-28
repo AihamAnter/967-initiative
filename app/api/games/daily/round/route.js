@@ -11,12 +11,12 @@ export async function POST(request){
   if(!isSameOrigin(request))throw new RequestValidationError('طلب غير مسموح.',403);
   const db=serverDb();
   if(!db)throw new RequestValidationError('خدمة النتائج غير متاحة.',503);
-  const token=request.headers.get('authorization')?.match(/^Bearer\\s+([^\\s]{1,8000})$/i)?.[1];
+  const token=request.headers.get('authorization')?.match(/^Bearer\s+([^\s]{1,8000})$/i)?.[1];
   if(!token)throw new RequestValidationError('سجّل الدخول أولاً.',401);
   const {data:{user},error:authError}=await db.auth.getUser(token);
   if(authError||!user||!user.email_confirmed_at||user.is_anonymous)throw new RequestValidationError('حساب غير مصرح به.',401);
   const body=await readJsonObject(request,1200);
-  if(!['answer','next','ready'].includes(body.action)||!/^\\d{4}-\\d{2}-\\d{2}$/.test(body.date)||!Number.isInteger(body.step)||body.step<0||body.step>=10)throw new RequestValidationError('بيانات الجولة غير صالحة.');
+  if(!['answer','next','ready'].includes(body.action)||!/^\d{4}-\d{2}-\d{2}$/.test(body.date)||!Number.isInteger(body.step)||body.step<0||body.step>=10)throw new RequestValidationError('بيانات الجولة غير صالحة.');
   const {data:attempt,error:readError}=await db.from('game_daily_attempts').select('*')
    .eq('user_id',user.id).eq('challenge_date',body.date).maybeSingle();
   if(readError)throw new RequestValidationError('تعذر قراءة المحاولة.',503);

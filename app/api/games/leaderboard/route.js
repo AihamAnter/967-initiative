@@ -72,7 +72,7 @@ export async function GET(request){
    return {...e,rank,name,awards:awards(e.rows)};
   });
   let viewer=null;
-  const token=request.headers.get('authorization')?.match(/^Bearer\\s+([^\\s]{1,8000})$/i)?.[1];
+  const token=request.headers.get('authorization')?.match(/^Bearer\s+([^\s]{1,8000})$/i)?.[1];
   if(token){
    const {data}=await db.auth.getUser(token);
    if(data?.user)viewer=ordered.find(x=>x.id===data.user.id)||null;
