@@ -39,7 +39,7 @@ test('daily attempt API requires verified authenticated player and never uses un
  assert.ok(code.includes('const date=utcDay()'));
  assert.ok(code.includes('const game=dailyGameForDate(date)'));
  assert.ok(code.includes('body.date!==date||body.game!==game'));
- assert.ok(code.includes(".insert({user_id:user.id,challenge_date:date,game_type:game})"));
+ assert.ok(code.includes(".insert({user_id:user.id,challenge_date:date,game_type:game,question_bank:questionBank"));
  assert.ok(code.includes("error?.code==='23505'"));
  assert.ok(code.includes("return respond({error:'استخدمت محاولتك اليوم"));
  assert.ok(!code.includes('body.points'));
