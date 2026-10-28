@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
+import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Gamepad2, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
 import YemeniMotif from '@/components/design/YemeniMotif';
 import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
@@ -61,6 +61,7 @@ export default async function Home() {
     </section>
 
     <HomeKnowledge items={knowledgeLinks}/>
+    {visible('games')&&<section className={styles.homeGames} aria-label="ألعاب 967"><div className="container"><div className={styles.homeGamesContent}><span className={styles.homeGamesIcon}><Gamepad2 size={29} aria-hidden="true"/></span><div><span>ألعاب 967</span><h2>هل تعرف اليمن كما تظن؟</h2><p>تحديات معرفية قصيرة في التاريخ والجغرافيا والتراث، مع شرح ومصدر لكل إجابة.</p></div><NextLink href="/games" className={styles.homeGamesLink}>جرّب الألعاب <ArrowUpLeft size={18} aria-hidden="true"/></NextLink></div></div></section>}
 
     <section className={styles.discovery} aria-labelledby="explore-title"><div className="container">
       <div className={styles.smallHeading}><h2 id="explore-title">فضولك، يحدد البداية.</h2><Link href="/search">ابحث في كل المنصة <ArrowLeft size={16} aria-hidden="true"/></Link></div>
