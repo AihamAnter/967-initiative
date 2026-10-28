@@ -21,8 +21,9 @@ function awards(rows){
  }
  const perfect=rows.some(x=>x.correct===10);
  const count=rows.length;
+ const mapRounds=rows.filter(x=>x.type==='map').length;
  return {played:count,streak,perfect,
-  badges:[...(perfect?['علامة كاملة']:[]),...(streak>=7?['7 أيام متتالية']:[]),...(count>=30?['30 تحديًا']:[]),...(count>=100?['100 تحدٍ']:[])]};
+  badges:[...(perfect?['علامة كاملة']:[]),...(streak>=7?['7 أيام متتالية']:[]),...(mapRounds>=20?['مستكشف اليمن']:[]),...(count>=30?['30 تحديًا']:[]),...(count>=100?['المخضرم · 100 تحدٍ']:[])]};
 }
 export async function GET(request){
  try{
@@ -49,7 +50,7 @@ export async function GET(request){
    const key=entry.user_id;
    const p=groups.get(key)||{id:key,score:0,correct:0,played:0,latest:entry.finished_at,rows:[]};
    p.score+=entry.score;p.correct+=entry.correct_count;p.played++;
-   p.rows.push({date:entry.challenge_date,correct:entry.correct_count});
+   p.rows.push({date:entry.challenge_date,correct:entry.correct_count,type:entry.game_type});
    groups.set(key,p);
   }
   const ids=[...groups.keys()];
@@ -69,7 +70,10 @@ export async function GET(request){
    if(e.score!==previous){rank=index+1;previous=e.score;}
    const profile=profiles.get(e.id);
    const name=(profile?.display_name||'').trim().slice(0,40)||('لاعب 967 · '+stableHash(e.id).toString(36).slice(0,5));
-   return {...e,rank,name,awards:awards(e.rows)};
+   const badges=awards(e.rows);
+   if(rank===1&&period==='daily')badges.badges.unshift('ملك اليوم');
+   if(rank===1&&period==='weekly')badges.badges.unshift('بطل الأسبوع');
+   return {...e,rank,name,awards:badges};
   });
   let viewer=null;
   const token=request.headers.get('authorization')?.match(/^Bearer\s+([^\s]{1,8000})$/i)?.[1];

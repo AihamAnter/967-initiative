@@ -136,7 +136,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <h3>{gameLevels(stats.correct)}</h3>
      <div className={styles.stats}><div><strong>{stats.plays}</strong><span>جولة مكتملة</span></div><div><strong>{stats.correct}</strong><span>إجابة صحيحة</span></div><div><strong>{stats.best}</strong><span>أفضل نقاط</span></div></div>
      <p>تظهر الإحصاءات على هذا المتصفح فقط، ولا تتم مزامنتها مع حسابك.</p>
-     {stats.dailyDate===date&&<span className={styles.dailyBest}>أفضل نتيجة في تحدي اليوم: {stats.dailyBest} نقطة</span>}
+     {stats.dailyDate===date&&<span className={styles.dailyBest}>أفضل نتيجة محلية لهذا اليوم (غير موثقة): {stats.dailyBest} نقطة</span>}
     </aside>
    </div>}
    {!!round.length&&!result&&<div className={styles.play}>
