@@ -3,9 +3,11 @@ import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Comp
 import SearchForm from '@/components/SearchForm';
 import YemeniMotif from '@/components/design/YemeniMotif';
 import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
+import HomeKnowledge from '@/components/home/HomeKnowledge';
 import {getIssues, getWorks, getStatIndicators, getYemeniCompanies, getProfessionals, getSiteSettings} from '@/lib/data';
 import {getDebateCatalog} from '@/lib/debateServer';
 import {selectHomeContent,homeProjections} from '@/lib/homeContent';
+import {visibleHomeKnowledge} from '@/lib/homeKnowledge';
 import {pageIsVisible,sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
 import styles from './home.module.css';
@@ -39,6 +41,7 @@ export default async function Home() {
   const extraIssues = visible('magazine') ? content.moreIssues : [];
   const moreContent = extraWorks.length > 0 || extraIssues.length > 0;
   const hasVisibleDirectories = visible('products') || visible('professionals');
+  const knowledgeLinks=visibleHomeKnowledge(settings.pageVisibility,settings.contentPages||[]);
 
   return <div className={`home-page ${styles.page}`}>
     <section className={styles.hero} aria-labelledby="home-title">
@@ -56,6 +59,8 @@ export default async function Home() {
         </div></>}
       </div>
     </section>
+
+    <HomeKnowledge items={knowledgeLinks}/>
 
     <section className={styles.discovery} aria-labelledby="explore-title"><div className="container">
       <div className={styles.smallHeading}><h2 id="explore-title">فضولك، يحدد البداية.</h2><Link href="/search">ابحث في كل المنصة <ArrowLeft size={16} aria-hidden="true"/></Link></div>
