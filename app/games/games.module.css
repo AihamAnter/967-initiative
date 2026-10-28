@@ -115,6 +115,10 @@
 .game_map .miniVisual{color:var(--arc-orange)}
 .cardComing{position:relative;z-index:1;font-size:11px;letter-spacing:.01em;color:#aebbd1;margin-top:6px}
 .cardComing span{color:#a6ffcf}
+.upcomingCard:hover{transform:translateY(-4px);border-color:#9cdfff;box-shadow:0 15px 45px #2b83dd25}
+.upcomingCard .cardComing{color:#a3ffd0;display:inline-flex;align-items:center;gap:8px;font-weight:700}
+.upcomingCard .miniVisual{opacity:1}
+@media(prefers-reduced-motion:reduce){.upcomingCard:hover{transform:none}}
 .dailyStrip{margin-top:28px;min-height:148px;display:flex;align-items:center;gap:22px;padding:26px 29px;border-radius:17px;border:1px solid #624d8e;background:radial-gradient(ellipse at 92% 0%,#634eac58,transparent 70%),linear-gradient(115deg,#1f1a41,#15132e);transition:border-color .2s,transform .2s}
 .dailyEmblem{width:76px;height:76px;display:grid;place-items:center;flex-shrink:0;border-radius:20px;color:#e1baff;border:1px solid #a87ad063;background:#6b4c9c31;box-shadow:0 0 28px #995dec38}
 .dailyText{display:flex;flex-direction:column;gap:6px;flex:1}
