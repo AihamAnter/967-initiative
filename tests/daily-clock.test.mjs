@@ -50,7 +50,7 @@ test('live UTC countdown has public no-store server clock and every daily setup 
  assert.ok(component.includes('dailyGameUrl(currentDate)'));
  assert.ok(component.includes('dateTime={nextAt}'));
  assert.ok(component.includes('role="timer"'));
- assert.ok(hub.includes('<DailyCountdown initialDate={date}/>'));
+ assert.ok(hub.includes('<GamesHomeStatus initialDate={date}/>'));
  assert.ok(styles.includes('@media(max-width:520px)'));
  assert.ok(notice.includes('const countdown=<DailyCountdown initialDate={date} variant="compact"/>'));
  for(const path of ['components/games/QuizGame.jsx','components/games/ArcadeChallenge.jsx','components/games/ExtraArcadeChallenge.jsx']){
