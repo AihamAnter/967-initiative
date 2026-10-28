@@ -37,7 +37,7 @@ export default async function GamesPage(){
      </Link>
      {upcoming.map(game=>{
       const Icon=game.icon;
-      return <article className={[styles.gameCard,styles.upcomingCard,styles['game_'+game.id]].join(' ')} key={game.id}>
+      return <article className={[styles.gameCard,styles.upcomingCard,styles['game_'+game.id]||''].join(' ')} key={game.id}>
        <div className={styles.cardTop}><span className={styles.serial}>{game.number} <span>/ 04</span></span><span className={styles.lockedState}><Clock3 size={13} aria-hidden="true"/> قريباً</span></div>
        <div className={styles.miniVisual} aria-hidden="true"><div className={styles.miniOrb}/><Icon size={59} strokeWidth={1.3}/></div>
        <div className={styles.cardDetails}><span className={styles.cardEnglish}>{game.subtitle}</span><h3>{game.title}</h3><p>{game.description}</p></div>
