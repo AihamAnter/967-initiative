@@ -3,11 +3,13 @@ import {useCallback,useEffect,useState} from 'react';
 import {BookOpenCheck,ExternalLink,Plus,RefreshCcw,Save,Trash2} from 'lucide-react';
 import {quizCategories,difficultyLabels} from '@/lib/gameQuestions';
 import styles from './GamesAdminPanel.module.css';
+import useAdminEditor from './admin/useAdminEditor';
 
 function newQuestion(){return {id:'custom-'+Date.now().toString(36),question:'',options:['','','',''],correct:0,category:'history',difficulty:1,explanation:'',source:{title:'',url:''},isPublished:false};}
 export default function GamesAdminPanel({db,canDelete=false}){
  const [questions,setQuestions]=useState([]),[revision,setRevision]=useState(null),[form,setForm]=useState(null),[saved,setSaved]=useState(''),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[filter,setFilter]=useState('');
- const dirty=form&&JSON.stringify(form)!==saved;
+ const editor=useAdminEditor({db,kind:'page',id:form?.id?'game-'+form.id:null,value:form,onRestore:setForm});
+ const dirty=editor.dirty;
  const api=useCallback(async(method='GET',body)=>{
   const {data:{session}}=await db.auth.getSession();
   if(!session?.access_token)throw Error('سجّل الدخول مجدداً.');
@@ -16,16 +18,16 @@ export default function GamesAdminPanel({db,canDelete=false}){
   if(!response.ok)throw Error(data.error||'تعذر تحميل الأسئلة.');
   return data;
  },[db]);
- const select=q=>{setForm(structuredClone(q));setSaved(JSON.stringify(q));setNotice('');};
- const checkLeave=()=>!dirty||window.confirm('لديك تغييرات غير محفوظة. هل تريد تجاهلها؟');
+ const select=q=>{setForm(structuredClone(q));setSaved(JSON.stringify(q));setNotice('');editor.markClean(q);};
+ const checkLeave=()=>editor.confirm();
  const load=useCallback(async()=>{
   setLoading(true);
-  try{const data=await api();setQuestions(data.questions);setRevision(data.revision);const next=data.questions[0]||newQuestion();setForm(structuredClone(next));setSaved(JSON.stringify(next));setNotice('');}
+  try{const data=await api();setQuestions(data.questions);setRevision(data.revision);const next=data.questions[0]||newQuestion();setForm(structuredClone(next));setSaved(JSON.stringify(next));editor.markClean(next);setNotice('');}
   catch(error){setNotice('خطأ: '+error.message);}
   finally{setLoading(false);}
- },[api]);
+ },[api,editor.markClean]);
  useEffect(()=>{load();},[load]);
- useEffect(()=>{const f=e=>{if(dirty){e.preventDefault();e.returnValue='';}};window.addEventListener('beforeunload',f);return()=>window.removeEventListener('beforeunload',f);},[dirty]);
+
  const patch=(key,value)=>setForm(previous=>({...previous,[key]:value}));
  const choose=q=>{if(checkLeave())select(q);};
  async function save(e){
@@ -34,7 +36,7 @@ export default function GamesAdminPanel({db,canDelete=false}){
   try{
    const data=await api('PUT',{revision,question:form});
    setQuestions(data.questions);setRevision(data.revision);
-   const next=data.questions.find(q=>q.id===form.id);select(next);
+   const next=data.questions.find(q=>q.id===form.id);select(next);await editor.clearDraft();
    setNotice('تم حفظ السؤال. تحديات الزوار الجديدة ستستخدم النسخة المنشورة.');
   }catch(error){setNotice('خطأ: '+error.message);}finally{setBusy(false);}
  }
@@ -66,7 +68,7 @@ export default function GamesAdminPanel({db,canDelete=false}){
      <div className={styles.pair}><label className={styles.field}>عنوان المصدر<input required maxLength={200} value={form.source?.title||''} onChange={e=>patch('source',{...form.source,title:e.target.value})}/></label><label className={styles.field}>رابط المصدر (HTTPS)<input type="url" dir="ltr" required pattern="https://.*" value={form.source?.url||''} onChange={e=>patch('source',{...form.source,url:e.target.value})}/></label></div>
      <label className={styles.publish}><input type="checkbox" checked={form.isPublished} onChange={e=>patch('isPublished',e.target.checked)}/> نشر السؤال للزوار</label>
     </fieldset>
-    <div className={styles.actions}><button className="btn btn-red" disabled={busy} type="submit"><Save size={16}/> حفظ السؤال</button>{canDelete&&form.id.startsWith('custom-')&&questions.some(q=>q.id===form.id)&&<button type="button" className="btn btn-outline" onClick={remove} disabled={busy}><Trash2 size={16}/> حذف</button>}{form.source.url&&<a href={form.source.url} rel="noopener noreferrer" target="_blank">فتح المصدر <ExternalLink size={15}/></a>}{dirty&&<span className={styles.dirty}>تعديلات غير محفوظة</span>}</div>
+    <div className={styles.actions}><button className="btn btn-red" disabled={busy} type="submit"><Save size={16}/> حفظ السؤال</button>{canDelete&&form.id.startsWith('custom-')&&questions.some(q=>q.id===form.id)&&<button type="button" className="btn btn-outline" onClick={remove} disabled={busy}><Trash2 size={16}/> حذف</button>}{form.source.url&&<a href={form.source.url} rel="noopener noreferrer" target="_blank">فتح المصدر <ExternalLink size={15}/></a>}{dirty&&<span className={styles.dirty}>تعديلات غير محفوظة</span>}{editor.draft&&<button className="btn btn-outline" type="button" onClick={editor.restoreDraft}>استعادة مسودة</button>}</div>
    </form>}
   </div>}
  </section>;
