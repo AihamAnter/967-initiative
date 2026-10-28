@@ -37,8 +37,8 @@
 .undo{display:inline-flex;align-items:center;gap:7px;padding:12px 0;color:#cbdaff;font-size:13px;font-weight:600;background:transparent}
 .correctOrder{display:grid;gap:8px;margin-top:15px;padding:16px;border:1px solid #4f8d7a;border-radius:9px;background:#163a35}.correctOrder span{font-size:13px;color:#d6f7e7}.correctOrder b{color:#a6ffce}
 .mapSurface{width:100%;background:radial-gradient(ellipse at center,#183347,#11172b);border:1px solid #3f5474;border-radius:15px;overflow:hidden;padding:8px;position:relative}
-.mapSurface svg{width:100%;height:clamp(280px,43vw,510px);touch-action:manipulation}
-.region{fill:#364b68;stroke:#89a5c7;stroke-width:.02;vector-effect:non-scaling-stroke;stroke-width:1.1;transition:fill .12s;cursor:pointer}
+.mapSurface svg{width:100%;height:clamp(280px,43vw,510px);touch-action:manipulation;display:block}
+.region{fill:#364b68;stroke:#89a5c7;stroke-width:1.2;vector-effect:non-scaling-stroke;transition:fill .12s;cursor:pointer}
 .region:hover,.region:focus-visible{fill:#a98dff;outline:none;stroke:#fff;stroke-width:2.3}
 .region.correctRegion{fill:#5cd89c!important;stroke:#d5ffe7;stroke-width:2.2}
 .region.wrongRegion{fill:#ff777b!important}
