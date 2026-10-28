@@ -4,10 +4,13 @@ import {readFileSync} from 'node:fs';
 import {utcDay,dailyGameForDate,dailyGameUrl,nextUtcMidnight,DAILY_GAME_ORDER} from '../lib/dailyGame.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 
-test('one globally shared official game per UTC date, rotating through four challenges',()=>{
- assert.deepEqual(DAILY_GAME_ORDER,['quiz','place','timeline','map']);
+test('one globally shared official game per UTC date, rotating through nine challenges without altering archived dates',()=>{
+ assert.deepEqual(DAILY_GAME_ORDER,['quiz','place','timeline','map','who','bigger','connect','yemenword','object']);
+ assert.equal(dailyGameForDate('2026-10-28'),['quiz','place','timeline','map'][(Math.floor(Date.parse('2026-10-28T00:00:00Z')/86400000)%4+4)%4]);
  const days=['2026-10-28','2026-10-29','2026-10-30','2026-10-31'];
- assert.deepEqual(new Set(days.map(dailyGameForDate)),new Set(DAILY_GAME_ORDER));
+ assert.equal(new Set(days.map(dailyGameForDate)).size,4);
+ const expanded=Array.from({length:9},(_,i)=>new Date(Date.parse('2026-10-30T00:00:00Z')+i*86400000).toISOString().slice(0,10));
+ assert.deepEqual(new Set(expanded.map(dailyGameForDate)),new Set(DAILY_GAME_ORDER));
  for(const date of days){
   assert.equal(dailyGameForDate(date),dailyGameForDate(date));
   assert.equal(dailyGameUrl(date),'/games/'+dailyGameForDate(date)+'?mode=daily');
@@ -54,14 +57,14 @@ test('all game clients claim the attempt only once before starting daily rounds'
  assert.ok(lock.includes("kind:'used'"));
  assert.ok(lock.includes("href=\"/login\""));
  assert.ok(lock.includes("تُستهلك المحاولة حتى لو أغلقت الصفحة"));
- for(const path of ['components/games/QuizGame.jsx','components/games/ArcadeChallenge.jsx']){
+ for(const path of ['components/games/QuizGame.jsx','components/games/ArcadeChallenge.jsx','components/games/ExtraArcadeChallenge.jsx']){
   const code=read(path);
   assert.ok(code.includes('useDailyAttempt('),path);
   assert.ok(code.includes('<DailyAttemptNotice'),path);
   assert.ok(code.includes('await daily.reserve()'),path);
   assert.ok(code.includes('if(!granted)return'),path);
  }
- for(const [route,game] of [['app/games/quiz/page.jsx','quiz'],['app/games/place/page.jsx','place'],['app/games/timeline/page.jsx','timeline'],['app/games/map/page.jsx','map']]){
+ for(const [route,game] of [['app/games/quiz/page.jsx','quiz'],['app/games/place/page.jsx','place'],['app/games/timeline/page.jsx','timeline'],['app/games/map/page.jsx','map'],...['who','bigger','connect','yemenword','object'].map(id=>['app/games/'+id+'/page.jsx',id])]){
   const code=read(route);
   assert.ok(code.includes("redirect(dailyGameUrl(date))"));
   assert.ok(code.includes("dailyGameForDate(date)!=='"+game+"'"));
