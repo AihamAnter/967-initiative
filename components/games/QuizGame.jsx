@@ -22,6 +22,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const [starting,setStarting]=useState(false);
  const [verifying,setVerifying]=useState(false),[verified,setVerified]=useState(false);
  const [clockReady,setClockReady]=useState(false),[readyPending,setReadyPending]=useState(false);
+ const [serverStartedAt,setServerStartedAt]=useState(null),[officialVerdict,setOfficialVerdict]=useState(null);
  const [syncError,setSyncError]=useState(''),[officialResult,setOfficialResult]=useState(null);
  const [officialRaw,setOfficialRaw]=useState(0);
  const daily=useDailyAttempt(mode,'quiz',date);
@@ -34,7 +35,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const canStart=(mode==='daily'?questions.length>=1:filtered.length>=1)&&daily.canStart;
  const current=round[step];
  const duration=roundDuration(mode,seconds);
- const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,active:round.length>0&&!result&&picked===null&&!verifying&&(mode!=='daily'||clockReady),onExpire:()=>choose(-1,true)});
+ const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,startTime:mode==='daily'?serverStartedAt:null,active:round.length>0&&!result&&picked===null&&!verifying&&(mode!=='daily'||clockReady),onExpire:()=>choose(-1,true)});
  useEffect(()=>{if(round.length&&!result)questionTitleRef.current?.focus({preventScroll:true});},[step,round.length,result]);
  useEffect(()=>{
   if(mode==='daily'&&round.length&&picked===null&&!result&&!clockReady&&!readyPending&&!syncError)markReady();
@@ -42,7 +43,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  async function markReady(){
   if(!round[step])return;
   setReadyPending(true);setSyncError('');
-  try{await daily.progress('ready',step,round[step].id,null);setClockReady(true);}
+  try{const status=await daily.progress('ready',step,round[step].id,null);setServerStartedAt(status.startedAt);setClockReady(true);}
   catch(error){setSyncError(error.message||'تعذر بدء مؤقت السؤال.');}
   finally{setReadyPending(false);}
  }
@@ -56,13 +57,14 @@ export default function QuizGame({questions,date,initialMode='practice'}){
    setStarting(false);
    if(!granted)return;
   }
-  setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');setVerified(false);setSyncError('');setOfficialResult(null);setOfficialRaw(0);setClockReady(false);
+  setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');setVerified(false);setSyncError('');setOfficialResult(null);setOfficialRaw(0);setClockReady(false);setServerStartedAt(null);setOfficialVerdict(null);
  }
  async function verifyAnswer(index,questionId,atStep){
   setVerifying(true);setSyncError('');
   try{
    const response=await daily.progress('answer',atStep,questionId,index===-1?null:index);
    setOfficialRaw(previous=>previous+response.points);
+   setOfficialVerdict(response.correct);
    if(response.finished)setOfficialResult({score:response.score,correct:response.correctCount});
    setVerified(true);
   }catch(error){setSyncError(error.message||'تعذر اعتماد الإجابة.');}
@@ -70,7 +72,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  }
  function choose(index,timedOut=false){
   if(picked!==null||verifying||!current||(!timedOut&&!timer.claim()))return;
-  setPicked(index);setAnswers(previous=>[...previous,index]);
+  setPicked(index);setAnswers(previous=>[...previous,index]);setOfficialVerdict(null);
   setVerified(mode!=='daily');
   if(mode==='daily')verifyAnswer(index,current.id,step);
  }
@@ -81,7 +83,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     setVerifying(true);setSyncError('');
     try{await daily.progress('next',step,current.id,null);}
     catch(error){setSyncError(error.message||'تعذر بدء السؤال التالي.');setVerifying(false);return;}
-    setVerifying(false);setVerified(false);setClockReady(false);
+    setVerifying(false);setVerified(false);setClockReady(false);setServerStartedAt(null);setOfficialVerdict(null);
    }
    setStep(v=>v+1);setPicked(null);return;
   }
@@ -96,7 +98,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify(after));}catch{/* Browser storage is optional. */}
   setStats(after);
  }
- function switchMode(nextMode){setMode(nextMode);setRound([]);setResult(null);setPicked(null);setAnswers([]);setShareNote('');setSyncError('');setVerified(false);setOfficialResult(null);setOfficialRaw(0);setClockReady(false);}
+ function switchMode(nextMode){setMode(nextMode);setRound([]);setResult(null);setPicked(null);setAnswers([]);setShareNote('');setSyncError('');setVerified(false);setOfficialResult(null);setOfficialRaw(0);setClockReady(false);setServerStartedAt(null);setOfficialVerdict(null);}
  async function share(){
   const title='تحدي ألعاب 967';
   const shareText='حققت '+result.correct+' من '+round.length+' في اختبار معرفتي باليمن! هل تتفوق على نتيجتي؟';
@@ -155,6 +157,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     {picked!==null&&<div className={styles.explanation} role="status">
      <strong>{picked===-1?'انتهى الوقت!':picked===current.correct?'إجابة صحيحة!':'إجابة غير صحيحة'}{picked===current.correct?' أحسنت.':''}</strong>
      {picked!==current.correct&&<p>الإجابة الصحيحة: <b>{current.options[current.correct]}</b></p>}
+     {mode==='daily'&&verified&&picked===current.correct&&officialVerdict===false&&<p role="alert">إجابتك صحيحة، لكنها وصلت بعد انتهاء المهلة الرسمية، فلم تُحتسب في الترتيب.</p>}
      <p>{current.explanation}</p>
      <a href={current.source.url} target="_blank" rel="noopener noreferrer">المصدر: {current.source.title} <ArrowLeft size={14}/></a>
     </div>}

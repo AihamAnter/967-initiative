@@ -4,15 +4,16 @@ import {millisecondsRemaining} from '@/lib/gameClock';
 
 // Monotonic clock: background tabs or throttled intervals cannot grant extra seconds.
 // claim() synchronously locks the current question and freezes the clock on submission.
-export default function useQuestionTimer({seconds,token,active,onExpire}){
+export default function useQuestionTimer({seconds,token,active,onExpire,startTime=null}){
  const [remaining,setRemaining]=useState(seconds*1000);
  const deadline=useRef(null),locked=useRef(true),expireCallback=useRef(onExpire);
  expireCallback.current=onExpire;
  useEffect(()=>{
   if(!active){locked.current=true;deadline.current=null;return;}
   locked.current=false;
-  deadline.current=performance.now()+seconds*1000;
-  setRemaining(seconds*1000);
+  const initial=startTime?Math.max(0,seconds*1000-Math.max(0,Date.now()-Date.parse(startTime))):seconds*1000;
+  deadline.current=performance.now()+initial;
+  setRemaining(initial);
   const tick=()=>{
    if(locked.current||deadline.current===null)return;
    const ms=millisecondsRemaining(deadline.current,performance.now());
@@ -24,7 +25,7 @@ export default function useQuestionTimer({seconds,token,active,onExpire}){
   };
   const interval=setInterval(tick,50);
   return ()=>{clearInterval(interval);locked.current=true;deadline.current=null;};
- },[active,token,seconds]);
+ },[active,token,seconds,startTime]);
  function claim(){
   if(locked.current||deadline.current===null)return false;
   const ms=millisecondsRemaining(deadline.current,performance.now());

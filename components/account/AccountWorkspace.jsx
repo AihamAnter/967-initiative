@@ -6,6 +6,7 @@ import Image from 'next/image';
 import {Activity,ArrowLeft,ArrowUpLeft,Bell,BookOpen,BookmarkCheck,CheckCircle2,ChevronLeft,Download,FolderPlus,Inbox,LockKeyhole,MessageSquare,Plus,RefreshCw,Settings2,Trophy,Trash2,Upload,UserRound,UsersRound,X} from 'lucide-react';
 import useAudience,{audienceRequest} from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
+import MyGameRank from '@/components/games/MyGameRank';
 import useReadingList,{removeReadingItem} from '@/components/reading/useReadingList';
 import {COMMENT_STATUSES,QUESTION_STATUSES,SUGGESTION_STATUSES} from '@/lib/debates';
 import {formatArabicDate} from '@/lib/format';
@@ -121,6 +122,7 @@ export default function AccountWorkspace({initialTab='overview'}){
        {label:'مشاركاتي',n:totalParticipation,icon:MessageSquare,to:'contributions'},
        {label:'الإشعارات الجديدة',n:workspace.unread,icon:Bell,to:'notifications'},
       ].map(({label,n,icon:Icon,to})=><button className={styles.stat} key={label} onClick={()=>go(to)}><Icon size={21}/><strong>{n.toLocaleString('ar')}</strong><span>{label}</span><ChevronLeft size={15} className={styles.statArrow}/></button>)}</div>
+      <MyGameRank/>
       <section className={styles.panel}><div className={styles.panelTitle}><h3>محفوظات للعودة إليها</h3><button type="button" onClick={()=>go('saved')}>عرض الكل <ArrowLeft size={15}/></button></div>{workspace.saved.length?workspace.saved.slice(0,4).map(x=><Link key={x.id} className={styles.feedItem} href={x.href}><BookOpen size={17}/><span><strong>{x.title}</strong><small>فتح المادة</small></span><ArrowUpLeft size={15}/></Link>):<Empty icon={BookmarkCheck} text="لم تحفظ محتوى بعد. استخدم زر «للقراءة لاحقاً» داخل صفحات الموقع."/>}</section>
      </>}
      {tab==='saved'&&<section className={styles.panel}><div className={styles.panelTitle}><h3>مكتبتي الخاصة</h3><span className={styles.count}>{workspace.saved.length} / 100</span></div><p className={styles.hint}>محفوظات حسابك متاحة من أجهزتك بعد تسجيل الدخول. محفوظات المتصفح القديمة لا تُنقل دون موافقتك.</p>

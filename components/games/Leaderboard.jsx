@@ -63,7 +63,7 @@ export default function Leaderboard(){
     </div>
     <div className={styles.rankTable}>
      <div className={styles.tableHead}><span>الترتيب</span><span>اللاعب</span><span>التحديات</span><span>النقاط</span></div>
-     {leaders.map(player=><button type="button" onClick={()=>setSelected(player)} key={player.rank+'-'+player.name+'-'+player.score} className={[styles.rankRow,player.isMe?styles.myRow:''].join(' ')}>
+     {leaders.slice(3).map((player,index)=><button type="button" onClick={()=>setSelected(player)} key={index} className={[styles.rankRow,player.isMe?styles.myRow:''].join(' ')}>
       <strong>#{format(player.rank)}</strong>
       <span className={styles.rowPlayer}><PlayerFace name={player.name}/><span>{player.name}{player.isMe&&<b className={styles.meLabel}>أنت</b>}</span></span>
       <span>{format(player.played)}</span>

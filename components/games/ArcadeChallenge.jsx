@@ -22,6 +22,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  const [starting,setStarting]=useState(false);
  const [verifying,setVerifying]=useState(false),[verified,setVerified]=useState(false);
  const [clockReady,setClockReady]=useState(false),[readyPending,setReadyPending]=useState(false);
+ const [serverStartedAt,setServerStartedAt]=useState(null);
  const [syncError,setSyncError]=useState(''),[officialResult,setOfficialResult]=useState(null);
  const daily=useDailyAttempt(mode,game,date);
  const [tasks,setTasks]=useState([]),[runId,setRunId]=useState(0),[index,setIndex]=useState(0);
@@ -42,7 +43,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  const task=tasks[index];
  const duration=roundDuration(mode,seconds);
  const isActive=tasks.length>0&&!finished&&answer===null&&ready&&!verifying&&(mode!=='daily'||clockReady);
- const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active:isActive,onExpire:()=>submitAnswer(null,true)});
+ const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active:isActive,startTime:mode==='daily'?serverStartedAt:null,onExpire:()=>submitAnswer(null,true)});
  useEffect(()=>{if(tasks.length&&!finished)titleRef.current?.focus({preventScroll:true});},[index,finished,tasks.length]);
  useEffect(()=>{
   if(mode==='daily'&&task&&ready&&!finished&&!answer&&!clockReady&&!readyPending&&!syncError)markReady();
@@ -50,7 +51,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  async function markReady(){
   if(mode!=='daily'||!tasks[index])return;
   setReadyPending(true);setSyncError('');
-  try{await daily.progress('ready',index,tasks[index].id,null);setClockReady(true);}
+  try{const status=await daily.progress('ready',index,tasks[index].id,null);setServerStartedAt(status.startedAt);setClockReady(true);}
   catch(error){setSyncError(error.message||'تعذر بدء مؤقت السؤال.');}
   finally{setReadyPending(false);}
  }
@@ -67,7 +68,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   answerLocked.current=false;
   setRunId(x=>x+1);setTasks(tasksNow);setIndex(0);setRecords([]);setAnswer(null);
   setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
-  setFinished(false);setShareStatus('');setVerified(false);setSyncError('');setOfficialResult(null);setClockReady(false);
+  setFinished(false);setShareStatus('');setVerified(false);setSyncError('');setOfficialResult(null);setClockReady(false);setServerStartedAt(null);
  }
  async function verifyAnswer(value,taskId,step){
   setVerifying(true);setSyncError('');
@@ -103,7 +104,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
     catch(error){setSyncError(error.message||'تعذر الانتقال إلى المهمة التالية.');setVerifying(false);return;}
     setVerifying(false);
    }
-   answerLocked.current=false;setVerified(false);setClockReady(false);
+   answerLocked.current=false;setVerified(false);setClockReady(false);setServerStartedAt(null);
    setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
    setAnswer(null);setIndex(i=>i+1);
   }else{
@@ -113,7 +114,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    setStats(updated);setFinished(true);
   }
  }
- function reset(){setTasks([]);setIndex(0);setRecords([]);setAnswer(null);setFinished(false);answerLocked.current=false;setShareStatus('');setSyncError('');setVerified(false);setOfficialResult(null);setClockReady(false);}
+ function reset(){setTasks([]);setIndex(0);setRecords([]);setAnswer(null);setFinished(false);answerLocked.current=false;setShareStatus('');setSyncError('');setVerified(false);setOfficialResult(null);setClockReady(false);setServerStartedAt(null);}
  async function share(){
   const total=records.reduce((sum,r)=>sum+r.points,0);
   const url=location.origin+'/games/'+game+(mode==='daily'?'?mode=daily':'');
