@@ -97,8 +97,8 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    <span className={styles.kicker}><Target size={17}/> GAME SETUP / إعداد التحدي</span>
    <h2>اختر سرعتك. وانطلق.</h2><p>{gameTypes[game].description} كل جولة تحتوي على عشر مهام، وبعد اختيار الإجابة يتوقف الوقت حتى تضغط «التالي».</p>
    <div className={styles.modes} role="group" aria-label="نوع الجولة">
-    <button type="button" aria-pressed={mode==='practice'} onClick={()=>setMode('practice')}>جولة حرة</button>
-    <button type="button" aria-pressed={mode==='daily'} onClick={()=>setMode('daily')}><Flame size={17}/> تحدي اليوم</button>
+    <button type="button" aria-pressed={mode==='practice'} onClick={()=>setMode('practice')} disabled={starting}>جولة حرة</button>
+    <button type="button" aria-pressed={mode==='daily'} onClick={()=>setMode('daily')} disabled={starting}><Flame size={17}/> تحدي اليوم</button>
    </div>
    <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
    <DailyAttemptNotice daily={daily} mode={mode}/>
