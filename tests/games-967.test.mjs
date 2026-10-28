@@ -81,7 +81,7 @@ test('Games navigation and actual playable UI plus authenticated editorial contr
  assert.ok(read('components/Header.jsx').includes("['/games', 'ألعاب 967']"));
  assert.ok(read('components/Footer.jsx').includes('href="/games"'));
  assert.ok(read('app/page.jsx').includes("visible('games')"));
- assert.ok(read('app/games/page.jsx').includes('href="/games/quiz?mode=daily"'));
+ assert.ok(read('app/games/page.jsx').includes('href={dailyUrl}'));
  assert.ok(read('app/games/quiz/page.jsx').includes('<QuizGame'));
  const game=read('components/games/QuizGame.jsx');
  assert.ok(game.includes('onClick={()=>choose(index)}'));
