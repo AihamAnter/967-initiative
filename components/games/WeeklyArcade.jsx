@@ -9,7 +9,7 @@ import styles from './WeeklyArcade.module.css';
 
 const iconMap={calendar:CalendarDays,target:Target,puzzle:Puzzle,zap:Zap};
 const fmt=value=>Number(value||0).toLocaleString('ar');
-const dateLabel=value=>value?new Intl.DateTimeFormat('ar',{day:'numeric',month:'long'}).format(new Date(value)):'';
+const dateLabel=value=>value?new Intl.DateTimeFormat('ar',{day:'numeric',month:'long',timeZone:'UTC'}).format(new Date(value)):'';
 const empty={kind:'loading',data:null};
 const requestHeaders=token=>token?{Authorization:'Bearer '+token}:{};
 

@@ -125,7 +125,7 @@ test('Games 967 shows three weekly leaders from the existing official weekly lea
  assert.ok(panel.includes("fetch('/api/games/leaderboard?period=weekly'"));
  assert.ok(panel.includes("fetch('/api/games/weekly'"));
  assert.ok(panel.includes('data?.top?.slice(0,3)'));
- assert.ok(panel.includes("db.auth.onAuthStateChange"));
+ assert.ok(panel.includes("auth.onAuthStateChange"));
  assert.ok(panel.includes('setInterval(checkWeek,30_000)'));
  assert.ok(panel.includes('aria-valuenow={hasProgress?progress:undefined}'));
  assert.ok(css.includes('@media(max-width:630px)'));
