@@ -240,7 +240,7 @@
 .tileIconFrame{position:relative;display:grid;place-items:center;width:92px;height:92px;border:1px solid var(--tile-line);border-radius:23px;color:var(--tile-accent);background:radial-gradient(ellipse at 30% 22%,var(--tile-soft),#172037 85%);box-shadow:0 12px 26px #030b1980,0 0 28px var(--tile-glow);transform:rotate(-6deg);transition:transform .3s ease,box-shadow .3s ease}
 .selectTile:hover .tileIconFrame{transform:rotate(0deg) scale(1.07);box-shadow:0 16px 32px #030b1980,0 0 45px var(--tile-glow)}
 .selectTile:hover .tileOrbitOuter{transform:translate(-50%,-50%) rotate(25deg);opacity:.93}
-.tileXP{position:absolute;bottom:13px;left:14px;display:inline-flex;align-items:center;gap:4px;border:1px solid var(--tile-line);background:#10182ce8;color:var(--tile-accent);font:800 11px/1.1 inherit;border-radius:7px;padding:6px 8px;direction:ltr}
+.tileXP{position:absolute;bottom:13px;left:14px;display:inline-flex;align-items:center;gap:4px;border:1px solid var(--tile-line);background:#10182ce8;color:var(--tile-accent);font-weight:800;font-size:11px;line-height:1.1;border-radius:7px;padding:6px 8px;direction:ltr}
 .tileContent{display:flex;flex-direction:column;flex:1;min-height:115px}
 .tileMeta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px 11px;margin-bottom:6px}
 .tileCategory{font-size:10px;font-weight:800;border-radius:6px;background:var(--tile-soft);color:var(--tile-accent);padding:5px 8px}
