@@ -6,6 +6,7 @@ import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
 import styles from './games.module.css';
+import {dailyGameUrl,utcDay} from '@/lib/dailyGame';
 
 export const metadata=pageMetadata({title:'ألعاب 967',description:'ألعاب معرفية تفاعلية عن تاريخ اليمن وجغرافيته وتراثه، مع أسئلة موثقة وتحديات يومية ونقاط.',path:'/games'});
 const games=[
@@ -18,15 +19,16 @@ export default async function GamesPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
  const [featured,...upcoming]=games;
+ const dailyUrl=dailyGameUrl(utcDay());
  const FeaturedIcon=featured.icon;
  return <main className={styles.root}>
   <ArcadeIntro description="التاريخ والجغرافيا والثقافة، ولكن بروح المنافسة. اختر تحديك، اجمع النقاط واكتشف اليمن بطريقة لم تجربها من قبل.">
    <Link className={styles.heroPrimary} href="/games/quiz"><Play size={19} fill="currentColor" aria-hidden="true"/> ابدأ اللعب الآن <ArrowLeft size={18} aria-hidden="true"/></Link>
-   <Link className={styles.heroSecondary} href="/games/quiz?mode=daily"><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
+   <Link className={styles.heroSecondary} href={dailyUrl}><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
-    <div className={styles.sectionHeading}><div><span className={styles.sectionEyebrow}><span/> GAME SELECT / 01</span><h2 id="games-heading">اختر ساحة التحدي</h2><p>اختر بين أربع ألعاب متاحة، ولكل لعبة تحدٍ يومي مدته 7 ثوانٍ لكل مهمة.</p></div><span className={styles.availableCount}><span/> أربع ألعاب متاحة الآن</span></div>
+    <div className={styles.sectionHeading}><div><span className={styles.sectionEyebrow}><span/> GAME SELECT / 01</span><h2 id="games-heading">اختر ساحة التحدي</h2><p>اختر بين أربع ألعاب حرة، وتحدٍ رسمي واحد يومياً لجميع اللاعبين مع 7 ثوانٍ لكل مهمة.</p></div><span className={styles.availableCount}><span/> أربع ألعاب متاحة الآن</span></div>
     <div className={styles.gameGrid}>
      <Link href={featured.href} className={[styles.gameCard,styles.featuredCard].join(' ')}>
       <div className={styles.gameCardHalo} aria-hidden="true"/>
@@ -45,9 +47,9 @@ export default async function GamesPage(){
       </Link>;
      })}
     </div>
-    <Link href="/games/quiz?mode=daily" className={styles.dailyStrip}>
+    <Link href={dailyUrl} className={styles.dailyStrip}>
      <span className={styles.dailyEmblem}><Trophy size={31} strokeWidth={1.7} aria-hidden="true"/></span>
-     <span className={styles.dailyText}><span className={styles.dailyEyebrow}>DAILY CHALLENGE / كل يوم فرصة جديدة</span><strong>هل تستطيع التفوق على نتيجتك أمس؟</strong><small>10 مهام ثابتة بتوقيت UTC · 7 ثوانٍ لكل مهمة في التحدي اليومي.</small></span>
+     <span className={styles.dailyText}><span className={styles.dailyEyebrow}>DAILY CHALLENGE / كل يوم فرصة جديدة</span><strong>هل تستطيع التفوق على نتيجتك أمس؟</strong><small>لعبة واحدة موحدة للجميع كل يوم · محاولة واحدة لكل حساب · 7 ثوانٍ لكل مهمة.</small></span>
      <span className={styles.dailyAction}>العب تحدي اليوم <ArrowUpLeft size={20} aria-hidden="true"/></span>
     </Link>
     <div className={styles.infoRow}>
