@@ -8,6 +8,7 @@ import {roundDuration} from '@/lib/gameClock';
 import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
 import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
+import {readPracticeSeen,rememberPracticeTasks} from '@/lib/practiceRotation';
 
 const STORAGE_KEY='967-games-progress-v1';
 const emptyStats={plays:0,correct:0,points:0,best:0,dailyDate:'',dailyBest:0};
@@ -49,8 +50,9 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  }
  async function start(){
   const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
-  const list=buildQuizRound(questions,{mode,category:mode==='daily'?'all':category,difficulty:mode==='daily'?'all':difficulty,seed});
+  const list=buildQuizRound(questions,{mode,category:mode==='daily'?'all':category,difficulty:mode==='daily'?'all':difficulty,seed,seen:mode==='daily'?[]:readPracticeSeen('quiz')});
   if(!list.length||starting)return;
+  if(mode==='practice')rememberPracticeTasks('quiz',list.map(task=>task.id));
   if(mode==='daily'){
    setStarting(true);
    const granted=await daily.reserve();

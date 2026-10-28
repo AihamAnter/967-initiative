@@ -10,6 +10,7 @@ import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
 import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
 import {PlaceBoard,TimelineBoard,MapBoard} from './ArcadeBoards';
+import {readPracticeSeen,rememberPracticeTasks} from '@/lib/practiceRotation';
 import styles from './ArcadeChallenge.module.css';
 
 const builders={place:buildPlaceChallenges,timeline:buildTimelineChallenges,map:buildMapChallenges};
@@ -57,8 +58,9 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  }
  async function start(){
   const seed=mode==='daily'?dailySeed(date):'free-'+Date.now()+'-'+Math.random();
-  const tasksNow=builders[game]({mode,date,seed});
+  const tasksNow=builders[game]({mode,date,seed,seen:mode==='daily'?[]:readPracticeSeen(game)});
   if(!tasksNow.length||starting)return;
+  if(mode==='practice')rememberPracticeTasks(game,tasksNow.map(task=>task.id));
   if(mode==='daily'){
    setStarting(true);
    const granted=await daily.reserve();

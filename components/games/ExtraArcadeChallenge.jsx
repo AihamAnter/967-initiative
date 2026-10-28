@@ -9,6 +9,7 @@ import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
 import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
 import {ExtraBoard} from './ExtraBoards';
+import {readPracticeSeen,rememberPracticeTasks} from '@/lib/practiceRotation';
 import styles from './ArcadeChallenge.module.css';
 import extra from './ExtraArcade.module.css';
 
@@ -69,8 +70,9 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
  async function start(){
   if(starting)return;
   const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
-  const list=extraGameBuilders[game]({mode,date,seed});
+  const list=extraGameBuilders[game]({mode,date,seed,seen:mode==='daily'?[]:readPracticeSeen(game)});
   if(list.length!==10)return;
+  if(mode==='practice')rememberPracticeTasks(game,list.map(task=>task.id));
   if(mode==='daily'){
    setStarting(true);
    const granted=await daily.reserve();
