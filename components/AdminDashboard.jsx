@@ -24,6 +24,7 @@ import StatisticsAdminPanel from '@/components/StatisticsAdminPanel';
 import RankingAdminPanel from '@/components/RankingAdminPanel';
 import YemeniFiguresAdminPanel from '@/components/YemeniFiguresAdminPanel';
 import HistoryAdminPanel from '@/components/HistoryAdminPanel';
+import GamesAdminPanel from '@/components/GamesAdminPanel';
 import AdminUsersPanel from '@/components/AdminUsersPanel';
 import SiteSettingsPanel from '@/components/SiteSettingsPanel';
 import ContentPagesAdminPanel from '@/components/ContentPagesAdminPanel';
@@ -110,7 +111,7 @@ export default function AdminDashboard({initialTab='issues',initialItem='',initi
  if(!user.user_metadata?.full_name)return <div className="admin-login"><AlertTriangle size={32}/><h1>أكمل بيانات حسابك</h1><p>أدخل اسمك ليظهر في حسابك ولوحة التحرير.</p><ValidatedForm onSubmit={saveAccountName}><FormLabel>الاسم الكامل<FormInput required minLength="2" autoComplete="name" value={fullName} onChange={e=>setFullName(e.target.value)}/></FormLabel><button disabled={busy} className="btn btn-red">{busy?'جارٍ الحفظ...':'حفظ الاسم'}</button></ValidatedForm>{notice&&<p className={'feedback '+(notice.startsWith('خطأ')?'error':'success')} role="status">{notice}</p>}<button className="btn btn-outline" onClick={()=>protection.requestLeave(()=>db.auth.signOut())}>تسجيل الخروج</button></div>;
  if(!allowed)return <div className="admin-login"><AlertTriangle size={32}/><h1>مرحباً، {fullName}</h1><p>هذا حساب مستخدم عادي ولا يملك صلاحية دخول لوحة التحرير. تُمنح صلاحيات الأدمن والإدارة من إدارة الموقع.</p><button className="btn btn-outline" onClick={()=>protection.requestLeave(()=>db.auth.signOut())}>تسجيل الخروج</button></div>;
  const isManagement=role==='management';
- const tabs=[{id:'issues',name:'المجلة',icon:Newspaper},{id:'works',name:'الأعمال',icon:Clapperboard},{id:'companies',name:'منتجات يمنية',icon:Factory},{id:'professionals',name:'مهنيون',icon:UsersRound},{id:'universities',name:'الجامعات والمعاهد',icon:GraduationCap},{id:'medicalCenters',name:'المراكز الطبية',icon:Stethoscope},{id:'figures',name:'شخصيات يمنية',icon:Landmark},{id:'history',name:'تاريخ اليمن',icon:Landmark},{id:'statistics',name:'إدارة الإحصائيات',icon:ChartNoAxesCombined},{id:'rankings',name:'ترتيب اليمن',icon:ChartNoAxesCombined},{id:'map',name:'الخريطة',icon:Landmark},{id:'pages',name:'صفحات الموقع',icon:Landmark},{id:'settings',name:'الإعدادات',icon:Settings},{id:'messages',name:'الرسائل',icon:Inbox},...(isManagement?[{id:'admins',name:'إدارة الأدمن',icon:ShieldCheck}]:[])];
+ const tabs=[{id:'issues',name:'المجلة',icon:Newspaper},{id:'works',name:'الأعمال',icon:Clapperboard},{id:'companies',name:'منتجات يمنية',icon:Factory},{id:'professionals',name:'مهنيون',icon:UsersRound},{id:'universities',name:'الجامعات والمعاهد',icon:GraduationCap},{id:'medicalCenters',name:'المراكز الطبية',icon:Stethoscope},{id:'figures',name:'شخصيات يمنية',icon:Landmark},{id:'history',name:'تاريخ اليمن',icon:Landmark},{id:'games',name:'ألعاب 967',icon:Landmark},{id:'statistics',name:'إدارة الإحصائيات',icon:ChartNoAxesCombined},{id:'rankings',name:'ترتيب اليمن',icon:ChartNoAxesCombined},{id:'map',name:'الخريطة',icon:Landmark},{id:'pages',name:'صفحات الموقع',icon:Landmark},{id:'settings',name:'الإعدادات',icon:Settings},{id:'messages',name:'الرسائل',icon:Inbox},...(isManagement?[{id:'admins',name:'إدارة الأدمن',icon:ShieldCheck}]:[])];
  return <><div className="admin-heading"><div><span className="eyebrow">967 / CONTROL PANEL</span><h1>لوحة التحرير</h1><p>مرحباً، {fullName}. <span className={'admin-role-badge '+(isManagement?'management':'')}>{isManagement?'إدارة':'أدمن تحرير'}</span></p></div><button className="btn btn-outline" onClick={()=>protection.requestLeave(()=>db.auth.signOut())}>تسجيل الخروج <LogOut size={16}/></button></div>
  <TaskSummary db={db}/>
  <div className="admin-workspace"><AdminNavigation tabs={tabs} tab={tab} onChange={changeTab} onRefresh={()=>{load();setPanelVersion(value=>value+1);}}/><div className="admin-workspace-main" key={panelVersion}>
@@ -123,6 +124,7 @@ export default function AdminDashboard({initialTab='issues',initialItem='',initi
  {tab==='medicalCenters'&&<InstitutionAdminPanel db={db} kind="medical" canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='figures'&&<YemeniFiguresAdminPanel db={db} canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='history'&&<HistoryAdminPanel db={db} canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
+  {tab==='games'&&<GamesAdminPanel db={db} canDelete={isManagement}/>}
  {tab==='statistics'&&<StatisticsAdminPanel db={db} canDelete={isManagement} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='rankings'&&<RankingAdminPanel db={db} initialItem={tab===initialTab?initialItem:''}/>}
  {tab==='map'&&<MapAdminPanel db={db} initialItem={tab===initialTab?initialItem:''} initialRegion={initialRegion}/>}
