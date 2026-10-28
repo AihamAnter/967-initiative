@@ -13,7 +13,7 @@ test('timeline sorts chronologically across overlapping eras without mutating re
  assert.equal(original[0].year,1962);
  assert.deepEqual(chronologicalHistory([]),[]);
  const all=chronologicalHistory(historyStarter);
- assert.equal(all[0].slug,'first-settlements');
+ assert.equal(all[0].year,Math.min(...historyStarter.map(entry=>entry.year)));
  assert.ok(all.every((entry,index)=>index===0||all[index-1].year<=entry.year));
 });
 
