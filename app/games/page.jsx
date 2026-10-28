@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
-import {ArrowUpLeft,BookOpenCheck,CalendarDays,Clock3,Gamepad2,MapPinned,Medal,Shuffle,ScrollText} from 'lucide-react';
-import KnowledgePageIntro from '@/components/knowledge/KnowledgePageIntro';
+import {ArrowLeft,ArrowUpLeft,BookOpenCheck,CalendarDays,Clock3,Gamepad2,MapPinned,Play,ScrollText,Shuffle,ShieldCheck,Sparkles,Trophy,Zap} from 'lucide-react';
+import ArcadeIntro from '@/components/games/ArcadeIntro';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
@@ -9,31 +9,53 @@ import styles from './games.module.css';
 
 export const metadata=pageMetadata({title:'ألعاب 967',description:'ألعاب معرفية تفاعلية عن تاريخ اليمن وجغرافيته وتراثه، مع أسئلة موثقة وتحديات يومية ونقاط.',path:'/games'});
 const games=[
- {id:'quiz',title:'اختبر معرفتك باليمن',subtitle:'أسئلة ثقافية وتاريخية',description:'عشرة أسئلة، أربع اختيارات، وتفسير موثق بعد كل إجابة.',href:'/games/quiz',icon:BookOpenCheck,active:true},
- {id:'place',title:'خمن المكان',subtitle:'صور وتلميحات',description:'تعرّف إلى المدن والمعالم اليمنية من الصور والتلميحات.',icon:MapPinned,active:false},
- {id:'timeline',title:'رتب التاريخ',subtitle:'أحداث عبر الزمن',description:'رتّب الأحداث والممالك اليمنية وفق تسلسلها الزمني.',icon:ScrollText,active:false},
- {id:'map',title:'أين تقع؟',subtitle:'تحدي جغرافي',description:'حدد المواقع والمحافظات على خريطة اليمن.',icon:Shuffle,active:false},
+ {id:'quiz',number:'01',title:'اختبر معرفتك باليمن',subtitle:'KNOWLEDGE QUEST',description:'10 أسئلة في كل جولة. إجابات سريعة، نقاط مكتسبة، ومعلومات جديدة تكتشفها مع كل سؤال.',href:'/games/quiz',icon:BookOpenCheck,active:true},
+ {id:'place',number:'02',title:'خمن المكان',subtitle:'GUESS THE PLACE',description:'هل تتعرف على المدينة أو المعلم من صورة وتلميحات؟',icon:MapPinned,active:false},
+ {id:'timeline',number:'03',title:'رتب التاريخ',subtitle:'TIME ATTACK',description:'ضع محطات تاريخ اليمن بالترتيب الصحيح.',icon:ScrollText,active:false},
+ {id:'map',number:'04',title:'أين تقع؟',subtitle:'MAP CHALLENGE',description:'تحدَّ ذاكرتك الجغرافية على خريطة اليمن.',icon:Shuffle,active:false},
 ];
 export default async function GamesPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
+ const [featured,...upcoming]=games;
+ const FeaturedIcon=featured.icon;
  return <main className={styles.root}>
-  <KnowledgePageIntro title="ألعاب 967" category="تعلّم باللعب" description="استكشف اليمن بطريقة مختلفة: العب، اختبر معلوماتك، وتعرّف على القصة وراء كل إجابة.">
-   <div className="directory-summary"><Link href="/games/quiz">ابدأ اختبار المعرفة <ArrowUpLeft size={16}/></Link><Link href="/games/quiz?mode=daily">تحدي اليوم <CalendarDays size={16}/></Link></div>
-  </KnowledgePageIntro>
-  <section className={styles.main}><div className="container">
-   <div className={styles.feature}>
-    <div><span className={styles.kicker}><Medal size={18}/> تحدي اليوم</span><h2>عشر محطات. كم تعرف عن اليمن؟</h2><p>اختبار جديد يومياً بالأسئلة نفسها لكل المشاركين في اليوم المحدد. إجاباتك تفتح معلومات ومراجع للتعمق في المعرفة.</p><Link href="/games/quiz?mode=daily" className={styles.featureButton}>ابدأ تحدي اليوم <ArrowUpLeft size={18}/></Link></div>
-    <div className={styles.featureSymbol} aria-hidden="true"><Gamepad2 size={130} strokeWidth={1}/></div>
+  <ArcadeIntro description="التاريخ والجغرافيا والثقافة، ولكن بروح المنافسة. اختر تحديك، اجمع النقاط واكتشف اليمن بطريقة لم تجربها من قبل.">
+   <Link className={styles.heroPrimary} href="/games/quiz"><Play size={19} fill="currentColor" aria-hidden="true"/> ابدأ اللعب الآن <ArrowLeft size={18} aria-hidden="true"/></Link>
+   <Link className={styles.heroSecondary} href="/games/quiz?mode=daily"><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
+  </ArcadeIntro>
+  <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
+   <div className="container">
+    <div className={styles.sectionHeading}><div><span className={styles.sectionEyebrow}><span/> GAME SELECT / 01</span><h2 id="games-heading">اختر ساحة التحدي</h2><p>مغامرتك الأولى جاهزة. ألعاب أخرى في الطريق.</p></div><span className={styles.availableCount}><span/> لعبة واحدة متاحة الآن</span></div>
+    <div className={styles.gameGrid}>
+     <Link href={featured.href} className={[styles.gameCard,styles.featuredCard].join(' ')}>
+      <div className={styles.gameCardHalo} aria-hidden="true"/>
+      <div className={styles.cardTop}><span className={styles.serial}>{featured.number} <span>/ 04</span></span><span className={styles.liveState}><Zap size={14} fill="currentColor" aria-hidden="true"/> متاحة الآن</span></div>
+      <div className={styles.featureVisual} aria-hidden="true"><span className={styles.featureVisualRing}/><FeaturedIcon size={85} strokeWidth={1.25}/><span className={styles.featureXP}>+100 XP</span></div>
+      <div className={styles.cardDetails}><span className={styles.cardEnglish}>{featured.subtitle}</span><h3>{featured.title}</h3><p>{featured.description}</p></div>
+      <span className={styles.playNow}>العب الآن <ArrowUpLeft size={20} aria-hidden="true"/></span>
+     </Link>
+     {upcoming.map(game=>{
+      const Icon=game.icon;
+      return <article className={[styles.gameCard,styles.upcomingCard,styles['game_'+game.id]].join(' ')} key={game.id}>
+       <div className={styles.cardTop}><span className={styles.serial}>{game.number} <span>/ 04</span></span><span className={styles.lockedState}><Clock3 size={13} aria-hidden="true"/> قريباً</span></div>
+       <div className={styles.miniVisual} aria-hidden="true"><div className={styles.miniOrb}/><Icon size={59} strokeWidth={1.3}/></div>
+       <div className={styles.cardDetails}><span className={styles.cardEnglish}>{game.subtitle}</span><h3>{game.title}</h3><p>{game.description}</p></div>
+       <span className={styles.cardComing}>قيد التطوير <span aria-hidden="true">···</span></span>
+      </article>;
+     })}
+    </div>
+    <Link href="/games/quiz?mode=daily" className={styles.dailyStrip}>
+     <span className={styles.dailyEmblem}><Trophy size={31} strokeWidth={1.7} aria-hidden="true"/></span>
+     <span className={styles.dailyText}><span className={styles.dailyEyebrow}>DAILY CHALLENGE / كل يوم فرصة جديدة</span><strong>هل تستطيع التفوق على نتيجتك أمس؟</strong><small>10 أسئلة ثابتة للجميع كل يوم بتوقيت UTC · تحدَّ نفسك وشارك النتيجة.</small></span>
+     <span className={styles.dailyAction}>العب تحدي اليوم <ArrowUpLeft size={20} aria-hidden="true"/></span>
+    </Link>
+    <div className={styles.infoRow}>
+     <span><Gamepad2 size={19} aria-hidden="true"/> بدون تسجيل</span>
+     <span><ShieldCheck size={19} aria-hidden="true"/> النتائج محفوظة في متصفحك</span>
+     <span><Sparkles size={19} aria-hidden="true"/> تعلم شيئاً جديداً بعد كل إجابة</span>
+    </div>
    </div>
-   <header className={styles.sectionHeading}><div><span className={styles.eyebrow}>الألعاب المعرفية</span><h2>اختر لعبتك</h2><p>نبدأ بلعبة قابلة للعب الآن، وتُنشر بقية الألعاب تباعاً.</p></div></header>
-   <div className={styles.grid}>{games.map(({id,title,subtitle,description,href,icon:Icon,active})=><article className={styles.card} key={id}>
-    <span className={styles.cardIcon}><Icon size={27} strokeWidth={1.7}/></span>
-    <span className={styles.cardStatus}>{active?'متاحة الآن':'قريباً'}</span>
-    <span className={styles.cardSubtitle}>{subtitle}</span><h3>{title}</h3><p>{description}</p>
-    {active?<Link href={href} className={styles.cardLink}>ابدأ اللعب <ArrowUpLeft size={17}/></Link>:<span className={styles.coming}>قيد التطوير <Clock3 size={15}/></span>}
-   </article>)}</div>
-   <div className={styles.notice}><BookOpenCheck size={24}/><div><h2>ليست مجرد أسئلة</h2><p>كل إجابة تحتوي شرحاً ومصدراً للقراءة. يمكنك اللعب دون حساب، وتُحفظ نتائجك محلياً في متصفحك فقط. لا توجد حتى الآن لوحة ترتيب عامة أو مزامنة للنتائج مع الحساب.</p></div></div>
-  </div></section>
+  </section>
  </main>;
 }
