@@ -23,7 +23,7 @@ export default function MyGameRank(){
   return()=>{active=false;};
  },[]);
  return <section className={styles.rank} aria-label="ترتيبي في ألعاب 967">
-  <div className={styles.title}><Trophy size={24}/><div><h3>ترتيبي في ألعاب 967</h3><p>المنافسة الرسمية الموحدة بين الألعاب الأربع</p></div></div>
+  <div className={styles.title}><Trophy size={24}/><div><h3>ترتيبي في ألعاب 967</h3><p>المنافسة الرسمية الموحدة بين الألعاب التسع</p></div></div>
   {mine?<div className={styles.stats}><strong>#{Number(mine.rank).toLocaleString('ar')}</strong><span>المركز العام</span><strong>{Number(mine.score).toLocaleString('ar')} XP</strong><span>إجمالي النقاط</span></div>
   :<p className={styles.noRank}>{ready?'لم تكمل تحديًا رسميًا بعد، أو لا توجد نتائج متاحة لحسابك.':'جارٍ تحميل ترتيبك…'}</p>}
   <Link href="/games/leaderboard">لوحة المتصدرين <ArrowLeft size={17}/></Link>

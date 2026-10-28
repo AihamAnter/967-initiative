@@ -73,9 +73,9 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
   if(list.length!==10)return;
   if(mode==='daily'){
    setStarting(true);
-   const allowed=await daily.reserve();
+   const granted=await daily.reserve();
    setStarting(false);
-   if(!allowed)return;
+   if(!granted)return;
   }
   answerLocked.current=false;
   setTasks(list);setRunId(i=>i+1);setIndex(0);setAnswer(null);setRecords([]);setFinished(false);

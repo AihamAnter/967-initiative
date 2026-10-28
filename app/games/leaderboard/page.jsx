@@ -19,7 +19,7 @@ export default async function Page(){
     <span className={board.eyebrow}><ShieldCheck size={16}/> OFFICIAL RANKINGS / 967</span>
     <h1>لوحة <em>المتصدرين</em></h1>
     <p>منافسة واحدة تجمع ألعاب المعرفة والجغرافيا والتاريخ. نتيجة رسمية واحدة لكل حساب في اليوم، ونقاط محسوبة على الخادم.</p>
-    <div className={board.heroActions}><Link href="/games" className={board.return}><ArrowLeft size={17}/> عُد إلى الألعاب</Link><span><Trophy size={16}/> 4 ألعاب · ترتيب موحد</span></div>
+    <div className={board.heroActions}><Link href="/games" className={board.return}><ArrowLeft size={17}/> عُد إلى الألعاب</Link><span><Trophy size={16}/> 9 ألعاب · ترتيب موحد</span></div>
    </div>
   </header>
   <Leaderboard/>
