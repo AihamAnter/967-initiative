@@ -5,9 +5,10 @@ import {BookOpen,Plus,RefreshCcw,Save,Trash2,ExternalLink} from 'lucide-react';
 import {historyEras,historyKinds} from '@/lib/yemenHistory';
 import {yemenGovernorates} from '@/lib/yemeniFigures';
 import useAdminEditor from './admin/useAdminEditor';
+import HistoryMedia from './history/HistoryMedia';
 import styles from './history/HistoryAdminPanel.module.css';
 
-const blank=()=>({slug:'',title:'',kind:'event',era:'modern',year:1990,period:'',summary:'',paragraphs:[''],sources:[{title:'',url:''}],related:[],location:'',governorate:'',figureQuery:'',certainty:'',isPublished:false});
+const blank=()=>({slug:'',title:'',kind:'event',era:'modern',year:1990,period:'',summary:'',paragraphs:[''],sources:[{title:'',url:''}],related:[],location:'',governorate:'',figureQuery:'',certainty:'',images:[],hideImages:false,isPublished:false});
 export default function HistoryAdminPanel({db,canDelete=false,initialItem=''}){
  const [entries,setEntries]=useState([]),[form,setForm]=useState(null),[revision,setRevision]=useState(null),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[search,setSearch]=useState('');
  const [saved,setSaved]=useState('');
@@ -64,6 +65,14 @@ export default function HistoryAdminPanel({db,canDelete=false,initialItem=''}){
      {field('ملخص المادة',<textarea required minLength={25} maxLength={700} rows={3} value={form.summary} onChange={e=>patch('summary',e.target.value)}/>)}
      {field('فقرات المادة (افصل بين الفقرات بسطر فارغ)',<textarea required rows={11} value={form.paragraphs.join('\n\n')} onChange={e=>patch('paragraphs',e.target.value.split(/\n\s*\n/))}/>)}
      {field('المراجع – سطر لكل مصدر بالصيغة: العنوان | https://example.com',<textarea required rows={4} dir="auto" value={form.sources.map(s=>s.title+' | '+s.url).join('\n')} onChange={e=>patch('sources',e.target.value.split('\n').filter(Boolean).map(line=>{const j=line.lastIndexOf(' | ');return j<0?{title:line,url:''}:{title:line.slice(0,j),url:line.slice(j+3)}}))}/>)}
+     <div className={styles.photoEditor}>
+      <h4>الصور والوثائق البصرية</h4>
+      <p>يمكنك إضافة ما يصل إلى 8 صور مرخّصة من ويكيميديا كومنز. كل سطر: اسم الملف | وصف الصورة | المصور أو المصدر | الترخيص. صور الأرشيف الافتراضية سياقية، أما الصور الجديدة فيمكن تخصيصها لكل مادة.</p>
+      <p><a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image" target="_blank" rel="noopener noreferrer">البحث عن الصور في ويكيميديا كومنز ↗</a></p>
+      {field('صور المادة – سطر لكل صورة (اختياري)',<textarea dir="auto" rows={5} value={(form.images||[]).map(i=>[i.file,i.caption,i.credit,i.license].join(' | ')).join('\n')} onChange={e=>patch('images',e.target.value.split('\n').filter(Boolean).map(line=>{const parts=line.split(' | ');return {file:parts[0]||'',caption:parts[1]||'',credit:parts[2]||'',license:parts.slice(3).join(' | ')||'',kind:'context'};}))}/>)}
+      <label className={styles.publish}><input type="checkbox" checked={form.hideImages===true} onChange={e=>patch('hideImages',e.target.checked)}/> إخفاء صور هذه المادة تماماً</label>
+      {!form.hideImages&&<div><small>معاينة أول صورة للمادة:</small><HistoryMedia entry={form} variant="thumbnail"/></div>}
+     </div>
      <div className={styles.two}>{field('اسم المكان المرتبط',<input maxLength={120} value={form.location||''} onChange={e=>patch('location',e.target.value)}/>)}{field('المحافظة المعاصرة',<select value={form.governorate||''} onChange={e=>patch('governorate',e.target.value)}><option value="">غير محددة</option>{yemenGovernorates.map(g=><option key={g.id} value={g.id}>{g.name}</option>)}</select>)}</div>
      {field('روابط مواد مرتبطة (أسماء Slug تفصلها فاصلة)',<input dir="ltr" value={(form.related||[]).join(', ')} onChange={e=>patch('related',e.target.value.split(',').map(x=>x.trim()).filter(Boolean))}/>)}
      <div className={styles.two}>{field('بحث عن شخصية مرتبطة (اختياري)',<input value={form.figureQuery||''} maxLength={120} onChange={e=>patch('figureQuery',e.target.value)}/>)}{field('ملاحظة حدود التوثيق (اختياري)',<input value={form.certainty||''} maxLength={150} onChange={e=>patch('certainty',e.target.value)}/>)}</div>

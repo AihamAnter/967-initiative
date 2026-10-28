@@ -1,0 +1,23 @@
+.thumbnail{position:relative;aspect-ratio:16/10;background:var(--bg);overflow:hidden;border-radius:9px;border:1px solid var(--line);margin-bottom:13px}
+.thumbnail img{width:100%;height:100%;object-fit:cover}
+.thumbLabel{position:absolute;bottom:8px;right:8px;z-index:1;color:#fff;background:rgba(10,25,38,.76);font-size:11px;padding:4px 8px;border-radius:6px}
+.gallery{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:27px 0 29px;margin:28px 0 35px}
+.heading{display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.heading h2{font-size:23px;margin:0}
+.galleryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.figure{margin:0;border:1px solid var(--line);border-radius:13px;background:var(--surface);overflow:hidden;min-width:0}
+.photoLink{position:relative;display:block;overflow:hidden;background:var(--bg)}
+.photoLink img{width:100%;height:260px;object-fit:cover;transition:transform .2s ease}
+.photoLink:hover img{transform:scale(1.02)}
+.viewLabel{position:absolute;bottom:12px;left:12px;display:inline-flex;align-items:center;gap:7px;color:#fff;background:rgba(10,24,36,.82);padding:6px 10px;border-radius:7px;font-size:12px}
+.figure figcaption{padding:15px;display:flex;flex-direction:column;gap:8px;line-height:1.65}
+.figure strong{font-size:14px}.category{font-size:11px;font-weight:700;color:var(--red2)}
+.credit{font-size:11px;color:var(--muted);line-height:1.8}
+.credit a{color:var(--red2);text-decoration:underline}
+.notice{color:var(--muted);font-size:12px;margin:16px 0 0;line-height:1.7}
+.spotlight{margin:0;flex:0 0 235px;max-width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
+.spotlight img{width:235px;height:147px;object-fit:cover}
+.spotlight figcaption{font-size:10px;padding:7px 10px;color:var(--muted)}
+.spotlight figcaption a{color:var(--red2)}
+@media(max-width:700px){.galleryGrid{grid-template-columns:1fr}.photoLink img{height:225px}.spotlight{width:100%}.spotlight img{width:100%;height:190px}}
+@media(prefers-reduced-motion:reduce){.photoLink img{transition:none}.photoLink:hover img{transform:none}}

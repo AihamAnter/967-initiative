@@ -5,6 +5,7 @@ import {ArrowLeft,ArrowUpLeft,BookOpen,CalendarDays,ChevronLeft,ChevronRight,Map
 import {chronologicalHistory,boundedTimelineIndex,timelineAdjacentIndex} from '@/lib/historyTimeline';
 import {historyEras,historyKinds,historyEntryPath,historyYear} from '@/lib/yemenHistory';
 import styles from './HistoryTimeline.module.css';
+import HistoryMedia from './HistoryMedia';
 
 export default function HistoryTimeline({entries}){
  const stops=useMemo(()=>chronologicalHistory(entries),[entries]);
@@ -86,6 +87,7 @@ export default function HistoryTimeline({entries}){
   </div>
   <div className={styles.axisFoot}><span>نقطة البداية</span><span>نقطة النهاية</span></div>
   <article className={styles.spotlight} aria-live="polite" aria-atomic="true">
+   <HistoryMedia entry={selected} variant="spotlight"/>
    <div className={styles.spotlightBody}>
     <div className={styles.spotlightMeta}><span>{activeEra?.title}</span><span>{historyKinds[selected?.kind]}</span><span>{historyYear(selected?.year)}</span></div>
     <h4>{selected?.title}</h4>
