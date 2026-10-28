@@ -19,7 +19,7 @@ test('one globally shared official game per UTC date, rotating through four chal
 });
 
 test('RLS restricts reads and direct writes and a unique SQL constraint blocks concurrent/other-game attempts',()=>{
- const migration=read('supabase/migrations/202610280001_games_daily_attempts.sql');
+ const migration=read('supabase/migrations/20261028205636_games_daily_attempts_single_per_utc_day.sql');
  assert.ok(migration.includes('references auth.users(id) on delete cascade'));
  assert.match(migration,/unique\s*\(user_id,\s*challenge_date\)/i);
  assert.match(migration,/enable row level security/i);
