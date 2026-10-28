@@ -1,7 +1,7 @@
 import {notFound} from 'next/navigation';
 import Link from 'next/link';
-import {ArrowRight} from 'lucide-react';
-import KnowledgePageIntro from '@/components/knowledge/KnowledgePageIntro';
+import {ArrowRight,Gamepad2} from 'lucide-react';
+import ArcadeIntro from '@/components/games/ArcadeIntro';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {serverDb} from '@/lib/supabase-server';
@@ -18,14 +18,18 @@ export default async function QuizPage({searchParams}){
  const params=await searchParams;
  let catalog;
  try{catalog=await readGameCatalog(serverDb());}catch{
-  return <main className="container" style={{padding:'80px 0'}}><h1>تعذر تحميل الأسئلة</h1><p role="alert">بنك الأسئلة غير متاح حالياً. يرجى إعادة المحاولة.</p><Link href="/games">العودة إلى الألعاب</Link></main>;
+  return <main className={styles.root}>
+   <ArcadeIntro compact description="عالم المعرفة مفتوح، لكن بنك الأسئلة غير متاح في هذه اللحظة."><Link href="/games" className={styles.heroSecondary}><ArrowRight size={17}/> جميع الألعاب</Link></ArcadeIntro>
+   <section className={styles.errorNotice} role="alert"><Gamepad2 size={31}/><h2>تعذر تحميل الأسئلة</h2><p>يرجى إعادة المحاولة أو العودة إلى قسم الألعاب.</p><Link href="/games">العودة إلى الألعاب</Link></section>
+  </main>;
  }
  const date=new Date().toISOString().slice(0,10);
  const mode=params?.mode==='daily'?'daily':'practice';
  return <main className={styles.root}>
-  <KnowledgePageIntro title="اختبر معرفتك باليمن" category="ألعاب 967 / المعرفة" description="عشرة أسئلة في كل جولة. اختر الإجابة، اكتشف القصة وراءها، ثم راجع نتيجتك.">
-   <div className="directory-summary"><Link href="/games">جميع الألعاب <ArrowRight size={16}/></Link></div>
-  </KnowledgePageIntro>
+  <ArcadeIntro compact description="أربع اختيارات. إجابة واحدة صحيحة. عشر محطات تفصلك عن نتيجة تستحق أن تفتخر بها.">
+   <Link href="/games" className={styles.heroSecondary}><ArrowRight size={17}/> جميع الألعاب</Link>
+   <span className={styles.roundChip}>10 أسئلة <span aria-hidden="true">·</span> نقاط وتحديات</span>
+  </ArcadeIntro>
   <QuizGame key={mode} questions={catalog.questions.filter(q=>q.isPublished)} date={date} initialMode={mode}/>
  </main>;
 }
