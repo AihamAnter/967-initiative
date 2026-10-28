@@ -82,8 +82,8 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <h2>جاهز للتحدي؟</h2>
      <p>اختر نوع الجولة والوقت المتاح لكل سؤال. ينتهي الوقت عند الإجابة ويبدأ من جديد عند الانتقال إلى السؤال التالي.</p>
      <div className={styles.modes} role="group" aria-label="نوع التحدي">
-      <button type="button" aria-pressed={mode==='practice'} className={mode==='practice'?styles.active:''} onClick={()=>switchMode('practice')}><BookOpen size={17}/> جولة حرة</button>
-      <button type="button" aria-pressed={mode==='daily'} className={mode==='daily'?styles.active:''} onClick={()=>switchMode('daily')}><Flame size={17}/> تحدي اليوم</button>
+      <button type="button" aria-pressed={mode==='practice'} className={mode==='practice'?styles.active:''} onClick={()=>switchMode('practice')} disabled={starting}><BookOpen size={17}/> جولة حرة</button>
+      <button type="button" aria-pressed={mode==='daily'} className={mode==='daily'?styles.active:''} onClick={()=>switchMode('daily')} disabled={starting}><Flame size={17}/> تحدي اليوم</button>
      </div>
      {mode==='practice'?<div className={styles.filters}>
       <label>المجال<select value={category} onChange={e=>setCategory(e.target.value)}><option value="all">جميع المجالات</option>{Object.entries(quizCategories).map(([key,value])=><option key={key} value={key}>{value}</option>)}</select></label>
