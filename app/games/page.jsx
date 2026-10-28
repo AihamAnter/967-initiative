@@ -2,11 +2,12 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {ArrowLeft,ArrowUpLeft,BookOpenCheck,CalendarDays,Gamepad2,MapPinned,Play,ScrollText,Shuffle,ShieldCheck,Sparkles,Trophy,Zap,UsersRound,Scale,Link2,SpellCheck,ScanSearch} from 'lucide-react';
 import ArcadeIntro from '@/components/games/ArcadeIntro';
+import DailyCountdown from '@/components/games/DailyCountdown';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
 import styles from './games.module.css';
-import {dailyGameUrl,utcDay} from '@/lib/dailyGame';
+import {utcDay} from '@/lib/dailyGame';
 
 // UTC daily game selection must be computed for each request, not at build time.
 export const dynamic='force-dynamic';
@@ -28,11 +29,11 @@ const games=[
 export default async function GamesPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
- const dailyUrl=dailyGameUrl(utcDay());
+ const date=utcDay();
  return <main className={styles.root}>
   <ArcadeIntro description="تاريخ وجغرافيا وشخصيات وألغاز، ولكن بروح المنافسة. تسع طرق مختلفة لاكتشاف اليمن — اختر اللعبة التي تشدّك!">
    <Link className={styles.heroPrimary} href="#choose-your-game"><Gamepad2 size={19} aria-hidden="true"/> اختر لعبتك <ArrowLeft size={18} aria-hidden="true"/></Link>
-   <Link className={styles.heroSecondary} href={dailyUrl}><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
+   <Link className={styles.heroSecondary} href="#daily-challenge"><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
    <Link className={styles.heroSecondary} href="/games/leaderboard"><Trophy size={19} aria-hidden="true"/> لوحة المتصدرين</Link>
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
@@ -49,6 +50,7 @@ export default async function GamesPage(){
      <span><Zap size={16} aria-hidden="true"/> 10 مهام في كل جولة</span>
      <span><ShieldCheck size={16} aria-hidden="true"/> نتائج تحدي اليوم موثقة</span>
     </div>
+    <DailyCountdown initialDate={date}/>
     <div className={styles.selectGrid} aria-label="جميع ألعاب 967 التسع">
      {games.map(game=>{
       const Icon=game.icon;
@@ -76,11 +78,7 @@ export default async function GamesPage(){
       </Link>;
      })}
     </div>
-    <Link href={dailyUrl} className={styles.dailyStrip}>
-     <span className={styles.dailyEmblem}><Trophy size={31} strokeWidth={1.7} aria-hidden="true"/></span>
-     <span className={styles.dailyText}><span className={styles.dailyEyebrow}>DAILY CHALLENGE / كل يوم فرصة جديدة</span><strong>هل تستطيع التفوق على نتيجتك أمس؟</strong><small>لعبة واحدة موحدة للجميع كل يوم · محاولة واحدة لكل حساب · 7 ثوانٍ لكل مهمة.</small></span>
-     <span className={styles.dailyAction}>العب تحدي اليوم <ArrowUpLeft size={20} aria-hidden="true"/></span>
-    </Link>
+
     <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب التسع</small></span><ArrowUpLeft size={20}/></Link>
     <div className={styles.infoRow}>
      <span><Gamepad2 size={19} aria-hidden="true"/> الجولات الحرة بدون تسجيل</span>
