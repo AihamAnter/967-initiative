@@ -5,6 +5,7 @@ import {ArrowUpLeft,BookOpen,CalendarDays,MapPinned,Search,ScrollText,SlidersHor
 import {historyEras,historyKinds,historyEntryPath,historyYear} from '@/lib/yemenHistory';
 import styles from './HistoryExplorer.module.css';
 import HistoryTimeline from './HistoryTimeline';
+import HistoryMedia from './HistoryMedia';
 
 function normalized(s){return String(s||'').normalize('NFKD').replace(/[\u064B-\u065F]/g,'').replace(/[أإآ]/g,'ا').toLowerCase();}
 export default function HistoryExplorer({entries,initialEra='',initialType=''}) {
@@ -44,6 +45,7 @@ export default function HistoryExplorer({entries,initialEra='',initialType=''}) 
   <div className={styles.resultCount} role="status">المواد المطابقة: <strong>{selected.length.toLocaleString('ar')}</strong> {era&&<button onClick={()=>change('',type)} type="button">جميع العصور ×</button>}</div>
   {selected.length===0?<div className={styles.empty}>لا توجد مواد مطابقة. جرّب إزالة الفلاتر أو استخدام عبارة أخرى. <button type="button" onClick={()=>{change('','');setQuery('');}}>إعادة ضبط البحث</button></div>:mode==='timeline'?<HistoryTimeline entries={selected}/>:<div className={styles.cards}>{selected.slice(0,more).map((entry,i)=><article key={entry.slug} className={styles.card}>
     <div className={styles.cardTop}><span className={styles.kind}>{historyKinds[entry.kind]}</span><span className={styles.date}>{historyYear(entry.year)}</span></div>
+    <HistoryMedia entry={entry} variant="thumbnail"/>
     <h3><Link href={historyEntryPath(entry.slug)}>{entry.title}</Link></h3><small className={styles.period}>{entry.period}</small>
     <p>{entry.summary}</p>
     <div className={styles.cardBottom}><span><BookOpen size={15}/> {entry.sources?.length||0} مصادر</span>{entry.location&&<span><MapPinned size={15}/>{entry.location}</span>}<Link href={historyEntryPath(entry.slug)} aria-label={'قراءة '+entry.title}>اقرأ الملف <ArrowUpLeft size={16}/></Link></div>
