@@ -21,6 +21,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const [seconds,setSeconds]=useState(15),[runId,setRunId]=useState(0);
  const [starting,setStarting]=useState(false);
  const [verifying,setVerifying]=useState(false),[verified,setVerified]=useState(false);
+ const [clockReady,setClockReady]=useState(false),[readyPending,setReadyPending]=useState(false);
  const [syncError,setSyncError]=useState(''),[officialResult,setOfficialResult]=useState(null);
  const [officialRaw,setOfficialRaw]=useState(0);
  const daily=useDailyAttempt(mode,'quiz',date);
@@ -33,8 +34,18 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const canStart=(mode==='daily'?questions.length>=1:filtered.length>=1)&&daily.canStart;
  const current=round[step];
  const duration=roundDuration(mode,seconds);
- const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,active:round.length>0&&!result&&picked===null&&!verifying,onExpire:()=>choose(-1,true)});
+ const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,active:round.length>0&&!result&&picked===null&&!verifying&&(mode!=='daily'||clockReady),onExpire:()=>choose(-1,true)});
  useEffect(()=>{if(round.length&&!result)questionTitleRef.current?.focus({preventScroll:true});},[step,round.length,result]);
+ useEffect(()=>{
+  if(mode==='daily'&&round.length&&picked===null&&!result&&!clockReady&&!readyPending&&!syncError)markReady();
+ },[mode,round.length,step,picked,result,clockReady,readyPending,syncError]);
+ async function markReady(){
+  if(!round[step])return;
+  setReadyPending(true);setSyncError('');
+  try{await daily.progress('ready',step,round[step].id,null);setClockReady(true);}
+  catch(error){setSyncError(error.message||'تعذر بدء مؤقت السؤال.');}
+  finally{setReadyPending(false);}
+ }
  async function start(){
   const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
   const list=buildQuizRound(questions,{mode,category:mode==='daily'?'all':category,difficulty:mode==='daily'?'all':difficulty,seed});
@@ -45,7 +56,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
    setStarting(false);
    if(!granted)return;
   }
-  setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');setVerified(false);setSyncError('');setOfficialResult(null);setOfficialRaw(0);
+  setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');setVerified(false);setSyncError('');setOfficialResult(null);setOfficialRaw(0);setClockReady(false);
  }
  async function verifyAnswer(index,questionId,atStep){
   setVerifying(true);setSyncError('');
@@ -70,7 +81,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     setVerifying(true);setSyncError('');
     try{await daily.progress('next',step,current.id,null);}
     catch(error){setSyncError(error.message||'تعذر بدء السؤال التالي.');setVerifying(false);return;}
-    setVerifying(false);setVerified(false);
+    setVerifying(false);setVerified(false);setClockReady(false);
    }
    setStep(v=>v+1);setPicked(null);return;
   }
@@ -85,7 +96,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify(after));}catch{/* Browser storage is optional. */}
   setStats(after);
  }
- function switchMode(nextMode){setMode(nextMode);setRound([]);setResult(null);setPicked(null);setAnswers([]);setShareNote('');setSyncError('');setVerified(false);setOfficialResult(null);setOfficialRaw(0);}
+ function switchMode(nextMode){setMode(nextMode);setRound([]);setResult(null);setPicked(null);setAnswers([]);setShareNote('');setSyncError('');setVerified(false);setOfficialResult(null);setOfficialRaw(0);setClockReady(false);}
  async function share(){
   const title='تحدي ألعاب 967';
   const shareText='حققت '+result.correct+' من '+round.length+' في اختبار معرفتي باليمن! هل تتفوق على نتيجتي؟';
@@ -148,8 +159,8 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <a href={current.source.url} target="_blank" rel="noopener noreferrer">المصدر: {current.source.title} <ArrowLeft size={14}/></a>
     </div>}
     </div>
-    {verifying&&<p className={styles.syncError} role="status">جارٍ توثيق الإجابة…</p>}
-    {syncError&&<p className={styles.syncError} role="alert">{syncError} <button type="button" onClick={()=>!verified?verifyAnswer(picked,current.id,step):next()}>إعادة المحاولة</button></p>}
+    {(verifying||readyPending)&&<p className={styles.syncError} role="status">{readyPending?'جارٍ تشغيل المؤقت الرسمي…':'جارٍ توثيق الإجابة…'}</p>}
+    {syncError&&<p className={styles.syncError} role="alert">{syncError} <button type="button" onClick={()=>picked===null?markReady():!verified?verifyAnswer(picked,current.id,step):next()}>إعادة المحاولة</button></p>}
     <div className={styles.playActions}><button type="button" className={styles.secondary} onClick={()=>{setRound([]);setPicked(null);setAnswers([]);}}><ArrowRight size={16}/> إنهاء الجولة</button><button type="button" className={styles.primary} onClick={next} disabled={picked===null||verifying||(mode==='daily'&&!verified)}>{step===round.length-1?'عرض النتيجة':'السؤال التالي'} <ArrowLeft size={18}/></button></div>
    </div>}
    {result&&<div className={styles.finish} role="status">

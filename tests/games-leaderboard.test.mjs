@@ -8,6 +8,8 @@ test('verified scoreboard does not accept client scores and locks every question
  const route=await read('app/api/games/daily/round/route.js');
  assert.match(route,/db\.auth\.getUser\(token\)/);
  assert.match(route,/OFFICIAL_ANSWER_WINDOW_MS/);
+ assert.match(route,/body.action==='ready'/);
+ assert.match(route,/question_started_at/);
  assert.match(route,/officialCorrect\(/);
  assert.match(route,/officialPoints\(/);
  assert.match(route,/\.eq\('phase','question'\)/);

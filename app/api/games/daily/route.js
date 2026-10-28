@@ -34,7 +34,7 @@ async function handle(request,claim){
    if(body.date!==date||body.game!==game)throw new RequestValidationError('بدأ تحدي يوم جديد. حدّث الصفحة لتجربة تحدي اليوم الصحيح.',409);
    const questionBank=await officialQuestionSnapshot(db,game,date);
    const {data,error}=await db.from('game_daily_attempts')
-    .insert({user_id:user.id,challenge_date:date,game_type:game,question_bank:questionBank,phase:'question',step_index:0,question_started_at:new Date().toISOString()})
+    .insert({user_id:user.id,challenge_date:date,game_type:game,question_bank:questionBank,phase:'question',step_index:0,question_started_at:null})
     .select('challenge_date,game_type,started_at').single();
    if(error?.code==='23505')return respond({error:'استخدمت محاولتك اليوم. يعود التحدي غداً عند 00:00 UTC.',used:true,date,game,nextAt},409);
    if(error){console.error('Daily game claim failure',error.code||'unknown');throw new RequestValidationError('تعذر حجز المحاولة بأمان. لم يبدأ التحدي.',503);}

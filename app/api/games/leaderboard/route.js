@@ -1,6 +1,7 @@
 import {NextResponse} from 'next/server';
 import {serverDb} from '@/lib/supabase-server';
 import {utcDay} from '@/lib/dailyGame';
+import {stableHash} from '@/lib/gameEngine';
 const json=(data,status=200)=>NextResponse.json(data,{status,headers:{'Cache-Control':'no-store, public, max-age=0'}});
 export const dynamic='force-dynamic';
 export const runtime='nodejs';
@@ -67,7 +68,7 @@ export async function GET(request){
   const ordered=entries.map((e,index)=>{
    if(e.score!==previous){rank=index+1;previous=e.score;}
    const profile=profiles.get(e.id);
-   const name=(profile?.display_name||'').trim().slice(0,40)||'لاعب 967';
+   const name=(profile?.display_name||'').trim().slice(0,40)||('لاعب 967 · '+stableHash(e.id).toString(36).slice(0,5));
    return {...e,rank,name,awards:awards(e.rows)};
   });
   let viewer=null;

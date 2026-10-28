@@ -21,6 +21,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  const [mode,setMode]=useState(initialMode),[seconds,setSeconds]=useState(15);
  const [starting,setStarting]=useState(false);
  const [verifying,setVerifying]=useState(false),[verified,setVerified]=useState(false);
+ const [clockReady,setClockReady]=useState(false),[readyPending,setReadyPending]=useState(false);
  const [syncError,setSyncError]=useState(''),[officialResult,setOfficialResult]=useState(null);
  const daily=useDailyAttempt(mode,game,date);
  const [tasks,setTasks]=useState([]),[runId,setRunId]=useState(0),[index,setIndex]=useState(0);
@@ -40,9 +41,19 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  },[game,mapAttempt]);
  const task=tasks[index];
  const duration=roundDuration(mode,seconds);
- const isActive=tasks.length>0&&!finished&&answer===null&&ready&&!verifying;
+ const isActive=tasks.length>0&&!finished&&answer===null&&ready&&!verifying&&(mode!=='daily'||clockReady);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active:isActive,onExpire:()=>submitAnswer(null,true)});
  useEffect(()=>{if(tasks.length&&!finished)titleRef.current?.focus({preventScroll:true});},[index,finished,tasks.length]);
+ useEffect(()=>{
+  if(mode==='daily'&&task&&ready&&!finished&&!answer&&!clockReady&&!readyPending&&!syncError)markReady();
+ },[mode,task?.id,index,ready,finished,answer,clockReady,readyPending,syncError]);
+ async function markReady(){
+  if(mode!=='daily'||!tasks[index])return;
+  setReadyPending(true);setSyncError('');
+  try{await daily.progress('ready',index,tasks[index].id,null);setClockReady(true);}
+  catch(error){setSyncError(error.message||'تعذر بدء مؤقت السؤال.');}
+  finally{setReadyPending(false);}
+ }
  async function start(){
   const seed=mode==='daily'?dailySeed(date):'free-'+Date.now()+'-'+Math.random();
   const tasksNow=builders[game]({mode,date,seed});
@@ -56,7 +67,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   answerLocked.current=false;
   setRunId(x=>x+1);setTasks(tasksNow);setIndex(0);setRecords([]);setAnswer(null);
   setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
-  setFinished(false);setShareStatus('');setVerified(false);setSyncError('');setOfficialResult(null);
+  setFinished(false);setShareStatus('');setVerified(false);setSyncError('');setOfficialResult(null);setClockReady(false);
  }
  async function verifyAnswer(value,taskId,step){
   setVerifying(true);setSyncError('');
@@ -92,7 +103,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
     catch(error){setSyncError(error.message||'تعذر الانتقال إلى المهمة التالية.');setVerifying(false);return;}
     setVerifying(false);
    }
-   answerLocked.current=false;setVerified(false);
+   answerLocked.current=false;setVerified(false);setClockReady(false);
    setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
    setAnswer(null);setIndex(i=>i+1);
   }else{
@@ -102,7 +113,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    setStats(updated);setFinished(true);
   }
  }
- function reset(){setTasks([]);setIndex(0);setRecords([]);setAnswer(null);setFinished(false);answerLocked.current=false;setShareStatus('');setSyncError('');setVerified(false);setOfficialResult(null);}
+ function reset(){setTasks([]);setIndex(0);setRecords([]);setAnswer(null);setFinished(false);answerLocked.current=false;setShareStatus('');setSyncError('');setVerified(false);setOfficialResult(null);setClockReady(false);}
  async function share(){
   const total=records.reduce((sum,r)=>sum+r.points,0);
   const url=location.origin+'/games/'+game+(mode==='daily'?'?mode=daily':'');
@@ -149,8 +160,8 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
     <a href={game==='place'?task.source:game==='map'?task.source:task.events[0].source} target={game==='map'||game==='timeline'?'_self':'_blank'} rel="noopener noreferrer">اقرأ المزيد عن الموضوع <ArrowLeft size={14}/></a>
     {answer.correct&&<span className={styles.bonus}>+{answer.points} XP</span>}
    </div>}
-   {verifying&&<p className={styles.loading} role="status">جارٍ توثيق الإجابة على الخادم…</p>}
-   {syncError&&<p className={styles.syncError} role="alert">{syncError} <button type="button" onClick={()=>answer&&!verified?verifyAnswer(answer.choice,task.id,index):next()}>إعادة المحاولة</button></p>}
+   {(verifying||readyPending)&&<p className={styles.loading} role="status">{readyPending?'جارٍ تفعيل توقيت السؤال الرسمي…':'جارٍ توثيق الإجابة على الخادم…'}</p>}
+   {syncError&&<p className={styles.syncError} role="alert">{syncError} <button type="button" onClick={()=>!answer?markReady():!verified?verifyAnswer(answer.choice,task.id,index):next()}>إعادة المحاولة</button></p>}
    <div className={styles.actions}><button type="button" className={styles.secondary} onClick={reset}><ArrowRight size={16}/> إنهاء الجولة</button>
     <button type="button" className={styles.primary} disabled={!answer||verifying||(mode==='daily'&&!verified)} onClick={next}>{index+1===tasks.length?'عرض النتيجة':'المهمة التالية'} <ArrowLeft size={17}/></button></div>
   </div>}

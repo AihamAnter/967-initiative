@@ -16,19 +16,37 @@ export async function POST(request){
   const {data:{user},error:authError}=await db.auth.getUser(token);
   if(authError||!user||!user.email_confirmed_at||user.is_anonymous)throw new RequestValidationError('حساب غير مصرح به.',401);
   const body=await readJsonObject(request,1200);
-  if(!['answer','next'].includes(body.action)||!/^\\d{4}-\\d{2}-\\d{2}$/.test(body.date)||!Number.isInteger(body.step)||body.step<0||body.step>=10)throw new RequestValidationError('بيانات الجولة غير صالحة.');
+  if(!['answer','next','ready'].includes(body.action)||!/^\\d{4}-\\d{2}-\\d{2}$/.test(body.date)||!Number.isInteger(body.step)||body.step<0||body.step>=10)throw new RequestValidationError('بيانات الجولة غير صالحة.');
   const {data:attempt,error:readError}=await db.from('game_daily_attempts').select('*')
    .eq('user_id',user.id).eq('challenge_date',body.date).maybeSingle();
   if(readError)throw new RequestValidationError('تعذر قراءة المحاولة.',503);
   if(!attempt||!Array.isArray(attempt.question_bank)||attempt.question_bank.length!==10||!Array.isArray(attempt.answers))throw new RequestValidationError('محاولة رسمية غير موجودة.',404);
   if(Date.now()-Date.parse(attempt.started_at)>86400000)throw new RequestValidationError('انتهت صلاحية الجولة القديمة.',409);
   const step=body.step;
+  if(body.action==='ready'){
+   if(attempt.phase!=='question'||attempt.step_index!==step||attempt.answers.length!==step
+    ||attempt.question_bank[step]?.id!==body.questionId)throw new RequestValidationError('السؤال غير جاهز.',409);
+   if(attempt.question_started_at)return respond({ok:true,step,startedAt:attempt.question_started_at});
+   const now=new Date().toISOString();
+   const {data,error}=await db.from('game_daily_attempts')
+    .update({question_started_at:now}).eq('id',attempt.id).eq('phase','question')
+    .eq('step_index',step).is('question_started_at',null)
+    .select('question_started_at').maybeSingle();
+   if(error)throw new RequestValidationError('تعذر تفعيل مؤقت السؤال.',503);
+   if(!data){
+    const {data:current}=await db.from('game_daily_attempts').select('question_started_at')
+     .eq('id',attempt.id).maybeSingle();
+    if(!current?.question_started_at)throw new RequestValidationError('تعذر تفعيل مؤقت السؤال.',409);
+    return respond({ok:true,step,startedAt:current.question_started_at});
+   }
+   return respond({ok:true,step,startedAt:data.question_started_at});
+  }
   if(body.action==='next'){
    // Repeated retries cannot reset a running question timer.
    if(attempt.phase==='question'&&attempt.step_index===step+1)return respond({ok:true,step:step+1});
    if(attempt.phase!=='review'||attempt.step_index!==step||step>=9)throw new RequestValidationError('لا يمكن بدء المهمة التالية الآن.',409);
    const {data,error}=await db.from('game_daily_attempts')
-    .update({phase:'question',step_index:step+1,question_started_at:new Date().toISOString()})
+    .update({phase:'question',step_index:step+1,question_started_at:null})
     .eq('id',attempt.id).eq('phase','review').eq('step_index',step)
     .select('step_index').maybeSingle();
    if(error)throw new RequestValidationError('تعذر بدء المهمة التالية.',503);
@@ -44,7 +62,8 @@ export async function POST(request){
   if(attempt.phase!=='question'||attempt.step_index!==step||attempt.answers.length!==step)throw new RequestValidationError('ترتيب الإجابات غير صالح.',409);
   const task=attempt.question_bank[step];
   if(body.questionId!==task.id)throw new RequestValidationError('تغيرت بيانات التحدي؛ لا يمكن اعتماد الإجابة.',409);
-  const elapsed=Date.now()-Date.parse(attempt.question_started_at||attempt.started_at);
+  if(!attempt.question_started_at)throw new RequestValidationError('يجب بدء مؤقت السؤال أولاً.',409);
+  const elapsed=Date.now()-Date.parse(attempt.question_started_at);
   const correct=elapsed>=0&&elapsed<=OFFICIAL_ANSWER_WINDOW_MS&&officialCorrect(attempt.game_type,task.key,body.choice);
   const streak=attempt.answers.slice().reverse().findIndex(x=>!x.correct);
   const streakBefore=streak===-1?attempt.answers.length:streak;

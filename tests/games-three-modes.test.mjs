@@ -114,5 +114,5 @@ test('all three new pages are linked and indexed, hidden when games publication 
  assert.ok(gameUI.includes("setReady(game==='timeline'"));
  assert.ok(gameUI.includes('answerLocked.current=true'));
  assert.ok(gameUI.includes('setAnswer(record)'));
- assert.ok(gameUI.includes('disabled={!answer}'));
+ assert.ok(gameUI.includes("mode==='daily'&&!verified"));
 });
