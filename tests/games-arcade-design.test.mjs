@@ -24,14 +24,16 @@ test('Games 967 has a standalone dark arcade design, not a copied Knowledge head
  assert.ok(css.includes('.heroCompact'));
 });
 
-test('Arcade landing shows only playable game as a link and daily challenge stays functional',()=>{
+test('Arcade landing links to four playable modes and all daily challenges',()=>{
  const hub=read('app/games/page.jsx');
  assert.ok(hub.includes('href="/games/quiz"'));
  assert.ok(hub.includes('href="/games/quiz?mode=daily"'));
+ assert.ok(hub.includes("href:'/games/place'"));
+ assert.ok(hub.includes("href:'/games/timeline'"));
+ assert.ok(hub.includes("href:'/games/map'"));
  assert.ok(hub.includes('<Link href={featured.href}'));
- assert.ok(hub.includes('<article className={[styles.gameCard,styles.upcomingCard'));
- assert.ok(hub.includes('active:false'));
- assert.ok(hub.includes('قيد التطوير'));
+ assert.ok(hub.includes('<Link href={game.href}'));
+ assert.ok(!hub.includes('active:false'));
  assert.ok(hub.includes('href="/games/quiz?mode=daily" className={styles.dailyStrip}'));
 });
 
