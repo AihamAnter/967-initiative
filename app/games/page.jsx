@@ -10,69 +10,72 @@ import {dailyGameUrl,utcDay} from '@/lib/dailyGame';
 
 // UTC daily game selection must be computed for each request, not at build time.
 export const dynamic='force-dynamic';
-export const metadata=pageMetadata({title:'ألعاب 967',description:'ألعاب معرفية تفاعلية عن تاريخ اليمن وجغرافيته وتراثه، مع أسئلة موثقة وتحديات يومية ونقاط.',path:'/games'});
+export const metadata=pageMetadata({title:'ألعاب 967',description:'تسع ألعاب ثقافية تفاعلية عن اليمن في معرض ألعاب واحد: شخصيات ومعالم وتاريخ وخرائط ومقارنات وتحديات يومية موثقة.',path:'/games'});
+
+// A single catalog and a single visual grid: no distinction between original and newer games.
 const games=[
- {id:'quiz',number:'01',title:'اختبر معرفتك باليمن',subtitle:'KNOWLEDGE QUEST',description:'10 أسئلة في كل جولة. إجابات سريعة، نقاط مكتسبة، ومعلومات جديدة تكتشفها مع كل سؤال.',href:'/games/quiz',icon:BookOpenCheck,active:true},
- {id:'place',number:'02',title:'خمن المكان',subtitle:'GUESS THE PLACE',description:'هل تتعرف على المدينة أو المعلم من صورة وتلميحات؟',href:'/games/place',icon:MapPinned,active:true},
- {id:'timeline',number:'03',title:'رتب التاريخ',subtitle:'TIME ATTACK',description:'ضع محطات تاريخ اليمن بالترتيب الصحيح.',href:'/games/timeline',icon:ScrollText,active:true},
- {id:'map',number:'04',title:'أين تقع؟',subtitle:'MAP CHALLENGE',description:'تحدَّ ذاكرتك الجغرافية على خريطة اليمن.',href:'/games/map',icon:Shuffle,active:true},
+ {id:'quiz',number:'01',title:'اختبر معرفتك باليمن',subtitle:'KNOWLEDGE QUEST',category:'معرفة عامة',description:'أسئلة سريعة تكشف لك تفاصيل جديدة من تاريخ اليمن وثقافته.',href:'/games/quiz',icon:BookOpenCheck,teaser:'فكّر وأجب'},
+ {id:'place',number:'02',title:'خمن المكان',subtitle:'GUESS THE PLACE',category:'صور ومعالم',description:'شاهد الصورة، اكتشف المعلم، واختر المكان الصحيح.',href:'/games/place',icon:MapPinned,teaser:'تعرف على المكان'},
+ {id:'timeline',number:'03',title:'رتب التاريخ',subtitle:'TIME ORDER',category:'تاريخ',description:'ضع الأحداث التاريخية اليمنية في ترتيبها الصحيح.',href:'/games/timeline',icon:ScrollText,teaser:'رتّب الأحداث'},
+ {id:'map',number:'04',title:'أين تقع؟',subtitle:'MAP QUEST',category:'جغرافيا',description:'تحدَّ ذاكرتك وحدد المحافظات على خريطة اليمن.',href:'/games/map',icon:Shuffle,teaser:'اكتشف الخريطة'},
+ {id:'who',number:'05',title:'من أنا؟',subtitle:'WHO AM I?',category:'شخصيات',description:'ثلاثة تلميحات متدرجة تكشف لك شخصية يمنية مشهورة.',href:'/games/who',icon:UsersRound,teaser:'اكشف الشخصية'},
+ {id:'bigger',number:'06',title:'أيهما أكبر؟',subtitle:'HIGHER OR LOWER',category:'مقارنات',description:'قارن المساحات والجبال واكتشف من صاحب الرقم الأكبر.',href:'/games/bigger',icon:Scale,teaser:'اختر الأكبر'},
+ {id:'connect',number:'07',title:'اربط المعلومة',subtitle:'MATCH QUEST',category:'توصيل',description:'صِل الشخصيات والمدن والأحداث بالمعلومات الصحيحة.',href:'/games/connect',icon:Link2,teaser:'أكمل الوصلات'},
+ {id:'yemenword',number:'08',title:'خمن الإجابة اليمنية',subtitle:'WORD QUEST',category:'حروف وكلمات',description:'كوّن الحروف لتكتشف اسمًا أو حدثًا أو مكانًا يمنيًا.',href:'/games/yemenword',icon:SpellCheck,teaser:'كوّن الإجابة'},
+ {id:'object',number:'09',title:'ما هذا الشيء؟',subtitle:'OBJECT QUEST',category:'تراث وصور',description:'تعرّف على آثار وأشياء يمنية من صور حقيقية.',href:'/games/object',icon:ScanSearch,teaser:'اكتشف الشيء'},
 ];
-const newGames=[
- {id:'who',number:'05',title:'من أنا؟',english:'WHO AM I?',description:'تلميحات متدرجة عن شخصيات يمنية مشهورة.',icon:UsersRound,feature:'تعرّف على الشخصية'},
- {id:'bigger',number:'06',title:'أيهما أكبر؟',english:'HIGHER OR LOWER',description:'قارن المحافظات والجبال في تحديات رقمية.',icon:Scale,feature:'قارن واختر'},
- {id:'connect',number:'07',title:'اربط المعلومة',english:'MATCH QUEST',description:'ثلاث وصلات تجمع التاريخ بالثقافة والجغرافيا.',icon:Link2,feature:'صِل العلاقات'},
- {id:'yemenword',number:'08',title:'خمن الإجابة اليمنية',english:'WORD QUEST',description:'رتّب الحروف لتكشف اسمًا أو مكانًا أو حدثًا يمنيًا.',icon:SpellCheck,feature:'ركّب الحروف'},
- {id:'object',number:'09',title:'ما هذا الشيء؟',english:'OBJECT QUEST',description:'صور لمفردات وقطع ومواقع تراثية يمنية.',icon:ScanSearch,feature:'اكتشف الصورة'},
-];
+
 export default async function GamesPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
- const [featured,...upcoming]=games;
  const dailyUrl=dailyGameUrl(utcDay());
- const FeaturedIcon=featured.icon;
  return <main className={styles.root}>
-  <ArcadeIntro description="التاريخ والجغرافيا والثقافة، ولكن بروح المنافسة. اختر تحديك، اجمع النقاط واكتشف اليمن بطريقة لم تجربها من قبل.">
-   <Link className={styles.heroPrimary} href="/games/quiz"><Play size={19} fill="currentColor" aria-hidden="true"/> ابدأ اللعب الآن <ArrowLeft size={18} aria-hidden="true"/></Link>
+  <ArcadeIntro description="تاريخ وجغرافيا وشخصيات وألغاز، ولكن بروح المنافسة. تسع طرق مختلفة لاكتشاف اليمن — اختر اللعبة التي تشدّك!">
+   <Link className={styles.heroPrimary} href="#choose-your-game"><Gamepad2 size={19} aria-hidden="true"/> اختر لعبتك <ArrowLeft size={18} aria-hidden="true"/></Link>
    <Link className={styles.heroSecondary} href={dailyUrl}><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
    <Link className={styles.heroSecondary} href="/games/leaderboard"><Trophy size={19} aria-hidden="true"/> لوحة المتصدرين</Link>
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
-    <div className={styles.sectionHeading}><div><span className={styles.sectionEyebrow}><span/> GAME SELECT / 01</span><h2 id="games-heading">اختر ساحة التحدي</h2><p>تسع ألعاب متنوعة؛ استكشف وجرّب بحرية، وشارك في تحدٍ رسمي واحد يوميًا مدته 7 ثوانٍ لكل مهمة.</p></div><span className={styles.availableCount}><span/> تسع ألعاب متاحة الآن</span></div>
-    <div className={styles.gameGrid}>
-     <Link href={featured.href} className={[styles.gameCard,styles.featuredCard].join(' ')}>
-      <div className={styles.gameCardHalo} aria-hidden="true"/>
-      <div className={styles.cardTop}><span className={styles.serial}>{featured.number} <span>/ 09</span></span><span className={styles.liveState}><Zap size={14} fill="currentColor" aria-hidden="true"/> متاحة الآن</span></div>
-      <div className={styles.featureVisual} aria-hidden="true"><span className={styles.featureVisualRing}/><FeaturedIcon size={85} strokeWidth={1.25}/><span className={styles.featureXP}>+100 XP</span></div>
-      <div className={styles.cardDetails}><span className={styles.cardEnglish}>{featured.subtitle}</span><h3>{featured.title}</h3><p>{featured.description}</p></div>
-      <span className={styles.playNow}>العب الآن <ArrowUpLeft size={20} aria-hidden="true"/></span>
-     </Link>
-     {upcoming.map(game=>{
+    <div className={styles.sectionHeading}>
+     <div><span className={styles.sectionEyebrow}><span/> SELECT YOUR GAME / 967 ARCADE</span>
+      <h2 id="games-heading">اختر لعبتك التالية <span className={styles.headingStar} aria-hidden="true">✦</span></h2>
+      <p>تسع ألعاب. تسع تجارب مختلفة. جميعها جاهزة للعب في مكان واحد.</p>
+     </div>
+     <span className={styles.availableCount}><span/> 9 ألعاب متاحة</span>
+    </div>
+    <div className={styles.arcadeGuide} aria-label="طريقة اللعب">
+     <span><Gamepad2 size={16} aria-hidden="true"/> اختر أي لعبة وابدأ فورًا</span>
+     <span><Zap size={16} aria-hidden="true"/> 10 مهام في كل جولة</span>
+     <span><ShieldCheck size={16} aria-hidden="true"/> نتائج تحدي اليوم موثقة</span>
+    </div>
+    <div className={styles.selectGrid} aria-label="جميع ألعاب 967 التسع">
+     {games.map(game=>{
       const Icon=game.icon;
-      return <Link href={game.href} className={[styles.gameCard,styles.upcomingCard,styles['game_'+game.id]||''].join(' ')} key={game.id}>
-       <div className={styles.cardTop}><span className={styles.serial}>{game.number} <span>/ 09</span></span><span className={styles.liveState}><Zap size={13} aria-hidden="true"/> العب الآن</span></div>
-       <div className={styles.miniVisual} aria-hidden="true"><div className={styles.miniOrb}/><Icon size={59} strokeWidth={1.3}/></div>
-       <div className={styles.cardDetails}><span className={styles.cardEnglish}>{game.subtitle}</span><h3>{game.title}</h3><p>{game.description}</p></div>
-       <span className={styles.cardComing}>العب الآن <ArrowUpLeft size={17} aria-hidden="true"/></span>
+      return <Link href={game.href} key={game.id} className={[styles.selectTile,styles['tile_'+game.id]].join(' ')} aria-label={'العب '+game.title}>
+       <div className={styles.tileTop}>
+        <span className={styles.tileSerial} dir="ltr">{game.number} <span>/ 09</span></span>
+        <span className={styles.tileAvailable}><span aria-hidden="true"/> متاحة للعب</span>
+       </div>
+       <div className={styles.tileArt} aria-hidden="true">
+        <span className={styles.tileOrbitOuter}/>
+        <span className={styles.tileOrbitInner}/>
+        <span className={styles.tileArtDot}/>
+        <span className={styles.tileIconFrame}><Icon size={57} strokeWidth={1.6}/></span>
+        <span className={styles.tileXP}>967 <Zap size={12} fill="currentColor"/></span>
+       </div>
+       <div className={styles.tileContent}>
+        <div className={styles.tileMeta}><span className={styles.tileCategory}>{game.category}</span><span className={styles.tileEnglish}>{game.subtitle}</span></div>
+        <h3>{game.title}</h3>
+        <p>{game.description}</p>
+       </div>
+       <div className={styles.tileFooter}>
+        <span><Play size={14} fill="currentColor" aria-hidden="true"/> {game.teaser}</span>
+        <span className={styles.tileGo} aria-hidden="true"><ArrowUpLeft size={20}/></span>
+       </div>
       </Link>;
      })}
     </div>
-    <section className={styles.moreGames} aria-labelledby="new-games-heading">
-     <div className={styles.sectionHeading}><div>
-      <span className={styles.sectionEyebrow}><span/> NEW GAMES / 02</span>
-      <h2 id="new-games-heading">خمس مغامرات جديدة</h2>
-      <p>شخصيات مألوفة، مقارنات حقيقية، تحديات توصيل وأحرف، وصور من تراث اليمن.</p>
-     </div><span className={styles.availableCount}>متاحة الآن · 05</span></div>
-     <div className={styles.newGameGrid}>
-      {newGames.map(({id,number,title,english,description,icon:Icon,feature})=><Link href={'/games/'+id} key={id} className={[styles.newGameCard,styles['newGame_'+id]].join(' ')}>
-       <div className={styles.cardTop}><span className={styles.serial}>{number} <span>/ 09</span></span><span className={styles.liveState}><Zap size={12}/> العب الآن</span></div>
-       <span className={styles.newGameIcon}><Icon size={32} strokeWidth={1.65}/></span>
-       <span className={styles.cardEnglish}>{english}</span>
-       <h3>{title}</h3><p>{description}</p>
-       <span className={styles.newPlay}>{feature} <ArrowUpLeft size={17}/></span>
-      </Link>)}
-     </div>
-    </section>
     <Link href={dailyUrl} className={styles.dailyStrip}>
      <span className={styles.dailyEmblem}><Trophy size={31} strokeWidth={1.7} aria-hidden="true"/></span>
      <span className={styles.dailyText}><span className={styles.dailyEyebrow}>DAILY CHALLENGE / كل يوم فرصة جديدة</span><strong>هل تستطيع التفوق على نتيجتك أمس؟</strong><small>لعبة واحدة موحدة للجميع كل يوم · محاولة واحدة لكل حساب · 7 ثوانٍ لكل مهمة.</small></span>
@@ -80,9 +83,9 @@ export default async function GamesPage(){
     </Link>
     <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب التسع</small></span><ArrowUpLeft size={20}/></Link>
     <div className={styles.infoRow}>
-     <span><Gamepad2 size={19} aria-hidden="true"/> بدون تسجيل</span>
-     <span><ShieldCheck size={19} aria-hidden="true"/> نتائج الجولات الحرة محلية والتحديات الرسمية موثقة</span>
-     <span><Sparkles size={19} aria-hidden="true"/> تعلم شيئاً جديداً بعد كل إجابة</span>
+     <span><Gamepad2 size={19} aria-hidden="true"/> الجولات الحرة بدون تسجيل</span>
+     <span><ShieldCheck size={19} aria-hidden="true"/> النتائج الرسمية موثقة على الخادم</span>
+     <span><Sparkles size={19} aria-hidden="true"/> تعلم شيئًا جديدًا بعد كل إجابة</span>
     </div>
    </div>
   </section>

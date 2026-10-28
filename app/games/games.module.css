@@ -208,3 +208,71 @@
 @media(max-width:950px){.newGameGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:550px){.moreGames{margin-top:40px}.newGameGrid{grid-template-columns:1fr;gap:12px}.newGameCard{min-height:210px;padding:19px}.newGameIcon{width:52px;height:52px;margin:12px 0}.newGameCard h3{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.newGameCard:hover{transform:none}}
+
+
+/* ONE consistent game-select gallery: all nine playable titles have equal prominence. */
+.headingStar{color:#a5ffcf;font-size:.64em;vertical-align:middle;text-shadow:0 0 20px #6de2ae65}
+.arcadeGuide{display:flex;gap:11px 24px;flex-wrap:wrap;align-items:center;border:1px solid #34465e;border-radius:14px;padding:15px 19px;margin:0 0 21px;background:linear-gradient(100deg,#15253b,#101a2b);color:#bbcee1}
+.arcadeGuide span{display:inline-flex;align-items:center;gap:8px;font-size:12px;line-height:1.6}
+.arcadeGuide svg{flex-shrink:0;color:#a6ffcc}
+.selectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.selectTile{
+ --tile-accent:#a6ffce;--tile-soft:#1e5144;--tile-line:#568b77;--tile-glow:#57dcb635;
+ position:relative;isolation:isolate;display:flex;flex-direction:column;min-width:0;min-height:372px;overflow:hidden;
+ border:1px solid #364761;border-radius:19px;padding:17px 18px 0;
+ background:linear-gradient(155deg,#172038,#101728 78%);
+ color:#f4f8ff;transition:border-color .23s,transform .23s,box-shadow .23s;
+}
+.selectTile::before{content:"";position:absolute;inset:0 0 auto;height:220px;pointer-events:none;background:radial-gradient(ellipse 72% 68% at 70% 52%,var(--tile-glow),transparent 76%);opacity:.9;z-index:-1}
+.selectTile:hover{transform:translateY(-5px);border-color:var(--tile-line);box-shadow:0 19px 36px #03071280,0 0 0 1px var(--tile-glow)}
+.selectTile:focus-visible{border-color:var(--tile-accent)}
+.tileTop{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:27px}
+.tileSerial{color:#f3f6ff;font-size:14px;font-weight:850;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.tileSerial span{color:#8e9bb1;font-size:11px;font-weight:500}
+.tileAvailable{display:inline-flex;align-items:center;gap:7px;color:#c3dccf;font-size:11px;font-weight:700;border:1px solid #48735f;border-radius:99px;background:#172c2a;padding:6px 11px}
+.tileAvailable span{width:6px;height:6px;background:#a8ffcd;border-radius:100%;box-shadow:0 0 9px #a8ffcd8c}
+.tileArt{position:relative;display:grid;place-items:center;min-height:152px;margin:9px 0 10px;border-radius:14px;background:radial-gradient(ellipse at 50% 50%,var(--tile-glow),transparent 64%),linear-gradient(133deg,#1a233e88,#12192a55);overflow:hidden}
+.tileArt::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#9ab8da0b 1px,transparent 1px),linear-gradient(#9ab8da0b 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse at center,#000 8%,transparent 84%)}
+.tileOrbitOuter,.tileOrbitInner{position:absolute;display:block;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none}
+.tileOrbitOuter{width:142px;height:142px;border:1px dashed var(--tile-line);opacity:.63;transition:transform .6s ease,opacity .3s}
+.tileOrbitInner{width:116px;height:116px;border:1px solid var(--tile-line);opacity:.35}
+.tileArtDot{position:absolute;top:25%;right:18%;width:7px;height:7px;border-radius:50%;background:var(--tile-accent);box-shadow:0 0 15px var(--tile-accent)}
+.tileIconFrame{position:relative;display:grid;place-items:center;width:92px;height:92px;border:1px solid var(--tile-line);border-radius:23px;color:var(--tile-accent);background:radial-gradient(ellipse at 30% 22%,var(--tile-soft),#172037 85%);box-shadow:0 12px 26px #030b1980,0 0 28px var(--tile-glow);transform:rotate(-6deg);transition:transform .3s ease,box-shadow .3s ease}
+.selectTile:hover .tileIconFrame{transform:rotate(0deg) scale(1.07);box-shadow:0 16px 32px #030b1980,0 0 45px var(--tile-glow)}
+.selectTile:hover .tileOrbitOuter{transform:translate(-50%,-50%) rotate(25deg);opacity:.93}
+.tileXP{position:absolute;bottom:13px;left:14px;display:inline-flex;align-items:center;gap:4px;border:1px solid var(--tile-line);background:#10182ce8;color:var(--tile-accent);font:800 11px/1.1 inherit;border-radius:7px;padding:6px 8px;direction:ltr}
+.tileContent{display:flex;flex-direction:column;flex:1;min-height:115px}
+.tileMeta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px 11px;margin-bottom:6px}
+.tileCategory{font-size:10px;font-weight:800;border-radius:6px;background:var(--tile-soft);color:var(--tile-accent);padding:5px 8px}
+.tileEnglish{font-size:10px;font-weight:750;direction:ltr;letter-spacing:.07em;color:#94a9c5}
+.tileContent h3{font-size:clamp(20px,2vw,25px);line-height:1.45;font-weight:850;color:#fff;margin:6px 0 6px}
+.tileContent p{font-size:12px;line-height:1.8;color:#b5c7dc;margin:0 0 19px}
+.tileFooter{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding:12px 0 15px;border-top:1px solid #3a475d;color:var(--tile-accent);font-size:12px;font-weight:800}
+.tileFooter>span:first-child{display:inline-flex;align-items:center;gap:9px}
+.tileGo{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:10px;color:#0e1725;background:var(--tile-accent);transition:transform .23s}
+.selectTile:hover .tileGo{transform:translate(-2px,-2px)}
+.tile_quiz{--tile-accent:#a0ffcc;--tile-soft:#1b473b;--tile-line:#4d9679;--tile-glow:#57dcb53d}
+.tile_place{--tile-accent:#cab1ff;--tile-soft:#3b2b54;--tile-line:#8470b5;--tile-glow:#8b6bcf48}
+.tile_timeline{--tile-accent:#86deff;--tile-soft:#1c4058;--tile-line:#4e8ba5;--tile-glow:#56c1e53c}
+.tile_map{--tile-accent:#ffd19b;--tile-soft:#553a27;--tile-line:#967045;--tile-glow:#e39a493c}
+.tile_who{--tile-accent:#f9b5e0;--tile-soft:#4e2b4e;--tile-line:#9d5c8d;--tile-glow:#c15b9b3c}
+.tile_bigger{--tile-accent:#ddd0ff;--tile-soft:#362d5d;--tile-line:#796cb6;--tile-glow:#917cdd3c}
+.tile_connect{--tile-accent:#95e9d8;--tile-soft:#214b4d;--tile-line:#4d9497;--tile-glow:#5ac6bb3c}
+.tile_yemenword{--tile-accent:#ffdc94;--tile-soft:#51442b;--tile-line:#a88a4b;--tile-glow:#d9ae4b3c}
+.tile_object{--tile-accent:#ffb8ac;--tile-soft:#4c3239;--tile-line:#ad706f;--tile-glow:#ec827a3c}
+@media(max-width:1060px){.selectGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}}
+@media(max-width:630px){
+ .selectGrid{grid-template-columns:1fr;gap:13px}
+ .selectTile{min-height:330px;padding:15px 15px 0}
+ .tileArt{min-height:133px;margin:7px 0 8px}
+ .tileIconFrame{width:77px;height:77px;border-radius:18px}
+ .tileIconFrame svg{width:49px;height:49px}
+ .tileOrbitOuter{width:123px;height:123px}.tileOrbitInner{width:98px;height:98px}
+ .tileContent{min-height:0}.tileContent h3{font-size:22px}
+ .arcadeGuide{gap:9px 17px;padding:13px 15px}.arcadeGuide span{font-size:11px}
+}
+@media(hover:none){.selectTile:hover{transform:none}.selectTile:hover .tileIconFrame{transform:rotate(-6deg) scale(1)}}
+@media(prefers-reduced-motion:reduce){
+ .selectTile,.tileIconFrame,.tileOrbitOuter,.tileGo{transition:none!important}
+ .selectTile:hover{transform:none}.selectTile:hover .tileIconFrame{transform:none}
+}

@@ -24,17 +24,26 @@ test('Games 967 has a standalone dark arcade design, not a copied Knowledge head
  assert.ok(css.includes('.heroCompact'));
 });
 
-test('Arcade landing links to four playable modes and all daily challenges',()=>{
+test('all nine games share one consistently styled selection grid, with no separate old/new rows',()=>{
  const hub=read('app/games/page.jsx');
- assert.ok(hub.includes('href="/games/quiz"'));
- assert.ok(hub.includes('href={dailyUrl}'));
- assert.ok(hub.includes("href:'/games/place'"));
- assert.ok(hub.includes("href:'/games/timeline'"));
- assert.ok(hub.includes("href:'/games/map'"));
- assert.ok(hub.includes('<Link href={featured.href}'));
+ const css=read('app/games/games.module.css');
+ const ids=['quiz','place','timeline','map','who','bigger','connect','yemenword','object'];
+ for(const name of ids){
+  assert.ok(hub.includes("id:'"+name+"'"),name);
+  assert.ok(hub.includes("href:'/games/"+name+"'"),name);
+  assert.ok(css.includes('.tile_'+name+'{'),name);
+ }
+ assert.ok(hub.includes('className={styles.selectGrid}'));
+ assert.ok(hub.includes('games.map(game=>'));
  assert.ok(hub.includes('<Link href={game.href}'));
- assert.ok(!hub.includes('active:false'));
+ assert.ok(!hub.includes('const newGames='));
+ assert.ok(!hub.includes('styles.moreGames'));
+ assert.ok(!hub.includes('styles.featuredCard'));
  assert.ok(hub.includes('href={dailyUrl} className={styles.dailyStrip}'));
+ assert.ok(hub.includes('href="/games/leaderboard"'));
+ assert.ok(css.includes('.selectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))'));
+ assert.ok(css.includes('@media(max-width:630px)'));
+ assert.ok(css.includes('prefers-reduced-motion:reduce'));
 });
 
 test('Quiz play still uses scoring, explanation, sharing, persistence and mobile-ready motion settings',()=>{
