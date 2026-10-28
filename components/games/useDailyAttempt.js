@@ -31,8 +31,14 @@ export default function useDailyAttempt(mode,game,date){
    }catch{if(alive)setState({kind:'error',message:'تعذر التحقق من المحاولة. حاول بعد التحقق من اتصالك.'});}
   };
   read();
-  const {data:{subscription}}=db.auth.onAuthStateChange(()=>{if(alive)read();});
-  return()=>{alive=false;subscription.unsubscribe();};
+  // Never call Supabase auth methods synchronously inside onAuthStateChange:
+  // that event can hold an auth lock; defer follow-up reads to the next tick.
+  let authTimer=null;
+  const {data:{subscription}}=db.auth.onAuthStateChange(()=>{
+   clearTimeout(authTimer);
+   authTimer=setTimeout(()=>{if(alive&&!pending.current)read();},0);
+  });
+  return()=>{alive=false;clearTimeout(authTimer);subscription.unsubscribe();};
  },[mode,game,date]);
  async function reserve(){
   if(mode!=='daily')return true;
