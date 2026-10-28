@@ -4,6 +4,9 @@ import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,Flame,Medal,RotateCcw,Share2,Target,Trophy,Zap,XCircle} from 'lucide-react';
 import {buildQuizRound,dailySeed,scoreRound,gameLevels,quizCategories,difficultyLabels} from '@/lib/gameEngine';
 import styles from './QuizGame.module.css';
+import {roundDuration} from '@/lib/gameClock';
+import useQuestionTimer from './useQuestionTimer';
+import {TimeControls,GameTimer} from './TimeControls';
 
 const STORAGE_KEY='967-games-progress-v1';
 const emptyStats={plays:0,correct:0,points:0,best:0,dailyDate:'',dailyBest:0};
@@ -14,6 +17,7 @@ function readStats(){
 }
 export default function QuizGame({questions,date,initialMode='practice'}){
  const [mode,setMode]=useState(initialMode);
+ const [seconds,setSeconds]=useState(15),[runId,setRunId]=useState(0);
  const [category,setCategory]=useState('all'),[difficulty,setDifficulty]=useState('all');
  const [round,setRound]=useState([]),[step,setStep]=useState(0),[picked,setPicked]=useState(null),[answers,setAnswers]=useState([]),[result,setResult]=useState(null);
  const [stats,setStats]=useState(emptyStats),[shareNote,setShareNote]=useState('');
@@ -22,15 +26,17 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const filtered=questions.filter(q=>(category==='all'||q.category===category)&&(difficulty==='all'||q.difficulty===Number(difficulty)));
  const canStart=mode==='daily'?questions.length>=1:filtered.length>=1;
  const current=round[step];
+ const duration=roundDuration(mode,seconds);
+ const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,active:round.length>0&&!result&&picked===null,onExpire:()=>{setPicked(-1);setAnswers(previous=>[...previous,-1]);}});
  useEffect(()=>{if(round.length&&!result)questionTitleRef.current?.focus({preventScroll:true});},[step,round.length,result]);
  function start(){
   const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
   const list=buildQuizRound(questions,{mode,category:mode==='daily'?'all':category,difficulty:mode==='daily'?'all':difficulty,seed});
   if(!list.length)return;
-  setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');
+  setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');
  }
  function choose(index){
-  if(picked!==null||!current)return;
+  if(picked!==null||!current||!timer.claim())return;
   setPicked(index);setAnswers(previous=>[...previous,index]);
  }
  function next(){
@@ -65,7 +71,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     <div className={styles.setupMain}>
      <span className={styles.kicker}><Target size={16}/> SELECT MODE / اختر طور اللعب</span>
      <h2>جاهز للتحدي؟</h2>
-     <p>اختر نوع الجولة، وستحصل على عشرة أسئلة أو أقل إذا كان التصنيف يضم عدداً أقل. لا يوجد حد زمني؛ الأهم أن تتعلم شيئاً جديداً.</p>
+     <p>اختر نوع الجولة والوقت المتاح لكل سؤال. ينتهي الوقت عند الإجابة ويبدأ من جديد عند الانتقال إلى السؤال التالي.</p>
      <div className={styles.modes} role="group" aria-label="نوع التحدي">
       <button type="button" aria-pressed={mode==='practice'} className={mode==='practice'?styles.active:''} onClick={()=>switchMode('practice')}><BookOpen size={17}/> جولة حرة</button>
       <button type="button" aria-pressed={mode==='daily'} className={mode==='daily'?styles.active:''} onClick={()=>switchMode('daily')}><Flame size={17}/> تحدي اليوم</button>
@@ -73,7 +79,8 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      {mode==='practice'?<div className={styles.filters}>
       <label>المجال<select value={category} onChange={e=>setCategory(e.target.value)}><option value="all">جميع المجالات</option>{Object.entries(quizCategories).map(([key,value])=><option key={key} value={key}>{value}</option>)}</select></label>
       <label>الصعوبة<select value={difficulty} onChange={e=>setDifficulty(e.target.value)}><option value="all">جميع المستويات</option>{Object.entries(difficultyLabels).map(([key,value])=><option key={key} value={key}>{value}</option>)}</select></label>
-     </div>:<p className={styles.dailyNote}>تحدي {date} (بالتوقيت العالمي): الأسئلة وترتيبها ثابتة لجميع من يفتح تحدي اليوم.</p>}
+     </div>:<p className={styles.dailyNote}>تحدي {date} (UTC): الأسئلة وترتيبها ثابتة، والوقت 7 ثوانٍ لكل سؤال غير قابلة للتغيير.</p>}
+     <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
      <button type="button" className={styles.primary} onClick={start} disabled={!canStart}>{canStart?'ابدأ الجولة':'لا توجد أسئلة منشورة لهذا الاختيار'} <ArrowLeft size={18}/></button>
      <p className={styles.privacy}>بدون تسجيل دخول. تحفظ النتائج محلياً على هذا الجهاز فقط.</p>
     </div>
@@ -89,6 +96,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
    {!!round.length&&!result&&<div className={styles.play}>
     <div className={styles.playHeader}><span>{mode==='daily'?'DAILY QUEST / تحدي اليوم':'KNOWLEDGE QUEST / اختبر معرفتك'}</span><strong>السؤال {step+1} من {round.length}</strong><span className={styles.playScore}><Zap size={15} fill="currentColor" aria-hidden="true"/>{scoreRound(round.slice(0,step),answers.slice(0,step)).total} XP</span></div>
     <div className={styles.progress} role="progressbar" aria-label="التقدم في الأسئلة" aria-valuemin={0} aria-valuemax={round.length} aria-valuenow={step+1}><span style={{width:((step+1)/round.length*100)+'%'}}/></div>
+    <GameTimer remaining={timer.remaining} duration={duration} paused={picked!==null}/>
     <div className={styles.questionStage} key={current.id}>
     <div className={styles.questionMeta}><span>{quizCategories[current.category]}</span><span>المستوى: {difficultyLabels[current.difficulty]}</span></div>
     <h2 ref={questionTitleRef} tabIndex={-1}>{current.question}</h2>
@@ -101,7 +109,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      })}
     </div>
     {picked!==null&&<div className={styles.explanation} role="status">
-     <strong>{picked===current.correct?'إجابة صحيحة!':'إجابة غير صحيحة'}{picked===current.correct?' أحسنت.':''}</strong>
+     <strong>{picked===-1?'انتهى الوقت!':picked===current.correct?'إجابة صحيحة!':'إجابة غير صحيحة'}{picked===current.correct?' أحسنت.':''}</strong>
      {picked!==current.correct&&<p>الإجابة الصحيحة: <b>{current.options[current.correct]}</b></p>}
      <p>{current.explanation}</p>
      <a href={current.source.url} target="_blank" rel="noopener noreferrer">المصدر: {current.source.title} <ArrowLeft size={14}/></a>
