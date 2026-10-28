@@ -1,4 +1,4 @@
-import {notFound} from 'next/navigation';
+import {notFound,redirect} from 'next/navigation';
 import Link from 'next/link';
 import {ArrowRight} from 'lucide-react';
 import ArcadeIntro from '@/components/games/ArcadeIntro';
@@ -7,13 +7,15 @@ import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
 import styles from '../games.module.css';
+import {dailyGameForDate,utcDay,dailyGameUrl} from '@/lib/dailyGame';
 
 export const metadata=pageMetadata({title:'خمن المكان | ألعاب 967',description:'لعبة خمن المكان عن اليمن مع عشر مهام ونظام نقاط ومؤقت اختياري وتحدٍ يومي موحد.',path:'/games/place'});
 export default async function GamePage({searchParams}){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
  const params=await searchParams;
- const date=new Date().toISOString().slice(0,10);
+ const date=utcDay();
+ if(params?.mode==='daily'&&dailyGameForDate(date)!=='place')redirect(dailyGameUrl(date));
  return <main className={styles.root}>
   <ArcadeIntro compact title="خمن المكان" description="اختبر معرفتك باليمن في تحدٍ سريع. أمامك 10 أو 15 أو 20 أو 30 ثانية لكل مهمة، أو 7 ثوانٍ ثابتة في تحدي اليوم.">
    <Link href="/games" className={styles.heroSecondary}><ArrowRight size={17}/> جميع الألعاب</Link>
