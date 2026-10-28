@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react';
-import {ArrowLeft,RotateCcw} from 'lucide-react';
-import {formatYear,isTimelineCorrect} from '@/lib/arcadeChallenges';
+import {RotateCcw} from 'lucide-react';
+import {formatYear} from '@/lib/arcadeChallenges';
 import {geometryToPath,boundsToViewBox,viewBoxToString} from '@/components/yemen-map/mapGeometry';
 import styles from './ArcadeChallenge.module.css';
 
