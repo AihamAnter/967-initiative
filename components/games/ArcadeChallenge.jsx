@@ -135,7 +135,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
     <button type="button" aria-pressed={mode==='daily'} onClick={()=>setMode('daily')} disabled={starting}><Flame size={17}/> تحدي اليوم</button>
    </div>
    <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
-   <DailyAttemptNotice daily={daily} mode={mode}/>
+   <DailyAttemptNotice daily={daily} mode={mode} date={date}/>
    {mode==='daily'&&<p className={styles.dailyNote}>تحدي {date} بتوقيت UTC: المهام وترتيبها موحدة لهذا اليوم، والمهلة 7 ثوانٍ لكل مهمة.</p>}
    {game==='map'&&mapError&&<div role="alert" className={styles.mapFailure}>{mapError}<button type="button" onClick={()=>{setMapError('');setMapAttempt(x=>x+1);}}>إعادة التحميل</button></div>}
    <button type="button" className={styles.primary} disabled={starting||!daily.canStart||(game==='map'&&!mapData)} onClick={start}><Play size={18}/> {starting?'جارٍ حجز المحاولة…':'ابدأ التحدي'} <ArrowLeft size={18}/></button>

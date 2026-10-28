@@ -39,7 +39,9 @@ test('all nine games share one consistently styled selection grid, with no separ
  assert.ok(!hub.includes('const newGames='));
  assert.ok(!hub.includes('styles.moreGames'));
  assert.ok(!hub.includes('styles.featuredCard'));
- assert.ok(hub.includes('href={dailyUrl} className={styles.dailyStrip}'));
+ assert.ok(hub.includes('<DailyCountdown initialDate={date}/>'));
+ assert.ok(hub.includes('href="#daily-challenge"'));
+ assert.ok(!hub.includes('className={styles.dailyStrip}'));
  assert.ok(hub.includes('href="/games/leaderboard"'));
  assert.ok(css.includes('.selectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))'));
  assert.ok(css.includes('@media(max-width:630px)'));

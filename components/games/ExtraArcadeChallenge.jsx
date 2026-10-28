@@ -154,7 +154,7 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
     <button type="button" aria-pressed={mode==='daily'} disabled={starting} onClick={()=>setMode('daily')}><Flame size={17}/> تحدي اليوم</button>
    </div>
    <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
-   <DailyAttemptNotice daily={daily} mode={mode}/>
+   <DailyAttemptNotice daily={daily} mode={mode} date={date}/>
    {mode==='daily'&&<p className={styles.dailyNote}>تحدي {date} بتوقيت UTC · محاولة واحدة لكل حساب · 7 ثوانٍ ثابتة لكل مهمة · النتائج موثقة على الخادم.</p>}
    <button type="button" className={styles.primary} disabled={starting||!daily.canStart} onClick={start}>
     <Play size={17}/>{starting?'جارٍ حجز المحاولة…':'ابدأ الجولة'}<ArrowLeft size={17}/>
