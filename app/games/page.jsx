@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation';
 import {ArrowLeft,ArrowUpLeft,BookOpenCheck,CalendarDays,Gamepad2,MapPinned,Play,ScrollText,Shuffle,ShieldCheck,Sparkles,Trophy,Zap,UsersRound,Scale,Link2,SpellCheck,ScanSearch} from 'lucide-react';
 import ArcadeIntro from '@/components/games/ArcadeIntro';
 import GamesHomeStatus from '@/components/games/GamesHomeStatus';
+import GameAchievementGallery from '@/components/games/GameAchievementGallery';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
@@ -79,6 +80,7 @@ export default async function GamesPage(){
      })}
     </div>
 
+    <GameAchievementGallery preview/>
     <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب التسع</small></span><ArrowUpLeft size={20}/></Link>
     <div className={styles.infoRow}>
      <span><Gamepad2 size={19} aria-hidden="true"/> الجولات الحرة بدون تسجيل</span>

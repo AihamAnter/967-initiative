@@ -2,6 +2,7 @@ import {NextResponse} from 'next/server';
 import {serverDb} from '@/lib/supabase-server';
 import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
 import {officialCorrect,officialPoints,validateOfficialChoice,OFFICIAL_ANSWER_WINDOW_MS} from '@/lib/dailyVerifiedScore';
+import {syncPlayerAchievements} from '@/lib/gameAchievementRepository.js';
 const respond=(body,status=200)=>NextResponse.json(body,{status,headers:{'Cache-Control':'no-store, private'}});
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -79,6 +80,12 @@ export async function POST(request){
    .select('id').maybeSingle();
   if(error)throw new RequestValidationError('تعذر توثيق الإجابة.',503);
   if(!data)throw new RequestValidationError('تم إرسال إجابة أخرى. أعد تحميل الحالة.',409);
+  // The verified result is already committed. Badge persistence is idempotent;
+  // a temporary badge-system failure must never invalidate the completed attempt.
+  if(finished){
+   try{await syncPlayerAchievements(db,user.id);}
+   catch(e){console.error('Achievement awarding deferred until next profile read',e?.name||'unknown');}
+  }
   return respond({ok:true,step,correct,points,finished,score:totals?.score??null,
    correctCount:totals?.correctCount??null});
  }catch(error){

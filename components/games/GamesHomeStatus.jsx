@@ -82,7 +82,10 @@ export default function GamesHomeStatus({initialDate}){
     <div className={styles.heading}><span className={styles.headingIcon}><UserRound size={22}/></span>
      <div><span className={styles.eyebrow}>MY ARCADE / إحصائياتي</span><h3>ملفي في ألعاب 967</h3></div>
     </div>
-    {state.kind==='ready'&&<Link href="/games/leaderboard" className={styles.headLink}>عرض الترتيب الكامل <ArrowUpLeft size={17}/></Link>}
+    <div className={styles.headActions}>
+     <Link href="/games/achievements" className={styles.headLink}><Medal size={16}/> إنجازاتي وشاراتي</Link>
+     {state.kind==='ready'&&<Link href="/games/leaderboard" className={styles.headLink}>عرض الترتيب الكامل <ArrowUpLeft size={17}/></Link>}
+    </div>
    </div>
    {state.kind==='ready'?<>
     <div className={styles.stats}>
