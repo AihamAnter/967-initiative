@@ -27,8 +27,10 @@ test('personal games API authenticates every read and never takes userId from cl
  assert.ok(route.includes("'Cache-Control':'private, no-store'"));
  assert.ok(!route.includes("request.json()"));
  assert.ok(!route.includes("select('*')"));
- assert.ok(!route.includes("question_bank"));
- assert.ok(!route.includes("answers,"));
+ const selection=route.match(/\.select\('([^']+)'\)/)?.[1];
+ assert.ok(selection,'the summary route explicitly limits the selected columns');
+ assert.ok(!selection.includes('question_bank'));
+ assert.ok(!selection.includes('answers'));
 });
 test('homepage shows player summary and has a completion-aware daily challenge',()=>{
  const home=read('app/games/page.jsx');
