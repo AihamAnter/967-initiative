@@ -49,7 +49,7 @@
 .heroFacts{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:32px;color:#b8c7da;font-size:12px}
 .heroFacts span{display:flex;align-items:center;gap:7px}
 .heroFacts svg{color:var(--arc-mint)}
-.arcadeArtwork{position:relative;width:min(100%,452px);height:410px;justify-self:center;display:grid;place-items:center;animation:arcReveal .9s .12s both}
+.arcadeArtwork{position:relative;width:min(100%,452px);height:410px;justify-self:center;display:grid;place-items:center;}
 .artGlow{position:absolute;width:80%;height:80%;border-radius:50%;background:radial-gradient(circle,#7550c780,#3e40be35 41%,transparent 71%);filter:blur(25px);animation:arcBreathe 5s ease-in-out infinite}
 .ringOuter,.ringMiddle,.ringInner{position:absolute;border-radius:50%;display:block}
 .ringOuter{width:385px;height:385px;border:1px dashed #b3b9ff73;box-shadow:0 0 80px #854dff19;animation:arcSpin 45s linear infinite}
@@ -110,6 +110,7 @@
 .upcomingCard .cardEnglish{font-size:10px}
 .miniVisual{position:absolute;inset-inline-end:20px;top:68px;display:grid;place-items:center;width:100px;height:100px;color:var(--arc-purple);opacity:.78}
 .miniOrb{position:absolute;inset:4px;border-radius:50%;border:1px solid #ad93ff75;background:radial-gradient(circle,#ad93ff25,transparent 72%)}
+.game_place .miniVisual{color:var(--arc-purple)}
 .game_timeline .miniVisual{color:var(--arc-cyan)}
 .game_map .miniVisual{color:var(--arc-orange)}
 .cardComing{position:relative;z-index:1;font-size:11px;letter-spacing:.01em;color:#aebbd1;margin-top:6px}
