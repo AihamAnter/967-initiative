@@ -1,7 +1,7 @@
 'use client';
-import {useEffect,useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,ClipboardCheck,Flame,Medal,RotateCcw,Share2,Target,XCircle} from 'lucide-react';
+import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,ClipboardCheck,Flame,Medal,RotateCcw,Share2,Target,Trophy,Zap,XCircle} from 'lucide-react';
 import {buildQuizRound,dailySeed,scoreRound,gameLevels,quizCategories,difficultyLabels} from '@/lib/gameEngine';
 import styles from './QuizGame.module.css';
 
@@ -17,10 +17,12 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const [category,setCategory]=useState('all'),[difficulty,setDifficulty]=useState('all');
  const [round,setRound]=useState([]),[step,setStep]=useState(0),[picked,setPicked]=useState(null),[answers,setAnswers]=useState([]),[result,setResult]=useState(null);
  const [stats,setStats]=useState(emptyStats),[shareNote,setShareNote]=useState('');
+ const questionTitleRef=useRef(null);
  useEffect(()=>{setStats(readStats());},[]);
  const filtered=questions.filter(q=>(category==='all'||q.category===category)&&(difficulty==='all'||q.difficulty===Number(difficulty)));
  const canStart=mode==='daily'?questions.length>=1:filtered.length>=1;
  const current=round[step];
+ useEffect(()=>{if(round.length&&!result)questionTitleRef.current?.focus({preventScroll:true});},[step,round.length,result]);
  function start(){
   const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
   const list=buildQuizRound(questions,{mode,category:mode==='daily'?'all':category,difficulty:mode==='daily'?'all':difficulty,seed});
@@ -61,7 +63,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
   <div className="container">
    {!round.length&&<div className={styles.setup}>
     <div className={styles.setupMain}>
-     <span className={styles.kicker}><Target size={16}/> قبل أن تبدأ</span>
+     <span className={styles.kicker}><Target size={16}/> SELECT MODE / اختر طور اللعب</span>
      <h2>جاهز للتحدي؟</h2>
      <p>اختر نوع الجولة، وستحصل على عشرة أسئلة أو أقل إذا كان التصنيف يضم عدداً أقل. لا يوجد حد زمني؛ الأهم أن تتعلم شيئاً جديداً.</p>
      <div className={styles.modes} role="group" aria-label="نوع التحدي">
@@ -76,7 +78,8 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <p className={styles.privacy}>بدون تسجيل دخول. تحفظ النتائج محلياً على هذا الجهاز فقط.</p>
     </div>
     <aside className={styles.profile}>
-     <span className={styles.profileIcon}><Medal size={32}/></span>
+     <span className={styles.profileIcon}><Medal size={37}/></span>
+     <span className={styles.profileEyebrow}>PLAYER PROFILE / ملف اللاعب</span>
      <h3>{gameLevels(stats.correct)}</h3>
      <div className={styles.stats}><div><strong>{stats.plays}</strong><span>جولة مكتملة</span></div><div><strong>{stats.correct}</strong><span>إجابة صحيحة</span></div><div><strong>{stats.best}</strong><span>أفضل نقاط</span></div></div>
      <p>تظهر الإحصاءات على هذا المتصفح فقط، ولا تتم مزامنتها مع حسابك.</p>
@@ -84,10 +87,11 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     </aside>
    </div>}
    {!!round.length&&!result&&<div className={styles.play}>
-    <div className={styles.playHeader}><span>{mode==='daily'?'تحدي اليوم':'اختبر معرفتك باليمن'}</span><strong>السؤال {step+1} من {round.length}</strong></div>
+    <div className={styles.playHeader}><span>{mode==='daily'?'DAILY QUEST / تحدي اليوم':'KNOWLEDGE QUEST / اختبر معرفتك'}</span><strong>السؤال {step+1} من {round.length}</strong><span className={styles.playScore}><Zap size={15} fill="currentColor" aria-hidden="true"/>{scoreRound(round.slice(0,step),answers.slice(0,step)).total} XP</span></div>
     <div className={styles.progress} role="progressbar" aria-label="التقدم في الأسئلة" aria-valuemin={0} aria-valuemax={round.length} aria-valuenow={step+1}><span style={{width:((step+1)/round.length*100)+'%'}}/></div>
+    <div className={styles.questionStage} key={current.id}>
     <div className={styles.questionMeta}><span>{quizCategories[current.category]}</span><span>المستوى: {difficultyLabels[current.difficulty]}</span></div>
-    <h2>{current.question}</h2>
+    <h2 ref={questionTitleRef} tabIndex={-1}>{current.question}</h2>
     <div className={styles.options} role="group" aria-label="خيارات الإجابة">
      {current.options.map((option,index)=>{
       const selected=picked===index,right=picked!==null&&current.correct===index,wrong=selected&&picked!==current.correct;
@@ -102,11 +106,13 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <p>{current.explanation}</p>
      <a href={current.source.url} target="_blank" rel="noopener noreferrer">المصدر: {current.source.title} <ArrowLeft size={14}/></a>
     </div>}
+    </div>
     <div className={styles.playActions}><button type="button" className={styles.secondary} onClick={()=>{setRound([]);setPicked(null);setAnswers([]);}}><ArrowRight size={16}/> إنهاء الجولة</button><button type="button" className={styles.primary} onClick={next} disabled={picked===null}>{step===round.length-1?'عرض النتيجة':'السؤال التالي'} <ArrowLeft size={18}/></button></div>
    </div>}
    {result&&<div className={styles.finish} role="status">
-    <span className={styles.finishIcon}><ClipboardCheck size={44}/></span>
-    <span className={styles.kicker}>اكتملت الجولة</span>
+    <div className={styles.finishSparks} aria-hidden="true"><span>✦</span><span>◆</span><span>✦</span></div>
+    <span className={styles.finishIcon}><Trophy size={44}/></span>
+    <span className={styles.kicker}>QUEST COMPLETE / اكتملت الجولة</span>
     <h2>{result.correct===round.length?'أحسنت! جميع الإجابات صحيحة.':result.correct>=round.length/2?'جولة جيدة! واصل الاستكشاف.':'كل جولة فرصة لتعرف اليمن أكثر.'}</h2>
     <div className={styles.resultGrid}><div><strong>{answerNumber} / {round.length}</strong><span>إجابات صحيحة</span></div><div><strong>{result.total}</strong><span>نقطة في هذه الجولة</span></div><div><strong>{stats.best}</strong><span>أفضل نتيجة على الجهاز</span></div></div>
     <p>يمكنك العودة للأسئلة أو بدء جولة أخرى. النتيجة محفوظة في متصفحك ما دامت بياناته محفوظة.</p>
