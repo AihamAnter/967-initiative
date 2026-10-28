@@ -2,7 +2,7 @@ import {NextResponse} from 'next/server';
 import {serverDb} from '@/lib/supabase-server';
 import {utcDay} from '@/lib/dailyGame';
 import {stableHash} from '@/lib/gameEngine';
-const json=(data,status=200)=>NextResponse.json(data,{status,headers:{'Cache-Control':'no-store, public, max-age=0'}});
+const json=(data,status=200)=>NextResponse.json(data,{status,headers:{'Cache-Control':'private, no-store'}});
 export const dynamic='force-dynamic';
 export const runtime='nodejs';
 const periods=new Set(['daily','weekly','monthly','all']);
