@@ -9,6 +9,8 @@ import {pageMetadata} from '@/lib/seo';
 import styles from '../games.module.css';
 import {dailyGameForDate,utcDay,dailyGameUrl} from '@/lib/dailyGame';
 
+// UTC daily game selection must be computed for each request, not at build time.
+export const dynamic='force-dynamic';
 export const metadata=pageMetadata({title:'أين تقع؟ | ألعاب 967',description:'لعبة أين تقع؟ عن اليمن مع عشر مهام ونظام نقاط ومؤقت اختياري وتحدٍ يومي موحد.',path:'/games/map'});
 export default async function GamePage({searchParams}){
  const settings=await getSiteSettings();
