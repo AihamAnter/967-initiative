@@ -159,7 +159,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     <h2>{result.correct===round.length?'أحسنت! جميع الإجابات صحيحة.':result.correct>=round.length/2?'جولة جيدة! واصل الاستكشاف.':'كل جولة فرصة لتعرف اليمن أكثر.'}</h2>
     <div className={styles.resultGrid}><div><strong>{answerNumber} / {round.length}</strong><span>إجابات صحيحة</span></div><div><strong>{mode==='daily'?officialResult?.score??'—':result.total}</strong><span>{mode==='daily'?'النقاط الرسمية / 1000':'نقاط هذه الجولة'}</span></div><div><strong>{stats.best}</strong><span>أفضل نتيجة على الجهاز</span></div></div>
     <p>{mode==='daily'?'تم حفظ نتيجتك الرسمية في Supabase. يمكنك مشاهدة ترتيبك في المنافسة الموحدة.':'يمكنك العودة للأسئلة أو بدء جولة أخرى. النتيجة محفوظة في متصفحك.'}</p>
-    {mode==='daily'&&<Link href="/games/leaderboard" className={styles.secondary}>شاهد لوحة المتصدرين <Trophy size={17}/></Link>}
+    {mode==='daily'&&<Link href="/games/leaderboard" className={styles.primary}>شاهد لوحة المتصدرين <Trophy size={17}/></Link>}
     <div className={styles.finishActions}><button type="button" className={styles.primary} onClick={()=>{setRound([]);setResult(null);setPicked(null);setAnswers([]);}}>ابدأ جولة أخرى <RotateCcw size={18}/></button><button type="button" className={styles.secondary} onClick={share}>شارك التحدي <Share2 size={17}/></button><Link href="/games" className={styles.secondary}>جميع الألعاب <ArrowRight size={17}/></Link></div>
     {shareNote&&<p className={styles.shareNote} role="status">{shareNote}</p>}
    </div>}

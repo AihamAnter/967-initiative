@@ -1,0 +1,42 @@
+.hero{position:relative;padding:44px 0 65px;background:radial-gradient(ellipse at 16% 50%,#3e277087,transparent 62%),radial-gradient(ellipse at 86% 15%,#125e5c7b,transparent 55%),#101529;border-bottom:1px solid #34415d}
+.breadcrumb{display:flex;align-items:center;gap:10px;color:#a9bad1;font-size:12px;margin-bottom:36px}.breadcrumb a:hover{text-decoration:underline}
+.eyebrow,.kicker{display:inline-flex;align-items:center;gap:8px;color:#a8ffd1;font-weight:800;font-size:11px;letter-spacing:.04em}
+.hero h1{font-weight:850;font-size:clamp(45px,6vw,82px);line-height:1.35;color:#fff;margin:8px 0 10px}.hero h1 em{font-style:normal;color:#a8ffd1}
+.hero p{max-width:670px;line-height:1.9;color:#c8d4e4;font-size:15px;margin:0 0 25px}
+.heroActions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.heroActions span{display:flex;gap:8px;align-items:center;color:#bbd4dd;font-size:12px}
+.return{display:inline-flex;gap:10px;align-items:center;padding:13px 18px;border:1px solid #7188a0;border-radius:11px;color:#fff;font-size:13px}
+.return:hover{border-color:#acffd5}
+.section{padding:40px 0 95px;background:radial-gradient(ellipse at 50% 10%,#201f494c,transparent 45%),#080c1a;min-height:560px}
+.toolbar{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}.toolbar h2{font-size:clamp(26px,3vw,36px);margin:8px 0 17px;color:#f5fbff}
+.refresh{background:#18263a;border:1px solid #495d7d;border-radius:10px;color:#d5eeff;display:inline-flex;gap:8px;padding:12px 17px;align-items:center}.refresh:disabled{opacity:.5}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:660px;gap:8px;padding:5px;background:#151c33;border:1px solid #333e59;border-radius:13px;margin:17px 0 27px}
+.tabs button{border:0;background:transparent;color:#bbcbdf;border-radius:9px;padding:13px 8px;font-weight:750;font-size:13px}.tabs button.active{background:#23453e;color:#b2ffdb;box-shadow:0 0 0 1px #50806c}
+.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:33px}
+.summary>div{border:1px solid #35435f;border-radius:14px;background:#121b2e;padding:23px 15px;display:flex;flex-direction:column;gap:6px;text-align:center}
+.summary strong{font-size:clamp(22px,3vw,33px);font-variant-numeric:tabular-nums;color:#e5d6ff}.summary span{color:#aebdd2;font-size:12px}
+.podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:15px;margin-bottom:33px;min-height:260px}
+.podiumCard,.placeholder{padding:22px 13px;min-height:228px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;border:1px solid #4b5279;border-radius:17px;background:linear-gradient(145deg,#20213f,#131b30);color:#eef6ff}
+.podiumCard:hover{border-color:#b7a1ff}.podiumCard.champion{min-height:270px;border-color:#dcae65;background:radial-gradient(ellipse at 50% 0%,#7d5e385e,transparent 67%),linear-gradient(135deg,#2d2845,#171b32);box-shadow:0 0 40px #d4a2511c}
+.rankIcon{color:#b9a6ff}.champion .rankIcon{color:#ffdc8a}.avatar{display:grid;place-items:center;flex-shrink:0;width:42px;height:42px;background:#33445e;border:1px solid #7488ac;border-radius:50%;color:#e9f9ff;font-size:18px;font-weight:800}
+.podiumCard .avatar{width:55px;height:55px;border-color:#96b4c0;font-size:24px}
+.playerName{font-size:14px;color:#f4f9ff;font-weight:800;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;overflow-wrap:anywhere}.meLabel{font-size:10px;color:#b8ffdf;background:#1d483b;border-radius:9px;padding:3px 6px}
+.points{font-size:clamp(20px,2.8vw,30px);color:#afffd2;font-variant-numeric:tabular-nums}.rankNumber{font-size:12px;color:#d6c5ff}.podiumCard small{font-size:11px;color:#9fadc3}
+.placeholder{opacity:.25}
+.rankTable{border:1px solid #34405e;border-radius:15px;overflow:hidden;background:#11182b}
+.tableHead,.rankRow{display:grid;grid-template-columns:minmax(75px,.65fr) minmax(100px,2.1fr) minmax(70px,1fr) minmax(85px,1fr);gap:14px;align-items:center;text-align:right;padding:15px 20px}
+.tableHead{background:#1f2843;color:#aabbce;font-size:11px;font-weight:800}
+.rankRow{width:100%;border:0;border-top:1px solid #303b54;color:#dbe5f2;background:transparent;font-size:13px}
+.rankRow:hover,.rankRow:focus-visible{background:#24334a}.rankRow.myRow{background:#17423855;border-inline-start:3px solid #8dffd1}
+.rankRow>strong:last-child{color:#b7ffd9;font-size:13px;font-weight:850}.rowPlayer{display:flex;align-items:center;gap:12px;min-width:0;font-weight:750}.rowPlayer>span:last-child{overflow-wrap:anywhere}
+.bottom{margin-top:28px;display:grid;gap:15px}.myRank{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(120deg,#17463f,#172445);border:1px solid #6abda1;border-radius:16px;padding:23px}
+.myRank h3{font-size:26px;color:#fff;margin:7px 0}.myRank p{font-size:13px;color:#bcd4d2;margin:0}.myRank>strong{font-size:29px;color:#b4ffdb}.notice{display:flex;align-items:center;gap:9px;line-height:1.9;font-size:12px;color:#b6c4d7}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.badges span{display:inline-flex;align-items:center;gap:6px;border-radius:100px;border:1px solid #816eb4;background:#34244f;color:#e2d2ff;padding:7px 10px;font-size:11px}
+.message,.empty{max-width:710px;margin:30px auto;padding:58px 25px;text-align:center;border:1px solid #3c4c66;background:#11182b;border-radius:16px;color:#d9e6ef;display:grid;gap:13px;justify-items:center}
+.message button,.empty a{border-radius:9px;background:#b0ffcf;color:#0b2821;padding:12px 20px;font-size:13px;font-weight:800}.empty svg{color:#d6baff}.empty h3{font-size:22px;margin:0;color:#fff}.empty p{line-height:1.9;color:#b8c9dc;font-size:13px}
+.profileOverlay{position:fixed;z-index:200;inset:0;background:#050916db;display:grid;place-items:center;padding:18px}
+.profileCard{border:1px solid #576b82;border-radius:18px;background:#152037;color:#f5faff;max-width:600px;width:100%;padding:26px;box-shadow:0 22px 80px #000a}
+.close{display:block;margin-inline-start:auto;border:1px solid #51627e;border-radius:8px;padding:9px 15px;color:#edf5ff;background:#293650}
+.profileHeader{display:flex;align-items:center;gap:15px;margin:15px 0 26px}.profileHeader .avatar{height:64px;width:64px;font-size:26px}.profileHeader h3{font-size:25px;margin:0;color:#fff}.profileHeader p{font-size:12px;color:#a9bad1;margin:8px 0}
+.profileStats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.profileStats div{display:flex;flex-direction:column;gap:8px;padding:19px;text-align:center;background:#242c48;border-radius:11px}.profileStats strong{font-size:24px;color:#bbffdd}.profileStats small{color:#b3c6d5;font-size:12px}
+@media(max-width:650px){.hero{padding:25px 0 42px}.hero h1{font-size:42px}.hero p{font-size:13px}.section{padding:28px 0 60px}.summary>div{padding:17px 7px}.summary span{font-size:10px}.podium{gap:6px;min-height:0}.podiumCard,.placeholder{padding:13px 5px;min-height:185px;gap:8px}.podiumCard.champion{min-height:220px}.podiumCard .avatar{width:44px;height:44px;font-size:19px}.playerName{font-size:11px}.rankNumber,.podiumCard small{font-size:10px}.points{font-size:17px}.tableHead,.rankRow{padding:14px 9px;gap:5px;grid-template-columns:48px minmax(90px,1fr) 54px 75px;font-size:11px}.rowPlayer{gap:6px}.rowPlayer .avatar{width:29px;height:29px;font-size:13px}.rankRow>strong:last-child{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.podiumCard,.rankRow,.tabs button{transition:none!important}}

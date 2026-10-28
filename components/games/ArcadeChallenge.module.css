@@ -59,3 +59,5 @@
 @media(max-width:360px){.resultStats{grid-template-columns:1fr}.actions>*{flex:1 1 100%}}
 @media(prefers-reduced-motion:reduce){.wrapper *,.wrapper *::before,.wrapper *::after{animation:none!important;transition:none!important}}
 @keyframes stageIntro{from{opacity:.3;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}@keyframes float{50%{transform:translateY(-6px)}}
+
+.syncError{display:flex;align-items:center;gap:13px;flex-wrap:wrap;color:#ffceca;background:#49242a;border:1px solid #cd8c9d;border-radius:10px;padding:12px 15px;font-size:13px}.syncError button{color:#142c28;background:#b5ffdd;border-radius:8px;padding:8px 11px;font-weight:800}

@@ -61,7 +61,7 @@ export async function GET(request){
   }
   const entries=[...groups.values()].filter(p=>{
    const profile=profiles.get(p.id);
-   return profile&&!profile.suspended&&!profile.deletion_requested_at;
+   return !profile||(!profile.suspended&&!profile.deletion_requested_at);
   }).sort((a,b)=>b.score-a.score||b.correct-a.correct||a.latest.localeCompare(b.latest));
   let rank=0,previous=null;
   const ordered=entries.map((e,index)=>{

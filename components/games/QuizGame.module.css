@@ -102,3 +102,5 @@
 @keyframes sparkBounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-20px);opacity:1}}
 @keyframes correctPop{0%{transform:scale(.98)}60%{transform:scale(1.015)}100%{transform:scale(1)}}
 @keyframes wrongShake{0%,100%{transform:translateX(0)}30%{transform:translateX(-4px)}70%{transform:translateX(4px)}}
+
+.syncError{margin:15px 0!important;padding:12px 16px!important;border:1px solid #a6646a;border-radius:9px;background:#482331;color:#ffd7d6!important;display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px!important}.syncError button{background:#b3ffda;color:#102a21;padding:9px 14px;border-radius:8px;font-weight:800}
