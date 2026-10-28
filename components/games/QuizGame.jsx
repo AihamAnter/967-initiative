@@ -20,6 +20,9 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const [mode,setMode]=useState(initialMode);
  const [seconds,setSeconds]=useState(15),[runId,setRunId]=useState(0);
  const [starting,setStarting]=useState(false);
+ const [verifying,setVerifying]=useState(false),[verified,setVerified]=useState(false);
+ const [syncError,setSyncError]=useState(''),[officialResult,setOfficialResult]=useState(null);
+ const [officialRaw,setOfficialRaw]=useState(0);
  const daily=useDailyAttempt(mode,'quiz',date);
  const [category,setCategory]=useState('all'),[difficulty,setDifficulty]=useState('all');
  const [round,setRound]=useState([]),[step,setStep]=useState(0),[picked,setPicked]=useState(null),[answers,setAnswers]=useState([]),[result,setResult]=useState(null);
@@ -30,7 +33,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const canStart=(mode==='daily'?questions.length>=1:filtered.length>=1)&&daily.canStart;
  const current=round[step];
  const duration=roundDuration(mode,seconds);
- const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,active:round.length>0&&!result&&picked===null,onExpire:()=>{setPicked(-1);setAnswers(previous=>[...previous,-1]);}});
+ const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,active:round.length>0&&!result&&picked===null&&!verifying,onExpire:()=>choose(-1,true)});
  useEffect(()=>{if(round.length&&!result)questionTitleRef.current?.focus({preventScroll:true});},[step,round.length,result]);
  async function start(){
   const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
@@ -42,15 +45,35 @@ export default function QuizGame({questions,date,initialMode='practice'}){
    setStarting(false);
    if(!granted)return;
   }
-  setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');
+  setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');setVerified(false);setSyncError('');setOfficialResult(null);setOfficialRaw(0);
  }
- function choose(index){
-  if(picked!==null||!current||!timer.claim())return;
+ async function verifyAnswer(index,questionId,atStep){
+  setVerifying(true);setSyncError('');
+  try{
+   const response=await daily.progress('answer',atStep,questionId,index===-1?null:index);
+   setOfficialRaw(previous=>previous+response.points);
+   if(response.finished)setOfficialResult({score:response.score,correct:response.correctCount});
+   setVerified(true);
+  }catch(error){setSyncError(error.message||'تعذر اعتماد الإجابة.');}
+  finally{setVerifying(false);}
+ }
+ function choose(index,timedOut=false){
+  if(picked!==null||verifying||!current||(!timedOut&&!timer.claim()))return;
   setPicked(index);setAnswers(previous=>[...previous,index]);
+  setVerified(mode!=='daily');
+  if(mode==='daily')verifyAnswer(index,current.id,step);
  }
- function next(){
-  if(picked===null)return;
-  if(step+1<round.length){setStep(v=>v+1);setPicked(null);return;}
+ async function next(){
+  if(picked===null||verifying||(mode==='daily'&&!verified))return;
+  if(step+1<round.length){
+   if(mode==='daily'){
+    setVerifying(true);setSyncError('');
+    try{await daily.progress('next',step,current.id,null);}
+    catch(error){setSyncError(error.message||'تعذر بدء السؤال التالي.');setVerifying(false);return;}
+    setVerifying(false);setVerified(false);
+   }
+   setStep(v=>v+1);setPicked(null);return;
+  }
   const summary=scoreRound(round,answers);
   setResult(summary);
   const before=readStats();
@@ -62,7 +85,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify(after));}catch{/* Browser storage is optional. */}
   setStats(after);
  }
- function switchMode(nextMode){setMode(nextMode);setRound([]);setResult(null);setPicked(null);setAnswers([]);setShareNote('');}
+ function switchMode(nextMode){setMode(nextMode);setRound([]);setResult(null);setPicked(null);setAnswers([]);setShareNote('');setSyncError('');setVerified(false);setOfficialResult(null);setOfficialRaw(0);}
  async function share(){
   const title='تحدي ألعاب 967';
   const shareText='حققت '+result.correct+' من '+round.length+' في اختبار معرفتي باليمن! هل تتفوق على نتيجتي؟';
@@ -73,7 +96,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
    else setShareNote('شارك هذا الرابط: '+url);
   }catch(error){if(error?.name!=='AbortError')setShareNote('انسخ الرابط يدوياً: '+url);}
  }
- const answerNumber=(result?.correct||0);
+ const answerNumber=(mode==='daily'&&officialResult?officialResult.correct:(result?.correct||0));
  return <section className={styles.wrapper} aria-label="لعبة اختبر معرفتك باليمن">
   <div className="container">
    {!round.length&&<div className={styles.setup}>
@@ -92,7 +115,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
      <DailyAttemptNotice daily={daily} mode={mode}/>
      <button type="button" className={styles.primary} onClick={start} disabled={!canStart||starting}>{starting?'جارٍ حجز المحاولة…':canStart?'ابدأ الجولة':mode==='daily'?'تحدي اليوم غير متاح لبدء محاولة جديدة':'لا توجد أسئلة منشورة لهذا الاختيار'} <ArrowLeft size={18}/></button>
-     <p className={styles.privacy}>الجولة الحرة بلا تسجيل؛ يتطلب تحدي اليوم حساباً موثقاً ومحاولة واحدة فقط. النقاط الحالية محفوظة محلياً وليست نتائج لوحة متصدرين معتمدة.</p>
+     <p className={styles.privacy}>الجولة الحرة بلا تسجيل؛ يتطلب تحدي اليوم حساباً موثقاً ومحاولة واحدة فقط. نتائج الجولات الحرة محلية، أما تحدي اليوم فيُوثّق على الخادم ويظهر في لوحة المتصدرين.</p>
     </div>
     <aside className={styles.profile}>
      <span className={styles.profileIcon}><Medal size={37}/></span>
@@ -104,7 +127,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     </aside>
    </div>}
    {!!round.length&&!result&&<div className={styles.play}>
-    <div className={styles.playHeader}><span>{mode==='daily'?'DAILY QUEST / تحدي اليوم':'KNOWLEDGE QUEST / اختبر معرفتك'}</span><strong>السؤال {step+1} من {round.length}</strong><span className={styles.playScore}><Zap size={15} fill="currentColor" aria-hidden="true"/>{scoreRound(round.slice(0,step),answers.slice(0,step)).total} XP</span></div>
+    <div className={styles.playHeader}><span>{mode==='daily'?'DAILY QUEST / تحدي اليوم':'KNOWLEDGE QUEST / اختبر معرفتك'}</span><strong>السؤال {step+1} من {round.length}</strong><span className={styles.playScore}><Zap size={15} fill="currentColor" aria-hidden="true"/>{mode==='daily'?officialRaw:scoreRound(round.slice(0,step),answers.slice(0,step)).total} XP</span></div>
     <div className={styles.progress} role="progressbar" aria-label="التقدم في الأسئلة" aria-valuemin={0} aria-valuemax={round.length} aria-valuenow={step+1}><span style={{width:((step+1)/round.length*100)+'%'}}/></div>
     <GameTimer remaining={timer.remaining} duration={duration} paused={picked!==null}/>
     <div className={styles.questionStage} key={current.id}>
@@ -113,7 +136,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     <div className={styles.options} role="group" aria-label="خيارات الإجابة">
      {current.options.map((option,index)=>{
       const selected=picked===index,right=picked!==null&&current.correct===index,wrong=selected&&picked!==current.correct;
-      return <button type="button" key={index} disabled={picked!==null} aria-pressed={selected} className={[styles.option,right?styles.right:'',wrong?styles.wrong:''].join(' ')} onClick={()=>choose(index)}>
+      return <button type="button" key={index} disabled={picked!==null||verifying} aria-pressed={selected} className={[styles.option,right?styles.right:'',wrong?styles.wrong:''].join(' ')} onClick={()=>choose(index)}>
        <span className={styles.optionLetter}>{['أ','ب','ج','د'][index]}</span><span>{option}</span>{right&&<CheckCircle2 size={20}/>} {wrong&&<XCircle size={20}/>}
       </button>;
      })}
@@ -125,15 +148,18 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <a href={current.source.url} target="_blank" rel="noopener noreferrer">المصدر: {current.source.title} <ArrowLeft size={14}/></a>
     </div>}
     </div>
-    <div className={styles.playActions}><button type="button" className={styles.secondary} onClick={()=>{setRound([]);setPicked(null);setAnswers([]);}}><ArrowRight size={16}/> إنهاء الجولة</button><button type="button" className={styles.primary} onClick={next} disabled={picked===null}>{step===round.length-1?'عرض النتيجة':'السؤال التالي'} <ArrowLeft size={18}/></button></div>
+    {verifying&&<p className={styles.syncError} role="status">جارٍ توثيق الإجابة…</p>}
+    {syncError&&<p className={styles.syncError} role="alert">{syncError} <button type="button" onClick={()=>!verified?verifyAnswer(picked,current.id,step):next()}>إعادة المحاولة</button></p>}
+    <div className={styles.playActions}><button type="button" className={styles.secondary} onClick={()=>{setRound([]);setPicked(null);setAnswers([]);}}><ArrowRight size={16}/> إنهاء الجولة</button><button type="button" className={styles.primary} onClick={next} disabled={picked===null||verifying||(mode==='daily'&&!verified)}>{step===round.length-1?'عرض النتيجة':'السؤال التالي'} <ArrowLeft size={18}/></button></div>
    </div>}
    {result&&<div className={styles.finish} role="status">
     <div className={styles.finishSparks} aria-hidden="true"><span>✦</span><span>◆</span><span>✦</span></div>
     <span className={styles.finishIcon}><Trophy size={44}/></span>
     <span className={styles.kicker}>QUEST COMPLETE / اكتملت الجولة</span>
     <h2>{result.correct===round.length?'أحسنت! جميع الإجابات صحيحة.':result.correct>=round.length/2?'جولة جيدة! واصل الاستكشاف.':'كل جولة فرصة لتعرف اليمن أكثر.'}</h2>
-    <div className={styles.resultGrid}><div><strong>{answerNumber} / {round.length}</strong><span>إجابات صحيحة</span></div><div><strong>{result.total}</strong><span>نقطة في هذه الجولة</span></div><div><strong>{stats.best}</strong><span>أفضل نتيجة على الجهاز</span></div></div>
-    <p>يمكنك العودة للأسئلة أو بدء جولة أخرى. النتيجة محفوظة في متصفحك ما دامت بياناته محفوظة.</p>
+    <div className={styles.resultGrid}><div><strong>{answerNumber} / {round.length}</strong><span>إجابات صحيحة</span></div><div><strong>{mode==='daily'?officialResult?.score??'—':result.total}</strong><span>{mode==='daily'?'النقاط الرسمية / 1000':'نقاط هذه الجولة'}</span></div><div><strong>{stats.best}</strong><span>أفضل نتيجة على الجهاز</span></div></div>
+    <p>{mode==='daily'?'تم حفظ نتيجتك الرسمية في Supabase. يمكنك مشاهدة ترتيبك في المنافسة الموحدة.':'يمكنك العودة للأسئلة أو بدء جولة أخرى. النتيجة محفوظة في متصفحك.'}</p>
+    {mode==='daily'&&<Link href="/games/leaderboard" className={styles.secondary}>شاهد لوحة المتصدرين <Trophy size={17}/></Link>}
     <div className={styles.finishActions}><button type="button" className={styles.primary} onClick={()=>{setRound([]);setResult(null);setPicked(null);setAnswers([]);}}>ابدأ جولة أخرى <RotateCcw size={18}/></button><button type="button" className={styles.secondary} onClick={share}>شارك التحدي <Share2 size={17}/></button><Link href="/games" className={styles.secondary}>جميع الألعاب <ArrowRight size={17}/></Link></div>
     {shareNote&&<p className={styles.shareNote} role="status">{shareNote}</p>}
    </div>}

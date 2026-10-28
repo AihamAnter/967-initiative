@@ -20,6 +20,8 @@ function getStored(game){
 export default function ArcadeChallenge({game,date,initialMode='practice'}){
  const [mode,setMode]=useState(initialMode),[seconds,setSeconds]=useState(15);
  const [starting,setStarting]=useState(false);
+ const [verifying,setVerifying]=useState(false),[verified,setVerified]=useState(false);
+ const [syncError,setSyncError]=useState(''),[officialResult,setOfficialResult]=useState(null);
  const daily=useDailyAttempt(mode,game,date);
  const [tasks,setTasks]=useState([]),[runId,setRunId]=useState(0),[index,setIndex]=useState(0);
  const [answer,setAnswer]=useState(null),[records,setRecords]=useState([]),[finished,setFinished]=useState(false);
@@ -38,7 +40,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  },[game,mapAttempt]);
  const task=tasks[index];
  const duration=roundDuration(mode,seconds);
- const isActive=tasks.length>0&&!finished&&answer===null&&ready;
+ const isActive=tasks.length>0&&!finished&&answer===null&&ready&&!verifying;
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active:isActive,onExpire:()=>submitAnswer(null,true)});
  useEffect(()=>{if(tasks.length&&!finished)titleRef.current?.focus({preventScroll:true});},[index,finished,tasks.length]);
  async function start(){
@@ -54,7 +56,18 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   answerLocked.current=false;
   setRunId(x=>x+1);setTasks(tasksNow);setIndex(0);setRecords([]);setAnswer(null);
   setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
-  setFinished(false);setShareStatus('');
+  setFinished(false);setShareStatus('');setVerified(false);setSyncError('');setOfficialResult(null);
+ }
+ async function verifyAnswer(value,taskId,step){
+  setVerifying(true);setSyncError('');
+  try{
+   const response=await daily.progress('answer',step,taskId,value);
+   setAnswer(previous=>previous?{...previous,correct:response.correct,points:response.points}:previous);
+   setRecords(previous=>previous.map((record,i)=>i===step?{...record,correct:response.correct,points:response.points}:record));
+   if(response.finished)setOfficialResult({score:response.score,correct:response.correctCount});
+   setVerified(true);
+  }catch(error){setSyncError(error.message||'تعذر توثيق الإجابة.');}
+  finally{setVerifying(false);}
  }
  function submitAnswer(value,timedOut=false){
   if(answerLocked.current||!tasks.length||finished)return;
@@ -67,11 +80,20 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   const record={correct,points,choice:value,timedOut};
   setAnswer(record);
   setRecords(prev=>[...prev,record]);
+  setVerified(mode!=='daily');
+  if(mode==='daily')verifyAnswer(value,taskNow.id,index);
  }
- function next(){
-  if(!answer)return;
+ async function next(){
+  if(!answer||verifying||(mode==='daily'&&!verified))return;
   if(index+1<tasks.length){
-   answerLocked.current=false;setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
+   if(mode==='daily'){
+    setVerifying(true);setSyncError('');
+    try{await daily.progress('next',index,task.id,null);}
+    catch(error){setSyncError(error.message||'تعذر الانتقال إلى المهمة التالية.');setVerifying(false);return;}
+    setVerifying(false);
+   }
+   answerLocked.current=false;setVerified(false);
+   setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
    setAnswer(null);setIndex(i=>i+1);
   }else{
    const total=records.reduce((sum,r)=>sum+r.points,0),correct=records.filter(r=>r.correct).length;
@@ -80,7 +102,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    setStats(updated);setFinished(true);
   }
  }
- function reset(){setTasks([]);setIndex(0);setRecords([]);setAnswer(null);setFinished(false);answerLocked.current=false;setShareStatus('');}
+ function reset(){setTasks([]);setIndex(0);setRecords([]);setAnswer(null);setFinished(false);answerLocked.current=false;setShareStatus('');setSyncError('');setVerified(false);setOfficialResult(null);}
  async function share(){
   const total=records.reduce((sum,r)=>sum+r.points,0);
   const url=location.origin+'/games/'+game+(mode==='daily'?'?mode=daily':'');
@@ -105,7 +127,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    {mode==='daily'&&<p className={styles.dailyNote}>تحدي {date} بتوقيت UTC: المهام وترتيبها موحدة لهذا اليوم، والمهلة 7 ثوانٍ لكل مهمة.</p>}
    {game==='map'&&mapError&&<div role="alert" className={styles.mapFailure}>{mapError}<button type="button" onClick={()=>{setMapError('');setMapAttempt(x=>x+1);}}>إعادة التحميل</button></div>}
    <button type="button" className={styles.primary} disabled={starting||!daily.canStart||(game==='map'&&!mapData)} onClick={start}><Play size={18}/> {starting?'جارٍ حجز المحاولة…':'ابدأ التحدي'} <ArrowLeft size={18}/></button>
-   <aside className={styles.playerStats}><span><Trophy size={18}/> أفضل نتيجة: {stats.best||0} XP</span><span>الجولات المكتملة: {stats.plays||0}</span><span>النقاط المحلية ليست نتائج تنافسية موثّقة</span></aside>
+   <aside className={styles.playerStats}><span><Trophy size={18}/> أفضل نتيجة: {stats.best||0} XP</span><span>الجولات المكتملة: {stats.plays||0}</span><span>النتائج الرسمية فقط تظهر في لوحة المتصدرين</span></aside>
   </div>}
   {!!tasks.length&&!finished&&<div className={styles.arena}>
    <header className={styles.arenaHeader}><span>{gameTypes[game].english} <span> / {mode==='daily'?'DAILY':'FREE'}</span></span><strong>المهمة {index+1} / {tasks.length}</strong><span className={styles.xp}><Zap size={15}/> {total} XP</span></header>
@@ -127,15 +149,18 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
     <a href={game==='place'?task.source:game==='map'?task.source:task.events[0].source} target={game==='map'||game==='timeline'?'_self':'_blank'} rel="noopener noreferrer">اقرأ المزيد عن الموضوع <ArrowLeft size={14}/></a>
     {answer.correct&&<span className={styles.bonus}>+{answer.points} XP</span>}
    </div>}
+   {verifying&&<p className={styles.loading} role="status">جارٍ توثيق الإجابة على الخادم…</p>}
+   {syncError&&<p className={styles.syncError} role="alert">{syncError} <button type="button" onClick={()=>answer&&!verified?verifyAnswer(answer.choice,task.id,index):next()}>إعادة المحاولة</button></p>}
    <div className={styles.actions}><button type="button" className={styles.secondary} onClick={reset}><ArrowRight size={16}/> إنهاء الجولة</button>
-    <button type="button" className={styles.primary} disabled={!answer} onClick={next}>{index+1===tasks.length?'عرض النتيجة':'المهمة التالية'} <ArrowLeft size={17}/></button></div>
+    <button type="button" className={styles.primary} disabled={!answer||verifying||(mode==='daily'&&!verified)} onClick={next}>{index+1===tasks.length?'عرض النتيجة':'المهمة التالية'} <ArrowLeft size={17}/></button></div>
   </div>}
   {finished&&<div className={styles.result} role="status">
    <span className={styles.victoryIcon}><Trophy size={49}/></span>
    <span className={styles.kicker}>QUEST COMPLETE / اكتمل التحدي</span>
    <h2>{correctCount===tasks.length?'أنت خبير حقيقي!':correctCount>=6?'نتيجة رائعة!':'تحدٍ جديد في انتظارك'}</h2>
-   <div className={styles.resultStats}><div><strong>{correctCount} / {tasks.length}</strong><span>إجابات صحيحة</span></div><div><strong>{total}</strong><span>نقاط الجولة</span></div><div><strong>{stats.best}</strong><span>أفضل نتيجة محلية</span></div></div>
-   <p>انتهت الجولة. الإجابات الخاطئة أو التي انتهى وقتها لا تحصل على نقاط.</p>
+   <div className={styles.resultStats}><div><strong>{correctCount} / {tasks.length}</strong><span>إجابات صحيحة</span></div><div><strong>{mode==='daily'?officialResult?.score??'—':total}</strong><span>{mode==='daily'?'النقاط الرسمية / 1000':'نقاط الجولة'}</span></div><div><strong>{stats.best}</strong><span>أفضل نتيجة محلية</span></div></div>
+   <p>{mode==='daily'?'نتيجتك موثقة ومحفوظة في حسابك؛ تدخل تلقائياً في الترتيب الرسمي الموحد.':'انتهت الجولة. الإجابات الخاطئة أو التي انتهى وقتها لا تحصل على نقاط.'}</p>
+   {mode==='daily'&&<Link className={styles.secondary} href="/games/leaderboard">شاهد ترتيبك في لوحة المتصدرين <Trophy size={16}/></Link>}
    <div className={styles.actions}><button className={styles.primary} type="button" onClick={reset}><RotateCcw size={18}/> جولة جديدة</button><button className={styles.secondary} type="button" onClick={share}><Share2 size={17}/> مشاركة</button><Link className={styles.secondary} href="/games">جميع الألعاب <ArrowRight size={17}/></Link></div>
    {shareStatus&&<p role="status" className={styles.credit}>{shareStatus}</p>}
   </div>}

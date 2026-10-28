@@ -3,7 +3,7 @@
 import {useCallback,useEffect,useRef,useState} from 'react';
 import Link from '@/components/SiteLink';
 import Image from 'next/image';
-import {Activity,ArrowLeft,ArrowUpLeft,Bell,BookOpen,BookmarkCheck,CheckCircle2,ChevronLeft,Download,FolderPlus,Inbox,LockKeyhole,MessageSquare,Plus,RefreshCw,Settings2,Trash2,Upload,UserRound,UsersRound,X} from 'lucide-react';
+import {Activity,ArrowLeft,ArrowUpLeft,Bell,BookOpen,BookmarkCheck,CheckCircle2,ChevronLeft,Download,FolderPlus,Inbox,LockKeyhole,MessageSquare,Plus,RefreshCw,Settings2,Trophy,Trash2,Upload,UserRound,UsersRound,X} from 'lucide-react';
 import useAudience,{audienceRequest} from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import useReadingList,{removeReadingItem} from '@/components/reading/useReadingList';
@@ -105,7 +105,7 @@ export default function AccountWorkspace({initialTab='overview'}){
   <div className={styles.shell}>
    <nav className={styles.sidebar} aria-label="أقسام الحساب">
     {views.map(({id,label,icon:Icon})=><button key={id} type="button" aria-current={tab===id?'page':undefined} className={tab===id?styles.activeNav:styles.navItem} onClick={()=>go(id)}><Icon size={18}/><span>{label}</span>{id==='notifications'&&workspace.unread>0&&<b>{workspace.unread}</b>}</button>)}
-    <div className={styles.sidebarFooter}><Link href="/debates"><ArrowUpLeft size={16}/> تصفّح المناظرات</Link><Link href="/help"><ArrowUpLeft size={16}/> مركز المساعدة</Link></div>
+    <div className={styles.sidebarFooter}><Link href="/games/leaderboard"><Trophy size={16}/> ترتيبي في ألعاب 967</Link><Link href="/debates"><ArrowUpLeft size={16}/> تصفّح المناظرات</Link><Link href="/help"><ArrowUpLeft size={16}/> مركز المساعدة</Link></div>
    </nav>
    <div className={styles.main}>
     <div className={styles.sectionTop}><div><span className={styles.subtleEyebrow}>حسابي / {tabName(tab)}</span><h2>{tabName(tab)}</h2></div><button className={styles.refreshButton} type="button" disabled={busy||loading} onClick={fetchAll} aria-label="تحديث البيانات"><RefreshCw size={17}/></button></div>

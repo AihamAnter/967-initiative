@@ -57,11 +57,23 @@ export default function useDailyAttempt(mode,game,date){
   }catch{setState({kind:'error',message:'فشل الاتصال بالخادم؛ لم تتأكد المحاولة. أعد تحميل الصفحة.'});return false;}
   finally{pending.current=false;}
  }
- return {...state,reserve,canStart:mode!=='daily'||state.kind==='ready'};
+ async function progress(action,step,questionId,choice){
+  const db=browserDb();
+  if(!db)throw Error('خدمة الحسابات غير متاحة.');
+  const {data,error}=await db.auth.getSession();
+  if(error||!data?.session)throw Error('انتهت الجلسة. سجّل الدخول مجدداً.');
+  const response=await fetch('/api/games/daily/round',{method:'POST',cache:'no-store',
+   headers:{'Content-Type':'application/json',Authorization:'Bearer '+data.session.access_token},
+   body:JSON.stringify({action,step,questionId,choice,date})});
+  const result=await response.json();
+  if(!response.ok||!result.ok)throw Error(result.error||'تعذر اعتماد الإجابة.');
+  return result;
+ }
+ return {...state,reserve,progress,canStart:mode!=='daily'||state.kind==='ready'};
 }
 export function DailyAttemptNotice({daily,mode}){
  if(mode!=='daily')return null;
- if(daily.kind==='ready')return <p className={styles.info}>محاولة واحدة فقط اليوم على مستوى حسابك في ألعاب 967. بمجرد الضغط على «ابدأ»، تُستهلك المحاولة حتى لو أغلقت الصفحة.</p>;
+ if(daily.kind==='ready')return <p className={styles.info}>محاولة واحدة فقط اليوم على مستوى حسابك في ألعاب 967. بمجرد الضغط على «ابدأ»، تُستهلك المحاولة حتى لو أغلقت الصفحة. يظهر اسم العرض في لوحة المتصدرين عند اكتمال الجولة.</p>;
  if(daily.kind==='login')return <div className={styles.notice} role="status"><strong>سجّل الدخول للمشاركة في تحدي اليوم.</strong><p>يمكنك لعب الجولات الحرة دون حساب. التحدي الرسمي محاولة واحدة لكل حساب يومياً.</p><Link href="/login">تسجيل الدخول</Link></div>;
  if(daily.kind==='other')return <div className={styles.notice} role="status"><strong>تحدي اليوم في لعبة أخرى.</strong><p>هناك لعبة رسمية واحدة تتغير يومياً وتكون مشتركة بين جميع المشاركين.</p><Link href={dailyGameUrl(daily.date)}>انتقل إلى تحدي اليوم</Link></div>;
  if(daily.kind==='used')return <div className={styles.used} role="status"><strong>استخدمت محاولتك اليومية بالفعل.</strong><p>{daily.message||'يمكنك العودة لتحدي اليوم التالي. الجولات الحرة ما زالت متاحة.'}</p><small>تُفتح محاولة جديدة عند الساعة 00:00 بتوقيت UTC.</small></div>;

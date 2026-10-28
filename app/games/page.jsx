@@ -27,6 +27,7 @@ export default async function GamesPage(){
   <ArcadeIntro description="التاريخ والجغرافيا والثقافة، ولكن بروح المنافسة. اختر تحديك، اجمع النقاط واكتشف اليمن بطريقة لم تجربها من قبل.">
    <Link className={styles.heroPrimary} href="/games/quiz"><Play size={19} fill="currentColor" aria-hidden="true"/> ابدأ اللعب الآن <ArrowLeft size={18} aria-hidden="true"/></Link>
    <Link className={styles.heroSecondary} href={dailyUrl}><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
+   <Link className={styles.heroSecondary} href="/games/leaderboard"><Trophy size={19} aria-hidden="true"/> لوحة المتصدرين</Link>
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
@@ -54,9 +55,10 @@ export default async function GamesPage(){
      <span className={styles.dailyText}><span className={styles.dailyEyebrow}>DAILY CHALLENGE / كل يوم فرصة جديدة</span><strong>هل تستطيع التفوق على نتيجتك أمس؟</strong><small>لعبة واحدة موحدة للجميع كل يوم · محاولة واحدة لكل حساب · 7 ثوانٍ لكل مهمة.</small></span>
      <span className={styles.dailyAction}>العب تحدي اليوم <ArrowUpLeft size={20} aria-hidden="true"/></span>
     </Link>
+    <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب الأربع</small></span><ArrowUpLeft size={20}/></Link>
     <div className={styles.infoRow}>
      <span><Gamepad2 size={19} aria-hidden="true"/> بدون تسجيل</span>
-     <span><ShieldCheck size={19} aria-hidden="true"/> النتائج محفوظة في متصفحك</span>
+     <span><ShieldCheck size={19} aria-hidden="true"/> نتائج الجولات الحرة محلية والتحديات الرسمية موثقة</span>
      <span><Sparkles size={19} aria-hidden="true"/> تعلم شيئاً جديداً بعد كل إجابة</span>
     </div>
    </div>
