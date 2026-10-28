@@ -9,6 +9,8 @@ import {pageMetadata} from '@/lib/seo';
 import styles from '../games.module.css';
 import {dailyGameForDate,utcDay,dailyGameUrl} from '@/lib/dailyGame';
 
+// UTC daily game selection must be computed for each request, not at build time.
+export const dynamic='force-dynamic';
 export const metadata=pageMetadata({title:'خمن المكان | ألعاب 967',description:'لعبة خمن المكان عن اليمن مع عشر مهام ونظام نقاط ومؤقت اختياري وتحدٍ يومي موحد.',path:'/games/place'});
 export default async function GamePage({searchParams}){
  const settings=await getSiteSettings();
