@@ -7,6 +7,7 @@ import styles from './QuizGame.module.css';
 import {roundDuration} from '@/lib/gameClock';
 import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
+import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
 
 const STORAGE_KEY='967-games-progress-v1';
 const emptyStats={plays:0,correct:0,points:0,best:0,dailyDate:'',dailyBest:0};
@@ -18,21 +19,29 @@ function readStats(){
 export default function QuizGame({questions,date,initialMode='practice'}){
  const [mode,setMode]=useState(initialMode);
  const [seconds,setSeconds]=useState(15),[runId,setRunId]=useState(0);
+ const [starting,setStarting]=useState(false);
+ const daily=useDailyAttempt(mode,'quiz',date);
  const [category,setCategory]=useState('all'),[difficulty,setDifficulty]=useState('all');
  const [round,setRound]=useState([]),[step,setStep]=useState(0),[picked,setPicked]=useState(null),[answers,setAnswers]=useState([]),[result,setResult]=useState(null);
  const [stats,setStats]=useState(emptyStats),[shareNote,setShareNote]=useState('');
  const questionTitleRef=useRef(null);
  useEffect(()=>{setStats(readStats());},[]);
  const filtered=questions.filter(q=>(category==='all'||q.category===category)&&(difficulty==='all'||q.difficulty===Number(difficulty)));
- const canStart=mode==='daily'?questions.length>=1:filtered.length>=1;
+ const canStart=(mode==='daily'?questions.length>=1:filtered.length>=1)&&daily.canStart;
  const current=round[step];
  const duration=roundDuration(mode,seconds);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,active:round.length>0&&!result&&picked===null,onExpire:()=>{setPicked(-1);setAnswers(previous=>[...previous,-1]);}});
  useEffect(()=>{if(round.length&&!result)questionTitleRef.current?.focus({preventScroll:true});},[step,round.length,result]);
- function start(){
+ async function start(){
   const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
   const list=buildQuizRound(questions,{mode,category:mode==='daily'?'all':category,difficulty:mode==='daily'?'all':difficulty,seed});
-  if(!list.length)return;
+  if(!list.length||starting)return;
+  if(mode==='daily'){
+   setStarting(true);
+   const granted=await daily.reserve();
+   setStarting(false);
+   if(!granted)return;
+  }
   setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');
  }
  function choose(index){
@@ -73,16 +82,17 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      <h2>جاهز للتحدي؟</h2>
      <p>اختر نوع الجولة والوقت المتاح لكل سؤال. ينتهي الوقت عند الإجابة ويبدأ من جديد عند الانتقال إلى السؤال التالي.</p>
      <div className={styles.modes} role="group" aria-label="نوع التحدي">
-      <button type="button" aria-pressed={mode==='practice'} className={mode==='practice'?styles.active:''} onClick={()=>switchMode('practice')}><BookOpen size={17}/> جولة حرة</button>
-      <button type="button" aria-pressed={mode==='daily'} className={mode==='daily'?styles.active:''} onClick={()=>switchMode('daily')}><Flame size={17}/> تحدي اليوم</button>
+      <button type="button" aria-pressed={mode==='practice'} className={mode==='practice'?styles.active:''} onClick={()=>switchMode('practice')} disabled={starting}><BookOpen size={17}/> جولة حرة</button>
+      <button type="button" aria-pressed={mode==='daily'} className={mode==='daily'?styles.active:''} onClick={()=>switchMode('daily')} disabled={starting}><Flame size={17}/> تحدي اليوم</button>
      </div>
      {mode==='practice'?<div className={styles.filters}>
       <label>المجال<select value={category} onChange={e=>setCategory(e.target.value)}><option value="all">جميع المجالات</option>{Object.entries(quizCategories).map(([key,value])=><option key={key} value={key}>{value}</option>)}</select></label>
       <label>الصعوبة<select value={difficulty} onChange={e=>setDifficulty(e.target.value)}><option value="all">جميع المستويات</option>{Object.entries(difficultyLabels).map(([key,value])=><option key={key} value={key}>{value}</option>)}</select></label>
      </div>:<p className={styles.dailyNote}>تحدي {date} (UTC): الأسئلة وترتيبها ثابتة، والوقت 7 ثوانٍ لكل سؤال غير قابلة للتغيير.</p>}
      <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
-     <button type="button" className={styles.primary} onClick={start} disabled={!canStart}>{canStart?'ابدأ الجولة':'لا توجد أسئلة منشورة لهذا الاختيار'} <ArrowLeft size={18}/></button>
-     <p className={styles.privacy}>بدون تسجيل دخول. تحفظ النتائج محلياً على هذا الجهاز فقط.</p>
+     <DailyAttemptNotice daily={daily} mode={mode}/>
+     <button type="button" className={styles.primary} onClick={start} disabled={!canStart||starting}>{starting?'جارٍ حجز المحاولة…':canStart?'ابدأ الجولة':mode==='daily'?'تحدي اليوم غير متاح لبدء محاولة جديدة':'لا توجد أسئلة منشورة لهذا الاختيار'} <ArrowLeft size={18}/></button>
+     <p className={styles.privacy}>الجولة الحرة بلا تسجيل؛ يتطلب تحدي اليوم حساباً موثقاً ومحاولة واحدة فقط. النقاط الحالية محفوظة محلياً وليست نتائج لوحة متصدرين معتمدة.</p>
     </div>
     <aside className={styles.profile}>
      <span className={styles.profileIcon}><Medal size={37}/></span>

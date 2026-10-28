@@ -8,6 +8,7 @@ import {dailySeed} from '@/lib/gameEngine';
 import {roundDuration} from '@/lib/gameClock';
 import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
+import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
 import {PlaceBoard,TimelineBoard,MapBoard} from './ArcadeBoards';
 import styles from './ArcadeChallenge.module.css';
 
@@ -18,6 +19,8 @@ function getStored(game){
 }
 export default function ArcadeChallenge({game,date,initialMode='practice'}){
  const [mode,setMode]=useState(initialMode),[seconds,setSeconds]=useState(15);
+ const [starting,setStarting]=useState(false);
+ const daily=useDailyAttempt(mode,game,date);
  const [tasks,setTasks]=useState([]),[runId,setRunId]=useState(0),[index,setIndex]=useState(0);
  const [answer,setAnswer]=useState(null),[records,setRecords]=useState([]),[finished,setFinished]=useState(false);
  const [ready,setReady]=useState(game==='timeline');
@@ -38,10 +41,16 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  const isActive=tasks.length>0&&!finished&&answer===null&&ready;
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active:isActive,onExpire:()=>submitAnswer(null,true)});
  useEffect(()=>{if(tasks.length&&!finished)titleRef.current?.focus({preventScroll:true});},[index,finished,tasks.length]);
- function start(){
+ async function start(){
   const seed=mode==='daily'?dailySeed(date):'free-'+Date.now()+'-'+Math.random();
   const tasksNow=builders[game]({mode,date,seed});
-  if(!tasksNow.length)return;
+  if(!tasksNow.length||starting)return;
+  if(mode==='daily'){
+   setStarting(true);
+   const granted=await daily.reserve();
+   setStarting(false);
+   if(!granted)return;
+  }
   answerLocked.current=false;
   setRunId(x=>x+1);setTasks(tasksNow);setIndex(0);setRecords([]);setAnswer(null);
   setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
@@ -88,14 +97,15 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    <span className={styles.kicker}><Target size={17}/> GAME SETUP / إعداد التحدي</span>
    <h2>اختر سرعتك. وانطلق.</h2><p>{gameTypes[game].description} كل جولة تحتوي على عشر مهام، وبعد اختيار الإجابة يتوقف الوقت حتى تضغط «التالي».</p>
    <div className={styles.modes} role="group" aria-label="نوع الجولة">
-    <button type="button" aria-pressed={mode==='practice'} onClick={()=>setMode('practice')}>جولة حرة</button>
-    <button type="button" aria-pressed={mode==='daily'} onClick={()=>setMode('daily')}><Flame size={17}/> تحدي اليوم</button>
+    <button type="button" aria-pressed={mode==='practice'} onClick={()=>setMode('practice')} disabled={starting}>جولة حرة</button>
+    <button type="button" aria-pressed={mode==='daily'} onClick={()=>setMode('daily')} disabled={starting}><Flame size={17}/> تحدي اليوم</button>
    </div>
    <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
+   <DailyAttemptNotice daily={daily} mode={mode}/>
    {mode==='daily'&&<p className={styles.dailyNote}>تحدي {date} بتوقيت UTC: المهام وترتيبها موحدة لهذا اليوم، والمهلة 7 ثوانٍ لكل مهمة.</p>}
    {game==='map'&&mapError&&<div role="alert" className={styles.mapFailure}>{mapError}<button type="button" onClick={()=>{setMapError('');setMapAttempt(x=>x+1);}}>إعادة التحميل</button></div>}
-   <button type="button" className={styles.primary} disabled={game==='map'&&!mapData} onClick={start}><Play size={18}/> ابدأ التحدي <ArrowLeft size={18}/></button>
-   <aside className={styles.playerStats}><span><Trophy size={18}/> أفضل نتيجة: {stats.best||0} XP</span><span>الجولات المكتملة: {stats.plays||0}</span><span>نتائج محلية دون تسجيل</span></aside>
+   <button type="button" className={styles.primary} disabled={starting||!daily.canStart||(game==='map'&&!mapData)} onClick={start}><Play size={18}/> {starting?'جارٍ حجز المحاولة…':'ابدأ التحدي'} <ArrowLeft size={18}/></button>
+   <aside className={styles.playerStats}><span><Trophy size={18}/> أفضل نتيجة: {stats.best||0} XP</span><span>الجولات المكتملة: {stats.plays||0}</span><span>النقاط المحلية ليست نتائج تنافسية موثّقة</span></aside>
   </div>}
   {!!tasks.length&&!finished&&<div className={styles.arena}>
    <header className={styles.arenaHeader}><span>{gameTypes[game].english} <span> / {mode==='daily'?'DAILY':'FREE'}</span></span><strong>المهمة {index+1} / {tasks.length}</strong><span className={styles.xp}><Zap size={15}/> {total} XP</span></header>
