@@ -2,7 +2,7 @@
 import {useState} from 'react';
 import {RotateCcw} from 'lucide-react';
 import {formatYear} from '@/lib/arcadeChallenges';
-import {geometryToPath,boundsToViewBox,viewBoxToString} from '@/components/yemen-map/mapGeometry';
+import {arcadeMapProjection,arcadeRegionPath} from '@/lib/arcadeMapProjection';
 import styles from './ArcadeChallenge.module.css';
 
 export function PlaceBoard({task,locked,onAnswer,onReady}){
@@ -46,12 +46,13 @@ export function TimelineBoard({task,locked,onAnswer}){
 
 export function MapBoard({task,locked,onAnswer,data,selectedId}){
  if(!data)return <p role="status">جاري تحميل خريطة اليمن…</p>;
- const box=boundsToViewBox(data.country.bounds,0.08);
+ const projection=arcadeMapProjection(data.country.bounds);
  return <div className={styles.mapBoard}>
   <p>أين تقع <strong>محافظة {task.name}</strong>؟ انقر على منطقتها في الخريطة. أسماء المحافظات مخفية حتى تختبر معرفتك.</p>
   <div className={styles.mapSurface}>
-   <svg viewBox={viewBoxToString(box)} role="group" aria-label="خريطة تفاعلية لمحافظات اليمن دون أسماء؛ حدد المحافظة المطلوبة" preserveAspectRatio="xMidYMid meet">
-    {data.governorates.map((region,i)=><path key={region.id} d={geometryToPath(region.geometry)}
+   <svg viewBox={projection.viewBox} role="group" aria-label="خريطة تفاعلية لمحافظات اليمن دون أسماء؛ حدد المحافظة المطلوبة" preserveAspectRatio="xMidYMid meet">
+    {data.governorates.map((region,i)=><path key={region.id} d={arcadeRegionPath(region.geometry,projection)}
+     vectorEffect="non-scaling-stroke" strokeLinejoin="round"
      className={[styles.region,locked&&region.id===task.regionId?styles.correctRegion:'',locked&&region.id===selectedId&&region.id!==task.regionId?styles.wrongRegion:''].join(' ')}
      role="button" tabIndex={locked?-1:0} aria-label={'منطقة الخريطة رقم '+(i+1)}
      aria-disabled={locked}
