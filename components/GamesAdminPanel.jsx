@@ -7,7 +7,7 @@ import useAdminEditor from './admin/useAdminEditor';
 
 function newQuestion(){return {id:'custom-'+Date.now().toString(36),question:'',options:['','','',''],correct:0,category:'history',difficulty:1,explanation:'',source:{title:'',url:''},isPublished:false};}
 export default function GamesAdminPanel({db,canDelete=false}){
- const [questions,setQuestions]=useState([]),[revision,setRevision]=useState(null),[form,setForm]=useState(null),[saved,setSaved]=useState(''),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[filter,setFilter]=useState('');
+ const [questions,setQuestions]=useState([]),[revision,setRevision]=useState(null),[form,setForm]=useState(null),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[filter,setFilter]=useState('');
  const editor=useAdminEditor({db,kind:'page',id:form?.id?'game-'+form.id:null,value:form,onRestore:setForm});
  const dirty=editor.dirty;
  const api=useCallback(async(method='GET',body)=>{
@@ -18,11 +18,11 @@ export default function GamesAdminPanel({db,canDelete=false}){
   if(!response.ok)throw Error(data.error||'تعذر تحميل الأسئلة.');
   return data;
  },[db]);
- const select=q=>{setForm(structuredClone(q));setSaved(JSON.stringify(q));setNotice('');editor.markClean(q);};
+ const select=q=>{setForm(structuredClone(q));setNotice('');editor.markClean(q);};
  const checkLeave=()=>editor.confirm();
  const load=useCallback(async()=>{
   setLoading(true);
-  try{const data=await api();setQuestions(data.questions);setRevision(data.revision);const next=data.questions[0]||newQuestion();setForm(structuredClone(next));setSaved(JSON.stringify(next));editor.markClean(next);setNotice('');}
+  try{const data=await api();setQuestions(data.questions);setRevision(data.revision);const next=data.questions[0]||newQuestion();setForm(structuredClone(next));editor.markClean(next);setNotice('');}
   catch(error){setNotice('خطأ: '+error.message);}
   finally{setLoading(false);}
  },[api,editor.markClean]);
