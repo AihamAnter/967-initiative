@@ -2,7 +2,7 @@
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,CheckCircle2,Clock3,Flame,Play,RotateCcw,Share2,Target,Trophy,XCircle,Zap} from 'lucide-react';
-import {buildPlaceChallenges,buildTimelineChallenges,buildMapChallenges,gameTypes,formatYear,isTimelineCorrect} from '@/lib/arcadeChallenges';
+import {buildPlaceChallenges,buildTimelineChallenges,buildMapChallenges,gameTypes,isTimelineCorrect} from '@/lib/arcadeChallenges';
 import {questionPoints} from '@/lib/gameEngine';
 import {dailySeed} from '@/lib/gameEngine';
 import {roundDuration} from '@/lib/gameClock';
@@ -20,7 +20,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  const [mode,setMode]=useState(initialMode),[seconds,setSeconds]=useState(15);
  const [tasks,setTasks]=useState([]),[runId,setRunId]=useState(0),[index,setIndex]=useState(0);
  const [answer,setAnswer]=useState(null),[records,setRecords]=useState([]),[finished,setFinished]=useState(false);
- const [ready,setReady]=useState(game==='timeline'),[imageError,setImageError]=useState(false);
+ const [ready,setReady]=useState(game==='timeline');
  const [mapData,setMapData]=useState(null),[mapError,setMapError]=useState('');
  const [mapAttempt,setMapAttempt]=useState(0);
  const [stats,setStats]=useState({plays:0,best:0,correct:0}),[shareStatus,setShareStatus]=useState('');
@@ -44,7 +44,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   if(!tasksNow.length)return;
   answerLocked.current=false;
   setRunId(x=>x+1);setTasks(tasksNow);setIndex(0);setRecords([]);setAnswer(null);
-  setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));setImageError(false);
+  setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
   setFinished(false);setShareStatus('');
  }
  function submitAnswer(value,timedOut=false){
@@ -63,7 +63,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   if(!answer)return;
   if(index+1<tasks.length){
    answerLocked.current=false;setReady(game==='timeline'||(game==='map'&&Boolean(mapData)));
-   setAnswer(null);setIndex(i=>i+1);setImageError(false);
+   setAnswer(null);setIndex(i=>i+1);
   }else{
    const total=records.reduce((sum,r)=>sum+r.points,0),correct=records.filter(r=>r.correct).length;
    const old=getStored(game),updated={plays:(old.plays||0)+1,correct:(old.correct||0)+correct,best:Math.max(old.best||0,total)};
