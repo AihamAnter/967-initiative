@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {ArrowLeft,ArrowUpLeft,BookOpenCheck,CalendarDays,Gamepad2,MapPinned,Play,ScrollText,Shuffle,ShieldCheck,Sparkles,Trophy,Zap,UsersRound,Scale,Link2,SpellCheck,ScanSearch} from 'lucide-react';
 import ArcadeIntro from '@/components/games/ArcadeIntro';
-import DailyCountdown from '@/components/games/DailyCountdown';
+import GamesHomeStatus from '@/components/games/GamesHomeStatus';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
@@ -38,6 +38,7 @@ export default async function GamesPage(){
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
+    <GamesHomeStatus initialDate={date}/>
     <div className={styles.sectionHeading}>
      <div><span className={styles.sectionEyebrow}><span/> SELECT YOUR GAME / 967 ARCADE</span>
       <h2 id="games-heading">اختر لعبتك التالية <span className={styles.headingStar} aria-hidden="true">✦</span></h2>
@@ -50,7 +51,6 @@ export default async function GamesPage(){
      <span><Zap size={16} aria-hidden="true"/> 10 مهام في كل جولة</span>
      <span><ShieldCheck size={16} aria-hidden="true"/> نتائج تحدي اليوم موثقة</span>
     </div>
-    <DailyCountdown initialDate={date}/>
     <div className={styles.selectGrid} aria-label="جميع ألعاب 967 التسع">
      {games.map(game=>{
       const Icon=game.icon;

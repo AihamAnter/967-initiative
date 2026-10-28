@@ -41,3 +41,7 @@
 @media(max-width:900px){.panel{grid-template-columns:1fr;gap:16px}.main{align-items:stretch}.explanation{max-width:none}.timeSection{padding:18px}}
 @media(max-width:520px){.panel{padding:18px;gap:17px}.timeSection{padding:16px 9px}.digit{width:65px;min-height:78px}.digit strong{font-size:29px}.digit small{font-size:10px}.clockHeader{font-size:12px}.utcNote{font-size:10px}.main h3{font-size:26px}.gameNames>span{font-size:11px}.compact{padding:13px 7px}.compact .digit{width:55px}.compact .digit strong{font-size:24px}.compactLead{font-size:11px}.compact p{font-size:11px!important}}
 @media(prefers-reduced-motion:reduce){.action{transition:none}.action:hover{transform:none}}
+
+.attempted{display:flex;align-items:flex-start;gap:9px;width:100%;max-width:490px;padding:12px 14px;margin:0 0 13px;border:1px solid #6da98e;border-radius:11px;background:#1a3d37;color:#d7ffed;font-size:12px;line-height:1.9}
+.attempted>svg{flex-shrink:0;color:#b2ffcc;margin-top:3px}
+.attempted strong{font-weight:850;color:#fff}

@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useState} from 'react';
 import Link from 'next/link';
-import {ArrowUpLeft,ChartNoAxesCombined,CircleCheck,Flame,Medal,ShieldCheck,Trophy,UserRound,CalendarCheck2} from 'lucide-react';
+import {ArrowUpLeft,CircleCheck,Flame,Medal,ShieldCheck,Trophy,UserRound,CalendarCheck2} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import {utcDay} from '@/lib/dailyGame';
 import DailyCountdown from './DailyCountdown';

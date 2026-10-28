@@ -8,7 +8,7 @@ import styles from './DailyCountdown.module.css';
 
 const two=n=>String(n).padStart(2,'0');
 
-export default function DailyCountdown({initialDate,variant='featured'}){
+export default function DailyCountdown({initialDate,variant='featured',playerOverview=null}){
  const [now,setNow]=useState(null);
  const offset=useRef(0);
  const compact=variant==='compact';
@@ -62,6 +62,9 @@ export default function DailyCountdown({initialDate,variant='featured'}){
  const game=DAILY_GAME_TITLES[dailyGameForDate(currentDate)];
  const nextGame=DAILY_GAME_TITLES[dailyGameForDate(nextDate)];
  const href=dailyGameUrl(currentDate);
+ const attempted=playerOverview?.date===currentDate&&playerOverview.daily?.used;
+ const completed=attempted&&playerOverview.daily.finished;
+ const officialScore=completed?playerOverview.daily.score:null;
  const localOpening=windowState?new Intl.DateTimeFormat('ar',{
   weekday:'short',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'
  }).format(new Date(nextAt)):null;
@@ -90,7 +93,15 @@ export default function DailyCountdown({initialDate,variant='featured'}){
     <span><Trophy size={15}/> اليوم: <strong>{game}</strong></span>
     <span><Sparkles size={15}/> القادم: <strong>{nextGame}</strong></span>
    </div>
-   <Link href={href} className={styles.action}>العب تحدي اليوم <ArrowUpLeft size={18} aria-hidden="true"/></Link>
+   {attempted&&<div className={styles.attempted} role="status">
+    <Trophy size={18} aria-hidden="true"/>
+    <span>{completed?<>أكملت تحدي اليوم! نتيجتك الرسمية <strong>{Number(officialScore).toLocaleString('ar')} / 1000</strong>
+     {playerOverview.rank&&<> · ترتيبك العام <strong>#{Number(playerOverview.rank).toLocaleString('ar')}</strong></>}</>
+     :'استخدمت محاولتك الرسمية اليوم؛ ستُتاح محاولة جديدة عند بدء تحدي الغد.'}</span>
+   </div>}
+   {attempted
+    ?<Link href="/games/leaderboard" className={styles.action}>شاهد لوحة المتصدرين <ArrowUpLeft size={18} aria-hidden="true"/></Link>
+    :<Link href={href} className={styles.action}>العب تحدي اليوم <ArrowUpLeft size={18} aria-hidden="true"/></Link>}
   </div>
   <div className={styles.timeSection}>
    <span className={styles.clockHeader}><Clock3 size={17} aria-hidden="true"/> ينتهي تحدي اليوم ويفتح القادم بعد</span>
