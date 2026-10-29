@@ -2,6 +2,7 @@ import {NextResponse} from 'next/server';
 import {serverDb} from '@/lib/supabase-server';
 import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
 import {schoolUser,schoolOverview,startSchoolStage,finishSchoolStage} from '@/lib/schoolServer';
+import {MUSNAD_STAGES} from '@/lib/schoolMusnad';
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
 const response=(body,status=200)=>NextResponse.json(body,{status,headers:{'Cache-Control':'private, no-store','Pragma':'no-cache'}});
@@ -22,7 +23,7 @@ export async function POST(request){
   const db=serverDb(),user=await schoolUser(request,db);
   const body=await readJsonObject(request,3500);
   if(body.action==='start'){
-   if(!Number.isInteger(body.stage)||body.stage<0||body.stage>2)throw new RequestValidationError('اختر مرحلة صالحة.');
+   if(!Number.isInteger(body.stage)||body.stage<0||body.stage>=MUSNAD_STAGES.length)throw new RequestValidationError('اختر مرحلة صالحة.');
    return response({attempt:await startSchoolStage(db,user,body.stage)});
   }
   if(body.action==='submit'){
