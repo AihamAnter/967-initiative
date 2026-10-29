@@ -157,3 +157,5 @@
 .stationLocked .stationChapter{color:#87908d}
 .referenceLinks{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 @media(max-width:540px){.fullVerseTarget{padding:11px}.fullVerseTarget p{font-size:18px;line-height:2.15}}
+
+.draftStatus{font-size:12px;color:#52796a;margin:12px 0;line-height:1.6}

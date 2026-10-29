@@ -1,13 +1,34 @@
 'use client';
 import {useEffect,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck,Target,Zap} from 'lucide-react';
+import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck,Target,Zap,Flame,Brain,CalendarCheck} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/dashboard/dashboard.module.css';
 
 export default function SchoolDashboard(){
  const [state,setState]=useState({kind:'loading',data:null,message:''});
  const [revision,setRevision]=useState(0);
+ const [goalBusy,setGoalBusy]=useState(false);
+ const [goalError,setGoalError]=useState('');
+ async function setDailyGoal(dailyGoal){
+  if(goalBusy)return;
+  setGoalBusy(true);setGoalError('');
+  try{
+   const db=browserDb(),{data}=await db?.auth.getSession()||{};
+   if(!data?.session?.access_token)throw Error('يرجى تسجيل الدخول مجددًا.');
+   const response=await fetch('/api/school/dashboard',{method:'POST',cache:'no-store',
+    headers:{'Content-Type':'application/json',Authorization:'Bearer '+data.session.access_token},
+    body:JSON.stringify({action:'goal',dailyGoal})});
+   const result=await response.json();
+   if(!response.ok)throw Error(result.error||'تعذر حفظ الهدف.');
+   setState(old=>old.kind==='ready'?{...old,data:{...old.data,habits:{
+    ...old.data.habits,dailyGoal:result.dailyGoal,
+    reachedGoal:old.data.habits.todayCount>=result.dailyGoal,
+    todayProgress:Math.min(100,Math.round(old.data.habits.todayCount/result.dailyGoal*100))
+   }}}:old);
+  }catch(e){setGoalError(e.message||'تعذر حفظ الهدف.');}
+  finally{setGoalBusy(false);}
+ }
  useEffect(()=>{
   let alive=true;
   let latest=0;
@@ -59,6 +80,34 @@ export default function SchoolDashboard(){
     <div className={styles.xpTrack} role="progressbar" aria-label="التقدم إلى المستوى التالي" aria-valuemin={data.xp.currentLevelStart} aria-valuemax={data.xp.nextLevelAt} aria-valuenow={data.xp.total}><span style={{width:data.xp.percent+'%'}}/></div>
     <p>تحصل على 100 XP عند اجتياز محطة جديدة لأول مرة. إعادة المحاولة لا تمنح نقاطًا إضافية.</p>
    </section>
+   <div className={styles.habitGrid}>
+    <section className={styles.habitCard} aria-labelledby="daily-goal-title">
+     <div className={styles.habitHeading}><CalendarCheck size={23}/><h2 id="daily-goal-title">هدفي اليومي</h2></div>
+     <p>اختر عدد المحطات المختلفة التي تريد التدرب عليها يوميًا.</p>
+     <div className={styles.goalChoices} role="group" aria-label="اختر عدد المحطات اليومي">
+      {[1,2,3].map(goal=><button key={goal} type="button" disabled={goalBusy} aria-pressed={data.habits.dailyGoal===goal}
+       className={data.habits.dailyGoal===goal?styles.goalSelected:styles.goalChoice} onClick={()=>setDailyGoal(goal)}>{goal} {goal===1?'محطة':'محطات'}</button>)}
+     </div>
+     <div className={styles.habitProgressLabel}><strong>{data.habits.todayCount} / {data.habits.dailyGoal}</strong><span>{data.habits.reachedGoal?'حققت هدف اليوم':'استمر في التعلم'}</span></div>
+     <div className={styles.habitTrack} role="progressbar" aria-label="إنجاز الهدف اليومي" aria-valuemin={0} aria-valuemax={data.habits.dailyGoal} aria-valuenow={Math.min(data.habits.todayCount,data.habits.dailyGoal)}><span style={{width:data.habits.todayProgress+'%'}}/></div>
+     {goalError&&<p role="alert">{goalError}</p>}
+    </section>
+    <section className={styles.habitCard} aria-labelledby="streak-title">
+     <div className={styles.habitHeading}><Flame size={24}/><h2 id="streak-title">استمرارية التعلم</h2></div>
+     <div className={styles.streakNumber}><strong>{data.habits.streak}</strong><span>يومًا متتاليًا</span></div>
+     <p>يُحسب يوم التعلم بعد تصحيح اختبار واحد على الأقل، حتى لو لم تنجح فيه. لا عقوبة عند الانقطاع.</p>
+     <small>تُحسب الأيام بمنتصف الليل بتوقيت UTC لضمان اتساق النتائج عبر الأجهزة.</small>
+    </section>
+   </div>
+   <section className={styles.reviewSection} aria-labelledby="review-title">
+    <div className={styles.reviewHeading}><Brain size={23}/><div><h2 id="review-title">راجع ما أخطأت فيه</h2><p>أسئلة من محاولات مصححة فقط؛ تختفي من المراجعة إذا أجبت عنها إجابة صحيحة لاحقًا.</p></div></div>
+    {data.review.length?<div className={styles.reviewGrid}>{data.review.map(item=><article className={styles.reviewItem} key={item.id}>
+     <span>{item.course==='musnad'?'خط المسند':'علم العروض'} · المحطة {item.stage+1}</span>
+     <h3>{item.prompt}</h3>{item.context&&<p className={styles.reviewContext}>{item.context}</p>}
+     <p><strong>التصحيح:</strong> {item.answer}</p><p>{item.explanation}</p>
+     <Link href={item.href}>أعد التدريب <ArrowLeft size={16}/></Link>
+    </article>)}</div>:<p className={styles.reviewEmpty}>لا توجد أسئلة تحتاج إلى مراجعة من نتائجك الأخيرة.</p>}
+   </section>
    {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p></div>}
    <div className={styles.stats}>
     <div className={styles.stat}><span><CheckCircle2 size={17}/> محطات مكتملة</span><strong dir="ltr">{data.totals.completedStages} / {data.totals.stages}</strong></div>
@@ -79,7 +128,7 @@ export default function SchoolDashboard(){
     <div className={styles.courseFoot}><span>{course.attempts} محاولات مصححة</span>
      <Link href={course.nextStage?.href||course.href}>{course.finished?'راجع المسار':'المحطة '+((course.nextStage?.index??0)+1)} <ArrowLeft size={17}/></Link></div>
    </article>)}</div>
-   <p className={styles.footnote}>تعرض هذه اللوحة تقدم الدروس الحالي. نقاط الخبرة تُحتسب من النجاحات الموثقة دون تكرار. المراجعات والأهداف والإنجازات تأتي في المراحل التالية. لا توجد شهادات إتمام.</p>
+   <p className={styles.footnote}>تعرض هذه اللوحة تقدم الدروس الحالي. نقاط الخبرة تُحتسب من النجاحات الموثقة دون تكرار. المراجعة والأهداف والاستمرارية متاحة الآن، والإنجازات والمنافسة تأتي في المرحلة الرابعة. لا توجد شهادات إتمام.</p>
   </>}
  </div></section>;
 }

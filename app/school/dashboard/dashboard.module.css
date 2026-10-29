@@ -61,3 +61,34 @@
 .courseXp strong{font-weight:850}
 .courseXp span{color:#648173}
 @media(max-width:540px){.xpPanel{padding:18px}.xpHeading h2{font-size:19px}.xpNumbers{margin-top:18px}}
+
+/* Phase 3 shared School learning habits and reviewed mistakes */
+.habitGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 22px}
+.habitCard{min-width:0;background:#fff;border:1px solid #cbdad1;border-radius:14px;padding:22px}
+.habitHeading{display:flex;align-items:center;gap:10px;color:#28705b}
+.habitHeading h2{color:#234c3e;font-size:20px;margin:0}
+.habitCard>p{font-size:12px;line-height:1.9;color:#55766b;margin:10px 0 15px}
+.habitCard>small{font-size:11px;line-height:1.8;color:#61766c}
+.goalChoices{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:17px}
+.goalChoice,.goalSelected{background:#f2f5ef;border:1px solid #c8dacb;color:#285f4c;border-radius:9px;padding:10px 14px;font-size:12px;font-weight:800;min-height:42px}
+.goalSelected{background:#d7ebdc;border-color:#24795b}
+.goalChoices button:disabled{opacity:.55}
+.habitProgressLabel{display:flex;justify-content:space-between;gap:10px;color:#315e4d;font-size:12px}
+.habitTrack{height:9px;background:#e1e8df;border-radius:20px;margin-top:10px;overflow:hidden}
+.habitTrack span{display:block;height:100%;background:#397e61}
+.streakNumber{display:flex;align-items:baseline;gap:12px;margin:20px 0 6px}
+.streakNumber strong{font-size:44px;color:#226b4d;line-height:1}
+.streakNumber span{font-size:15px;color:#43634f;font-weight:750}
+.reviewSection{margin:22px 0 29px}
+.reviewHeading{display:flex;align-items:flex-start;gap:12px;margin:0 0 17px;color:#306c60}
+.reviewHeading h2{font-size:23px;color:#254c43;margin:0}
+.reviewHeading p{font-size:12px;line-height:1.9;color:#61746c;margin:4px 0 0}
+.reviewGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.reviewItem{min-width:0;background:#fff;border:1px solid #d8ded6;border-radius:12px;padding:18px}
+.reviewItem>span{font-size:11px;color:#597b70;font-weight:800}
+.reviewItem h3{font-size:15px;line-height:1.7;margin:9px 0 6px;color:#294f43}
+.reviewItem p{font-size:12px;line-height:1.9;margin:8px 0;color:#526c61;overflow-wrap:anywhere;white-space:pre-line}
+.reviewItem .reviewContext{color:#295c4d;background:#f0f5ed;border-radius:8px;padding:9px 11px}
+.reviewItem a{display:inline-flex;gap:8px;align-items:center;color:#21745d;font-size:12px;font-weight:800;margin-top:8px}
+.reviewEmpty{background:#fff;border:1px solid #d9e2d9;border-radius:12px;padding:20px;color:#527565;font-size:13px}
+@media(max-width:730px){.habitGrid,.reviewGrid{grid-template-columns:1fr}.habitCard{padding:18px}}

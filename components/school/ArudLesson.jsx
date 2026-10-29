@@ -3,6 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,Delete,RefreshCw,RotateCcw,ShieldCheck,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
+import useSchoolDraft from './useSchoolDraft';
 import {ARUD_STAGES} from '@/lib/schoolArud';
 import styles from '@/app/school/writing/arud/arud.module.css';
 
@@ -25,12 +26,13 @@ export default function ArudLesson({stage}){
  const [error,setError]=useState('');
  const [submitFailed,setSubmitFailed]=useState(false);
  const outcomeTitle=useRef(null);
+ const draft=useSchoolDraft({attempt,active:phase==='exercise',answers,selection,request:requestArud});
  useEffect(()=>{if(phase==='result')outcomeTitle.current?.focus();},[phase]);
  async function start(){
   if(busy)return;setBusy(true);setError('');setSubmitFailed(false);
   try{
    const data=await requestArud({action:'start',stage:stage.index});
-   setAttempt(data.attempt);setPhase('exercise');setIndex(0);setSelection(null);setAnswers([]);setResult(null);
+   setAttempt(data.attempt);setPhase('exercise');setIndex(data.attempt.draft?.answers?.length||0);setSelection(data.attempt.draft?.selection??null);setAnswers(data.attempt.draft?.answers||[]);setResult(null);
   }catch(e){setError(e.message||'تعذر بدء المحطة.');}
   finally{setBusy(false);}
  }
@@ -44,12 +46,14 @@ export default function ArudLesson({stage}){
  }
  const task=phase==='exercise'?attempt?.questions?.[index]:null;
  const ready=task?.kind==='choice'?Number.isInteger(selection):task?.kind==='sequence'&&Array.isArray(selection)&&(task.steps?selection.length===task.steps:selection.length>0&&selection.length<=8);
- function next(){
+ async function next(){
   if(!task||!ready||busy)return;
   const all=[...answers,{id:task.id,choice:selection}];
-  setAnswers(all);
-  if(index===attempt.questions.length-1){finish(all);return;}
-  setIndex(i=>i+1);setSelection(null);
+  if(index===attempt.questions.length-1){setAnswers(all);finish(all);return;}
+  setBusy(true);
+  try{await draft.save({answers:all,selection:null});setAnswers(all);setIndex(i=>i+1);setSelection(null);}
+  catch(e){setError(e.message||'تعذر حفظ التقدم؛ أعد المحاولة.');}
+  finally{setBusy(false);}
  }
  const isScansion=stage.index===1;
  const isRealVerse=(stage.index===4||stage.index===5||stage.index===6);
@@ -66,6 +70,7 @@ export default function ArudLesson({stage}){
   {phase==='exercise'&&attempt&&<>
    <div className={styles.questionStatus}><span>السؤال {index+1} من {attempt.questions.length}</span><span>المحاولة {attempt.attemptNo}</span></div>
    <div className={styles.meterProgress} role="progressbar" aria-valuemin={0} aria-valuemax={6} aria-valuenow={index} aria-label="تقدّم التمارين"><span style={{width:(index/6*100)+'%'}}/></div>
+   <p className={styles.draftStatus} role="status">حفظ التقدم: {draft.status||'تلقائي عند الإجابة والمتابعة'}</p>
    <section className={styles.question}>
     <span className={styles.questionKind}>{task.kind==='choice'?'تعرّف على القاعدة':'تمرين تقطيع تفاعلي'}</span>
     <h2>{task.prompt}</h2>

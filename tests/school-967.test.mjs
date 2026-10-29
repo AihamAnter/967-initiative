@@ -134,7 +134,7 @@ test('the school API grades on the server and private tables deny browser access
  const extension=read('supabase/migrations/20261029124719_school_musnad_full_alphabet_stages.sql');
  assert.ok(api.includes('schoolUser(request,db)'));
  assert.ok(api.includes('isSameOrigin(request)'));
- assert.ok(api.includes("readJsonObject(request,3500)"));
+ assert.ok(api.includes("readJsonObject(request,14500)"));
  assert.ok(server.includes('gradeSchoolQuestions(row.questions,answers)'));
  assert.ok(server.includes("eq('user_id',user.id)"));
  assert.ok(server.includes("eq('status','active')"));

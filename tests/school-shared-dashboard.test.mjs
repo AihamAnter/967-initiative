@@ -110,7 +110,7 @@ test('XP backend and private ledger SQL are secured, deduplicated and backfilled
  const migration=read('supabase/migrations/20261029181659_school_967_xp_events.sql');
  assert.ok(server.includes("const XP_TABLE='school_xp_events'"));
  assert.ok(server.includes(".eq('user_id',user.id)"));
- assert.ok(server.includes("const [records,staffPreview,credits]=await Promise.all("));
+ assert.ok(server.includes("const [records,staffPreview,credits,goal,review]=await Promise.all("));
  assert.ok(api.includes('schoolUser(request,db)'));
  assert.ok(migration.includes('unique (user_id,course_slug,stage_index)'));
  assert.ok(migration.includes('on conflict (user_id,course_slug,stage_index) do nothing'));

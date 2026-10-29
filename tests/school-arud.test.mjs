@@ -135,7 +135,7 @@ test('Arud API uses the same verified account and staff preview rules without mi
  const migration=read('supabase/migrations/20261029141600_school_arud_course_enable.sql');
  assert.ok(api.includes('schoolUser(request,db)'));
  assert.ok(api.includes('isSameOrigin(request)'));
- assert.ok(api.includes("readJsonObject(request,5500)"));
+ assert.ok(api.includes("readJsonObject(request,14500)"));
  assert.ok(server.includes("const COURSE='arud'"));
  assert.ok(server.includes(".eq('course_slug',COURSE)"));
  assert.ok(server.includes('schoolStaffPreview(db,user)'));
