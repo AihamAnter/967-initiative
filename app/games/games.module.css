@@ -276,14 +276,3 @@
  .selectTile,.tileIconFrame,.tileOrbitOuter,.tileGo{transition:none!important}
  .selectTile:hover{transform:none}.selectTile:hover .tileIconFrame{transform:none}
 }
-
-/* Friend Duel entrance: the arcade lobby keeps its dark, grown-up design. */
-.friendStrip{display:flex;align-items:center;gap:18px;flex-wrap:wrap;text-decoration:none;border:1px solid #6b5893;border-radius:18px;margin:25px 0;padding:21px 23px;color:#f8faff;background:radial-gradient(circle at 15% 20%,#4b327688,transparent 50%),linear-gradient(115deg,#1d2240,#17253f 70%,#112a32);box-shadow:0 12px 25px #05081770}
-.friendIcon{display:grid;place-items:center;width:64px;height:64px;flex-shrink:0;border:1px solid #b28cee;border-radius:17px;color:#e0c9ff;background:#3d335d}
-.friendCopy{display:flex;flex-direction:column;gap:4px;min-width:220px;flex:1}
-.friendCopy>small{font-size:10px;color:#c0a8ff;font-weight:850;letter-spacing:.12em;direction:ltr;text-align:right}
-.friendCopy>strong{font-size:23px;line-height:1.4;color:#fff}
-.friendCopy>span{font-size:12px;line-height:1.9;color:#c4d2e8}
-.friendGo{display:flex;align-items:center;gap:8px;padding:12px 15px;border-radius:10px;color:#0d2e28;background:#b1f7d7;font-size:12px;font-weight:850;white-space:nowrap}
-.friendStrip:hover{border-color:#b4a3ef}.friendStrip:hover .friendGo{background:#d2ffe9}
-@media(max-width:630px){.friendStrip{padding:16px;gap:12px}.friendIcon{width:50px;height:50px}.friendCopy>strong{font-size:20px}.friendGo{width:100%;justify-content:center}}

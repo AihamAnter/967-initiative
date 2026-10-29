@@ -5,7 +5,6 @@ import ArcadeIntro from '@/components/games/ArcadeIntro';
 import GamesHomeStatus from '@/components/games/GamesHomeStatus';
 import GameAchievementGallery from '@/components/games/GameAchievementGallery';
 import WeeklyArcade from '@/components/games/WeeklyArcade';
-import {Swords} from 'lucide-react';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
@@ -38,7 +37,6 @@ export default async function GamesPage(){
    <Link className={styles.heroPrimary} href="#choose-your-game"><Gamepad2 size={19} aria-hidden="true"/> اختر لعبتك <ArrowLeft size={18} aria-hidden="true"/></Link>
    <Link className={styles.heroSecondary} href="#daily-challenge"><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
    <Link className={styles.heroSecondary} href="/games/leaderboard"><Trophy size={19} aria-hidden="true"/> لوحة المتصدرين</Link>
-   <Link className={styles.heroSecondary} href="/games/friends"><Swords size={19} aria-hidden="true"/> تحدَّ صديقك</Link>
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
@@ -83,11 +81,6 @@ export default async function GamesPage(){
      })}
     </div>
 
-    <Link href="/games/friends" className={styles.friendStrip}>
-     <span className={styles.friendIcon}><Swords size={30} strokeWidth={1.7}/></span>
-     <span className={styles.friendCopy}><small>FRIEND DUEL / 967</small><strong>تحدَّ صديقك الآن</strong><span>تسع ألعاب، نفس الأسئلة للطرفين، ونتيجة خاصة تحسم المنافسة. أنشئ رابطًا وأرسله لصديقك.</span></span>
-     <span className={styles.friendGo}>ابدأ المواجهة <ArrowUpLeft size={19}/></span>
-    </Link>
     <WeeklyArcade/>
     <GameAchievementGallery preview/>
     <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب التسع</small></span><ArrowUpLeft size={20}/></Link>

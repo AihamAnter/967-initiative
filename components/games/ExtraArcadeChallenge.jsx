@@ -10,6 +10,8 @@ import {TimeControls,GameTimer} from './TimeControls';
 import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
 import {ExtraBoard} from './ExtraBoards';
 import {readPracticeSeen,rememberPracticeTasks} from '@/lib/practiceRotation';
+import FriendInviteAction from './FriendInviteAction';
+import friendStyles from './FriendInviteAction.module.css';
 import styles from './ArcadeChallenge.module.css';
 import extra from './ExtraArcade.module.css';
 
@@ -158,9 +160,12 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
    <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
    <DailyAttemptNotice daily={daily} mode={mode} date={date}/>
    {mode==='daily'&&<p className={styles.dailyNote}>تحدي {date} بتوقيت UTC · محاولة واحدة لكل حساب · 7 ثوانٍ ثابتة لكل مهمة · النتائج موثقة على الخادم.</p>}
-   <button type="button" className={styles.primary} disabled={starting||!daily.canStart} onClick={start}>
+   <div className={friendStyles.actionRow}>
+    <button type="button" className={styles.primary} disabled={starting||!daily.canStart} onClick={start}>
     <Play size={17}/>{starting?'جارٍ حجز المحاولة…':'ابدأ الجولة'}<ArrowLeft size={17}/>
    </button>
+    <FriendInviteAction game={game} seconds={seconds} disabled={starting}/>
+   </div>
    <aside className={styles.playerStats}><span><Trophy size={18}/> أفضل نتيجة محلية: {stats.best||0} XP</span>
     <span>الجولات المكتملة: {stats.plays||0}</span><span>النتائج الرسمية فقط تدخل لوحة المتصدرين</span></aside>
   </div>}

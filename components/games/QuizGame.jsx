@@ -9,6 +9,8 @@ import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
 import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
 import {readPracticeSeen,rememberPracticeTasks} from '@/lib/practiceRotation';
+import FriendInviteAction from './FriendInviteAction';
+import friendStyles from './FriendInviteAction.module.css';
 
 const STORAGE_KEY='967-games-progress-v1';
 const emptyStats={plays:0,correct:0,points:0,best:0,dailyDate:'',dailyBest:0};
@@ -129,7 +131,10 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      </div>:<p className={styles.dailyNote}>تحدي {date} (UTC): الأسئلة وترتيبها ثابتة، والوقت 7 ثوانٍ لكل سؤال غير قابلة للتغيير.</p>}
      <TimeControls mode={mode} seconds={seconds} onChange={setSeconds}/>
      <DailyAttemptNotice daily={daily} mode={mode} date={date}/>
-     <button type="button" className={styles.primary} onClick={start} disabled={!canStart||starting}>{starting?'جارٍ حجز المحاولة…':canStart?'ابدأ الجولة':mode==='daily'?'تحدي اليوم غير متاح لبدء محاولة جديدة':'لا توجد أسئلة منشورة لهذا الاختيار'} <ArrowLeft size={18}/></button>
+     <div className={friendStyles.actionRow}>
+    <button type="button" className={styles.primary} onClick={start} disabled={!canStart||starting}>{starting?'جارٍ حجز المحاولة…':canStart?'ابدأ الجولة':mode==='daily'?'تحدي اليوم غير متاح لبدء محاولة جديدة':'لا توجد أسئلة منشورة لهذا الاختيار'} <ArrowLeft size={18}/></button>
+    <FriendInviteAction game="quiz" seconds={seconds} disabled={starting}/>
+   </div>
      <p className={styles.privacy}>الجولة الحرة بلا تسجيل؛ يتطلب تحدي اليوم حساباً موثقاً ومحاولة واحدة فقط. نتائج الجولات الحرة محلية، أما تحدي اليوم فيُوثّق على الخادم ويظهر في لوحة المتصدرين.</p>
     </div>
     <aside className={styles.profile}>

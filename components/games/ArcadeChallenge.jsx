@@ -11,6 +11,8 @@ import {TimeControls,GameTimer} from './TimeControls';
 import useDailyAttempt,{DailyAttemptNotice} from './useDailyAttempt';
 import {PlaceBoard,TimelineBoard,MapBoard} from './ArcadeBoards';
 import {readPracticeSeen,rememberPracticeTasks} from '@/lib/practiceRotation';
+import FriendInviteAction from './FriendInviteAction';
+import friendStyles from './FriendInviteAction.module.css';
 import styles from './ArcadeChallenge.module.css';
 
 const builders={place:buildPlaceChallenges,timeline:buildTimelineChallenges,map:buildMapChallenges};
@@ -140,7 +142,10 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    <DailyAttemptNotice daily={daily} mode={mode} date={date}/>
    {mode==='daily'&&<p className={styles.dailyNote}>تحدي {date} بتوقيت UTC: المهام وترتيبها موحدة لهذا اليوم، والمهلة 7 ثوانٍ لكل مهمة.</p>}
    {game==='map'&&mapError&&<div role="alert" className={styles.mapFailure}>{mapError}<button type="button" onClick={()=>{setMapError('');setMapAttempt(x=>x+1);}}>إعادة التحميل</button></div>}
-   <button type="button" className={styles.primary} disabled={starting||!daily.canStart||(game==='map'&&!mapData)} onClick={start}><Play size={18}/> {starting?'جارٍ حجز المحاولة…':'ابدأ التحدي'} <ArrowLeft size={18}/></button>
+   <div className={friendStyles.actionRow}>
+    <button type="button" className={styles.primary} disabled={starting||!daily.canStart||(game==='map'&&!mapData)} onClick={start}><Play size={18}/> {starting?'جارٍ حجز المحاولة…':'ابدأ التحدي'} <ArrowLeft size={18}/></button>
+    <FriendInviteAction game={game} seconds={seconds} disabled={starting}/>
+   </div>
    <aside className={styles.playerStats}><span><Trophy size={18}/> أفضل نتيجة: {stats.best||0} XP</span><span>الجولات المكتملة: {stats.plays||0}</span><span>النتائج الرسمية فقط تظهر في لوحة المتصدرين</span></aside>
   </div>}
   {!!tasks.length&&!finished&&<div className={styles.arena}>
