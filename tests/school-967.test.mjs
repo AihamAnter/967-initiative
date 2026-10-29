@@ -59,7 +59,7 @@ test('six questions are varied across adjacent attempts, without leaking answer 
 test('server grading requires 5/6 and rejects malformed answers and mismatched question IDs',()=>{
  for(let stage=0;stage<MUSNAD_STAGES.length;stage++){
   const questions=makeSchoolQuestions(stage,1);
-  const perfect=questions.map(q=>({id:q.id,choice:q.kind==='choice'?q.options.indexOf(q.answer):q.answer}));
+  const perfect=questions.map(q=>({id:q.id,choice:q.kind==='choice'?q.options.indexOf(q.answer):q.answer.map(id=>q.options.findIndex(o=>o.id===id))}));
   const success=gradeSchoolQuestions(questions,perfect);
   assert.equal(success.score,6);
   assert.equal(success.passed,true);
@@ -70,6 +70,60 @@ test('server grading requires 5/6 and rejects malformed answers and mismatched q
   assert.equal(gradeSchoolQuestions(questions,twoWrong).passed,false);
   assert.throws(()=>gradeSchoolQuestions(questions,[]));
   assert.throws(()=>gradeSchoolQuestions(questions,perfect.map((a,i)=>i===0?{...a,id:'forged'}:a)));
+ }
+});
+
+test('composition questions show only Musnad glyphs and never leak names or semantic IDs during assessment',()=>{
+ const view=read('components/school/SchoolLesson.jsx');
+ const server=read('lib/schoolMusnadQuestions.js');
+ const styles=read('app/school/school.module.css');
+ let seen=0;
+ for(const stage of [2,9,10,11]){
+  const questions=makeSchoolQuestions(stage,1);
+  const publicQuestions=publicSchoolQuestions(questions);
+  for(let i=0;i<questions.length;i++){
+   const q=questions[i],pub=publicQuestions[i];
+   if(q.kind!=='compose')continue;
+   seen++;
+   assert.deepEqual(pub.options,q.options.map(({glyph})=>({glyph})));
+   assert.ok(pub.options.every(o=>Object.keys(o).length===1&&typeof o.glyph==='string'));
+   assert.ok(!pub.options.some(o=>Object.hasOwn(o,'name')||Object.hasOwn(o,'latin')||Object.hasOwn(o,'id')));
+   assert.equal(pub.target,q.target,'the target may name letters; the answer tiles may not');
+   const submitted=q.answer.map(id=>q.options.findIndex(o=>o.id===id));
+   assert.ok(submitted.every(v=>v>=0));
+   const other=questions.map(item=>({
+    id:item.id,
+    choice:item.kind==='choice'?item.options.indexOf(item.answer):item.answer.map(id=>item.options.findIndex(o=>o.id===id))
+   }));
+   other[i]={id:q.id,choice:submitted};
+   assert.equal(gradeSchoolQuestions(questions,other).score,6);
+  }
+ }
+ assert.ok(seen>6,'composition questions should be covered across different stages');
+ assert.ok(view.includes('task.options.map((o,index)=>'));
+ assert.ok(view.includes('task.options[index]?.glyph'));
+ assert.ok(!view.includes('<small>{o.name}</small>'));
+ assert.ok(!view.includes("aria-label={'إضافة حرف '+o.name}"));
+ assert.ok(view.includes("aria-label={'اختيار رمز المسند رقم '"));
+ assert.ok(server.includes("q.kind==='compose'?q.options.map(({glyph})=>({glyph})):q.options"));
+ assert.ok(styles.includes('Composition tests show only Musnad symbols'));
+});
+
+test('composition grade rejects forged tile positions but accepts sessions opened before deployment',()=>{
+ for(const stage of [2,10,11]){
+  const snapshot=makeSchoolQuestions(stage,1);
+  const compose=snapshot.find(q=>q.kind==='compose');
+  const answers=snapshot.map(q=>({
+   id:q.id,
+   choice:q.kind==='choice'?q.options.indexOf(q.answer):q.answer.map(id=>q.options.findIndex(o=>o.id===id))
+  }));
+  const legacy=answers.map((answer,i)=>snapshot[i].kind==='compose'?{id:answer.id,choice:snapshot[i].answer}:answer);
+  assert.equal(gradeSchoolQuestions(snapshot,legacy).score,6);
+  const position=snapshot.indexOf(compose);
+  const invalid=[...answers];invalid[position]={...answers[position],choice:[999,...answers[position].choice.slice(1)]};
+  assert.throws(()=>gradeSchoolQuestions(snapshot,invalid));
+  const forgedName=[...answers];forgedName[position]={...answers[position],choice:[compose.options[0].name,...answers[position].choice.slice(1)]};
+  assert.throws(()=>gradeSchoolQuestions(snapshot,forgedName));
  }
 });
 

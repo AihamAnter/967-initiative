@@ -242,3 +242,8 @@
 .staffPreviewNotice p{margin:0;font-size:12px;line-height:1.85}
 .staffOpen{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:99px;font-size:11px;color:#225a83;background:#e2effa;font-weight:750}
 @media(max-width:550px){.staffPreviewNotice{padding:14px 15px}}
+
+/* Composition tests show only Musnad symbols; no Arabic-name hints under tiles. */
+.glyphOptions button{align-items:center;justify-content:center;min-height:95px}
+.glyphOptions .glyph{font-size:clamp(36px,4.7vw,49px);line-height:1.5}
+@media(max-width:540px){.glyphOptions button{min-height:82px}.glyphOptions .glyph{font-size:37px}}
