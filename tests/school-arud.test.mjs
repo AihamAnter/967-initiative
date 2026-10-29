@@ -53,6 +53,34 @@ test('every Arud station has six varied questions and API data never contains gr
  assert.throws(()=>makeArudQuestions(1,0));
 });
 
+test('every introductory theory question shows a concrete example without giving away the answer',()=>{
+ const snapshot=makeArudQuestions(0,1);
+ for(let attempt=1;attempt<=6;attempt++){
+  for(const question of makeArudQuestions(0,attempt)){
+   assert.equal(question.kind,'choice');
+   assert.ok(typeof question.example==='string'&&question.example.length>=30);
+   assert.ok(!question.example.includes(question.answer),'example must not directly repeat the correct choice');
+   const output=publicArudQuestions([question]);
+   assert.equal(output[0].example,question.example);
+   assert.ok(!Object.hasOwn(output[0],'answer'));
+   assert.ok(!Object.hasOwn(output[0],'explanation'));
+  }
+ }
+ const allIds=Array.from({length:16},(_,i)=>'rule-'+i);
+ const publicSource=read('lib/schoolArudQuestions.js');
+ assert.ok(publicSource.includes('const FUNDAMENTAL_EXAMPLES='));
+ assert.equal((publicSource.match(/'rule-'/g)||[]).length>=1,true);
+ const legacy=allIds.map(id=>({...snapshot[0],id,example:undefined}));
+ const recovered=publicArudQuestions(legacy);
+ assert.ok(recovered.every(q=>typeof q.example==='string'&&q.example.length>=30),'older open attempts receive examples');
+ const lesson=read('components/school/ArudLesson.jsx');
+ assert.ok(lesson.includes('task.example&&<aside className={styles.questionExample}'));
+ assert.ok(lesson.includes('مثال يساعدك على الفهم'));
+ const style=read('app/school/writing/arud/arud.module.css');
+ assert.ok(style.includes('.questionExample'));
+ assert.ok(style.includes('@media(max-width:540px)'));
+});
+
 test('movement, rest and syllable exercises use interactive sequences, not answer-disclosing choices',()=>{
  for(const stage of [1,2]){
   const question=makeArudQuestions(stage,1);

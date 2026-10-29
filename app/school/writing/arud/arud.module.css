@@ -126,3 +126,9 @@
 @media(max-width:760px){.heroInterior{grid-template-columns:1fr}.heroArtwork{display:none}.stationGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.lessonStudy{grid-template-columns:1fr}.hero{padding-bottom:44px}.hero h1{font-size:46px}}
 @media(max-width:540px){.stationGrid,.answerList{grid-template-columns:1fr}.station,.stationLocked,.stationDone{min-height:235px}.stationIndex{font-size:64px}.question{padding:18px}.questionFooter button{width:100%}.lessonStart button{width:100%}.lessonHeading{gap:8px}.lessonHeading h1{font-size:32px}.hero h1{font-size:40px}.lessonStudy>section{padding:16px}.questionFooter{margin-top:18px}.patternKeys button{min-height:86px}.patternBuilder>span{width:39px;height:48px;font-size:29px}}
 @media(prefers-reduced-motion:reduce){.station:hover,.stationDone:hover{transform:none}.meterProgress>span{transition:none}}
+
+/* Contextual examples sit between the prompt and options, without disclosing grading keys. */
+.questionExample{margin:0 0 19px;padding:15px 17px;border:1px solid #d7d4c5;border-inline-start:3px solid #bc965a;border-radius:9px;background:#f7f5ed;color:#26443d}
+.questionExample>span{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:#7b5a32}
+.questionExample p{font-size:14px;line-height:1.95;margin:7px 0 0;color:#405d55}
+@media(max-width:540px){.questionExample{padding:12px 13px}.questionExample p{font-size:13px}}

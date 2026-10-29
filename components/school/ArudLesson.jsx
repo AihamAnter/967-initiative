@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,Check,CheckCircle2,Delete,RefreshCw,RotateCcw,ShieldCheck,XCircle} from 'lucide-react';
+import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,Delete,RefreshCw,RotateCcw,ShieldCheck,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import {ARUD_STAGES} from '@/lib/schoolArud';
 import styles from '@/app/school/writing/arud/arud.module.css';
@@ -67,6 +67,7 @@ export default function ArudLesson({stage}){
     <span className={styles.questionKind}>{task.kind==='choice'?'تعرّف على القاعدة':'تمرين تقطيع تفاعلي'}</span>
     <h2>{task.prompt}</h2>
     {task.target&&<div className={styles.wordTarget} dir={stage.index===3&&task.target.includes('—')?'ltr':'rtl'}>{task.target}</div>}
+    {task.example&&<aside className={styles.questionExample} aria-label="مثال توضيحي"><span><BookOpen size={17} aria-hidden="true"/> مثال يساعدك على الفهم</span><p>{task.example}</p></aside>}
     {task.kind==='choice'&&<div className={styles.answerList} role="group" aria-label="اختر إجابة واحدة">{task.options.map((option,i)=><button type="button" key={i} className={selection===i?styles.answerActive:styles.answer} aria-pressed={selection===i} onClick={()=>setSelection(i)}><span className={styles.optionIndex} dir="ltr">{String.fromCharCode(65+i)}</span><span>{option}</span>{selection===i&&<Check size={19}/>}</button>)}</div>}
     {task.kind==='sequence'&&<>
      <p className={styles.sequenceHint}>{isScansion?'ابنِ سلسلة المتحرك والساكن من بداية الكلمة إلى نهايتها.':'اختر المقاطع القصيرة والطويلة بالترتيب الذي تنطق به الكلمة.'}</p>
