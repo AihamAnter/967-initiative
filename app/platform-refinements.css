@@ -510,3 +510,22 @@
  .platform-footer-grid>div:first-child,.platform-footer-grid>div:last-child{grid-column:auto}
  .platform-footer-grid>div:last-child{flex-direction:column;align-items:flex-start;gap:0}
 }
+
+/* School 967: a separate educational destination, not nested under Knowledge or Games. */
+.platform-nav>.nav-school{white-space:nowrap;gap:8px;color:#2e6657;font-weight:750}
+.platform-nav>.nav-school svg{color:#a2703c}
+.platform-nav>.nav-school:hover,.platform-nav>.nav-school.active{color:#a2703c}
+@media(min-width:901px) and (max-width:1200px){
+ .platform-nav{gap:12px}
+ .platform-nav>.nav-school,.platform-nav>.nav-games{font-size:12px}
+}
+@media(max-width:900px){
+ .platform-nav>.nav-school{display:flex;align-items:center;min-height:52px;margin-top:9px;padding:8px 13px;border:1px solid #d9c7a6;border-radius:9px;background:#f6eee1;color:#71502d}
+ .platform-nav>.nav-school.active{border-color:#b58a52;background:#f1e2c7}
+}
+/* Six main footer columns: about, content, games, school, directories and initiative. */
+.platform-footer-grid{grid-template-columns:minmax(220px,1.35fr) repeat(5,minmax(0,1fr))}
+@media(max-width:1180px){.platform-footer-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:900px){.platform-footer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.platform-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.platform-footer-grid{grid-template-columns:minmax(0,1fr)}}
