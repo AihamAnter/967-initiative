@@ -19,7 +19,7 @@ export default async function WritingPage(){
   <section className={styles.catalogSection}><div className="container">
    <div className={styles.sectionTitle}><div><span>مسارات هذا القسم</span><h2>رحلتك تبدأ من هنا</h2></div></div>
    <div className={styles.courseGrid}>
-    <Link href="/school/writing/musnad" className={styles.courseLive}><div className={styles.courseVisual} aria-hidden="true">𐩣𐩡</div><span className={styles.courseTag}>متاح الآن · 3 مراحل تجريبية</span><h3>خط المسند</h3><p>تعرّف على الحروف، ميّز رموزها، ثم كوّن تسلسلات منها في 3 محطات متدرجة.</p><span className={styles.cardAction}>ابدأ مسار المسند <ArrowLeft size={18}/></span></Link>
+    <Link href="/school/writing/musnad" className={styles.courseLive}><div className={styles.courseVisual} aria-hidden="true">𐩣𐩡</div><span className={styles.courseTag}>متاح الآن · 12 مرحلة تعليمية</span><h3>خط المسند</h3><p>تعرّف على الحروف، ميّز رموزها، ثم كوّن تسلسلات منها عبر 12 محطة متدرجة.</p><span className={styles.cardAction}>ابدأ مسار المسند <ArrowLeft size={18}/></span></Link>
     <article className={styles.coursePending}><Feather size={32}/><span className={styles.courseTag}>قريبًا</span><h3>علم العروض</h3><p>أوزان الشعر وبحوره وتقطيع الأبيات مع أدوات تفاعلية.</p><span><LockKeyhole size={15}/> قيد الإعداد</span></article>
     <article className={styles.coursePending}><BookOpen size={32}/><span className={styles.courseTag}>قريبًا</span><h3>الخطوط العربية</h3><p>النسخ والرقعة والكوفي وغيرها، مع تمارين تشكيل الحروف.</p><span><LockKeyhole size={15}/> قيد الإعداد</span></article>
    </div>
