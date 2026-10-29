@@ -12,7 +12,7 @@ const choices=['أ','ب','ج','د'];
 const format=n=>Number(n||0).toLocaleString('ar');
 const isSvgGame=game=>game==='map';
 const isPhoto=game=>game==='place'||game==='object';
-const readyToStart=(game,task,mapData,mediaReady)=>game==='map'?!!mapData:isPhoto(game)?mediaReady:!!task;
+const readyToStart=(game,task,mapData,mediaReady)=>game==='map'?!!mapData:true;
 
 export default function FriendDuel({id}){
  const [match,setMatch]=useState(null);
@@ -175,7 +175,7 @@ export default function FriendDuel({id}){
     {mine?.phase==='question'&&!started&&<div className={styles.startPanel}>
      <Gamepad2 size={35}/><h3>جاهز للسؤال {format(mine.step+1)}؟</h3><p>سيبدأ عدّاد {format(seconds)} ثانية عندما تضغط الزر. الوقت متوقف الآن، ولا تظهر الإجابة الصحيحة قبل اعتمادها.</p>
      {isSvgGame(match.game)&&!mapData&&<p className={styles.note}>{mapError||'جارٍ تحميل خريطة اليمن…'}</p>}
-     {isPhoto(match.game)&&!mediaReady&&<p className={styles.note}>جارٍ تجهيز الصورة قبل بدء المؤقت…</p>}
+     {isPhoto(match.game)&&<p className={styles.note}>ستظهر الصورة مع بدء المؤقت لحماية عدالة المنافسة. قد يستغرق تحميلها لحظات.</p>}
      <button type="button" disabled={busy||!readyToStart(match.game,task,mapData,mediaReady)} className={styles.primary} onClick={()=>post('ready')}>ابدأ السؤال <Zap size={18}/></button>
     </div>}
     {(started||mine?.phase==='review')&&task&&<div className={styles.questionPanel}>
