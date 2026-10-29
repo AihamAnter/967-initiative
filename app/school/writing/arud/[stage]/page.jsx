@@ -6,6 +6,8 @@ import {sectionIsVisible} from '@/lib/pageVisibility';
 import {arudStage} from '@/lib/schoolArud';
 import {pageMetadata} from '@/lib/seo';
 import ArudLesson from '@/components/school/ArudLesson';
+import {serverDb} from '@/lib/supabase-server';
+import {publishedSchoolStage} from '@/lib/schoolContentServer';
 import school from '../../../school.module.css';
 import styles from '../arud.module.css';
 export const dynamic='force-dynamic';
@@ -15,8 +17,11 @@ export default async function ArudStagePage({params}){
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
  const {stage:raw}=await params;
  if(!/^(?:[1-9]|1[0-2])$/.test(raw))notFound();
- const stage=arudStage(Number(raw)-1);
- if(!stage)notFound();
+ const original=arudStage(Number(raw)-1);
+ if(!original)notFound();
+ const db=serverDb();
+ const overlay=db?await publishedSchoolStage(db,'arud',original.index):null;
+ const stage=overlay?{...original,...overlay}:original;
  return <main className={school.root}><section className={styles.lessonBackground}><div className="container">
   <div className={styles.lessonBreadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing/arud">علم العروض</Link><ChevronLeft size={14}/>المحطة {raw}</div>
   <ArudLesson stage={stage}/>
