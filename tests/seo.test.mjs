@@ -56,7 +56,7 @@ test('preview and development never inherit index permission from production met
 test('search crawler groups preserve private exclusions without changing training policy', () => {
   const policy = robotsPolicy(production);
   assert.equal(policy.sitemap, `${DEFAULT_SITE_ORIGIN}/sitemap.xml`);
-  for (const group of policy.rules) assert.deepEqual(group.disallow, ['/admin', '/api/', '/account', '/login', '/register', '/forgot-password', '/update-password', '/auth/']);
+  for (const group of policy.rules) assert.deepEqual(group.disallow, ['/admin', '/api/', '/account', '/school/dashboard', '/login', '/register', '/forgot-password', '/update-password', '/auth/']);
   assert.ok(policy.rules.some(group => Array.isArray(group.userAgent) && group.userAgent.includes('OAI-SearchBot') && group.userAgent.includes('PerplexityBot')));
   assert.ok(!JSON.stringify(policy).includes('GPTBot'));
   assert.ok(!JSON.stringify(policy).includes('Google-Extended'));
