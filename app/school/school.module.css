@@ -223,3 +223,14 @@
 @media(max-width:760px){.alphabetGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.chapterHeading{padding:13px 16px}.practiceBanner{padding:27px 0}}
 @media(max-width:540px){.alphabetGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.alphabetCard{padding:11px 6px}.alphabetGlyph{font-size:41px;min-height:65px}.alphabetNotes{padding:17px}.writingBoard{height:290px}.writingPanel,.writingAside{padding:15px}.writingLetters{grid-template-columns:repeat(5,minmax(0,1fr))}.writingControls button{flex:1}.practiceLinks{width:100%}.practiceLinks a{flex:1;justify-content:center;text-align:center}.chapterHeading h3{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.writingControls button,.practiceLinks a{transition:none}}
+
+/* Museum-sourced examples remain distinct from the constructed practice texts. */
+.inscriptionArchive{padding:clamp(36px,5vw,64px) 0;background:#f2efe5;border-top:1px solid #d6dbc9}
+.inscriptionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.inscriptionGrid>a{display:flex;flex-direction:column;align-items:flex-start;gap:11px;background:#fff;border:1px solid #cdd8ce;border-radius:13px;padding:23px;min-height:205px;color:#1b4140}
+.inscriptionGrid>a>span:first-child{font-size:11px;color:#387363;font-weight:800}
+.inscriptionGrid strong{font-size:21px;line-height:1.55}
+.inscriptionGrid p{font-size:13px;line-height:1.9;color:#526b62;margin:0}
+.inscriptionGrid>a>span:last-child{display:flex;gap:8px;align-items:center;margin-top:auto;font-size:12px;font-weight:800;color:#156653}
+.inscriptionGrid>a:hover{border-color:#4e9782;box-shadow:0 10px 28px #254b3520}
+@media(max-width:700px){.inscriptionGrid{grid-template-columns:1fr}.inscriptionGrid>a{min-height:0}}
