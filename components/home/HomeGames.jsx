@@ -39,9 +39,9 @@ export default function HomeGames(){
       <h3>إلى أي مدى <em>تعرف اليمن؟</em></h3>
       <p>تسع ألعاب في التاريخ والجغرافيا والشخصيات والتراث، مع تحدٍّ رسمي يتجدّد يوميًا وإنجازات تُكتسب بالمشاركة.</p>
       <div className={styles.stats} aria-label="مميزات ألعاب 967">
-       <div><strong>٩</strong><span>ألعاب متنوعة</span></div>
-       <div><strong>١٤</strong><span>شارة وإنجازًا</span></div>
-       <div><strong>٧</strong><span>ثوانٍ لكل سؤال يومي</span></div>
+       <div><strong>9</strong><span>ألعاب متنوعة</span></div>
+       <div><strong>14</strong><span>شارة وإنجازًا</span></div>
+       <div><strong>7</strong><span>ثوانٍ لكل سؤال يومي</span></div>
       </div>
       <div className={styles.heroActions}>
        <Link className={styles.primary} href={dailyHref}><Flame size={19} aria-hidden="true"/> العب تحدي اليوم <ArrowUpLeft size={18} aria-hidden="true"/></Link>

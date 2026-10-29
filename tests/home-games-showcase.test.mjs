@@ -52,13 +52,19 @@ test('home game summary reflects the actual current 967 systems without changing
  const showcase=read('components/home/HomeGames.jsx');
  const arcade=read('app/games/page.jsx');
  const badges=read('lib/gameAchievements.js');
- assert.ok(showcase.includes('٩</strong>'));
- assert.ok(showcase.includes('١٤</strong>'));
- assert.ok(showcase.includes('٧</strong>'));
+ assert.ok(showcase.includes('9</strong>'));
+ assert.ok(showcase.includes('14</strong>'));
+ assert.ok(showcase.includes('7</strong>'));
  for(const token of ['تحدي اليوم','تحدَّ صديقك','منافسة أسبوعية','href="/games"'])
   assert.ok(showcase.includes(token),token);
  assert.ok(arcade.includes("id:'object'"));
  assert.ok(badges.includes('GAME_ACHIEVEMENTS'));
+});
+
+test('homepage games never renders Eastern Arabic or Persian numerals',()=>{
+ const showcase=read('components/home/HomeGames.jsx');
+ assert.equal(/[\u0660-\u0669\u06F0-\u06F9]/u.test(showcase),false);
+ for(const numeral of ['9','14','7'])assert.ok(showcase.includes('<strong>'+numeral+'</strong>'));
 });
 
 test('the homepage arcade showcase is responsive, accessible and respects reduced motion',()=>{
