@@ -44,3 +44,24 @@
 .report th,.report td{padding:13px 10px;border-bottom:1px solid #e2e8df;text-align:start;vertical-align:top;overflow-wrap:anywhere}
 .report th{background:#eff5ee;color:#3e664e;font-weight:800}
 @media(max-width:760px){.columns{grid-template-columns:1fr}.sidebar{max-height:340px;overflow:auto}.sidebar,.editor,.report{padding:16px}.tabs button{padding:10px 12px}}
+
+/* Publicly published course lessons reuse School Studio typography. */
+.genericLesson{max-width:850px;margin:0 auto;padding:32px 0 80px}
+.genericLesson>h1{font-size:clamp(28px,4vw,42px);margin:14px 0;color:#214939}
+.genericLesson>p{font-size:14px;line-height:1.9;color:#5b7466}
+.lessonCard{background:white;padding:26px;border:1px solid #d8e2d5;border-radius:14px;margin-top:23px;box-shadow:0 7px 25px #193b2510}
+.lessonCard h2{display:flex;align-items:center;gap:9px;line-height:1.6;color:#214f3d;font-size:23px}
+.lessonCard p,.lessonCard li{font-size:14px;color:#455e53;line-height:2}
+.lessonCard ul{padding-inline-start:27px;margin-bottom:28px}
+.lessonCard>button,.lessonActions button,.lessonActions a{display:inline-flex;align-items:center;gap:8px;font:inherit;border:0;border-radius:9px;color:#fff;background:#267456;padding:12px 20px;font-size:13px;font-weight:850}
+.lessonCard button:disabled{opacity:.48;cursor:not-allowed}
+.questionMeta{color:#64816c;font-size:12px;font-weight:800;margin-bottom:15px}
+.target{background:#f3f6eb;padding:13px;border-radius:8px;color:#335746}
+.genericChoices{display:grid;gap:10px;margin:25px 0}
+.genericChoices button{font:inherit;text-align:start;min-height:51px;border:1px solid #b9d0c3;border-radius:9px;background:#f7fbf6;padding:13px 18px;font-size:14px;color:#244a3c}
+.genericChoices button[aria-pressed=true]{background:#d9eddf;border-color:#20845e;outline:2px solid #20845e}
+.answerReview{border-top:1px solid #e2eae1;padding:12px 0}
+.answerReview strong{display:flex;align-items:center;gap:7px;color:#366751;font-size:13px}
+.answerReview p{font-size:12px}
+.lessonActions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+@media(max-width:600px){.lessonCard{padding:17px}.genericLesson{padding:23px 0 60px}}
