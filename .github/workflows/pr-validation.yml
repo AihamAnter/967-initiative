@@ -15,6 +15,7 @@ on:
       - 'lib/schoolStageAccess.js'
       - 'tests/school-staff-preview.test.mjs'
       - 'tests/school-967.test.mjs'
+      - 'tests/school-musnad-sentences.test.mjs'
       - 'supabase/migrations/*school*.sql'
       - '.github/workflows/pr-validation.yml'
 
