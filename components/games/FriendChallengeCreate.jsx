@@ -4,7 +4,7 @@ import {useRouter} from 'next/navigation';
 import Link from 'next/link';
 import {ArrowLeft,ArrowUpLeft,Gamepad2,Link2,LockKeyhole,ShieldCheck,Swords,Timer,Trophy} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
-import {FRIEND_GAMES,FRIEND_SECONDS,friendGameTitle} from '@/lib/friendChallenge';
+import {FRIEND_GAMES,FRIEND_SECONDS,friendGameTitle} from '@/lib/friendChallengeMeta';
 import styles from './FriendChallenge.module.css';
 
 export default function FriendChallengeCreate(){
