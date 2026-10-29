@@ -16,7 +16,7 @@ export default async function Page({params}){
  if(typeof id!=='string'||id.length>64)notFound();
  return <main className={styles.root} dir="rtl">
   <ArcadeIntro compact title="مواجهة 967" description="نفس الأسئلة، نفس الزمن، والنتيجة تحسم المنافسة. لكل لاعب محاولة واحدة فقط.">
-   <Link href="/games/friends" className={styles.heroSecondary}><Swords size={17}/> أنشئ تحديًا جديدًا</Link>
+   <Link href="/games" className={styles.heroSecondary}><Swords size={17}/> اختر لعبة لتحدي صديقك</Link>
    <Link href="/games" className={styles.heroSecondary}><ArrowRight size={17}/> جميع الألعاب</Link>
   </ArcadeIntro>
   <div className="container"><FriendDuel id={id}/></div>

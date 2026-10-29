@@ -102,18 +102,42 @@ test('creation and match actions require real user authentication and same origi
  assert.ok(!service.includes("game_player_achievements"));
 });
 
-test('friend duel UI uses the same interactive boards with server answers and result comparison',()=>{
+test('friend invitation appears beside Start inside all nine games, never separately on the lobby',()=>{
  const home=read('app/games/page.jsx');
- const creator=read('components/games/FriendChallengeCreate.jsx');
- const match=read('components/games/FriendDuel.jsx');
- const route=read('app/games/friends/[id]/page.jsx');
+ const quiz=read('components/games/QuizGame.jsx');
+ const arcade=read('components/games/ArcadeChallenge.jsx');
+ const extra=read('components/games/ExtraArcadeChallenge.jsx');
+ const creator=read('components/games/FriendInviteAction.jsx');
+ const styles=read('components/games/FriendInviteAction.module.css');
+ const legacy=read('app/games/friends/page.jsx');
  const search=read('lib/searchPages.js');
  const seo=read('lib/seo.js');
- assert.ok(home.includes('href="/games/friends"'));
- assert.ok(home.includes('className={styles.friendStrip}'));
- assert.ok(creator.includes('FRIEND_GAMES.map'));
- assert.ok(creator.includes('FRIEND_SECONDS.map'));
+ assert.ok(!home.includes('href="/games/friends"'),'no separate entry on games homepage');
+ assert.ok(!home.includes('friendStrip'),'no independent duel section');
+ for(const view of [quiz,arcade,extra]){
+  assert.ok(view.includes('<FriendInviteAction'),'each of the nine games receives the button');
+  assert.ok(view.includes('className={friendStyles.actionRow}'));
+  assert.ok(view.includes('onClick={start}'),'normal Start remains available beside the challenge button');
+ }
+ assert.ok(quiz.includes('game="quiz"'));
+ assert.ok(arcade.includes('game={game}'));
+ assert.ok(extra.includes('game={game}'));
  assert.ok(creator.includes("fetch('/api/games/friends'"));
+ assert.ok(creator.includes('seconds}),'));
+ assert.ok(creator.includes('navigator.clipboard.writeText'));
+ assert.ok(creator.includes('افتح التحدي وانتظر صديقك'));
+ assert.ok(styles.includes('.actionRow{display:flex'));
+ assert.ok(styles.includes('@media(max-width:600px)'));
+ assert.ok(legacy.includes("redirect('/games')"));
+ assert.ok(!search.includes("href:'/games/friends'"));
+ assert.ok(!seo.includes("'/games/friends'"));
+});
+
+test('both participants automatically see each other, without stale network polls resetting answers',()=>{
+ const match=read('components/games/FriendDuel.jsx');
+ const route=read('app/games/friends/[id]/page.jsx');
+ const server=read('lib/friendChallengeServer.js');
+ const css=read('components/games/FriendDuel.module.css');
  assert.ok(match.includes('<PlaceBoard'));
  assert.ok(match.includes('<TimelineBoard'));
  assert.ok(match.includes('<MapBoard'));
@@ -122,10 +146,22 @@ test('friend duel UI uses the same interactive boards with server answers and re
  assert.ok(match.includes("post('answer'"));
  assert.ok(match.includes('finishedBoth'));
  assert.ok(match.includes('myPosition.score>other.score'));
+ assert.ok(match.includes('},2500)'),'polling should update other player within seconds');
+ assert.ok(match.includes("document.addEventListener('visibilitychange'"));
+ assert.ok(match.includes("window.addEventListener('focus'"));
+ assert.ok(match.includes('mutating.current=true'));
+ assert.ok(match.includes('mutationVersion.current+=1'));
+ assert.ok(match.includes('version!==mutationVersion.current'));
+ assert.ok(match.includes('if(!alive||inFlight||mutating.current)return'));
+ assert.ok(match.includes('lastPlayerCount.current===1&&result.players?.length===2'));
+ assert.ok(match.includes('setJoinedNotice'));
+ assert.ok(match.includes('setPhase(previous=>previous===\\'ready\\'?\\'ready\\':\\'error\\')'));
+ assert.ok(css.includes('.joinedNotice'));
+ assert.ok(css.includes('.liveStatus'));
  assert.ok(route.includes('noindex:true'));
- assert.ok(search.includes("href:'/games/friends'"));
- assert.ok(seo.includes("'/games/friends'"));
+ assert.ok(server.includes("if(!me&&players.length>=2)"));
 });
+
 
 test('unstarted questions are never exposed through the invitation status API',()=>{
  const service=read('lib/friendChallengeServer.js');
