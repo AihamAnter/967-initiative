@@ -65,3 +65,6 @@
 .answerReview p{font-size:12px}
 .lessonActions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 @media(max-width:600px){.lessonCard{padding:17px}.genericLesson{padding:23px 0 60px}}
+
+.courseStageLink{display:flex;align-items:center;gap:12px;padding:15px 17px;border:1px solid #dce8d9;border-radius:10px;color:#265a43;background:#f4f9f2;font-size:14px;font-weight:750}
+.courseStageLink span{flex:1}.courseStageLink small{display:block;color:#68826f;font-size:11px;font-weight:400}
