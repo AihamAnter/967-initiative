@@ -111,13 +111,13 @@ test('server grading requires 5 out of 6, handles incomplete attempts, and refus
   const wrong=answers.map((a,i)=>{
    if(i!==0)return a;
    const q=snapshot[i];
-   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer[0]===q.options[0]?[q.options[1]]:[q.options[0]]};
+   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer.map((v,j)=>j===0?(v===q.options[0]?q.options[1]:q.options[0]):v)};
   });
   assert.equal(gradeArudQuestions(snapshot,wrong).score,5);
   const twice=wrong.map((a,i)=>{
    if(i!==1)return a;
    const q=snapshot[i];
-   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer[0]===q.options[0]?[q.options[1]]:[q.options[0]]};
+   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer.map((v,j)=>j===0?(v===q.options[0]?q.options[1]:q.options[0]):v)};
   });
   assert.equal(gradeArudQuestions(snapshot,twice).passed,false);
   assert.throws(()=>gradeArudQuestions(snapshot,[]));
