@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {SCHOOL_COURSES,SCHOOL_COURSE_SLUGS} from '../lib/schoolCatalog.js';
 import {buildSchoolDashboard} from '../lib/schoolDashboard.js';
+import {XP_PER_STAGE,xpThreshold,levelFromXp,xpSummary} from '../lib/schoolXp.js';
 import {sectionIsVisible,pageIsVisible} from '../lib/pageVisibility.js';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const record=(course_slug,stage_index,status,day=1)=>({
@@ -73,4 +74,55 @@ test('roadmap has five phases and explicitly excludes certificates',()=>{
  const roadmap=read('docs/school-967-shared-system-roadmap.md');
  assert.ok(roadmap.includes('مراحل التنفيذ الخمس'));
  assert.ok(roadmap.includes('لا شهادات إتمام في أي مرحلة'));
+});
+
+test('XP levels grow with increasing thresholds, never with a guessed client value',()=>{
+ assert.equal(XP_PER_STAGE,100);
+ assert.deepEqual([1,2,3,4,5].map(xpThreshold),[0,100,300,600,1000]);
+ assert.deepEqual([0,99,100,299,300,600,2400].map(x=>levelFromXp(x).level),[1,1,2,2,3,4,7]);
+ assert.equal(levelFromXp(150).neededToNext,150);
+ assert.equal(levelFromXp(150).percent,25);
+ assert.equal(levelFromXp(-5).total,0);
+ assert.throws(()=>xpThreshold(0));
+});
+test('XP ignores duplicate credits, invalid course, fake amounts and out-of-range stages',()=>{
+ const credits=[
+  {course_slug:'musnad',stage_index:0,xp_amount:100},
+  {course_slug:'musnad',stage_index:0,xp_amount:100},
+  {course_slug:'arud',stage_index:0,xp_amount:100},
+  {course_slug:'other',stage_index:0,xp_amount:100},
+  {course_slug:'musnad',stage_index:2,xp_amount:999},
+  {course_slug:'arud',stage_index:12,xp_amount:100}
+ ];
+ const result=xpSummary(credits);
+ assert.equal(result.total,200);
+ assert.deepEqual(result.byCourse,{musnad:100,arud:100});
+ const snapshot=buildSchoolDashboard([record('musnad',0,'passed')],false,credits);
+ assert.equal(snapshot.xp.total,200);
+ assert.equal(snapshot.xp.level,2);
+ assert.equal(snapshot.courses[0].xp,100);
+ assert.equal(snapshot.courses[1].xp,100);
+});
+test('XP backend and private ledger SQL are secured, deduplicated and backfilled',()=>{
+ const server=read('lib/schoolDashboardServer.js');
+ const api=read('app/api/school/dashboard/route.js');
+ const jsx=read('components/school/SchoolDashboard.jsx');
+ const migration=read('supabase/migrations/20261029185100_school_967_xp_events.sql');
+ assert.ok(server.includes("const XP_TABLE='school_xp_events'"));
+ assert.ok(server.includes(".eq('user_id',user.id)"));
+ assert.ok(server.includes("const [records,staffPreview,credits]=await Promise.all("));
+ assert.ok(api.includes('schoolUser(request,db)'));
+ assert.ok(migration.includes('unique (user_id,course_slug,stage_index)'));
+ assert.ok(migration.includes('on conflict (user_id,course_slug,stage_index) do nothing'));
+ assert.ok(migration.includes('after update of status on public.school_stage_attempts'));
+ assert.ok(migration.includes("NEW.status = 'passed'"));
+ assert.ok(migration.includes("OLD.status = 'active'"));
+ assert.ok(migration.includes('create table if not exists public.school_xp_events'));
+ assert.ok(migration.includes('enable row level security'));
+ assert.ok(migration.includes('revoke all on table public.school_xp_events from public, anon, authenticated, service_role'));
+ assert.ok(migration.includes('grant select on table public.school_xp_events to service_role'));
+ assert.ok(migration.includes('distinct on (user_id,course_slug,stage_index)'));
+ assert.ok(jsx.includes('data.xp.level')&&jsx.includes('data.xp.total'));
+ assert.ok(jsx.includes('role="progressbar"'));
+ assert.ok(!migration.includes('grant insert on table public.school_xp_events to authenticated'));
 });

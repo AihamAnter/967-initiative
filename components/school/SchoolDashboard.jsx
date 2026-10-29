@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck,Target} from 'lucide-react';
+import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck,Target,Zap} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/dashboard/dashboard.module.css';
 
@@ -49,6 +49,16 @@ export default function SchoolDashboard(){
   </div>}
   {kind==='error'&&<div className={styles.notice} role="alert"><p>{message}</p><button type="button" className={styles.action} onClick={()=>setRevision(x=>x+1)}>إعادة المحاولة <RefreshCw size={17}/></button></div>}
   {kind==='ready'&&data&&<>
+   <section className={styles.xpPanel} aria-labelledby="xp-title">
+    <div className={styles.xpHeading}>
+     <span className={styles.xpIcon}><Zap size={23} aria-hidden="true"/></span>
+     <div><span className={styles.xpEyebrow}>نقاط خبرة موثقة</span><h2 id="xp-title">مستواك في مدرسة 967</h2></div>
+     <span className={styles.levelPill}>المستوى {data.xp.level}</span>
+    </div>
+    <div className={styles.xpNumbers}><strong dir="ltr">{data.xp.total.toLocaleString('en-US')} XP</strong><span>{data.xp.neededToNext} نقطة للمستوى {data.xp.level+1}</span></div>
+    <div className={styles.xpTrack} role="progressbar" aria-label="التقدم إلى المستوى التالي" aria-valuemin={data.xp.currentLevelStart} aria-valuemax={data.xp.nextLevelAt} aria-valuenow={data.xp.total}><span style={{width:data.xp.percent+'%'}}/></div>
+    <p>تحصل على 100 XP عند اجتياز محطة جديدة لأول مرة. إعادة المحاولة لا تمنح نقاطًا إضافية.</p>
+   </section>
    {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p></div>}
    <div className={styles.stats}>
     <div className={styles.stat}><span><CheckCircle2 size={17}/> محطات مكتملة</span><strong dir="ltr">{data.totals.completedStages} / {data.totals.stages}</strong></div>
@@ -63,13 +73,13 @@ export default function SchoolDashboard(){
    <div className={styles.titleRow}><div><span>مساراتي</span><h2>تقدّمك في كل مسار</h2></div><p>النجاح في المحطة وحده هو الذي يحسبها مكتملة. الإعادة لا تمحو إنجازك.</p></div>
    <div className={styles.courses}>{data.courses.map(course=><article key={course.slug} className={styles.course}>
     <div className={styles.courseTop}><span>{course.category}</span><span>{course.finished?'مكتمل':'قيد التعلّم'}</span></div>
-    <h3>{course.title}</h3><p>{course.description}</p>
+    <h3>{course.title}</h3><p>{course.description}</p><div className={styles.courseXp}><Zap size={16} aria-hidden="true"/><strong dir="ltr">{course.xp} XP</strong><span>من المحطات المتقنة</span></div>
     <div className={styles.progressLabel}><strong>{course.completed} من {course.total} محطة</strong><span dir="ltr">{course.percent}%</span></div>
     <div className={styles.track} role="progressbar" aria-label={'تقدم '+course.title} aria-valuemin={0} aria-valuemax={course.total} aria-valuenow={course.completed}><span style={{width:course.percent+'%'}}/></div>
     <div className={styles.courseFoot}><span>{course.attempts} محاولات مصححة</span>
      <Link href={course.nextStage?.href||course.href}>{course.finished?'راجع المسار':'المحطة '+((course.nextStage?.index??0)+1)} <ArrowLeft size={17}/></Link></div>
    </article>)}</div>
-   <p className={styles.footnote}>تعرض هذه اللوحة تقدم الدروس الحالي. ستضاف النقاط والمستويات والمراجعات والإنجازات في المراحل التالية، دون شهادات إتمام.</p>
+   <p className={styles.footnote}>تعرض هذه اللوحة تقدم الدروس الحالي. نقاط الخبرة تُحتسب من النجاحات الموثقة دون تكرار. المراجعات والأهداف والإنجازات تأتي في المراحل التالية. لا توجد شهادات إتمام.</p>
   </>}
  </div></section>;
 }
