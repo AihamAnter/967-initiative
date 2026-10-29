@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,CheckCircle2,Clock3,Copy,Flame,Gamepad2,Link2,LockKeyhole,RefreshCw,Share2,ShieldCheck,Swords,Timer,Trophy,UserRound,Zap} from 'lucide-react';
+import {ArrowLeft,ArrowRight,CheckCircle2,Clock3,Copy,Flame,Gamepad2,Link2,LockKeyhole,RefreshCw,Share2,ShieldCheck,Swords,Timer,Trophy,UserRound,Users,Zap} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useQuestionTimer from './useQuestionTimer';
 import {PlaceBoard,TimelineBoard,MapBoard} from './ArcadeBoards';
