@@ -54,7 +54,7 @@ test('chosen leaderboard nicknames support Arabic but reject unsafe or identifyi
  for(const bad of ['', 'a', 'x'.repeat(25), 'a@example.com', '<script>', '👑Winner', 'test\u202Etxt', '\n'])assert.throws(()=>normalizeLeaderboardNickname(bad),bad);
 });
 test('database leaderboard is strict opt-in, service-only and only first-pass verified XP',()=>{
- const migration=read('supabase/migrations/20261029195000_school_967_optional_leaderboard.sql');
+ const migration=read('supabase/migrations/20261029190255_school_967_optional_leaderboard.sql');
  assert.ok(migration.includes('opted_in boolean not null default false'));
  assert.ok(migration.includes('school_leaderboard_nickname_unique'));
  assert.ok(migration.includes('where opted_in'));
