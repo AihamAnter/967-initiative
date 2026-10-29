@@ -61,3 +61,8 @@
 .security svg{flex-shrink:0;color:#b7ffd7;margin-top:2px}
 @media(max-width:700px){.wrapper{padding:15px 0 45px}.hero,.questionPanel{padding:15px}.versus{gap:7px}.contender{padding:10px 7px;gap:5px}.contender strong{font-size:15px}.avatar{width:34px;height:34px}.playerName{min-width:0;font-size:11px}.contender>small{padding:0}.vs{padding:5px;font-size:10px}.quizOptions{grid-template-columns:1fr}.questionHead{gap:7px}.review .primary{width:100%;margin-inline-start:0}.share button{font-size:11px}.hero p{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.progressTrack span{transition:none}}
+
+.joinedNotice{display:flex;align-items:center;gap:9px;margin:12px 0;padding:12px 16px;border:1px solid #78c4a0;border-radius:12px;background:#1e4639;color:#cbffe2;font-weight:800;font-size:13px;line-height:1.8}
+.joinedNotice svg{flex-shrink:0;color:#acffd1}
+.liveStatus{display:flex;align-items:center;gap:7px;margin:14px 0 4px;color:#b5d5ee;font-size:11px;line-height:1.75}
+.liveStatus svg{color:#9de9d1}

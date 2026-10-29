@@ -21,7 +21,11 @@ export default function FriendDuel({id}){
  const [mapData,setMapData]=useState(null),[mapError,setMapError]=useState('');
  const [mediaReady,setMediaReady]=useState(false);
  const [reload,setReload]=useState(0);
+ const [joinedNotice,setJoinedNotice]=useState('');
  const submitting=useRef(false);
+ const mutating=useRef(false);
+ const mutationVersion=useRef(0);
+ const lastPlayerCount=useRef(null);
  const mine=match?.mine;
  const task=mine?.task;
  const started=mine?.phase==='question'&&!!mine.startedAt;
@@ -29,28 +33,56 @@ export default function FriendDuel({id}){
  const seconds=match?.seconds||15;
 
  useEffect(()=>{
-  let alive=true,serial=0,timer=null;
+  let alive=true,serial=0,pollTimer=null,authTimer=null,inFlight=false;
   const db=browserDb();
+  // Refresh a waiting match in a few seconds. In-flight GETs are discarded
+  // if a local answer/start/join mutation has begun since they were requested.
   const refresh=async()=>{
-   const seq=++serial;
+   if(!alive||inFlight||mutating.current)return;
+   inFlight=true;
+   const seq=++serial,version=mutationVersion.current;
    try{
     const {data}=await db?.auth.getSession()||{};
+    if(!alive||seq!==serial||mutating.current||version!==mutationVersion.current)return;
     const token=data?.session?.access_token;
-    if(!token){if(alive){setPhase('guest');setMatch(null);}return;}
-    const response=await fetch('/api/games/friends/'+id,{cache:'no-store',headers:{Authorization:'Bearer '+token}});
+    if(!token){setPhase('guest');setMatch(null);return;}
+    const response=await fetch('/api/games/friends/'+id,{
+     cache:'no-store',headers:{Authorization:'Bearer '+token}
+    });
     const result=await response.json();
-    if(!alive||seq!==serial)return;
+    if(!alive||seq!==serial||mutating.current||version!==mutationVersion.current)return;
     if(!response.ok)throw Error(result.error||'تعذر تحميل التحدي.');
+    if(lastPlayerCount.current===1&&result.players?.length===2)
+     setJoinedNotice('انضم صديقك إلى المواجهة! تظهر الآن بياناتكما وتُحدَّث النتائج تلقائيًا.');
+    lastPlayerCount.current=result.players?.length??0;
     setMatch(result);setPhase('ready');setError('');
-   }catch(e){if(alive&&seq===serial){setError(e.message||'تعذر تحميل التحدي.');setPhase('error');}}
+   }catch(e){
+    if(alive&&seq===serial&&!mutating.current&&version===mutationVersion.current){
+     setError(e.message||'تعذر تحديث حالة التحدي.');
+     // Do not replace the active question with a full-page error on a
+     // transient network failure; the next poll will retry automatically.
+     setPhase(previous=>previous==='ready'?'ready':'error');
+    }
+   }finally{inFlight=false;}
   };
   refresh();
-  const auth=db?.auth.onAuthStateChange(()=>setTimeout(()=>{if(alive)refresh();},0)).data?.subscription;
+  const auth=db?.auth.onAuthStateChange(()=>{
+   clearTimeout(authTimer);
+   authTimer=setTimeout(()=>{if(alive)refresh();},0);
+  }).data?.subscription;
   const onVisible=()=>{if(document.visibilityState==='visible')refresh();};
+  const onFocus=()=>refresh();
   document.addEventListener('visibilitychange',onVisible);
-  // While waiting for the friend to finish, poll the server without affecting the player's timer.
-  timer=setInterval(()=>{if(alive)refresh();},20000);
-  return()=>{alive=false;serial++;auth?.unsubscribe();clearInterval(timer);document.removeEventListener('visibilitychange',onVisible);};
+  window.addEventListener('focus',onFocus);
+  pollTimer=setInterval(()=>{
+   if(alive&&document.visibilityState==='visible')refresh();
+  },2500);
+  return()=>{
+   alive=false;serial++;auth?.unsubscribe();
+   clearTimeout(authTimer);clearInterval(pollTimer);
+   document.removeEventListener('visibilitychange',onVisible);
+   window.removeEventListener('focus',onFocus);
+  };
  },[id,reload]);
 
  useEffect(()=>{
@@ -75,7 +107,9 @@ export default function FriendDuel({id}){
  useEffect(()=>{submitting.current=false;},[questionKey]);
 
  async function post(action,extras={}){
-  if(busy)return null;
+  if(busy||mutating.current)return null;
+  mutating.current=true;
+  mutationVersion.current+=1;
   setBusy(true);setError('');
   try{
    const db=browserDb();
@@ -92,7 +126,7 @@ export default function FriendDuel({id}){
    setMatch(result);setPhase('ready');
    return result;
   }catch(e){setError(e.message||'تعذر تحديث الجولة.');return null;}
-  finally{setBusy(false);}
+  finally{mutating.current=false;setBusy(false);}
  }
 
  async function answer(choice,timedOut=false){
@@ -133,7 +167,7 @@ export default function FriendDuel({id}){
  return <section className={styles.wrapper}>
   <div className={styles.top}>
    <span className={styles.eyebrow}><Swords size={19}/> FRIEND DUEL / 967</span>
-   <div className={styles.links}><Link href="/games/friends"><Swords size={15}/> تحدٍّ جديد</Link><Link href="/games"><ArrowRight size={15}/> جميع الألعاب</Link></div>
+   <div className={styles.links}><Link href={match?'/games/'+match.game:'/games'}><Swords size={15}/> تحدٍّ جديد من الألعاب</Link><Link href="/games"><ArrowRight size={15}/> جميع الألعاب</Link></div>
   </div>
   {phase==='loading'&&<div className={styles.notice} role="status">جارٍ تحميل التحدي والتحقق من حسابك…</div>}
   {phase==='guest'&&<div className={styles.join}>
@@ -152,6 +186,8 @@ export default function FriendDuel({id}){
     </div>
    </div>
    {copyNote&&<p className={styles.note} role="status">{copyNote}</p>}
+   {joinedNotice&&<p className={styles.joinedNotice} role="status"><Users size={19}/>{joinedNotice}</p>}
+   <p className={styles.liveStatus} role="status"><RefreshCw size={14}/> تحديث تلقائي للمقاعد والنتائج أثناء عرض الصفحة (كل بضع ثوانٍ)</p>
    <div className={styles.versus} aria-label="مقارنة المتنافسين">
     {players.map(p=><div className={[styles.contender,p.isMe?styles.you:''].join(' ')} key={p.slot}>
      <span className={styles.avatar}><UserRound size={23}/></span>
@@ -159,7 +195,7 @@ export default function FriendDuel({id}){
      <strong>{p.finished?format(p.score)+' / 1000':p.phase==='review'||p.phase==='question'?'يلعب الآن':'بانتظار البداية'}</strong>
      <small>{p.finished?format(p.correctCount)+' إجابات صحيحة':'المقعد '+format(p.slot)}</small>
     </div>)}
-    {players.length===1&&<div className={styles.emptySeat}><UserRound size={26}/><strong>بانتظار صديقك</strong><small>شارك الرابط لحجز المقعد الثاني</small></div>}
+    {players.length===1&&<div className={styles.emptySeat}><UserRound size={26}/><strong>بانتظار صديقك</strong><small>شارك الرابط؛ سيظهر الصديق هنا تلقائيًا بعد الانضمام</small></div>}
     <span className={styles.vs}>VS</span>
    </div>
    {match.expired&&!done&&<div className={styles.notice}>انتهت مهلة هذا التحدي بعد 7 أيام. يمكنك إنشاء تحدٍّ جديد.</div>}
@@ -210,7 +246,7 @@ export default function FriendDuel({id}){
      <span> يمكنكما إنشاء تحدٍّ جديد للمنافسة مرة أخرى.</span></p>
     :<p className={styles.waiting}>بانتظار إكمال صديقك للتحدي. ستظهر المقارنة النهائية تلقائيًا، ويمكنك تحديث النتائج.</p>}
     <div className={styles.actions}><button type="button" onClick={()=>setReload(x=>x+1)}><RefreshCw size={17}/> تحديث نتيجة صديقي</button>
-     <Link href="/games/friends">تحدٍ جديد <ArrowLeft size={17}/></Link></div>
+     <Link href={'/games/'+match.game}>تحدٍ جديد من نفس اللعبة <ArrowLeft size={17}/></Link></div>
    </div>}
    {error&&<div className={styles.notice} role="alert">{error} <button type="button" onClick={()=>setReload(x=>x+1)}>تحديث الحالة <RefreshCw size={16}/></button>
     {started&&<button type="button" onClick={()=>answer(null,true)} disabled={busy}>اعتماد انتهاء الوقت</button>}
