@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck,Target,Zap,Flame,Brain,CalendarCheck} from 'lucide-react';
+import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck,Target,Zap,Flame,Brain,CalendarCheck,Settings2} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/dashboard/dashboard.module.css';
 import SchoolCompetition from './SchoolCompetition';
@@ -110,7 +110,7 @@ export default function SchoolDashboard(){
     </article>)}</div>:<p className={styles.reviewEmpty}>لا توجد أسئلة تحتاج إلى مراجعة من نتائجك الأخيرة.</p>}
    </section>
    <SchoolCompetition achievements={data.achievements}/>
-   {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p></div>}
+   {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p><Link className={styles.action} href="/school/studio"><Settings2 size={18}/> إدارة المدرسة</Link></div>}
    <div className={styles.stats}>
     <div className={styles.stat}><span><CheckCircle2 size={17}/> محطات مكتملة</span><strong dir="ltr">{data.totals.completedStages} / {data.totals.stages}</strong></div>
     <div className={styles.stat}><span><BookOpenCheck size={17}/> مسارات مكتملة</span><strong dir="ltr">{data.totals.finishedCourses} / {data.totals.courses}</strong></div>

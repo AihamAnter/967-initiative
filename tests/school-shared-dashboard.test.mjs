@@ -59,7 +59,7 @@ test('private API filters by verified account and never exposes raw attempts',()
  assert.ok(api.includes('private, no-store'));
  assert.ok(api.includes("'Vary':'Authorization'"));
  assert.ok(server.includes(".eq('user_id',user.id)"));
- assert.ok(server.includes(".in('course_slug',SCHOOL_COURSE_SLUGS)"));
+ assert.ok(server.includes(".in('course_slug',slugs)"));
  assert.ok(server.includes(".range(from,from+PAGE_SIZE-1)"));
  assert.ok(server.includes('schoolStaffPreview(db,user)'));
  assert.ok(!server.includes('user_metadata')&&!api.includes('user_metadata'));

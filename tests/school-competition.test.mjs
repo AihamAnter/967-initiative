@@ -85,6 +85,6 @@ test('server authenticates, verifies owner, validates nickname and hides account
  assert.ok(api.includes('readJsonObject(request,800)'));
  assert.ok(client.includes("optedIn?nickname:undefined"));
  assert.ok(client.includes('لا نعرض البريد الإلكتروني أو رقم الحساب'));
- assert.ok(dashboard.includes('schoolAchievementSummary(credits,records)'));
+ assert.ok(dashboard.includes('schoolAchievementSummary(credits,records,slugs)'));
  assert.ok(!client.includes('entry.user_id')&&!client.includes('entry.email'));
 });
