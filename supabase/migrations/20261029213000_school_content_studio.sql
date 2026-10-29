@@ -56,16 +56,31 @@ grant select,insert on table public.school_editor_audit to service_role;
 create or replace function public.school_editor_audit_change()
 returns trigger language plpgsql security invoker set search_path=''
 as $func$
-declare key text;
+declare
+ key text;
+ kind text;
+ activity text;
+ old_value jsonb;
 begin
- key:=case TG_TABLE_NAME when 'school_editor_courses' then NEW.slug
-   when 'school_editor_stages' then NEW.course_slug||':'||NEW.stage_index::text
-   else NEW.course_slug||':'||NEW.stage_index::text||':'||NEW.id::text end;
+ if TG_TABLE_NAME='school_editor_courses' then
+  kind:='course'; key:=NEW.slug;
+ elsif TG_TABLE_NAME='school_editor_stages' then
+  kind:='stage'; key:=NEW.course_slug||':'||NEW.stage_index::text;
+ else
+  kind:='question'; key:=NEW.course_slug||':'||NEW.stage_index::text||':'||NEW.id::text;
+ end if;
+ if TG_OP='INSERT' then
+  activity:='created'; old_value:=null;
+ else
+  old_value:=to_jsonb(OLD);
+  if OLD.published_version is distinct from NEW.published_version then
+   activity:='published';
+  else
+   activity:='saved';
+  end if;
+ end if;
  insert into public.school_editor_audit(actor_id,entity,entity_key,action,before_snapshot,after_snapshot)
- values(NEW.updated_by,
-  case TG_TABLE_NAME when 'school_editor_courses' then 'course' when 'school_editor_stages' then 'stage' else 'question' end,
-  key,case when TG_OP='INSERT' then 'created' when OLD.published_version is distinct from NEW.published_version then 'published' else 'saved' end,
-  case when TG_OP='INSERT' then null else to_jsonb(OLD) end,to_jsonb(NEW));
+ values(NEW.updated_by,kind,key,activity,old_value,to_jsonb(NEW));
  return NEW;
 end;
 $func$;
