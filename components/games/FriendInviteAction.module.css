@@ -1,0 +1,20 @@
+.actionRow{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.friendButton{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:53px;padding:13px 22px;border:1px solid #9b85d9;border-radius:11px;background:#2c2546;color:#eee3ff;font-size:14px;font-weight:800;cursor:pointer;transition:background .18s,border-color .18s}
+.friendButton:hover:not(:disabled){background:#3d315c;border-color:#c8aeff}
+.friendButton:disabled{opacity:.55;cursor:not-allowed}
+.invite{width:100%;flex-basis:100%;margin-top:8px;padding:17px;border:1px solid #7880ac;border-radius:14px;background:linear-gradient(130deg,#263050,#1b2542);color:#eef4ff}
+.inviteHeading{display:flex;align-items:center;gap:12px}
+.inviteHeading strong{font-size:15px;color:#fff}
+.inviteHeading p{font-size:12px;line-height:1.8;margin:5px 0 0;color:#c3d1e9}
+.inviteIcon{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;color:#c8baff;border:1px solid #8875bd;background:#40335c;border-radius:11px}
+.linkBox{display:flex;align-items:center;gap:8px;border:1px solid #475874;background:#121b30;border-radius:9px;margin:15px 0;padding:12px;color:#d8eaff;min-width:0;font-size:12px}
+.linkBox svg{flex-shrink:0}
+.linkBox span{overflow-wrap:anywhere;min-width:0}
+.inviteActions{display:flex;gap:9px;flex-wrap:wrap}
+.inviteActions button,.inviteActions a{display:inline-flex;align-items:center;gap:7px;min-height:43px;border:1px solid #7d8eae;background:#33435f;color:#f1f6ff;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:800;cursor:pointer}
+.inviteActions .open{background:#aeffd4;border-color:#caffdf;color:#103327}
+.error{width:100%;flex-basis:100%;background:#4c2f44;border:1px solid #bb748a;color:#ffdde5;border-radius:10px;padding:12px;margin:0;font-size:12px;line-height:1.8}
+.error a{text-decoration:underline;font-weight:800}
+.copyNote{color:#c1ffdc;font-size:12px;line-height:1.9;margin:9px 0 0}
+@media(max-width:600px){.actionRow>button{width:100%}.friendButton{width:100%}.invite{padding:13px}.inviteActions>*{flex:1;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.friendButton{transition:none}}
