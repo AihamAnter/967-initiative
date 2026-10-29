@@ -55,10 +55,9 @@ export default function SchoolLesson({stage}){
   const complete=task.kind==='choice'?Number.isInteger(chosen):task.kind==='sentence'?Array.isArray(chosen)&&chosen.length>0&&chosen.length<=80:Array.isArray(chosen)&&chosen.length===task.target.split(' ← ').length;
   if(!complete)return;
   const all=[...responses,{id:task.id,choice:chosen}];
-  setResponses(all);
-  if(step===attempt.questions.length-1){submit(all);return;}
+  if(step===attempt.questions.length-1){setResponses(all);submit(all);return;}
   setBusy(true);
-  try{await draft.save({answers:all,selection:null});setStep(v=>v+1);setChosen(null);setError('');}
+  try{await draft.save({answers:all,selection:null});setResponses(all);setStep(v=>v+1);setChosen(null);setError('');}
   catch(e){setError(e.message||'تعذر حفظ التقدم؛ أعد المحاولة.');}
   finally{setBusy(false);}
  }
