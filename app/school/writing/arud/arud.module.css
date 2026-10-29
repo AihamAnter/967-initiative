@@ -148,3 +148,12 @@
 .footKeys strong{font-size:clamp(19px,3vw,25px);font-weight:800;color:#215e51}
 .footKeys span{font-size:11px;color:#577369}
 @media(max-width:540px){.verseTarget{padding:15px 12px;font-size:21px}.footBuilder>span{min-width:74px;font-size:18px}.footKeys button{min-height:76px}}
+
+/* Full-length verse training and clearly labeled learning chapters. */
+.fullVerseTarget{padding:16px 20px;margin-bottom:8px;border:1px solid #d4ded2;background:#f0f3ec;border-radius:11px;color:#24564c;text-align:center}
+.fullVerseTarget p{font-size:clamp(19px,2.5vw,28px);font-weight:750;line-height:2.3;margin:0}
+.fullVerseTarget p+p{margin-top:9px;border-top:1px solid #d4ded2;padding-top:9px}
+.stationChapter{display:inline-flex;align-self:flex-start;padding:4px 9px;border-radius:50px;border:1px solid #d8dfd3;color:#52726a;font-size:11px;font-weight:800}
+.stationLocked .stationChapter{color:#87908d}
+.referenceLinks{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+@media(max-width:540px){.fullVerseTarget{padding:11px}.fullVerseTarget p{font-size:18px;line-height:2.15}}

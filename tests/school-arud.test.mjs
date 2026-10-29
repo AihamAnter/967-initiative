@@ -3,15 +3,16 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {ARUD_STAGES,arudProgress,arudStage} from '../lib/schoolArud.js';
 import {makeArudQuestions,publicArudQuestions,gradeArudQuestions} from '../lib/schoolArudQuestions.js';
+import {ARUD_METERS,ARUD_METER_GROUPS} from '../lib/schoolArudMeters.js';
 import {pageIsVisible,sectionIsVisible} from '../lib/pageVisibility.js';
 import {searchPages} from '../lib/searchPages.js';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const perfect=questions=>questions.map(q=>({id:q.id,choice:q.kind==='choice'?q.options.indexOf(q.answer):[...q.answer]}));
 
 test('the prosody course keeps four introductory stages and adds two applied stages without touching Musnad',()=>{
- assert.equal(ARUD_STAGES.length,6);
- assert.deepEqual(ARUD_STAGES.map(stage=>stage.index),[0,1,2,3,4,5]);
- assert.equal(arudStage(6),null);
+ assert.equal(ARUD_STAGES.length,12);
+ assert.deepEqual(ARUD_STAGES.map(stage=>stage.index),Array.from({length:12},(_,i)=>i));
+ assert.equal(arudStage(12),null);
  assert.equal(arudStage('1'),null);
  assert.ok(ARUD_STAGES.every(stage=>stage.intro.length>90&&stage.tips.length===3&&stage.examples.length===3));
  assert.ok(ARUD_STAGES[1].examples.some(x=>x.label.includes('/0')));
@@ -35,12 +36,15 @@ test('progression requires passes in sequence; failures do not unlock higher sta
  assert.equal(state.finished,false);
  assert.equal(state.unlocked,4);
  state=arudProgress([0,1,2,3,4,5].map(stage_index=>({stage_index,status:'passed'})));
+ assert.equal(state.finished,false);
+ assert.equal(state.unlocked,6);
+ state=arudProgress(Array.from({length:12},(_,stage_index)=>({stage_index,status:'passed'})));
  assert.equal(state.finished,true);
- assert.equal(state.unlocked,5);
+ assert.equal(state.unlocked,11);
 });
 
 test('every Arud station has six varied questions and API data never contains grading keys',()=>{
- for(let stage=0;stage<6;stage++){
+ for(let stage=0;stage<12;stage++){
   const a=makeArudQuestions(stage,1),b=makeArudQuestions(stage,2);
   assert.equal(a.length,6);
   assert.equal(new Set(a.map(q=>q.id)).size,6);
@@ -51,7 +55,7 @@ test('every Arud station has six varied questions and API data never contains gr
   assert.ok(a.every(q=>q.options.length>=2));
   assert.ok(a.filter(q=>q.kind==='choice').every(q=>new Set(q.options).size===q.options.length));
  }
- assert.throws(()=>makeArudQuestions(6,1));
+ assert.throws(()=>makeArudQuestions(12,1));
  assert.throws(()=>makeArudQuestions(-1,1));
  assert.throws(()=>makeArudQuestions(1,0));
 });
@@ -98,7 +102,7 @@ test('movement, rest and syllable exercises use interactive sequences, not answe
 });
 
 test('server grading requires 5 out of 6, handles incomplete attempts, and refuses forged tokens',()=>{
- for(let stage=0;stage<4;stage++){
+ for(let stage=0;stage<12;stage++){
   const snapshot=makeArudQuestions(stage,1),answers=perfect(snapshot);
   const full=gradeArudQuestions(snapshot,answers);
   assert.equal(full.score,6);
@@ -107,13 +111,13 @@ test('server grading requires 5 out of 6, handles incomplete attempts, and refus
   const wrong=answers.map((a,i)=>{
    if(i!==0)return a;
    const q=snapshot[i];
-   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer[0]===q.options[0]?[q.options[1]]:[q.options[0]]};
+   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer.map((v,j)=>j===0?(v===q.options[0]?q.options[1]:q.options[0]):v)};
   });
   assert.equal(gradeArudQuestions(snapshot,wrong).score,5);
   const twice=wrong.map((a,i)=>{
    if(i!==1)return a;
    const q=snapshot[i];
-   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer[0]===q.options[0]?[q.options[1]]:[q.options[0]]};
+   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer.map((v,j)=>j===0?(v===q.options[0]?q.options[1]:q.options[0]):v)};
   });
   assert.equal(gradeArudQuestions(snapshot,twice).passed,false);
   assert.throws(()=>gradeArudQuestions(snapshot,[]));
@@ -188,9 +192,53 @@ test('authentic verse stages use server-graded complete feet and four correctly 
  assert.ok(publicArudQuestions(meters).every(q=>!Object.hasOwn(q,'answer')));
  const page=read('app/school/writing/arud/[stage]/page.jsx');
  assert.ok(page.includes('arudStage(Number(raw)-1)'),'numeric route is resolved through the curriculum');
+ assert.ok(page.includes('1[0-2]'),'the route includes the final three stations');
  const lesson=read('components/school/ArudLesson.jsx');
  assert.ok(lesson.includes('selection.length===task.steps'));
  assert.ok(lesson.includes('styles.footKeys'));
  const migration=read('supabase/migrations/20261029124719_school_musnad_full_alphabet_stages.sql');
  assert.ok(migration.includes('stage_index between 0 and 11'),'current database constraint supports stages 0 through 5');
+});
+
+test('all sixteen classical and later meters appear exactly once in the course reference',()=>{
+ assert.equal(ARUD_METERS.length,16);
+ assert.equal(new Set(ARUD_METERS.map(m=>m.name)).size,16);
+ assert.deepEqual(ARUD_METER_GROUPS.map(g=>g.length),[4,4,4]);
+ assert.equal(new Set(ARUD_METERS.map(m=>m.pattern)).size,16);
+ assert.ok(ARUD_METERS.every(m=>m.pattern===m.feet.join(' | ')));
+ assert.equal(ARUD_METERS.find(m=>m.name==='المتدارك').pattern,'فاعلن | فاعلن | فاعلن | فاعلن');
+});
+test('full verses have eight or six server-graded feet, with a hands-on question in every attempt',()=>{
+ for(let attempt=1;attempt<=25;attempt++){
+  const questions=makeArudQuestions(6,attempt);
+  assert.ok(questions.some(q=>q.kind==='sequence'));
+  for(const q of questions.filter(q=>q.kind==='sequence')){
+   assert.equal(q.steps,q.answer.length);
+   assert.ok([3,4,6,8].includes(q.steps));
+   assert.ok(q.target.includes('\n'));
+   assert.equal(publicArudQuestions([q])[0].steps,q.steps);
+   assert.equal(publicArudQuestions([q])[0].attribution.length>0,true);
+   assert.throws(()=>gradeArudQuestions([q,q,q,q,q,q],[{id:q.id,choice:['invalid']},...Array.from({length:5},()=>({id:q.id,choice:q.answer}))]));
+  }
+ }
+ const publicSource=read('lib/schoolArudQuestions.js');
+ assert.ok(publicSource.includes("name:'امرؤ القيس'"));
+ assert.ok(publicSource.includes("name:'المتنبي'"));
+});
+test('variation quizzes cover five common zihafs and three common illal with clear mechanics',()=>{
+ const pool=Array.from({length:24},(_,i)=>makeArudQuestions(7,i+1)).flat();
+ const names=new Set(pool.filter(q=>q.id.startsWith('variation-name-')).map(q=>q.answer));
+ for(const name of ['القبض','الخبن','الطي','الإضمار','العصب','الحذف','القطع','القصر'])assert.ok(names.has(name));
+ assert.ok(pool.some(q=>q.prompt.includes('التغيّر الصوتي')));
+ assert.ok(pool.some(q=>q.answer==='زحاف'));
+ assert.ok(pool.some(q=>q.answer==='علة'));
+});
+test('later stations cover all twelve remaining meter names and keep answer keys on the server',()=>{
+ for(const group of [1,2,3]){
+  const collection=Array.from({length:8},(_,i)=>makeArudQuestions(group+7,i+1)).flat();
+  assert.ok(ARUD_METER_GROUPS[group-1].every(m=>collection.some(q=>q.answer===m.name)));
+  assert.ok(collection.every(q=>!Object.hasOwn(publicArudQuestions([q])[0],'answer')));
+ }
+ const collection=Array.from({length:40},(_,i)=>makeArudQuestions(11,i+1)).flat();
+ assert.ok(ARUD_METERS.every(m=>collection.some(q=>q.answer===m.name)));
 });
