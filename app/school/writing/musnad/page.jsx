@@ -22,6 +22,13 @@ export default async function MusnadPage(){
   </div></section>
   <SchoolJourney/>
   <section className={styles.practiceBanner}><div className="container"><div><span>أدوات التعلّم</span><h2>تعرّف على الحرف ثم اكتبْه بنفسك</h2><p>راجع دليل الحروف الـ29 أو استخدم لوحة تتبّع الخط على هاتفك أو حاسوبك. التدريب حرّ وغير محسوب ضمن درجة الاختبار.</p></div><div className={styles.practiceLinks}><Link href="/school/writing/musnad/alphabet">دليل الأبجدية <ChevronLeft size={17}/></Link><Link href="/school/writing/musnad/practice">لوحة تدريب الكتابة <ChevronLeft size={17}/></Link></div></div></section>
+  <section className={styles.inscriptionArchive} aria-labelledby="real-inscriptions-title"><div className="container">
+   <div className={styles.sectionTitle}><div><span>بعد التأسيس / مصادر أصلية</span><h2 id="real-inscriptions-title">شاهد نقوشًا يمنية حقيقية</h2></div><p>هذه مواد متحفية وعلمية للتعرّف والبحث؛ لا ندّعي أن التمارين المركبة في الدورة مأخوذة منها حرفيًا.</p></div>
+   <div className={styles.inscriptionGrid}>
+    <a href="https://www.britishmuseum.org/collection/object/W_1862-1028-9" target="_blank" rel="noopener noreferrer"><span>المتحف البريطاني · سبأ</span><strong>لوح نحاسي يحمل نقشًا سبئيًا من 12 سطرًا</strong><p>قطعة أثرية من اليمن تعرض شكل الكتابة المسندية في سياقها الحقيقي.</p><span>اعرض سجل القطعة <ExternalLink size={16}/></span></a>
+    <a href="https://doi.org/10.82194/dasi-epi-1085" target="_blank" rel="noopener noreferrer"><span>أرشيف DASI · RES 2651</span><strong>نقش سبئي قديم بنظام الاتجاه المتناوب</strong><p>مرجع علمي يوضح اختلاف اتجاه الكتابة في بعض النقوش المبكرة عن الاتجاه الشائع من اليمين إلى اليسار.</p><span>اقرأ بطاقة النقش <ExternalLink size={16}/></span></a>
+   </div>
+  </div></section>
   <section className={styles.reference}><div className="container"><div><h2>نقرأ التاريخ بدقة</h2><p>خط المسند نظام كتابة استخدمته لغات قديمة في جنوب الجزيرة العربية. التدريب الأول على قراءة الحروف، وليس على ترجمة السبئية أو تحويل العربية المعاصرة إلى لغة قديمة.</p></div><a href={MUSNAD_SOURCE} target="_blank" rel="noopener noreferrer">مرجع يونيكود لخط جنوب الجزيرة العربية القديم <ExternalLink size={16}/></a></div></section>
  </main>;
 }
