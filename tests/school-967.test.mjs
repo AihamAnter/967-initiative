@@ -93,6 +93,15 @@ test('the school API grades on the server and private tables deny browser access
  assert.ok(sql.includes('grant select,insert,update,delete on table public.school_stage_attempts to service_role'));
 });
 
+test('the advanced course offers verified museum inscriptions without presenting fabricated texts as originals',()=>{
+ const course=read('app/school/writing/musnad/page.jsx');
+ assert.ok(course.includes('https://www.britishmuseum.org/collection/object/W_1862-1028-9'));
+ assert.ok(course.includes('https://doi.org/10.82194/dasi-epi-1085'));
+ assert.ok(course.includes('لا ندّعي أن التمارين المركبة'));
+ const quiz=read('lib/schoolMusnadQuestions.js');
+ assert.ok(quiz.includes('تدريب مُنشأ وليس نقشًا أثريًا'));
+});
+
 test('School 967 is a distinct searchable, visible site section and responsive classroom',()=>{
  const header=read('components/Header.jsx'),footer=read('components/Footer.jsx');
  const home=read('app/page.jsx'),css=read('app/school/school.module.css');
