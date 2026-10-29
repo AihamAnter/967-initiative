@@ -7,9 +7,9 @@ async function scoring(){
   .split('\n').filter(line=>!line.trimStart().startsWith('import ')).join('\n')
   .replaceAll('export const ','const ').replaceAll('export async function ','async function ')
   .replaceAll('export function ','function ');
- const fn=new Function('buildPlaceChallenges','buildTimelineChallenges','buildMapChallenges','questionPoints',source+
+ const fn=new Function('buildPlaceChallenges','buildTimelineChallenges','buildMapChallenges','extraGameBuilders','questionPoints',source+
   '\nreturn {officialPoints,officialCorrect,validateOfficialChoice,OFFICIAL_ANSWER_WINDOW_MS}');
- return fn(()=>[],()=>[],()=>[],(q,right,streak)=>right?100+20*(q.difficulty-1)+Math.min(5,streak)*10:0);
+ return fn(()=>[],()=>[],()=>[],{},(q,right,streak)=>right?100+20*(q.difficulty-1)+Math.min(5,streak)*10:0);
 }
 test('official scores normalize perfect rounds to 1000 for each difficulty',async()=>{
  const {officialPoints}=await scoring();
