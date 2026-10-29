@@ -164,3 +164,62 @@
 @media(max-width:760px){.heroGrid{grid-template-columns:1fr;min-height:0}.heroArtifact{display:none}.schoolHero{padding:25px 0 46px}.schoolHero h1{font-size:43px}.schoolHero p{font-size:15px}.categoryLive,.categoryLater{min-height:250px}.pathGrid{grid-template-columns:1fr}.station,.stationLocked{min-height:240px}.stationNumber{font-size:72px}.lessonLearning{grid-template-columns:1fr}.courseGrid{grid-template-columns:1fr}.courseLive{grid-column:auto}.reference>.container{align-items:flex-start}.lessonPage{padding-bottom:50px}}
 @media(max-width:550px){.root :global(.container){width:calc(100% - 32px)}.schoolHero h1{font-size:37px}.innerHero{padding-bottom:34px}.innerHero h1{font-size:36px}.catalogGrid{grid-template-columns:1fr}.catalogSection{padding:32px 0}.categoryLive,.categoryLater{min-height:245px}.schoolNotice>div{min-width:100%}.schoolNotice a{width:100%;justify-content:center}.lessonTop h1{font-size:31px}.lessonTop{gap:8px}.lessonIntroBanner{padding:22px}.lessonLearning>div{padding:17px}.letterTable .glyph{font-size:29px}.lessonLaunch button{width:100%}.choiceGrid{grid-template-columns:1fr}.choice,.choiceSelected{min-height:60px;font-size:17px}.glyphOptions{gap:6px}.glyphOptions button{min-height:88px}.glyphOptions .glyph{font-size:30px}.quizFooter button{width:100%}.resultActions>.primaryLink,.resultActions>button{width:100%}}
 @media(prefers-reduced-motion:reduce){.station:hover,.primaryLink:hover{transform:none}.quizProgress>span{transition:none}}
+
+/* Twelve-stage syllabus: grouped chapters and stable progress for returning students. */
+.journeyChapter{margin:22px 0 42px}
+.chapterHeading{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;margin-bottom:14px;background:#e9efe5;border:1px solid #cadaaf;border-radius:12px}
+.chapterHeading>div>span{font-size:11px;font-weight:800;color:#38705d}
+.chapterHeading h3{font-size:23px;color:#1b4d46;margin:3px 0}
+.chapterHeading p{font-size:12px;color:#4f6b61;line-height:1.7;margin:0}
+.chapterHeading>span{direction:ltr;white-space:nowrap;font-size:13px;font-weight:800;color:#296351}
+.studyTools{display:flex;flex-wrap:wrap;gap:9px 12px;margin:18px 0 5px}
+.studyTools a{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border:1px solid #b8d0c1;border-radius:8px;font-size:12px;font-weight:750;color:#1a6555;background:#e6f2e8;min-height:43px}
+.studyTools a:hover{background:#d2e9db}
+.practiceBanner{padding:36px 0;background:#e8eee3;border-block:1px solid #cad6c7}
+.practiceBanner>.container{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.practiceBanner>div>div:first-child{flex:1;min-width:240px}
+.practiceBanner span{font-size:12px;color:#196957;font-weight:800}
+.practiceBanner h2{font-size:clamp(22px,2.4vw,31px);margin:6px 0;color:#23483f}
+.practiceBanner p{font-size:13px;line-height:1.8;color:#4a665f;margin:0;max-width:650px}
+.practiceLinks{display:flex;gap:10px;flex-wrap:wrap}
+.practiceLinks a,.alphabetAction{display:inline-flex;align-items:center;gap:8px;min-height:47px;padding:11px 15px;border-radius:8px;color:#fff;background:#216b5b;font-size:13px;font-weight:800}
+.practiceLinks a:last-child{background:#164a41}
+.alphabetSection,.writingSection{padding:clamp(33px,5vw,67px) 0}
+.alphabetGrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.alphabetCard{display:flex;align-items:center;flex-direction:column;gap:8px;background:#fff;border:1px solid #d4ddcf;border-radius:13px;padding:14px 8px;min-width:0}
+.alphabetIndex{color:#628078;font-size:10px;font-weight:750;align-self:flex-start}
+.alphabetGlyph{font-family:'Segoe UI Historic','Noto Sans Old South Arabian','Noto Sans',serif;font-size:clamp(35px,5vw,62px);font-weight:500;line-height:1.5;color:#1d6053;min-height:86px;display:grid;place-items:center}
+.alphabetName{font-size:13px;font-weight:800;text-align:center;line-height:1.5}
+.alphabetLatin{font-size:12px;color:#5f756e}
+.alphabetNotes{margin-top:25px;background:#eef1e6;border:1px solid #ccd8c6;border-radius:12px;padding:20px 24px}
+.alphabetNotes h3{margin:0 0 9px;font-size:19px;color:#205248}
+.alphabetNotes p{font-size:13px;line-height:1.9;color:#495f57;margin:0 0 8px}
+.alphabetNotes a{display:inline-flex;gap:8px;align-items:center;margin-top:8px;font-size:12px;font-weight:800;color:#206c5c}
+.writingLayout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr);align-items:start;gap:22px}
+.writingPanel,.writingAside{min-width:0;background:#fff;border:1px solid #d0dccf;border-radius:15px;padding:22px}
+.writingPanelTop{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}
+.writingPanelTop>div>span{font-size:12px;color:#617970}
+.writingPanelTop h3{font-size:24px;margin:3px 0;color:#244f47}
+.writingPanelTop h3 small{font-size:12px;margin-inline-start:8px;color:#54736b}
+.writingSelectedGlyph{font-family:'Segoe UI Historic','Noto Sans Old South Arabian',serif;color:#1b6254;font-size:54px;font-weight:400;line-height:1.5}
+.writingBoard{position:relative;overflow:hidden;border:2px dashed #91ae9c;border-radius:12px;height:330px;background:repeating-linear-gradient(0deg,transparent 0 81px,#d7e6d6 82px),#f7faf4}
+.writingBoard:before{content:'';position:absolute;top:50%;left:0;right:0;border-top:1px dashed #d6e1d4;pointer-events:none}
+.writingBoard canvas{display:block;position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;z-index:2}
+.writingGhost{position:absolute;inset:0;display:grid;place-items:center;font-family:'Segoe UI Historic','Noto Sans Old South Arabian','Noto Sans',serif;color:#82b39f5c;font-size:clamp(170px,18vw,245px);line-height:1;pointer-events:none;user-select:none}
+.writingHint{position:absolute;bottom:13px;left:0;right:0;text-align:center;font-size:12px;color:#6b8277;pointer-events:none;z-index:1}
+.writingControls{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.writingControls button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:43px;padding:9px 13px;border-radius:8px;background:#e4f2e9;color:#205748;font-weight:750;font-size:12px;border:1px solid #b9d5c2}
+.writingControls button:hover{background:#cfe7d8}
+.copyFeedback{display:flex;align-items:center;gap:8px;margin:11px 0 0;color:#186c4f;font-size:12px}
+.writingAside h3{font-size:20px;margin:0 0 7px;color:#244f47}
+.writingAside>p{font-size:12px;line-height:1.9;color:#536c62;margin:0 0 18px}
+.writingLetters{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.writingLetter,.writingLetterActive{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0;min-height:73px;border-radius:9px;border:1px solid #d0dcd2;background:#f9faf7;color:#20574c;padding:8px 4px}
+.writingLetterActive{border-color:#1f8b6f;background:#e1f3e7;box-shadow:inset 0 0 0 1px #1f8b6f}
+.writingLetters button>span{font-family:'Segoe UI Historic','Noto Sans Old South Arabian','Noto Sans',serif;font-size:28px;line-height:1.4}
+.writingLetters button>small{font-size:10px;line-height:1.5;color:#48665c;overflow-wrap:anywhere}
+.writingBack{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#176456;font-weight:800;margin-top:19px;min-height:43px}
+@media(max-width:1040px){.alphabetGrid{grid-template-columns:repeat(5,minmax(0,1fr))}.writingLayout{grid-template-columns:1fr}.writingLetters{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media(max-width:760px){.alphabetGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.chapterHeading{padding:13px 16px}.practiceBanner{padding:27px 0}}
+@media(max-width:540px){.alphabetGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.alphabetCard{padding:11px 6px}.alphabetGlyph{font-size:41px;min-height:65px}.alphabetNotes{padding:17px}.writingBoard{height:290px}.writingPanel,.writingAside{padding:15px}.writingLetters{grid-template-columns:repeat(5,minmax(0,1fr))}.writingControls button{flex:1}.practiceLinks{width:100%}.practiceLinks a{flex:1;justify-content:center;text-align:center}.chapterHeading h3{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.writingControls button,.practiceLinks a{transition:none}}
