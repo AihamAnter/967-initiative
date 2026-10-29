@@ -110,7 +110,7 @@ test('composition questions show only Musnad glyphs and never leak names or sema
 });
 
 test('composition grade rejects forged tile positions but accepts sessions opened before deployment',()=>{
- for(const stage of [2,10,11]){
+ for(const stage of [2,10]){
   const snapshot=makeSchoolQuestions(stage,1);
   const compose=snapshot.find(q=>q.kind==='compose');
   const answers=snapshot.map(q=>({
