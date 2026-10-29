@@ -261,3 +261,10 @@
 .courseArud{background:linear-gradient(135deg,#203a42,#213b37);border-color:#be995f}
 .courseArud .courseTag{color:#f6d29d}
 .courseArud>svg{color:#e8ca9d}
+
+/* Shared school dashboard entry: retain existing site typography. */
+.heroActions{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.heroActions .primaryLink{margin:0}
+.myLearningLink{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;border:1px solid #c8b792;border-radius:9px;padding:11px 17px;color:#f7e8c9;font-size:13px;font-weight:800}
+.myLearningLink:hover{background:#ffffff17}
+@media(max-width:530px){.heroActions>a{width:100%}}

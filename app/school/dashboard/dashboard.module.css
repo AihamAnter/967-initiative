@@ -1,0 +1,44 @@
+.hero{background:radial-gradient(circle at 78% 25%,#678a7e33,transparent 39%),linear-gradient(125deg,#183b41,#18332f);color:#fdf9f1;padding:30px 0 clamp(42px,5vw,70px)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#dbbe87;font-size:12px;font-weight:800}
+.hero h1{font-size:clamp(34px,4.6vw,60px);line-height:1.35;margin:16px 0 9px;color:#fff}
+.hero h1 em{font-style:normal;color:#e9c88f}
+.hero p{font-size:14px;line-height:2;color:#dce9e2;max-width:700px;margin:0}
+.dashboard{background:radial-gradient(circle at 15% 0%,#dce9df,transparent 33%),#faf7ee;padding:32px 0 72px;min-height:55vh}
+.notice,.staffNotice{display:flex;align-items:center;flex-wrap:wrap;gap:15px;border:1px solid #d5dccc;border-radius:13px;background:#fff;padding:20px;color:#26534b}
+.notice>div{flex:1;min-width:220px}
+.notice strong{font-size:17px}
+.notice p,.staffNotice p{margin:4px 0 0;font-size:13px;line-height:1.9;color:#5b716b}
+.notice>.action{margin-inline-start:auto}
+.action,.resume>a{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:9px;min-height:45px;padding:10px 18px;color:#fff;background:#1c6657;font-size:13px;font-weight:800}
+.action:hover,.resume>a:hover{background:#135447}
+.staffNotice{background:#e9f3f1;border-color:#bad5cb;margin-bottom:19px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:19px}
+.stat{display:flex;flex-direction:column;gap:11px;padding:22px 24px;background:#fff;border:1px solid #d3ddd2;border-radius:13px}
+.stat>span{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:800;color:#526d64}
+.stat strong{align-self:flex-start;font-size:clamp(27px,3vw,40px);color:#254843;line-height:1.2}
+.resume{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:24px 28px;border:1px solid #bbab8c;border-radius:14px;background:linear-gradient(135deg,#f2e7d4,#f6f1e5);margin-bottom:28px}
+.resume>div>span{color:#8b6337;font-size:12px;font-weight:850}
+.resume h2{font-size:25px;line-height:1.5;margin:7px 0 4px;color:#23473f}
+.resume p,.resume small{color:#5a7068;font-size:13px;line-height:1.8;margin:0}
+.resume small{display:block;font-size:12px;margin-top:6px}
+.titleRow{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin:0 0 16px}
+.titleRow>div>span{color:#936f3f;font-size:12px;font-weight:850}
+.titleRow h2{font-size:clamp(24px,3vw,33px);margin:5px 0 0;color:#23443f}
+.titleRow>p{font-size:12px;line-height:1.8;color:#5d736a;max-width:370px;margin:0}
+.courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.course{min-width:0;border:1px solid #d7dccc;border-radius:14px;background:#fff;padding:24px}
+.courseTop,.progressLabel,.courseFoot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.courseTop{font-size:11px;font-weight:800;color:#43776a}
+.courseTop>span:last-child{padding:5px 10px;background:#e9f2ea;border-radius:40px}
+.course h3{color:#22453e;font-size:25px;margin:16px 0 5px}
+.course>p{font-size:13px;line-height:1.85;color:#536f64;margin:0 0 24px;min-height:50px}
+.progressLabel{font-size:12px;color:#305e50}
+.progressLabel strong{font-weight:800}
+.track{height:10px;background:#e5ece2;border-radius:99px;overflow:hidden;margin:10px 0 20px}
+.track>span{display:block;height:100%;background:#327a67;border-radius:99px;transition:width .2s ease}
+.courseFoot{border-top:1px solid #e5e9df;padding-top:17px;font-size:12px;color:#687a70}
+.courseFoot a{display:inline-flex;align-items:center;gap:7px;font-weight:850;color:#1b6856}
+.footnote{font-size:12px;line-height:1.9;color:#587169;margin:22px 0 0}
+@media(max-width:760px){.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.stat{padding:15px}.courses{grid-template-columns:1fr}.resume{padding:21px}.hero{padding-bottom:38px}}
+@media(max-width:530px){.stats{grid-template-columns:1fr}.stat{gap:4px}.stat strong{font-size:29px}.course{padding:18px}.resume>a,.notice>.action{width:100%}.hero h1{font-size:36px}}
+@media(prefers-reduced-motion:reduce){.track>span{transition:none}}
