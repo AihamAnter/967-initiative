@@ -4,6 +4,17 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'app/school/**'
+      - 'app/api/school/**'
+      - 'components/school/**'
+      - 'lib/schoolMusnad*.js'
+      - 'lib/schoolServer.js'
+      - 'tests/school-967.test.mjs'
+      - 'supabase/migrations/*school*.sql'
+      - '.github/workflows/pr-validation.yml'
 
 permissions:
   contents: read
