@@ -71,7 +71,7 @@ test('editor and student route enforce staff permissions, version control and se
  assert.ok(api.includes('schoolUser(request,db)'));
  assert.ok(api.includes('isSameOrigin(request)'));
  assert.ok(generic.includes(".eq('user_id',user.id)"));
- assert.ok(generic.includes('gradeSchoolChoice(row.questions,row.submission)'));
+ assert.ok(generic.includes('gradeSchoolChoice(attempt.questions,attempt.submission)'));
  assert.ok(generic.includes('gradeSchoolChoice(attempt.questions,answers)'));
  assert.ok(customApi.includes('saveSchoolDraft(db,user,body.slug'));
  assert.ok(!customApi.includes('user_metadata'));
