@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,Check,CheckCircle2,ChevronLeft,Delete,RefreshCw,RotateCcw,ShieldCheck,XCircle} from 'lucide-react';
+import {ArrowLeft,ArrowRight,Check,CheckCircle2,Delete,RefreshCw,RotateCcw,ShieldCheck,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import {ARUD_STAGES} from '@/lib/schoolArud';
 import styles from '@/app/school/writing/arud/arud.module.css';

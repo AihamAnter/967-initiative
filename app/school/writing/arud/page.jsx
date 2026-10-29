@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
-import {ChevronLeft,ExternalLink,Feather,Music2} from 'lucide-react';
+import {ChevronLeft,ExternalLink,Feather} from 'lucide-react';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';

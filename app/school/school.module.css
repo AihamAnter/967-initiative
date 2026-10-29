@@ -256,3 +256,8 @@
 .sentenceKeyboard .glyph{font-size:clamp(27px,3vw,40px);line-height:1.5}
 @media(max-width:760px){.sentenceKeyboard{grid-template-columns:repeat(6,minmax(0,1fr))}}
 @media(max-width:470px){.sentenceKeyboard{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.sentenceKeyboard button{min-height:57px}.sentenceKeyboard .glyph{font-size:30px}}
+
+/* A second live course with its own ink-and-copper palette. */
+.courseArud{background:linear-gradient(135deg,#203a42,#213b37);border-color:#be995f}
+.courseArud .courseTag{color:#f6d29d}
+.courseArud>svg{color:#e8ca9d}

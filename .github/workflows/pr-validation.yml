@@ -11,6 +11,8 @@ on:
       - 'app/api/school/**'
       - 'components/school/**'
       - 'lib/schoolMusnad*.js'
+      - 'lib/schoolArud*.js'
+      - 'tests/school-arud.test.mjs'
       - 'lib/schoolServer.js'
       - 'lib/schoolStageAccess.js'
       - 'tests/school-staff-preview.test.mjs'
