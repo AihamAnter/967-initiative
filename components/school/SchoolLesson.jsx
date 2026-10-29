@@ -66,7 +66,7 @@ export default function SchoolLesson({stage}){
   {phase==='intro'&&<section className={styles.introLesson}>
    <div className={styles.lessonIntroBanner}><span>مقدمة المحطة</span><h2>{stage.title}</h2><p>{stage.intro}</p></div>
    <div className={styles.lessonLearning}><div><h3><BookOpen size={19}/> قبل أن تبدأ</h3><ul>{stage.tips.map(t=><li key={t}>{t}</li>)}</ul></div>
-    {stage.letters.length>0&&<div><h3>حروف هذه المحطة</h3><div className={styles.letterTable}>{stage.letters.map(([glyph,name,latin])=><div key={glyph}><strong className={styles.glyph} lang="und">{glyph}</strong><span>{name}</span><small dir="ltr">{latin}</small></div>)}</div></div>}
+    {stage.letters.length>0&&<div><h3>حروف هذه المحطة</h3><div className={styles.letterTable}>{stage.letters.map(({glyph,name,latin})=><div key={glyph}><strong className={styles.glyph} lang="und">{glyph}</strong><span>{name}</span><small dir="ltr">{latin}</small></div>)}</div></div>}
     {stage.letters.length===0&&<div className={styles.exampleSequence}><span>مثال على ترتيب الحروف</span><strong className={styles.glyph} dir="rtl">𐩣𐩡</strong><small>ميم ← لام</small></div>}
    </div>
    <div className={styles.lessonLaunch}><div><strong>اختبار الإتقان</strong><p>6 تمارين؛ 5 إجابات صحيحة للنجاح. إن لم تنجح، يمكنك المحاولة بمجموعة أخرى من الأسئلة.</p></div><button type="button" onClick={start} disabled={busy}>{busy?'جارٍ تجهيز المحطة…':'ابدأ المحطة'} <ArrowLeft size={18}/></button></div>
