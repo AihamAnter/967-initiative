@@ -123,7 +123,7 @@ test('friend invitation appears beside Start inside all nine games, never separa
  assert.ok(arcade.includes('game={game}'));
  assert.ok(extra.includes('game={game}'));
  assert.ok(creator.includes("fetch('/api/games/friends'"));
- assert.ok(creator.includes('seconds}),'));
+ assert.ok(creator.includes('body:JSON.stringify({game,seconds})'));
  assert.ok(creator.includes('navigator.clipboard.writeText'));
  assert.ok(creator.includes('افتح التحدي وانتظر صديقك'));
  assert.ok(styles.includes('.actionRow{display:flex'));
@@ -155,7 +155,7 @@ test('both participants automatically see each other, without stale network poll
  assert.ok(match.includes('if(!alive||inFlight||mutating.current)return'));
  assert.ok(match.includes('lastPlayerCount.current===1&&result.players?.length===2'));
  assert.ok(match.includes('setJoinedNotice'));
- assert.ok(match.includes('setPhase(previous=>previous===\\'ready\\'?\\'ready\\':\\'error\\')'));
+ assert.ok(match.includes("setPhase(previous=>previous==='ready'?'ready':'error')"));
  assert.ok(css.includes('.joinedNotice'));
  assert.ok(css.includes('.liveStatus'));
  assert.ok(route.includes('noindex:true'));
