@@ -50,7 +50,7 @@ export default function SchoolLesson({stage}){
  function next(){
   const task=attempt?.questions?.[step];
   if(!task||busy)return;
-  const complete=task.kind==='choice'?Number.isInteger(chosen):Array.isArray(chosen)&&chosen.length===task.target.split(' ← ').length;
+  const complete=task.kind==='choice'?Number.isInteger(chosen):task.kind==='sentence'?Array.isArray(chosen)&&chosen.length>0&&chosen.length<=80:Array.isArray(chosen)&&chosen.length===task.target.split(' ← ').length;
   if(!complete)return;
   const all=[...responses,{id:task.id,choice:chosen}];
   setResponses(all);
