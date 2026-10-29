@@ -55,7 +55,7 @@ test('full-sentence UI retains old composition exercises and shows no Arabic hin
  const ui=read('components/school/SchoolLesson.jsx');
  const styles=read('app/school/school.module.css');
  assert.ok(ui.includes("['compose','sentence'].includes(task.kind)"));
- assert.ok(ui.includes("task.kind==='sentence'?80:0"));
+ assert.ok(ui.includes("task?.kind==='sentence'?80:0"));
  assert.ok(ui.includes("styles.sentenceKeyboard"));
  assert.ok(!ui.includes('<small>{o.name}</small>'));
  assert.ok(styles.includes('.sentenceKeyboard'));
