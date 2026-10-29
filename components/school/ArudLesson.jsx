@@ -52,8 +52,8 @@ export default function ArudLesson({stage}){
   setIndex(i=>i+1);setSelection(null);
  }
  const isScansion=stage.index===1;
- const isRealVerse=stage.index>=4;
- const isFeet=stage.index===4;
+ const isRealVerse=(stage.index===4||stage.index===5||stage.index===6);
+ const isFeet=stage.index===4||stage.index===6;
  const sequenceLimit=task?.steps||8;
  return <article className={styles.lessonLayout}>
   <div className={styles.lessonHeading}><div><span>مدرسة 967 · علم العروض · المحطة {String(stage.index+1).padStart(2,'0')}</span><h1>{stage.title}</h1><p>{stage.subtitle}</p></div><Link href="/school/writing/arud">خارطة المحطات <ArrowRight size={17}/></Link></div>
@@ -69,12 +69,12 @@ export default function ArudLesson({stage}){
    <section className={styles.question}>
     <span className={styles.questionKind}>{task.kind==='choice'?'تعرّف على القاعدة':'تمرين تقطيع تفاعلي'}</span>
     <h2>{task.prompt}</h2>
-    {task.target&&<div className={isRealVerse?styles.verseTarget:styles.wordTarget} dir={stage.index===3&&task.target.includes('—')?'ltr':'rtl'}>{task.target}</div>}
+    {task.target&&<div className={task.target.includes('\n')?styles.fullVerseTarget:isRealVerse?styles.verseTarget:styles.wordTarget} dir={stage.index===3&&task.target.includes('—')?'ltr':'rtl'}>{task.target.includes('\n')?task.target.split('\n').map((line,i)=><p key={i}>{line}</p>):task.target}</div>}
     {task.attribution&&<p className={styles.poetAttribution}>الشاعر أو المرجع: {task.attribution}</p>}
     {task.example&&<aside className={styles.questionExample} aria-label="مثال توضيحي"><span><BookOpen size={17} aria-hidden="true"/> مثال يساعدك على الفهم</span><p>{task.example}</p></aside>}
     {task.kind==='choice'&&<div className={styles.answerList} role="group" aria-label="اختر إجابة واحدة">{task.options.map((option,i)=><button type="button" key={i} className={selection===i?styles.answerActive:styles.answer} aria-pressed={selection===i} onClick={()=>setSelection(i)}><span className={styles.optionIndex} dir="ltr">{String.fromCharCode(65+i)}</span><span>{option}</span>{selection===i&&<Check size={19}/>}</button>)}</div>}
     {task.kind==='sequence'&&<>
-     <p className={styles.sequenceHint}>{isFeet?'رتّب التفعيلات الأربع بحسب النطق، ثم أرسل الإجابة.':isScansion?'ابنِ سلسلة المتحرك والساكن من بداية الكلمة إلى نهايتها.':'اختر المقاطع القصيرة والطويلة بالترتيب الذي تنطق به الكلمة.'}</p>
+     <p className={styles.sequenceHint}>{isFeet?'رتّب التفعيلات بحسب النطق، من الصدر إلى العجز عند ظهور بيت كامل.':isScansion?'ابنِ سلسلة المتحرك والساكن من بداية الكلمة إلى نهايتها.':'اختر المقاطع القصيرة والطويلة بالترتيب الذي تنطق به الكلمة.'}</p>
      <div className={isFeet?styles.footBuilder:styles.patternBuilder} aria-live="polite">{Array.isArray(selection)&&selection.length?selection.map((x,i)=><span key={i}>{x}</span>):<small>ابدأ بإضافة أول رمز</small>}
       <button type="button" aria-label="حذف آخر رمز" disabled={!selection?.length} onClick={()=>setSelection(a=>a.slice(0,-1))}><Delete size={19}/></button></div>
      <div className={isFeet?styles.footKeys:styles.patternKeys}>{task.options.map(token=><button type="button" key={token} disabled={selection?.length>=sequenceLimit} onClick={()=>setSelection(a=>[...(a||[]),token])}><strong>{token}</strong><span>{isFeet?'تفعيلة':token==='/'?'متحرك':token==='0'?'ساكن':token==='ᴗ'?'قصير':'طويل'}</span></button>)}</div>

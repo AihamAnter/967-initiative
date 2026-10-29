@@ -31,7 +31,7 @@ export default function ArudJourney(){
  },[revision]);
  const {progress,status,message}=loadState;
  return <section id="arud-stages" className={styles.journey} aria-labelledby="arud-stages-title"><div className="container">
-  <div className={styles.sectionIntro}><div><span>خارطة الإتقان / ARUD 967</span><h2 id="arud-stages-title">ست محطات من الصوت إلى البحر</h2></div><p>لا تنتقل إلى المرحلة التالية إلا بعد إتقان السابقة. يمكنك الإعادة بلا خصم أو عقوبة.</p></div>
+  <div className={styles.sectionIntro}><div><span>خارطة الإتقان / ARUD 967</span><h2 id="arud-stages-title">12 محطة لإتقان مبادئ العروض</h2></div><p>لا تنتقل إلى المرحلة التالية إلا بعد إتقان السابقة. يمكنك الإعادة بلا خصم أو عقوبة.</p></div>
   {status==='guest'&&<div className={styles.notice}><GraduationCap size={24}/><div><strong>أكمل رحلتك بحسابك</strong><p>لتبدأ التمارين وتحفظ النتائج، سجّل الدخول إلى 967.</p></div><Link href="/login">تسجيل الدخول <ArrowLeft size={16}/></Link></div>}
   {status==='error'&&<div className={styles.notice} role="alert"><p>{message}</p><button type="button" onClick={()=>setRevision(n=>n+1)}>إعادة التحميل <RefreshCw size={16}/></button></div>}
   {status==='ready'&&progress?.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={23}/><div><strong>معاينة الإدارة متاحة</strong><p>يمكنك الدخول مباشرة إلى أي محطة للتجربة، دون تغيير شروط التقدّم للطلاب.</p></div></div>}
@@ -40,9 +40,9 @@ export default function ArudJourney(){
    const record=progress?.stages?.[i];
    const completed=Boolean(record?.completed),locked=status==='ready'&&Boolean(record?.locked);
    const staffOnly=Boolean(progress?.staffPreview)&&i>progress.unlocked&&!completed;
-   const visual=<><span className={styles.stationIndex} dir="ltr">{String(i+1).padStart(2,'0')}</span><span className={styles.stationStatus}>{completed?<CheckCircle2 size={17}/>:locked?<LockKeyhole size={17}/>:staffOnly?<ShieldCheck size={17}/>:<BookOpen size={17}/>} {completed?'مكتملة':locked?'مقفلة':staffOnly?'معاينة إدارية':'جاهزة للتعلّم'}</span><h3>{s.title}</h3><p>{s.summary}</p><div className={styles.stationBottom}><span>{s.duration}</span><span>{record?.best?record.best+' / 6':''}</span>{!locked&&<ArrowLeft size={18}/>}</div></>;
+   const visual=<><small className={styles.stationChapter}>{i<4?'الأساسيات':i<7?'التقطيع التطبيقي':i===7?'تغيّرات الوزن':i<11?'أصول البحور':'التقييم الختامي'}</small><span className={styles.stationIndex} dir="ltr">{String(i+1).padStart(2,'0')}</span><span className={styles.stationStatus}>{completed?<CheckCircle2 size={17}/>:locked?<LockKeyhole size={17}/>:staffOnly?<ShieldCheck size={17}/>:<BookOpen size={17}/>} {completed?'مكتملة':locked?'مقفلة':staffOnly?'معاينة إدارية':'جاهزة للتعلّم'}</span><h3>{s.title}</h3><p>{s.summary}</p><div className={styles.stationBottom}><span>{s.duration}</span><span>{record?.best?record.best+' / 6':''}</span>{!locked&&<ArrowLeft size={18}/>}</div></>;
    return locked?<article key={s.id} className={styles.stationLocked} aria-label={s.title+' مقفلة'}>{visual}</article>:<Link key={s.id} className={completed?styles.stationDone:styles.station} href={'/school/writing/arud/'+(i+1)}>{visual}</Link>;
   })}</div>
-  <p className={styles.journeyNote}>المحطات الأربع الأولى تأسيسية، وتليها محطتان تطبيقيتان على أشطر شعرية موثقة وبحورها. سنوسّع المسار لاحقًا إلى الزحافات والعلل.</p>
+  <p className={styles.journeyNote}>المحطات 1–4 تأسيسية، و5–7 للتقطيع التطبيقي، و8 للزحافات والعلل، و9–11 لاستكمال أصول البحور الستة عشر، ثم اختبار ختامي.</p>
  </div></section>;
 }
