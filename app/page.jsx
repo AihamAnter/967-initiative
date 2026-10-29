@@ -4,6 +4,7 @@ import SearchForm from '@/components/SearchForm';
 import YemeniMotif from '@/components/design/YemeniMotif';
 import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
 import HomeKnowledge from '@/components/home/HomeKnowledge';
+import HomeGames from '@/components/home/HomeGames';
 import {getIssues, getWorks, getStatIndicators, getYemeniCompanies, getProfessionals, getSiteSettings} from '@/lib/data';
 import {getDebateCatalog} from '@/lib/debateServer';
 import {selectHomeContent,homeProjections} from '@/lib/homeContent';
@@ -48,7 +49,11 @@ export default async function Home() {
       <div className="container">
         <div className={styles.intro}>
           <div className={styles.titleBlock}><span className={styles.kicker}><span aria-hidden="true"/>{settings.heroEyebrow}</span><h1 id="home-title">{settings.heroTitle} {settings.heroHighlight && <span>{settings.heroHighlight}</span>}</h1></div>
-          <div className={styles.introCopy}><p>{settings.heroDescription}</p><SearchForm placeholder={settings.searchPlaceholder}/></div>
+          <div className={styles.introCopy}>
+           <p>{settings.heroDescription}</p>
+           <SearchForm placeholder={settings.searchPlaceholder}/>
+           {visible('games')&&<NextLink href="#home-games" className={styles.heroGameShortcut}><Gamepad2 size={18} aria-hidden="true"/><span>جديد في 967: تسع ألعاب، تحدٍّ يومي ومنافسة مع الأصدقاء</span><ArrowLeft size={16} aria-hidden="true"/></NextLink>}
+          </div>
         </div>
         {settings.pageVisibilityUnavailable&&<p className="stat-warning" role="status">تعذر تحميل أقسام المنصة مؤقتًا. أعد تحديث الصفحة للمحاولة.</p>}
         {(showStories||visible('magazine')||visible('statistics'))&&<><div className={styles.curatedHeading}><span>من 967، إليك.</span><span>حكاية، قراءة، ورقم يفتح سؤالًا جديدًا.</span></div>
@@ -61,7 +66,7 @@ export default async function Home() {
     </section>
 
     <HomeKnowledge items={knowledgeLinks}/>
-    {visible('games')&&<section className={styles.homeGames} aria-label="ألعاب 967"><div className="container"><div className={styles.homeGamesContent}><span className={styles.homeGamesIcon}><Gamepad2 size={29} aria-hidden="true"/></span><div><span>ألعاب 967</span><h2>هل تعرف اليمن كما تظن؟</h2><p>تحديات معرفية قصيرة في التاريخ والجغرافيا والتراث، مع شرح ومصدر لكل إجابة.</p></div><NextLink href="/games" className={styles.homeGamesLink}>جرّب الألعاب <ArrowUpLeft size={18} aria-hidden="true"/></NextLink></div></div></section>}
+    {visible('games')&&<HomeGames/>}
 
     <section className={styles.discovery} aria-labelledby="explore-title"><div className="container">
       <div className={styles.smallHeading}><h2 id="explore-title">فضولك، يحدد البداية.</h2><Link href="/search">ابحث في كل المنصة <ArrowLeft size={16} aria-hidden="true"/></Link></div>

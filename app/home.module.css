@@ -177,13 +177,11 @@
 .mosaic[data-flexible] > div {grid-column:auto;grid-row:auto;}
 .communityGrid > :only-child {grid-column:1 / -1;}
 
-/* Games hub promotion: a single accessible path from Knowledge to play. */
-.homeGames{padding:0 0 34px;background:#f3f5f2}
-.homeGamesContent{border:1px solid #bed6d1;border-radius:14px;background:#e5f0eb;display:flex;align-items:center;gap:20px;padding:23px 27px;color:#153b43}
-.homeGamesIcon{display:grid;place-items:center;width:58px;height:58px;flex-shrink:0;border-radius:14px;background:#cce2dc;color:#1b6458}
-.homeGamesContent>div{flex:1}
-.homeGamesContent>div>span{font-size:12px;color:#246c5e;font-weight:700}
-.homeGamesContent h2{font-size:clamp(19px,2.5vw,25px);margin:4px 0 5px}
-.homeGamesContent p{font-size:13px;line-height:1.7;margin:0;color:#405e61}
-.homeGamesLink{display:inline-flex;align-items:center;gap:9px;min-height:47px;border-radius:9px;background:#174f54;color:white;padding:12px 19px;font-weight:700;font-size:13px;white-space:nowrap}
-@media(max-width:650px){.homeGames{padding-bottom:22px}.homeGamesContent{flex-wrap:wrap;gap:13px;padding:20px}.homeGamesContent>div{flex:1 1 calc(100% - 78px)}.homeGamesLink{width:100%;justify-content:center}}
+/* One quiet shortcut in the editorial hero; the full games showcase is below Knowledge. */
+.heroGameShortcut{display:inline-flex;align-items:center;gap:10px;min-height:43px;margin-top:12px;padding:8px 11px;color:#00646c;background:#e4f2ee;border:1px solid #b0d9cc;border-radius:8px;font-size:12px;font-weight:650;line-height:1.6;max-width:100%}
+.heroGameShortcut>span{flex:1;min-width:0}
+.heroGameShortcut svg{flex-shrink:0}
+.heroGameShortcut svg:last-child{margin-inline-start:3px}
+.heroGameShortcut:hover{background:#d2eae4;border-color:#70afa5}
+@media(max-width:600px){.heroGameShortcut{display:flex;font-size:11px;padding:9px 10px;min-height:48px;margin-top:10px}}
+@media(prefers-reduced-motion:reduce){.heroGameShortcut{transition:none}}
