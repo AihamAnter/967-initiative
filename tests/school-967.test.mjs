@@ -105,7 +105,7 @@ test('composition questions show only Musnad glyphs and never leak names or sema
  assert.ok(!view.includes('<small>{o.name}</small>'));
  assert.ok(!view.includes("aria-label={'إضافة حرف '+o.name}"));
  assert.ok(view.includes("aria-label={'اختيار رمز المسند رقم '"));
- assert.ok(server.includes("q.kind==='compose'?q.options.map(({glyph})=>({glyph})):q.options"));
+ assert.ok(server.includes("['compose','sentence'].includes(q.kind)?q.options.map(({glyph})=>({glyph})):q.options"));
  assert.ok(styles.includes('Composition tests show only Musnad symbols'));
 });
 
