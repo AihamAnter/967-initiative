@@ -185,3 +185,16 @@
 .heroGameShortcut:hover{background:#d2eae4;border-color:#70afa5}
 @media(max-width:600px){.heroGameShortcut{display:flex;font-size:11px;padding:9px 10px;min-height:48px;margin-top:10px}}
 @media(prefers-reduced-motion:reduce){.heroGameShortcut{transition:none}}
+
+/* School 967 has its own editorial identity, separate from both Knowledge and Games. */
+.schoolPromo{background:#faf7ee;padding:clamp(30px,4vw,52px) 0;border-block:1px solid #dddccc}
+.schoolPromoInner{display:flex;align-items:center;gap:22px;padding:clamp(22px,3vw,34px);border:1px solid #b8d5c2;background:linear-gradient(110deg,#e8f1e5,#f7f4e9);border-radius:15px}
+.schoolPromoIcon{display:grid;place-items:center;width:70px;height:70px;flex-shrink:0;border-radius:13px;background:#1b5b51;color:#e7e9bf}
+.schoolPromoCopy{flex:1;min-width:0}
+.schoolPromoCopy>span{color:#176456;font-size:12px;font-weight:700}
+.schoolPromoCopy h2{font-size:clamp(24px,2.5vw,33px);margin:3px 0 5px;color:#223b3e}
+.schoolPromoCopy p{font-size:13px;line-height:1.85;margin:0;color:#50676c;max-width:680px}
+.schoolPromoLink{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:11px 17px;flex-shrink:0;border-radius:9px;background:#205f53;color:#fff;font-size:13px;font-weight:750}
+.schoolPromoLink:hover{background:#16493f}
+@media(max-width:710px){.schoolPromoInner{flex-wrap:wrap;gap:13px}.schoolPromoCopy{flex:1 1 calc(100% - 90px)}.schoolPromoLink{width:100%}}
+@media(max-width:550px){.schoolPromoIcon{width:55px;height:55px}.schoolPromoCopy{flex:1 1 calc(100% - 70px)}.schoolPromoCopy p{font-size:12px}}
