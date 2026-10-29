@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Gamepad2, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
+import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Gamepad2, GraduationCap, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
 import YemeniMotif from '@/components/design/YemeniMotif';
 import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
@@ -67,6 +67,13 @@ export default async function Home() {
 
     <HomeKnowledge items={knowledgeLinks}/>
     {visible('games')&&<HomeGames/>}
+    {visible('school')&&<section className={styles.schoolPromo} aria-labelledby="home-school-title"><div className="container">
+      <div className={styles.schoolPromoInner}>
+       <div className={styles.schoolPromoIcon}><GraduationCap size={30} strokeWidth={1.6} aria-hidden="true"/></div>
+       <div className={styles.schoolPromoCopy}><span>جديد في مبادرة 967 · تعلّم خطوة بخطوة</span><h2 id="home-school-title">مدرسة 967</h2><p>تعلّم مهارة حقيقية، اجتز مراحلها، ثم افتح المستوى التالي. انطلق الآن في رحلة قراءة وكتابة خط المسند ضمن قسم الكتابة والأدب.</p></div>
+       <NextLink href="/school" className={styles.schoolPromoLink}>استكشف المدرسة <ArrowUpLeft size={19} aria-hidden="true"/></NextLink>
+      </div>
+    </div></section>}
 
     <section className={styles.discovery} aria-labelledby="explore-title"><div className="container">
       <div className={styles.smallHeading}><h2 id="explore-title">فضولك، يحدد البداية.</h2><Link href="/search">ابحث في كل المنصة <ArrowLeft size={16} aria-hidden="true"/></Link></div>
