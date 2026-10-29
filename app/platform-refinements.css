@@ -481,3 +481,32 @@
 .figure-profile-editor{border-top:1px solid var(--line);padding-top:25px}.figure-editor-group{border:1px solid var(--line);border-radius:10px;margin-block:14px;min-width:0}.figure-editor-group>summary{padding:16px;cursor:pointer;font-weight:700;color:var(--primary)}.figure-editor-group-body{padding:18px;display:grid;gap:16px;min-width:0}.figure-editor-row{padding:18px;display:grid;gap:14px;border:1px solid var(--line);border-radius:8px;min-width:0}.figure-row-actions{display:flex;gap:8px;flex-wrap:wrap}.figure-row-actions button{display:inline-flex;align-items:center;gap:6px;min-width:40px;min-height:40px;border:1px solid var(--line);background:var(--surface);border-radius:5px}.figure-reference-picker{padding:12px;border:1px solid var(--line);min-width:0}.figure-reference-picker .checkline{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.8;overflow-wrap:anywhere}.figure-reference-picker input{flex:none;width:16px!important;height:16px;margin-top:5px}
 @media(max-width:700px){.figure-gallery,.figure-works-grid{grid-template-columns:1fr}.figure-detail-facts>div{grid-template-columns:1fr;gap:8px}.figure-toc{padding:18px}.figure-toc ul{display:grid;gap:12px}.figure-gallery-image{height:260px}.figure-editor-group-body,.figure-editor-row{padding:12px}.figure-dossier-section>p{font-size:15px}}
 .yfigure-photo-credit{position:absolute;inset:auto 8px 8px;z-index:4;max-width:calc(100% - 16px);padding:4px 7px;background:rgba(15,23,42,.82);color:white;font-size:10px;border-radius:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Games 967: an independent navigation destination, not a Knowledge submenu. */
+.platform-nav>.nav-games{white-space:nowrap;gap:8px;color:#155e68;font-weight:750}
+.platform-nav>.nav-games svg{color:#7040c5}
+.platform-nav>.nav-games:hover,.platform-nav>.nav-games.active{color:#7040c5}
+@media(max-width:900px){
+ .platform-nav>.nav-games{display:flex;align-items:center;min-height:52px;margin-top:9px;padding:8px 13px;border:1px solid #c8c4de;border-radius:9px;background:#f2ebfb;color:#4c358b}
+ .platform-nav>.nav-games.active{border-color:#806cbd;background:#ede1fd}
+}
+/* Separate footer group for games, with a responsive fifth column. */
+.platform-footer-grid{grid-template-columns:minmax(250px,1.45fr) repeat(4,minmax(0,1fr))}
+@media(max-width:1180px){
+ .platform-footer-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .platform-footer-grid>div:first-child{grid-column:1/-1}
+}
+@media(max-width:900px){
+ .platform-footer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .platform-footer-grid>div:last-child{grid-column:auto;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:0}
+}
+@media(max-width:760px){
+ .platform-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .platform-footer-grid>div:last-child{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:14px}
+ .platform-footer-grid>div:last-child h3{width:100%}
+}
+@media(max-width:420px){
+ .platform-footer-grid{grid-template-columns:minmax(0,1fr)}
+ .platform-footer-grid>div:first-child,.platform-footer-grid>div:last-child{grid-column:auto}
+ .platform-footer-grid>div:last-child{flex-direction:column;align-items:flex-start;gap:0}
+}
