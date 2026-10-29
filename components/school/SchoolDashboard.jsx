@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck,Target,Zap,Flame,Brain,CalendarCheck} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/dashboard/dashboard.module.css';
+import SchoolCompetition from './SchoolCompetition';
 
 export default function SchoolDashboard(){
  const [state,setState]=useState({kind:'loading',data:null,message:''});
@@ -108,6 +109,7 @@ export default function SchoolDashboard(){
      <Link href={item.href}>أعد التدريب <ArrowLeft size={16}/></Link>
     </article>)}</div>:<p className={styles.reviewEmpty}>لا توجد أسئلة تحتاج إلى مراجعة من نتائجك الأخيرة.</p>}
    </section>
+   <SchoolCompetition achievements={data.achievements}/>
    {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p></div>}
    <div className={styles.stats}>
     <div className={styles.stat}><span><CheckCircle2 size={17}/> محطات مكتملة</span><strong dir="ltr">{data.totals.completedStages} / {data.totals.stages}</strong></div>
@@ -128,7 +130,7 @@ export default function SchoolDashboard(){
     <div className={styles.courseFoot}><span>{course.attempts} محاولات مصححة</span>
      <Link href={course.nextStage?.href||course.href}>{course.finished?'راجع المسار':'المحطة '+((course.nextStage?.index??0)+1)} <ArrowLeft size={17}/></Link></div>
    </article>)}</div>
-   <p className={styles.footnote}>تعرض هذه اللوحة تقدم الدروس الحالي. نقاط الخبرة تُحتسب من النجاحات الموثقة دون تكرار. المراجعة والأهداف والاستمرارية متاحة الآن، والإنجازات والمنافسة تأتي في المرحلة الرابعة. لا توجد شهادات إتمام.</p>
+   <p className={styles.footnote}>تعرض هذه اللوحة تقدم الدروس الحالي. نقاط الخبرة تُحتسب من النجاحات الموثقة دون تكرار. الإنجازات والمنافسة الاختيارية متاحة الآن. النقاط الأسبوعية والشهرية لا تزيد عند تكرار المحطات. لا توجد شهادات إتمام.</p>
   </>}
  </div></section>;
 }

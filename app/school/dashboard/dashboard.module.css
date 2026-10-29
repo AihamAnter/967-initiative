@@ -92,3 +92,43 @@
 .reviewItem a{display:inline-flex;gap:8px;align-items:center;color:#21745d;font-size:12px;font-weight:800;margin-top:8px}
 .reviewEmpty{background:#fff;border:1px solid #d9e2d9;border-radius:12px;padding:20px;color:#527565;font-size:13px}
 @media(max-width:730px){.habitGrid,.reviewGrid{grid-template-columns:1fr}.habitCard{padding:18px}}
+
+/* School 967 achievements and private opt-in competition */
+.competition{display:grid;gap:24px;margin:24px 0 30px}
+.competitionHeader{display:flex;align-items:flex-start;gap:11px;color:#226d57;margin-bottom:13px}
+.competitionHeader h2{font-size:clamp(21px,3vw,27px);margin:0;color:#224b40}
+.competitionHeader p{color:#596f64;font-size:12px;line-height:1.8;margin:3px 0}
+.achievementGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.achievement{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #d5e0d6;border-radius:13px;padding:15px;min-width:0}
+.achievementEarned{background:linear-gradient(135deg,#f3f9ef,#fff8e9);border-color:#bdcfae}
+.achievementLocked{opacity:.63}
+.achievementIcon{background:#e7f1e8;border-radius:10px;padding:11px;color:#2d7259;display:grid;place-items:center;flex-shrink:0}
+.achievementLocked .achievementIcon{color:#7d897f;background:#f0f2ef}
+.achievement strong{display:block;font-size:13px;color:#294b40;line-height:1.7}
+.achievement p{font-size:11px;line-height:1.8;color:#597063;margin:2px 0 0}
+.achievementProgress{font-size:13px;font-weight:750;color:#476b5c;margin:-7px 0 13px}
+.leaderboardWrap{background:#fff;border:1px solid #d5e0d6;border-radius:15px;padding:23px}
+.periodTabs{display:inline-flex;background:#eef3eb;padding:4px;border-radius:10px;gap:4px;margin:6px 0 13px}
+.periodTab,.periodSelected{border:0;background:transparent;color:#48695a;border-radius:8px;padding:10px 17px;font-size:13px;font-weight:800}
+.periodSelected{background:#266d54;color:#fff}
+.leaderboardInfo{font-size:12px;color:#5b7268;line-height:1.9;margin:4px 0 17px}
+.leaderboardEmpty{border:1px dashed #c3d7c7;border-radius:10px;background:#f8faf6;padding:17px;color:#547263;font-size:13px}
+.leaderboardList{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.leaderboardEntry{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;background:#f5f8f3;border:1px solid #e1eae1;border-radius:10px;color:#2d5447}
+.leaderboardMine{background:#e9f3e8;border-color:#98c2a4}
+.leaderboardRank{font-weight:850;color:#42755c;font-size:15px}
+.leaderboardEntry strong{font-size:13px;overflow-wrap:anywhere}
+.leaderboardPoints{font-weight:800;font-size:13px;text-align:end}
+.leaderboardPoints small{font-size:11px;font-weight:500;display:block;color:#6b796d}
+.participationPanel{border-top:1px solid #e3e8df;margin-top:20px;padding-top:20px}
+.participationPanel h3{font-size:16px;color:#274e40;margin:0 0 7px}
+.participationPanel p{font-size:12px;color:#5a7466;line-height:1.9;margin:0 0 14px}
+.participationForm{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.participationForm input{flex:1;min-width:175px;max-width:330px;border:1px solid #b5cfc0;border-radius:9px;padding:11px 13px;background:#fff;font-family:inherit;font-size:14px;color:#234d3c;min-height:44px}
+.participationForm button,.leaveCompetition{min-height:44px;background:#236f55;color:#fff;border:0;border-radius:9px;padding:10px 15px;font-weight:800;font-size:12px}
+.participationForm button:disabled,.leaveCompetition:disabled{opacity:.55}
+.leaveCompetition{background:#f6ebe9;color:#954537;border:1px solid #e9c8c1}
+.participationError{font-size:12px;color:#a13828;margin-top:10px}
+.privacyLabel{display:inline-flex;align-items:center;gap:8px;color:#537268;font-size:11px;margin-top:15px;line-height:1.9}
+@media(max-width:880px){.achievementGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.achievementGrid{grid-template-columns:1fr}.leaderboardWrap{padding:16px}.leaderboardEntry{padding:11px 9px;grid-template-columns:32px minmax(0,1fr) auto}.participationForm button{width:100%}}
