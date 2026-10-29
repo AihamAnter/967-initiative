@@ -67,7 +67,7 @@ test('draft API is authenticated, restricted to active attempts, and protected a
 });
 test('learning goals remain account-owned and backend-only',()=>{
  const dashboard=read('lib/schoolDashboardServer.js'),api=read('app/api/school/dashboard/route.js');
- const migration=read('supabase/migrations/20261029202000_school_learning_habits.sql');
+ const migration=read('supabase/migrations/20261029183746_school_learning_habits.sql');
  assert.ok(dashboard.includes(".eq('user_id',user.id)"));
  assert.ok(dashboard.includes("user_id:user.id,daily_goal:goal"));
  assert.ok(api.includes("body.action!=='goal'"));
