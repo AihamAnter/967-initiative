@@ -1,0 +1,140 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {ARUD_STAGES,arudProgress,arudStage} from '../lib/schoolArud.js';
+import {makeArudQuestions,publicArudQuestions,gradeArudQuestions} from '../lib/schoolArudQuestions.js';
+import {pageIsVisible,sectionIsVisible} from '../lib/pageVisibility.js';
+import {searchPages} from '../lib/searchPages.js';
+const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
+const perfect=questions=>questions.map(q=>({id:q.id,choice:q.kind==='choice'?q.options.indexOf(q.answer):[...q.answer]}));
+
+test('the new prosody course defines four proper introductory stages without touching Musnad',()=>{
+ assert.equal(ARUD_STAGES.length,4);
+ assert.deepEqual(ARUD_STAGES.map(stage=>stage.index),[0,1,2,3]);
+ assert.equal(arudStage(4),null);
+ assert.equal(arudStage('1'),null);
+ assert.ok(ARUD_STAGES.every(stage=>stage.intro.length>90&&stage.tips.length===3&&stage.examples.length===3));
+ assert.ok(ARUD_STAGES[1].examples.some(x=>x.label.includes('/0')));
+ assert.ok(ARUD_STAGES[2].examples.some(x=>x.label.includes('ᴗ')));
+ assert.ok(ARUD_STAGES[3].examples.some(x=>x.label.includes('فعولن')));
+ const musnad=read('lib/schoolMusnad.js');
+ assert.ok(musnad.includes("export const MUSNAD_STAGES="));
+ assert.ok(!musnad.includes("ARUD_STAGES"));
+});
+
+test('progression requires passes in sequence; failures do not unlock higher stages',()=>{
+ assert.deepEqual(arudProgress([]).completed,[]);
+ assert.equal(arudProgress([]).unlocked,0);
+ assert.equal(arudProgress([{stage_index:0,status:'failed'}]).unlocked,0);
+ let state=arudProgress([{stage_index:0,status:'passed'},{stage_index:1,status:'failed'}]);
+ assert.deepEqual(state.completed,[0]);
+ assert.equal(state.unlocked,1);
+ state=arudProgress([0,1].map(stage_index=>({stage_index,status:'passed'})));
+ assert.equal(state.unlocked,2);
+ state=arudProgress([0,1,2,3].map(stage_index=>({stage_index,status:'passed'})));
+ assert.equal(state.finished,true);
+ assert.equal(state.unlocked,3);
+});
+
+test('every Arud station has six varied questions and API data never contains grading keys',()=>{
+ for(let stage=0;stage<4;stage++){
+  const a=makeArudQuestions(stage,1),b=makeArudQuestions(stage,2);
+  assert.equal(a.length,6);
+  assert.equal(new Set(a.map(q=>q.id)).size,6);
+  assert.notDeepEqual(a.map(q=>q.id).sort(),b.map(q=>q.id).sort());
+  const publicQuestions=publicArudQuestions(a);
+  assert.equal(publicQuestions.length,6);
+  assert.ok(publicQuestions.every(q=>!Object.hasOwn(q,'answer')&&!Object.hasOwn(q,'explanation')));
+  assert.ok(a.every(q=>q.options.length>=2));
+  assert.ok(a.filter(q=>q.kind==='choice').every(q=>new Set(q.options).size===q.options.length));
+ }
+ assert.throws(()=>makeArudQuestions(4,1));
+ assert.throws(()=>makeArudQuestions(-1,1));
+ assert.throws(()=>makeArudQuestions(1,0));
+});
+
+test('movement, rest and syllable exercises use interactive sequences, not answer-disclosing choices',()=>{
+ for(const stage of [1,2]){
+  const question=makeArudQuestions(stage,1);
+  assert.ok(question.every(q=>q.kind==='sequence'));
+  assert.ok(question.every(q=>q.answer.every(item=>q.options.includes(item))));
+  assert.ok(question.every(q=>q.options.length===2));
+ }
+ const scan=makeArudQuestions(1,1);
+ assert.ok(scan.every(q=>q.target!==q.answer.join('')));
+ const patterns=makeArudQuestions(2,1);
+ assert.ok(patterns.every(q=>q.answer.every(x=>x==='ᴗ'||x==='—')));
+});
+
+test('server grading requires 5 out of 6, handles incomplete attempts, and refuses forged tokens',()=>{
+ for(let stage=0;stage<4;stage++){
+  const snapshot=makeArudQuestions(stage,1),answers=perfect(snapshot);
+  const full=gradeArudQuestions(snapshot,answers);
+  assert.equal(full.score,6);
+  assert.equal(full.passed,true);
+  assert.equal(full.review.length,6);
+  const wrong=answers.map((a,i)=>{
+   if(i!==0)return a;
+   const q=snapshot[i];
+   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer[0]===q.options[0]?[q.options[1]]:[q.options[0]]};
+  });
+  assert.equal(gradeArudQuestions(snapshot,wrong).score,5);
+  const twice=wrong.map((a,i)=>{
+   if(i!==1)return a;
+   const q=snapshot[i];
+   return {...a,choice:q.kind==='choice'?(a.choice+1)%q.options.length:q.answer[0]===q.options[0]?[q.options[1]]:[q.options[0]]};
+  });
+  assert.equal(gradeArudQuestions(snapshot,twice).passed,false);
+  assert.throws(()=>gradeArudQuestions(snapshot,[]));
+  assert.throws(()=>gradeArudQuestions(snapshot,answers.map((x,i)=>i===0?{...x,id:'forged'}:x)));
+  if(stage===1||stage===2){
+   const corrupted=[...answers];corrupted[0]={...answers[0],choice:['fake']};
+   assert.throws(()=>gradeArudQuestions(snapshot,corrupted));
+  }
+ }
+});
+
+test('Arud API uses the same verified account and staff preview rules without mixing course records',()=>{
+ const api=read('app/api/school/arud/route.js');
+ const server=read('lib/schoolArudServer.js');
+ const migration=read('supabase/migrations/20261029141600_school_arud_course_enable.sql');
+ assert.ok(api.includes('schoolUser(request,db)'));
+ assert.ok(api.includes('isSameOrigin(request)'));
+ assert.ok(api.includes("readJsonObject(request,5500)"));
+ assert.ok(server.includes("const COURSE='arud'"));
+ assert.ok(server.includes(".eq('course_slug',COURSE)"));
+ assert.ok(server.includes('schoolStaffPreview(db,user)'));
+ assert.ok(server.includes('canOpen('));
+ assert.ok(server.includes("result.passed?'passed':'failed'"));
+ assert.ok(server.includes("gradeArudQuestions(row.questions,answers)"));
+ assert.ok(!server.includes('user_metadata')&&!api.includes('body.role'));
+ assert.ok(migration.includes("('musnad','arud')"));
+ const existing=read('supabase/migrations/20261029122247_school_967_musnad_attempts.sql');
+ assert.ok(existing.includes('enable row level security'));
+ assert.ok(existing.includes('revoke all on table public.school_stage_attempts from public, anon, authenticated'));
+ assert.ok(read('lib/schoolServer.js').includes("eq('course_slug','musnad')"));
+});
+
+test('Arud is independent, searchable, responsive, keyboard-accessible and respects school visibility',()=>{
+ const catalog=read('app/school/writing/page.jsx');
+ const course=read('app/school/writing/arud/page.jsx');
+ const lesson=read('components/school/ArudLesson.jsx');
+ const journey=read('components/school/ArudJourney.jsx');
+ const css=read('app/school/writing/arud/arud.module.css');
+ const footer=read('components/Footer.jsx');
+ assert.ok(catalog.includes('href="/school/writing/arud"'));
+ assert.ok(footer.includes('href="/school/writing/arud"'));
+ assert.ok(searchPages.some(p=>p.href==='/school/writing/arud'));
+ assert.ok(course.includes("sectionIsVisible('school'"));
+ assert.ok(lesson.includes("aria-pressed={selection===i}"));
+ assert.ok(lesson.includes('aria-label="حذف آخر رمز"'));
+ assert.ok(lesson.includes('styles.patternKeys'));
+ assert.ok(journey.includes('progress?.staffPreview'));
+ assert.ok(css.includes('@media(max-width:540px)'));
+ assert.ok(css.includes('@media(prefers-reduced-motion:reduce)'));
+ assert.equal(sectionIsVisible('school',{school:false}),false);
+ assert.equal(pageIsVisible('/school/writing/arud/4',{school:false}),false);
+ assert.equal(pageIsVisible('/school/writing/musnad',{school:false}),false);
+ assert.equal(pageIsVisible('/games',{school:false}),true);
+ for(const text of [catalog,course,lesson,journey])assert.equal(/[\u0660-\u0669\u06F0-\u06F9]/u.test(text),false);
+});
