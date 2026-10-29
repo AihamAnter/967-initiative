@@ -77,7 +77,7 @@ test('editor and student route enforce staff permissions, version control and se
  assert.ok(!customApi.includes('user_metadata'));
 });
 test('migration keeps drafts private and records editorial changes with exact snapshots',()=>{
- const sql=read('supabase/migrations/20261029213000_school_content_studio.sql');
+ const sql=read('supabase/migrations/20261029193259_school_content_studio.sql');
  for(const table of ['school_editor_courses','school_editor_stages','school_editor_questions','school_editor_audit'])
   assert.ok(sql.includes('public.'+table));
  assert.ok(sql.includes('enable row level security'));
