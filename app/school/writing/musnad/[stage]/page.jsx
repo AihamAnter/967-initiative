@@ -5,6 +5,8 @@ import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {musnadStage} from '@/lib/schoolMusnad';
 import SchoolLesson from '@/components/school/SchoolLesson';
+import {serverDb} from '@/lib/supabase-server';
+import {publishedSchoolStage} from '@/lib/schoolContentServer';
 import {pageMetadata} from '@/lib/seo';
 import styles from '../../../school.module.css';
 export const dynamic='force-dynamic';
@@ -14,8 +16,11 @@ export default async function StagePage({params}){
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
  const {stage:raw}=await params;
  if(!/^[1-9][0-9]*$/.test(raw))notFound();
- const stage=musnadStage(Number(raw)-1);
- if(!stage)notFound();
+ const original=musnadStage(Number(raw)-1);
+ if(!original)notFound();
+ const db=serverDb();
+ const overlay=db?await publishedSchoolStage(db,'musnad',original.index):null;
+ const stage=overlay?{...original,...overlay}:original;
  return <main className={styles.root}>
   <div className={styles.lessonPage}><div className="container"><div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing/musnad">خط المسند</Link><ChevronLeft size={14}/> المرحلة {raw}</div>
    <SchoolLesson stage={stage}/>
