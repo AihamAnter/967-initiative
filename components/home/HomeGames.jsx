@@ -20,9 +20,9 @@ export default function HomeGames(){
   <div className="container">
    <div className={styles.sectionHead}>
     <div>
-     <span className={styles.sectionKicker}><Gamepad2 size={17} aria-hidden="true"/> مساحة للعب والاكتشاف</span>
-     <h2 id="home-games-title">المعرفة، هذه المرة <span>على هيئة تحدٍّ.</span></h2>
-     <p>تعلّم اليمن بطريقة مختلفة، وتنافس مع الآخرين، أو ابدأ مواجهة خاصة مع صديقك.</p>
+     <span className={styles.sectionKicker}><Gamepad2 size={17} aria-hidden="true"/> قسم مستقل للعب والمنافسة</span>
+     <h2 id="home-games-title">ألعاب <span>967</span></h2>
+     <p>المعرفة، هذه المرة على هيئة تحدٍّ. العب، نافس، واكتشف اليمن بطريقة مختلفة مع الآخرين أو مع صديقك.</p>
     </div>
     <Link className={styles.headLink} href="/games">اكتشف الألعاب التسع <ArrowUpLeft size={17} aria-hidden="true"/></Link>
    </div>
