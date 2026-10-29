@@ -107,7 +107,7 @@ test('XP backend and private ledger SQL are secured, deduplicated and backfilled
  const server=read('lib/schoolDashboardServer.js');
  const api=read('app/api/school/dashboard/route.js');
  const jsx=read('components/school/SchoolDashboard.jsx');
- const migration=read('supabase/migrations/20261029185100_school_967_xp_events.sql');
+ const migration=read('supabase/migrations/20261029181659_school_967_xp_events.sql');
  assert.ok(server.includes("const XP_TABLE='school_xp_events'"));
  assert.ok(server.includes(".eq('user_id',user.id)"));
  assert.ok(server.includes("const [records,staffPreview,credits]=await Promise.all("));
