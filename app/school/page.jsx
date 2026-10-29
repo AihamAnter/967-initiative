@@ -22,7 +22,7 @@ export default async function SchoolPage(){
    </div><div className={styles.heroArtifact} aria-hidden="true"><div className={styles.artifactRing}/><span className={styles.artifactGlyph}>𐩣</span><span className={styles.artifactTag}>967 / MUSNAD</span></div></div>
   </div></div>
   <section className={styles.catalogSection}><div className="container">
-   <div className={styles.sectionTitle}><div><span>المجالات التعليمية</span><h2>اختر ما تريد إتقانه</h2></div><p>نبدأ بمسار واحد متكامل ونتوسع تدريجيًا، دون أن نضحّي بجودة الدروس.</p></div>
+   <div className={styles.sectionTitle}><div><span>المجالات التعليمية</span><h2>اختر ما تريد إتقانه</h2></div><p>نبدأ بمسار واحد يمتد عبر 12 محطة ونتوسع تدريجيًا، دون أن نضحّي بجودة الدروس.</p></div>
    <div className={styles.catalogGrid}>
     <Link className={styles.categoryLive} href="/school/writing"><span className={styles.categoryIcon}><PenTool size={30}/></span><small>القسم الأول / متاح الآن</small><h3>الكتابة والأدب</h3><p>من الحروف القديمة إلى مهارات الشعر والخطوط العربية. ابدأ بمسار خط المسند.</p><span className={styles.cardAction}>استكشف القسم <ArrowLeft size={18}/></span><span className={styles.categoryGlyph} aria-hidden="true">𐩣</span></Link>
     <article className={styles.categoryLater}><span className={styles.categoryIcon}><Telescope size={29}/></span><small><LockKeyhole size={14}/> قيد الإعداد</small><h3>الفلك والطبيعة</h3><p>التعرّف على النجوم والملاحة والظواهر الطبيعية بطريقة تطبيقية.</p></article>
