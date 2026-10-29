@@ -81,7 +81,7 @@ export default function SchoolLesson({stage}){
     <h2 id="school-question">{task.prompt}</h2>
     {task.glyph&&<div className={styles.questionGlyph} lang="und">{task.glyph}</div>}
     {task.kind==='choice'&&<div className={styles.choiceGrid} role="group" aria-label="اختر إجابة واحدة">{task.options.map((value,index)=><button type="button" key={index} aria-pressed={chosen===index} className={chosen===index?styles.choiceSelected:styles.choice} onClick={()=>setChosen(index)}><span className={styles.choiceLetter} dir="ltr">{String.fromCharCode(65+index)}</span><span>{value}</span>{chosen===index&&<Check size={18}/>}</button>)}</div>}
-    {task.kind==='compose'&&<>
+    {['compose','sentence'].includes(task.kind)&&<>
      <div className={styles.targetText}><span>اكتب التسلسل:</span><strong>{task.target}</strong></div>
      <div className={styles.composeOutput}><div dir="rtl" className={styles.glyph}>{Array.isArray(chosen)&&chosen.length?chosen.map(index=>task.options[index]?.glyph||'').join(''):'اختر الحروف بالترتيب'}</div><button type="button" aria-label="حذف آخر حرف" disabled={!Array.isArray(chosen)||!chosen.length} onClick={()=>setChosen(v=>v.slice(0,-1))}><Delete size={18}/></button></div>
      <div className={styles.glyphOptions}>{task.options.map((o,index)=><button type="button" key={index} disabled={Array.isArray(chosen)&&chosen.length>=desired} onClick={()=>setChosen(v=>[...(Array.isArray(v)?v:[]),index])} aria-label={'اختيار رمز المسند رقم '+(index+1)+': '+o.glyph}><strong className={styles.glyph} lang="und">{o.glyph}</strong></button>)}</div>
