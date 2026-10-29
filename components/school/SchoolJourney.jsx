@@ -3,7 +3,7 @@ import {useEffect,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,BookOpenCheck,Check,CheckCircle2,ChevronLeft,GraduationCap,LockKeyhole,RefreshCw,Star,Trophy} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
-import {MUSNAD_STAGES} from '@/lib/schoolMusnad';
+import {MUSNAD_STAGES,MUSNAD_CHAPTERS} from '@/lib/schoolMusnad';
 import styles from '@/app/school/school.module.css';
 
 export default function SchoolJourney(){
@@ -36,9 +36,12 @@ export default function SchoolJourney(){
   <div className={styles.sectionTitle}><div><span>خارطة الإتقان / 967 SCHOOL</span><h2 id="journey-title">محطات رحلتك</h2></div><p>المرحلة التالية تُفتح بعد إجابة 5 أسئلة صحيحة على الأقل من أصل 6.</p></div>
   {state.kind==='guest'&&<div className={styles.schoolNotice}><GraduationCap size={25}/><div><strong>سجّل الدخول لتحفظ تقدّمك</strong><p>يمكنك تصفح المحطات، لكن بدء الاختبارات وفتح المراحل يحتاج حسابًا في 967.</p></div><Link href="/login">تسجيل الدخول <ArrowLeft size={16}/></Link></div>}
   {state.kind==='error'&&<div className={styles.schoolNotice} role="alert"><p>{state.error}</p><button type="button" onClick={()=>setVersion(v=>v+1)}>إعادة المحاولة <RefreshCw size={16}/></button></div>}
-  <div className={styles.journeyMeta}><span><CheckCircle2 size={18}/> {progress?.completed?.length||0} / 3 مراحل مكتملة</span><span><Trophy size={18}/> {progress?.finished?'اكتمل المسار الأول!':'تعلّم حتى الإتقان'}</span></div>
-  <div className={styles.pathGrid}>
-   {MUSNAD_STAGES.map((stage,index)=>{
+  <div className={styles.journeyMeta}><span><CheckCircle2 size={18}/> {progress?.completed?.length||0} / {MUSNAD_STAGES.length} مراحل مكتملة</span><span><Trophy size={18}/> {progress?.finished?'اكتمل المسار الأول!':'تعلّم حتى الإتقان'}</span></div>
+  {MUSNAD_CHAPTERS.map(chapter=><section key={chapter.id} className={styles.journeyChapter} aria-label={'الفصل '+chapter.id+' '+chapter.title}>
+   <div className={styles.chapterHeading}><div><span>الفصل {String(chapter.id).padStart(2,'0')}</span><h3>{chapter.title}</h3><p>{chapter.description}</p></div><span>{MUSNAD_STAGES.slice(chapter.start,chapter.end+1).filter(s=>progress?.completed?.includes(s.index)).length} / {chapter.end-chapter.start+1}</span></div>
+   <div className={styles.pathGrid}>
+   {MUSNAD_STAGES.slice(chapter.start,chapter.end+1).map(stage=>{
+    const index=stage.index;
     const record=progress?.stages?.[index];
     const completed=Boolean(record?.completed);
     const locked=state.kind==='ready'&&Boolean(record?.locked);
@@ -52,7 +55,8 @@ export default function SchoolJourney(){
     </>;
     return locked?<article key={stage.id} className={styles.stationLocked} aria-label={stage.title+'، مقفلة'}>{content}</article>:<Link key={stage.id} href={'/school/writing/musnad/'+(index+1)} className={styles.station}>{content}</Link>;
    })}
-  </div>
-  <div className={styles.pathEnd}><Star size={19}/> أكمل المحطات الثلاث لتثبت قدرتك على التعرف على الحروف وكتابتها. هذه بداية المسار، وستضاف دروس أعمق لاحقًا.</div>
+   </div>
+  </section>)}
+  <div className={styles.pathEnd}><Star size={19}/> تنتقل من التعرّف على الحروف إلى إتقان الأبجدية كاملة، ثم ممارسة الكتابة والقراءة. للمراجعة يمكنك فتح دليل الحروف ولوحة التتبّع في أي وقت.</div>
  </div></section>;
 }
