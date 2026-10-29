@@ -1,0 +1,173 @@
+'use client';
+import {useCallback,useEffect,useState} from 'react';
+import {BarChart3,BookOpen,CheckCircle2,ClipboardList,History,Plus,RefreshCw,Save,ShieldCheck,Upload} from 'lucide-react';
+import {browserDb} from '@/lib/supabase';
+import styles from '@/app/school/studio/studio.module.css';
+const defaultDoc={
+ course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
+ stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
+ question:()=>({prompt:'',target:'',options:['','','',''],answerIndex:0,explanation:''})
+};
+async function api(method,body,view=''){
+ const db=browserDb(),{data,error}=await db?.auth.getSession()||{};
+ if(error||!data?.session?.access_token)throw Error('سجّل الدخول بحساب الإدارة.');
+ const response=await fetch('/api/school/studio'+(view?'?view='+view:''),{
+  method,cache:'no-store',headers:{Authorization:'Bearer '+data.session.access_token,...(method==='POST'?{'Content-Type':'application/json'}:{})},
+  ...(body?{body:JSON.stringify(body)}:{})
+ });
+ const result=await response.json();
+ if(!response.ok)throw Error(result.error||'تعذر الاتصال بالمحرر.');
+ return result;
+}
+const itemVersion=item=>item?.version||0;
+const status=item=>!item?'لم تُنشأ':!item.published?'مسودة':'منشور — النسخة '+item.published_version;
+export default function SchoolStudio(){
+ const [state,setState]=useState({loading:true,data:null,error:''});
+ const [mode,setMode]=useState('content');
+ const [kind,setKind]=useState('course');
+ const [slug,setSlug]=useState('musnad');
+ const [stage,setStage]=useState(0);
+ const [question,setQuestion]=useState('');
+ const [form,setForm]=useState(defaultDoc.course());
+ const [creating,setCreating]=useState(false);
+ const [newSlug,setNewSlug]=useState('');
+ const [busy,setBusy]=useState(false);
+ const [notice,setNotice]=useState('');
+ const [report,setReport]=useState(null);
+ const [reportError,setReportError]=useState('');
+ const load=useCallback(async()=>{
+  const data=await api('GET');setState({loading:false,data,error:''});return data;
+ },[]);
+ useEffect(()=>{let active=true;api('GET').then(data=>{if(active)setState({loading:false,data,error:''});})
+  .catch(e=>{if(active)setState({loading:false,data:null,error:e.message});});return()=>{active=false;};},[]);
+ const data=state.data;
+ const courses=data?.courses||[];
+ const stages=data?.stages||[];
+ const questions=data?.questions||[];
+ const course=courses.find(x=>x.slug===slug);
+ const stageRow=stages.find(x=>x.course_slug===slug&&x.stage_index===stage);
+ const questionRow=questions.find(x=>x.id===question&&x.course_slug===slug&&x.stage_index===stage);
+ const virtual=data?.builtIn?.find(x=>x.slug===slug)?.stages?.find(x=>x.index===stage);
+ const item=kind==='course'?course:kind==='stage'?stageRow:questionRow;
+ const initial=kind==='course'?course?.draft:kind==='stage'?(stageRow?.draft||virtual&&{
+  title:virtual.title,subtitle:virtual.subtitle||'',intro:virtual.intro||'',tips:virtual.tips||[]
+ }):questionRow?.draft;
+ function choose(nextKind,nextSlug=slug,nextStage=stage,nextQuestion=''){
+  const c=courses.find(x=>x.slug===nextSlug);
+  const st=stages.find(x=>x.course_slug===nextSlug&&x.stage_index===nextStage);
+  const q=questions.find(x=>x.id===nextQuestion);
+  const virt=data?.builtIn?.find(x=>x.slug===nextSlug)?.stages?.find(x=>x.index===nextStage);
+  const draft=nextKind==='course'?c?.draft:nextKind==='stage'?(st?.draft||virt&&{title:virt.title,subtitle:virt.subtitle||'',intro:virt.intro||'',tips:virt.tips||[]}):q?.draft;
+  setSlug(nextSlug);setKind(nextKind);setStage(nextStage);setQuestion(nextQuestion);setCreating(false);
+  setForm(draft||defaultDoc[nextKind]());setNotice('');
+ }
+ useEffect(()=>{if(data&&courses.length&&!course&&!creating){
+  const c=courses[0];setSlug(c.slug);setKind('course');setForm(c.draft);
+ }},[data,course,courses,creating]);
+ async function save(action){
+  if(busy)return;
+  if(action==='publish'&&JSON.stringify(form)!==JSON.stringify(initial)){setNotice('احفظ التعديلات كمسودة أولًا، ثم انشرها.');return;}
+  const targetSlug=creating?newSlug:slug;
+  const version=creating?0:itemVersion(item);
+  if(!targetSlug){setNotice('اختر اسمًا لاتينيًا للمسار.');return;}
+  setBusy(true);setNotice('');
+  try{
+   const questionId=kind==='question'?(question||crypto.randomUUID()):null;
+   await api('POST',{kind,action,slug:targetSlug,stageIndex:stage,id:questionId,version,...(action==='save'?{draft:form}:{})});
+   const refreshed=await load();
+   setSlug(targetSlug);setCreating(false);
+   if(kind==='question')setQuestion(questionId);
+   if(action==='save')setNotice('حُفظت المسودة بنجاح. النسخة المنشورة لم تتغير.');
+   else setNotice('نُشرت النسخة الجديدة للمتعلمين.');
+   if(kind==='course')setForm(refreshed.courses.find(x=>x.slug===targetSlug)?.draft||form);
+   if(kind==='stage')setForm(refreshed.stages.find(x=>x.course_slug===targetSlug&&x.stage_index===stage)?.draft||form);
+   if(kind==='question')setForm(refreshed.questions.find(x=>x.id===questionId)?.draft||form);
+  }catch(e){setNotice(e.message||'تعذر حفظ المحتوى.');}
+  finally{setBusy(false);}
+ }
+ async function showAnalytics(){
+  setMode('analytics');setReportError('');
+  try{setReport(await api('GET',null,'analytics'));}catch(e){setReportError(e.message);}
+ }
+ const isDirty=JSON.stringify(form)!==JSON.stringify(initial||defaultDoc[kind]());
+ return <div className={styles.workspace}><div className="container">
+  {state.loading&&<p role="status">جارٍ التحقق من الصلاحيات وتحميل محرر المدرسة…</p>}
+  {state.error&&<div className={styles.error} role="alert">{state.error} <button type="button" onClick={()=>{setState({loading:true,data:null,error:''});load().catch(e=>setState({loading:false,data:null,error:e.message}));}}>إعادة المحاولة</button></div>}
+  {data&&<>
+   <div className={styles.tabs}>
+    <button aria-pressed={mode==='content'} onClick={()=>setMode('content')}><BookOpen size={18}/> المحتوى والأسئلة</button>
+    <button aria-pressed={mode==='analytics'} onClick={showAnalytics}><BarChart3 size={18}/> التحليلات</button>
+    <button aria-pressed={mode==='history'} onClick={()=>setMode('history')}><History size={18}/> سجل التغييرات</button>
+   </div>
+   {mode==='content'&&<div className={styles.columns}>
+    <aside className={styles.sidebar}><h2>المسارات</h2>
+     {courses.map(c=><button className={slug===c.slug&&!creating?styles.activeCourse:''} type="button" key={c.slug} onClick={()=>choose('course',c.slug,0)}>{c.draft.title}<small>{c.slug} · {status(c)}</small></button>)}
+     <button className={styles.newButton} onClick={()=>{
+      setCreating(true);setNewSlug('');setKind('course');setForm(defaultDoc.course());setNotice('');
+     }}><Plus size={17}/> مسار جديد</button>
+     <h2>المحطات</h2>
+     {Array.from({length:12},(_,index)=>index).map(index=>{
+      const s=stages.find(x=>x.course_slug===slug&&x.stage_index===index);
+      const virtualStage=data.builtIn.find(x=>x.slug===slug)?.stages?.find(x=>x.index===index);
+      if(!course||(!s&&!virtualStage&&index>0&&!stages.some(x=>x.course_slug===slug&&x.stage_index===index-1)))return null;
+      return <button key={index} type="button" className={kind==='stage'&&stage===index?styles.activeCourse:''}
+       onClick={()=>choose('stage',slug,index)}>{index+1}. {s?.draft?.title||virtualStage?.title||'محطة جديدة'}<small>{status(s)}</small></button>;
+     })}
+    </aside>
+    <section className={styles.editor}>
+     <div className={styles.editorTop}><div><span>{kind==='course'?'إدارة المسار':kind==='stage'?'تحرير المحطة':'بنك الأسئلة'}</span>
+      <h2>{creating?'مسار جديد':kind==='course'?course?.draft.title:kind==='stage'?(stageRow?.draft.title||virtual?.title||'محطة جديدة'):(questionRow?.draft.prompt||'سؤال جديد')}</h2></div>
+      <span className={styles.status}>{status(item)}</span></div>
+     {creating&&<label>معرّف المسار (بالإنجليزية دون مسافات)<input value={newSlug} maxLength={40} onChange={e=>setNewSlug(e.target.value.toLowerCase())} placeholder="history-of-yemen"/></label>}
+     {kind==='course'&&<>
+      <label>اسم المسار<input value={form.title||''} maxLength={90} onChange={e=>setForm(v=>({...v,title:e.target.value}))}/></label>
+      <label>القسم<input value={form.category||''} maxLength={60} onChange={e=>setForm(v=>({...v,category:e.target.value}))}/></label>
+      <label>وصف المسار<textarea value={form.description||''} rows={3} maxLength={700} onChange={e=>setForm(v=>({...v,description:e.target.value}))}/></label>
+     </>}
+     {kind==='stage'&&<>
+      <label>اسم المحطة<input value={form.title||''} maxLength={90} onChange={e=>setForm(v=>({...v,title:e.target.value}))}/></label>
+      <label>الوصف المختصر<input value={form.subtitle||''} maxLength={180} onChange={e=>setForm(v=>({...v,subtitle:e.target.value}))}/></label>
+      <label>مقدمة الدرس<textarea value={form.intro||''} rows={6} maxLength={2500} onChange={e=>setForm(v=>({...v,intro:e.target.value}))}/></label>
+      <label>نصائح الدرس (نصيحة في كل سطر، بحد أقصى 10)<textarea value={(form.tips||[]).join('\n')} rows={5}
+       onChange={e=>setForm(v=>({...v,tips:e.target.value.split('\n').filter(Boolean)}))}/></label>
+      <div className={styles.bankHead}><h3><ClipboardList size={19}/> أسئلة المحطة</h3>
+       <button type="button" onClick={()=>choose('question',slug,stage)}>إضافة سؤال <Plus size={15}/></button></div>
+      <p className={styles.muted}>المحطات الجديدة تحتاج إلى ستة أسئلة منشورة قبل إتاحتها. الاختبارات القديمة تبقى محفوظة.</p>
+      <div className={styles.questionRows}>{questions.filter(q=>q.course_slug===slug&&q.stage_index===stage).map(q=>
+       <button key={q.id} type="button" onClick={()=>choose('question',slug,stage,q.id)}>{q.draft.prompt}<small>{status(q)}</small></button>)}</div>
+     </>}
+     {kind==='question'&&<>
+      <p className={styles.muted}>تدعم أسئلة بنك التحرير أربعة اختيارات، وستظل تمارين المسند والعروض الأصلية محفوظة.</p>
+      <label>نص السؤال<textarea value={form.prompt||''} rows={3} maxLength={350} onChange={e=>setForm(v=>({...v,prompt:e.target.value}))}/></label>
+      <label>مادة السؤال / المثال (اختياري)<textarea value={form.target||''} rows={2} maxLength={500} onChange={e=>setForm(v=>({...v,target:e.target.value}))}/></label>
+      {(form.options||['','','','']).map((option,i)=><label key={i}>الخيار {i+1}<input value={option} maxLength={150} onChange={e=>setForm(v=>({...v,options:v.options.map((x,j)=>i===j?e.target.value:x)}))}/></label>)}
+      <label>الإجابة الصحيحة<select value={form.answerIndex??0} onChange={e=>setForm(v=>({...v,answerIndex:Number(e.target.value)}))}>{[0,1,2,3].map(i=><option value={i} key={i}>الخيار {i+1}</option>)}</select></label>
+      <label>تفسير الإجابة<textarea value={form.explanation||''} rows={3} maxLength={800} onChange={e=>setForm(v=>({...v,explanation:e.target.value}))}/></label>
+     </>}
+     <div className={styles.actions}><button type="button" disabled={busy} onClick={()=>save('save')}><Save size={17}/> {busy?'جارٍ الحفظ…':'حفظ مسودة'}</button>
+      {!creating&&item&&<button type="button" disabled={busy||isDirty||item.published_version===item.version} onClick={()=>save('publish')}><Upload size={17}/> نشر النسخة</button>}
+      {kind==='question'&&<button type="button" className={styles.secondary} onClick={()=>choose('stage',slug,stage)}>العودة للمحطة</button>}
+     </div>
+     {notice&&<p role="status" className={styles.notice}>{notice}</p>}
+     <p className={styles.helper}><ShieldCheck size={16}/> لا تُغيّر المسودة المحتوى المنشور. تُطبّق النسخة الجديدة بعد الضغط على «نشر» فقط.</p>
+    </section>
+   </div>}
+   {mode==='analytics'&&<section className={styles.report}>
+    <h2>تحليلات التعلم</h2><p>إحصاءات إجمالية دون أسماء الطلاب أو إجاباتهم الشخصية. تعتمد على آخر 3000 محاولة مصححة.</p>
+    {reportError&&<p className={styles.error} role="alert">{reportError}</p>}
+    {!report&&!reportError&&<p role="status">جارٍ تحميل التحليلات…</p>}
+    {report&&<><p className={styles.muted}>عينة التقرير: {report.sampleSize} محاولة{report.truncated?' (النتائج الأقدم خارج التقرير)':''}</p>
+     <h3>نجاح المحطات</h3><div className={styles.tableScroll}><table><thead><tr><th>المسار</th><th>المحطة</th><th>المحاولات</th><th>النجاح</th><th>متوسط الدرجة</th></tr></thead>
+      <tbody>{report.stages.map(x=><tr key={x.course+':'+x.stage}><td>{x.course}</td><td>{x.stage+1}</td><td>{x.attempts}</td><td>{x.passRate}%</td><td>{x.meanScore} / 6</td></tr>)}</tbody></table></div>
+     <h3>الأسئلة الأكثر صعوبة</h3><div className={styles.tableScroll}><table><thead><tr><th>المسار / المحطة</th><th>السؤال</th><th>المشاهدات</th><th>الأخطاء</th></tr></thead>
+      <tbody>{report.questions.map((x,i)=><tr key={i}><td>{x.course} / {x.stage+1}</td><td>{x.prompt}</td><td>{x.asked}</td><td>{x.wrongRate}%</td></tr>)}</tbody></table></div></>}
+   </section>}
+   {mode==='history'&&<section className={styles.report}><h2>سجل المحتوى</h2>
+    <p>آخر 60 عملية إنشاء أو تعديل أو نشر، محفوظة تلقائيًا مع الوقت ومعرّف المحرر.</p>
+    <div className={styles.tableScroll}><table><thead><tr><th>الوقت</th><th>المحرر</th><th>العنصر</th><th>الإجراء</th></tr></thead>
+    <tbody>{data.audit.map(a=><tr key={a.id}><td>{new Date(a.changed_at).toLocaleString('ar',{dateStyle:'short',timeStyle:'short'})}</td>
+     <td><code dir="ltr">{a.actor_id?.slice(0,8)||'نظام'}</code></td><td>{a.entity_key}</td><td>{a.action==='published'?'نشر':a.action==='created'?'إنشاء':'تعديل'}</td></tr>)}</tbody></table></div>
+   </section>}
+  </>}
+ </div></div>;
+}
