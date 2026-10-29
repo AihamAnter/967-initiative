@@ -13,7 +13,7 @@ export default async function StagePage({params}){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
  const {stage:raw}=await params;
- if(!/^[1-3]$/.test(raw))notFound();
+ if(!/^[1-9][0-9]*$/.test(raw))notFound();
  const stage=musnadStage(Number(raw)-1);
  if(!stage)notFound();
  return <main className={styles.root}>
