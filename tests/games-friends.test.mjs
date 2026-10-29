@@ -163,6 +163,16 @@ test('both participants automatically see each other, without stale network poll
 });
 
 
+test('removed friend creator remains a compatible module for stale local imports',()=>{
+ const fallback=read('components/games/FriendChallengeCreate.jsx');
+ const landing=read('app/games/friends/page.jsx');
+ assert.ok(fallback.includes('export default function FriendChallengeCreate()'));
+ assert.ok(fallback.includes('href="/games"'));
+ assert.ok(!fallback.includes("fetch('/api/games/friends'"));
+ assert.ok(!fallback.includes('FriendChallenge.module.css'));
+ assert.ok(landing.includes("redirect('/games')"));
+});
+
 test('unstarted questions are never exposed through the invitation status API',()=>{
  const service=read('lib/friendChallengeServer.js');
  const client=read('components/games/FriendDuel.jsx');
