@@ -49,10 +49,9 @@ export default function ArudLesson({stage}){
  async function next(){
   if(!task||!ready||busy)return;
   const all=[...answers,{id:task.id,choice:selection}];
-  setAnswers(all);
-  if(index===attempt.questions.length-1){finish(all);return;}
+  if(index===attempt.questions.length-1){setAnswers(all);finish(all);return;}
   setBusy(true);
-  try{await draft.save({answers:all,selection:null});setIndex(i=>i+1);setSelection(null);}
+  try{await draft.save({answers:all,selection:null});setAnswers(all);setIndex(i=>i+1);setSelection(null);}
   catch(e){setError(e.message||'تعذر حفظ التقدم؛ أعد المحاولة.');}
   finally{setBusy(false);}
  }
