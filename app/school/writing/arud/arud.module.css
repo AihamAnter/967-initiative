@@ -28,7 +28,7 @@
 .notice strong,.staffNotice strong{font-size:15px}
 .notice p,.staffNotice p{font-size:12px;line-height:1.8;margin:5px 0 0}
 .notice a,.notice button{display:inline-flex;align-items:center;gap:8px;background:#205c56;color:#fff;border-radius:8px;min-height:43px;padding:9px 14px;font-size:12px}
-.stationGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.stationGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
 .station,.stationDone,.stationLocked{display:flex;flex-direction:column;gap:12px;position:relative;min-width:0;min-height:345px;border-radius:13px;padding:22px;border:1px solid #dacfb7;background:#fff;color:#1d3740;overflow:hidden}
 .station:hover,.stationDone:hover{border-color:#bb884d;box-shadow:0 15px 26px #173e3620;transform:translateY(-2px)}
 .stationDone{background:#edf5ed;border-color:#98c4ae}
@@ -132,3 +132,19 @@
 .questionExample>span{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:#7b5a32}
 .questionExample p{font-size:14px;line-height:1.95;margin:7px 0 0;color:#405d55}
 @media(max-width:540px){.questionExample{padding:12px 13px}.questionExample p{font-size:13px}}
+
+/* Authentic verse exercises and four-foot composer. */
+.verseTarget{padding:22px 18px;min-height:98px;font-size:clamp(22px,3vw,33px);line-height:2.1;text-align:center;background:#f0f3ec;border:1px solid #d4ded2;color:#24564c;border-radius:11px;overflow-wrap:anywhere}
+.poetAttribution{margin:6px 0 18px;color:#687c73;font-size:12px;text-align:center}
+.footBuilder{display:flex;align-items:center;flex-wrap:wrap;gap:8px;background:#f4f7ef;border:2px dashed #b8c9ba;border-radius:12px;padding:12px;min-height:105px;direction:rtl}
+.footBuilder>span{display:grid;place-items:center;min-width:95px;min-height:51px;padding:8px 12px;background:#fff;border:1px solid #c4d5ca;border-radius:8px;color:#215f54;font-size:20px}
+.footBuilder>small{flex:1;text-align:center;color:#71827a;font-size:12px}
+.footBuilder>button{display:grid;place-items:center;width:44px;height:44px;margin-inline-start:auto;background:#dbe9df;color:#266557;border-radius:9px}
+.footBuilder>button:disabled{opacity:.35}
+.footKeys{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:19px 0 8px}
+.footKeys button{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;min-height:85px;background:#fff;border:1px solid #9eb9a7;border-radius:12px}
+.footKeys button:hover{background:#e6f3ea;border-color:#268c70}
+.footKeys button:disabled{opacity:.4}
+.footKeys strong{font-size:clamp(19px,3vw,25px);font-weight:800;color:#215e51}
+.footKeys span{font-size:11px;color:#577369}
+@media(max-width:540px){.verseTarget{padding:15px 12px;font-size:21px}.footBuilder>span{min-width:74px;font-size:18px}.footKeys button{min-height:76px}}
