@@ -58,7 +58,7 @@ export default function SchoolLesson({stage}){
   setStep(v=>v+1);setChosen(null);setError('');
  }
  const task=phase==='play'?attempt?.questions?.[step]:null;
- const desired=task?.kind==='compose'?task.target.split(' ← ').length:0;
+ const desired=task?.kind==='compose'?task.target.split(' ← ').length:task?.kind==='sentence'?80:0;
  const ready=task?.kind==='choice'?Number.isInteger(chosen):task?.kind==='compose'&&Array.isArray(chosen)&&chosen.length===desired;
  return <article className={styles.lessonShell}>
   <div className={styles.lessonTop}><div><span className={styles.lessonEyebrow}>مدرسة 967 / المسند / المحطة {String(stage.index+1).padStart(2,'0')}</span><h1>{stage.title}</h1><p>{stage.subtitle}</p></div>
