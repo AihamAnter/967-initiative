@@ -59,7 +59,7 @@ export default function SchoolLesson({stage}){
  }
  const task=phase==='play'?attempt?.questions?.[step]:null;
  const desired=task?.kind==='compose'?task.target.split(' ← ').length:task?.kind==='sentence'?80:0;
- const ready=task?.kind==='choice'?Number.isInteger(chosen):task?.kind==='compose'&&Array.isArray(chosen)&&chosen.length===desired;
+ const ready=task?.kind==='choice'?Number.isInteger(chosen):task?.kind==='sentence'?Boolean(chosen?.length):task?.kind==='compose'&&Array.isArray(chosen)&&chosen.length===desired;
  return <article className={styles.lessonShell}>
   <div className={styles.lessonTop}><div><span className={styles.lessonEyebrow}>مدرسة 967 / المسند / المحطة {String(stage.index+1).padStart(2,'0')}</span><h1>{stage.title}</h1><p>{stage.subtitle}</p></div>
   <Link href="/school/writing/musnad" className={styles.backCourse}>خارطة الرحلة <ArrowRight size={17}/></Link></div>
