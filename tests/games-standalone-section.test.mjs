@@ -19,9 +19,9 @@ test('main desktop and mobile navigation retain exactly one games entry and acti
  const header=read('components/Header.jsx');
  const css=read('app/platform-refinements.css');
  assert.ok(header.includes('group.standalone ? <Link'));
- assert.ok(header.includes('className={`nav-home nav-games'));
- assert.ok(header.includes("active('/games')"));
- assert.ok(header.includes("href=\"/games\""));
+ assert.ok(header.includes("group.label==='ألعاب 967'?'nav-games':'nav-school'"));
+ assert.ok(header.includes('active(group.links[0][0])'));
+ assert.ok(header.includes('href={group.links[0][0]}'));
  assert.ok(header.includes('groups.filter(group=>!group.standalone).map'));
  assert.ok(header.includes("group.links.filter(([href])=>isVisible(href))"));
  assert.ok(css.includes('.platform-nav>.nav-games'));
