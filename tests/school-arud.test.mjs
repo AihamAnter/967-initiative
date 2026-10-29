@@ -178,6 +178,8 @@ test('authentic verse stages use server-graded complete feet and four correctly 
  assert.ok(sequences.length>0);
  assert.ok(sequences.every(q=>q.steps===4&&q.answer.length===4&&q.answer.every(f=>q.options.includes(f))));
  assert.ok(sequences.some(q=>q.answer.includes('فعولُ')),'contracted third foot is preserved');
+ const focused=allFeet.filter(q=>q.id.startsWith('verse-focus-'));
+ assert.equal(new Set(focused.map(q=>q.answer)).size,4,'focused questions span all four foot options');
  const publicFeet=publicArudQuestions(sequences);
  assert.ok(publicFeet.every(q=>q.steps===4&&q.attribution&&!Object.hasOwn(q,'answer')));
  const meters=Array.from({length:8},(_,i)=>makeArudQuestions(5,i+1)).flat();

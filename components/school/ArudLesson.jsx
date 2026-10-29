@@ -70,7 +70,7 @@ export default function ArudLesson({stage}){
     <span className={styles.questionKind}>{task.kind==='choice'?'تعرّف على القاعدة':'تمرين تقطيع تفاعلي'}</span>
     <h2>{task.prompt}</h2>
     {task.target&&<div className={isRealVerse?styles.verseTarget:styles.wordTarget} dir={stage.index===3&&task.target.includes('—')?'ltr':'rtl'}>{task.target}</div>}
-    {task.attribution&&<p className={styles.poetAttribution}>من شعر: {task.attribution}</p>}
+    {task.attribution&&<p className={styles.poetAttribution}>الشاعر أو المرجع: {task.attribution}</p>}
     {task.example&&<aside className={styles.questionExample} aria-label="مثال توضيحي"><span><BookOpen size={17} aria-hidden="true"/> مثال يساعدك على الفهم</span><p>{task.example}</p></aside>}
     {task.kind==='choice'&&<div className={styles.answerList} role="group" aria-label="اختر إجابة واحدة">{task.options.map((option,i)=><button type="button" key={i} className={selection===i?styles.answerActive:styles.answer} aria-pressed={selection===i} onClick={()=>setSelection(i)}><span className={styles.optionIndex} dir="ltr">{String.fromCharCode(65+i)}</span><span>{option}</span>{selection===i&&<Check size={19}/>}</button>)}</div>}
     {task.kind==='sequence'&&<>
