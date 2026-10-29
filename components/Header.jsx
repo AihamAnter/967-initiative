@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect, useRef, useState} from 'react';
-import {ArrowUpLeft, ChevronDown, Gamepad2, LayoutDashboard, LogIn, Menu, Search, X} from 'lucide-react';
+import {ArrowUpLeft, ChevronDown, Gamepad2, GraduationCap, LayoutDashboard, LogIn, Menu, Search, X} from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import useSessionDb from './useSessionDb';
 import {usePageVisibility} from './PageVisibilityProvider';
@@ -11,6 +11,7 @@ const baseGroups = [
   {label: 'المحتوى', links: [['/works', 'الأعمال الإعلامية'], ['/magazine', 'مجلة 967'], ['/debates', 'مناظرات 967'], ['/read-later', 'للقراءة لاحقاً']]},
   {label: 'المعرفة', links: [['/yemen-in-numbers', 'اليمن بالأرقام'], ['/yemen-ranking', 'ترتيب اليمن'], ['/yemen-map', 'خريطة اليمن'], ['/yemeni-figures', 'شخصيات يمنية'], ['/yemen-history', 'تاريخ اليمن']]},
   {label: 'ألعاب 967', standalone: true, links: [['/games', 'ألعاب 967']]},
+  {label: 'مدرسة 967', standalone: true, links: [['/school', 'مدرسة 967']]},
   {label: 'الأدلة', links: [['/yemeni-products', 'منتجات يمنية'], ['/professionals', 'المهنيون'], ['/universities', 'الجامعات والمعاهد'], ['/medical-centers', 'المراكز الطبية']]},
   {label: 'المبادرة', links: [['/#about', 'من نحن'], ['/#projects', 'مشاريعنا'], ['/contribute', 'تواصل وشارك']]},
 ];
@@ -92,7 +93,7 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
     <Link href="/" className="brand" onClick={close} aria-label="مبادرة 967 — الرئيسية"><BrandLogo priority/><span className="brand-name">مساحة يمنية<br/><strong>للمعرفة والمشاركة</strong></span></Link>
     <nav id="main-navigation" className={`platform-nav ${open ? 'is-open' : ''}`} aria-label="التنقل الرئيسي">
       <Link className={`nav-home ${path === '/' ? 'active' : ''}`} href="/" aria-current={path === '/' ? 'page' : undefined} onClick={close}>الرئيسية</Link>
-      {groups.map(group => group.standalone ? <Link key={group.label} className={`nav-home nav-games ${active('/games')?'active':''}`} href="/games" aria-current={path==='/games'?'page':undefined} onClick={close}><Gamepad2 size={18} aria-hidden="true"/> ألعاب 967</Link> : <details className={`nav-group ${group.links.some(([href]) => active(href)) ? 'active' : ''}`} key={group.label} onToggle={event => {if (event.currentTarget.open) header.current?.querySelectorAll('details[open]').forEach(item => {if (item !== event.currentTarget) item.removeAttribute('open');});}}>
+      {groups.map(group => group.standalone ? <Link key={group.label} className={`nav-home ${group.label==='ألعاب 967'?'nav-games':'nav-school'} ${active(group.links[0][0])?'active':''}`} href={group.links[0][0]} aria-current={active(group.links[0][0])?'page':undefined} onClick={close}>{group.label==='ألعاب 967'?<Gamepad2 size={18} aria-hidden="true"/>:<GraduationCap size={18} aria-hidden="true"/>}{group.label}</Link> : <details className={`nav-group ${group.links.some(([href]) => active(href)) ? 'active' : ''}`} key={group.label} onToggle={event => {if (event.currentTarget.open) header.current?.querySelectorAll('details[open]').forEach(item => {if (item !== event.currentTarget) item.removeAttribute('open');});}}>
         <summary>{group.label}<ChevronDown size={14}/></summary><div className="nav-dropdown">{group.links.map(([href, label]) => <Link href={href} key={href} className={active(href) ? 'active' : ''} aria-current={active(href) ? 'page' : undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>
       </details>)}
       <div className="mobile-navigation-groups">{groups.filter(group=>!group.standalone).map(group=><div key={group.label}><span>{group.label}</span>{group.links.map(([href,label])=><Link href={href} key={href} aria-current={active(href)?'page':undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>)}</div>
