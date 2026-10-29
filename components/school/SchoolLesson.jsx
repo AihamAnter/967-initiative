@@ -3,6 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,ChevronLeft,Delete,ExternalLink,LockKeyhole,RefreshCw,RotateCcw,Send,ShieldCheck,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
+import useSchoolDraft from './useSchoolDraft';
 import {MUSNAD_SOURCE,MUSNAD_STAGES} from '@/lib/schoolMusnad';
 import styles from '@/app/school/school.module.css';
 
@@ -29,13 +30,14 @@ export default function SchoolLesson({stage}){
  const [error,setError]=useState('');
  const [submitFailed,setSubmitFailed]=useState(false);
  const resultTitle=useRef(null);
+ const draft=useSchoolDraft({attempt,active:phase==='play',answers:responses,selection:chosen,request:requestSchool});
  useEffect(()=>{if(phase==='done')resultTitle.current?.focus();},[phase]);
  async function start(){
   if(busy)return;
   setBusy(true);setError('');setSubmitFailed(false);
   try{
    const data=await requestSchool({action:'start',stage:stage.index});
-   setAttempt(data.attempt);setStep(0);setChosen(null);setResponses([]);setResult(null);setPhase('play');
+   setAttempt(data.attempt);setStep(data.attempt.draft?.answers?.length||0);setChosen(data.attempt.draft?.selection??null);setResponses(data.attempt.draft?.answers||[]);setResult(null);setPhase('play');
   }catch(e){setError(e.message||'تعذر بدء التدريب.');}
   finally{setBusy(false);}
  }
@@ -47,7 +49,7 @@ export default function SchoolLesson({stage}){
   }catch(e){setError(e.message||'تعذر حفظ النتيجة.');setSubmitFailed(true);}
   finally{setBusy(false);}
  }
- function next(){
+ async function next(){
   const task=attempt?.questions?.[step];
   if(!task||busy)return;
   const complete=task.kind==='choice'?Number.isInteger(chosen):task.kind==='sentence'?Array.isArray(chosen)&&chosen.length>0&&chosen.length<=80:Array.isArray(chosen)&&chosen.length===task.target.split(' ← ').length;
@@ -55,7 +57,10 @@ export default function SchoolLesson({stage}){
   const all=[...responses,{id:task.id,choice:chosen}];
   setResponses(all);
   if(step===attempt.questions.length-1){submit(all);return;}
-  setStep(v=>v+1);setChosen(null);setError('');
+  setBusy(true);
+  try{await draft.save({answers:all,selection:null});setStep(v=>v+1);setChosen(null);setError('');}
+  catch(e){setError(e.message||'تعذر حفظ التقدم؛ أعد المحاولة.');}
+  finally{setBusy(false);}
  }
  const task=phase==='play'?attempt?.questions?.[step]:null;
  const desired=task?.kind==='compose'?task.target.split(' ← ').length:task?.kind==='sentence'?80:0;
@@ -76,6 +81,7 @@ export default function SchoolLesson({stage}){
   {phase==='play'&&attempt&&<>
    <div className={styles.quizMeta}><span>السؤال {step+1} من {attempt.questions.length}</span><span>محاولة {attempt.attemptNo}</span></div>
    <div className={styles.quizProgress} role="progressbar" aria-label="تقدم أسئلة المحطة" aria-valuemin={0} aria-valuemax={attempt.questions.length} aria-valuenow={step}><span style={{width:(step/attempt.questions.length*100)+'%'}}/></div>
+   <p role="status" className={styles.draftStatus}>حفظ التقدم: {draft.status||'تلقائي عند الإجابة والمتابعة'}</p>
    <section className={styles.quizCard} aria-labelledby="school-question">
     <span className={styles.questionType}>{task.kind==='compose'?'تمرين تركيب الحروف':'تعرّف على الحرف'}</span>
     <h2 id="school-question">{task.prompt}</h2>
