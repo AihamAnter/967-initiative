@@ -127,6 +127,16 @@ test('friend duel UI uses the same interactive boards with server answers and re
  assert.ok(seo.includes("'/games/friends'"));
 });
 
+test('unstarted questions are never exposed through the invitation status API',()=>{
+ const service=read('lib/friendChallengeServer.js');
+ const client=read('components/games/FriendDuel.jsx');
+ assert.ok(service.includes("task:me.phase==='question'&&!me.question_started_at?null:friendPublicTask("));
+ assert.ok(service.includes("body.action!=='ready'&&task.id!==body.questionId"));
+ assert.ok(client.includes("post('ready')"));
+ assert.ok(client.includes('!started&&'));
+ assert.ok(client.includes('started||mine?.phase==='));
+});
+
 test('no official daily challenge or leaderboard rules were changed',()=>{
  const daily=read('app/api/games/daily/route.js');
  const leaderboard=read('app/api/games/leaderboard/route.js');
