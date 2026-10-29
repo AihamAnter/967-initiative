@@ -8,10 +8,10 @@ import {searchPages} from '../lib/searchPages.js';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const perfect=questions=>questions.map(q=>({id:q.id,choice:q.kind==='choice'?q.options.indexOf(q.answer):[...q.answer]}));
 
-test('the new prosody course defines four proper introductory stages without touching Musnad',()=>{
- assert.equal(ARUD_STAGES.length,4);
- assert.deepEqual(ARUD_STAGES.map(stage=>stage.index),[0,1,2,3]);
- assert.equal(arudStage(4),null);
+test('the prosody course keeps four introductory stages and adds two applied stages without touching Musnad',()=>{
+ assert.equal(ARUD_STAGES.length,6);
+ assert.deepEqual(ARUD_STAGES.map(stage=>stage.index),[0,1,2,3,4,5]);
+ assert.equal(arudStage(6),null);
  assert.equal(arudStage('1'),null);
  assert.ok(ARUD_STAGES.every(stage=>stage.intro.length>90&&stage.tips.length===3&&stage.examples.length===3));
  assert.ok(ARUD_STAGES[1].examples.some(x=>x.label.includes('/0')));
@@ -32,12 +32,15 @@ test('progression requires passes in sequence; failures do not unlock higher sta
  state=arudProgress([0,1].map(stage_index=>({stage_index,status:'passed'})));
  assert.equal(state.unlocked,2);
  state=arudProgress([0,1,2,3].map(stage_index=>({stage_index,status:'passed'})));
+ assert.equal(state.finished,false);
+ assert.equal(state.unlocked,4);
+ state=arudProgress([0,1,2,3,4,5].map(stage_index=>({stage_index,status:'passed'})));
  assert.equal(state.finished,true);
- assert.equal(state.unlocked,3);
+ assert.equal(state.unlocked,5);
 });
 
 test('every Arud station has six varied questions and API data never contains grading keys',()=>{
- for(let stage=0;stage<4;stage++){
+ for(let stage=0;stage<6;stage++){
   const a=makeArudQuestions(stage,1),b=makeArudQuestions(stage,2);
   assert.equal(a.length,6);
   assert.equal(new Set(a.map(q=>q.id)).size,6);
@@ -48,7 +51,7 @@ test('every Arud station has six varied questions and API data never contains gr
   assert.ok(a.every(q=>q.options.length>=2));
   assert.ok(a.filter(q=>q.kind==='choice').every(q=>new Set(q.options).size===q.options.length));
  }
- assert.throws(()=>makeArudQuestions(4,1));
+ assert.throws(()=>makeArudQuestions(6,1));
  assert.throws(()=>makeArudQuestions(-1,1));
  assert.throws(()=>makeArudQuestions(1,0));
 });
@@ -165,4 +168,27 @@ test('Arud is independent, searchable, responsive, keyboard-accessible and respe
  assert.equal(pageIsVisible('/school/writing/musnad',{school:false}),false);
  assert.equal(pageIsVisible('/games',{school:false}),true);
  for(const text of [catalog,course,lesson,journey])assert.equal(/[\u0660-\u0669\u06F0-\u06F9]/u.test(text),false);
+});
+
+test('authentic verse stages use server-graded complete feet and four correctly attributed meters',()=>{
+ assert.equal(ARUD_STAGES[4].id,'real-hemistich');
+ assert.equal(ARUD_STAGES[5].id,'poetry-meters');
+ const allFeet=Array.from({length:8},(_,i)=>makeArudQuestions(4,i+1)).flat();
+ const sequences=allFeet.filter(q=>q.kind==='sequence');
+ assert.ok(sequences.length>0);
+ assert.ok(sequences.every(q=>q.steps===4&&q.answer.length===4&&q.answer.every(f=>q.options.includes(f))));
+ assert.ok(sequences.some(q=>q.answer.includes('فعولُ')),'contracted third foot is preserved');
+ const publicFeet=publicArudQuestions(sequences);
+ assert.ok(publicFeet.every(q=>q.steps===4&&q.attribution&&!Object.hasOwn(q,'answer')));
+ const meters=Array.from({length:8},(_,i)=>makeArudQuestions(5,i+1)).flat();
+ assert.deepEqual([...new Set(meters.map(q=>q.answer))].sort(),['البسيط','الطويل','المتقارب','الوافر'].sort());
+ assert.ok(meters.every(q=>q.target?.length>15&&q.attribution&&q.kind==='choice'));
+ assert.ok(publicArudQuestions(meters).every(q=>!Object.hasOwn(q,'answer')));
+ const page=read('app/school/writing/arud/[stage]/page.jsx');
+ assert.ok(page.includes('arudStage(Number(raw)-1)'),'numeric route is resolved through the curriculum');
+ const lesson=read('components/school/ArudLesson.jsx');
+ assert.ok(lesson.includes('selection.length===task.steps'));
+ assert.ok(lesson.includes('styles.footKeys'));
+ const migration=read('supabase/migrations/20261029124719_school_musnad_full_alphabet_stages.sql');
+ assert.ok(migration.includes('stage_index between 0 and 11'),'current database constraint supports stages 0 through 5');
 });

@@ -14,7 +14,7 @@ export default async function ArudStagePage({params}){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
  const {stage:raw}=await params;
- if(!/^[1-4]$/.test(raw))notFound();
+ if(!/^[1-9]\d*$/.test(raw))notFound();
  const stage=arudStage(Number(raw)-1);
  if(!stage)notFound();
  return <main className={school.root}><section className={styles.lessonBackground}><div className="container">
