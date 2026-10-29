@@ -3,7 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,ChevronLeft,Delete,ExternalLink,LockKeyhole,RefreshCw,RotateCcw,Send,ShieldCheck,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
-import {MUSNAD_SOURCE} from '@/lib/schoolMusnad';
+import {MUSNAD_SOURCE,MUSNAD_STAGES} from '@/lib/schoolMusnad';
 import styles from '@/app/school/school.module.css';
 
 async function requestSchool(payload){
@@ -70,6 +70,7 @@ export default function SchoolLesson({stage}){
     {stage.letters.length===0&&<div className={styles.exampleSequence}><span>مثال على ترتيب الحروف</span><strong className={styles.glyph} dir="rtl">𐩣𐩡</strong><small>ميم ← لام</small></div>}
    </div>
    <div className={styles.lessonLaunch}><div><strong>اختبار الإتقان</strong><p>6 تمارين؛ 5 إجابات صحيحة للنجاح. إن لم تنجح، يمكنك المحاولة بمجموعة أخرى من الأسئلة.</p></div><button type="button" onClick={start} disabled={busy}>{busy?'جارٍ تجهيز المحطة…':'ابدأ المحطة'} <ArrowLeft size={18}/></button></div>
+   <div className={styles.studyTools}><Link href="/school/writing/musnad/alphabet">دليل الحروف الـ29 <ArrowLeft size={16}/></Link><Link href="/school/writing/musnad/practice">تدرّب على الكتابة <ArrowLeft size={16}/></Link></div>
    <a href={MUSNAD_SOURCE} target="_blank" rel="noopener noreferrer" className={styles.lessonSource}>المرجع العلمي للخط <ExternalLink size={15}/></a>
   </section>}
   {phase==='play'&&attempt&&<>
@@ -97,7 +98,7 @@ export default function SchoolLesson({stage}){
     <p>{result.passed?'تم حفظ نجاحك وفتح المحطة التالية، إن وُجدت.':'تحتاج إلى 5 إجابات صحيحة على الأقل. راجع الملاحظات ثم ابدأ محاولة بأسئلة مختلفة.'}</p>
    </div>
    <h3>مراجعة إجاباتك</h3><div className={styles.resultList}>{result.review.map((item,i)=><div key={item.id} className={item.correct?styles.reviewCorrect:styles.reviewWrong}><span>{item.correct?<CheckCircle2 size={19}/>:<XCircle size={19}/>} سؤال {i+1}: {item.correct?'صحيح':'يحتاج مراجعة'}</span><p>{item.explanation}</p></div>)}</div>
-   <div className={styles.resultActions}>{result.passed?<Link className={styles.primaryLink} href={stage.index<2?'/school/writing/musnad/'+(stage.index+2):'/school/writing/musnad'}>{stage.index<2?'المرحلة التالية':'العودة إلى المسار'} <ArrowLeft size={18}/></Link>:<button type="button" disabled={busy} onClick={start}>أعد المحاولة بأسئلة جديدة <RefreshCw size={18}/></button>}<Link href="/school/writing/musnad">خارطة المراحل <ArrowRight size={17}/></Link></div>
+   <div className={styles.resultActions}>{result.passed?<Link className={styles.primaryLink} href={stage.index<MUSNAD_STAGES.length-1?'/school/writing/musnad/'+(stage.index+2):'/school/writing/musnad'}>{stage.index<MUSNAD_STAGES.length-1?'المرحلة التالية':'العودة إلى المسار'} <ArrowLeft size={18}/></Link>:<button type="button" disabled={busy} onClick={start}>أعد المحاولة بأسئلة جديدة <RefreshCw size={18}/></button>}<Link href="/school/writing/musnad">خارطة المراحل <ArrowRight size={17}/></Link></div>
   </section>}
   {error&&<p className={styles.lessonError} role="alert">{error} {error.includes('الدخول')&&<Link href="/login">تسجيل الدخول</Link>}</p>}
  </article>;
