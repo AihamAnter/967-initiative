@@ -48,7 +48,7 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
    <span className={styles.guidedLabel}><PenLine size={16}/> التطبيق العملي</span>
    <h2 id="guided-lesson-heading">جرّب الكتابة بنفسك</h2>
    <p className={styles.guidedBody}>بعد فهم القواعد والأمثلة، طبّق ما تعلمته في ورشة الكتابة. يمكنك مراجعة الخطوات السابقة في أي وقت. هذا تدريب حرّ، وليس اختبارًا لجمال الخط.</p>
-   <CalligraphyPracticePad practice={stage.practice} script={script} stageKey={slug+'-'+(stage.index+1)}/>
+   <CalligraphyPracticePad practice={stage.practice} script={script} allowScriptChoice={slug==='arabic-calligraphy'&&stage.index===11} stageKey={slug+'-'+(stage.index+1)}/>
   </div>}
   {last&&<p className={styles.guidedReady}><CheckCircle2 size={18}/> انتهى الشرح والتطبيق. الاختبار التالي يقيس المعلومات التي تعلمتها هنا، ويمكنك العودة إلى الشرح متى احتجت.</p>}
   <div className={styles.guidedActions}>
