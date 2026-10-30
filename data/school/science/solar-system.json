@@ -38,7 +38,7 @@
       ],
       "lab": {
         "kind": "science",
-        "model": "solar-scale",
+        "model": "solar-sun",
         "scenario": "الشمس: قلب المجموعة الشمسية"
       },
       "source": {
@@ -1259,7 +1259,7 @@
       ],
       "lab": {
         "kind": "science",
-        "model": "solar-orbit",
+        "model": "solar-mission",
         "scenario": "المهمة الفضائية الأخيرة"
       },
       "source": {
