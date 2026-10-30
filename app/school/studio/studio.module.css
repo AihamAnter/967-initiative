@@ -254,3 +254,25 @@
 .guidedScientificSource{display:inline-flex;font-size:11px;color:#2b7158;font-weight:750;text-decoration:underline;text-underline-offset:4px;margin:13px 0}
 .scienceSourceFields{border:1px solid #d9e5d9;border-radius:10px;padding:13px;margin:12px 0}
 @media(max-width:690px){.scienceLayout{grid-template-columns:1fr}.sciencePredictionChoices button{flex:1}.scienceMetrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Readable, subject-aware lesson explanations replacing the old glyph-only example. */
+.learningIllustration{margin:28px 0 12px;background:#f2f7f5;border:1px solid #cbded6;border-radius:14px;padding:clamp(16px,2.5vw,25px)}
+.illustrationEyebrow{display:flex;align-items:center;gap:8px;font-size:12px;color:#246754;font-weight:800;margin-bottom:16px}
+.learningTerm{display:inline-flex;align-items:center;border-radius:11px;padding:10px 17px;background:#fff;border:1px solid #bad6c6;color:#1d5b47;font-size:clamp(20px,3vw,28px);line-height:1.8;overflow-wrap:anywhere}
+.learningStory{font-size:clamp(16px,2vw,20px);font-weight:600;color:#234a41;line-height:2.1;margin:0 0 12px}
+.learningSteps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.learningSteps li{display:flex;align-items:center;gap:11px;padding:13px 15px;background:#fff;border:1px solid #d0e1d7;border-radius:11px;line-height:1.85}
+.learningSteps li>span{width:30px;height:30px;display:grid;place-items:center;background:#225e53;color:white;border-radius:50%;flex-shrink:0;font-size:12px}
+.learningSteps li strong{color:#2e534a;font-size:13px}
+.learningHint{border-top:1px solid #d0ddd5;display:flex;gap:10px;align-items:flex-start;margin-top:17px;padding-top:15px;color:#42695b}
+.learningHint svg{flex-shrink:0;margin-top:5px}
+.learningHint p{font-size:13px;line-height:2;margin:0;max-width:70ch}
+.guidedPage .guidedBody{font-size:clamp(15px,1.6vw,17px);line-height:2.25;max-width:75ch;white-space:pre-line}
+.scienceLearningInstructions{background:#e9f3ef;padding:16px 19px;border-radius:11px;border:1px solid #c3ddd2;margin:17px 0}
+.scienceLearningInstructions strong{font-size:14px;color:#1b604e}
+.scienceLearningInstructions ol{margin:7px 0 0;padding-inline-start:25px;color:#315f54;font-size:13px;line-height:2.1}
+.scienceActivityDone,.scienceActivityPrompt{display:flex;align-items:flex-start;gap:10px;border-radius:10px;padding:13px 16px;margin:14px 0;font-size:12px;line-height:2}
+.scienceActivityDone{background:#e6f5ea;color:#1d7253}
+.scienceActivityPrompt{background:#fff8e5;color:#775923;border:1px solid #e1d1a2}
+@media(max-width:650px){.learningSteps{grid-template-columns:1fr}.learningIllustration{padding:14px}.guidedPage .guidedBody{line-height:2}}
