@@ -67,7 +67,7 @@ test('login/register redirect back to School URL, not another origin or privileg
  assert.equal(safeAccountReturn('https://evil.example.com/school'),'/account');
 });
 test('script migration is version guarded and preserves attempts and XP',()=>{
- const sql=read('supabase/migrations/20261030032000_school_calligraphy_script_samples.sql');
+ const sql=read('supabase/migrations/20261030023201_school_calligraphy_script_samples.sql');
  assert.ok(sql.includes('s.version=2 and s.published_version=2'));
  assert.ok(sql.includes('s.draft=s.published'));
  assert.ok(sql.includes('not (s.published ? \'script\')'));
