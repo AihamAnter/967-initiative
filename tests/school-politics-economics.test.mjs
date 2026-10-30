@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {CIVIC_LABS,calculateCivicLab,allocateDhondt} from '../lib/schoolCivicModels.js';
+import {CIVIC_ACTIVITIES,getCivicActivity,civicNumbers} from '../lib/schoolCivicActivities.js';
 import {validateSchoolEditorial,chooseSchoolQuestions,publicSchoolChoice,gradeSchoolChoice} from '../lib/schoolContent.js';
 const data=JSON.parse(readFileSync(new URL('../data/school/civic/phase1.json',import.meta.url),'utf8'));
 
@@ -16,8 +17,13 @@ test('four authored political-economic courses have 48 distinct stations and 288
   for(const [index,station] of course.stages.entries()){
    assert.equal(station.index,index);
    const valid=validateSchoolEditorial('stage',station.stage);
-   assert.equal(valid.lessons.length,3);
+   assert.equal(valid.lessons.length,4);
    assert.ok(Object.hasOwn(CIVIC_LABS,valid.lab.model));
+   const activity=getCivicActivity(course.slug,index);
+   assert.ok(activity,'station should have a contextual exercise');
+   assert.ok(activity.story?.length>20);
+   assert.equal(activity.title.length>5,true);
+   assert.notEqual(activity.kind,'generic');
    assert.match(valid.source.url,/^https:\/\//);
    assert.equal(station.questions.length,6);
    const q=station.questions.map(item=>validateSchoolEditorial('question',item));
@@ -43,6 +49,14 @@ test('four authored political-economic courses have 48 distinct stations and 288
  }
  assert.equal(lessons,48);
  assert.equal(questions,288);
+ assert.equal(Object.values(CIVIC_ACTIVITIES).flat().length,48);
+ assert.equal(new Set(Object.values(CIVIC_ACTIVITIES).flat().map(a=>a.title)).size,48);
+ assert.ok(Object.values(CIVIC_ACTIVITIES).flat().some(a=>a.kind==='paths'));
+ assert.ok(Object.values(CIVIC_ACTIVITIES).flat().some(a=>a.kind==='steps'));
+ assert.ok(Object.values(CIVIC_ACTIVITIES).flat().some(a=>a.kind==='numbers'));
+ assert.equal(civicNumbers(getCivicActivity('money-banks-inflation',2),5,5).metrics[0][1]>180,true);
+ assert.equal(civicNumbers(getCivicActivity('economics-basics',9),500,50).metrics[0][1],10);
+ assert.equal(civicNumbers(getCivicActivity('political-systems',7),60,30).metrics.slice(0,3).reduce((n,m)=>n+m[1],0),10);
 });
 
 test('political and economic decision labs remain bounded, mathematical and non-predictive',()=>{
