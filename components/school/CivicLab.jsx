@@ -15,7 +15,9 @@ export default function CivicLab({lab,onComplete}){
  if(!config)return <p role="alert">المختبر غير متاح.</p>;
  const update=(axis,value)=>{
   if(axis==='x')setX(value);else setY(value);
-  if(prediction){setExplored(true);onComplete?.();}
+  const nextX=axis==='x'?value:x,nextY=axis==='y'?value:y;
+  const valid=!['institutions','elections','budget'].includes(lab.model)||nextX+nextY<=100;
+  if(prediction&&valid){setExplored(true);onComplete?.();}
  };
  return <section className={styles.lab} aria-label="مختبر القرار">
   <div className={styles.labTitle}><Landmark size={22}/><div><h3>{config.title}</h3><p>{lab.scenario}</p></div></div>
