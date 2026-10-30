@@ -25,3 +25,13 @@
 - [Arabic letter joining and six non-forward connectors](https://welearnarabic.com/tools/arabic-letter-joining/)
 
 المحتوى الأصلي: `data/school/arabic-calligraphy.json`، والنشر ضمن محرر مدرسة 967 بنسخة منشورة مستقلة. لا شهادات إتمام.
+
+## الأصالة البصرية والتراخيص
+
+قُسّمت الأمثلة الآن إلى نوعين واضحين بدل إظهار كل الخطوط بوجه واحد:
+
+- **نماذج رقمية قابلة لتغيير النص:** النسخ بخط Amiri، الرقعة بخط Aref Ruqaa، الكوفي الحديث بخط Reem Kufi، والفارسي/النستعليق بخط Noto Nastaliq Urdu؛ عبر Google Fonts وبترخيص Open Font License. استيراد هذه الخطوط محصور بصفحات مسارات المدرسة ولا يغيّر IBM Plex Sans Arabic في الموقع.
+- **نماذج أصلية موثقة:** الثلث من [ملف CC0](https://commons.wikimedia.org/wiki/File:Arabic_calligraphy_thuluth.svg)، الديواني من [ملف في الملكية العامة](https://commons.wikimedia.org/wiki/File:Diwani.jpg)، والمغربي من [مخطوطة محفوظة في مكتبة الكونغرس](https://commons.wikimedia.org/wiki/File:Maghribi_script.jpg). تُعرض أسماؤها وروابطها داخل الدرس مع بيان أن نص النموذج التاريخي ليس نفس عبارة التدريب.
+- تعتمد الصور والخطوط الخارجية على توفر Wikimedia Commons وGoogle Fonts لدى الزائر. تبقى عبارة التدريب بالعربية ظاهرة حتى إذا تعذّر تحميل مرجع خارجي؛ ولا يُعرض الخط الاحتياطي باعتباره خطًا تاريخيًا أصيلًا.
+- في مشروع المحطة الأخيرة يستطيع الطالب اختيار أحد الخطوط السبعة بنفسه.
+- لم يتغير محتوى الأسئلة أو نقاط الطلاب. عند الزوار غير المسجلين تظهر دعوة واضحة لإنشاء حساب أو تسجيل الدخول، وتُحفظ وجهة العودة داخل `/school/courses/...`.
