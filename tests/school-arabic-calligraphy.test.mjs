@@ -83,7 +83,8 @@ test('real hand-drawing pad is explicitly ungraded, accessible with touch and ex
  assert.ok(ui.includes('onPointerMove={move}'));
  assert.ok(ui.includes("output.toDataURL('image/png')"));
  assert.ok(ui.includes('لا تُحتسب جودة الرسم ضمن درجة الاختبار'));
- assert.ok(lesson.includes('CalligraphyPracticePad'));
+ assert.ok(lesson.includes('SchoolGuidedLesson'));
+ assert.ok(read('components/school/SchoolGuidedLesson.jsx').includes('CalligraphyPracticePad'));
  assert.ok(lesson.includes("task.kind==='order'"));
  assert.ok(lesson.includes("task.kind==='type'"));
  assert.ok(lesson.includes('draft.save({answers:all,selection:null})'));

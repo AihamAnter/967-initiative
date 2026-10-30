@@ -113,3 +113,33 @@
 .timelineBody em{font-size:10px;font-style:normal;color:#2b7d56;font-weight:800}
 .timelineStage:not(.timelineOpen) .timelineBody em{color:#819083}
 @media(max-width:600px){.timelineStage>a,.timelineStage>div{padding:13px 12px;gap:10px}.timelineIndex{width:35px;height:35px}.timelineBody strong{font-size:12px}}
+
+/* Guided pedagogy: explanatory pages always precede any assessment controls. */
+.guidedLesson{background:#fff;border:1px solid #d5e2d4;border-radius:16px;padding:clamp(17px,3vw,30px);margin:22px 0;box-shadow:0 10px 32px #173b3011}
+.guidedTop{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:15px}
+.guidedEyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:850;color:#297455}
+.guidedCount{font-size:12px;font-weight:750;color:#6c8174}
+.guidedTrack{height:8px;background:#e7f0e6;overflow:hidden;border-radius:99px}
+.guidedTrack span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#31996c,#c1a66e);transition:width .2s ease}
+.guidedPage{padding:22px 0 10px;min-height:260px}
+.guidedLabel{display:inline-flex;align-items:center;gap:6px;border-radius:99px;background:#edf4e8;color:#3d7054;font-size:11px;font-weight:850;padding:7px 12px;margin-bottom:17px}
+.guidedPage h2{font-size:clamp(21px,3vw,29px);font-weight:850;line-height:1.5;color:#234d3e;margin:0 0 16px}
+.guidedPage .guidedBody{font-size:15px;line-height:2.15;color:#3c594a;max-width:74ch;white-space:pre-line;margin:0 0 18px}
+.guidedExample{margin:24px 0 5px;border:1px solid #d3dfd0;border-inline-start:4px solid #5a9a6f;border-radius:11px;padding:19px 23px;background:#f5f8f0}
+.guidedExample>span{display:block;font-size:11px;font-weight:800;color:#557762;margin-bottom:9px}
+.guidedExample>strong{display:block;font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:750;line-height:1.8;font-size:clamp(21px,3vw,28px);color:#224d3d}
+.guidedExample>p{font-size:13px;color:#5e7667;line-height:2;margin:11px 0 0}
+.guidedTips{background:#f6f8f3;border-radius:12px;padding:18px 20px;margin:22px 0}
+.guidedTips h3{display:flex;align-items:center;gap:8px;color:#3c7552;font-size:14px;margin:0 0 9px}
+.guidedTips ul{margin:0;padding-inline-start:20px}
+.guidedTips li{font-size:13px;color:#4d6757;line-height:2.05;margin:5px 0}
+.guidedReady{display:flex;align-items:flex-start;gap:10px;padding:13px 16px;margin:5px 0 19px;border-radius:10px;background:#eaf5e8;color:#2f6d50;font-size:12px;line-height:1.9}
+.guidedReady svg{flex-shrink:0;margin-top:2px}
+.guidedActions{display:flex;align-items:center;justify-content:space-between;gap:11px;margin-top:22px}
+.guidedActions button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #c9d9cf;border-radius:10px;padding:12px 17px;font:inherit;font-size:13px;font-weight:800;cursor:pointer;min-height:44px}
+.guidedActions button:disabled{opacity:.45;cursor:not-allowed}
+.guidedSecondary{background:#fff;color:#426e5b}
+.guidedPrimary{background:#256d51;color:#fff;border-color:#256d51!important}
+.guidedReview{display:inline-flex;align-items:center;gap:7px;margin-bottom:22px;color:#306a51;border:1px solid #b9d6bf;border-radius:8px;padding:8px 12px;background:#edf6ec;font:inherit;font-size:12px;font-weight:800;cursor:pointer}
+.guidedReview:disabled{opacity:.5}
+@media(max-width:560px){.guidedLesson{padding:15px}.guidedPage{padding:18px 0 8px}.guidedPage .guidedBody{font-size:14px}.guidedExample{padding:15px}.guidedActions button{padding:10px;flex:1;font-size:12px}}

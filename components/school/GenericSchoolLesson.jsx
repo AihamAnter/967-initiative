@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,RotateCcw,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useSchoolDraft from './useSchoolDraft';
-import CalligraphyPracticePad from './CalligraphyPracticePad';
+import SchoolGuidedLesson from './SchoolGuidedLesson';
 import styles from '@/app/school/studio/studio.module.css';
 function ready(question,value){
  if(question?.kind==='choice')return Number.isInteger(value);
@@ -23,7 +23,7 @@ async function requestGeneric(body){
  return result;
 }
 export default function GenericSchoolLesson({slug,stage,hasNext}){
- const [phase,setPhase]=useState('intro'),[attempt,setAttempt]=useState(null),
+ const [phase,setPhase]=useState('learn'),[attempt,setAttempt]=useState(null),
   [index,setIndex]=useState(0),[answers,setAnswers]=useState([]),[selection,setSelection]=useState(null),
   [result,setResult]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState('');
  const resultTitle=useRef(null);
@@ -58,14 +58,15 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
  return <div className={styles.genericLesson}>
   <Link className={styles.back} href={'/school/courses/'+slug}><ArrowRight size={16}/> العودة إلى المسار</Link>
   <h1>{stage.title}</h1><p>{stage.subtitle}</p>
-  {phase==='intro'&&<section className={styles.lessonCard}>
-   <h2><BookOpen size={21}/> قبل أن تبدأ</h2><p>{stage.intro}</p>
-   <ul>{stage.tips.map((t,i)=><li key={i}>{t}</li>)}</ul>
-   {stage.practice&&<CalligraphyPracticePad practice={stage.practice} stageKey={slug+'-'+(stage.index+1)}/>}
-   <p>بعد التمرين العملي: ستة أسئلة متنوعة من بنك المحطة، تحتاج إلى خمس إجابات صحيحة لاجتيازها.</p>
-   <button type="button" disabled={busy} onClick={start}>ابدأ اختبار المحطة <ArrowLeft size={17}/></button>
-  </section>}
+  {phase==='learn'&&<SchoolGuidedLesson slug={slug} stage={stage} busy={busy}
+   hasActiveAttempt={Boolean(attempt)} onStart={start}/>}
+  
   {phase==='play'&&task&&<section className={styles.lessonCard}>
+   <button type="button" className={styles.guidedReview} onClick={async()=>{
+    setBusy(true);setError('');
+    try{await draft.save({answers,selection});setPhase('learn');}catch(e){setError(e.message);}
+    finally{setBusy(false);}
+   }} disabled={busy}><BookOpen size={16}/> العودة إلى شرح الدرس</button>
    <div className={styles.questionMeta}>السؤال {index+1} من 6 · {draft.status||'حفظ تلقائي'}</div>
    <h2>{task.prompt}</h2>{task.target&&<p className={styles.target}>{task.target}</p>}
    {task.kind==='choice'&&<div className={styles.genericChoices}>{task.options.map((o,i)=><button type="button"
@@ -95,7 +96,8 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
     <strong>{r.correct?<CheckCircle2 size={16}/>:<XCircle size={16}/>} سؤال {i+1}: {r.correct?'صحيح':'يحتاج إلى مراجعة'}</strong>
     <p>الإجابة: {r.answer}</p><p>{r.explanation}</p>
    </div>)}
-   <div className={styles.lessonActions}><button type="button" onClick={start}><RotateCcw size={17}/> إعادة المحاولة</button>
+   <div className={styles.lessonActions}><button type="button" onClick={()=>setPhase('learn')}><BookOpen size={17}/> مراجعة الشرح</button>
+    <button type="button" onClick={start}><RotateCcw size={17}/> إعادة المحاولة</button>
     {result.passed&&hasNext&&<Link href={'/school/courses/'+slug+'/'+(stage.index+2)}>المحطة التالية <ArrowLeft size={17}/></Link>}
    </div>
   </section>}
