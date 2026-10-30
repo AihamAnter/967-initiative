@@ -63,7 +63,7 @@ test('the global school example changes with material and all learners can pract
  assert.match(civic,/NumberExercise/);
 });
 test('the content-only migration avoids altering attempts, XP and question answer keys',()=>{
- const sql=read('supabase/migrations/20261030220000_school_civic_guided_lessons_v2.sql');
+ const sql=read('supabase/migrations/20261030201328_school_civic_guided_lessons_v2.sql');
  assert.match(sql,/st\.published->'lessons'=c\.item->'old_lessons'/);
  assert.match(sql,/st\.draft->'lessons'=c\.item->'old_lessons'/);
  assert.match(sql,/st\.published_version=st\.version/);
