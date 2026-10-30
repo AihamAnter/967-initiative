@@ -60,7 +60,7 @@ function Diagram({model,result,x,y}){
  case 'earth-interior':{
   const colors=['#9dbe8b','#d8a064','#9ec3ba','#e8c378'];
   view=<>{circle(150,86,66,colors[0])}{circle(150,86,57,colors[1])}{circle(150,86,30,colors[2])}{circle(150,86,13,colors[3])}
-   <path d="M150 86L${150+64*Math.cos(-Math.PI/2+ratio*2*Math.PI)} ${86+64*Math.sin(-Math.PI/2+ratio*2*Math.PI)}" stroke="#fff" strokeWidth="3"/>
+   <path d={`M150 86L${150+64*Math.cos(-Math.PI/2+ratio*2*Math.PI)} ${86+64*Math.sin(-Math.PI/2+ratio*2*Math.PI)}`} stroke="#fff" strokeWidth="3"/>
    {label('مقطع طبقات الأرض',150,166)}</>;break;
  }
  case 'earth-plates':
