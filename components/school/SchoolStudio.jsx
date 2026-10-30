@@ -204,7 +204,7 @@ export default function SchoolStudio(){
          onChange={e=>setForm(v=>({...v,lab:{...v.lab,scenario:e.target.value}}))}/>
        </label>
       </>}
-      {form.lab?.kind==='science'&&<div className={styles.scienceSourceFields}>
+      {['science','civic'].includes(form.lab?.kind)&&<div className={styles.scienceSourceFields}>
        <label>اسم المصدر العلمي
         <input maxLength={120} value={form.source?.title||''} onChange={e=>setForm(v=>({...v,source:{...v.source,title:e.target.value}}))}/>
        </label>
