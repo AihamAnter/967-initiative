@@ -207,7 +207,7 @@ export default function SchoolStudio(){
        <label>اسم المصدر العلمي
         <input maxLength={120} value={form.source?.title||''} onChange={e=>setForm(v=>({...v,source:{...v.source,title:e.target.value}}))}/>
        </label>
-       <label>رابط مرجعي موثوق من NASA أو NOAA أو USGS
+       <label>رابط مرجعي من مصدر علمي أو مؤسسي معتمد
         <input dir="ltr" maxLength={450} value={form.source?.url||''} onChange={e=>setForm(v=>({...v,source:{...v.source,url:e.target.value}}))}/>
        </label>
       </div>}
