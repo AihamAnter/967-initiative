@@ -68,3 +68,26 @@
 
 .courseStageLink{display:flex;align-items:center;gap:12px;padding:15px 17px;border:1px solid #dce8d9;border-radius:10px;color:#265a43;background:#f4f9f2;font-size:14px;font-weight:750}
 .courseStageLink span{flex:1}.courseStageLink small{display:block;color:#68826f;font-size:11px;font-weight:400}
+
+/* Interactive writing workshop — consistent with the editorial school style. */
+.calligraphyPractice{padding:22px;background:#f5f7f0;border:1px solid #cddacb;border-radius:14px;margin:24px 0}
+.practiceEyebrow{display:flex;align-items:center;gap:7px;color:#297557;font-size:12px;font-weight:850;margin-bottom:9px}
+.calligraphyPractice h2{font-size:20px;margin:4px 0 8px;color:#244f40}
+.calligraphyPractice p{font-size:13px;line-height:2;color:#4b6b5c}
+.practiceSample{display:flex;flex-direction:column;gap:5px;border:1px solid #d2e1d4;background:#fff;border-radius:10px;padding:19px 24px;margin:15px 0}
+.practiceSample span{font-size:11px;color:#61816c}
+.practiceSample strong{font-family:"Noto Naskh Arabic","Amiri","Traditional Arabic",serif;font-size:clamp(30px,5vw,52px);font-weight:500;line-height:1.8;color:#1d493b}
+.calligraphyPractice .practiceNote{font-size:11px;color:#6b766d}
+.practiceCanvas{position:relative;width:100%;overflow:hidden;border:1px solid #c0d2c6;border-radius:10px;background-color:#fff;background-image:linear-gradient(to bottom,transparent 0,transparent 31%,#d5e4d7 31.5%,transparent 32%,transparent 64%,#d5e4d7 64.5%,transparent 65%,transparent 96%,#d5e4d7 96.5%);direction:ltr}
+.practiceCanvas canvas{display:block;width:100%;height:auto;touch-action:none;cursor:crosshair}
+.practiceTools{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.practiceTools button{font:inherit;display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #b6d1c0;color:#315a49;border-radius:8px;padding:8px 12px;font-size:12px;font-weight:700;cursor:pointer}
+.practiceTools button:disabled{opacity:.4;cursor:not-allowed}
+.orderExercise{margin:20px 0}
+.orderExercise p{font-size:13px;color:#496b58}
+.orderAnswer{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-height:62px;background:#f2f7ed;border:1px dashed #a9cbb4;border-radius:11px;padding:11px 13px;margin:10px 0}
+.orderAnswer span{background:#d5e9d9;padding:8px 11px;border-radius:8px;font-size:13px;font-weight:800;color:#24573d}
+.orderExercise .orderUndo{font:inherit;background:#fff;color:#4b715d;border:1px solid #c2d9c6;border-radius:8px;padding:8px 12px;font-size:12px}
+.typeExercise{display:block;margin:23px 0;font-weight:800;font-size:13px;color:#285743}
+.typeExercise input{display:block;width:100%;min-height:51px;padding:12px 15px;background:#fff;color:#234b39;border:1px solid #aecbb6;border-radius:10px;font:inherit;font-size:16px;box-sizing:border-box;margin-top:10px}
+@media(max-width:580px){.calligraphyPractice{padding:12px}.practiceSample{padding:12px}.practiceTools button{flex:1;justify-content:center}}
