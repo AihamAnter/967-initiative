@@ -5,6 +5,7 @@ import CalligraphyPracticePad from './CalligraphyPracticePad';
 import CalligraphyExample from './CalligraphyExample';
 import MorseLab from './MorseLab';
 import LogicGatesLab from './LogicGatesLab';
+import ScienceLab from './ScienceLab';
 import {schoolScriptForStage} from '@/lib/schoolCalligraphySamples';
 import styles from '@/app/school/studio/studio.module.css';
 
@@ -46,6 +47,8 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
      <strong className={styles.thinkingExample} dir="auto">{lesson.example}</strong>}
     <p>{lesson.note}</p>
    </div>
+   {stage.source?.url&&<a className={styles.guidedScientificSource} href={stage.source.url}
+    target="_blank" rel="noopener noreferrer">المصدر العلمي: {stage.source.title}</a>}
   </div>}
   {isPractice&&<div className={styles.guidedPage} key="practice">
    <span className={styles.guidedLabel}><PenLine size={16}/> التطبيق العملي</span>
@@ -53,6 +56,7 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
    <p className={styles.guidedBody}>{stage.lab?'بعد الشرح والأمثلة، غيّر المدخلات بنفسك وراقب النتيجة. هذه تجربة حرة قبل الاختبار ولا تؤثر على النقاط.':'بعد فهم القواعد والأمثلة، طبّق ما تعلمته في ورشة الكتابة. يمكنك مراجعة الخطوات السابقة في أي وقت. هذا تدريب حرّ، وليس اختبارًا لجمال الخط.'}</p>
    {stage.lab?.kind==='morse'&&<MorseLab sample={stage.lab.sample}/>}
    {stage.lab?.kind==='gates'&&<LogicGatesLab gate={stage.lab.gate}/>}
+   {stage.lab?.kind==='science'&&<ScienceLab lab={stage.lab} source={stage.source}/>}
    {stage.practice&&<CalligraphyPracticePad practice={stage.practice} script={script} allowScriptChoice={slug==='arabic-calligraphy'&&stage.index===11} stageKey={slug+'-'+(stage.index+1)}/>}
   </div>}
   {last&&<p className={styles.guidedReady}><CheckCircle2 size={18}/> انتهى الشرح والتطبيق. الاختبار التالي يقيس المعلومات التي تعلمتها هنا، ويمكنك العودة إلى الشرح متى احتجت.</p>}
