@@ -175,3 +175,6 @@
 .courseAuthActions a{display:inline-flex;gap:8px;align-items:center;justify-content:center;background:#287355;color:#fff;padding:12px 17px;border-radius:9px;font-size:12px;font-weight:850}
 .courseAuthActions a+ a{background:white;color:#27664c;border:1px solid #8ebba0}
 @media(max-width:600px){.scriptHistorical{padding:10px}.scriptHistoricalImage{max-height:210px}.scriptArchiveImage{max-height:205px}.courseAuthBox{padding:15px}.courseAuthActions a{flex:1}}
+
+.practiceScriptPicker{display:block;font-size:12px;font-weight:800;color:#305d46;margin:12px 0 15px}
+.practiceScriptPicker select{font:inherit;font-size:13px;display:block;margin-top:8px;min-height:44px;padding:9px 12px;border:1px solid #b6d0bd;border-radius:8px;background:#fff;color:#224b39;min-width:min(100%,270px)}
