@@ -24,7 +24,7 @@
 
 ## هندسة البيانات
 - مصدر المحتوى: data/school/civic/phase1.json.
-- ترحيل نشر المحتوى: supabase/migrations/20261030200500_school_politics_economics_phase1.sql.
+- ترحيل نشر المحتوى: supabase/migrations/20261030193358_school_politics_economics_phase1.sql.
 - يستخدم جداول school_editor_courses وschool_editor_stages وschool_editor_questions الحالية.
 - يضيف المحتوى فقط باستخدام ON CONFLICT DO NOTHING؛ أي تعديل من المحررين أو نتيجة للطلاب موجودة لا تستبدل.
 - لا يتطلب جداول جديدة أو تغيير صلاحيات قاعدة البيانات.
