@@ -2,10 +2,11 @@
 import {useRef,useState} from 'react';
 import {Download,Eraser,Undo2,PenLine} from 'lucide-react';
 import styles from '@/app/school/studio/studio.module.css';
+import CalligraphyExample from './CalligraphyExample';
 
 // Freehand practice is intentionally NOT graded: a canvas stroke cannot validate
 // the historical proportions or aesthetic quality of a particular calligraphic hand.
-export default function CalligraphyPracticePad({practice,stageKey}){
+export default function CalligraphyPracticePad({practice,script='naskh',stageKey}){
  const ref=useRef(null),strokes=useRef([]),active=useRef(null);
  const [lines,setLines]=useState(0);
  const redraw=()=>{
@@ -51,8 +52,8 @@ export default function CalligraphyPracticePad({practice,stageKey}){
   <div className={styles.practiceEyebrow}><PenLine size={19}/> ورشة الخط · تمرين عملي</div>
   <h2 id="calligraphy-practice-heading">{practice.focus}</h2>
   <p>{practice.instructions}</p>
-  <div className={styles.practiceSample} dir="rtl"><span>النص المطلوب كتابته</span><strong>{practice.model}</strong></div>
-  <p className={styles.practiceNote}>المساحة أدناه للكتابة باللمس أو القلم أو الفأرة. النص المعروض مرجع لغوي للتمرين، وليس رسمًا أصيلًا للخط التاريخي. لا تُحتسب جودة الرسم ضمن درجة الاختبار.</p>
+  <div className={styles.practiceSample} dir="rtl"><CalligraphyExample text={practice.model} script={practice.script||script} label="النص المطلوب كتابته"/></div>
+  <p className={styles.practiceNote}>المساحة أدناه للكتابة باللمس أو القلم أو الفأرة. تُعرض نماذج موثقة للخطوط التاريخية حيث لا تتوفر خطوط ويب مطابقة؛ قد يختلف نص النموذج الأصلي عن عبارة التدريب. لا تُحتسب جودة الرسم ضمن درجة الاختبار.</p>
   <div className={styles.practiceCanvas}>
    <canvas ref={ref} width={840} height={290} aria-label="لوحة كتابة حرة على أسطر إرشادية"
     onPointerDown={start} onPointerMove={move} onPointerUp={stop} onPointerCancel={stop}/>
