@@ -143,3 +143,35 @@
 .guidedReview{display:inline-flex;align-items:center;gap:7px;margin-bottom:22px;color:#306a51;border:1px solid #b9d6bf;border-radius:8px;padding:8px 12px;background:#edf6ec;font:inherit;font-size:12px;font-weight:800;cursor:pointer}
 .guidedReview:disabled{opacity:.5}
 @media(max-width:560px){.guidedLesson{padding:15px}.guidedPage{padding:18px 0 8px}.guidedPage .guidedBody{font-size:14px}.guidedExample{padding:15px}.guidedActions button{padding:10px;flex:1;font-size:12px}}
+
+/* Script-specific samples: keep the rest of the interface in IBM Plex Sans Arabic. */
+.calligraphyReference{margin:4px 0 0;min-width:0}
+.scriptHeading{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:11px;color:#5f7b6b;font-weight:800;margin-bottom:12px}
+.scriptHeading span{font-size:11px;background:#e4ede3;border-radius:14px;padding:4px 9px;color:#26644c}
+.scriptLiveText,.scriptExerciseText{display:block;min-height:68px;max-width:100%;overflow-wrap:anywhere}
+.scriptLiveText>strong,.scriptExerciseText>strong{display:block;text-align:start;color:#1f4e3d;font-weight:400;font-size:clamp(32px,5vw,52px);line-height:2;letter-spacing:normal}
+.schoolScriptNaskh{font-family:"Amiri","Traditional Arabic",serif!important;font-weight:400!important}
+.schoolScriptRuqah{font-family:"Aref Ruqaa","Amiri",serif!important;font-weight:400!important}
+.schoolScriptKufi{font-family:"Reem Kufi","Noto Kufi Arabic",sans-serif!important;font-weight:700!important}
+.schoolScriptNastaliq{font-family:"Noto Nastaliq Urdu","Amiri",serif!important;font-weight:400!important;line-height:2.8!important;font-size:clamp(29px,4.5vw,45px)!important}
+.schoolScriptThuluth,.schoolScriptDiwani,.schoolScriptMaghribi{
+ font-family:"Amiri","Traditional Arabic",serif!important;
+ font-size:clamp(23px,3.5vw,33px)!important;
+ font-weight:400!important;
+}
+.scriptHistorical{background:#fff;border:1px solid #d4e1d5;border-radius:10px;padding:15px;margin:0 0 17px;overflow:hidden}
+.scriptHistoricalImage{display:flex;align-items:center;justify-content:center;min-height:130px;max-height:280px;overflow:hidden;border-radius:6px;background:#fdfbf5}
+.scriptArchiveImage{display:block;object-fit:contain;width:auto;max-width:100%;max-height:268px;height:auto}
+.scriptArchiveCaption{font-size:11px!important;line-height:1.8!important;color:#506e5c!important;margin:11px 0 4px!important}
+.scriptCredit{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:750;text-decoration:underline;text-underline-offset:3px;color:#356c56}
+.scriptExerciseText{margin-top:8px;border-top:1px solid #dbe6d9;padding-top:13px}
+.scriptExerciseText small{display:block;font-size:11px;color:#637767;line-height:1.8;font-weight:500}
+.practiceSample>.calligraphyReference{width:100%}
+.practiceSample .scriptHistorical{margin-top:5px}
+.courseAuthBox{background:#f0f7ee;border:1px solid #b5d6be;border-radius:12px;padding:21px 24px;margin:0 0 23px}
+.courseAuthBox h3{font-size:18px;color:#24523d;margin-bottom:8px}
+.courseAuthBox p{font-size:13px;line-height:1.95;color:#466454;margin-bottom:15px}
+.courseAuthActions{display:flex;flex-wrap:wrap;gap:10px}
+.courseAuthActions a{display:inline-flex;gap:8px;align-items:center;justify-content:center;background:#287355;color:#fff;padding:12px 17px;border-radius:9px;font-size:12px;font-weight:850}
+.courseAuthActions a+ a{background:white;color:#27664c;border:1px solid #8ebba0}
+@media(max-width:600px){.scriptHistorical{padding:10px}.scriptHistoricalImage{max-height:210px}.scriptArchiveImage{max-height:205px}.courseAuthBox{padding:15px}.courseAuthActions a{flex:1}}
