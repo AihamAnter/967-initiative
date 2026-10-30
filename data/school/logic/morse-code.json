@@ -164,7 +164,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز M؟",
+          "prompt": "ما الرمز المخصص للحرف M؟",
           "target": "",
           "options": [
             "--",
@@ -256,7 +256,7 @@
         {
           "number": 0,
           "kind": "choice",
-          "prompt": "ما رمز A؟",
+          "prompt": "ما الرمز المخصص للحرف A؟",
           "target": "",
           "options": [
             ".-",
@@ -270,7 +270,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز O؟",
+          "prompt": "ما الرمز المخصص للحرف O؟",
           "target": "",
           "options": [
             "---",
@@ -362,7 +362,7 @@
         {
           "number": 0,
           "kind": "choice",
-          "prompt": "ما رمز H؟",
+          "prompt": "ما الرمز المخصص للحرف H؟",
           "target": "",
           "options": [
             "....",
@@ -376,7 +376,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز V؟",
+          "prompt": "ما الرمز المخصص للحرف V؟",
           "target": "",
           "options": [
             "...-",
@@ -390,7 +390,7 @@
         {
           "number": 2,
           "kind": "choice",
-          "prompt": "ما رمز U؟",
+          "prompt": "ما الرمز المخصص للحرف U؟",
           "target": "",
           "options": [
             "..-",
@@ -468,7 +468,7 @@
         {
           "number": 0,
           "kind": "choice",
-          "prompt": "ما رمز L؟",
+          "prompt": "ما الرمز المخصص للحرف L؟",
           "target": "",
           "options": [
             ".-..",
@@ -482,7 +482,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز R؟",
+          "prompt": "ما الرمز المخصص للحرف R؟",
           "target": "",
           "options": [
             ".-.",
@@ -496,7 +496,7 @@
         {
           "number": 2,
           "kind": "choice",
-          "prompt": "ما رمز J؟",
+          "prompt": "ما الرمز المخصص للحرف J؟",
           "target": "",
           "options": [
             ".---",
@@ -574,7 +574,7 @@
         {
           "number": 0,
           "kind": "choice",
-          "prompt": "ما رمز D؟",
+          "prompt": "ما الرمز المخصص للحرف D؟",
           "target": "",
           "options": [
             "-..",
@@ -588,7 +588,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز K؟",
+          "prompt": "ما الرمز المخصص للحرف K؟",
           "target": "",
           "options": [
             "-.-",
@@ -602,7 +602,7 @@
         {
           "number": 2,
           "kind": "choice",
-          "prompt": "ما رمز G؟",
+          "prompt": "ما الرمز المخصص للحرف G؟",
           "target": "",
           "options": [
             "--.",
@@ -680,7 +680,7 @@
         {
           "number": 0,
           "kind": "choice",
-          "prompt": "ما رمز C؟",
+          "prompt": "ما الرمز المخصص للحرف C؟",
           "target": "",
           "options": [
             "-.-.",
@@ -694,7 +694,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز P؟",
+          "prompt": "ما الرمز المخصص للحرف P؟",
           "target": "",
           "options": [
             ".--.",
@@ -708,7 +708,7 @@
         {
           "number": 2,
           "kind": "choice",
-          "prompt": "ما رمز Q؟",
+          "prompt": "ما الرمز المخصص للحرف Q؟",
           "target": "",
           "options": [
             "--.-",
@@ -786,7 +786,7 @@
         {
           "number": 0,
           "kind": "choice",
-          "prompt": "ما رمز Y؟",
+          "prompt": "ما الرمز المخصص للحرف Y؟",
           "target": "",
           "options": [
             "-.--",
@@ -800,7 +800,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز 3؟",
+          "prompt": "ما الرمز المخصص للحرف 3؟",
           "target": "",
           "options": [
             "...--",
@@ -814,7 +814,7 @@
         {
           "number": 2,
           "kind": "choice",
-          "prompt": "ما رمز 5؟",
+          "prompt": "ما الرمز المخصص للحرف 5؟",
           "target": "",
           "options": [
             ".....",
@@ -892,7 +892,7 @@
         {
           "number": 0,
           "kind": "choice",
-          "prompt": "ما رمز 7؟",
+          "prompt": "ما الرمز المخصص للحرف 7؟",
           "target": "",
           "options": [
             "--...",
@@ -906,7 +906,7 @@
         {
           "number": 1,
           "kind": "choice",
-          "prompt": "ما رمز 9؟",
+          "prompt": "ما الرمز المخصص للحرف 9؟",
           "target": "",
           "options": [
             "----.",
