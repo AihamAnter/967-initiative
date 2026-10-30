@@ -1,6 +1,6 @@
 'use client';
 import {useMemo,useState} from 'react';
-import {FlaskConical,CheckCircle2,AlertTriangle,ArrowLeft,RefreshCw,ExternalLink} from 'lucide-react';
+import {FlaskConical,CheckCircle2,AlertTriangle,RefreshCw,ExternalLink} from 'lucide-react';
 import {SCIENCE_LABS,calculateScienceLab,SOLAR_PLANETS} from '@/lib/schoolScienceModels';
 import styles from '@/app/school/studio/studio.module.css';
 
