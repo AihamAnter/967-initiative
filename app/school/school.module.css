@@ -270,3 +270,18 @@
 @media(max-width:530px){.heroActions>a{width:100%}}
 
 .draftStatus{font-size:12px;color:#52796a;margin:12px 0;line-height:1.6}
+
+/* Third school department: mature, high-contrast reasoning cards. */
+.logicCourseGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.logicCourseCard{min-height:290px;display:flex;flex-direction:column;align-items:flex-start;gap:11px;padding:25px;border-radius:16px;background:#1e4444;color:#fff;border:1px solid #3b7569;position:relative;overflow:hidden;transition:transform .15s,border-color .15s}
+.logicCourseCard:nth-child(2){background:#23433d}.logicCourseCard:nth-child(3){background:#243d4b}.logicCourseCard:nth-child(4){background:#223947}
+.logicCourseCard:hover{border-color:#c8dfae;transform:translateY(-2px)}
+.logicCardTop{display:flex;align-items:center;justify-content:space-between;width:100%;color:#c7e7b8}
+.logicCardTop>span{font-size:12px;color:#deecd8}
+.logicCardVisual{font-size:clamp(31px,4vw,48px);line-height:1.5;font-weight:800;letter-spacing:.08em;color:#d5e4a3}
+.logicCourseCard h3{font-size:clamp(23px,2.6vw,30px);line-height:1.5;color:#fff;margin:0}
+.logicCourseCard p{font-size:13px;line-height:1.95;color:#e0eae4;margin:0}
+.logicCourseCard .cardAction{margin-top:auto;color:#d4e8b6}
+.logicBottomNote{display:flex;align-items:center;gap:10px;margin-top:20px;color:#50685c;font-size:12px;line-height:1.8}
+.logicEmpty{font-size:14px;color:#6a756d}
+@media(max-width:700px){.logicCourseGrid{grid-template-columns:1fr}.logicCourseCard{min-height:245px}}
