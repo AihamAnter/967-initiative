@@ -14,7 +14,8 @@ function LessonIllustration({lesson,slug,script}){
  const example=String(lesson.example||'').trim();
  const steps=example.split(/\s*←\s*/).map(s=>s.trim()).filter(Boolean);
  const ordered=steps.length>=3&&steps.length<=7;
- const isTerm=!ordered&&example.length<=32&&!/[.!؟]/.test(example);
+ const words=example.split(/\s+/).filter(Boolean);
+ const isTerm=!ordered&&example.length<=32&&words.length<=2&&!/^(?:في|من|إلى|على|عند|إذا|ثم|ما)\s/.test(example)&&!/[.!؟]/.test(example);
  return <div className={styles.learningIllustration} aria-label="توضيح الدرس">
   {slug==='arabic-calligraphy'?<>
    <span className={styles.illustrationEyebrow}><PenLine size={15}/> شاهد شكل الحروف</span>
