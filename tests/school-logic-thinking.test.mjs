@@ -102,7 +102,7 @@ test('new courses are discoverable in their own category, not misfiled in Writin
  assert.ok(read('components/school/SchoolStudio.jsx').includes('GATE_TYPES'));
 });
 test('published seed uses private service-only tables and does not reset XP or lesson attempts',()=>{
- const sql=read('supabase/migrations/20261030030000_school_logic_thinking_courses.sql');
+ const sql=read('supabase/migrations/20261030031114_school_logic_thinking_courses.sql');
  for(const slug of slugs)assert.ok(sql.includes(slug));
  for(const table of ['school_editor_courses','school_editor_stages','school_editor_questions'])assert.ok(sql.includes('public.'+table));
  assert.ok(sql.includes('on conflict (slug) do nothing'));
