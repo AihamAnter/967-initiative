@@ -3,6 +3,8 @@ import {useState} from 'react';
 import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,Lightbulb,PenLine} from 'lucide-react';
 import CalligraphyPracticePad from './CalligraphyPracticePad';
 import CalligraphyExample from './CalligraphyExample';
+import MorseLab from './MorseLab';
+import LogicGatesLab from './LogicGatesLab';
 import {schoolScriptForStage} from '@/lib/schoolCalligraphySamples';
 import styles from '@/app/school/studio/studio.module.css';
 
@@ -11,7 +13,7 @@ import styles from '@/app/school/studio/studio.module.css';
 export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAttempt=false}){
  const [step,setStep]=useState(0);
  const lessons=Array.isArray(stage.lessons)?stage.lessons:[];
- const hasPractice=Boolean(stage.practice);
+ const hasPractice=Boolean(stage.practice||stage.lab);
  const script=stage.script||schoolScriptForStage(slug,stage.index);
  const total=1+lessons.length+(hasPractice?1:0);
  const isIntro=step===0,isPractice=hasPractice&&step===total-1;
@@ -40,15 +42,18 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
    <p className={styles.guidedBody}>{lesson.body}</p>
    <div className={styles.guidedExample} aria-label="مثال مشروح">
     <span>مثال تطبيقي</span>
-    <CalligraphyExample text={lesson.example} script={lesson.script||script}/>
+    {slug==='arabic-calligraphy'?<CalligraphyExample text={lesson.example} script={lesson.script||script}/>:
+     <strong className={styles.thinkingExample} dir="auto">{lesson.example}</strong>}
     <p>{lesson.note}</p>
    </div>
   </div>}
   {isPractice&&<div className={styles.guidedPage} key="practice">
    <span className={styles.guidedLabel}><PenLine size={16}/> التطبيق العملي</span>
-   <h2 id="guided-lesson-heading">جرّب الكتابة بنفسك</h2>
-   <p className={styles.guidedBody}>بعد فهم القواعد والأمثلة، طبّق ما تعلمته في ورشة الكتابة. يمكنك مراجعة الخطوات السابقة في أي وقت. هذا تدريب حرّ، وليس اختبارًا لجمال الخط.</p>
-   <CalligraphyPracticePad practice={stage.practice} script={script} allowScriptChoice={slug==='arabic-calligraphy'&&stage.index===11} stageKey={slug+'-'+(stage.index+1)}/>
+   <h2 id="guided-lesson-heading">{stage.lab?'جرّب ما تعلمته في المختبر':'جرّب الكتابة بنفسك'}</h2>
+   <p className={styles.guidedBody}>{stage.lab?'بعد الشرح والأمثلة، غيّر المدخلات بنفسك وراقب النتيجة. هذه تجربة حرة قبل الاختبار ولا تؤثر على النقاط.':'بعد فهم القواعد والأمثلة، طبّق ما تعلمته في ورشة الكتابة. يمكنك مراجعة الخطوات السابقة في أي وقت. هذا تدريب حرّ، وليس اختبارًا لجمال الخط.'}</p>
+   {stage.lab?.kind==='morse'&&<MorseLab sample={stage.lab.sample}/>}
+   {stage.lab?.kind==='gates'&&<LogicGatesLab gate={stage.lab.gate}/>}
+   {stage.practice&&<CalligraphyPracticePad practice={stage.practice} script={script} allowScriptChoice={slug==='arabic-calligraphy'&&stage.index===11} stageKey={slug+'-'+(stage.index+1)}/>}
   </div>}
   {last&&<p className={styles.guidedReady}><CheckCircle2 size={18}/> انتهى الشرح والتطبيق. الاختبار التالي يقيس المعلومات التي تعلمتها هنا، ويمكنك العودة إلى الشرح متى احتجت.</p>}
   <div className={styles.guidedActions}>

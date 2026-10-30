@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
-import {ArrowLeft,BookOpen,ChevronLeft,Feather,GraduationCap,LockKeyhole,PenTool} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronLeft,Feather,GraduationCap,PenTool} from 'lucide-react';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
@@ -14,13 +14,13 @@ export default async function WritingPage(){
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
  const db=serverDb();
  const published=db?await publishedSchoolCatalog(db):[];
- const authored=published.filter(c=>!['musnad','arud'].includes(c.slug));
+ const authored=published.filter(c=>c.category==='الكتابة والأدب'&&!['musnad','arud'].includes(c.slug));
  const musnad=published.find(c=>c.slug==='musnad'),arud=published.find(c=>c.slug==='arud');
  return <main className={styles.root}><section className={styles.innerHero}><div className="container">
   <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/> الكتابة والأدب</div>
   <span className={styles.eyebrow}><PenTool size={17}/> الكتابة والأدب</span>
   <h1>من شكل الحرف، <em>إلى فن التعبير.</em></h1>
-  <p>مسارات تساعدك على إتقان الكتابة والنظم خطوة بخطوة. تعلم خط المسند وعلم العروض عبر 24 محطة تفاعلية، وتابع رحلتك من مكان واحد.</p><Link className={styles.primaryLink} href="/school/dashboard">عرض رحلتي التعليمية <ArrowLeft size={18}/></Link>
+  <p>مسارات تساعدك على إتقان الكتابة والنظم خطوة بخطوة. تعلم خط المسند والعروض والخطوط العربية عبر 36 محطة تفاعلية، وتابع رحلتك من مكان واحد.</p><Link className={styles.primaryLink} href="/school/dashboard">عرض رحلتي التعليمية <ArrowLeft size={18}/></Link>
   </div></section>
   <section className={styles.catalogSection}><div className="container">
    <div className={styles.sectionTitle}><div><span>مسارات هذا القسم</span><h2>رحلتك تبدأ من هنا</h2></div></div>
@@ -31,7 +31,7 @@ export default async function WritingPage(){
       <BookOpen size={32} aria-hidden="true"/><span className={styles.courseTag}>مسار منشور</span>
       <h3>{course.title}</h3><p>{course.description}</p><span className={styles.cardAction}>ابدأ التعلم <ArrowLeft size={18}/></span>
     </Link>)}
-    <article className={styles.coursePending}><BookOpen size={32}/><span className={styles.courseTag}>قريبًا</span><h3>الخطوط العربية</h3><p>النسخ والرقعة والكوفي وغيرها، مع تمارين تشكيل الحروف.</p><span><LockKeyhole size={15}/> قيد الإعداد</span></article>
+    
    </div>
   </div></section>
  </main>;

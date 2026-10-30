@@ -4,6 +4,7 @@ import {BarChart3,BookOpen,CheckCircle2,ClipboardList,History,Plus,RefreshCw,Sav
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/studio/studio.module.css';
 import {SCHOOL_SCRIPT_OPTIONS,schoolScriptForStage} from '@/lib/schoolCalligraphySamples';
+import {GATE_TYPES} from '@/lib/schoolThinkingLabs';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
@@ -127,12 +128,12 @@ export default function SchoolStudio(){
      </>}
      {kind==='stage'&&<>
       <label>اسم المحطة<input value={form.title||''} maxLength={90} onChange={e=>setForm(v=>({...v,title:e.target.value}))}/></label>
-      <label>الخط الذي سيظهر في أمثلة المحطة
+      {course?.draft?.category==='الكتابة والأدب'&&<label>الخط الذي سيظهر في أمثلة المحطة
        <select value={form.script||schoolScriptForStage(slug,stage)}
         onChange={e=>setForm(v=>({...v,script:e.target.value}))}>
         {SCHOOL_SCRIPT_OPTIONS.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}
        </select>
-      </label>
+      </label>}
       <label>الوصف المختصر<input value={form.subtitle||''} maxLength={180} onChange={e=>setForm(v=>({...v,subtitle:e.target.value}))}/></label>
       <label>مقدمة الدرس<textarea value={form.intro||''} rows={6} maxLength={2500} onChange={e=>setForm(v=>({...v,intro:e.target.value}))}/></label>
       <label>نصائح الدرس (نصيحة في كل سطر، بحد أقصى 10)<textarea value={(form.tips||[]).join('\n')} rows={5}
@@ -147,16 +148,36 @@ export default function SchoolStudio(){
        <div className={styles.bankHead}><h3>صفحة الشرح {i+1}</h3>
         <button type="button" onClick={()=>setForm(v=>({...v,lessons:v.lessons.filter((_,n)=>n!==i)}))}>حذف الصفحة</button></div>
        <label>عنوان الفكرة<input maxLength={100} value={lesson.title||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,title:e.target.value}:x)}))}/></label>
-       <label>الخط المستخدم في المثال
+       {course?.draft?.category==='الكتابة والأدب'&&<label>الخط المستخدم في المثال
         <select value={lesson.script||form.script||schoolScriptForStage(slug,stage)}
          onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,script:e.target.value}:x)}))}>
          {SCHOOL_SCRIPT_OPTIONS.map(option=><option value={option.value} key={option.value}>{option.label}</option>)}
         </select>
-       </label>
+       </label>}
        <label>الشرح المفصل<textarea maxLength={1700} rows={5} value={lesson.body||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,body:e.target.value}:x)}))}/></label>
        <label>مثال محلول<input maxLength={220} value={lesson.example||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,example:e.target.value}:x)}))}/></label>
        <label>ملاحظة توضيحية للمثال<textarea maxLength={420} rows={2} value={lesson.note||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,note:e.target.value}:x)}))}/></label>
       </div>)}
+      <div className={styles.bankHead}><h3>المختبر التفاعلي للمحطة</h3></div>
+      <label>نوع المختبر
+       <select value={form.lab?.kind||'none'} onChange={e=>setForm(v=>({...v,
+        lab:e.target.value==='morse'?{kind:'morse',sample:'SOS'}:
+        e.target.value==='gates'?{kind:'gates',gate:'AND'}:undefined
+       }))}>
+        <option value="none">بدون مختبر</option>
+        <option value="morse">مورس — إرسال وفك رموز</option>
+        <option value="gates">البوابات — جدول الحقيقة</option>
+       </select>
+      </label>
+      {form.lab?.kind==='morse'&&<label>الرسالة الافتراضية في مختبر مورس (حروف لاتينية وأرقام)
+       <input dir="ltr" maxLength={30} value={form.lab.sample||''}
+        onChange={e=>setForm(v=>({...v,lab:{...v.lab,sample:e.target.value.toUpperCase()}}))}/>
+      </label>}
+      {form.lab?.kind==='gates'&&<label>البوابة التي يتدرب عليها الطالب
+       <select value={form.lab.gate} onChange={e=>setForm(v=>({...v,lab:{...v.lab,gate:e.target.value}}))}>
+        {GATE_TYPES.map(g=><option value={g} key={g}>{g}</option>)}
+       </select>
+      </label>}
       <div className={styles.bankHead}><h3>ورشة الكتابة العملية</h3>
        <button type="button" onClick={()=>setForm(v=>({...v,practice:v.practice?undefined:{model:'',focus:'',instructions:''}}))}>
         {form.practice?'إزالة ورشة الكتابة':'إضافة ورشة كتابة'}</button></div>
