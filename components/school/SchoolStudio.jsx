@@ -3,6 +3,7 @@ import {useCallback,useEffect,useState} from 'react';
 import {BarChart3,BookOpen,CheckCircle2,ClipboardList,History,Plus,RefreshCw,Save,ShieldCheck,Upload} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/studio/studio.module.css';
+import {SCHOOL_SCRIPT_OPTIONS,schoolScriptForStage} from '@/lib/schoolCalligraphySamples';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
@@ -126,6 +127,12 @@ export default function SchoolStudio(){
      </>}
      {kind==='stage'&&<>
       <label>اسم المحطة<input value={form.title||''} maxLength={90} onChange={e=>setForm(v=>({...v,title:e.target.value}))}/></label>
+      <label>الخط الذي سيظهر في أمثلة المحطة
+       <select value={form.script||schoolScriptForStage(slug,stage)}
+        onChange={e=>setForm(v=>({...v,script:e.target.value}))}>
+        {SCHOOL_SCRIPT_OPTIONS.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}
+       </select>
+      </label>
       <label>الوصف المختصر<input value={form.subtitle||''} maxLength={180} onChange={e=>setForm(v=>({...v,subtitle:e.target.value}))}/></label>
       <label>مقدمة الدرس<textarea value={form.intro||''} rows={6} maxLength={2500} onChange={e=>setForm(v=>({...v,intro:e.target.value}))}/></label>
       <label>نصائح الدرس (نصيحة في كل سطر، بحد أقصى 10)<textarea value={(form.tips||[]).join('\n')} rows={5}
@@ -140,6 +147,12 @@ export default function SchoolStudio(){
        <div className={styles.bankHead}><h3>صفحة الشرح {i+1}</h3>
         <button type="button" onClick={()=>setForm(v=>({...v,lessons:v.lessons.filter((_,n)=>n!==i)}))}>حذف الصفحة</button></div>
        <label>عنوان الفكرة<input maxLength={100} value={lesson.title||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,title:e.target.value}:x)}))}/></label>
+       <label>الخط المستخدم في المثال
+        <select value={lesson.script||form.script||schoolScriptForStage(slug,stage)}
+         onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,script:e.target.value}:x)}))}>
+         {SCHOOL_SCRIPT_OPTIONS.map(option=><option value={option.value} key={option.value}>{option.label}</option>)}
+        </select>
+       </label>
        <label>الشرح المفصل<textarea maxLength={1700} rows={5} value={lesson.body||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,body:e.target.value}:x)}))}/></label>
        <label>مثال محلول<input maxLength={220} value={lesson.example||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,example:e.target.value}:x)}))}/></label>
        <label>ملاحظة توضيحية للمثال<textarea maxLength={420} rows={2} value={lesson.note||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,note:e.target.value}:x)}))}/></label>
@@ -149,6 +162,12 @@ export default function SchoolStudio(){
         {form.practice?'إزالة ورشة الكتابة':'إضافة ورشة كتابة'}</button></div>
       {form.practice&&<>
        <label>نموذج الكلمة أو الجملة<input maxLength={140} value={form.practice.model||''} onChange={e=>setForm(v=>({...v,practice:{...v.practice,model:e.target.value}}))}/></label>
+       <label>الخط المستخدم في نموذج التدريب
+        <select value={form.practice.script||form.script||schoolScriptForStage(slug,stage)}
+         onChange={e=>setForm(v=>({...v,practice:{...v.practice,script:e.target.value}}))}>
+         {SCHOOL_SCRIPT_OPTIONS.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}
+        </select>
+       </label>
        <label>هدف ورشة الكتابة<input maxLength={100} value={form.practice.focus||''} onChange={e=>setForm(v=>({...v,practice:{...v.practice,focus:e.target.value}}))}/></label>
        <label>تعليمات التدريب اليدوي<textarea rows={3} maxLength={650} value={form.practice.instructions||''} onChange={e=>setForm(v=>({...v,practice:{...v.practice,instructions:e.target.value}}))}/></label>
       </>}
