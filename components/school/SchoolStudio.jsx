@@ -6,6 +6,7 @@ import styles from '@/app/school/studio/studio.module.css';
 import {SCHOOL_SCRIPT_OPTIONS,schoolScriptForStage} from '@/lib/schoolCalligraphySamples';
 import {GATE_TYPES} from '@/lib/schoolThinkingLabs';
 import {SCIENCE_MODEL_IDS,SCIENCE_LABS} from '@/lib/schoolScienceModels';
+import {CIVIC_LABS} from '@/lib/schoolCivicModels';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
