@@ -15,6 +15,23 @@ function Diagram({model,result,x,y}){
  const label=(txt,x0,y0)=> <text x={x0} y={y0} fill="#dcece3" fontSize="12" textAnchor="middle">{txt}</text>;
  let view;
  switch(model){
+ case 'solar-sun':
+  view=<>{[61,52,40,28,16].map((r,i)=><circle key={i} cx="150" cy="87" r={r} fill={['#e8ac64','#e7ca7e','#f4db9e','#e9a66a','#e7dcab'][i]} opacity={1-i*.07}/>)}
+   <path d="M150 26V148" stroke="#35564d" strokeWidth="2.5" strokeDasharray="5 4"/>
+   {label('اللب ← الطبقات الخارجية',150,164)}</>;break;
+ case 'solar-mission':
+  view=<><circle cx="151" cy="83" r="19" fill="#e7c07b"/>
+   <circle cx="151" cy="83" r="48" fill="none" stroke="#7da9a0" strokeWidth="2.5"/>
+   <circle cx="151" cy="83" r="74" fill="none" stroke="#7295a7" strokeWidth="2" strokeDasharray="5 4"/>
+   <path d="M186 117Q233 101 235 47" stroke="#e5d3a1" strokeWidth="3" fill="none"/>
+   {circle(223,61,7,'#e7d7b0')}{label('انتقال مداري مثالي',150,164)}</>;break;
+ case 'cosmos-blackhole':
+  view=<><circle cx="150" cy="84" r="43" fill="#6d9c91" opacity=".35"/>
+   {circle(150,84,24,'#07151c')}
+   <ellipse cx="150" cy="84" rx="73" ry="26" fill="none" stroke="#d3b575" strokeWidth="7"
+     transform="rotate(-21 150 84)"/>
+   <path d="M40 38Q93 26 105 54T194 105T263 127" stroke="#a9d8d3" strokeWidth="2" fill="none"/>
+   {label('رسم مفاهيمي غير مقياسي',150,164)}</>;break;
  case 'solar-scale':
   view=<>{circle(63,84,11,'#5da0c3')}{circle(209,84,Math.max(7,Math.sqrt(ratio)*48),'#d69c62')}
    {label('الأرض',63,142)}{label(SOLAR_PLANETS[Math.round(x)].name,209,142)}</>;break;
