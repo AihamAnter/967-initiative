@@ -50,7 +50,7 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
     <p>{lesson.note}</p>
    </div>
    {stage.source?.url&&<a className={styles.guidedScientificSource} href={stage.source.url}
-    target="_blank" rel="noopener noreferrer">المصدر العلمي: {stage.source.title}</a>}
+    target="_blank" rel="noopener noreferrer">مرجع الدرس: {stage.source.title}</a>}
   </div>}
   {isPractice&&<div className={styles.guidedPage} key="practice">
    <span className={styles.guidedLabel}><PenLine size={16}/> التطبيق العملي</span>
