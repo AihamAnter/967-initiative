@@ -5,6 +5,7 @@ import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/studio/studio.module.css';
 import {SCHOOL_SCRIPT_OPTIONS,schoolScriptForStage} from '@/lib/schoolCalligraphySamples';
 import {GATE_TYPES} from '@/lib/schoolThinkingLabs';
+import {SCIENCE_MODEL_IDS,SCIENCE_LABS} from '@/lib/schoolScienceModels';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
@@ -162,11 +163,13 @@ export default function SchoolStudio(){
       <label>نوع المختبر
        <select value={form.lab?.kind||'none'} onChange={e=>setForm(v=>({...v,
         lab:e.target.value==='morse'?{kind:'morse',sample:'SOS'}:
-        e.target.value==='gates'?{kind:'gates',gate:'AND'}:undefined
+        e.target.value==='gates'?{kind:'gates',gate:'AND'}:
+        e.target.value==='science'?{kind:'science',model:'solar-scale',scenario:v.title||'مختبر العلوم'}:undefined
        }))}>
         <option value="none">بدون مختبر</option>
         <option value="morse">مورس — إرسال وفك رموز</option>
         <option value="gates">البوابات — جدول الحقيقة</option>
+        <option value="science">مختبر علمي — الفلك والطبيعة</option>
        </select>
       </label>
       {form.lab?.kind==='morse'&&<label>الرسالة الافتراضية في مختبر مورس (حروف لاتينية وأرقام)
@@ -178,6 +181,25 @@ export default function SchoolStudio(){
         {GATE_TYPES.map(g=><option value={g} key={g}>{g}</option>)}
        </select>
       </label>}
+      {form.lab?.kind==='science'&&<>
+       <label>نوع النموذج العلمي
+        <select value={form.lab.model} onChange={e=>setForm(v=>({...v,lab:{...v.lab,model:e.target.value}}))}>
+         {SCIENCE_MODEL_IDS.map(id=><option key={id} value={id}>{SCIENCE_LABS[id].title}</option>)}
+        </select>
+       </label>
+       <label>اسم التجربة المرتبطة بالمحطة
+        <input maxLength={110} value={form.lab.scenario||''}
+         onChange={e=>setForm(v=>({...v,lab:{...v.lab,scenario:e.target.value}}))}/>
+       </label>
+      </>}
+      {form.lab?.kind==='science'&&<div className={styles.scienceSourceFields}>
+       <label>اسم المصدر العلمي
+        <input maxLength={120} value={form.source?.title||''} onChange={e=>setForm(v=>({...v,source:{...v.source,title:e.target.value}}))}/>
+       </label>
+       <label>رابط مرجعي موثوق من NASA أو NOAA أو USGS
+        <input dir="ltr" maxLength={450} value={form.source?.url||''} onChange={e=>setForm(v=>({...v,source:{...v.source,url:e.target.value}}))}/>
+       </label>
+      </div>}
       <div className={styles.bankHead}><h3>ورشة الكتابة العملية</h3>
        <button type="button" onClick={()=>setForm(v=>({...v,practice:v.practice?undefined:{model:'',focus:'',instructions:''}}))}>
         {form.practice?'إزالة ورشة الكتابة':'إضافة ورشة كتابة'}</button></div>
