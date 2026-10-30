@@ -1,6 +1,6 @@
 'use client';
 import {useMemo,useState} from 'react';
-import {FlaskConical,CheckCircle2,AlertTriangle,ArrowLeft,RefreshCw,ExternalLink} from 'lucide-react';
+import {FlaskConical,CheckCircle2,AlertTriangle,RefreshCw,ExternalLink} from 'lucide-react';
 import {SCIENCE_LABS,calculateScienceLab,SOLAR_PLANETS} from '@/lib/schoolScienceModels';
 import styles from '@/app/school/studio/studio.module.css';
 
@@ -122,59 +122,55 @@ function Diagram({model,result,x,y}){
 export default function ScienceLab({lab,source,onComplete}){
  const config=SCIENCE_LABS[lab?.model];
  const [x,setX]=useState(config?.x.initial??0),[y,setY]=useState(config?.y?.initial??0);
- const [prediction,setPrediction]=useState(''),[open,setOpen]=useState(false);
+ const [explored,setExplored]=useState(false);
  const value=useMemo(()=>config?calculateScienceLab(lab.model,{x,y}):null,[lab?.model,config,x,y]);
- if(!config||!value)return <p role="alert">نموذج المحاكاة غير متاح.</p>;
- const increment=Math.min(config.x.max,config.x.initial+config.x.step);
- const baseline=calculateScienceLab(lab.model,{x:config.x.initial,y:config.y?.initial}).primary;
- const next=calculateScienceLab(lab.model,{x:increment,y:config.y?.initial}).primary;
- const delta=next-baseline;
- const expected=delta>1e-9?'increase':delta<-1e-9?'decrease':'same';
- const options=[['increase','يزداد'],['decrease','ينخفض'],['same','لا يتغير']];
+ const original=useMemo(()=>config?calculateScienceLab(lab.model,{x:config.x.initial,y:config.y?.initial}):null,[lab?.model,config]);
+ if(!config||!value||!original)return <p role="alert">نموذج المحاكاة غير متاح.</p>;
+ const setValue=(axis,next)=>{
+  const current=axis==='x'?x:y;
+  if(next===current)return;
+  if(axis==='x')setX(next);else setY(next);
+  setExplored(true);onComplete?.();
+ };
  return <section className={styles.scienceLab} aria-labelledby="science-lab-title">
   <div className={styles.scienceLabHead}><FlaskConical size={23}/><div>
    <h3 id="science-lab-title">{config.title}</h3>
-   <p>تجربة مرتبطة بمحطة «{lab.scenario||'الفلك والطبيعة'}»</p>
+   <p>تجربة محطة «{lab.scenario||'الفلك والطبيعة'}»</p>
   </div></div>
-  {!open?<div className={styles.sciencePrediction}>
-   <span className={styles.scienceMicroLabel}>توقّع قبل التجربة</span>
-   <h4>ماذا يحدث لمؤشر «{value.metrics[0].label}» عند زيادة «{config.x.label}» خطوة واحدة، مع تثبيت باقي المتغيرات؟</h4>
-   <div className={styles.sciencePredictionChoices}>{options.map(([id,label])=><button type="button" key={id}
-    aria-pressed={prediction===id} onClick={()=>setPrediction(id)}>{label}</button>)}</div>
-   {prediction&&<div role="status" className={styles.sciencePredictionResult}>
-    <CheckCircle2 size={17}/>
-    <p>{prediction===expected?'توقعك يطابق حساب هذا النموذج.':'هذا التوقع لا يطابق حساب النموذج عند القيمة الابتدائية.'}
-     {' '}القيمة الأولى: {n(baseline)}، وبعد خطوة: {n(next)}. جرّب بنفسك لترى السبب.</p>
-   </div>}
-   <button type="button" className={styles.sciencePrimary} disabled={!prediction} onClick={()=>setOpen(true)}>
-    افتح التجربة بعد التوقع <ArrowLeft size={17}/>
-   </button>
-  </div>:<>
-   <div className={styles.scienceLayout}>
-    <div className={styles.scienceControls}>
-     {[[config.x,x,setX],[config.y,y,setY]].filter(([control])=>Boolean(control)).map(([control,number,setter],i)=>
-      <label key={i} className={styles.scienceSlider}>
-       <span>{control.label}</span><strong>{n(number)} {control.unit}</strong>
-       <input type="range" min={control.min} max={control.max} step={control.step} value={number}
-        onChange={event=>{const next=Number(event.target.value);if(next!==number){setter(next);onComplete?.();}}} aria-label={control.label}/>
-       <span className={styles.scienceRange}><small>{n(control.min)}</small><small>{n(control.max)}</small></span>
-      </label>
-     )}
-     <button type="button" className={styles.scienceReset} onClick={()=>{setX(config.x.initial);setY(config.y?.initial??0);}}>
-      <RefreshCw size={15}/> إعادة القيم الأصلية
-     </button>
-    </div>
-    <div className={styles.scienceViz}>
-     <Diagram model={lab.model} result={value} x={x} y={y}/>
-     <div className={styles.scienceMetrics}>{value.metrics.map((m,i)=>
-      <div key={i}><small>{m.label}</small><strong>{n(m.num)} <span>{m.unit}</span></strong></div>)}</div>
-    </div>
+  <div className={styles.scienceLearningInstructions}>
+   <strong>كيف تستخدم المختبر؟</strong>
+   <ol>
+    <li>اقرأ اسم الظاهرة وشاهد الرسم ونتائجه الابتدائية.</li>
+    <li>غيّر <b>{config.x.label}</b> بالمنزلق، ثم راقب الرسم والأرقام.</li>
+    <li>قارن النتائج، ثم جرّب {config.y?'المتغير الآخر أو':'قيمة أخرى واستنتج'} السبب.</li>
+   </ol>
+  </div>
+  <div className={styles.scienceLayout}>
+   <div className={styles.scienceControls}>
+    {[[config.x,x,'x'],[config.y,y,'y']].filter(([control])=>Boolean(control)).map(([control,number,axis])=>
+     <label key={axis} className={styles.scienceSlider}>
+      <span>{control.label}</span><strong>{n(number)} {control.unit}</strong>
+      <input type="range" min={control.min} max={control.max} step={control.step} value={number}
+       onChange={event=>setValue(axis,Number(event.target.value))} aria-label={control.label}/>
+      <span className={styles.scienceRange}><small>{n(control.min)}</small><small>{n(control.max)}</small></span>
+     </label>
+    )}
+    <button type="button" className={styles.scienceReset} onClick={()=>{setX(config.x.initial);setY(config.y?.initial??0);}}>
+     <RefreshCw size={15}/> إعادة القيم الأصلية
+    </button>
    </div>
-   <p className={styles.scienceInterpretation}>{value.text}</p>
-   <button className={styles.scienceRevise} type="button" onClick={()=>{setOpen(false);setPrediction('');setX(config.x.initial);setY(config.y?.initial??0);}}>
-    غيّر توقعك وأعد التجربة
-   </button>
-  </>}
+   <div className={styles.scienceViz}>
+    <Diagram model={lab.model} result={value} x={x} y={y}/>
+    <div className={styles.scienceMetrics}>{value.metrics.map((m,i)=>
+     <div key={i}><small>{m.label}</small><strong>{n(m.num)} <span>{m.unit}</span></strong>
+      {explored&&original.metrics[i]&&<small>قبل التجربة: {n(original.metrics[i].num)} {original.metrics[i].unit}</small>}
+     </div>)}</div>
+   </div>
+  </div>
+  <p className={styles.scienceInterpretation}>{value.text}</p>
+  {explored?<p className={styles.scienceActivityDone} role="status"><CheckCircle2 size={18}/>
+   شاهدت أثر تغيير القيم في هذه المحطة. يمكنك إعادة التجربة أو متابعة اختبار الفهم.</p>:
+   <p className={styles.scienceActivityPrompt}>التجربة جاهزة: حرّك أي منزلق لتقارن بين النتيجة الأصلية والنتيجة الجديدة.</p>}
   <div className={styles.scienceCaveat}><AlertTriangle size={17}/><p><strong>حدود المحاكاة:</strong> {config.caveat} لا تستخدم هذه التجربة كبيانات رصد أو توقعات فعلية.</p></div>
   <div className={styles.scienceSource}>مصدر للمراجعة:
    <a href={source?.url||config.source} target="_blank" rel="noopener noreferrer">
