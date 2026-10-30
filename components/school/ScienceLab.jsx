@@ -119,7 +119,7 @@ function Diagram({model,result,x,y}){
   <rect width="300" height="175" rx="12" fill="#16363a"/>
   <g>{view}</g></svg>;
 }
-export default function ScienceLab({lab,source}){
+export default function ScienceLab({lab,source,onComplete}){
  const config=SCIENCE_LABS[lab?.model];
  const [x,setX]=useState(config?.x.initial??0),[y,setY]=useState(config?.y?.initial??0);
  const [prediction,setPrediction]=useState(''),[open,setOpen]=useState(false);
@@ -156,7 +156,7 @@ export default function ScienceLab({lab,source}){
       <label key={i} className={styles.scienceSlider}>
        <span>{control.label}</span><strong>{n(number)} {control.unit}</strong>
        <input type="range" min={control.min} max={control.max} step={control.step} value={number}
-        onChange={event=>setter(Number(event.target.value))} aria-label={control.label}/>
+        onChange={event=>{const next=Number(event.target.value);if(next!==number){setter(next);onComplete?.();}}} aria-label={control.label}/>
        <span className={styles.scienceRange}><small>{n(control.min)}</small><small>{n(control.max)}</small></span>
       </label>
      )}
