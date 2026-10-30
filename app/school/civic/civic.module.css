@@ -39,3 +39,45 @@
 .complete{color:#176450;font-weight:750}
 .warning{color:#9a532c}
 @media(max-width:720px){.cards{grid-template-columns:1fr}.hero{padding:29px 0 43px}.card{min-height:230px}}
+
+
+/* Topic-specific activity layouts: strong contrast, simple actions, responsive labels. */
+.activityEyebrow{display:block;color:#446b77;font-size:11px;font-weight:800;margin-bottom:3px}
+.activityStory{background:#e9f0f2;border-inline-start:4px solid #4f8491;border-radius:9px;padding:16px 18px;font-size:15px;line-height:2;color:#294c5a;margin:18px 0}
+.exerciseWork{display:grid;gap:14px;margin-top:14px}
+.exercisePrompt{font-size:14px;font-weight:800;color:#234652;line-height:1.9;margin:0}
+.exerciseChoices{display:flex;flex-wrap:wrap;gap:10px}
+.exerciseChoices button,.pathGrid button{font:inherit;text-align:start;display:flex;align-items:center;gap:9px;padding:13px 16px;border-radius:10px;background:#fff;border:1px solid #aac6c9;color:#244e5b;font-size:13px;line-height:1.8;cursor:pointer;min-height:51px}
+.exerciseChoices button:hover,.pathGrid button:hover{border-color:#387c83;background:#f1f8f7}
+.exerciseChoices button:focus-visible,.pathGrid button:focus-visible{outline:3px solid #357e8d;outline-offset:3px}
+.exerciseChoices button[aria-pressed=true],.pathGrid button[aria-pressed=true]{background:#e1f2ed;border:2px solid #1c6f68;color:#18574f}
+.exerciseChoices button:disabled{cursor:default;opacity:.5}
+.choiceIndex{display:grid;place-items:center;background:#ecf3f4;color:#285361;width:26px;height:26px;flex-shrink:0;border-radius:100%;font-size:12px;font-weight:800}
+.exerciseExplanation{display:flex;align-items:flex-start;gap:11px;padding:16px 18px;border:1px solid #bcd7cb;border-radius:11px;background:#e8f4ed;color:#235b4b;font-size:13px;line-height:2;margin:0}
+.exerciseExplanation>svg{flex-shrink:0;margin-top:4px}
+.exerciseExplanation strong{font-size:14px}
+.exerciseExplanation p{margin:5px 0}
+.exerciseExplanation small{display:block;color:#46665c}
+.pathGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.pathGrid button{flex-direction:column;align-items:stretch;min-height:106px;gap:10px}
+.pathGrid button span{font-weight:800;font-size:15px}
+.pathGrid button small{font-size:12px;line-height:1.8;opacity:.9}
+.sequenceBoard{display:flex;flex-wrap:wrap;gap:8px;min-height:58px}
+.sequencePending,.sequenceDone{padding:10px 13px;border:1px dashed #b5c9c9;background:#eff4f2;color:#627b7e;border-radius:9px;font-size:12px}
+.sequenceDone{background:#deefe8;border:1px solid #90bbaa;color:#20634e;font-weight:750}
+.numberFields{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.numberField{display:grid;gap:8px;padding:16px;background:#fff;border:1px solid #cee0dd;border-radius:12px;font-size:13px;color:#315967}
+.numberField span{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.numberField strong{color:#125b64}
+.numberField input{width:100%;accent-color:#22788a;cursor:pointer}
+.numberField small{color:#647b80}
+.exerciseMetrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px}
+.exerciseMetric{display:grid;gap:4px;background:#fff;border:1px solid #d0e0dc;border-radius:11px;padding:14px;min-width:0}
+.exerciseMetric>span{font-size:12px;line-height:1.6;color:#527077}
+.exerciseMetric>strong{font-size:19px;line-height:1.5;color:#194d59;overflow-wrap:anywhere}
+.exerciseMetric>strong small{font-size:11px;font-weight:500}
+.metricBefore{font-size:11px;color:#687980}
+.exerciseReset{font:inherit;display:inline-flex;align-items:center;gap:8px;width:max-content;background:transparent;color:#255c67;border:0;padding:7px 0;font-size:12px;font-weight:800;cursor:pointer}
+.exerciseLimit{font-size:12px;color:#64757a;line-height:1.9;margin:18px 0 0;padding-top:13px;border-top:1px solid #d5e3e2}
+.exerciseContinue{display:flex;gap:6px;align-items:center;color:#215e54;font-size:12px;font-weight:700;margin-top:12px}
+@media(max-width:550px){.lab{padding:16px}.exerciseChoices{display:grid;grid-template-columns:1fr}.numberFields,.pathGrid,.exerciseMetrics{grid-template-columns:1fr}.activityStory{padding:12px}}
