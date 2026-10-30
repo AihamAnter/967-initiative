@@ -6,6 +6,7 @@ import styles from '@/app/school/studio/studio.module.css';
 import {SCHOOL_SCRIPT_OPTIONS,schoolScriptForStage} from '@/lib/schoolCalligraphySamples';
 import {GATE_TYPES} from '@/lib/schoolThinkingLabs';
 import {SCIENCE_MODEL_IDS,SCIENCE_LABS} from '@/lib/schoolScienceModels';
+import {CIVIC_LABS} from '@/lib/schoolCivicModels';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
@@ -164,12 +165,14 @@ export default function SchoolStudio(){
        <select value={form.lab?.kind||'none'} onChange={e=>setForm(v=>({...v,
         lab:e.target.value==='morse'?{kind:'morse',sample:'SOS'}:
         e.target.value==='gates'?{kind:'gates',gate:'AND'}:
-        e.target.value==='science'?{kind:'science',model:'solar-scale',scenario:v.title||'مختبر العلوم'}:undefined
+        e.target.value==='science'?{kind:'science',model:'solar-scale',scenario:v.title||'مختبر العلوم'}:
+        e.target.value==='civic'?{kind:'civic',model:'institutions',scenario:v.title||'مختبر القرار'}:undefined
        }))}>
         <option value="none">بدون مختبر</option>
         <option value="morse">مورس — إرسال وفك رموز</option>
         <option value="gates">البوابات — جدول الحقيقة</option>
         <option value="science">مختبر علمي — الفلك والطبيعة</option>
+        <option value="civic">مختبر القرار — السياسة والاقتصاد</option>
        </select>
       </label>
       {form.lab?.kind==='morse'&&<label>الرسالة الافتراضية في مختبر مورس (حروف لاتينية وأرقام)
@@ -181,6 +184,15 @@ export default function SchoolStudio(){
         {GATE_TYPES.map(g=><option value={g} key={g}>{g}</option>)}
        </select>
       </label>}
+      {form.lab?.kind==='civic'&&<>
+       <label>نوع النموذج السياسي أو الاقتصادي
+        <select value={form.lab.model} onChange={e=>setForm(v=>({...v,lab:{...v.lab,model:e.target.value}}))}>
+         {Object.entries(CIVIC_LABS).map(([id,lab])=><option key={id} value={id}>{lab.title}</option>)}
+        </select>
+       </label>
+       <label>عنوان سيناريو المحطة<input maxLength={110} value={form.lab.scenario||''}
+        onChange={e=>setForm(v=>({...v,lab:{...v.lab,scenario:e.target.value}}))}/></label>
+      </>}
       {form.lab?.kind==='science'&&<>
        <label>نوع النموذج العلمي
         <select value={form.lab.model} onChange={e=>setForm(v=>({...v,lab:{...v.lab,model:e.target.value}}))}>
@@ -192,11 +204,11 @@ export default function SchoolStudio(){
          onChange={e=>setForm(v=>({...v,lab:{...v.lab,scenario:e.target.value}}))}/>
        </label>
       </>}
-      {form.lab?.kind==='science'&&<div className={styles.scienceSourceFields}>
+      {['science','civic'].includes(form.lab?.kind)&&<div className={styles.scienceSourceFields}>
        <label>اسم المصدر العلمي
         <input maxLength={120} value={form.source?.title||''} onChange={e=>setForm(v=>({...v,source:{...v.source,title:e.target.value}}))}/>
        </label>
-       <label>رابط مرجعي موثوق من NASA أو NOAA أو USGS
+       <label>رابط مرجعي من مصدر علمي أو مؤسسي معتمد
         <input dir="ltr" maxLength={450} value={form.source?.url||''} onChange={e=>setForm(v=>({...v,source:{...v.source,url:e.target.value}}))}/>
        </label>
       </div>}

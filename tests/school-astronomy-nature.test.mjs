@@ -110,7 +110,8 @@ test('science learning sequence mandates prediction and at least one real slider
  assert.ok(lab.includes('onComplete?.()'));
  assert.ok(lab.includes('SCIENCE_LABS'));
  assert.ok(guided.includes("stage.lab?.kind==='science'"));
- assert.ok(guided.includes('!scienceComplete&&!hasActiveAttempt'));
+ assert.ok(guided.includes('!labComplete&&!hasActiveAttempt'));
+ assert.ok(guided.includes("['science','civic'].includes(stage.lab?.kind)"));
  assert.ok(guided.includes('ScienceLab'));
  assert.ok(guided.includes('source={stage.source}'));
  assert.ok(read('components/school/SchoolStudio.jsx').includes('SCIENCE_MODEL_IDS'));
@@ -119,7 +120,8 @@ test('public section, protected progression and migration remain compatible with
  const landing=read('app/school/page.jsx');
  const section=read('app/school/nature/page.jsx');
  assert.ok(landing.includes('href="/school/nature"'));
- assert.ok(landing.includes('132 محطة'));
+ assert.ok(landing.includes('180 محطة'));
+ assert.ok(landing.includes('href="/school/civic"'));
  assert.ok(section.includes("course.category!=='الفلك والطبيعة'"));
  assert.ok(section.includes("publishedSchoolCatalog"));
  assert.ok(read('lib/schoolGenericServer.js').includes('schoolStaffPreview'));

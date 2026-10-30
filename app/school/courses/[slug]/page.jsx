@@ -17,7 +17,7 @@ export default async function CoursePage({params}){
  if(!course)notFound();
  const stages=await publishedSchoolStages(db,slug);
  return <main className={styles.root}><header className={styles.hero}><div className="container">
-  <Link className={styles.back} href="/school/writing"><ArrowRight size={16}/> جميع المسارات</Link>
+  <Link className={styles.back} href={course.category==='السياسة والاقتصاد'?'/school/civic':course.category==='الفلك والطبيعة'?'/school/nature':course.category==='المنطق والتفكير'?'/school/logic':'/school/writing'}><ArrowRight size={16}/> جميع المسارات</Link>
   <h1>{course.title}</h1><p>{course.description}</p>
   <p>{course.category} · {stages.length} محطة منشورة</p>
  </div></header><section className={styles.workspace}><div className="container">
