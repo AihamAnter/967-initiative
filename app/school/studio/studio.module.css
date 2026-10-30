@@ -215,3 +215,42 @@
 .labTruthTable th{background:#dbeee0;color:#204b38}
 .logicCurrentRow{background:#ebf6e7;color:#1f6a47;outline:1px solid #7aaf8f}
 @media(max-width:600px){.logicCircuit{gap:4px}.logicWires{width:45px}.logicGateSymbol{min-width:68px;font-size:13px}.thinkingLab{padding:12px}}
+
+/* Scientific labs with a prediction step and transparent limits. */
+.scienceLab{margin:19px 0 23px;background:#f2f7f5;border:1px solid #bad0c7;border-radius:15px;padding:clamp(15px,3vw,24px);color:#213e3d}
+.scienceLabHead{display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid #d1dfd6;padding-bottom:16px;margin-bottom:18px;color:#276651}
+.scienceLabHead h3{font-size:clamp(18px,2.3vw,23px);margin:0 0 7px;color:#285143}
+.scienceLabHead p{font-size:12px;color:#54726a;margin:0;line-height:1.8}
+.scienceMicroLabel{font-size:11px;color:#34715e;font-weight:900;background:#e1efe6;border-radius:99px;padding:5px 10px;display:inline-block}
+.sciencePrediction h4{font-size:16px;line-height:1.9;color:#2c4e43;margin:16px 0}
+.sciencePredictionChoices{display:flex;gap:9px;flex-wrap:wrap}
+.sciencePredictionChoices button{font:inherit;border:1px solid #acccba;color:#245441;background:#fff;border-radius:9px;min-height:43px;padding:9px 17px;font-size:13px;font-weight:800;cursor:pointer}
+.sciencePredictionChoices button[aria-pressed=true]{border-color:#287c5b;color:#fff;background:#267153}
+.sciencePredictionResult{display:flex;align-items:flex-start;gap:8px;margin:15px 0;padding:12px;background:#e0efe5;border-radius:8px;color:#2b6b50;font-size:12px;line-height:2}
+.sciencePredictionResult svg{flex-shrink:0;margin-top:3px}.sciencePredictionResult p{margin:0}
+.sciencePrimary{margin-top:15px;display:inline-flex;gap:9px;align-items:center;font:inherit;color:white;font-weight:850;font-size:13px;background:#276e54;border:0;border-radius:9px;padding:12px 18px;min-height:44px;cursor:pointer}
+.sciencePrimary:disabled{opacity:.45;cursor:not-allowed}
+.scienceLayout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:21px;margin-top:18px}
+.scienceControls{display:grid;align-content:start;gap:15px}
+.scienceSlider{display:grid;gap:8px;background:white;border:1px solid #e0eae0;border-radius:10px;padding:13px}
+.scienceSlider>span:first-child{font-size:12px;color:#456857;line-height:1.6;font-weight:750}
+.scienceSlider>strong{font-size:18px;color:#1c5a47;direction:ltr;unicode-bidi:plaintext}
+.scienceSlider input{accent-color:#24795c;width:100%;cursor:pointer}
+.scienceRange{display:flex;justify-content:space-between;font-size:10px;color:#698073}
+.scienceReset{font:inherit;display:flex;align-items:center;gap:8px;justify-content:center;background:transparent;color:#317157;border:1px solid #b6d5c0;border-radius:9px;padding:10px 14px;font-size:12px;cursor:pointer}
+.scienceViz{min-width:0}
+.scienceDiagram{display:block;width:100%;max-width:500px;aspect-ratio:300/175;background:#153839;border-radius:12px}
+.scienceMetrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:13px}
+.scienceMetrics>div{background:#fff;border:1px solid #d8e6dd;border-radius:9px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.scienceMetrics small{font-size:11px;color:#587263;line-height:1.7}
+.scienceMetrics strong{font-size:18px;color:#1f5947;font-weight:900;overflow-wrap:anywhere;direction:ltr;unicode-bidi:plaintext}
+.scienceMetrics strong span{font-size:11px;font-weight:600}
+.scienceInterpretation{font-size:13px;line-height:2;color:#345a4a;padding:14px 0;margin:7px 0}
+.scienceRevise{font:inherit;font-size:12px;color:#326c54;border:1px solid #a7c7b3;border-radius:8px;background:#fff;padding:9px 12px;cursor:pointer}
+.scienceCaveat{display:flex;align-items:flex-start;gap:9px;margin-top:19px;border:1px solid #e2d5b7;background:#fdf8eb;padding:12px 14px;border-radius:10px;color:#785b33}
+.scienceCaveat svg{flex-shrink:0;margin-top:3px}.scienceCaveat p{font-size:11px;line-height:1.9;margin:0}
+.scienceSource{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:11px;font-size:11px;color:#557467}
+.scienceSource a{display:inline-flex;gap:6px;align-items:center;color:#246c53;text-decoration:underline;text-underline-offset:3px}
+.guidedScientificSource{display:inline-flex;font-size:11px;color:#2b7158;font-weight:750;text-decoration:underline;text-underline-offset:4px;margin:13px 0}
+.scienceSourceFields{border:1px solid #d9e5d9;border-radius:10px;padding:13px;margin:12px 0}
+@media(max-width:690px){.scienceLayout{grid-template-columns:1fr}.sciencePredictionChoices button{flex:1}.scienceMetrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
