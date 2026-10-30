@@ -123,7 +123,7 @@ test('public section, protected progression and migration remain compatible with
  assert.ok(section.includes("course.category!=='الفلك والطبيعة'"));
  assert.ok(section.includes("publishedSchoolCatalog"));
  assert.ok(read('lib/schoolGenericServer.js').includes('schoolStaffPreview'));
- const sql=read('supabase/migrations/20261030173000_school_astronomy_nature_courses.sql');
+ const sql=read('supabase/migrations/20261030164858_school_astronomy_nature_courses.sql');
  for(const slug of slugs)assert.ok(sql.includes(slug));
  for(const table of ['school_editor_courses','school_editor_stages','school_editor_questions'])assert.ok(sql.includes('public.'+table));
  for(const marker of ['on conflict (slug) do nothing','on conflict (course_slug,stage_index) do nothing','on conflict (id) do nothing'])assert.ok(sql.includes(marker));
