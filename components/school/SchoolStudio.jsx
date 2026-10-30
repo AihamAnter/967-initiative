@@ -130,6 +130,20 @@ export default function SchoolStudio(){
       <label>مقدمة الدرس<textarea value={form.intro||''} rows={6} maxLength={2500} onChange={e=>setForm(v=>({...v,intro:e.target.value}))}/></label>
       <label>نصائح الدرس (نصيحة في كل سطر، بحد أقصى 10)<textarea value={(form.tips||[]).join('\n')} rows={5}
        onChange={e=>setForm(v=>({...v,tips:e.target.value.split('\n').filter(Boolean)}))}/></label>
+      <div className={styles.bankHead}><h3>الشرح المتدرّج قبل الاختبار</h3>
+       <button type="button" onClick={()=>setForm(v=>({...v,lessons:[...(v.lessons||[]),
+        {title:'',body:'',example:'',note:''}]}))} disabled={(form.lessons||[]).length>=8}>
+        <Plus size={15}/> إضافة صفحة شرح
+       </button></div>
+      <p className={styles.muted}>اعرض القواعد والأمثلة التي يحتاج إليها الطالب قبل أسئلة المحطة. تظهر الصفحات بالتسلسل، ثم الورشة، ثم الاختبار. عند إضافة صفحات، يلزم أن يكون عددها من صفحتين إلى ثمان.</p>
+      {(form.lessons||[]).map((lesson,i)=><div key={i} className={styles.guidedEditorPanel}>
+       <div className={styles.bankHead}><h3>صفحة الشرح {i+1}</h3>
+        <button type="button" onClick={()=>setForm(v=>({...v,lessons:v.lessons.filter((_,n)=>n!==i)}))}>حذف الصفحة</button></div>
+       <label>عنوان الفكرة<input maxLength={100} value={lesson.title||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,title:e.target.value}:x)}))}/></label>
+       <label>الشرح المفصل<textarea maxLength={1700} rows={5} value={lesson.body||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,body:e.target.value}:x)}))}/></label>
+       <label>مثال محلول<input maxLength={220} value={lesson.example||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,example:e.target.value}:x)}))}/></label>
+       <label>ملاحظة توضيحية للمثال<textarea maxLength={420} rows={2} value={lesson.note||''} onChange={e=>setForm(v=>({...v,lessons:v.lessons.map((x,n)=>n===i?{...x,note:e.target.value}:x)}))}/></label>
+      </div>)}
       <div className={styles.bankHead}><h3>ورشة الكتابة العملية</h3>
        <button type="button" onClick={()=>setForm(v=>({...v,practice:v.practice?undefined:{model:'',focus:'',instructions:''}}))}>
         {form.practice?'إزالة ورشة الكتابة':'إضافة ورشة كتابة'}</button></div>
