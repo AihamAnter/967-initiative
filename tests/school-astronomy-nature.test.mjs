@@ -105,8 +105,9 @@ test('scientific source links are allowlisted and arbitrary model identifiers ar
 test('science learning sequence mandates prediction and at least one real slider interaction before starting a fresh test',()=>{
  const lab=read('components/school/ScienceLab.jsx');
  const guided=read('components/school/SchoolGuidedLesson.jsx');
- assert.ok(lab.includes('توقّع قبل التجربة'));
- assert.ok(lab.includes('disabled={!prediction}'));
+ assert.ok(lab.includes('كيف تستخدم المختبر؟'));
+ assert.ok(lab.includes('راقب الرسم والأرقام'));
+ assert.ok(!lab.includes("['increase','يزداد']"));
  assert.ok(lab.includes('onComplete?.()'));
  assert.ok(lab.includes('SCIENCE_LABS'));
  assert.ok(guided.includes("stage.lab?.kind==='science'"));
