@@ -54,7 +54,7 @@ test('UI follows overview -> teaching slides -> freehand workshop -> quiz',()=>{
  assert.ok(lesson.includes('draft.save({answers,selection})'));
 });
 test('published lessons are versioned atomically and do not alter learner progress',()=>{
- const migration=read('supabase/migrations/20261030023000_school_calligraphy_teaching_before_quiz.sql');
+ const migration=read('supabase/migrations/20261030020711_school_calligraphy_teaching_before_quiz.sql');
  assert.ok(migration.includes('s.version=1 and s.published_version=1'));
  assert.ok(migration.includes('s.draft=s.published'));
  assert.ok(migration.includes("not (s.published ? 'lessons')"));
