@@ -21,7 +21,7 @@ function NumberExercise({activity,onComplete}){
  const initial=useMemo(()=>civicNumbers(activity,activity.x.initial,activity.y.initial),[activity]);
  const update=(axis,next)=>{
   if(axis==='x')setX(next);else setY(next);
-  if(!changed&&next!==(axis==='x'?x:y)){setChanged(true);onComplete?.();}
+  if(!changed&&next!==(axis==='x'?x:y)&&!civicNumbers(activity,axis==='x'?next:x,axis==='y'?next:y).error){setChanged(true);onComplete?.();}
  };
  return <div className={styles.exerciseWork}>
   <p className={styles.exercisePrompt}>{activity.question}</p>
