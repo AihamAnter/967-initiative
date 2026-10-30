@@ -90,7 +90,7 @@ test('real hand-drawing pad is explicitly ungraded, accessible with touch and ex
  assert.ok(read('lib/schoolGenericServer.js').includes('gradeSchoolChoice(attempt.questions,answers)'));
 });
 test('migration seeds the full course in private published studio tables without editing historic progress',()=>{
- const sql=read('supabase/migrations/20261030013000_school_arabic_calligraphy.sql');
+ const sql=read('supabase/migrations/20261030013401_school_arabic_calligraphy.sql');
  assert.ok(sql.includes('school_editor_courses'));
  assert.ok(sql.includes('school_editor_stages'));
  assert.ok(sql.includes('school_editor_questions'));
