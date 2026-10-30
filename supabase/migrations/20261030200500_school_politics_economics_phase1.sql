@@ -20,6 +20,6 @@ select md5('school-civic-967:v1:'||(c.item->>'slug')||':'||(s.item->>'index')||'
  c.item->>'slug',(s.item->>'index')::integer,q.item-'number',q.item-'number',1,1,null
 from pg_temp.school967_civic_seed t
 cross join lateral jsonb_array_elements(t.payload) c(item)
-cross join lateral jsonb_array_elements(s.item->'stages') s(item)
+cross join lateral jsonb_array_elements(c.item->'stages') s(item)
 cross join lateral jsonb_array_elements(s.item->'questions') q(item)
 on conflict (id) do nothing;
