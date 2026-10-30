@@ -55,7 +55,7 @@ test('question bank includes 4 varied choices, order and typed recall every atte
    assert.equal(gradeSchoolChoice(snapshot,answers).score,6);
    assert.equal(gradeSchoolChoice(snapshot,answers).passed,true);
    assert.deepEqual(validateSchoolDraft(snapshot,{answers:answers.slice(0,4),selection:null}).answers,answers.slice(0,4));
-   assert.equal(gradeSchoolChoice(snapshot,[{...answers[0],choice:'wrong'},...answers.slice(1)]).passed,false,'invalid input must throw not grade');
+   assert.throws(()=>gradeSchoolChoice(snapshot,[{...answers[0],choice:'wrong'},...answers.slice(1)]),'invalid input must throw, not grade');
   }
  }
 });
