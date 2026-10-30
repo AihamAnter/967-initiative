@@ -4,7 +4,14 @@ import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,RotateCcw,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useSchoolDraft from './useSchoolDraft';
+import CalligraphyPracticePad from './CalligraphyPracticePad';
 import styles from '@/app/school/studio/studio.module.css';
+function ready(question,value){
+ if(question?.kind==='choice')return Number.isInteger(value);
+ if(question?.kind==='order')return Array.isArray(value)&&value.length===question.tokens.length;
+ if(question?.kind==='type')return typeof value==='string'&&value.trim().length>0&&value.length<=80;
+ return false;
+}
 async function requestGeneric(body){
  const db=browserDb(),{data,error}=await db?.auth.getSession()||{};
  if(error||!data?.session?.access_token)throw Error('سجّل الدخول لبدء المحطة وحفظ تقدمك.');
@@ -34,7 +41,7 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
  }
  async function next(){
   const task=attempt?.questions?.[index];
-  if(!task||!Number.isInteger(selection)||busy)return;
+  if(!task||busy||!ready(task,selection))return;
   const all=[...answers,{id:task.id,choice:selection}];
   setBusy(true);setError('');
   try{
@@ -54,15 +61,31 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
   {phase==='intro'&&<section className={styles.lessonCard}>
    <h2><BookOpen size={21}/> قبل أن تبدأ</h2><p>{stage.intro}</p>
    <ul>{stage.tips.map((t,i)=><li key={i}>{t}</li>)}</ul>
-   <p>ستة أسئلة اختيار من متعدد، تحتاج إلى خمس إجابات صحيحة لاجتياز المحطة.</p>
+   {stage.practice&&<CalligraphyPracticePad practice={stage.practice} stageKey={slug+'-'+(stage.index+1)}/>}
+   <p>بعد التمرين العملي: ستة أسئلة متنوعة من بنك المحطة، تحتاج إلى خمس إجابات صحيحة لاجتيازها.</p>
    <button type="button" disabled={busy} onClick={start}>ابدأ اختبار المحطة <ArrowLeft size={17}/></button>
   </section>}
   {phase==='play'&&task&&<section className={styles.lessonCard}>
    <div className={styles.questionMeta}>السؤال {index+1} من 6 · {draft.status||'حفظ تلقائي'}</div>
    <h2>{task.prompt}</h2>{task.target&&<p className={styles.target}>{task.target}</p>}
-   <div className={styles.genericChoices}>{task.options.map((o,i)=><button type="button"
-    key={i} aria-pressed={selection===i} disabled={busy} onClick={()=>setSelection(i)}>{o}</button>)}</div>
-   <button type="button" disabled={busy||!Number.isInteger(selection)} onClick={next}>
+   {task.kind==='choice'&&<div className={styles.genericChoices}>{task.options.map((o,i)=><button type="button"
+    key={i} aria-pressed={selection===i} disabled={busy} onClick={()=>setSelection(i)}>{o}</button>)}</div>}
+   {task.kind==='order'&&<div className={styles.orderExercise}>
+    <p>رتّب العناصر بالضغط عليها حسب التسلسل الصحيح:</p>
+    <div className={styles.orderAnswer} aria-label="العناصر التي رتبتها">{(Array.isArray(selection)?selection:[]).map((n,i)=>
+     <span key={i}>{i+1}. {task.tokens[n]}</span>)}</div>
+    <div className={styles.genericChoices}>{task.tokens.map((token,i)=><button type="button" key={i}
+     disabled={busy||(Array.isArray(selection)&&selection.includes(i))}
+     onClick={()=>setSelection(current=>[...(Array.isArray(current)?current:[]),i])}>{token}</button>)}</div>
+    <button type="button" className={styles.orderUndo} disabled={busy||!Array.isArray(selection)||!selection.length}
+     onClick={()=>setSelection(current=>current.slice(0,-1))}>تراجع عن آخر اختيار</button>
+   </div>}
+   {task.kind==='type'&&<label className={styles.typeExercise}>اكتب الإجابة بنفسك
+    <input type="text" dir="rtl" maxLength={80} autoComplete="off" spellCheck={false}
+     value={typeof selection==='string'?selection:''} disabled={busy}
+     onChange={e=>setSelection(e.target.value)} placeholder="اكتب إجابتك هنا دون أن تُعرض لك الحلول"/>
+   </label>}
+   <button type="button" disabled={busy||!ready(task,selection)} onClick={next}>
     {index===5?'إنهاء وتصحيح':'السؤال التالي'} <ArrowLeft size={17}/></button>
   </section>}
   {phase==='done'&&result&&<section className={styles.lessonCard}>

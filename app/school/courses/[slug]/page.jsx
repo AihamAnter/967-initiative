@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
-import {ArrowLeft,ArrowRight,BookOpen} from 'lucide-react';
+import {ArrowRight} from 'lucide-react';
+import SchoolCourseMap from '@/components/school/SchoolCourseMap';
 import {serverDb} from '@/lib/supabase-server';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
@@ -21,9 +22,7 @@ export default async function CoursePage({params}){
   <p>{course.category} · {stages.length} محطة منشورة</p>
  </div></header><section className={styles.workspace}><div className="container">
   <div className={styles.report}><h2>محطات هذا المسار</h2><p>أكمل المحطات بالترتيب؛ تحتاج إلى 5 إجابات صحيحة من 6 لفتح المحطة التالية.</p>
-   <div className={styles.questionRows}>{stages.map(stage=><Link className={styles.courseStageLink} key={stage.index}
-    href={'/school/courses/'+slug+'/'+(stage.index+1)}><BookOpen size={20}/>
-     <span>{stage.index+1}. {stage.title}<small>{stage.subtitle}</small></span><ArrowLeft size={17}/></Link>)}</div>
+   <SchoolCourseMap slug={slug} stages={stages}/>
   </div>
  </div></section></main>;
 }

@@ -6,7 +6,7 @@ import styles from '@/app/school/studio/studio.module.css';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
- question:()=>({prompt:'',target:'',options:['','','',''],answerIndex:0,explanation:''})
+ question:()=>({kind:'choice',prompt:'',target:'',options:['','','',''],answerIndex:0,explanation:''})
 };
 async function api(method,body,view=''){
  const db=browserDb(),{data,error}=await db?.auth.getSession()||{};
@@ -130,6 +130,14 @@ export default function SchoolStudio(){
       <label>مقدمة الدرس<textarea value={form.intro||''} rows={6} maxLength={2500} onChange={e=>setForm(v=>({...v,intro:e.target.value}))}/></label>
       <label>نصائح الدرس (نصيحة في كل سطر، بحد أقصى 10)<textarea value={(form.tips||[]).join('\n')} rows={5}
        onChange={e=>setForm(v=>({...v,tips:e.target.value.split('\n').filter(Boolean)}))}/></label>
+      <div className={styles.bankHead}><h3>ورشة الكتابة العملية</h3>
+       <button type="button" onClick={()=>setForm(v=>({...v,practice:v.practice?undefined:{model:'',focus:'',instructions:''}}))}>
+        {form.practice?'إزالة ورشة الكتابة':'إضافة ورشة كتابة'}</button></div>
+      {form.practice&&<>
+       <label>نموذج الكلمة أو الجملة<input maxLength={140} value={form.practice.model||''} onChange={e=>setForm(v=>({...v,practice:{...v.practice,model:e.target.value}}))}/></label>
+       <label>هدف ورشة الكتابة<input maxLength={100} value={form.practice.focus||''} onChange={e=>setForm(v=>({...v,practice:{...v.practice,focus:e.target.value}}))}/></label>
+       <label>تعليمات التدريب اليدوي<textarea rows={3} maxLength={650} value={form.practice.instructions||''} onChange={e=>setForm(v=>({...v,practice:{...v.practice,instructions:e.target.value}}))}/></label>
+      </>}
       <div className={styles.bankHead}><h3><ClipboardList size={19}/> أسئلة المحطة</h3>
        <button type="button" onClick={()=>choose('question',slug,stage)}>إضافة سؤال <Plus size={15}/></button></div>
       <p className={styles.muted}>المحطات الجديدة تحتاج إلى ستة أسئلة منشورة قبل إتاحتها. الاختبارات القديمة تبقى محفوظة.</p>
@@ -137,11 +145,28 @@ export default function SchoolStudio(){
        <button key={q.id} type="button" onClick={()=>choose('question',slug,stage,q.id)}>{q.draft.prompt}<small>{status(q)}</small></button>)}</div>
      </>}
      {kind==='question'&&<>
-      <p className={styles.muted}>تدعم أسئلة بنك التحرير أربعة اختيارات، وستظل تمارين المسند والعروض الأصلية محفوظة.</p>
+      <p className={styles.muted}>أسئلة اختيار وترتيب واستدعاء كتابي، مع حفظ الإجابات الصحيحة في الخادم فقط. تبقى التمارين العملية للمسند والعروض.</p>
+      <label>نوع السؤال<select value={form.kind||'choice'} onChange={e=>{
+       const kind=e.target.value;setForm(v=>({...defaultDoc.question(),prompt:v.prompt,target:v.target,explanation:v.explanation,kind,
+        ...(kind==='order'?{tokens:['خطوة أ','خطوة ب','خطوة ج'],answer:['خطوة أ','خطوة ب','خطوة ج']}:{})
+       }));
+      }}>
+       <option value="choice">اختيار من متعدد</option><option value="order">ترتيب عناصر</option><option value="type">كتابة إجابة قصيرة</option>
+      </select></label>
       <label>نص السؤال<textarea value={form.prompt||''} rows={3} maxLength={350} onChange={e=>setForm(v=>({...v,prompt:e.target.value}))}/></label>
       <label>مادة السؤال / المثال (اختياري)<textarea value={form.target||''} rows={2} maxLength={500} onChange={e=>setForm(v=>({...v,target:e.target.value}))}/></label>
-      {(form.options||['','','','']).map((option,i)=><label key={i}>الخيار {i+1}<input value={option} maxLength={150} onChange={e=>setForm(v=>({...v,options:v.options.map((x,j)=>i===j?e.target.value:x)}))}/></label>)}
-      <label>الإجابة الصحيحة<select value={form.answerIndex??0} onChange={e=>setForm(v=>({...v,answerIndex:Number(e.target.value)}))}>{[0,1,2,3].map(i=><option value={i} key={i}>الخيار {i+1}</option>)}</select></label>
+      {(form.kind||'choice')==='choice'&&<>
+       {(form.options||['','','','']).map((option,i)=><label key={i}>الخيار {i+1}<input value={option} maxLength={150} onChange={e=>setForm(v=>({...v,options:v.options.map((x,j)=>i===j?e.target.value:x)}))}/></label>)}
+       <label>الإجابة الصحيحة<select value={form.answerIndex??0} onChange={e=>setForm(v=>({...v,answerIndex:Number(e.target.value)}))}>{[0,1,2,3].map(i=><option value={i} key={i}>الخيار {i+1}</option>)}</select></label>
+      </>}
+      {form.kind==='order'&&<>
+       <label>العناصر التي سيختارها الطالب (عنصر في كل سطر)
+        <textarea rows={4} value={(form.tokens||[]).join('\n')} onChange={e=>setForm(v=>({...v,tokens:e.target.value.split('\n')}))}/></label>
+       <label>الترتيب الصحيح (العناصر نفسها مرتبة، عنصر في كل سطر)
+        <textarea rows={4} value={(form.answer||[]).join('\n')} onChange={e=>setForm(v=>({...v,answer:e.target.value.split('\n')}))}/></label>
+      </>}
+      {form.kind==='type'&&<label>الإجابة النصية المقبولة<input maxLength={80} value={form.answer||''}
+       onChange={e=>setForm(v=>({...v,answer:e.target.value}))}/></label>}
       <label>تفسير الإجابة<textarea value={form.explanation||''} rows={3} maxLength={800} onChange={e=>setForm(v=>({...v,explanation:e.target.value}))}/></label>
      </>}
      <div className={styles.actions}><button type="button" disabled={busy} onClick={()=>save('save')}><Save size={17}/> {busy?'جارٍ الحفظ…':'حفظ مسودة'}</button>
