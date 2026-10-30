@@ -67,7 +67,7 @@ test('department pages, editor and migration link to the existing learning syste
  const department=read('app/school/civic/page.jsx');
  const guide=read('components/school/SchoolGuidedLesson.jsx');
  const editor=read('components/school/SchoolStudio.jsx');
- const migration=read('supabase/migrations/20261030200500_school_politics_economics_phase1.sql');
+ const migration=read('supabase/migrations/20261030193358_school_politics_economics_phase1.sql');
  assert.match(index,/href="\/school\/civic"/);
  assert.match(department,/publishedSchoolCatalog/);
  assert.match(department,/publishedSchoolStages/);
