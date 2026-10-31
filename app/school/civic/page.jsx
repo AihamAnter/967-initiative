@@ -4,6 +4,8 @@ import {ArrowLeft,ChevronLeft,Landmark,Scale,ChartNoAxesCombined,Wallet,Banknote
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
+import {civicCrossLinks} from '@/lib/knowledgeConnections';
+import CrossSectionPaths from '@/components/knowledge/CrossSectionPaths';
 import {serverDb} from '@/lib/supabase-server';
 import {publishedSchoolCatalog,publishedSchoolStages} from '@/lib/schoolContentServer';
 import school from '../school.module.css';
@@ -45,5 +47,6 @@ export default async function SchoolCivicPage(){
    {!tracks.some(Boolean)&&<p className={styles.note}>لم تُنشر مسارات السياسة والاقتصاد بعد.</p>}
    <div className={styles.note}><Wallet size={17} style={{verticalAlign:'middle'}}/> تستخدم المختبرات دولًا وأسواقًا افتراضية ونماذج حسابية محددة. النتائج التعليمية لا تصنّف الأنظمة السياسية ولا تتنبأ بالأحداث أو الأسعار.</div>
   </div></section>
+  <div className="container"><CrossSectionPaths items={civicCrossLinks(settings.pageVisibility)} id="civic-cross-paths" title="من الدرس إلى بيانات اليمن الحقيقية"/></div>
  </main>;
 }
