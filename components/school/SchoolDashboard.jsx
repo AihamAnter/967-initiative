@@ -5,6 +5,7 @@ import {ArrowLeft,BookOpenCheck,CheckCircle2,GraduationCap,RefreshCw,ShieldCheck
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/dashboard/dashboard.module.css';
 import SchoolCompetition from './SchoolCompetition';
+import MobileFold from '@/components/mobile/MobileFold';
 
 export default function SchoolDashboard(){
  const [state,setState]=useState({kind:'loading',data:null,message:''});
@@ -71,6 +72,11 @@ export default function SchoolDashboard(){
   </div>}
   {kind==='error'&&<div className={styles.notice} role="alert"><p>{message}</p><button type="button" className={styles.action} onClick={()=>setRevision(x=>x+1)}>إعادة المحاولة <RefreshCw size={17}/></button></div>}
   {kind==='ready'&&data&&<>
+   {data.resume?<div className={styles.resume}>
+    <div><span>أكمل من حيث توقفت</span><h2>{data.resume.course}</h2><p>{data.resume.stage?.title||'المحطة التالية'} — المحطة {(data.resume.stage?.index??0)+1}</p>
+    {data.resume.hasActiveAttempt&&<small>لديك محاولة نشطة؛ ستُستعاد عند فتح المحطة.</small>}</div>
+    <Link href={data.resume.stage?.href||'/school/writing'}>تابع التعلّم <ArrowLeft size={18}/></Link>
+   </div>:<div className={styles.resume}><div><span>أنجزت المسارات المتاحة</span><h2>أكملت جميع المحطات!</h2><p>يمكنك الرجوع إلى أي مسار لإعادة التدريب.</p></div><Link href="/school/writing">استعرض المسارات <ArrowLeft size={18}/></Link></div>}
    <section className={styles.xpPanel} aria-labelledby="xp-title">
     <div className={styles.xpHeading}>
      <span className={styles.xpIcon}><Zap size={23} aria-hidden="true"/></span>
@@ -81,6 +87,11 @@ export default function SchoolDashboard(){
     <div className={styles.xpTrack} role="progressbar" aria-label="التقدم إلى المستوى التالي" aria-valuemin={data.xp.currentLevelStart} aria-valuemax={data.xp.nextLevelAt} aria-valuenow={data.xp.total}><span style={{width:data.xp.percent+'%'}}/></div>
     <p>تحصل على 100 XP عند اجتياز محطة جديدة لأول مرة. إعادة المحاولة لا تمنح نقاطًا إضافية.</p>
    </section>
+   <div className={styles.stats}>
+    <div className={styles.stat}><span><CheckCircle2 size={17}/> محطات مكتملة</span><strong dir="ltr">{data.totals.completedStages} / {data.totals.stages}</strong></div>
+    <div className={styles.stat}><span><BookOpenCheck size={17}/> مسارات مكتملة</span><strong dir="ltr">{data.totals.finishedCourses} / {data.totals.courses}</strong></div>
+    <div className={styles.stat}><span><Target size={17}/> محاولات مصححة</span><strong dir="ltr">{data.totals.submittedAttempts}</strong></div>
+   </div>
    <div className={styles.habitGrid}>
     <section className={styles.habitCard} aria-labelledby="daily-goal-title">
      <div className={styles.habitHeading}><CalendarCheck size={23}/><h2 id="daily-goal-title">هدفي اليومي</h2></div>
@@ -100,27 +111,7 @@ export default function SchoolDashboard(){
      <small>تُحسب الأيام بمنتصف الليل بتوقيت UTC لضمان اتساق النتائج عبر الأجهزة.</small>
     </section>
    </div>
-   <section className={styles.reviewSection} aria-labelledby="review-title">
-    <div className={styles.reviewHeading}><Brain size={23}/><div><h2 id="review-title">راجع ما أخطأت فيه</h2><p>أسئلة من محاولات مصححة فقط؛ تختفي من المراجعة إذا أجبت عنها إجابة صحيحة لاحقًا.</p></div></div>
-    {data.review.length?<div className={styles.reviewGrid}>{data.review.map(item=><article className={styles.reviewItem} key={item.id}>
-     <span>{item.course==='musnad'?'خط المسند':'علم العروض'} · المحطة {item.stage+1}</span>
-     <h3>{item.prompt}</h3>{item.context&&<p className={styles.reviewContext}>{item.context}</p>}
-     <p><strong>التصحيح:</strong> {item.answer}</p><p>{item.explanation}</p>
-     <Link href={item.href}>أعد التدريب <ArrowLeft size={16}/></Link>
-    </article>)}</div>:<p className={styles.reviewEmpty}>لا توجد أسئلة تحتاج إلى مراجعة من نتائجك الأخيرة.</p>}
-   </section>
-   <SchoolCompetition achievements={data.achievements}/>
    {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p><Link className={styles.action} href="/school/studio"><Settings2 size={18}/> إدارة المدرسة</Link></div>}
-   <div className={styles.stats}>
-    <div className={styles.stat}><span><CheckCircle2 size={17}/> محطات مكتملة</span><strong dir="ltr">{data.totals.completedStages} / {data.totals.stages}</strong></div>
-    <div className={styles.stat}><span><BookOpenCheck size={17}/> مسارات مكتملة</span><strong dir="ltr">{data.totals.finishedCourses} / {data.totals.courses}</strong></div>
-    <div className={styles.stat}><span><Target size={17}/> محاولات مصححة</span><strong dir="ltr">{data.totals.submittedAttempts}</strong></div>
-   </div>
-   {data.resume?<div className={styles.resume}>
-    <div><span>أكمل من حيث توقفت</span><h2>{data.resume.course}</h2><p>{data.resume.stage?.title||'المحطة التالية'} — المحطة {(data.resume.stage?.index??0)+1}</p>
-    {data.resume.hasActiveAttempt&&<small>لديك محاولة نشطة؛ ستُستعاد عند فتح المحطة.</small>}</div>
-    <Link href={data.resume.stage?.href||'/school/writing'}>تابع التعلّم <ArrowLeft size={18}/></Link>
-   </div>:<div className={styles.resume}><div><span>أنجزت المسارات المتاحة</span><h2>أكملت جميع المحطات!</h2><p>يمكنك الرجوع إلى أي مسار لإعادة التدريب.</p></div><Link href="/school/writing">استعرض المسارات <ArrowLeft size={18}/></Link></div>}
    <div className={styles.titleRow}><div><span>مساراتي</span><h2>تقدّمك في كل مسار</h2></div><p>النجاح في المحطة وحده هو الذي يحسبها مكتملة. الإعادة لا تمحو إنجازك.</p></div>
    <div className={styles.courses}>{data.courses.map(course=><article key={course.slug} className={styles.course}>
     <div className={styles.courseTop}><span>{course.category}</span><span>{course.finished?'مكتمل':'قيد التعلّم'}</span></div>
@@ -130,6 +121,20 @@ export default function SchoolDashboard(){
     <div className={styles.courseFoot}><span>{course.attempts} محاولات مصححة</span>
      <Link href={course.nextStage?.href||course.href}>{course.finished?'راجع المسار':'المحطة '+((course.nextStage?.index??0)+1)} <ArrowLeft size={17}/></Link></div>
    </article>)}</div>
+   <MobileFold title={'مراجعة الأخطاء ('+data.review.length+')'}>
+   <section className={styles.reviewSection} aria-labelledby="review-title">
+    <div className={styles.reviewHeading}><Brain size={23}/><div><h2 id="review-title">راجع ما أخطأت فيه</h2><p>أسئلة من محاولات مصححة فقط؛ تختفي من المراجعة إذا أجبت عنها إجابة صحيحة لاحقًا.</p></div></div>
+    {data.review.length?<div className={styles.reviewGrid}>{data.review.map(item=><article className={styles.reviewItem} key={item.id}>
+     <span>{data.courses.find(course=>course.slug===item.course)?.title||item.course} · المحطة {item.stage+1}</span>
+     <h3>{item.prompt}</h3>{item.context&&<p className={styles.reviewContext}>{item.context}</p>}
+     <p><strong>التصحيح:</strong> {item.answer}</p><p>{item.explanation}</p>
+     <Link href={item.href}>أعد التدريب <ArrowLeft size={16}/></Link>
+    </article>)}</div>:<p className={styles.reviewEmpty}>لا توجد أسئلة تحتاج إلى مراجعة من نتائجك الأخيرة.</p>}
+   </section>
+   </MobileFold>
+   <MobileFold title="الإنجازات ولوحة المتصدرين">
+    <SchoolCompetition achievements={data.achievements}/>
+   </MobileFold>
    <p className={styles.footnote}>تعرض هذه اللوحة تقدم الدروس الحالي. نقاط الخبرة تُحتسب من النجاحات الموثقة دون تكرار. الإنجازات والمنافسة الاختيارية متاحة الآن. النقاط الأسبوعية والشهرية لا تزيد عند تكرار المحطات. لا توجد شهادات إتمام.</p>
   </>}
  </div></section>;
