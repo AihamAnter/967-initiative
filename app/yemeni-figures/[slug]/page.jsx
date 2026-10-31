@@ -24,6 +24,7 @@ import FigureDossier from '@/components/FigureDossier';
 import InlineTarget from '@/components/inline/InlineTarget';
 import CorrectionLink from '@/components/CorrectionLink';
 import {relatedProjections} from '@/lib/relatedContent';
+import {hasFigureImageProvenance} from '@/lib/contentEvidence';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,7 +50,7 @@ export async function generateMetadata({params}) {
 
   const title = `${figure.fullName} | شخصيات يمنية`;
   const description = toLatinDigits(figure.shortBio || figure.knownFor);
-  return pageMetadata({title, description, path:detailPath('yemeni-figures', figure.slug), noindex:figure.isDemo, image:figure.imageUrl, type:'profile'});
+  return pageMetadata({title, description, path:detailPath('yemeni-figures', figure.slug), noindex:figure.isDemo, image:hasFigureImageProvenance(figure,figure.profile?.gallery?.find(photo=>photo.url===figure.imageUrl))?figure.imageUrl:null, type:'profile'});
 }
 
 function ProfileFact({icon: Icon, label, value, ltr = false}) {
@@ -67,6 +68,7 @@ export default async function YemeniFigureProfilePage({params}) {
   const links = socialLinks(figure);
   const hasDossier=figure.profile&&['sections','facts','timeline','works','gallery','notes'].some(key=>figure.profile[key]?.length);
   const portrait=figure.profile?.gallery.find(photo=>photo.url===figure.imageUrl);
+  const hasAttributedPortrait=hasFigureImageProvenance(figure,portrait);
   const related = figures
     .filter(item => item.id !== figure.id && (item.field === figure.field || (figure.governorateId && item.governorateId === figure.governorateId)))
     .sort((a, b) => {
@@ -100,7 +102,7 @@ export default async function YemeniFigureProfilePage({params}) {
         </div>
 
         <div className="figure-profile-portrait" data-kind={portrait?.kind||'portrait'}>
-          {figure.imageUrl
+          {hasAttributedPortrait
             ? <Image src={figure.imageUrl} alt={figure.profile?.gallery.find(photo=>photo.url===figure.imageUrl)?.alt||`صورة ${figure.fullName}`} fill priority sizes="(max-width: 850px) 100vw, 42vw" unoptimized={figure.imageUrl.startsWith('http')}/>
             : <span className="figure-profile-initials" aria-hidden="true">{figureInitials(figure.fullName)}</span>}
           <div><span>{{context:'صورة سياقية مرتبطة بالسيرة',artwork:'تصوير فني',document:'وثيقة تاريخية'}[portrait?.kind]||figure.field}</span><strong>{figure.fullName}</strong>{figure.imageSourceUrl&&<a href={figure.imageSourceUrl} title={figure.imageCredit} target="_blank" rel="noopener noreferrer">مصدر الصورة وحقوقها</a>}</div>
