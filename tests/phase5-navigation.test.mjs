@@ -45,6 +45,8 @@ test('mobile navigation closes safely, restores focus and isolates page content'
  assert.match(root,/id="content"/);
  assert.match(root,/phase5-navigation\.css/);
  assert.match(header,/aria-expanded=\{open\}/);
+ assert.match(header,/mobile-school-links/);
+ for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic','/school/dashboard'])assert.ok(header.includes("'"+href+"'"));
  assert.match(header,/aria-controls="main-navigation"/);
  assert.match(header,/if \(open\) header\.current\?\.querySelector\('#main-navigation a'\)\?\.focus\(\)/);
  assert.match(header,/if\(mobileOpen\)toggle\.current\?\.focus\(\)/);
