@@ -57,7 +57,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
   if(mode==='practice')rememberPracticeTasks('quiz',list.map(task=>task.id));
   if(mode==='daily'){
    setStarting(true);
-   const granted=await daily.reserve(list.map(task=>task.id));
+   const granted=await daily.reserve(list);
    setStarting(false);
    if(!granted)return;
   }
