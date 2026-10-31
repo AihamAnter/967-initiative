@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Gamepad2, GraduationCap, BrainCircuit, Telescope, Landmark, PenTool, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
+import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, GraduationCap, BrainCircuit, Telescope, Landmark, PenTool, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
 import YemeniMotif from '@/components/design/YemeniMotif';
 import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
