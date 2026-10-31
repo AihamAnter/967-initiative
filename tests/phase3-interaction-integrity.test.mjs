@@ -8,7 +8,7 @@ import {buildPlaceChallenges,buildTimelineChallenges,buildMapChallenges} from '.
 import {extraGameBuilders} from '../lib/extraGames.js';
 import {officialQuestionSnapshot} from '../lib/dailyVerifiedScore.js';
 import {DAILY_GAME_ORDER,dailyGameForDate,utcDay} from '../lib/dailyGame.js';
-import {matchingDailyQuestionIds,dailyAttemptDateOpen} from '../lib/dailyAttemptIntegrity.js';
+import {matchingDailyQuestionIds,dailyAttemptDateOpen,dailyPublicQuestionFingerprint} from '../lib/dailyAttemptIntegrity.js';
 import {handleDebateRequest} from '../lib/debateApi.js';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
@@ -22,19 +22,24 @@ test('all nine daily games present the exact ordered task IDs verified at claim 
     builders[game]({mode:'daily',date,seed:dailySeed(date),seen:[]});
   const server=await officialQuestionSnapshot(null,game,date);
   assert.equal(client.length,10,game);
-  assert.equal(matchingDailyQuestionIds(client.map(x=>x.id),server),true,game+'/'+date);
-  assert.equal(matchingDailyQuestionIds(client.slice(1).map(x=>x.id),server),false);
+  const signatures=client.map(x=>dailyPublicQuestionFingerprint(game,x));
+  assert.equal(matchingDailyQuestionIds(client.map(x=>x.id),server,signatures),true,game+'/'+date);
+  assert.equal(matchingDailyQuestionIds(client.slice(1).map(x=>x.id),server,signatures),false);
  }
 });
 test('mismatched cached, reordered or forged daily tasks cannot be claimed',()=>{
- const rows=Array.from({length:10},(_,i)=>({id:'game-'+i}));
- const ids=rows.map(q=>q.id);
- assert.equal(matchingDailyQuestionIds(ids,rows),true);
- assert.equal(matchingDailyQuestionIds([...ids.slice(1),ids[0]],rows),false);
- assert.equal(matchingDailyQuestionIds([...ids.slice(0,9),'changed-editorial-id'],rows),false);
- assert.equal(matchingDailyQuestionIds([...ids.slice(0,9),ids[0]],rows),false);
- assert.equal(matchingDailyQuestionIds(ids.slice(0,9),rows),false);
- assert.equal(matchingDailyQuestionIds(null,rows),false);
+ const rows=Array.from({length:10},(_,i)=>({id:'game-'+i,publicFingerprint:'a'+i}));
+ const ids=rows.map(q=>q.id),sigs=rows.map(q=>q.publicFingerprint);
+ assert.equal(matchingDailyQuestionIds(ids,rows,sigs),true);
+ assert.equal(matchingDailyQuestionIds([...ids.slice(1),ids[0]],rows,sigs),false);
+ assert.equal(matchingDailyQuestionIds([...ids.slice(0,9),'changed-editorial-id'],rows,sigs),false);
+ assert.equal(matchingDailyQuestionIds([...ids.slice(0,9),ids[0]],rows,sigs),false);
+ assert.equal(matchingDailyQuestionIds(ids.slice(0,9),rows,sigs),false);
+ assert.equal(matchingDailyQuestionIds(null,rows,sigs),false);
+ assert.equal(matchingDailyQuestionIds(ids,rows,[...sigs.slice(0,9),'different']),false);
+ const sample=quizStarter[0];
+ assert.equal(dailyPublicQuestionFingerprint('quiz',sample),dailyPublicQuestionFingerprint('quiz',{...sample,correct:(sample.correct+1)%4}));
+ assert.notEqual(dailyPublicQuestionFingerprint('quiz',sample),dailyPublicQuestionFingerprint('quiz',{...sample,options:[...sample.options].reverse()}));
 });
 test('the same UTC day is required for official answers and midnight closes earlier challenges',()=>{
  assert.equal(dailyAttemptDateOpen('2026-10-31',new Date('2026-10-31T23:59:59.999Z')),true);
@@ -42,11 +47,11 @@ test('the same UTC day is required for official answers and midnight closes earl
  assert.equal(dailyAttemptDateOpen('2026-11-01',new Date('2026-11-01T00:00:00.000Z')),true);
  const route=read('app/api/games/daily/route.js');
  const round=read('app/api/games/daily/round/route.js');
- assert.ok(route.indexOf('matchingDailyQuestionIds(body.questionIds,questionBank)')<route.indexOf(".insert({user_id:user.id,challenge_date:date"));
+ assert.ok(route.indexOf('matchingDailyQuestionIds(body.questionIds,questionBank,body.signatures)')<route.indexOf(".insert({user_id:user.id,challenge_date:date"));
  assert.match(round,/dailyAttemptDateOpen\(body\.date\)/);
  assert.match(round,/user\.banned_until/);
  for(const path of ['components/games/QuizGame.jsx','components/games/ArcadeChallenge.jsx','components/games/ExtraArcadeChallenge.jsx'])
-  assert.match(read(path),/daily\.reserve\([a-zA-Z]+\.map\(task=>task\.id\)\)/);
+  assert.match(read(path),/daily\.reserve\((list|tasksNow)\)/);
 });
 test('the debate API bounds discussion parameters and blocks banned audience submissions',async()=>{
  const calls=[];
