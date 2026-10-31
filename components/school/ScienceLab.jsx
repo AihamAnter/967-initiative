@@ -2,6 +2,7 @@
 import {useMemo,useState} from 'react';
 import {FlaskConical,CheckCircle2,AlertTriangle,RefreshCw,ExternalLink} from 'lucide-react';
 import {SCIENCE_LABS,calculateScienceLab,SOLAR_PLANETS} from '@/lib/schoolScienceModels';
+import {labObservationChoices} from '@/lib/schoolLabEvidence';
 import styles from '@/app/school/studio/studio.module.css';
 
 const n=(value,precision=4)=>{
@@ -122,15 +123,25 @@ function Diagram({model,result,x,y}){
 export default function ScienceLab({lab,source,onComplete}){
  const config=SCIENCE_LABS[lab?.model];
  const [x,setX]=useState(config?.x.initial??0),[y,setY]=useState(config?.y?.initial??0);
- const [explored,setExplored]=useState(false);
+ const [explored,setExplored]=useState(false),[verified,setVerified]=useState(false);
  const value=useMemo(()=>config?calculateScienceLab(lab.model,{x,y}):null,[lab?.model,config,x,y]);
  const original=useMemo(()=>config?calculateScienceLab(lab.model,{x:config.x.initial,y:config.y?.initial}):null,[lab?.model,config]);
  if(!config||!value||!original)return <p role="alert">نموذج المحاكاة غير متاح.</p>;
+ const metricIndex=value.metrics.findIndex((metric,i)=>
+  Number.isFinite(metric.num)&&Number.isFinite(original.metrics[i]?.num)&&
+  Math.abs(metric.num-original.metrics[i].num)>0.000001);
+ const observed=metricIndex>=0?value.metrics[metricIndex].num:null;
+ const previous=metricIndex>=0?original.metrics[metricIndex].num:null;
+ const observationChoices=metricIndex>=0?labObservationChoices(previous,observed):[];
+ const confirmObservation=number=>{
+  if(number!==observed||metricIndex<0)return;
+  setVerified(true);onComplete?.({kind:'science',x,y:config.y?y:undefined,metricIndex,observed});
+ };
  const setValue=(axis,next)=>{
   const current=axis==='x'?x:y;
   if(next===current)return;
   if(axis==='x')setX(next);else setY(next);
-  setExplored(true);onComplete?.();
+  setExplored(true);setVerified(false);
  };
  return <section className={styles.scienceLab} aria-labelledby="science-lab-title">
   <div className={styles.scienceLabHead}><FlaskConical size={23}/><div>
@@ -155,7 +166,7 @@ export default function ScienceLab({lab,source,onComplete}){
       <span className={styles.scienceRange}><small>{n(control.min)}</small><small>{n(control.max)}</small></span>
      </label>
     )}
-    <button type="button" className={styles.scienceReset} onClick={()=>{setX(config.x.initial);setY(config.y?.initial??0);}}>
+    <button type="button" className={styles.scienceReset} onClick={()=>{setX(config.x.initial);setY(config.y?.initial??0);setVerified(false);setExplored(false);}}>
      <RefreshCw size={15}/> إعادة القيم الأصلية
     </button>
    </div>
@@ -168,9 +179,17 @@ export default function ScienceLab({lab,source,onComplete}){
    </div>
   </div>
   <p className={styles.scienceInterpretation}>{value.text}</p>
-  {explored?<p className={styles.scienceActivityDone} role="status"><CheckCircle2 size={18}/>
-   شاهدت أثر تغيير القيم في هذه المحطة. يمكنك إعادة التجربة أو متابعة اختبار الفهم.</p>:
-   <p className={styles.scienceActivityPrompt}>التجربة جاهزة: حرّك أي منزلق لتقارن بين النتيجة الأصلية والنتيجة الجديدة.</p>}
+  {explored&&metricIndex>=0&&<div className={styles.scienceObservation}>
+   <strong>تحقق من النتيجة قبل الاختبار</strong>
+   <p>بعد تغيير المدخلات، ما الرقم الذي تعرضه التجربة الآن أمام «{value.metrics[metricIndex].label}»؟ اقرأ القيمة في الأعلى ثم اخترها.</p>
+   <div className={styles.scienceObservationChoices}>{observationChoices.map(number=><button type="button" key={number}
+    aria-pressed={verified&&number===observed} onClick={()=>confirmObservation(number)}>
+    {n(number)} {value.metrics[metricIndex].unit}</button>)}</div>
+   {!verified&&<small>إذا لم تطابق إجابتك الرقم المعروض، حاول مجددًا. لن تخسر نقاطًا.</small>}
+  </div>}
+  {verified?<p className={styles.scienceActivityDone} role="status"><CheckCircle2 size={18}/>
+   قارنت القيم، وتحققت من النتيجة الجديدة. الآن يمكنك متابعة اختبار الفهم.</p>:
+   <p className={styles.scienceActivityPrompt}>{explored?'غيّر المدخلات حتى يتغير أحد الأرقام، ثم أكّد النتيجة التي تلاحظها.':'التجربة جاهزة: حرّك أي منزلق لتقارن بين النتيجة الأصلية والنتيجة الجديدة.'}</p>}
   <div className={styles.scienceCaveat}><AlertTriangle size={17}/><p><strong>حدود المحاكاة:</strong> {config.caveat} لا تستخدم هذه التجربة كبيانات رصد أو توقعات فعلية.</p></div>
   <div className={styles.scienceSource}>مصدر للمراجعة:
    <a href={source?.url||config.source} target="_blank" rel="noopener noreferrer">
