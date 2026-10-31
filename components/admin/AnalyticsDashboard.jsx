@@ -82,6 +82,9 @@ export default function AnalyticsDashboard(){
       <small>{lastDay(item.day)}</small>
      </div>)}
     </div>
+    <details className={styles.dailyDetails}><summary>عرض القيم اليومية في جدول</summary><div className={styles.tableWrap}>
+     <table className={styles.table}><thead><tr><th>التاريخ (UTC)</th><th>المشاهدات</th></tr></thead><tbody>{daily.map(row=><tr key={row.day}><th scope="row">{row.day}</th><td>{formats(row.views)}</td></tr>)}</tbody></table>
+    </div></details>
     <p className={styles.help}>القياس يبدأ من تفعيل النظام؛ لا توجد بيانات زيارات تاريخية بأثر رجعي. قد تتأثر العدادات بمنع التتبع أو الطلبات الآلية.</p>
    </section>
    <div className={styles.two}>
