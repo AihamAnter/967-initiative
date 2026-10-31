@@ -3,6 +3,8 @@ import {serverDb} from '@/lib/supabase-server';
 import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
 import {officialCorrect,officialPoints,validateOfficialChoice,OFFICIAL_ANSWER_WINDOW_MS} from '@/lib/dailyVerifiedScore';
 import {syncPlayerAchievements} from '@/lib/gameAchievementRepository.js';
+import {dailyAttemptDateOpen} from '@/lib/dailyAttemptIntegrity';
+import {requireEligibleGameProfile} from '@/lib/gamePlayerEligibility';
 const respond=(body,status=200)=>NextResponse.json(body,{status,headers:{'Cache-Control':'no-store, private'}});
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -16,8 +18,14 @@ export async function POST(request){
   if(!token)throw new RequestValidationError('سجّل الدخول أولاً.',401);
   const {data:{user},error:authError}=await db.auth.getUser(token);
   if(authError||!user||!user.email_confirmed_at||user.is_anonymous)throw new RequestValidationError('حساب غير مصرح به.',401);
+  if(user.banned_until&&Date.parse(user.banned_until)>Date.now())throw new RequestValidationError('هذا الحساب موقوف عن المشاركة.',403);
+  await requireEligibleGameProfile(db,user);
   const body=await readJsonObject(request,1200);
   if(!['answer','next','ready'].includes(body.action)||!/^\d{4}-\d{2}-\d{2}$/.test(body.date)||!Number.isInteger(body.step)||body.step<0||body.step>=10)throw new RequestValidationError('بيانات الجولة غير صالحة.');
+  // The UTC challenge ends at 00:00 UTC, not 24 hours after a late start.
+  // In particular a previous day's unfinished round must not continue to
+  // award points in the next day's official competition.
+  if(!dailyAttemptDateOpen(body.date))throw new RequestValidationError('انتهى تحدي اليوم السابق عند منتصف الليل UTC. حدّث الصفحة للمشاركة في اليوم الجديد.',409);
   const {data:attempt,error:readError}=await db.from('game_daily_attempts').select('*')
    .eq('user_id',user.id).eq('challenge_date',body.date).maybeSingle();
   if(readError)throw new RequestValidationError('تعذر قراءة المحاولة.',503);

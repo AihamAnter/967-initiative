@@ -77,7 +77,7 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
   if(mode==='practice')rememberPracticeTasks(game,list.map(task=>task.id));
   if(mode==='daily'){
    setStarting(true);
-   const granted=await daily.reserve();
+   const granted=await daily.reserve(list);
    setStarting(false);
    if(!granted)return;
   }

@@ -3,6 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {browserDb} from '@/lib/supabase';
 import {dailyGameUrl} from '@/lib/dailyGame';
+import {dailyPublicQuestionFingerprint} from '@/lib/dailyAttemptIntegrity';
 import styles from './DailyAttempt.module.css';
 import DailyCountdown from './DailyCountdown';
 
@@ -41,7 +42,7 @@ export default function useDailyAttempt(mode,game,date){
   });
   return()=>{alive=false;clearTimeout(authTimer);subscription.unsubscribe();};
  },[mode,game,date]);
- async function reserve(){
+ async function reserve(tasks){
   if(mode!=='daily')return true;
   if(pending.current||state.kind!=='ready')return false;
   pending.current=true;setState(previous=>({...previous,kind:'reserving'}));
@@ -49,10 +50,11 @@ export default function useDailyAttempt(mode,game,date){
    const db=browserDb(),{data,error}=await db.auth.getSession();
    if(error||!data?.session){setState({kind:'login',message:''});return false;}
    const res=await fetch('/api/games/daily',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+data.session.access_token},
-    cache:'no-store',body:JSON.stringify({date,game})});
+    cache:'no-store',body:JSON.stringify({date,game,questionIds:tasks.map(task=>task.id),signatures:tasks.map(task=>dailyPublicQuestionFingerprint(game,task))})});
    const json=await res.json();
    if(res.ok&&json.claimed){setState({kind:'used',nextAt:json.nextAt,message:''});return true;}
    if(json.used){setState({kind:'used',nextAt:json.nextAt,message:json.error});return false;}
+   if(res.status===409){setState({kind:'outdated',message:json.error||'تغيرت الأسئلة. حدّث الصفحة قبل بدء الجولة.'});return false;}
    setState({kind:res.status===401?'login':'error',message:json.error||'تعذر بدء التحدي.'});
    return false;
   }catch{setState({kind:'error',message:'فشل الاتصال بالخادم؛ لم تتأكد المحاولة. أعد تحميل الصفحة.'});return false;}
@@ -80,7 +82,7 @@ export function DailyAttemptNotice({daily,mode,date}){
  if(daily.kind==='login')return <>{countdown}<div className={styles.notice} role="status"><strong>سجّل الدخول للمشاركة في تحدي اليوم.</strong><p>يمكنك لعب الجولات الحرة دون حساب. التحدي الرسمي محاولة واحدة لكل حساب يومياً.</p><Link href="/login">تسجيل الدخول</Link></div></>;
  if(daily.kind==='other')return <>{countdown}<div className={styles.notice} role="status"><strong>تحدي اليوم في لعبة أخرى.</strong><p>هناك لعبة رسمية واحدة تتغير يومياً وتكون مشتركة بين جميع المشاركين.</p><Link href={dailyGameUrl(daily.date)}>انتقل إلى تحدي اليوم</Link></div></>;
  if(daily.kind==='used')return <>{countdown}<div className={styles.used} role="status"><strong>استخدمت محاولتك اليومية بالفعل.</strong><p>{daily.message||'يمكنك العودة لتحدي اليوم التالي. الجولات الحرة ما زالت متاحة.'}</p><small>تُفتح محاولة جديدة عند الساعة 00:00 بتوقيت UTC.</small></div></>;
- if(daily.kind==='outdated')return <>{countdown}<div className={styles.notice} role="status"><strong>بدأ تحدٍ جديد.</strong><p>{daily.message}</p><button type="button" onClick={()=>location.reload()}>تحديث الصفحة</button></div></>;
+ if(daily.kind==='outdated')return <>{countdown}<div className={styles.notice} role="status"><strong>تغيّر تحدي اليوم.</strong><p>{daily.message}</p><button type="button" onClick={()=>location.reload()}>تحديث الصفحة</button></div></>;
  if(daily.kind==='error')return <>{countdown}<div className={styles.notice} role="alert"><strong>تعذر تفعيل تحدي اليوم.</strong><p>{daily.message}</p><button type="button" onClick={()=>location.reload()}>إعادة المحاولة</button></div></>;
  return <>{countdown}<p role="status" className={styles.loading}>جارٍ التحقق من محاولتك اليومية…</p></>;
 }

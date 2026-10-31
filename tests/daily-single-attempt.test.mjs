@@ -61,7 +61,7 @@ test('all game clients claim the attempt only once before starting daily rounds'
   const code=read(path);
   assert.ok(code.includes('useDailyAttempt('),path);
   assert.ok(code.includes('<DailyAttemptNotice'),path);
-  assert.ok(code.includes('await daily.reserve()'),path);
+  assert.ok(/await daily\.reserve\((list|tasksNow)\)/.test(code),path);
   assert.ok(code.includes('if(!granted)return'),path);
  }
  for(const [route,game] of [['app/games/quiz/page.jsx','quiz'],['app/games/place/page.jsx','place'],['app/games/timeline/page.jsx','timeline'],['app/games/map/page.jsx','map'],...['who','bigger','connect','yemenword','object'].map(id=>['app/games/'+id+'/page.jsx',id])]){
