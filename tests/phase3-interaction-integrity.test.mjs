@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {PGlite} from '@electric-sql/pglite';
 import {dailySeed,buildQuizRound} from '../lib/gameEngine.js';
 import {quizStarter} from '../lib/gameQuestions.js';
+import {readGameCatalog} from '../lib/gameRepository.js';
 import {buildPlaceChallenges,buildTimelineChallenges,buildMapChallenges} from '../lib/arcadeChallenges.js';
 import {extraGameBuilders} from '../lib/extraGames.js';
 import {officialQuestionSnapshot} from '../lib/dailyVerifiedScore.js';
@@ -16,10 +17,11 @@ const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const builders={place:buildPlaceChallenges,timeline:buildTimelineChallenges,map:buildMapChallenges,...extraGameBuilders};
 test('all nine daily games present the exact ordered task IDs verified at claim time',async()=>{
  const dates=['2026-10-28','2026-10-29',...Array.from({length:9},(_,i)=>utcDay(Date.parse('2026-10-30T00:00:00Z')+i*86400000))];
+ const quizQuestions=(await readGameCatalog(null)).questions.filter(item=>item.isPublished);
  assert.equal(new Set(dates.slice(2).map(dailyGameForDate)).size,DAILY_GAME_ORDER.length);
  for(const date of dates){
   const game=dailyGameForDate(date);
-  const client=game==='quiz'?buildQuizRound(quizStarter,{mode:'daily',seed:dailySeed(date)}):
+  const client=game==='quiz'?buildQuizRound(quizQuestions,{mode:'daily',seed:dailySeed(date)}):
     builders[game]({mode:'daily',date,seed:dailySeed(date),seen:[]});
   const server=await officialQuestionSnapshot(null,game,date);
   assert.equal(client.length,10,game);
