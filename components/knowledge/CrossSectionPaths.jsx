@@ -1,8 +1,8 @@
 import Link from '@/components/SiteLink';
-import {ArrowUpLeft,Compass,GraduationCap,ScrollText,UsersRound} from 'lucide-react';
+import {ArrowUpLeft,ChartNoAxesCombined,Compass,GraduationCap,ScrollText,UsersRound} from 'lucide-react';
 import styles from './CrossSectionPaths.module.css';
 
-const icons={'الخريطة':Compass,'الشخصيات':UsersRound,'مدرسة 967':GraduationCap,'تاريخ اليمن':ScrollText};
+const icons={'الخريطة':Compass,'الشخصيات':UsersRound,'مدرسة 967':GraduationCap,'تاريخ اليمن':ScrollText,'اليمن بالأرقام':ChartNoAxesCombined,'ترتيب اليمن':ChartNoAxesCombined};
 
 export default function CrossSectionPaths({items=[],title='واصل الاستكشاف',id='related-967'}){
  if(!items.length)return null;
