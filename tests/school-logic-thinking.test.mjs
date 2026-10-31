@@ -91,7 +91,9 @@ test('Morse and gates are practical ungraded labs only after three teaching pane
  assert.ok(morse.includes('decodeMorse'));
  const gates=read('components/school/LogicGatesLab.jsx');
  assert.ok(gates.includes('gateTruthTable'));
- assert.ok(gates.includes('onClick={()=>setA(1-a)}'));
+ assert.ok(gates.includes("onClick={()=>toggle('a')}"));
+ assert.ok(gates.includes("onClick={()=>toggle('b')}"));
+ assert.ok(gates.includes('onComplete?.({kind:\'gates\',visited:next})'));
  assert.ok(read('lib/schoolGenericServer.js').includes('gradeSchoolChoice'));
 });
 test('new courses are discoverable in their own category, not misfiled in Writing',()=>{

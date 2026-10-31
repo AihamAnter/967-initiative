@@ -81,3 +81,12 @@
 .exerciseLimit{font-size:12px;color:#64757a;line-height:1.9;margin:18px 0 0;padding-top:13px;border-top:1px solid #d5e3e2}
 .exerciseContinue{display:flex;gap:6px;align-items:center;color:#215e54;font-size:12px;font-weight:700;margin-top:12px}
 @media(max-width:550px){.lab{padding:16px}.exerciseChoices{display:grid;grid-template-columns:1fr}.numberFields,.pathGrid,.exerciseMetrics{grid-template-columns:1fr}.activityStory{padding:12px}}
+
+/* Mastery feedback only appears after the learner sees the scenario/result. */
+.observationPanel{border:1px solid #b8d2cf;background:#edf5f2;border-radius:12px;padding:16px;display:grid;gap:11px}
+.observationPanel strong{font-size:15px;color:#205f56}
+.observationPanel p{margin:0;font-size:13px;line-height:1.9;color:#345c62}
+.observationPanel small{color:#536d71;font-size:12px}
+.exerciseProgress{margin:0;color:#235f63;font-size:12px;font-weight:750}
+.confirmButton{font:inherit;display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;cursor:pointer;border-radius:10px;background:#1d6c5f;color:#fff;border:0;padding:11px 17px;font-size:13px;font-weight:800}
+.confirmButton:focus-visible{outline:3px solid #2e8193;outline-offset:3px}

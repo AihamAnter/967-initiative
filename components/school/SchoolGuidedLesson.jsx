@@ -35,7 +35,8 @@ function LessonIllustration({lesson,slug,script}){
 }
 export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAttempt=false}){
  const [step,setStep]=useState(0);
- const [labComplete,setLabComplete]=useState(false);
+ const [labProof,setLabProof]=useState(null);
+ const labComplete=Boolean(labProof);
  const lessons=Array.isArray(stage.lessons)?stage.lessons:[];
  const hasPractice=Boolean(stage.practice||stage.lab);
  const script=stage.script||schoolScriptForStage(slug,stage.index);
@@ -43,7 +44,7 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
  const isIntro=step===0,isPractice=hasPractice&&step===total-1;
  const lesson=!isIntro&&!isPractice?lessons[step-1]:null;
  const last=step===total-1;
- const requireExercise=['science','civic'].includes(stage.lab?.kind);
+ const requireExercise=['science','civic','morse','gates'].includes(stage.lab?.kind);
  return <section className={styles.guidedLesson} aria-labelledby="guided-lesson-heading">
   <div className={styles.guidedTop}>
    <span className={styles.guidedEyebrow}><BookOpen size={16}/> افهم الفكرة، شاهد مثالًا، ثم طبقها</span>
@@ -67,7 +68,7 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
    <p className={styles.guidedBody}>{lesson.body}</p>
    <LessonIllustration lesson={lesson} slug={slug} script={script}/>
    {stage.source?.url&&<a className={styles.guidedScientificSource} href={stage.source.url}
-    target="_blank" rel="noopener noreferrer">لمن يريد التوسع — مرجع الدرس: {stage.source.title}</a>}
+    target="_blank" rel="noopener noreferrer">لمن يريد التوسع — {stage.lab?.kind==='civic'?'مرجع مؤسسي عام للمسار':'مرجع علمي للدرس'}: {stage.source.title}</a>}
   </div>}
   {isPractice&&<div className={styles.guidedPage} key="practice">
    <span className={styles.guidedLabel}><PenLine size={16}/> التطبيق العملي</span>
@@ -77,19 +78,19 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
     stage.lab?.kind==='science'?'انظر إلى الرسم والنتيجة الأولى، ثم حرّك أحد المتغيرات وراقب ما تغير. كل محطة لها رسم أو حساب يشرح ظاهرة مختلفة، ولا تحتاج إلى تخمين نتيجة غير مفهومة.':
     stage.lab?'هذا تدريب يمكنك تكراره دون خصم نقاط. جرّب الفكرة بيدك، ثم راجع الشرح قبل الاختبار.':
     'بعد فهم القواعد والأمثلة، طبّق ما تعلمته في ورشة الكتابة. يمكنك مراجعة الخطوات السابقة في أي وقت. هذا تدريب حرّ، وليس اختبارًا لجمال الخط.'}</p>
-   {stage.lab?.kind==='morse'&&<MorseLab sample={stage.lab.sample}/>}
-   {stage.lab?.kind==='gates'&&<LogicGatesLab gate={stage.lab.gate}/>}
-   {stage.lab?.kind==='science'&&<ScienceLab lab={stage.lab} source={stage.source} onComplete={()=>setLabComplete(true)}/>}
-   {stage.lab?.kind==='civic'&&<CivicLab lab={stage.lab} slug={slug} index={stage.index} onComplete={()=>setLabComplete(true)}/>}
+   {stage.lab?.kind==='morse'&&<MorseLab sample={stage.lab.sample} onComplete={setLabProof}/>}
+   {stage.lab?.kind==='gates'&&<LogicGatesLab gate={stage.lab.gate} onComplete={setLabProof}/>}
+   {stage.lab?.kind==='science'&&<ScienceLab lab={stage.lab} source={stage.source} onComplete={setLabProof}/>}
+   {stage.lab?.kind==='civic'&&<CivicLab lab={stage.lab} slug={slug} index={stage.index} onComplete={setLabProof}/>}
    {stage.practice&&<CalligraphyPracticePad practice={stage.practice} script={script} allowScriptChoice={slug==='arabic-calligraphy'&&stage.index===11} stageKey={slug+'-'+(stage.index+1)}/>}
   </div>}
-  {last&&requireExercise&&!labComplete&&!hasActiveAttempt&&<p className={styles.guidedCaution}>أكمل نشاط هذه المحطة أولًا: اختر حالة، أو رتّب خطوات، أو غيّر قيمة. بعدها يمكنك بدء الاختبار.</p>}
+  {last&&requireExercise&&!labComplete&&!hasActiveAttempt&&<p className={styles.guidedCaution}>أكمل النشاط أولًا: تأكد من تحليلك، واستكشف كل البدائل أو نتائج الحساب، أو أرسل رسالة مورس المطلوبة أو جرّب جميع حالات البوابة المنطقية.</p>}
   {last&&<p className={styles.guidedReady}><CheckCircle2 size={18}/> انتهى شرح الدرس. الاختبار يقيس ما تعلمته وليس رأيك الشخصي، ويمكنك الرجوع إلى الشرح في أي وقت.</p>}
   <div className={styles.guidedActions}>
    <button type="button" className={styles.guidedSecondary} disabled={step===0||busy} onClick={()=>setStep(n=>Math.max(0,n-1))}>
     <ArrowRight size={17}/> السابق
    </button>
-   {last?<button type="button" className={styles.guidedPrimary} disabled={busy||(requireExercise&&!labComplete&&!hasActiveAttempt)} onClick={onStart}>
+   {last?<button type="button" className={styles.guidedPrimary} disabled={busy||(requireExercise&&!labComplete&&!hasActiveAttempt)} onClick={()=>onStart(labProof)}>
     {busy?'جارٍ بدء المحاولة…':hasActiveAttempt?'العودة إلى أسئلة المحاولة':'ابدأ الاختبار بعد الشرح'} <ArrowLeft size={17}/>
    </button>:<button type="button" className={styles.guidedPrimary} disabled={busy}
     onClick={()=>setStep(n=>Math.min(total-1,n+1))}>

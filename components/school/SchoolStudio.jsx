@@ -7,6 +7,7 @@ import {SCHOOL_SCRIPT_OPTIONS,schoolScriptForStage} from '@/lib/schoolCalligraph
 import {GATE_TYPES} from '@/lib/schoolThinkingLabs';
 import {SCIENCE_MODEL_IDS,SCIENCE_LABS} from '@/lib/schoolScienceModels';
 import {CIVIC_LABS} from '@/lib/schoolCivicModels';
+import {getCivicActivity} from '@/lib/schoolCivicActivities';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
@@ -193,6 +194,49 @@ export default function SchoolStudio(){
        <label>عنوان سيناريو المحطة<input maxLength={110} value={form.lab.scenario||''}
         onChange={e=>setForm(v=>({...v,lab:{...v.lab,scenario:e.target.value}}))}/></label>
       </>}
+
+      {form.lab?.kind==='civic'&&<section className={styles.guidedEditorPanel}>
+       <div className={styles.bankHead}><h3>تخصيص النشاط العملي لهذه المحطة</h3>
+        {!form.lab.activity&&<button type="button" onClick={()=>setForm(v=>({...v,lab:{...v.lab,
+         activity:getCivicActivity(slug,stage)?structuredClone(getCivicActivity(slug,stage)):undefined}}))}>
+         ربط النشاط المقترح بالمحطة</button>}
+       </div>
+       <p className={styles.muted}>الطالب يرى النشاط المنشور مع هذه المحطة فقط. التعديل هنا لا يغير مختبر محطات أخرى. الأسئلة الرسمية تُدار وتُصحح بشكل مستقل.</p>
+       {form.lab.activity&&<>
+        <p className={styles.muted}>نوع النشاط: {({case:'تحليل حالة صحيحة',paths:'مقارنة جميع الخيارات',steps:'ترتيب خطوات',numbers:'تجربة حسابية'})[form.lab.activity.kind]||'نشاط'}</p>
+        <label>عنوان النشاط<input maxLength={110} value={form.lab.activity.title||''}
+         onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,title:e.target.value}}}))}/></label>
+        <label>الموقف الذي يقرأه الطالب<textarea rows={4} maxLength={900} value={form.lab.activity.story||''}
+         onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,story:e.target.value}}}))}/></label>
+        {form.lab.activity.kind!=='steps'&&<label>السؤال التطبيقي<textarea rows={2} maxLength={350} value={form.lab.activity.question||''}
+         onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,question:e.target.value}}}))}/></label>}
+        {form.lab.activity.kind==='case'&&<>
+         <p className={styles.muted}>حالة تحليل موضوعية: اختر الإجابة المبنية على الوقائع، دون تقييم الرأي السياسي.</p>
+         {form.lab.activity.choices.map((choice,i)=><label key={i}>الخيار {i+1}
+          <input maxLength={180} value={choice} onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,
+           choices:v.lab.activity.choices.map((x,j)=>j===i?e.target.value:x)}}}))}/></label>)}
+         <label>الإجابة القائمة على المعطيات<select value={form.lab.activity.correctIndex}
+          onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,correctIndex:Number(e.target.value)}}}))}>
+          {form.lab.activity.choices.map((_,i)=><option key={i} value={i}>الخيار {i+1}</option>)}
+         </select></label>
+        </>}
+        {form.lab.activity.kind==='paths'&&form.lab.activity.choices.map((pair,i)=><div key={i}>
+         <label>عنوان الجانب {i+1}<input maxLength={100} value={pair[0]}
+          onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,
+           choices:v.lab.activity.choices.map((x,j)=>j===i?[e.target.value,x[1]]:x)}}}))}/></label>
+         <label>أثر هذا الجانب<textarea rows={2} maxLength={450} value={pair[1]}
+          onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,
+           choices:v.lab.activity.choices.map((x,j)=>j===i?[x[0],e.target.value]:x)}}}))}/></label>
+        </div>)}
+        {form.lab.activity.kind==='steps'&&form.lab.activity.steps.map((stepText,i)=><label key={i}>
+         الإجراء {i+1} في تسلسله الصحيح<input maxLength={200} value={stepText}
+          onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,
+           steps:v.lab.activity.steps.map((x,j)=>j===i?e.target.value:x)}}}))}/></label>)}
+        {form.lab.activity.kind==='numbers'&&<p className={styles.muted}>المعادلة وحدود المنزلقات محفوظة كما هي لضمان صحة الحساب. يمكنك تعديل عنوان النشاط وسؤاله وسيناريو التطبيق وشرح نتائجه هنا.</p>}
+        <label>شرح الإجابة أو حدود الاستنتاج<textarea rows={4} maxLength={1000} value={form.lab.activity.explain||''}
+         onChange={e=>setForm(v=>({...v,lab:{...v.lab,activity:{...v.lab.activity,explain:e.target.value}}}))}/></label>
+       </>}
+      </section>}
       {form.lab?.kind==='science'&&<>
        <label>نوع النموذج العلمي
         <select value={form.lab.model} onChange={e=>setForm(v=>({...v,lab:{...v.lab,model:e.target.value}}))}>

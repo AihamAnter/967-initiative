@@ -26,7 +26,7 @@ test('question bank accepts only four distinct choices and server-owned answer k
  assert.equal(snapshot.length,6);
  assert.equal(snapshot[0].answer,'سبأ');
  assert.ok(publicQuestions.every(question=>!Object.hasOwn(question,'answer')&&!Object.hasOwn(question,'explanation')&&!Object.hasOwn(question,'answerIndex')));
- const answers=snapshot.map(item=>({id:item.id,choice:0}));
+ const answers=snapshot.map(item=>({id:item.id,choice:item.options.indexOf(item.answer)}));
  assert.deepEqual(gradeSchoolChoice(snapshot,answers).passed,true);
  assert.throws(()=>gradeSchoolChoice(snapshot,[...answers.slice(0,5),{id:'wrong',choice:0}]));
  const shifted=chooseSchoolQuestions(rows,2);
@@ -36,8 +36,8 @@ test('analytics never returns raw user information or responses',()=>{
  const q=chooseSchoolQuestions(Array.from({length:6},(_,i)=>({id:'00000000-0000-0000-0000-'+String(i+1).padStart(12,'0'),
   published:{prompt:'ما الإجابة المناسبة لهذا السؤال التعليمي؟',target:'',options:['صحيح','خطأ','آخر','بديل'],answerIndex:0,explanation:'شرح موثق للاختيار الصحيح.'}})),1);
  const data=schoolStudioAnalytics([
-  {user_id:'PRIVATE',course_slug:'historical-yemen',stage_index:0,status:'passed',score:6,questions:q,submission:q.map(x=>({id:x.id,choice:0}))},
-  {user_id:'PRIVATE2',course_slug:'historical-yemen',stage_index:0,status:'failed',score:0,questions:q,submission:q.map(x=>({id:x.id,choice:1}))}
+  {user_id:'PRIVATE',course_slug:'historical-yemen',stage_index:0,status:'passed',score:6,questions:q,submission:q.map(x=>({id:x.id,choice:x.options.indexOf(x.answer)}))},
+  {user_id:'PRIVATE2',course_slug:'historical-yemen',stage_index:0,status:'failed',score:0,questions:q,submission:q.map(x=>({id:x.id,choice:(x.options.indexOf(x.answer)+1)%x.options.length}))}
  ]);
  assert.equal(data.stages[0].attempts,2);
  assert.equal(data.stages[0].passRate,50);

@@ -42,7 +42,7 @@ test('UI follows overview -> teaching slides -> freehand workshop -> quiz',()=>{
  assert.ok(guided.includes("const total=1+lessons.length+(hasPractice?1:0)"));
  assert.ok(guided.includes('const last=step===total-1'));
  assert.ok(guided.includes("last?<button"));
- assert.ok(guided.includes("onClick={onStart}"));
+ assert.ok(guided.includes("onClick={()=>onStart(labProof)}"));
  assert.ok(guided.includes("onClick={()=>setStep(n=>Math.min(total-1,n+1))}"));
  assert.ok(guided.includes('lesson.body'));
  assert.ok(guided.includes('lesson.example'));

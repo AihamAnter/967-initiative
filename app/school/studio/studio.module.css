@@ -276,3 +276,15 @@
 .scienceActivityDone{background:#e6f5ea;color:#1d7253}
 .scienceActivityPrompt{background:#fff8e5;color:#775923;border:1px solid #e1d1a2}
 @media(max-width:650px){.learningSteps{grid-template-columns:1fr}.learningIllustration{padding:14px}.guidedPage .guidedBody{line-height:2}}
+
+/* Read, compare, then verify: no blind prediction required. */
+.scienceObservation{display:grid;gap:11px;margin:18px 0;background:#eef5f1;border:1px solid #bed9cc;border-radius:12px;padding:17px;color:#244b42}
+.scienceObservation>strong{font-size:15px}
+.scienceObservation>p{font-size:13px;line-height:1.85;margin:0}
+.scienceObservation>small{font-size:12px;color:#53685f}
+.scienceObservationChoices{display:flex;flex-wrap:wrap;gap:8px}
+.scienceObservationChoices button{font:inherit;background:#fff;border:1px solid #91b7b0;border-radius:9px;color:#164e48;padding:11px 15px;font-size:13px;font-weight:750;min-height:44px;cursor:pointer}
+.scienceObservationChoices button:hover{background:#dfeee7}
+.scienceObservationChoices button:focus-visible{outline:3px solid #25796e;outline-offset:2px}
+.scienceObservationChoices button[aria-pressed=true]{background:#206b57;color:#fff;border-color:#206b57}
+@media(max-width:540px){.scienceObservationChoices{display:grid;grid-template-columns:1fr 1fr}.scienceObservationChoices button{min-width:0;padding:10px 8px}}

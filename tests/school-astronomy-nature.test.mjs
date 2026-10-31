@@ -108,11 +108,11 @@ test('science learning sequence mandates prediction and at least one real slider
  assert.ok(lab.includes('كيف تستخدم المختبر؟'));
  assert.ok(lab.includes('راقب الرسم والأرقام'));
  assert.ok(!lab.includes("['increase','يزداد']"));
- assert.ok(lab.includes('onComplete?.()'));
+ assert.ok(lab.includes("onComplete?.({kind:'science'"));
  assert.ok(lab.includes('SCIENCE_LABS'));
  assert.ok(guided.includes("stage.lab?.kind==='science'"));
  assert.ok(guided.includes('!labComplete&&!hasActiveAttempt'));
- assert.ok(guided.includes("['science','civic'].includes(stage.lab?.kind)"));
+ assert.ok(guided.includes("['science','civic','morse','gates'].includes(stage.lab?.kind)"));
  assert.ok(guided.includes('ScienceLab'));
  assert.ok(guided.includes('source={stage.source}'));
  assert.ok(read('components/school/SchoolStudio.jsx').includes('SCIENCE_MODEL_IDS'));

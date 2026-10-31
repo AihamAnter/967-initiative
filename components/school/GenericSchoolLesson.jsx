@@ -30,10 +30,10 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
  const draft=useSchoolDraft({attempt,active:phase==='play',answers,selection,
   request:body=>requestGeneric({...body,slug})});
  useEffect(()=>{if(phase==='done')resultTitle.current?.focus();},[phase]);
- async function start(){
+ async function start(labProof=null){
   setBusy(true);setError('');
   try{
-   const data=await requestGeneric({action:'start',slug,stage:stage.index});
+   const data=await requestGeneric({action:'start',slug,stage:stage.index,labProof});
    setAttempt(data.attempt);setAnswers(data.attempt.draft?.answers||[]);
    setIndex(data.attempt.draft?.answers?.length||0);
    setSelection(data.attempt.draft?.selection??null);setResult(null);setPhase('play');
@@ -97,7 +97,7 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
     <p>الإجابة: {r.answer}</p><p>{r.explanation}</p>
    </div>)}
    <div className={styles.lessonActions}><button type="button" onClick={()=>setPhase('learn')}><BookOpen size={17}/> مراجعة الشرح</button>
-    <button type="button" onClick={start}><RotateCcw size={17}/> إعادة المحاولة</button>
+    <button type="button" onClick={()=>{setAttempt(null);setPhase('learn');}}><RotateCcw size={17}/> مراجعة التطبيق ثم إعادة المحاولة</button>
     {result.passed&&hasNext&&<Link href={'/school/courses/'+slug+'/'+(stage.index+2)}>المحطة التالية <ArrowLeft size={17}/></Link>}
    </div>
   </section>}
