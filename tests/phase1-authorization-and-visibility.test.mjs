@@ -35,7 +35,7 @@ test('editor SQL helpers honor email confirmation and bans through direct authen
   await pg.query('insert into auth.users(id,email_confirmed_at,banned_until) values($1,$2,$3)',[id,name==='unconfirmed'?null:'2026-01-01',name==='banned'?'2099-01-01':null]);
   if(name!=='regular')await pg.query('insert into public.editors(user_id,role) values($1,$2)',[id,name==='management'?'management':'admin']);
  }
- await pg.exec(read('supabase/migrations/20261031000500_editor_role_session_guards.sql'));
+ await pg.exec(read('supabase/migrations/20261031020834_editor_role_session_guards.sql'));
  await pg.exec('create policy editor_read on public.editor_data for select to authenticated using (public.is_editor());');
 
  const policies=[
@@ -57,7 +57,7 @@ test('editor SQL helpers honor email confirmation and bans through direct authen
  await pg.query('insert into public.editor_drafts(id,owner_id) values(1,$1),(2,$2)',[users.management,users.banned]);
  await pg.exec('insert into public.message_followups(id) values(1);');
  await pg.exec('create index debate_vote_poll_idx on public.debate_votes(id);create index debate_vote_distribution_idx on public.debate_votes(id);');
- await pg.exec(read('supabase/migrations/20261031000600_editor_rls_policy_hardening.sql'));
+ await pg.exec(read('supabase/migrations/20261031020839_editor_rls_policy_hardening.sql'));
  assert.equal((await pg.query("select to_regclass('public.debate_vote_distribution_idx') is null as removed")).rows[0].removed,true);
  assert.equal((await pg.query("select to_regclass('public.debate_vote_poll_idx') is not null as retained")).rows[0].retained,true);
 
