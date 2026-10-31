@@ -7,6 +7,7 @@ import {validateCompanySources} from '../lib/companySources.js';
 import {validateIndicatorEditorial} from '../lib/indicatorEditorial.js';
 import {validateHistoryEntry} from '../lib/historyRepository.js';
 import {historyStarter} from '../lib/yemenHistory.js';
+import {latestEvidenceDate} from '../lib/institutionDirectories.js';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const asOf=new Date('2026-10-31T12:00:00.000Z');
@@ -14,6 +15,11 @@ const asOf=new Date('2026-10-31T12:00:00.000Z');
 test('verified timestamps must be actual past or present calendar dates',()=>{
  for(const date of ['2026-10-31','2024-02-29','2023-12-31'])assert.equal(validEvidenceDate(date,asOf),true,date);
  for(const date of ['2026-11-01','2027-01-01','2026-02-30','2023-02-29','2026-13-05','0000-00-00','2026-10'])assert.equal(validEvidenceDate(date,asOf),false,date);
+});
+test('an impossible source date cannot make directory evidence look newer',()=>{
+ const source={sources:[{status_as_of:'2026-02-30',source_published_at:'2024-01-01'},{status_as_of:'2025-05-01'}]};
+ assert.equal(latestEvidenceDate(source).label,'2025-05-01');
+ assert.equal(latestEvidenceDate({sources:[{status_as_of:'2026-02-30'}]}),null);
 });
 test('medical operational status is historical when a source dates back to 2023',()=>{
  const old=medicalOperatingEvidence({operatingStatus:'fully_operational',operatingStatusAsOf:'2023-12-31'},asOf);
