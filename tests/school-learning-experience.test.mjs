@@ -54,7 +54,7 @@ test('the global school example changes with material and all learners can pract
  assert.match(guide,/CalligraphyExample/);
  assert.match(guide,/slug={slug} index={stage.index}/);
  assert.match(science,/كيف تستخدم المختبر/);
- assert.match(science,/onComplete\?\.\(\)/);
+ assert.match(science,/onComplete\?\.\(\{kind:'science'/);
  assert.doesNotMatch(science,/يزداد.*ينخفض/);
  assert.doesNotMatch(civic,/يزداد.*ينخفض/);
  assert.match(civic,/CaseExercise/);
