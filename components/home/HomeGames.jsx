@@ -52,6 +52,7 @@ export default function HomeGames(){
     </div>
     <div className={styles.preview}>
      <div className={styles.previewHead}><span><Sparkles size={17} aria-hidden="true"/> اختر نقطة البداية</span><span dir="ltr">03 / 09</span></div>
+     <p className={styles.mobileSwipeHint}>اسحب البطاقات لمشاهدة ألعاب إضافية</p>
      <div className={styles.previewList}>
       {previews.map(({href,title,eyebrow,description,icon:Icon,number})=><Link className={styles.previewItem} href={href} key={href}>
        <span className={styles.previewIcon}><Icon size={23} strokeWidth={1.7} aria-hidden="true"/></span>
