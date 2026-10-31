@@ -1,8 +1,13 @@
 import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
-import {getSiteSettings} from '@/lib/data';
+import {getSiteSettings,getYemeniFigures} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {publicDb} from '@/lib/supabase';
+import {serverDb} from '@/lib/supabase-server';
+import {readHistoryCatalog} from '@/lib/historyRepository';
+import {relatedProjections} from '@/lib/relatedContent';
+import {governorateCrossLinks} from '@/lib/knowledgeConnections';
+import CrossSectionPaths from '@/components/knowledge/CrossSectionPaths';
 import {getMapBoundaries,readPublicMapProfiles} from '@/lib/mapProfileRepository';
 import {yemenGovernorates} from '@/lib/yemeniFigures';
 import {governorateHeritageSources,governorateProfileSections,isGovernorateId} from '@/lib/governorateEditorial';
@@ -40,6 +45,13 @@ export default async function GovernorateProfilePage({params}){
   const profile=profiles[id];
   if(!region||!profile)notFound();
   const districts=boundaries.districts.filter(item=>item.governorateId===id);
+  const [historical,people]=await Promise.all([
+   sectionIsVisible('history',settings.pageVisibility)
+    ?readHistoryCatalog(serverDb()).then(result=>result.entries).catch(()=>[]):Promise.resolve([]),
+   sectionIsVisible('figures',settings.pageVisibility)
+    ?getYemeniFigures(relatedProjections.figures).catch(()=>[]):Promise.resolve([])
+  ]);
+  const crossLinks=governorateCrossLinks(id,{visibility:settings.pageVisibility,historyEntries:historical,figures:people});
   const refs=governorateHeritageSources[id]||[];
   const heading=region.nameAr;
   return <main className={styles.page}>
@@ -60,6 +72,7 @@ export default async function GovernorateProfilePage({params}){
     <div className={'container '+styles.layout}>
       <article className={styles.article}>
         <ContentSections profile={profile}/>
+        <CrossSectionPaths items={crossLinks} id="governorate-cross-paths" title="من هذه المحافظة إلى تاريخها وشخصياتها"/>
         <section className={styles.sources} aria-label="مراجع وتحذيرات التوثيق">
           <h2>المصادر وحدود المعلومات</h2>
           <p>النصوص التعريفية من أطلس 967، وهي مادة معرفية عامة وليست بياناً رسمياً محدثاً للخدمات أو الأمن أو أحوال الطرق. الأعداد والحدود الإدارية من فهرس الخريطة المعتمد بالموقع، ولا نعرض تقدير سكان دون سنة ومصدر.</p>
