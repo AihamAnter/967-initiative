@@ -29,7 +29,7 @@ test('editor SQL helpers honor email confirmation and bans through direct authen
   'create table public.editor_data(id integer primary key,label text)',
   "insert into public.editor_data values(1,'private')",
   'alter table public.editor_data enable row level security',
-  'grant select on public.editor_data to authenticated'
+  'grant select on public.editor_data to anon,authenticated'
  ].join(';\n')+';');
  for(const [name,id] of Object.entries(users)){
   await pg.query('insert into auth.users(id,email_confirmed_at,banned_until) values($1,$2,$3)',[id,name==='unconfirmed'?null:'2026-01-01',name==='banned'?'2099-01-01':null]);
