@@ -37,6 +37,30 @@ test('editor SQL helpers honor email confirmation and bans through direct authen
  }
  await pg.exec(read('supabase/migrations/20261031000500_editor_role_session_guards.sql'));
  await pg.exec('create policy editor_read on public.editor_data for select to authenticated using (public.is_editor());');
+
+ const policies=[
+  ['editor_drafts','editor_own_drafts','owner_id'],
+  ['message_followups','editor_message_followups',null],
+  ['public_profiles','profile_read','user_id'],
+  ['debate_votes','votes_own_only','user_id'],
+  ['debate_comments','comments_own_editor','user_id'],
+  ['debate_questions','questions_own_editor','user_id'],
+  ['debate_suggestions','suggestions_own_editor','user_id'],
+  ['debate_reports','reports_read','user_id']
+ ];
+ for(const [table,policy,column] of policies){
+  await pg.exec('create table public.'+table+'(id integer primary key'+(column?','+column+' uuid':'')+');'
+   +'alter table public.'+table+' enable row level security;'
+   +'grant select on public.'+table+' to anon,authenticated;'
+   +'create policy '+policy+' on public.'+table+' for select to authenticated using (true);');
+ }
+ await pg.query('insert into public.editor_drafts(id,owner_id) values(1,$1),(2,$2)',[users.management,users.banned]);
+ await pg.exec('insert into public.message_followups(id) values(1);');
+ await pg.exec('create index debate_vote_poll_idx on public.debate_votes(id);create index debate_vote_distribution_idx on public.debate_votes(id);');
+ await pg.exec(read('supabase/migrations/20261031000600_editor_rls_policy_hardening.sql'));
+ assert.equal((await pg.query("select to_regclass('public.debate_vote_distribution_idx') is null as removed")).rows[0].removed,true);
+ assert.equal((await pg.query("select to_regclass('public.debate_vote_poll_idx') is not null as retained")).rows[0].retained,true);
+
  async function probe(user,role='authenticated'){
   return pg.transaction(async tx=>{
    await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[user||'']);
@@ -55,6 +79,18 @@ test('editor SQL helpers honor email confirmation and bans through direct authen
   assert.equal(state.debate,null,id);assert.equal(state.task,null,id);
   assert.equal(state.private_rows,0,id);
  }
+ async function restrictedRows(user){
+  return pg.transaction(async tx=>{
+   await tx.query("select set_config('request.jwt.claim.sub',$1,true)",[user]);
+   await tx.exec('set local role authenticated');
+   return (await tx.query('select (select count(*)::int from public.editor_drafts) as drafts,(select count(*)::int from public.message_followups) as followups')).rows[0];
+  });
+ }
+ assert.deepEqual(await restrictedRows(users.management),{drafts:1,followups:1});
+ assert.deepEqual(await restrictedRows(users.admin),{drafts:0,followups:1});
+ for(const id of [users.unconfirmed,users.banned,users.regular])
+  assert.deepEqual(await restrictedRows(id),{drafts:0,followups:0});
+
  const visitor=await probe(null,'anon');
  assert.equal(visitor.editor,false);assert.equal(visitor.manager,false);assert.equal(visitor.ranking,false);
  assert.equal(visitor.debate,null);assert.equal(visitor.task,null);
