@@ -60,8 +60,8 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search'}){
     if(cancelled)return;
     const token=data.session.access_token;
     await Promise.all([
-     load('school','/api/school/dashboard',token),
-     load('games','/api/games/my-overview',token),
+     ...(isVisible('/school')?[load('school','/api/school/dashboard',token)]:[]),
+     ...(isVisible('/games')?[load('games','/api/games/my-overview',token)]:[]),
      load('reading','/api/account/workspace',token),
     ]);
    }catch{
@@ -69,7 +69,7 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search'}){
    }
   })();
   return()=>{cancelled=true;controller.abort();};
- },[ready,user?.id,day,revision]);
+ },[ready,user?.id,day,revision,isVisible]);
 
  useEffect(()=>{
   const db=browserDb();
