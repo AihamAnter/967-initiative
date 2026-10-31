@@ -1,6 +1,6 @@
 'use client';
 import {useMemo,useState} from 'react';
-import {ArrowLeft,BookOpenCheck,CheckCircle2,Landmark,RefreshCw} from 'lucide-react';
+import {ArrowLeft,CheckCircle2,Landmark,RefreshCw} from 'lucide-react';
 import {getCivicActivity,civicNumbers} from '@/lib/schoolCivicActivities';
 import {CIVIC_LABS,calculateCivicLab} from '@/lib/schoolCivicModels';
 import {labObservationChoices} from '@/lib/schoolLabEvidence';
