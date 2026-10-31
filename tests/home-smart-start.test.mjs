@@ -38,6 +38,9 @@ test('member summaries come from existing private owner-verified APIs, not brows
  assert.ok(smart.includes("cache:'no-store'"));
  assert.ok(smart.includes('controller.abort()'));
  assert.ok(smart.includes("user?.id"));
+ assert.ok(smart.includes('storedCards.userId===user?.id'));
+ assert.ok(smart.includes('old.userId===user.id'));
+ assert.ok(smart.includes("event==='SIGNED_OUT'||event==='SIGNED_IN'"));
  assert.ok(!smart.includes('localStorage'));
  assert.ok(!smart.includes('question_bank'));
  assert.ok(!smart.includes('getUserMetadata'));
