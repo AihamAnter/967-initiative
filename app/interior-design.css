@@ -530,3 +530,19 @@
     grid-template-columns:minmax(0,1fr);
   }
 }
+
+
+/* Mobile 967: override the interior theme's wide debate filter grid.
+   Keep search and debate stage visible, with optional filters on demand. */
+@media(max-width:700px){
+ .interior-page .debate-filters{grid-template-columns:minmax(0,1fr);gap:10px}
+ .interior-page .debate-filters>.debate-search,
+ .interior-page .debate-filters>label:not(.debate-search){grid-column:1/-1}
+ .interior-page .debate-filters .debate-mobile-filter-toggle{display:flex;grid-column:1/-1}
+ .interior-page .debate-filters .debate-extra-fields{display:grid;grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .interior-page .debate-filters .debate-extra-fields[data-open=false]{display:none}
+ .interior-page .debate-filters .debate-extra-fields>label{min-width:0}
+ .interior-page .debate-detail-nav{display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-inline:contain}
+ .interior-page .debate-detail-nav a{white-space:nowrap;flex-shrink:0;min-height:44px}
+ .interior-page .debate-card-body h3{font-size:21px;line-height:1.45}
+}
