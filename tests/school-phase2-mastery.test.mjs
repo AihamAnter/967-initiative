@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {CIVIC_ACTIVITIES,civicNumbers,validateCivicActivity} from '../lib/schoolCivicActivities.js';
 import {CIVIC_LABS,calculateCivicLab} from '../lib/schoolCivicModels.js';
 import {SCIENCE_LABS,calculateScienceLab} from '../lib/schoolScienceModels.js';
+import {encodeMorse,gateTruthTable,GATE_TYPES} from '../lib/schoolThinkingLabs.js';
 import {checkCivicLabEvidence,checkScienceLabEvidence,checkGenericCivicEvidence,
  schoolRequiresLabEvidence,verifySchoolLabEvidence,labObservationChoices} from '../lib/schoolLabEvidence.js';
 import {chooseSchoolQuestions,gradeSchoolChoice,publicSchoolChoice,validateSchoolEditorial} from '../lib/schoolContent.js';
@@ -95,7 +96,14 @@ test('fresh and edited stations are validated on the server, and legacy nonlab c
  assert.equal(verifySchoolLabEvidence({kind:'civic',model:'institutions',activity},'how-state-works',0,null),false);
  assert.equal(verifySchoolLabEvidence({kind:'civic',model:'institutions',activity},'how-state-works',0,{kind:'case',selection:activity.correctIndex}),true);
  assert.equal(verifySchoolLabEvidence({kind:'civic',model:'institutions'},'how-state-works',0,{kind:'case',selection:activity.correctIndex}),true);
- assert.equal(verifySchoolLabEvidence({kind:'morse',sample:'SOS'},'morse-code',0,null),true);
+ assert.equal(verifySchoolLabEvidence({kind:'morse',sample:'SOS'},'morse-code',0,null),false);
+ assert.equal(verifySchoolLabEvidence({kind:'morse',sample:'SOS'},'morse-code',0,{kind:'morse',signal:encodeMorse('SOS')}),true);
+ assert.equal(verifySchoolLabEvidence({kind:'morse',sample:'SOS'},'morse-code',0,{kind:'morse',signal:encodeMorse('SO')}),false);
+ for(const gate of GATE_TYPES){
+  const visited=gateTruthTable(gate).map(r=>r.a+':'+r.b);
+  assert.equal(verifySchoolLabEvidence({kind:'gates',gate},'logic-gates',0,{kind:'gates',visited}),true,gate);
+  assert.equal(verifySchoolLabEvidence({kind:'gates',gate},'logic-gates',0,{kind:'gates',visited:visited.slice(1)}),false,gate);
+ }
  const config=CIVIC_LABS.institutions;
  let found=null;
  for(const x of possibilities(config.x))for(const y of possibilities(config.y)){
@@ -146,6 +154,8 @@ test('a station can display a single published activity and the editor can revis
  assert.match(science,/confirmObservation/);
  assert.match(guide,/onComplete=\{setLabProof\}/);
  assert.match(guide,/onStart\(labProof\)/);
+ assert.match(guide,/MorseLab sample=\{stage\.lab\.sample\} onComplete=\{setLabProof\}/);
+ assert.match(guide,/LogicGatesLab gate=\{stage\.lab\.gate\} onComplete=\{setLabProof\}/);
  assert.match(studio,/تخصيص النشاط العملي لهذه المحطة/);
  assert.match(studio,/correctIndex/);
 });
