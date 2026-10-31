@@ -41,7 +41,7 @@ export default function useDailyAttempt(mode,game,date){
   });
   return()=>{alive=false;clearTimeout(authTimer);subscription.unsubscribe();};
  },[mode,game,date]);
- async function reserve(){
+ async function reserve(questionIds){
   if(mode!=='daily')return true;
   if(pending.current||state.kind!=='ready')return false;
   pending.current=true;setState(previous=>({...previous,kind:'reserving'}));
@@ -49,10 +49,11 @@ export default function useDailyAttempt(mode,game,date){
    const db=browserDb(),{data,error}=await db.auth.getSession();
    if(error||!data?.session){setState({kind:'login',message:''});return false;}
    const res=await fetch('/api/games/daily',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+data.session.access_token},
-    cache:'no-store',body:JSON.stringify({date,game})});
+    cache:'no-store',body:JSON.stringify({date,game,questionIds})});
    const json=await res.json();
    if(res.ok&&json.claimed){setState({kind:'used',nextAt:json.nextAt,message:''});return true;}
    if(json.used){setState({kind:'used',nextAt:json.nextAt,message:json.error});return false;}
+   if(res.status===409){setState({kind:'outdated',message:json.error||'تغيرت الأسئلة. حدّث الصفحة قبل بدء الجولة.'});return false;}
    setState({kind:res.status===401?'login':'error',message:json.error||'تعذر بدء التحدي.'});
    return false;
   }catch{setState({kind:'error',message:'فشل الاتصال بالخادم؛ لم تتأكد المحاولة. أعد تحميل الصفحة.'});return false;}
