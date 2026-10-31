@@ -40,3 +40,29 @@
 @media(max-width:650px){.knowledge{padding:30px 0 38px}.heading{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:19px}.heading h2{font-size:30px}.searchLink{font-size:13px;min-height:36px}.grid{gap:10px}.feature{min-height:320px;padding:23px;gap:16px}.feature h3{font-size:34px;margin-block:8px}.feature p{font-size:15px;line-height:1.8}.motif{width:220px!important;inset-inline-end:-45px;inset-block-start:12px}.eraSteps{gap:6px;font-size:10px;margin-top:17px}.eraSteps i{max-width:25px}.tile{min-height:185px;padding:15px;gap:10px}.tileIcon{width:40px;height:40px}.tile h3{font-size:17px}.tile p{font-size:12px;line-height:1.7}.tileCta{font-size:11px}}
 @media(max-width:390px){.grid{grid-template-columns:minmax(0,1fr)}.feature{grid-column:auto;min-height:305px}.tile{min-height:160px}.tileText{margin-top:0}}
 @media(prefers-reduced-motion:reduce){.feature,.tile{transition:none}}
+
+
+/* Two readable mobile shortcuts instead of one long vertical catalog. */
+@media(max-width:430px){
+ .knowledge{padding-block:22px 27px}
+ .heading{gap:7px;margin-bottom:12px}
+ .heading h2{font-size:25px;margin:2px 0}
+ .heading p{font-size:12px;line-height:1.7}
+ .searchLink{min-height:44px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .feature{grid-column:1/-1;min-height:240px;padding:18px;gap:10px}
+ .feature h3{font-size:29px;margin:5px 0}
+ .feature p{font-size:13px;line-height:1.7}
+ .featureIcon{width:43px;height:43px}
+ .featureIcon svg{width:22px;height:22px}
+ .featureNumber{font-size:10px}
+ .eraSteps{display:none}
+ .featureCall{min-height:44px;font-size:12px;min-width:0;padding:9px 12px}
+ .tile{min-height:145px;padding:12px;gap:5px}
+ .tileIcon{width:33px;height:33px}
+ .tileIcon svg{width:19px;height:19px}
+ .tile h3{font-size:14px;margin:2px 0;overflow-wrap:anywhere}
+ .tileEyebrow{font-size:10px}
+ .tile p{display:none}
+ .tileCta{font-size:11px;min-height:36px;align-items:center;padding-top:1px}
+}
