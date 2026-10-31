@@ -65,7 +65,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   if(mode==='practice')rememberPracticeTasks(game,tasksNow.map(task=>task.id));
   if(mode==='daily'){
    setStarting(true);
-   const granted=await daily.reserve(tasksNow.map(task=>task.id));
+   const granted=await daily.reserve(tasksNow);
    setStarting(false);
    if(!granted)return;
   }
