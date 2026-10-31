@@ -3,6 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {browserDb} from '@/lib/supabase';
 import {dailyGameUrl} from '@/lib/dailyGame';
+import {dailyPublicQuestionFingerprint} from '@/lib/dailyAttemptIntegrity';
 import styles from './DailyAttempt.module.css';
 import DailyCountdown from './DailyCountdown';
 
@@ -41,7 +42,7 @@ export default function useDailyAttempt(mode,game,date){
   });
   return()=>{alive=false;clearTimeout(authTimer);subscription.unsubscribe();};
  },[mode,game,date]);
- async function reserve(questionIds){
+ async function reserve(tasks){
   if(mode!=='daily')return true;
   if(pending.current||state.kind!=='ready')return false;
   pending.current=true;setState(previous=>({...previous,kind:'reserving'}));
@@ -49,7 +50,7 @@ export default function useDailyAttempt(mode,game,date){
    const db=browserDb(),{data,error}=await db.auth.getSession();
    if(error||!data?.session){setState({kind:'login',message:''});return false;}
    const res=await fetch('/api/games/daily',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+data.session.access_token},
-    cache:'no-store',body:JSON.stringify({date,game,questionIds})});
+    cache:'no-store',body:JSON.stringify({date,game,questionIds:tasks.map(task=>task.id),signatures:tasks.map(task=>dailyPublicQuestionFingerprint(game,task))})});
    const json=await res.json();
    if(res.ok&&json.claimed){setState({kind:'used',nextAt:json.nextAt,message:''});return true;}
    if(json.used){setState({kind:'used',nextAt:json.nextAt,message:json.error});return false;}
