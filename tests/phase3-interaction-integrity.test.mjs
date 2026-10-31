@@ -111,7 +111,7 @@ test('public discussion hides personal names and avatars after suspension or del
   await pg.query("insert into public.debate_comments(id,debate_id,user_id,body,status,created_at,updated_at) values($1,$2,$3,'تعليق للاختبار','approved',now(),now())",['00000000-0000-4000-8000-0000000000'+(10+i),debate,user]);
   await pg.query("insert into public.debate_questions(id,debate_id,user_id,body,status,created_at,anonymous) values($1,$2,$3,'سؤال للاختبار','approved',now(),false)",['00000000-0000-4000-8000-0000000000'+(20+i),debate,user]);
  }
- await pg.exec(read('supabase/migrations/20261031070000_debate_discussion_privacy.sql'));
+ await pg.exec(read('supabase/migrations/20261031031038_debate_discussion_privacy.sql'));
  await pg.exec('grant execute on function public.debate_discussion(uuid,text,integer,text) to anon');
  async function query(kind){
   return pg.transaction(async tx=>{
@@ -147,7 +147,7 @@ test('direct debate participation RPC rejects actively banned or unconfirmed acc
   await pg.query('insert into auth.users(id,email_confirmed_at,banned_until) values($1,$2,$3)',[user,i===2?null:'2026-10-01',i===1?'2099-01-01':null]);
   await pg.query('insert into public.public_profiles(user_id,terms_accepted_at) values($1,now())',[user]);
  }
- await pg.exec(read('supabase/migrations/20261031070001_debate_auth_ban_guard.sql'));
+ await pg.exec(read('supabase/migrations/20261031031041_debate_auth_ban_guard.sql'));
  await pg.exec('grant execute on function public.debate_require_user_base(text) to authenticated');
  async function run(user,action){
   return pg.transaction(async tx=>{
