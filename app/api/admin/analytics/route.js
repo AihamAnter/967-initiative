@@ -35,8 +35,7 @@ export async function GET(request){
    ...SCHOOL_COURSES.map(item=>[item.slug,item.title]),
    ...(catalog.data||[]).filter(x=>typeof x?.published?.title==='string').map(x=>[x.slug,x.published.title.slice(0,100)])
   ]);
-  const q=schoolStudioAnalytics(rows,3000).questions
-   .filter(item=>item.asked>=5).slice(0,12)
+  const q=schoolStudioAnalytics(rows,3000,5).questions.slice(0,12)
    .map(({course,stage,prompt,asked,wrong,wrongRate})=>({
     course,stage,prompt:String(prompt||'').slice(0,160),asked,wrong,wrongRate
    }));
