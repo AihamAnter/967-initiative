@@ -9,6 +9,7 @@ import SaveForLater from '@/components/reading/SaveForLater';
 import {figureFilterDefaults,readFigureFilters,figureFilterSearch,filterFigures} from '@/lib/figureFilters';
 import {yemenGovernorates, yemeniFigureEras} from '@/lib/yemeniFigures';
 import {formatNumber, toLatinDigits} from '@/lib/format';
+import {hasFigureImageProvenance} from '@/lib/contentEvidence';
 
 const socialLinks = figure => [
   {url: figure.website, label: 'الموقع الإلكتروني', icon: Globe2},
@@ -75,7 +76,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,o
           return <article className="yfigure-card" key={figure.id}>
             <Link className="yfigure-card-hitarea" href={'/yemeni-figures/'+figure.slug+'?from='+encodeURIComponent(returnTo)} aria-label={`عرض صفحة ${figure.fullName}`}><span className="sr-only">عرض صفحة {figure.fullName}</span></Link>
             <div className="yfigure-image">
-              {figure.imageUrl ? <Image src={figure.imageUrl} alt={figure.imageKind==='context'?figure.imageCredit:`صورة ${figure.fullName}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
+              {hasFigureImageProvenance(figure) ? <Image src={figure.imageUrl} alt={figure.imageKind==='context'?figure.imageCredit:`صورة ${figure.fullName}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
               <span className="yfigure-era">{figure.era}</span>
               {figure.imageSourceUrl&&<a className="yfigure-photo-credit" href={figure.imageSourceUrl} target="_blank" rel="noopener noreferrer" title={figure.imageCredit}>{figure.imageCredit||'مصدر الصورة وحقوقها'}</a>}
             </div>
