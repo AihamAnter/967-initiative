@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {connectedHistoryForFigure,connectedHistoryForGovernorate,connectedFiguresForGovernorate,historyCrossLinks,figureCrossLinks,governorateCrossLinks,musnadCrossLinks} from '../lib/knowledgeConnections.js';
+import {connectedHistoryForFigure,connectedHistoryForGovernorate,connectedFiguresForGovernorate,historyCrossLinks,figureCrossLinks,governorateCrossLinks,musnadCrossLinks,statisticsCrossLinks,civicCrossLinks} from '../lib/knowledgeConnections.js';
 import {pageIsVisible} from '../lib/pageVisibility.js';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
@@ -87,4 +87,18 @@ test('real page integrations use shared component, retain existing sections and 
  assert.ok(css.includes(':focus-visible'));
  assert.equal(pageIsVisible('/yemen-history/saba',{history:false}),false);
  assert.equal(pageIsVisible('/school/writing/musnad',{school:false}),false);
+});
+
+test('statistics and civic courses connect in both directions without exposing hidden sections',()=>{
+ assert.deepEqual(statisticsCrossLinks({school:false}),[]);
+ assert.equal(statisticsCrossLinks({school:true})[0].href,'/school/civic');
+ assert.deepEqual(civicCrossLinks({statistics:false,ranking:false}),[]);
+ assert.deepEqual(civicCrossLinks({statistics:true,ranking:true}).map(x=>x.href),['/yemen-in-numbers','/yemen-ranking']);
+ assert.ok(civicCrossLinks()[0].description.includes('سنة القياس'));
+ const numbers=read('app/yemen-in-numbers/page.jsx');
+ const civic=read('app/school/civic/page.jsx');
+ assert.ok(numbers.includes('statisticsCrossLinks(settings.pageVisibility)'));
+ assert.ok(civic.includes('civicCrossLinks(settings.pageVisibility)'));
+ assert.ok(numbers.includes('<CrossSectionPaths'));
+ assert.ok(civic.includes('<CrossSectionPaths'));
 });
