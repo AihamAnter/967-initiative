@@ -3,7 +3,7 @@
 .eyebrow{display:block;margin-bottom:4px;font-size:12px;font-weight:700;color:var(--color-brand-strong)}
 .heading h2{font-size:clamp(20px,2.1vw,27px);line-height:1.4;margin:0;color:var(--color-ink)}
 .heading p{font-size:13px;color:var(--color-muted);line-height:1.65;margin:5px 0 0}
-.accountLink{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;font-size:13px;font-weight:650;color:var(--color-brand-strong);min-height:42px}
+.accountLink{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;font-size:13px;font-weight:650;color:var(--color-brand-strong);min-height:44px}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
 .card,.guestCard{background:#fff;border:1px solid var(--line);border-radius:11px;min-width:0}
 .card{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:16px;min-height:198px}
@@ -15,7 +15,7 @@
 .card h3{font-size:17px;line-height:1.45;margin:4px 0 6px;color:var(--color-ink)}
 .card p{font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card small{display:block;margin-top:7px;color:var(--color-muted);font-size:11px}
-.action{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;min-height:38px;color:var(--color-brand-strong)}
+.action{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;min-height:44px;color:var(--color-brand-strong)}
 .status{font-size:12px;color:var(--color-muted);line-height:1.6}
 .progress{margin-top:10px;height:6px;background:#e2eae5;border-radius:20px;overflow:hidden}
 .progress>span{display:block;height:100%;background:#205f53;border-radius:20px;max-width:100%}
@@ -27,7 +27,7 @@
 .skeleton{min-height:126px;background:#eaece9;border-radius:11px;animation:pulse 1.4s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.5}}
 .hint,.retry{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:12px 0 0;color:var(--color-muted);font-size:12px;line-height:1.6}
-.hint a,.retry button{display:inline-flex;align-items:center;gap:5px;min-height:34px;color:var(--color-brand-strong);font-weight:700}
+.hint a,.retry button{display:inline-flex;align-items:center;gap:5px;min-height:44px;color:var(--color-brand-strong);font-weight:700}
 .retry button{border:0;background:transparent;cursor:pointer;font:inherit;font-weight:700}
 .section a:focus-visible,.retry button:focus-visible{outline:3px solid var(--color-cobalt);outline-offset:3px}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.guestCard:hover{border-color:var(--color-brand-strong);box-shadow:var(--shadow-raised)}.action:hover,.accountLink:hover{text-decoration:underline;text-underline-offset:4px}}
