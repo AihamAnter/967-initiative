@@ -30,10 +30,10 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
  const draft=useSchoolDraft({attempt,active:phase==='play',answers,selection,
   request:body=>requestGeneric({...body,slug})});
  useEffect(()=>{if(phase==='done')resultTitle.current?.focus();},[phase]);
- async function start(){
+ async function start(labProof=null){
   setBusy(true);setError('');
   try{
-   const data=await requestGeneric({action:'start',slug,stage:stage.index});
+   const data=await requestGeneric({action:'start',slug,stage:stage.index,labProof});
    setAttempt(data.attempt);setAnswers(data.attempt.draft?.answers||[]);
    setIndex(data.attempt.draft?.answers?.length||0);
    setSelection(data.attempt.draft?.selection??null);setResult(null);setPhase('play');
