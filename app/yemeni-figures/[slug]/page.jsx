@@ -24,6 +24,10 @@ import FigureDossier from '@/components/FigureDossier';
 import InlineTarget from '@/components/inline/InlineTarget';
 import CorrectionLink from '@/components/CorrectionLink';
 import {relatedProjections} from '@/lib/relatedContent';
+import {readHistoryCatalog} from '@/lib/historyRepository';
+import {serverDb} from '@/lib/supabase-server';
+import {figureCrossLinks} from '@/lib/knowledgeConnections';
+import CrossSectionPaths from '@/components/knowledge/CrossSectionPaths';
 import {hasFigureImageProvenance} from '@/lib/contentEvidence';
 
 export const dynamic = 'force-dynamic';
@@ -65,6 +69,9 @@ export default async function YemeniFigureProfilePage({params}) {
   const [figure, figures, settings] = await Promise.all([getYemeniFigure(slug), getYemeniFigures(relatedProjections.figures),getSiteSettings()]);
   if (!figure || !sectionIsVisible('figures',settings.pageVisibility)) notFound();
 
+  const historyEntries=sectionIsVisible('history',settings.pageVisibility)
+    ?await readHistoryCatalog(serverDb()).then(result=>result.entries).catch(()=>[]):[];
+  const crossLinks=figureCrossLinks(figure,{visibility:settings.pageVisibility,historyEntries});
   const links = socialLinks(figure);
   const hasDossier=figure.profile&&['sections','facts','timeline','works','gallery','notes'].some(key=>figure.profile[key]?.length);
   const portrait=figure.profile?.gallery.find(photo=>photo.url===figure.imageUrl);
@@ -134,6 +141,7 @@ export default async function YemeniFigureProfilePage({params}) {
             <div><span className="eyebrow">معروف بـ</span><h2>{toLatinDigits(figure.knownFor)}</h2><p>يُصنّف هذا الملف ضمن {figure.field} ويرتبط بمحافظة {figure.governorateName} في دليل شخصيات يمنية.</p></div>
           </section>
           </>}
+          <CrossSectionPaths items={crossLinks} id="figure-cross-paths" title="ضع السيرة في سياق أوسع"/>
         </div>
 
         <aside className="figure-profile-aside">
@@ -148,7 +156,7 @@ export default async function YemeniFigureProfilePage({params}) {
             </dl>
           </div>
           <Link className="figure-profile-directory-link" href="/yemeni-figures">استعراض جميع الشخصيات <ArrowUpLeft size={17}/></Link>
-          {figure.governorateId && <Link className="figure-profile-directory-link" href={'/yemen-map?region='+encodeURIComponent(figure.governorateId)+'#map'}>استكشف {figure.governorateName} على الخريطة <MapPinned size={17}/></Link>}
+
           <CorrectionLink title={figure.fullName} path={detailPath('yemeni-figures',figure.slug)} id={figure.id}/>
         </aside>
       </div>
