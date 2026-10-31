@@ -12,6 +12,7 @@ import useListState from './useListState';
 import {collectionDefaults,listStateSearch} from '@/lib/listState';
 import {matchesSearch} from '@/lib/search';
 import {formatNumber} from '@/lib/format';
+import {medicalOperatingEvidence} from '@/lib/contentEvidence';
 import {institutionSearchFields,ownershipLabels,universityTypeLabels,medicalTypeLabels} from '@/lib/institutionDirectories';
 
 const ALL={governorate:'كل المحافظات',city:'كل المدن',type:'كل الأنواع',ownership:'كل الجهات',focus:'كل المجالات',level:'كل المستويات',mode:'كل أنماط الدراسة',specialty:'كل التخصصات',service:'كل الخدمات',emergency:'الكل'};
@@ -78,7 +79,7 @@ export default function InstitutionDirectory({kind,items}){
       <Link className="institution-card-link" href={`${basePath}/${encodeURIComponent(item.id)}?from=${encodeURIComponent(returnTo)}`}>
         <div className="institution-card-icon"><InstitutionLogo src={item.logoUrl} name={item.name} maxSize={62} kind={medical?'medical':'university'}>{medical?<Stethoscope size={32}/>:<GraduationCap size={34}/>}</InstitutionLogo></div>
         <div className="institution-card-body"><div className="institution-card-meta"><span>{item.typeLabel}</span><span>{item.ownershipLabel}</span></div><h2>{item.name}</h2>
-          <p className="institution-location"><MapPin size={15}/>{[item.governorate,item.city].filter(Boolean).join(' · ')||'الموقع يحتاج استكمالًا'}</p><p className="institution-card-summary">{item.summary}</p>
+          <p className="institution-location"><MapPin size={15}/>{[item.governorate,item.city].filter(Boolean).join(' · ')||'الموقع يحتاج استكمالًا'}</p><p className="institution-card-summary">{item.summary}</p>{medical&&medicalOperatingEvidence(item).kind==='historical'&&<small className="institution-card-summary" role="note">حالة التشغيل بحسب بيانات {item.operatingStatusAsOf}، لا حسب الوضع الحالي.</small>}
           <div className="institution-tags">{uniqCard(medical?[...relationNames(item.specialties),...relationNames(item.services)]:[...item.programs.map(row=>row.field),...item.educationLevels]).slice(0,4).map(value=><span key={value}>{value}</span>)}</div>
           {medical&&item.phone&&<span className="institution-phone"><Phone size={14}/>{item.phone}</span>}<span className="institution-details-link">عرض التفاصيل <ArrowUpLeft size={16}/></span>
         </div>
