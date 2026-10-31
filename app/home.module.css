@@ -198,3 +198,28 @@
 .schoolPromoLink:hover{background:#16493f}
 @media(max-width:710px){.schoolPromoInner{flex-wrap:wrap;gap:13px}.schoolPromoCopy{flex:1 1 calc(100% - 90px)}.schoolPromoLink{width:100%}}
 @media(max-width:550px){.schoolPromoIcon{width:55px;height:55px}.schoolPromoCopy{flex:1 1 calc(100% - 70px)}.schoolPromoCopy p{font-size:12px}}
+
+/* Home 2026: clear first actions and the complete live school catalog. */
+.heroShortcuts{display:flex;align-items:stretch;flex-wrap:wrap;gap:10px;margin-top:14px}
+.heroSchoolShortcut{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:10px 14px;border-radius:9px;background:#205f53;color:#fff;font-size:13px;font-weight:700;line-height:1.5;text-decoration:none}
+.heroSchoolShortcut:hover{background:#16493f}
+.heroSchoolShortcut>span,.heroGameShortcut>span{min-width:0}
+.heroShortcuts .heroGameShortcut{margin-top:0;min-height:46px;font-size:13px}
+.heroShortcuts a:focus-visible,.schoolPromo a:focus-visible{outline:3px solid var(--color-cobalt);outline-offset:3px}
+.schoolPromo{scroll-margin-top:95px;background:#f8f7f1;padding:clamp(28px,4vw,48px) 0}
+.schoolPromoInner{display:block;padding:clamp(19px,3vw,32px);border-color:#c4d6c8;background:linear-gradient(125deg,#e7f0e8,#f6f4ea)}
+.schoolPromoHeader{display:flex;align-items:center;gap:20px;min-width:0}
+.schoolPromoHeader .schoolPromoIcon{display:grid;place-items:center}
+.schoolPromoHeader .schoolPromoCopy p{font-size:14px;max-width:690px}
+.schoolTracks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:24px}
+.schoolTrack{display:flex;flex-direction:column;align-items:flex-start;gap:11px;position:relative;min-width:0;padding:17px 16px;border:1px solid #c7d7ce;border-radius:11px;background:#fff;color:#203f3b;min-height:174px}
+.schoolTrack:hover{border-color:#277265;background:#f5faf6}
+.schoolTrackIcon{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:#e1eee7;color:#205f53}
+.schoolTrackText{display:flex;flex-direction:column;gap:5px;min-width:0}
+.schoolTrackText strong{font-size:16px;line-height:1.45}
+.schoolTrackText small{font-size:12px;line-height:1.65;color:#526660}
+.schoolTrackText>span{margin-top:4px;font-size:12px;font-weight:700;color:#205f53}
+.schoolTrackArrow{position:absolute;top:19px;inset-inline-end:16px;color:#205f53}
+@media(max-width:1000px){.schoolTracks{grid-template-columns:repeat(2,minmax(0,1fr))}.schoolPromoHeader{flex-wrap:wrap}.schoolPromoHeader .schoolPromoLink{margin-inline-start:auto}}
+@media(max-width:600px){.heroShortcuts{display:grid;grid-template-columns:1fr;gap:8px}.heroSchoolShortcut,.heroShortcuts .heroGameShortcut{width:100%;justify-content:flex-start;font-size:12px;min-height:48px}.heroShortcuts a svg:last-child{margin-inline-start:auto}.schoolPromoHeader{gap:12px}.schoolPromoHeader .schoolPromoIcon{width:50px;height:50px}.schoolPromoHeader .schoolPromoCopy{flex:1 1 calc(100% - 64px)}.schoolPromoHeader .schoolPromoLink{width:100%;margin:0}.schoolTracks{grid-template-columns:1fr;gap:9px;margin-top:16px}.schoolTrack{min-height:auto;flex-direction:row;gap:12px;padding:13px 36px 13px 12px}.schoolTrackIcon{flex-shrink:0}.schoolTrackText strong{font-size:15px}.schoolTrackArrow{top:14px;inset-inline-end:12px}.schoolPromoHeader .schoolPromoCopy p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.heroSchoolShortcut,.schoolTrack{transition:none}}
