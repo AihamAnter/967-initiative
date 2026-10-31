@@ -13,6 +13,7 @@ import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbe
 import {detailPath, hasIndexableIndicator, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, indicatorSchema, JsonLd} from '@/lib/seo-schema';
 import {dataStatusHelp,indicatorReading,sourceLabel} from '@/lib/indicatorPresentation';
+import {indicatorMeasurementEvidence} from '@/lib/contentEvidence';
 const IndicatorChart=nextDynamic(()=>import('@/components/IndicatorChart'),{loading:()=><p role="status">جارٍ تجهيز الرسم…</p>});
 
 export const dynamic = 'force-dynamic';
@@ -29,6 +30,7 @@ export default async function IndicatorPage({params}) {
   const indicator = await getStatIndicator(slug);
   if (!indicator) notFound();
   const latest = indicator.latestValue;
+  const measurement=latest?indicatorMeasurementEvidence(latest.year):null;
   const latestDisplayValue = latest ? formatNumber(latest.value, {maximumFractionDigits: 3}) : null;
   // Scale long numbers to the actual width of the value card without abbreviating their values.
   const latestFontScale = latestDisplayValue ? `${Math.max(4, Math.min(17, 125 / Math.max(1, latestDisplayValue.length)))}cqi` : null;
@@ -43,6 +45,7 @@ export default async function IndicatorPage({params}) {
       <span className="eyebrow">{indicator.domain.section?.name} / مؤشر وطني</span>
       <div className="stat-indicator-title"><div><h1>{indicator.name}</h1><p>{indicator.short_description || indicator.definition}</p></div>{latest ? <div className="stat-latest"><span>أحدث قيمة منشورة</span><strong dir="ltr" style={{'--stat-value-font': latestFontScale}}>{latestDisplayValue}</strong><b>{indicator.unit}</b><small>{formatYear(latest.year)}</small></div> : <div className="stat-latest stat-no-latest"><span>لا توجد قيمة منشورة</span></div>}</div>
       <IndicatorActions indicator={indicator}/>
+      {measurement&&measurement.kind!=='recent'&&<p className="stat-warning" role="note"><AlertTriangle size={17}/>{measurement.message}</p>}
       {indicator.updated_at && <p className="record-update">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
     </div></section>
     <section className="section stat-indicator-body"><div className="container">

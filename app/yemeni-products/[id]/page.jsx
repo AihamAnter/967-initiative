@@ -95,7 +95,7 @@ export default async function YemeniCompanyPage({params}) {
             <div className="company-product-list">{company.productDetails.map((product, index) => <article className={product.imageUrl ? 'has-image' : ''} key={product.name}>
               <span>{String(index + 1).padStart(2, '0')}</span>
               {product.imageUrl && <div className="company-product-image"><Image src={product.imageUrl} alt={product.name} fill sizes="(max-width: 580px) 100vw, 170px"/></div>}
-              <div className="company-product-content"><h3>{product.name}</h3><p>{product.description}</p>{product.format && <small><PackageCheck size={14}/>{product.format}</small>}
+              <div className="company-product-content"><h3>{product.name}</h3><p>{product.description}</p>{product.sources?.length?<small><a href={product.sources[0].url} target="_blank" rel="noopener noreferrer">مصدر بيانات المنتج: {product.sources[0].title} <ExternalLink size={12}/></a></small>:<small className="small-muted" role="note">لم يُرفق مصدر مستقل لهذا المنتج؛ التفاصيل تحتاج إلى توثيق.</small>}{product.format && <small><PackageCheck size={14}/>{product.format}</small>}
                 {(product.size || product.weight || hasValue(product.quantity)) && <div className="company-product-specs">
                   {product.size && <span><Ruler size={14}/><b>الحجم</b>{product.size}</span>}
                   {product.weight && <span><Scale size={14}/><b>الوزن</b>{product.weight}</span>}
@@ -104,7 +104,7 @@ export default async function YemeniCompanyPage({params}) {
                 {(hasValue(product.wholesalePrice) || hasValue(product.retailPrice)) && <div className="company-product-prices">
                   <CircleDollarSign size={18}/>
                   {hasValue(product.wholesalePrice) && <span><b>سعر الجملة</b>{formatNumber(product.wholesalePrice, {maximumFractionDigits: 2})} {currencyLabels[product.currency] || product.currency}</span>}
-                  {hasValue(product.retailPrice) && <span><b>سعر التجزئة</b>{formatNumber(product.retailPrice, {maximumFractionDigits: 2})} {currencyLabels[product.currency] || product.currency}</span>}
+                  {hasValue(product.retailPrice) && <span><b>سعر التجزئة</b>{formatNumber(product.retailPrice, {maximumFractionDigits: 2})} {currencyLabels[product.currency] || product.currency}</span>}<small className="small-muted">الأسعار دون تاريخ سريان موثق؛ تأكد من المنشأة قبل الشراء.</small>
                 </div>}
               </div>
             </article>)}</div>
