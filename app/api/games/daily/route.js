@@ -4,6 +4,7 @@ import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestS
 import {utcDay,dailyGameForDate,nextUtcMidnight} from '@/lib/dailyGame';
 import {officialQuestionSnapshot} from '@/lib/dailyVerifiedScore';
 import {matchingDailyQuestionIds} from '@/lib/dailyAttemptIntegrity';
+import {requireEligibleGameProfile} from '@/lib/gamePlayerEligibility';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -20,6 +21,7 @@ async function verifiedPlayer(request,db){
  const user=result.data.user;
  if(!user.email_confirmed_at||user.is_anonymous)throw new RequestValidationError('أكد البريد الإلكتروني قبل المشاركة في تحدي اليوم.',403);
  if(user.banned_until&&Date.parse(user.banned_until)>Date.now())throw new RequestValidationError('هذا الحساب موقوف.',403);
+ await requireEligibleGameProfile(db,user);
  return user;
 }
 async function handle(request,claim){
