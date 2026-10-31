@@ -3,6 +3,7 @@ import {serverDb} from '@/lib/supabase-server';
 import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
 import {utcDay,dailyGameForDate,nextUtcMidnight} from '@/lib/dailyGame';
 import {officialQuestionSnapshot} from '@/lib/dailyVerifiedScore';
+import {matchingDailyQuestionIds} from '@/lib/dailyAttemptIntegrity';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -30,9 +31,13 @@ async function handle(request,claim){
   const game=dailyGameForDate(date);
   const nextAt=nextUtcMidnight(date);
   if(claim){
-   const body=await readJsonObject(request,512);
+   const body=await readJsonObject(request,2500);
    if(body.date!==date||body.game!==game)throw new RequestValidationError('بدأ تحدي يوم جديد. حدّث الصفحة لتجربة تحدي اليوم الصحيح.',409);
    const questionBank=await officialQuestionSnapshot(db,game,date);
+   // If editorial questions or a cached browser bundle differ, fail BEFORE the
+   // unique daily attempt is reserved. The user can refresh without losing it.
+   if(!matchingDailyQuestionIds(body.questionIds,questionBank))
+    throw new RequestValidationError('تغيّر ترتيب أسئلة تحدي اليوم منذ فتح الصفحة. حدّث الصفحة قبل بدء المحاولة حتى لا تضيع محاولتك.',409);
    const {data,error}=await db.from('game_daily_attempts')
     .insert({user_id:user.id,challenge_date:date,game_type:game,question_bank:questionBank,phase:'question',step_index:0,question_started_at:null})
     .select('challenge_date,game_type,started_at').single();
