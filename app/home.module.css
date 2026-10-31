@@ -223,3 +223,35 @@
 @media(max-width:1000px){.schoolTracks{grid-template-columns:repeat(2,minmax(0,1fr))}.schoolPromoHeader{flex-wrap:wrap}.schoolPromoHeader .schoolPromoLink{margin-inline-start:auto}}
 @media(max-width:600px){.heroShortcuts{display:grid;grid-template-columns:1fr;gap:8px}.heroSchoolShortcut,.heroShortcuts .heroGameShortcut{width:100%;justify-content:flex-start;font-size:12px;min-height:48px}.heroShortcuts a svg:last-child{margin-inline-start:auto}.schoolPromoHeader{gap:12px}.schoolPromoHeader .schoolPromoIcon{width:50px;height:50px}.schoolPromoHeader .schoolPromoCopy{flex:1 1 calc(100% - 64px)}.schoolPromoHeader .schoolPromoLink{width:100%;margin:0}.schoolTracks{grid-template-columns:1fr;gap:9px;margin-top:16px}.schoolTrack{min-height:auto;flex-direction:row;gap:12px;padding:13px 36px 13px 12px}.schoolTrackIcon{flex-shrink:0}.schoolTrackText strong{font-size:15px}.schoolTrackArrow{top:14px;inset-inline-end:12px}.schoolPromoHeader .schoolPromoCopy p{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.heroSchoolShortcut,.schoolTrack{transition:none}}
+
+
+/* Compact discovery on phones: the primary action stays visible and editable. */
+@media(max-width:600px){
+ .schoolPromo{padding:19px 0}
+ .schoolPromoInner{padding:14px}
+ .schoolPromoHeader{gap:9px}
+ .schoolPromoHeader .schoolPromoIcon{width:40px;height:40px}
+ .schoolPromoHeader .schoolPromoCopy{flex:1 1 calc(100% - 50px)}
+ .schoolPromoHeader .schoolPromoCopy h2{font-size:22px;margin:0}
+ .schoolPromoHeader .schoolPromoCopy p{font-size:12px;line-height:1.65;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+ .schoolPromoHeader .schoolPromoLink{min-height:44px;padding:9px}
+ .schoolTracks{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+ .schoolTrack{flex-direction:column;gap:7px;min-height:133px;padding:11px;border-radius:9px}
+ .schoolTrackIcon{width:33px;height:33px}
+ .schoolTrackIcon svg{width:19px;height:19px}
+ .schoolTrackText{gap:3px}
+ .schoolTrackText strong{font-size:13px;line-height:1.5}
+ .schoolTrackText small{display:none}
+ .schoolTrackText>span{font-size:11px;margin:0}
+ .schoolTrackArrow{top:12px;inset-inline-end:9px;width:15px;height:15px}
+ .discovery{padding-block:16px 20px}
+ .destination{min-height:92px}
+ .destination h3{font-size:13px}
+ .community{padding-block:20px}
+ .about{padding-block:14px}
+}
+@media(max-width:340px){
+ .schoolTracks{grid-template-columns:1fr}
+ .schoolTrack{flex-direction:row;min-height:66px;align-items:center}
+ .schoolTrackText small{display:none}
+}
