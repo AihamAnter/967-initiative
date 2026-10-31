@@ -68,7 +68,7 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
    <p className={styles.guidedBody}>{lesson.body}</p>
    <LessonIllustration lesson={lesson} slug={slug} script={script}/>
    {stage.source?.url&&<a className={styles.guidedScientificSource} href={stage.source.url}
-    target="_blank" rel="noopener noreferrer">لمن يريد التوسع — مرجع الدرس: {stage.source.title}</a>}
+    target="_blank" rel="noopener noreferrer">لمن يريد التوسع — {stage.lab?.kind==='civic'?'مرجع مؤسسي عام للمسار':'مرجع علمي للدرس'}: {stage.source.title}</a>}
   </div>}
   {isPractice&&<div className={styles.guidedPage} key="practice">
    <span className={styles.guidedLabel}><PenLine size={16}/> التطبيق العملي</span>
