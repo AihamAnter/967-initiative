@@ -5,7 +5,9 @@ import {pageViewBucket} from '@/lib/siteAnalytics';
 import {usePageVisibility} from '@/components/PageVisibilityProvider';
 
 function trackingAllowed(){
- return typeof navigator!=='undefined'&&navigator.doNotTrack!=='1'&&navigator.globalPrivacyControl!==true;
+ if(typeof navigator==='undefined'||navigator.doNotTrack==='1'||navigator.globalPrivacyControl===true)return false;
+ try{return localStorage.getItem('967-analytics-opt-out')!=='1';}
+ catch{return false;}
 }
 export function reportSiteUsage(event,section){
  if(!trackingAllowed()||typeof document==='undefined'||document.visibilityState==='hidden')return;
