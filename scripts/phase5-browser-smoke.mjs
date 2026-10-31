@@ -22,7 +22,7 @@ try{
    await page.setViewportSize({width,height:900});
    const response=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:90000});
    assert.ok(response&&response.ok(),route+' returned '+response?.status());
-   await page.locator('#main-navigation').waitFor();
+   await page.locator('#main-navigation').waitFor({state:'attached'});
    const info=await page.evaluate(()=>{
     const viewport=window.innerWidth;
     const header=document.querySelector('.site-header').getBoundingClientRect();
