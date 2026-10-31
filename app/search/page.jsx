@@ -7,6 +7,7 @@ import {getSearchData} from '@/lib/searchData';
 import {rankSearchResults, searchTypes} from '@/lib/search';
 import {formatNumber, toLatinDigits} from '@/lib/format';
 import {getSiteSettings} from '@/lib/data';
+import {SearchMissTracker} from '@/components/analytics/SiteUsageTracker';
 import {pageIsVisible} from '@/lib/pageVisibility';
 
 export const dynamic = 'force-dynamic';
@@ -29,6 +30,7 @@ export default async function SearchPage({searchParams}) {
   const page = Math.min(requested, pages);
   const url = (nextType, nextPage = 1) => '/search?' + new URLSearchParams({q: query, type: nextType, ...(mode !== 'all' ? {mode} : {}), ...(scope !== 'all' ? {scope} : {}), ...(exclude ? {exclude} : {}), ...(nextPage > 1 ? {page: String(nextPage)} : {})}).toString();
   return <>
+    {query.length>=2&&page===1&&results.length===0&&unavailable.length===0&&<SearchMissTracker key={query+'|'+type+'|'+mode+'|'+scope+'|'+exclude} category={type}/>}
     <PageIntro title="ابحث. واكتشف أكثر." category="البحث في المنصة" description="ابحث عن مكان أو محتوى أو مهارة. نجمع الكلمات بأي ترتيب، ونقدّم الاسم المطابق أولاً."><AdvancedSearchForm key={[query,type,mode,scope,exclude].join('|')} query={query} type={type} mode={mode} scope={scope} exclude={exclude}/></PageIntro>
     <section className="platform-search-body"><div className="container">
       {unavailable.length > 0 && <p className="stat-warning" role="status">تعذر تحميل بعض الأقسام: {unavailable.join('، ')}. النتائج الحالية جزئية. <Link href={url(type)}>إعادة المحاولة</Link></p>}
