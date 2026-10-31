@@ -1,0 +1,29 @@
+/* Stage 5 — navigation usability only. Keep the existing colors, spacing system
+   and IBM Plex Sans Arabic font. */
+@media (max-width:900px) {
+  .platform-nav.is-open {
+    overscroll-behavior:contain;
+    scrollbar-gutter:stable;
+    padding-bottom:max(22px,env(safe-area-inset-bottom));
+  }
+  .mobile-navigation-groups {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .mobile-navigation-groups>div { min-width:0; }
+  .mobile-navigation-groups a {
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+  .platform-nav>.nav-home,.mobile-search-link { min-height:48px; }
+}
+@media (max-width:390px) {
+  .mobile-navigation-groups {
+    grid-template-columns:minmax(0,1fr);
+    gap:8px;
+  }
+  .mobile-navigation-groups>div { padding-block:8px 2px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  .platform-nav a,.mobile-navigation-groups a,.menu-toggle { transition:none; }
+}

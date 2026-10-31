@@ -12,6 +12,7 @@ import CorrectionLink from '@/components/CorrectionLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import HistoryEditAction from '@/components/history/HistoryEditAction';
 import HistoryMedia from '@/components/history/HistoryMedia';
+import ContextBackLink from '@/components/ContextBackLink';
 import styles from '../HistoryPage.module.css';
 
 export const dynamic='force-dynamic';
@@ -36,7 +37,7 @@ export default async function YemenHistoryDetail({params}){
  return <main className={styles.articlePage}>
   <JsonLd data={breadcrumbSchema([{name:'تاريخ اليمن',path:'/yemen-history'},{name:item.title,path:historyEntryPath(item.slug)}])}/>
   <header className={styles.articleHero}><div className="container">
-   <Link className={styles.back} href="/yemen-history">العودة إلى تاريخ اليمن <ArrowUpLeft size={16}/></Link>
+   <ContextBackLink className={styles.back} fallback="/yemen-history" label="العودة إلى تاريخ اليمن" leading={<ArrowUpLeft size={16}/>}/>
    <span className="eyebrow">{era?.title||'تاريخ اليمن'} / {historyKinds[item.kind]}</span>
    <h1>{item.title}</h1><p>{item.summary}</p>
    <div className={styles.articleMeta}><span><CalendarDays size={17}/>{item.period}</span>{item.location&&<span><MapPinned size={17}/>{item.location}</span>}<span><BookOpenText size={17}/>{(item.sources||[]).length} مصادر</span></div>

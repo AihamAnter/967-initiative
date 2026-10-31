@@ -31,6 +31,25 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
     if (open) header.current?.querySelector('#main-navigation a')?.focus();
   }, [open]);
   useEffect(() => {
+    if (!open) return;
+    const mobile = window.matchMedia('(max-width: 900px)');
+    if (!mobile.matches) {setOpen(false);return;}
+    // The navigation scrolls within the viewport; do not let background cards,
+    // forms or footer receive keyboard focus while the mobile menu is open.
+    const oldOverflow = document.body.style.overflow;
+    const background = [document.getElementById('content'),document.querySelector('.platform-footer')].filter(Boolean);
+    const previous = background.map(node => node.inert);
+    document.body.style.overflow = 'hidden';
+    background.forEach(node => {node.inert = true;});
+    const onViewportChange = () => {if (!mobile.matches) setOpen(false);};
+    mobile.addEventListener('change', onViewportChange);
+    return () => {
+      mobile.removeEventListener('change', onViewportChange);
+      document.body.style.overflow = oldOverflow;
+      background.forEach((node,index) => {node.inert = previous[index];});
+    };
+  }, [open]);
+  useEffect(() => {
     if (!db) {if(sessionReady)setSignedIn(false);return;}
     let active = true;
     let sessionChanged = false;
@@ -96,9 +115,9 @@ export default function Header({actionLabel='كن جزءاً من الحكاية
       {groups.map(group => group.standalone ? <Link key={group.label} className={`nav-home ${group.label==='ألعاب 967'?'nav-games':'nav-school'} ${active(group.links[0][0])?'active':''}`} href={group.links[0][0]} aria-current={active(group.links[0][0])?'page':undefined} onClick={close}>{group.label==='ألعاب 967'?<Gamepad2 size={18} aria-hidden="true"/>:<GraduationCap size={18} aria-hidden="true"/>}{group.label}</Link> : <details className={`nav-group ${group.links.some(([href]) => active(href)) ? 'active' : ''}`} key={group.label} onToggle={event => {if (event.currentTarget.open) header.current?.querySelectorAll('details[open]').forEach(item => {if (item !== event.currentTarget) item.removeAttribute('open');});}}>
         <summary>{group.label}<ChevronDown size={14}/></summary><div className="nav-dropdown">{group.links.map(([href, label]) => <Link href={href} key={href} className={active(href) ? 'active' : ''} aria-current={active(href) ? 'page' : undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>
       </details>)}
-      <div className="mobile-navigation-groups">{groups.filter(group=>!group.standalone).map(group=><div key={group.label}><span>{group.label}</span>{group.links.map(([href,label])=><Link href={href} key={href} aria-current={active(href)?'page':undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>)}</div>
+      <div className="mobile-navigation-groups">{groups.filter(group=>!group.standalone).map(group=><div key={group.label}><span>{group.label}</span>{group.links.map(([href,label])=><Link href={href} key={href} aria-current={active(href)?'page':undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>)}{isVisible('/school')&&<div className="mobile-school-links"><span>أقسام مدرسة 967</span>{[['/school/writing','الكتابة والأدب'],['/school/nature','الفلك والطبيعة'],['/school/logic','المنطق والتفكير'],['/school/civic','السياسة والاقتصاد'],['/school/dashboard','رحلتي التعليمية']].filter(([href])=>isVisible(href)).map(([href,label])=><Link href={href} key={href} aria-current={active(href)?'page':undefined} onClick={close}>{label}<ArrowUpLeft size={14}/></Link>)}</div>}</div>
       <Link href="/search" className="mobile-search-link" onClick={close}><Search size={18}/> البحث في المنصة</Link>
     </nav>
-    <div className="header-tools"><Link href="/search" className="header-search" aria-label="البحث في المنصة" onClick={close}><Search size={21}/></Link>{signedIn === false && <Link href="/login" className="header-login" aria-current={path === '/login' ? 'page' : undefined} onClick={close}><LogIn size={17} aria-hidden="true"/><span>تسجيل الدخول</span></Link>}{signedIn === true && canEdit && <Link href="/admin" className="header-login" aria-current={path === '/admin' ? 'page' : undefined} onClick={close}><LayoutDashboard size={17} aria-hidden="true"/><span>لوحة التحرير</span></Link>}{signedIn === true && !canEdit && <Link href="/account" className="header-login" onClick={close}>حسابي</Link>}{isVisible('/contribute')&&<Link href="/contribute" className="header-action" onClick={close}>{actionLabel} <ArrowUpLeft size={16}/></Link>}<button ref={toggle} type="button" className="menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button></div>
+    <div className="header-tools"><Link href="/search" className="header-search" aria-label="البحث في المنصة" onClick={close}><Search size={21}/></Link>{signedIn === false && <Link href="/login" className="header-login" aria-current={path === '/login' ? 'page' : undefined} onClick={close}><LogIn size={17} aria-hidden="true"/><span>تسجيل الدخول</span></Link>}{signedIn === true && canEdit && <Link href="/admin" className="header-login" aria-current={path === '/admin' ? 'page' : undefined} onClick={close}><LayoutDashboard size={17} aria-hidden="true"/><span>لوحة التحرير</span></Link>}{signedIn === true && !canEdit && <Link href="/account" className="header-login" onClick={close}>حسابي</Link>}{isVisible('/contribute')&&<Link href="/contribute" className="header-action" onClick={close}>{actionLabel} <ArrowUpLeft size={16}/></Link>}<button ref={toggle} type="button" className="menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(value => !value)}>{open ? <X/> : <Menu/>}</button></div>
   </div></header>;
 }

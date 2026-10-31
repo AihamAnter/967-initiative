@@ -8,6 +8,7 @@ import {yemenGovernorates} from '@/lib/yemeniFigures';
 import {governorateHeritageSources,governorateProfileSections,isGovernorateId} from '@/lib/governorateEditorial';
 import {pageMetadata} from '@/lib/seo';
 import styles from './GovernorateProfile.module.css';
+import ContextBackLink from '@/components/ContextBackLink';
 
 export const dynamic='force-dynamic';
 
@@ -44,7 +45,7 @@ export default async function GovernorateProfilePage({params}){
   return <main className={styles.page}>
     <header className={styles.hero}>
       <div className="container">
-        <Link className={styles.back} href={'/yemen-map?region='+encodeURIComponent(id)+'#map'}>العودة إلى الخريطة التفاعلية</Link>
+        <ContextBackLink className={styles.back} fallback={'/yemen-map?region='+encodeURIComponent(id)+'#map'} label="العودة إلى الخريطة التفاعلية"/>
         <span className={styles.kicker}>خريطة اليمن / المحافظات</span>
         <h1>{heading}</h1>
         <p>{profile.description?.split(/\n\s*\n/)[0]||'ملف معرفي عن المحافظة.'}</p>

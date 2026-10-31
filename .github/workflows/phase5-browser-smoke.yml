@@ -1,0 +1,67 @@
+name: Phase 5 responsive browser smoke
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'components/Header.jsx'
+      - 'components/Footer.jsx'
+      - 'components/ContextBackLink.jsx'
+      - 'lib/navigationContext.js'
+      - 'app/phase5-navigation.css'
+      - 'app/layout.jsx'
+      - 'app/yemen-history/[slug]/page.jsx'
+      - 'app/yemen-map/governorates/[id]/page.jsx'
+      - 'scripts/phase5-browser-smoke.mjs'
+      - '.github/workflows/phase5-browser-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phase5-browser-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  responsive-navigation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      LOCAL_CONTENT_FALLBACK: '1'
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install project dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install temporary Chromium test dependency
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start standalone local-content preview and test responsive UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run dev -- --hostname 127.0.0.1 --port 3119 >/tmp/967-phase5-next.log 2>&1 &
+          APP_PID=$!
+          trap 'kill "$APP_PID" 2>/dev/null || true' EXIT
+          ready=0
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3119/school >/dev/null; then ready=1; break; fi
+            sleep 3
+          done
+          if [ "$ready" -ne 1 ]; then cat /tmp/967-phase5-next.log; exit 1; fi
+          node scripts/phase5-browser-smoke.mjs || { cat /tmp/967-phase5-next.log; exit 1; }
+      - name: Upload screenshots and viewport matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase5-browser-audit
+          path: docs/audit/phase5/browser/
+          if-no-files-found: ignore
