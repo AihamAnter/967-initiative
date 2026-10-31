@@ -132,3 +132,55 @@
 .privacyLabel{display:inline-flex;align-items:center;gap:8px;color:#537268;font-size:11px;margin-top:15px;line-height:1.9}
 @media(max-width:880px){.achievementGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.achievementGrid{grid-template-columns:1fr}.leaderboardWrap{padding:16px}.leaderboardEntry{padding:11px 9px;grid-template-columns:32px minmax(0,1fr) auto}.participationForm button{width:100%}}
+
+
+/* Mobile hierarchy: continue studying first, then compact progress and habits.
+   The full review and achievements remain accessible through MobileFold. */
+@media(max-width:700px){
+ .dashboard{padding:16px 0 42px}
+ .resume{padding:17px 16px;margin-bottom:13px;gap:13px}
+ .resume h2{font-size:22px;margin:3px 0}
+ .resume>a{min-height:46px}
+ .xpPanel{margin-bottom:13px}
+ .habitGrid{gap:10px;margin-bottom:18px}
+ .habitCard{padding:15px}
+ .titleRow{margin-bottom:12px;gap:6px}
+ .titleRow h2{font-size:23px}
+ .course{padding:17px}
+ .course h3{font-size:21px;margin:9px 0 5px}
+ .course>p{min-height:0;margin-bottom:12px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+ .courseXp{margin:0 0 10px}
+ .track{margin:8px 0 14px}
+ .courses{gap:10px;margin-bottom:18px}
+ .reviewSection{margin:0}
+ .reviewHeading{margin-bottom:12px}
+ .reviewHeading h2{font-size:20px}
+ .competition{margin:0 0 7px;gap:16px}
+ .footnote{margin-top:16px}
+}
+@media(max-width:530px){
+ .hero{padding:20px 0 25px}
+ .hero h1{font-size:31px}
+ .hero p{font-size:12px;line-height:1.8}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:13px}
+ .stat{padding:10px 9px;gap:6px;min-width:0}
+ .stat>span{font-size:10px;line-height:1.5;gap:4px;align-items:flex-start}
+ .stat>span svg{width:14px;height:14px;flex-shrink:0}
+ .stat strong{font-size:18px;white-space:normal;overflow-wrap:anywhere}
+ .xpHeading{gap:8px}
+ .xpHeading>div{min-width:120px}
+ .xpPanel{padding:15px}
+ .xpHeading h2{font-size:18px}
+ .levelPill{font-size:11px;padding:6px 10px}
+ .xpNumbers{margin-top:13px}
+ .xpNumbers strong{font-size:26px}
+ .xpPanel>p{font-size:11px}
+ .habitHeading h2{font-size:18px}
+ .habitCard>p{margin:7px 0 11px}
+ .goalChoices{margin-bottom:10px}
+ .goalChoices button{min-height:44px}
+ .resume>a{width:100%}
+ .streakNumber{margin:12px 0 5px}
+ .streakNumber strong{font-size:33px}
+ .titleRow>p{font-size:11px}
+}
