@@ -2,7 +2,7 @@
 
 import {useEffect,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,BookOpen,Bookmark,CheckCircle2,Compass,Gamepad2,GraduationCap,LogIn,RefreshCw} from 'lucide-react';
+import {ArrowLeft,BookOpen,Bookmark,Compass,Gamepad2,GraduationCap,LogIn,RefreshCw} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {dailyGameUrl,utcDay} from '@/lib/dailyGame';
