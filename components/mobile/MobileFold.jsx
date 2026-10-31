@@ -26,7 +26,7 @@ export default function MobileFold({title,children,initiallyOpen=false,className
   let targetId;try{targetId=decodeURIComponent(window.location.hash.slice(1));}catch{return;}
   const target=document.getElementById(targetId);
   if(!target||!ref.current?.contains(target))return;
-  const frame=requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}));
+  const frame=requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'auto'}));
   return()=>cancelAnimationFrame(frame);
  },[open]);
  return <div className={[styles.fold,open?styles.open:styles.closed,className].filter(Boolean).join(' ')}>
