@@ -22,7 +22,7 @@ export async function POST(request){
  try{
   if(!isSameOrigin(request))throw new RequestValidationError('طلب غير مسموح.',403);
   const db=serverDb(),user=await schoolUser(request,db),body=await readJsonObject(request,8500);
-  if(body.action==='start')return respond({attempt:await startGenericSchoolStage(db,user,body.slug,body.stage)});
+  if(body.action==='start')return respond({attempt:await startGenericSchoolStage(db,user,body.slug,body.stage,body.labProof)});
   if(body.action==='submit')return respond(await finishGenericSchoolStage(db,user,body.slug,body.attemptId,body.answers));
   if(body.action==='save')return respond(await saveSchoolDraft(db,user,body.slug,body.attemptId,body.revision,body.draft));
   throw new RequestValidationError('إجراء غير معروف.');
