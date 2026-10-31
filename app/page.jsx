@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Gamepad2, GraduationCap, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
+import {ArrowUpLeft, ArrowLeft, BookOpen, ChartNoAxesCombined, ChevronDown, Compass, Film, Gamepad2, GraduationCap, BrainCircuit, Telescope, Landmark, PenTool, Handshake, MapPin, MessagesSquare, Package, UsersRound} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
 import YemeniMotif from '@/components/design/YemeniMotif';
 import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
@@ -43,6 +43,12 @@ export default async function Home() {
   const moreContent = extraWorks.length > 0 || extraIssues.length > 0;
   const hasVisibleDirectories = visible('products') || visible('professionals');
   const knowledgeLinks=visibleHomeKnowledge(settings.pageVisibility,settings.contentPages||[]);
+  const schoolTracks=[
+    {href:'/school/writing',title:'الكتابة والأدب',description:'خط المسند والخط العربي والعروض',icon:PenTool,count:'36 محطة'},
+    {href:'/school/nature',title:'الفلك والطبيعة',description:'الفضاء والطقس والأرض من الداخل',icon:Telescope,count:'48 محطة'},
+    {href:'/school/logic',title:'المنطق والتفكير',description:'الاستدلال والمغالطات ومورس والبوابات',icon:BrainCircuit,count:'48 محطة'},
+    {href:'/school/civic',title:'السياسة والاقتصاد',description:'الحكم والاقتصاد والمال واتخاذ القرار',icon:Landmark,count:'48 محطة'},
+  ];
 
   return <div className={`home-page ${styles.page}`}>
     <section className={styles.hero} aria-labelledby="home-title">
@@ -52,7 +58,10 @@ export default async function Home() {
           <div className={styles.introCopy}>
            <p>{settings.heroDescription}</p>
            <SearchForm placeholder={settings.searchPlaceholder}/>
-           {visible('games')&&<NextLink href="#home-games" className={styles.heroGameShortcut}><Gamepad2 size={18} aria-hidden="true"/><span>جديد في 967: تسع ألعاب، تحدٍّ يومي ومنافسة مع الأصدقاء</span><ArrowLeft size={16} aria-hidden="true"/></NextLink>}
+           <nav className={styles.heroShortcuts} aria-label="ابدأ من هنا">
+            {visible('school')&&<NextLink href="#home-school" className={styles.heroSchoolShortcut}><GraduationCap size={18} aria-hidden="true"/><span>ابدأ التعلم في مدرسة 967</span><ArrowLeft size={16} aria-hidden="true"/></NextLink>}
+            {visible('games')&&<NextLink href="#home-games" className={styles.heroGameShortcut}><Gamepad2 size={18} aria-hidden="true"/><span>تحدي اليوم والألعاب</span><ArrowLeft size={16} aria-hidden="true"/></NextLink>}
+           </nav>
           </div>
         </div>
         {settings.pageVisibilityUnavailable&&<p className="stat-warning" role="status">تعذر تحميل أقسام المنصة مؤقتًا. أعد تحديث الصفحة للمحاولة.</p>}
@@ -65,15 +74,20 @@ export default async function Home() {
       </div>
     </section>
 
-    <HomeKnowledge items={knowledgeLinks}/>
-    {visible('games')&&<HomeGames/>}
-    {visible('school')&&<section className={styles.schoolPromo} aria-labelledby="home-school-title"><div className="container">
+    {visible('school')&&<section id="home-school" className={styles.schoolPromo} aria-labelledby="home-school-title"><div className="container">
       <div className={styles.schoolPromoInner}>
-       <div className={styles.schoolPromoIcon}><GraduationCap size={30} strokeWidth={1.6} aria-hidden="true"/></div>
-       <div className={styles.schoolPromoCopy}><span>جديد في مبادرة 967 · تعلّم خطوة بخطوة</span><h2 id="home-school-title">مدرسة 967</h2><p>تعلّم مهارة حقيقية، اجتز مراحلها، ثم افتح المستوى التالي. انطلق الآن في رحلة قراءة وكتابة خط المسند ضمن قسم الكتابة والأدب.</p></div>
-       <NextLink href="/school" className={styles.schoolPromoLink}>استكشف المدرسة <ArrowUpLeft size={19} aria-hidden="true"/></NextLink>
+       <div className={styles.schoolPromoHeader}>
+        <span className={styles.schoolPromoIcon}><GraduationCap size={29} strokeWidth={1.6} aria-hidden="true"/></span>
+        <div className={styles.schoolPromoCopy}><span>تعلم بالتجربة، لا بالحفظ وحده</span><h2 id="home-school-title">مدرسة 967</h2><p>15 مسارًا و180 محطة تفاعلية، من الكتابة والتفكير إلى العلوم والسياسة والاقتصاد. اختر مجالًا، جرّب ما تعلّمته، وتابع تقدمك خطوة بخطوة.</p></div>
+        <NextLink href="/school" className={styles.schoolPromoLink}>جميع المسارات <ArrowUpLeft size={19} aria-hidden="true"/></NextLink>
+       </div>
+       <div className={styles.schoolTracks} aria-label="أقسام مدرسة 967">
+        {schoolTracks.map(({href,title,description,icon:Icon,count})=><NextLink key={href} href={href} className={styles.schoolTrack}><span className={styles.schoolTrackIcon}><Icon size={22} strokeWidth={1.7} aria-hidden="true"/></span><span className={styles.schoolTrackText}><strong>{title}</strong><small>{description}</small><span>{count}</span></span><ArrowUpLeft size={17} aria-hidden="true" className={styles.schoolTrackArrow}/></NextLink>)}
+       </div>
       </div>
     </div></section>}
+    <HomeKnowledge items={knowledgeLinks}/>
+    {visible('games')&&<HomeGames/>}
 
     <section className={styles.discovery} aria-labelledby="explore-title"><div className="container">
       <div className={styles.smallHeading}><h2 id="explore-title">فضولك، يحدد البداية.</h2><Link href="/search">ابحث في كل المنصة <ArrowLeft size={16} aria-hidden="true"/></Link></div>
