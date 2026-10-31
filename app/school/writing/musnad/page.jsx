@@ -4,6 +4,10 @@ import {ChevronLeft,ExternalLink,GraduationCap,ScrollText} from 'lucide-react';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
+import {serverDb} from '@/lib/supabase-server';
+import {readHistoryCatalog} from '@/lib/historyRepository';
+import {musnadCrossLinks} from '@/lib/knowledgeConnections';
+import CrossSectionPaths from '@/components/knowledge/CrossSectionPaths';
 import {MUSNAD_SOURCE,MUSNAD_STAGES} from '@/lib/schoolMusnad';
 import SchoolJourney from '@/components/school/SchoolJourney';
 import styles from '../../school.module.css';
@@ -12,6 +16,9 @@ export const metadata=pageMetadata({title:'خط المسند | مدرسة 967',d
 export default async function MusnadPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
+ const entries=sectionIsVisible('history',settings.pageVisibility)
+  ?await readHistoryCatalog(serverDb()).then(result=>result.entries).catch(()=>[]):[];
+ const crossLinks=musnadCrossLinks(entries,settings.pageVisibility);
  return <main className={styles.root}>
   <section className={styles.innerHero}><div className="container">
    <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing">الكتابة والأدب</Link><ChevronLeft size={14}/> خط المسند</div>
@@ -29,6 +36,7 @@ export default async function MusnadPage(){
     <a href="https://doi.org/10.82194/dasi-epi-1085" target="_blank" rel="noopener noreferrer"><span>أرشيف DASI · RES 2651</span><strong>نقش سبئي قديم بنظام الاتجاه المتناوب</strong><p>مرجع علمي يوضح اختلاف اتجاه الكتابة في بعض النقوش المبكرة عن الاتجاه الشائع من اليمين إلى اليسار.</p><span>اقرأ بطاقة النقش <ExternalLink size={16}/></span></a>
    </div>
   </div></section>
+  {crossLinks.length>0&&<div className="container"><CrossSectionPaths items={crossLinks} id="musnad-cross-paths" title="من حروف المسند إلى تاريخ النقوش"/></div>}
   <section className={styles.reference}><div className="container"><div><h2>نقرأ التاريخ بدقة</h2><p>خط المسند نظام كتابة استخدمته لغات قديمة في جنوب الجزيرة العربية. التدريب الأول على قراءة الحروف، وليس على ترجمة السبئية أو تحويل العربية المعاصرة إلى لغة قديمة.</p></div><a href={MUSNAD_SOURCE} target="_blank" rel="noopener noreferrer">مرجع يونيكود لخط جنوب الجزيرة العربية القديم <ExternalLink size={16}/></a></div></section>
  </main>;
 }
