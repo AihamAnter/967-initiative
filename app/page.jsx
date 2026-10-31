@@ -5,6 +5,8 @@ import YemeniMotif from '@/components/design/YemeniMotif';
 import {HomeStoryCard, HomeIssueCard, HomeIndicatorCard, HomeDirectoryCard} from '@/components/home/HomeCards';
 import HomeKnowledge from '@/components/home/HomeKnowledge';
 import HomeGames from '@/components/home/HomeGames';
+import HomeSmartStart from '@/components/home/HomeSmartStart';
+import {utcDay} from '@/lib/dailyGame';
 import {getIssues, getWorks, getStatIndicators, getYemeniCompanies, getProfessionals, getSiteSettings} from '@/lib/data';
 import {getDebateCatalog} from '@/lib/debateServer';
 import {selectHomeContent,homeProjections} from '@/lib/homeContent';
@@ -58,13 +60,11 @@ export default async function Home() {
           <div className={styles.introCopy}>
            <p>{settings.heroDescription}</p>
            <SearchForm placeholder={settings.searchPlaceholder}/>
-           <nav className={styles.heroShortcuts} aria-label="ابدأ من هنا">
-            {visible('school')&&<NextLink href="#home-school" className={styles.heroSchoolShortcut}><GraduationCap size={18} aria-hidden="true"/><span>ابدأ التعلم في مدرسة 967</span><ArrowLeft size={16} aria-hidden="true"/></NextLink>}
-            {visible('games')&&<NextLink href="#home-games" className={styles.heroGameShortcut}><Gamepad2 size={18} aria-hidden="true"/><span>تحدي اليوم والألعاب</span><ArrowLeft size={16} aria-hidden="true"/></NextLink>}
-           </nav>
+
           </div>
         </div>
         {settings.pageVisibilityUnavailable&&<p className="stat-warning" role="status">تعذر تحميل أقسام المنصة مؤقتًا. أعد تحديث الصفحة للمحاولة.</p>}
+        <HomeSmartStart initialDate={utcDay()} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/>
         {(showStories||visible('magazine')||visible('statistics'))&&<><div className={styles.curatedHeading}><span>من 967، إليك.</span><span>حكاية، قراءة، ورقم يفتح سؤالًا جديدًا.</span></div>
         <div className={styles.mosaic} data-flexible={!(showLead&&visible('magazine')&&visible('statistics'))||undefined} aria-label="مختارات من محتوى المنصة">
           {showLead&&<div className={styles.leadSlot}><HomeStoryCard kind={content.leadKind} item={lead} featured/></div>}
