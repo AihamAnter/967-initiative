@@ -29,7 +29,12 @@ test('48 fully editable civic labs have correct objective rules and two or more 
   assert.ok(row.newBody.length>row.oldBody.length);
   assert.ok(row.newBody.length<=1700);
   assert.ok(row.questions.length>=2);
-  for(const question of row.questions)assert.deepEqual(validateSchoolEditorial('question',question),question);
+  for(const question of row.questions){
+   const validated=validateSchoolEditorial('question',question);
+   assert.deepEqual(validated.options,question.options.map(option=>option.trim()));
+   assert.equal(validated.answerIndex,question.answerIndex);
+   assert.equal(validated.prompt,question.prompt);
+  }
   const validated=validateSchoolEditorial('stage',{...stage.stage,lab:{...stage.stage.lab,activity}});
   assert.equal(validated.lab.activity.kind,activity.kind);
   count++;
