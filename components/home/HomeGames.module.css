@@ -68,3 +68,34 @@
 @media(max-width:820px){.showcase{grid-template-columns:minmax(0,1fr)}.hero{min-height:430px}.preview{border-inline-start:0;border-top:1px solid #3a4a67}.previewList{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.previewItem{flex-direction:column;text-align:center;gap:7px;padding:16px 9px;border:1px solid #445370;border-radius:12px;min-height:200px;justify-content:center}.previewCopy{align-items:center}.previewEyebrow{align-self:center;text-align:center}.previewEnd{flex-direction:row;margin-top:auto}.duel{display:flex;align-items:center;flex-wrap:wrap;gap:12px}.duel>div{flex:1}.duelLink{margin-inline-start:auto}.sectionHead{align-items:flex-start;gap:8px}.headLink{align-self:flex-start}}
 @media(max-width:600px){.section{padding-top:37px;padding-bottom:40px}.sectionHead{margin-bottom:16px}.sectionHead h2{font-size:28px}.showcase{border-radius:14px}.hero{min-height:0;padding:20px}.heroMark{width:42px;height:42px}.heroContent{padding:34px 0 22px}.heroContent h3{font-size:39px}.heroContent>p{font-size:13px;margin-bottom:20px}.stats{margin-bottom:21px;gap:8px}.stats>div{min-width:0;flex:1 1 29%;padding:0 9px}.stats>div:first-child{padding-inline-start:0}.stats strong{font-size:28px}.stats span{font-size:10px}.heroActions{display:grid;grid-template-columns:1fr;gap:10px}.primary,.secondary{min-height:48px}.preview{padding:17px}.previewList{grid-template-columns:1fr;gap:0}.previewItem{min-height:90px;flex-direction:row;text-align:right;border:0;border-radius:0;border-bottom:1px solid #45536d;padding:12px 0;gap:10px;justify-content:flex-start}.previewIcon{width:43px;height:43px}.previewCopy{align-items:flex-start}.previewEyebrow{align-self:flex-start}.previewCopy strong{font-size:16px}.previewEnd{flex-direction:column;margin:0}.duel{margin-top:10px}.duelLink{margin-inline-start:0}.bottomBar{font-size:11px;gap:4px}.bottomBar>span{width:100%}}
 @media(prefers-reduced-motion:reduce){.primary,.secondary{transition:none}}
+
+
+/* Horizontal preview rail reduces scroll depth while keeping all three links. */
+.mobileSwipeHint{display:none}
+@media(max-width:600px){
+ .section{padding-block:25px 28px}
+ .hero{padding:17px}
+ .heroContent{padding:22px 0 17px}
+ .heroContent h3{font-size:32px;line-height:1.35;margin:10px 0}
+ .heroContent>p{font-size:12px;line-height:1.75;margin-bottom:14px}
+ .stats{margin-bottom:14px}
+ .stats strong{font-size:22px}
+ .stats span{font-size:10px}
+ .heroFoot{padding-top:11px}
+ .preview{padding:14px}
+ .previewHead{margin-bottom:6px;padding-bottom:10px}
+ .mobileSwipeHint{display:block;margin:0 0 9px;font-size:11px;color:#b7c8de}
+ .previewList{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(205px,80%);grid-template-columns:none;gap:9px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding-bottom:10px}
+ .previewItem{min-height:116px;display:flex;flex-direction:row;align-items:center;text-align:start;gap:8px;padding:11px;scroll-snap-align:start;border:1px solid #45536d;border-radius:10px}
+ .previewIcon{width:40px;height:40px}
+ .previewCopy strong{font-size:15px}
+ .previewCopy small{font-size:11px;line-height:1.55}
+ .previewEnd{margin-inline-start:auto}
+ .duel{padding-top:10px;margin-top:0}
+ .duelIcon{width:36px;height:36px}
+ .duel strong{font-size:14px}
+ .duel p{display:none}
+ .duelLink{min-height:44px}
+ .bottomBar{padding-top:9px}
+}
+@media(prefers-reduced-motion:reduce){.previewList{scroll-behavior:auto}}
