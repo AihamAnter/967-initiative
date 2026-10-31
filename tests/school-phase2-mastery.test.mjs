@@ -11,7 +11,7 @@ import {chooseSchoolQuestions,gradeSchoolChoice,publicSchoolChoice,validateSchoo
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const curriculum=JSON.parse(read('data/school/civic/phase1.json'));
-const migration=read('supabase/migrations/20261031030000_school_phase2_contextual_labs_and_questions.sql');
+const migration=read('supabase/migrations/20261031023441_school_phase2_contextual_labs_and_questions.sql');
 const payload=JSON.parse(migration.match(/\$payload\$([\s\S]*?)\$payload\$/)[1]);
 const possibilities=axis=>[axis.min,axis.max,axis.initial-axis.step,axis.initial+axis.step,axis.initial].filter(v=>v>=axis.min&&v<=axis.max);
 
