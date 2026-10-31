@@ -11,7 +11,7 @@ test('homepage promotes games in a large integrated section without removing edi
  const showcase=read('components/home/HomeGames.jsx');
  assert.ok(homepage.includes("import HomeGames from '@/components/home/HomeGames'"));
  assert.ok(homepage.includes("{visible('games')&&<HomeGames/>}"));
- assert.ok(homepage.includes('href="#home-games"'));
+ assert.ok(homepage.includes('<HomeSmartStart initialDate={utcDay()}'));
  assert.ok(homepage.indexOf('<HomeKnowledge items={knowledgeLinks}/>')<homepage.indexOf('<HomeGames/>'));
  assert.ok(homepage.indexOf('<HomeGames/>')<homepage.indexOf('className={styles.discovery}'));
  assert.ok(showcase.includes('id="home-games"'));
@@ -22,9 +22,14 @@ test('homepage promotes games in a large integrated section without removing edi
   assert.ok(homepage.includes(section),section);
 });
 
-test('games hidden by site visibility settings also hide homepage feature and hero shortcut',()=>{
+test('games hidden by site visibility settings also hide homepage feature and personalized game tile',()=>{
  const homepage=read('app/page.jsx');
- assert.ok(homepage.includes("{visible('games')&&<NextLink href=\"#home-games\""));
+ assert.ok(homepage.includes("<HomeSmartStart initialDate={utcDay()}"));
+ const smart=read('components/home/HomeSmartStart.jsx');
+ assert.ok(smart.includes("const showGames=isVisible('/games')"));
+ assert.ok(smart.includes("{showGames&&<article"));
+ assert.ok(smart.includes("{showGames?<Link"));
+
  assert.ok(homepage.includes("{visible('games')&&<HomeGames/>}"));
  assert.equal(sectionIsVisible('games',{games:false}),false);
  assert.equal(pageIsVisible('/games',{games:false}),false);
@@ -77,7 +82,7 @@ test('the homepage arcade showcase is responsive, accessible and respects reduce
  assert.ok(css.includes('prefers-reduced-motion:reduce'));
  assert.ok(css.includes('.showcase{display:grid'));
  assert.ok(css.includes('grid-template-columns:1fr'));
- assert.ok(hero.includes('.heroGameShortcut'));
+ assert.ok(hero.includes('.schoolTracks'));
  assert.ok(view.includes('aria-label="مميزات ألعاب 967"'));
  assert.ok(view.includes('aria-hidden="true"'));
  assert.ok(view.includes('className={styles.duel}'));
