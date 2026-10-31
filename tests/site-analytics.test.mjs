@@ -83,9 +83,10 @@ test('private dashboard authenticates server side, filters small groups and no r
  const search=read('app/search/page.jsx');
  const layout=read('app/layout.jsx');
  assert.ok(api.indexOf('await authorizeEditorRequest')<api.indexOf("db.from('site_usage_daily')"));
- assert.ok(api.includes('.filter(item=>item.asked>=5)'));
+ assert.ok(api.includes('schoolStudioAnalytics(rows,3000,5)'));
+ assert.ok(read('lib/schoolStudioAnalytics.js').includes('.filter(x=>x.asked>=minAsked)'));
  assert.ok(api.includes('schoolLearningOverview(rows)'));
- assert.ok(api.includes('schoolStudioAnalytics(rows,3000)'));
+ assert.ok(api.includes('schoolStudioAnalytics(rows,3000,5)'));
  assert.ok(api.includes("Cache-Control':'private, no-store'"));
  assert.ok(ui.includes('الأسئلة الأكثر خطأً'));
  assert.ok(ui.includes('إكمال المحطات'));
