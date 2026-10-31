@@ -24,7 +24,9 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search'}){
  const {isVisible}=usePageVisibility();
  const [day,setDay]=useState(initialDate);
  const [revision,setRevision]=useState(0);
- const [cards,setCards]=useState(empty);
+ const [storedCards,setCards]=useState(()=>({userId:null,...empty()}));
+ // Never display an earlier account's private summary during a session switch.
+ const cards=storedCards.userId===user?.id?storedCards:empty();
 
  // Use the same UTC day as official games. An open tab must not keep yesterday's link.
  useEffect(()=>{
@@ -39,8 +41,8 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search'}){
   if(!ready||!user)return;
   let cancelled=false;
   const controller=new AbortController();
-  setCards(empty());
-  const update=(name,status,value)=>{if(!cancelled)setCards(old=>({...old,[name]:{status,value}}));};
+  setCards({userId:user.id,...empty()});
+  const update=(name,status,value)=>{if(!cancelled)setCards(old=>old.userId===user.id?{...old,[name]:{status,value}}:old);};
   const load=async(name,path,token)=>{
    try{
     const response=await fetch(path,{headers:{Authorization:'Bearer '+token},cache:'no-store',signal:controller.signal});
@@ -68,6 +70,16 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search'}){
   })();
   return()=>{cancelled=true;controller.abort();};
  },[ready,user?.id,day,revision]);
+
+ useEffect(()=>{
+  const db=browserDb();
+  if(!db)return;
+  const {data:{subscription}}=db.auth.onAuthStateChange((event,session)=>{
+   if(event==='SIGNED_OUT'||event==='SIGNED_IN')
+    setCards(old=>old.userId&&old.userId!==session?.user?.id?{userId:null,...empty()}:old);
+  });
+  return()=>subscription.unsubscribe();
+ },[]);
 
  const showSchool=isVisible('/school');
  const showGames=isVisible('/games');
