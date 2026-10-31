@@ -134,7 +134,8 @@ export default function ScienceLab({lab,source,onComplete}){
  const previous=metricIndex>=0?original.metrics[metricIndex].num:null;
  const observationChoices=metricIndex>=0?labObservationChoices(previous,observed):[];
  const confirmObservation=number=>{
-  if(number!==observed||metricIndex<0)return;
+  // Choices are rounded for display; the server still checks the raw model value.
+  if(metricIndex<0||number!==Number(observed.toFixed(5)))return;
   setVerified(true);onComplete?.({kind:'science',x,y:config.y?y:undefined,metricIndex,observed});
  };
  const setValue=(axis,next)=>{
