@@ -10,6 +10,7 @@ import {officialQuestionSnapshot} from '../lib/dailyVerifiedScore.js';
 import {DAILY_GAME_ORDER,dailyGameForDate,utcDay} from '../lib/dailyGame.js';
 import {matchingDailyQuestionIds,dailyAttemptDateOpen,dailyPublicQuestionFingerprint} from '../lib/dailyAttemptIntegrity.js';
 import {handleDebateRequest} from '../lib/debateApi.js';
+import {requireEligibleGameProfile} from '../lib/gamePlayerEligibility.js';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const builders={place:buildPlaceChallenges,timeline:buildTimelineChallenges,map:buildMapChallenges,...extraGameBuilders};
@@ -52,6 +53,23 @@ test('the same UTC day is required for official answers and midnight closes earl
  assert.match(round,/user\.banned_until/);
  for(const path of ['components/games/QuizGame.jsx','components/games/ArcadeChallenge.jsx','components/games/ExtraArcadeChallenge.jsx'])
   assert.match(read(path),/daily\.reserve\((list|tasksNow)\)/);
+});
+test('game result creation respects profile suspension, deletion requests and lookup failures',async()=>{
+ const makeDb=(profile,error=null)=>({from:table=>{
+  assert.equal(table,'public_profiles');
+  return {select:()=>({eq:(column,value)=>({maybeSingle:async()=>{
+   assert.equal(column,'user_id');assert.equal(value,'player-1');
+   return {data:profile,error};
+  }})})};
+ }});
+ const user={id:'player-1'};
+ assert.equal(await requireEligibleGameProfile(makeDb(null),user),true);
+ assert.equal(await requireEligibleGameProfile(makeDb({suspended:false,deletion_requested_at:null}),user),true);
+ await assert.rejects(requireEligibleGameProfile(makeDb({suspended:true}),user),e=>e.status===403);
+ await assert.rejects(requireEligibleGameProfile(makeDb({suspended:false,deletion_requested_at:'2026-10-31'}),user),e=>e.status===403);
+ await assert.rejects(requireEligibleGameProfile(makeDb(null,{message:'database unavailable'}),user),e=>e.status===503);
+ for(const path of ['app/api/games/daily/route.js','app/api/games/daily/round/route.js','lib/friendChallengeServer.js'])
+  assert.match(read(path),/await requireEligibleGameProfile\(db,user\)/);
 });
 test('the debate API bounds discussion parameters and blocks banned audience submissions',async()=>{
  const calls=[];
