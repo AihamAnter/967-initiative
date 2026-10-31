@@ -71,7 +71,7 @@ export default async function YemeniFigureProfilePage({params}) {
 
   const historyEntries=sectionIsVisible('history',settings.pageVisibility)
     ?await readHistoryCatalog(serverDb()).then(result=>result.entries).catch(()=>[]):[];
-  const crossLinks=figureCrossLinks(figure,{visibility:settings.pageVisibility,historyEntries});
+  const crossLinks=figureCrossLinks(figure,{visibility:settings.pageVisibility,historyEntries,figures});
   const links = socialLinks(figure);
   const hasDossier=figure.profile&&['sections','facts','timeline','works','gallery','notes'].some(key=>figure.profile[key]?.length);
   const portrait=figure.profile?.gallery.find(photo=>photo.url===figure.imageUrl);
