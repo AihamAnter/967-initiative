@@ -44,7 +44,7 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
  const isIntro=step===0,isPractice=hasPractice&&step===total-1;
  const lesson=!isIntro&&!isPractice?lessons[step-1]:null;
  const last=step===total-1;
- const requireExercise=['science','civic'].includes(stage.lab?.kind);
+ const requireExercise=['science','civic','morse','gates'].includes(stage.lab?.kind);
  return <section className={styles.guidedLesson} aria-labelledby="guided-lesson-heading">
   <div className={styles.guidedTop}>
    <span className={styles.guidedEyebrow}><BookOpen size={16}/> افهم الفكرة، شاهد مثالًا، ثم طبقها</span>
@@ -78,13 +78,13 @@ export default function SchoolGuidedLesson({slug,stage,busy,onStart,hasActiveAtt
     stage.lab?.kind==='science'?'انظر إلى الرسم والنتيجة الأولى، ثم حرّك أحد المتغيرات وراقب ما تغير. كل محطة لها رسم أو حساب يشرح ظاهرة مختلفة، ولا تحتاج إلى تخمين نتيجة غير مفهومة.':
     stage.lab?'هذا تدريب يمكنك تكراره دون خصم نقاط. جرّب الفكرة بيدك، ثم راجع الشرح قبل الاختبار.':
     'بعد فهم القواعد والأمثلة، طبّق ما تعلمته في ورشة الكتابة. يمكنك مراجعة الخطوات السابقة في أي وقت. هذا تدريب حرّ، وليس اختبارًا لجمال الخط.'}</p>
-   {stage.lab?.kind==='morse'&&<MorseLab sample={stage.lab.sample}/>}
-   {stage.lab?.kind==='gates'&&<LogicGatesLab gate={stage.lab.gate}/>}
+   {stage.lab?.kind==='morse'&&<MorseLab sample={stage.lab.sample} onComplete={setLabProof}/>}
+   {stage.lab?.kind==='gates'&&<LogicGatesLab gate={stage.lab.gate} onComplete={setLabProof}/>}
    {stage.lab?.kind==='science'&&<ScienceLab lab={stage.lab} source={stage.source} onComplete={setLabProof}/>}
    {stage.lab?.kind==='civic'&&<CivicLab lab={stage.lab} slug={slug} index={stage.index} onComplete={setLabProof}/>}
    {stage.practice&&<CalligraphyPracticePad practice={stage.practice} script={script} allowScriptChoice={slug==='arabic-calligraphy'&&stage.index===11} stageKey={slug+'-'+(stage.index+1)}/>}
   </div>}
-  {last&&requireExercise&&!labComplete&&!hasActiveAttempt&&<p className={styles.guidedCaution}>أكمل النشاط إلى نهايته أولًا: حلّل الموقف أو استكشف جميع البدائل أو تحقق من القيمة الجديدة، ثم ابدأ الاختبار.</p>}
+  {last&&requireExercise&&!labComplete&&!hasActiveAttempt&&<p className={styles.guidedCaution}>أكمل النشاط أولًا: تأكد من تحليلك، واستكشف كل البدائل أو نتائج الحساب، أو أرسل رسالة مورس المطلوبة أو جرّب جميع حالات البوابة المنطقية.</p>}
   {last&&<p className={styles.guidedReady}><CheckCircle2 size={18}/> انتهى شرح الدرس. الاختبار يقيس ما تعلمته وليس رأيك الشخصي، ويمكنك الرجوع إلى الشرح في أي وقت.</p>}
   <div className={styles.guidedActions}>
    <button type="button" className={styles.guidedSecondary} disabled={step===0||busy} onClick={()=>setStep(n=>Math.max(0,n-1))}>
