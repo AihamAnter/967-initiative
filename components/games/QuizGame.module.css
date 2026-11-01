@@ -31,7 +31,7 @@
 .stats span{font-size:11px;line-height:1.5;color:#c8bddc}
 .profile p{font-size:12px;color:#b9b7d5;line-height:1.9}
 .dailyBest{display:inline-flex;padding:12px;border:1px solid #ad93ff57;border-radius:10px;background:#3429506b;color:#e2cdff;font-size:12px;line-height:1.7}
-.play{max-width:940px;margin:auto;scroll-margin-top:98px;animation:stageEnter .3s ease both}
+.play{max-width:940px;margin:auto;scroll-margin-top:98px;overflow-anchor:none;animation:stageEnter .3s ease both}
 .playHeader{display:flex;gap:14px;align-items:center;justify-content:space-between;color:#b6c7e0;font-size:12px;font-weight:700;flex-wrap:wrap}
 .playHeader>span:first-child{color:#a9ffd4;letter-spacing:.02em}
 .playHeader strong{font-size:13px;color:#e9effb}
@@ -105,3 +105,14 @@
 @keyframes wrongShake{0%,100%{transform:translateX(0)}30%{transform:translateX(-4px)}70%{transform:translateX(4px)}}
 
 .syncError{margin:15px 0!important;padding:12px 16px!important;border:1px solid #a6646a;border-radius:9px;background:#482331;color:#ffd7d6!important;display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px!important}.syncError button{background:#b3ffda;color:#102a21;padding:9px 14px;border-radius:8px;font-weight:800}
+
+/* Keep the timer and current question together on narrow screens. */
+@media(max-width:610px){
+ .play{scroll-margin-top:83px}
+ .playHeader{row-gap:6px}
+ .progress{margin:12px 0 15px}
+ .questionStage h2{font-size:clamp(21px,6.2vw,24px);line-height:1.5;margin:10px 0 15px}
+ .questionMeta{gap:5px;font-size:11px}
+ .questionMeta span{padding:5px 9px}
+ .option{min-height:65px}
+}
