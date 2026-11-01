@@ -63,7 +63,7 @@ function ProfileFact({icon: Icon, label, value, ltr = false}) {
   if (!value) return null;
   return <div className="figure-profile-fact">
     <dt><Icon size={18}/>{label}</dt><dd dir={ltr ? 'ltr' : undefined}>{value}</dd>
-  </div></KnowledgeTheme>;
+  </div>;
 }
 
 export default async function YemeniFigureProfilePage({params}) {
@@ -173,5 +173,5 @@ export default async function YemeniFigureProfilePage({params}) {
         </Link>)}</div>
       </div>
     </section>}
-  </div>;
+  </div></KnowledgeTheme>;
 }
