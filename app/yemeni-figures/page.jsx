@@ -1,3 +1,5 @@
+import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
+import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import {notFound} from 'next/navigation';
 import {getSiteSettings,getYemeniFigures} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
@@ -20,8 +22,9 @@ export default async function YemeniFiguresPage({searchParams}){
  const params=await searchParams;
  const region=yemenGovernorates.some(item=>item.id===params?.region)?params.region:null;
  const figures=(await getYemeniFigures()).map(toFigureDirectoryCard);
- return <main className="yemeni-figures-page">
+ return <KnowledgeTheme area="figures"><main className="yemeni-figures-page">
   <KnowledgePageIntro
+   area="figures"
    title="شخصيات يمنية"
    category="دليل الشخصيات اليمنية"
    description="سير وتجارب وشخصيات تركت أثرها في اليمن. تصفح الشخصيات أو ابحث بالاسم والمجال والمحافظة والفترة.">
@@ -30,6 +33,7 @@ export default async function YemeniFiguresPage({searchParams}){
     <Link href="/yemen-history">استكشف تاريخ اليمن</Link>
    </div>
   </KnowledgePageIntro>
+  <KnowledgeNavigation/>
   <YemeniFiguresExplorer figures={figures} initialGovernorateId={region}/>
- </main>;
+ </main></KnowledgeTheme>;
 }
