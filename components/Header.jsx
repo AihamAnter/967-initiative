@@ -4,6 +4,7 @@ import {usePathname} from 'next/navigation';
 import {useEffect, useMemo, useRef, useState} from 'react';
 import {Bookmark, ChevronDown, Compass, House, Menu, PlayCircle, Search, X} from 'lucide-react';
 import BrandLogo from './BrandLogo';
+import ThemeToggle from './ThemeToggle';
 import useSessionDb from './useSessionDb';
 import {usePageVisibility} from './PageVisibilityProvider';
 import {resolveNavSections, utilityLinks} from '@/lib/navigation';
@@ -139,6 +140,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         </div>
       </nav>
       <div className="ed-tools">
+        {(path==='/' || path==='/works' || path.startsWith('/works/') || path==='/yemen-in-numbers' || path.startsWith('/yemen-in-numbers/indicator/')) && <ThemeToggle/>}
         <Link href="/search" className="ed-tool ed-tool-icon" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
         {account && <Link href={account[0]} className="ed-tool ed-tool-text ed-wide-only" aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
