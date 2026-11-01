@@ -1,0 +1,125 @@
+name: Test recovery from encrypted Backblaze backup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isolated-restore-test:
+    name: Restore selected tables in disposable PostgreSQL
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.B2_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+      AWS_DEFAULT_REGION: eu-central-003
+      AWS_EC2_METADATA_DISABLED: "true"
+      BACKUP_ENCRYPTION_PASSPHRASE: ${{ secrets.BACKUP_ENCRYPTION_PASSPHRASE }}
+      B2_BUCKET: 967ye-supabase-backups-2026
+      B2_ENDPOINT: https://s3.eu-central-003.backblazeb2.com
+    steps:
+      - name: Download newest backup from Backblaze
+        shell: bash
+        run: |
+          set -euo pipefail
+          for variable in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY BACKUP_ENCRYPTION_PASSPHRASE; do
+            if [[ -z "${!variable:-}" ]]; then
+              echo "::error::Missing secret: $variable"
+              exit 1
+            fi
+          done
+          key="$(aws --endpoint-url "$B2_ENDPOINT" s3api list-objects-v2 \
+            --bucket "$B2_BUCKET" --prefix 'database/daily/' \
+            --query 'sort_by(Contents, &LastModified)[-1].Key' --output text)"
+          if [[ -z "$key" || "$key" == None || "$key" != *.tar.gz.gpg ]]; then
+            echo "::error::No encrypted database backup found"
+            exit 1
+          fi
+          echo "Testing most recent encrypted backup: $key"
+          aws --endpoint-url "$B2_ENDPOINT" s3 cp \
+            "s3://$B2_BUCKET/$key" "$RUNNER_TEMP/backup.tar.gz.gpg" --only-show-errors
+
+      - name: Decrypt and verify archive checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s\n' "$BACKUP_ENCRYPTION_PASSPHRASE" | \
+            gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+            --decrypt --output "$RUNNER_TEMP/backup.tar.gz" \
+            "$RUNNER_TEMP/backup.tar.gz.gpg"
+          mkdir -p "$RUNNER_TEMP/recovery"
+          tar -xzf "$RUNNER_TEMP/backup.tar.gz" -C "$RUNNER_TEMP/recovery"
+          archive="$RUNNER_TEMP/recovery/967-backup/database.dump"
+          checksum="$RUNNER_TEMP/recovery/967-backup/database.dump.sha256"
+          test -s "$archive"
+          test -s "$checksum"
+          expected="$(awk '{print $1; exit}' "$checksum")"
+          actual="$(sha256sum "$archive" | awk '{print $1}')"
+          if [[ "$expected" != "$actual" ]]; then
+            echo "::error::The recovered database dump has a checksum mismatch"
+            exit 1
+          fi
+          rm -f "$RUNNER_TEMP/backup.tar.gz" "$RUNNER_TEMP/backup.tar.gz.gpg"
+          echo "Archive decrypted and checksum verified."
+
+      - name: Restore actual table definitions and rows in isolated PostgreSQL 17
+        shell: bash
+        run: |
+          set -euo pipefail
+          db_container="967-isolated-restore"
+          trap 'docker rm -f "$db_container" >/dev/null 2>&1 || true' EXIT
+          archive_dir="$RUNNER_TEMP/recovery/967-backup"
+
+          # No network ports are exposed. This ephemeral database cannot touch production.
+          docker run --rm -d --name "$db_container" \
+            -e POSTGRES_PASSWORD="$(openssl rand -hex 24)" \
+            -v "$archive_dir:/backup:ro" \
+            postgres:17 >/dev/null
+          for attempt in {1..40}; do
+            if docker exec "$db_container" pg_isready -U postgres -d postgres >/dev/null 2>&1; then
+              break
+            fi
+            sleep 1
+          done
+          docker exec "$db_container" pg_isready -U postgres -d postgres
+
+          docker exec "$db_container" pg_restore --list /backup/database.dump > "$RUNNER_TEMP/catalog.list"
+          # Test actual restoration of sign-in records and two real content tables.
+          # This intentionally excludes Supabase-managed extensions and platform-only schemas.
+          grep -E '^[0-9]+; [0-9]+ [0-9]+ (TABLE|TABLE DATA) (auth users|public universities|public medical_centers) ' \
+            "$RUNNER_TEMP/catalog.list" > "$RUNNER_TEMP/restore-selection.list"
+          if [[ "$(wc -l < "$RUNNER_TEMP/restore-selection.list")" -ne 6 ]]; then
+            echo "::error::Expected three table definitions and three data entries in backup"
+            exit 1
+          fi
+          docker exec "$db_container" psql -U postgres -d postgres \
+            -v ON_ERROR_STOP=1 -c 'CREATE SCHEMA IF NOT EXISTS auth;'
+          docker cp "$RUNNER_TEMP/restore-selection.list" "$db_container:/tmp/restore-selection.list"
+          docker exec "$db_container" pg_restore \
+            --dbname=postgres --username=postgres --no-owner --no-acl \
+            --exit-on-error --use-list=/tmp/restore-selection.list \
+            /backup/database.dump
+
+          # Only counts appear in logs, not private user records.
+          docker exec "$db_container" psql -U postgres -d postgres \
+            -v ON_ERROR_STOP=1 -c 'SELECT count(*) AS recovered_auth_users FROM auth.users;'
+          docker exec "$db_container" psql -U postgres -d postgres \
+            -v ON_ERROR_STOP=1 -c 'SELECT count(*) AS recovered_universities FROM public.universities;'
+          docker exec "$db_container" psql -U postgres -d postgres \
+            -v ON_ERROR_STOP=1 -c 'SELECT count(*) AS recovered_medical_centers FROM public.medical_centers;'
+          counts_ok="$(docker exec "$db_container" psql -U postgres -d postgres -Atc \
+            'SELECT (SELECT count(*) FROM public.universities) > 0 AND (SELECT count(*) FROM public.medical_centers) > 0;')"
+          if [[ "$counts_ok" != t ]]; then
+            echo "::error::Recovered content tables are unexpectedly empty."
+            exit 1
+          fi
+          echo "PASS: encrypted archive restored data for auth.users, universities and medical_centers into a disposable database."
+
+      - name: Explain scope
+        shell: bash
+        run: |
+          echo "Backup retrieval, decryption, integrity and selected table recovery all passed."
+          echo "This is an isolated sampled restore test, not a full Supabase platform disaster-recovery rehearsal."
+          echo "Supabase Storage objects and external configuration require separate backups."
