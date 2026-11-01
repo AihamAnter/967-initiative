@@ -1,0 +1,40 @@
+'use client';
+import {useEffect,useState} from 'react';
+import {Moon,Sun} from 'lucide-react';
+
+const KEY='967-editorial-theme';
+const current=()=>document.documentElement.dataset.edTheme==='dark'?'dark':'light';
+
+// Default light. Saved visitor preference is read by a tiny script in <head>
+// before paint, then synchronized with this accessible switch.
+export default function ThemeToggle(){
+ const [theme,setTheme]=useState('light');
+
+ useEffect(()=>{
+  const sync=()=>setTheme(current());
+  sync();
+  const onStorage=event=>{
+   if(event.key!==KEY)return;
+   const next=event.newValue==='dark'?'dark':'light';
+   document.documentElement.dataset.edTheme=next;
+   setTheme(next);
+  };
+  window.addEventListener('storage',onStorage);
+  return()=>window.removeEventListener('storage',onStorage);
+ },[]);
+
+ const toggle=()=>{
+  const next=current()==='dark'?'light':'dark';
+  document.documentElement.dataset.edTheme=next;
+  setTheme(next);
+  try{window.localStorage.setItem(KEY,next);}catch{/* Browser storage may be blocked. */}
+ };
+
+ const dark=theme==='dark';
+ return <button type="button" className="ed-tool ed-theme-toggle"
+  aria-label={dark?'تفعيل الوضع الفاتح':'تفعيل الوضع الداكن'}
+  title={dark?'الوضع الفاتح':'الوضع الداكن'} aria-pressed={dark}
+  onClick={toggle}>
+  {dark?<Sun size={20} aria-hidden="true"/>:<Moon size={20} aria-hidden="true"/>}
+ </button>;
+}
