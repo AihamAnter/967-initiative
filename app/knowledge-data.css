@@ -544,6 +544,10 @@
   display:inline-flex;
  }
 }
+/* On smaller phones the name already says اليمن; avoid crowding a five-column row. */
+@media(max-width:480px){
+ [data-knowledge-area="ranking"] .yr-neighbor-heading .yr-you{display:none}
+}
 @media(max-width:380px){
  [data-knowledge-area="statistics"] .stat-card-top{
   align-items:flex-start;
