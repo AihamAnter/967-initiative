@@ -44,11 +44,13 @@ jobs:
         run: |
           npm install --no-save --package-lock=false --ignore-scripts playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Build production preview for browser smoke
+        run: npm run build
       - name: Start standalone local-content preview and test responsive UI
         shell: bash
         run: |
           set -euo pipefail
-          npm run dev -- --hostname 127.0.0.1 --port 3119 >/tmp/967-phase5-next.log 2>&1 &
+          npm run start -- --hostname 127.0.0.1 --port 3119 >/tmp/967-phase5-next.log 2>&1 &
           APP_PID=$!
           trap 'kill "$APP_PID" 2>/dev/null || true' EXIT
           ready=0
