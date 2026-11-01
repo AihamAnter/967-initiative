@@ -17,8 +17,8 @@ export default async function CourseStagePage({params}){
  if(!course)notFound();
  const stages=await publishedSchoolStages(db,slug),index=Number(raw)-1,stage=stages.find(x=>x.index===index);
  if(!stage)notFound();
- return <main className={styles.root}><section className={styles.workspace}><div className="container">
+ return <div className={styles.root}><section className={styles.workspace}><div className="container">
   <Link href={'/school/courses/'+slug} className={styles.back}><ArrowRight size={16}/> {course.title}</Link>
   <GenericSchoolLesson slug={slug} stage={stage} hasNext={stages.some(x=>x.index===index+1)}/>
- </div></section></main>;
+ </div></section></div>;
 }

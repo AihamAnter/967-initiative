@@ -58,7 +58,7 @@ test('five distinct palettes are isolated from site-wide tokens and meet text co
  assert.ok(!root.includes('--font-body:'));
  assert.ok(root.includes('data-knowledge-intro'));
  assert.ok(root.includes('var(--knowledge-hero)'));
- assert.ok(layout.includes("import './knowledge-identity.css';"));
+ assert.ok(read('app/legacy-styles.js').includes("import './knowledge-identity.css';"));
 });
 
 test('all public knowledge landing pages share a hero and one accessible navigation',()=>{
@@ -67,7 +67,8 @@ test('all public knowledge landing pages share a hero and one accessible navigat
   assert.ok(src.includes('<KnowledgeTheme area="'+area.id+'">'),area.id);
   assert.ok(src.includes('<KnowledgeNavigation/>'),area.id);
   assert.equal((src.match(/<KnowledgeNavigation\/>/g)||[]).length,1,area.id);
-  const introEnd=src.indexOf(src.includes('</KnowledgePageIntro>')?'</KnowledgePageIntro>':'</PageIntro>');
+  // Redesigned statistics list uses the editorial page head (</header>) instead of PageIntro.
+  const introEnd=src.indexOf(src.includes('</KnowledgePageIntro>')?'</KnowledgePageIntro>':src.includes('</PageIntro>')?'</PageIntro>':'</header>');
   assert.ok(introEnd>=0&&src.indexOf('<KnowledgeNavigation/>')>introEnd,'nav follows intro: '+area.id);
  }
  const intro=read('components/knowledge/KnowledgePageIntro.jsx');
@@ -89,11 +90,13 @@ test('knowledge navigation filters hidden sections, marks current section, and w
  assert.ok(css.includes('@media(prefers-reduced-motion:reduce)'));
 });
 
-test('homepage discovery uses identical area palettes without changing layout',()=>{
- const home=read('components/home/HomeKnowledge.jsx');
- const homeCss=read('components/home/HomeKnowledge.module.css');
- assert.ok(home.includes('data-knowledge-id={item.id}'));
- assert.ok(homeCss.includes('.tile[data-knowledge-id]'));
- assert.ok(homeCss.includes('var(--knowledge-accent'));
- for(const area of KNOWLEDGE_AREAS)assert.ok(read('lib/homeKnowledge.js').includes("id:'"+area.id+"'"));
+// Editorial Calm redesign: the home page no longer renders per-area coloured
+// knowledge tiles; one "المعرفة" door lists all five areas from lib/navigation.js.
+test('homepage discovery lists every knowledge area through the shared vocabulary',()=>{
+ const nav=read('lib/navigation.js');
+ for(const area of KNOWLEDGE_AREAS){
+  assert.ok(nav.includes("['"+area.href+"'"),area.id);
+  assert.ok(read('lib/homeKnowledge.js').includes("id:'"+area.id+"'"));
+ }
+ assert.ok(read('app/page.jsx').includes('id="explore-knowledge"'));
 });

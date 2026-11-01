@@ -1,58 +1,63 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {navSections,resolveNavSections} from '../lib/navigation.js';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 
+// Editorial Calm redesign: the navigation vocabulary lives in lib/navigation.js
+// and is rendered by the header, the footer and the home doors. These tests
+// now check that shared data (behaviour) instead of Header.jsx markup strings.
+
 test('Games 967 is a standalone global navigation section, never a Knowledge submenu',()=>{
- const header=read('components/Header.jsx');
- const knowledge=header.match(/\{label: 'المعرفة', links: (.*?)\},/s)?.[1]||'';
- const games="{label: 'ألعاب 967', standalone: true, links: [['/games', 'ألعاب 967']]}";
- assert.ok(knowledge.includes("'/yemen-history'"));
- assert.ok(!knowledge.includes("'/games'"));
- assert.ok(header.includes(games));
- assert.ok(header.indexOf("{label: 'المعرفة'")<header.indexOf(games));
- assert.ok(header.indexOf(games)<header.indexOf("{label: 'الأدلة'"));
+ const ids=navSections.map(section=>section.id);
+ const knowledge=navSections.find(section=>section.id==='knowledge');
+ const games=navSections.find(section=>section.id==='games');
+ assert.ok(knowledge.links.some(([href])=>href==='/yemen-history'));
+ assert.ok(!knowledge.links.some(([href])=>href.startsWith('/games')));
+ assert.equal(games.label,'ألعاب 967');
+ assert.equal(games.standalone,true);
+ assert.equal(games.links[0][0],'/games');
+ assert.ok(ids.indexOf('knowledge')<ids.indexOf('games'));
+ assert.ok(ids.indexOf('games')<ids.indexOf('directories'));
 });
 
 test('main desktop and mobile navigation retain exactly one games entry and active subpages',()=>{
  const header=read('components/Header.jsx');
- const css=read('app/platform-refinements.css');
- assert.ok(header.includes('group.standalone ? <Link'));
- assert.ok(header.includes("group.label==='ألعاب 967'?'nav-games':'nav-school'"));
- assert.ok(header.includes('active(group.links[0][0])'));
- assert.ok(header.includes('href={group.links[0][0]}'));
- assert.ok(header.includes('groups.filter(group=>!group.standalone).map'));
- assert.ok(header.includes("group.links.filter(([href])=>isVisible(href))"));
- assert.ok(css.includes('.platform-nav>.nav-games'));
- assert.ok(css.includes('@media(max-width:900px)'));
+ const css=read('app/foundation/shell.css');
+ const sections=resolveNavSections();
+ assert.equal(sections.filter(section=>section.links.some(([href])=>href==='/games')).length,1);
+ assert.ok(header.includes('{section.standalone && <Link className="ed-nav-direct" href={section.links[0][0]}'));
+ assert.ok(header.includes('aria-current={active(section.links[0][0]) || sectionActive(section) ?'));
+ assert.ok(header.includes("section.links.filter(([href]) => isVisible(href))"));
+ // Wide screens show the direct link; narrow screens show the same section as a disclosure.
+ assert.ok(css.includes('.ed-nav-group[data-standalone] { display: none; }'));
+ assert.ok(css.includes('@media (max-width: 1179px)'));
+ assert.ok(css.includes('.ed-nav-direct { display: none; }'));
+ assert.equal(resolveNavSections({visibility:{games:false}}).some(section=>section.id==='games'),false);
 });
 
 test('footer has a separate Games 967 heading with working destination routes',()=>{
  const footer=read('components/Footer.jsx');
- const css=read('app/platform-refinements.css');
- const heading=footer.indexOf('<FooterGroup title="ألعاب 967">');
- const knowledge=footer.indexOf('<FooterGroup title="المحتوى والمعرفة">');
- const guides=footer.indexOf('<FooterGroup title="الأدلة والمجتمع">');
- assert.ok(knowledge>=0&&heading>knowledge&&guides>heading);
- assert.ok(footer.includes('<Link href="/games">جميع الألعاب</Link>'));
- assert.ok(footer.includes('<Link href="/games/leaderboard">لوحة المتصدرين</Link>'));
- assert.ok(footer.includes('<Link href="/games/achievements">الشارات والإنجازات</Link>'));
- assert.ok(!footer.slice(knowledge,heading).includes('href="/games"'));
- assert.ok(css.includes('grid-template-columns:minmax(250px,1.45fr) repeat(4,minmax(0,1fr))'));
- assert.ok(css.includes('@media(max-width:420px)'));
+ const css=read('app/foundation/shell.css');
+ const ids=navSections.map(section=>section.id);
+ const games=navSections.find(section=>section.id==='games');
+ assert.ok(footer.includes('navSections.map'));
+ assert.ok(footer.includes('<FooterGroup key={section.id} title={section.label}>'));
+ assert.ok(ids.indexOf('knowledge')<ids.indexOf('games')&&ids.indexOf('games')<ids.indexOf('directories'));
+ assert.deepEqual(games.links.map(([href])=>href),['/games','/games/leaderboard','/games/achievements']);
+ assert.deepEqual(games.links.map(([,label])=>label),['جميع الألعاب','لوحة المتصدرين','الشارات والإنجازات']);
+ assert.ok(css.includes('.ed-footer-groups { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr))'));
+ assert.ok(css.includes('@media (max-width: 700px)'));
 });
 
-test('homepage games showcase has its own name, contrast and visibility control',()=>{
+test('homepage games showcase has its own name, today\'s UTC challenge and visibility control',()=>{
  const home=read('app/page.jsx');
- const knowledge=read('components/home/HomeKnowledge.jsx');
- const games=read('components/home/HomeGames.jsx');
- const css=read('components/home/HomeGames.module.css');
- assert.ok(home.includes("{visible('games')&&<HomeGames/>}"));
- assert.ok(home.indexOf('<HomeKnowledge items={knowledgeLinks}/>')<home.indexOf('<HomeGames/>'));
- assert.ok(games.includes('<h2 id="home-games-title">ألعاب <span>967</span></h2>'));
- assert.ok(games.includes('id="home-games"'));
- assert.ok(knowledge.includes('id="explore-knowledge"'));
- assert.ok(css.includes('background:#fffaf2;border-block:1px'));
- assert.ok(!/[\u0660-\u0669\u06F0-\u06F9]/u.test(games));
+ const games=read('components/front/FrontSections.jsx');
+ assert.ok(home.includes("{visible('games')&&<section id=\"home-games\""));
+ assert.ok(home.indexOf('id="explore-knowledge"')<home.indexOf('id="home-games"'));
+ assert.ok(home.includes('dailyGameUrl(today)'));
+ assert.ok(home.includes('DAILY_GAME_TITLES[dailyGameForDate(today)]'));
+ assert.ok(games.includes('id="home-games-title"'));
+ assert.ok(!/[\u0660-\u0669\u06F0-\u06F9]/u.test(home+games));
 });

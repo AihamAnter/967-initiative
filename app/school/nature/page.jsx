@@ -25,7 +25,7 @@ export default async function SchoolNaturePage(){
   const stages=await publishedSchoolStages(db,track.slug);
   return {...track,course,stageCount:stages.length};
  }));
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <section className={styles.natureHero}><div className="container">
    <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/> الفلك والطبيعة</div>
    <span className={styles.eyebrow}><Stars size={19}/> القسم الثاني / مدرسة 967</span>
@@ -49,5 +49,5 @@ export default async function SchoolNaturePage(){
    {!tracks.some(Boolean)&&<p className={styles.logicEmpty}>لم تُنشر مسارات هذا القسم بعد.</p>}
    <div className={styles.natureFootnote}><FlaskConical size={18}/> نماذج علمية مبسطة مع مصادر موثقة، وليست توقعات جوية أو جيولوجية أو فلكية تشغيلية.</div>
   </div></section>
- </main>;
+ </div>;
 }

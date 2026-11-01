@@ -43,7 +43,7 @@ export default async function YemenHistoryDetail({params}){
  const figures=item.figureQuery&&sectionIsVisible('figures',settings.pageVisibility)
   ?await getYemeniFigures(relatedProjections.figures).catch(()=>[]):[];
  const crossLinks=historyCrossLinks(item,{visibility:settings.pageVisibility,figures});
- return <KnowledgeTheme area="history"><main className={styles.articlePage}>
+ return <KnowledgeTheme area="history"><div className={styles.articlePage}>
   <JsonLd data={breadcrumbSchema([{name:'تاريخ اليمن',path:'/yemen-history'},{name:item.title,path:historyEntryPath(item.slug)}])}/>
   <header className={styles.articleHero}><div className="container">
    <ContextBackLink className={styles.back} fallback="/yemen-history" label="العودة إلى تاريخ اليمن" leading={<ArrowUpLeft size={16}/>}/>
@@ -67,5 +67,5 @@ export default async function YemenHistoryDetail({params}){
    <aside className={styles.articleAside}><div className={styles.facts}><h2>الملف التاريخي</h2><dl><dt>التصنيف</dt><dd>{historyKinds[item.kind]}</dd><dt>العصر</dt><dd>{era?.title||'غير محدد'}</dd><dt>مرجع زمني</dt><dd>{historyYear(item.year)}</dd><dt>الفترة</dt><dd>{item.period}</dd><dt>الموقع</dt><dd>{item.location||'مناطق متعددة'}</dd></dl></div><p>تنبيه: الممالك القديمة والدول المتعاقبة قد تزامنت في أجزاء مختلفة من اليمن. لا ينبغي فهم الخط الزمني على أنه قائمة حكام لدولة واحدة.</p></aside>
   </div>
   {related.length>0&&<section className={'container '+styles.related}><h2>مواد مرتبطة</h2><div>{related.map(x=><Link key={x.slug} href={historyEntryPath(x.slug)}><small>{historyKinds[x.kind]} · {historyYear(x.year)}</small><strong>{x.title}</strong><ArrowUpLeft size={18}/></Link>)}</div></section>}
- </main></KnowledgeTheme>;
+ </div></KnowledgeTheme>;
 }

@@ -3,12 +3,14 @@ import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import ContextBackLink from '@/components/ContextBackLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Link from '@/components/SiteLink';
-import nextDynamic from 'next/dynamic';
 import {notFound} from 'next/navigation';
-import {AlertTriangle, CalendarDays, ExternalLink, Info, Ruler, ShieldCheck} from 'lucide-react';
+import {ArrowRight, ExternalLink} from 'lucide-react';
 import IndicatorActions from '@/components/IndicatorActions';
 import IndicatorEditorial from '@/components/IndicatorEditorial';
 import InlineTarget from '@/components/inline/InlineTarget';
+import Resilient from '@/components/front/Resilient';
+import CorrectionLink from '@/components/CorrectionLink';
+import Sparkline from '@/components/numbers/Sparkline';
 import {getStatIndicator} from '@/lib/data';
 import {formatArabicDate, formatNumber, formatYear} from '@/lib/format';
 import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
@@ -16,7 +18,9 @@ import {detailPath, hasIndexableIndicator, pageMetadata} from '@/lib/seo';
 import {breadcrumbSchema, indicatorSchema, JsonLd} from '@/lib/seo-schema';
 import {dataStatusHelp,indicatorReading,sourceLabel} from '@/lib/indicatorPresentation';
 import {indicatorMeasurementEvidence} from '@/lib/contentEvidence';
-const IndicatorChart=nextDynamic(()=>import('@/components/IndicatorChart'),{loading:()=><p role="status">جارٍ تجهيز الرسم…</p>});
+// Recharts loads only when a multi-year series is drawn (see LazyIndicatorChart);
+// the value, table and sources are server-rendered before it.
+import IndicatorChart from '@/components/numbers/LazyIndicatorChart';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,33 +38,72 @@ export default async function IndicatorPage({params}) {
   const latest = indicator.latestValue;
   const measurement=latest?indicatorMeasurementEvidence(latest.year):null;
   const latestDisplayValue = latest ? formatNumber(latest.value, {maximumFractionDigits: 3}) : null;
-  // Scale long numbers to the actual width of the value card without abbreviating their values.
-  const latestFontScale = latestDisplayValue ? `${Math.max(4, Math.min(17, 125 / Math.max(1, latestDisplayValue.length)))}cqi` : null;
   const sourceIds = new Set(indicator.allValues.map(value => value.source_id));
   const yearCount=new Set(indicator.values.map(value=>value.year)).size;
-  return <KnowledgeTheme area="statistics">
-    <InlineTarget kind="statistic" id={indicator.id} slug={indicator.slug} title={indicator.name} href={detailPath('yemen-in-numbers/indicator',indicator.slug)}/>
+  const path=detailPath('yemen-in-numbers/indicator',indicator.slug);
+  return <KnowledgeTheme area="statistics"><div className="ed-page ed-indicator" style={{'--hue':'var(--c-teal)','--hue-2':'var(--c-indigo)'}}>
+    <div className="ed-mesh" aria-hidden="true"/>
+    <InlineTarget kind="statistic" id={indicator.id} slug={indicator.slug} title={indicator.name} href={path}/>
     <JsonLd data={indicatorSchema(indicator)}/>
-    <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:indicator.domain.name, path:detailPath('yemen-in-numbers', indicator.domain.slug)}, {name:indicator.name, path:detailPath('yemen-in-numbers/indicator', indicator.slug)}])}/>
-    <section className="stat-indicator-head"><div className="container">
-      <ContextBackLink fallback={'/yemen-in-numbers/'+indicator.domain.slug} label={indicator.domain.name}/>
-      <span className="eyebrow">{indicator.domain.section?.name} / مؤشر وطني</span>
-      <div className="stat-indicator-title"><div><h1>{indicator.name}</h1><p>{indicator.short_description || indicator.definition}</p></div>{latest ? <div className="stat-latest"><span>أحدث قيمة منشورة</span><strong dir="ltr" style={{'--stat-value-font': latestFontScale}}>{latestDisplayValue}</strong><b>{indicator.unit}</b><small>{formatYear(latest.year)}</small></div> : <div className="stat-latest stat-no-latest"><span>لا توجد قيمة منشورة</span></div>}</div>
-      <IndicatorActions indicator={indicator}/>
-      {measurement&&measurement.kind!=='recent'&&<p className="stat-warning" role="note"><AlertTriangle size={17}/>{measurement.message}</p>}
-      {indicator.updated_at && <p className="record-update">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
+    <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:indicator.domain.name, path:detailPath('yemen-in-numbers', indicator.domain.slug)}, {name:indicator.name, path}])}/>
+    <section className="ed-detailhead ed-indicator-head" aria-labelledby="indicator-title"><div className="ed-wrap">
+      <ContextBackLink fallback={'/yemen-in-numbers/'+indicator.domain.slug} label={indicator.domain.name} className="ed-back" leading={<ArrowRight size={17} aria-hidden="true"/>}/>
+      <div className="ed-indicator-grid">
+        <div>
+          <p className="ed-kicker">{indicator.domain.section?.name} · مؤشر وطني</p>
+          <h1 id="indicator-title">{indicator.name}</h1>
+          <p className="ed-dek">{indicator.short_description || indicator.definition}</p>
+        </div>
+        {latest ? <div className="ed-latest" aria-label="أحدث قيمة منشورة">
+          <p className="ed-latest-label">أحدث قيمة منشورة</p>
+          <p className="ed-figure ed-figure-xl" data-len={latestDisplayValue.length > 10 ? 'long' : undefined}><bdi dir="ltr">{latestDisplayValue}</bdi> <span>{indicator.unit}</span></p>
+          <Sparkline points={indicator.values.map(value => ({year:Number(value.year), value:Number(value.value)}))} label={'اتجاه '+indicator.name}/>
+          <p className="ed-meta"><span>سنة القياس <bdi>{formatYear(latest.year)}</bdi></span><span className="ed-status" data-tone={latest.value_status==='official'?'neutral':'caution'}>{valueStatusLabels[latest.value_status] || 'نوع القيمة غير محدد'}</span></p>
+          <p className="ed-meta"><span>المصدر: {sourceLabel(latest.source||indicator.adopted_source,indicator.name)}</span></p>
+        </div> : <div className="ed-latest"><p className="ed-latest-label">لا توجد قيمة منشورة</p><p className="ed-entry-missing">{indicator.hasSourceConflict?'بانتظار تحديد السلسلة المعتمدة.':'ستظهر القيمة بعد توثيقها ونشرها.'}</p></div>}
+      </div>
+      {measurement&&measurement.kind!=='recent'&&<p className="ed-unavailable" role="note">{measurement.message}</p>}
+      <div className="ed-actions"><IndicatorActions indicator={indicator}/><ContentReadingAction kind="indicator" href={path} title={indicator.name}/></div>
+      {indicator.updated_at && <p className="ed-record-date">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
     </div></section>
     <KnowledgeNavigation/>
-    <section className="section stat-indicator-body"><div className="container">
-      <ContentReadingAction kind="indicator" href={detailPath('yemen-in-numbers/indicator',indicator.slug)} title={indicator.name}/>
-      <p className="indicator-reading-note">{indicatorReading(indicator)}</p>
-      <div className="stat-detail-layout"><div className="stat-chart-panel"><div className="stat-panel-head"><div><span>السنوات المتاحة</span><h2>{yearCount>1?'القيم عبر السنوات':'قيمة سنة واحدة'}</h2></div><span>{indicator.unit}</span></div>{yearCount>1?<IndicatorChart values={indicator.values} unit={indicator.unit} type={indicator.chart_type}/>:<div className="single-year-note"><CalendarDays size={30}/><p>{latest?`تتوفر قيمة معتمدة لسنة ${formatYear(latest.year)} فقط. تظهر تفاصيلها في الجدول أدناه.`:'لا توجد سلسلة معتمدة للرسم حالياً.'}</p></div>}{sourceIds.size > 1 && !indicator.adopted_source_id && <p className="stat-warning"><AlertTriangle size={17}/> توجد مصادر متعددة دون سلسلة معتمدة؛ أوقف الرسم حتى المراجعة. القيم الأصلية متاحة في CSV.</p>}</div>
-      <aside className="stat-facts"><h2>بطاقة المؤشر</h2><dl><div><dt><Ruler size={16}/> الوحدة</dt><dd>{indicator.unit}</dd></div><div><dt><ShieldCheck size={16}/> حالة البيانات</dt><dd>{statusLabels[indicator.data_status]}<small className="data-status-help">{dataStatusHelp[indicator.data_status]}</small></dd></div><div><dt><Info size={16}/> اتجاه التحسن</dt><dd>{directionLabels[indicator.improvement_direction]}</dd></div>{latest && <div><dt><CalendarDays size={16}/> طبيعة أحدث قيمة</dt><dd>{valueStatusLabels[latest.value_status]}</dd></div>}</dl></aside></div>
-      {indicator.editorial?.is_published&&<IndicatorEditorial data={indicator.editorial} indicatorName={indicator.name}/>}
-      {indicator.values.length > 0 && <section className="stat-series-section"><h2>البيانات المنشورة للسلسلة المعتمدة</h2><p className="knowledge-table-hint">مرّر الجدول أفقيًا للاطلاع على بقية الأعمدة.</p><div className="stat-series-table-scroll" role="region" aria-label="الجدول الزمني للمؤشر" tabIndex={0}><table className="stat-series-table"><caption>{indicator.name} — النطاق الوطني: الجمهورية اليمنية؛ الوحدة: {indicator.unit}</caption><thead><tr><th scope="col">سنة القياس</th><th scope="col">القيمة</th><th scope="col">حالة القيمة</th><th scope="col">المصدر</th></tr></thead><tbody>{indicator.values.map((value, index) => <tr key={value.id || `${value.year}-${index}`}><th scope="row">{formatYear(value.year)}</th><td dir="ltr">{formatNumber(value.value, {maximumFractionDigits:3})}</td><td>{valueStatusLabels[value.value_status] || 'غير محددة'}</td><td>{value.source?.url ? <a href={value.source.url} target="_blank" rel="noopener noreferrer">{value.source.name || 'رابط المصدر'}</a> : value.source?.name || 'لم يُرفق مصدر'}</td></tr>)}</tbody></table></div></section>}
-      <div className="indicator-notes"><details><summary>التعريف والمنهجية</summary><p>{indicator.definition || 'لم يُضف تعريف تفصيلي لهذا المؤشر بعد.'}</p><p>{indicator.measurement_method || 'راجع وثيقة المصدر لطريقة القياس وحدود المقارنة.'}</p></details></div>
-      <section className="stat-sources"><div className="stat-panel-head"><div><span>التوثيق</span><h2>المصادر والوثائق</h2></div></div>{indicator.sources.length ? <div className="stat-source-list">{indicator.sources.map(item => <article key={item.source_id}><div><strong>{sourceLabel(item.source,indicator.name)}</strong>{item.is_adopted && <span>السلسلة المعتمدة</span>}<details><summary>تفاصيل المصدر</summary><p>{item.methodology || item.source?.description || 'مصدر مستخدم في توثيق هذا المؤشر.'}</p></details></div>{item.source?.url && <a href={item.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15}/></a>}</article>)}</div> : latest?.source ? <div className="stat-source-list"><article><div><strong>{sourceLabel(latest.source,indicator.name)}</strong><p>{latest.methodology_note || 'مصدر أحدث قيمة منشورة.'}</p></div>{latest.source.url && <a href={latest.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15}/></a>}</article></div> : <p className="small-muted">لم تُضف تفاصيل المصدر بعد.</p>}
-      {latest?.document_url && <a className="stat-document-link" href={latest.document_url} target="_blank" rel="noopener noreferrer">وثيقة أحدث قيمة <ExternalLink size={16}/></a>}{latest?.publication_date && <small>تاريخ النشر: {formatArabicDate(latest.publication_date)}</small>}</section>
-    </div></section>
-  </KnowledgeTheme>;
+
+    <section className="ed-wrap ed-block" aria-labelledby="series-title">
+      <p className="ed-reading">{indicatorReading(indicator)}</p>
+      <div className="ed-series-layout">
+        <div className="ed-chart-panel">
+          <div className="ed-section-head"><h2 id="series-title">{yearCount>1?'القيم عبر السنوات':'قيمة سنة واحدة'}</h2><p>الوحدة: {indicator.unit}</p></div>
+          {yearCount>1?<Resilient name="indicator-chart" label="تعذّر عرض الرسم. القيم كاملة في الجدول أدناه."><IndicatorChart values={indicator.values} unit={indicator.unit} type={indicator.chart_type}/></Resilient>:<p className="ed-single-year">{latest?`تتوفر قيمة معتمدة لسنة ${formatYear(latest.year)} فقط. تظهر تفاصيلها في الجدول أدناه.`:'لا توجد سلسلة معتمدة للرسم حالياً.'}</p>}
+          {sourceIds.size > 1 && !indicator.adopted_source_id && <p className="ed-unavailable" role="note">توجد مصادر متعددة دون سلسلة معتمدة؛ أوقف الرسم حتى المراجعة. القيم الأصلية متاحة في CSV.</p>}
+        </div>
+        <aside className="ed-factsheet" aria-labelledby="factsheet-title">
+          <h2 id="factsheet-title" className="ed-section-label">بطاقة المؤشر</h2>
+          <dl>
+            <div><dt>الوحدة</dt><dd>{indicator.unit}</dd></div>
+            <div><dt>حالة البيانات</dt><dd>{statusLabels[indicator.data_status]}<small>{dataStatusHelp[indicator.data_status]}</small></dd></div>
+            <div><dt>اتجاه التحسن</dt><dd>{directionLabels[indicator.improvement_direction]}</dd></div>
+            {latest && <div><dt>طبيعة أحدث قيمة</dt><dd>{valueStatusLabels[latest.value_status]}</dd></div>}
+            <div><dt>النطاق</dt><dd>الجمهورية اليمنية</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    {indicator.editorial?.is_published&&<div className="ed-wrap"><IndicatorEditorial data={indicator.editorial} indicatorName={indicator.name}/></div>}
+
+    {indicator.values.length > 0 && <section className="ed-wrap ed-block" aria-labelledby="table-title">
+      <div className="ed-section-head"><h2 id="table-title">البيانات المنشورة للسلسلة المعتمدة</h2><p>{formatNumber(indicator.values.length)} قيمة</p></div>
+      <p className="knowledge-table-hint">مرّر الجدول أفقيًا للاطلاع على بقية الأعمدة.</p>
+      <div className="ed-table-scroll" role="region" aria-label="الجدول الزمني للمؤشر" tabIndex={0}><table className="ed-table"><caption>{indicator.name} — النطاق الوطني: الجمهورية اليمنية؛ الوحدة: {indicator.unit}</caption><thead><tr><th scope="col">سنة القياس</th><th scope="col">القيمة</th><th scope="col">حالة القيمة</th><th scope="col">المصدر</th></tr></thead><tbody>{indicator.values.map((value, index) => <tr key={value.id || `${value.year}-${index}`}><th scope="row">{formatYear(value.year)}</th><td dir="ltr">{formatNumber(value.value, {maximumFractionDigits:3})}</td><td>{valueStatusLabels[value.value_status] || 'غير محددة'}</td><td>{value.source?.url ? <a href={value.source.url} target="_blank" rel="noopener noreferrer">{value.source.name || 'رابط المصدر'}</a> : value.source?.name || 'لم يُرفق مصدر'}</td></tr>)}</tbody></table></div>
+    </section>}
+
+    <section className="ed-wrap ed-block ed-notes" aria-labelledby="sources-title">
+      <details className="ed-fold"><summary><span>التعريف والمنهجية</span></summary><div><p>{indicator.definition || 'لم يُضف تعريف تفصيلي لهذا المؤشر بعد.'}</p><p>{indicator.measurement_method || 'راجع وثيقة المصدر لطريقة القياس وحدود المقارنة.'}</p></div></details>
+      <div className="ed-section-head"><h2 id="sources-title">المصادر والوثائق</h2></div>
+      {indicator.sources.length ? <ul className="ed-sources">{indicator.sources.map(item => <li key={item.source_id}><div><strong>{sourceLabel(item.source,indicator.name)}</strong>{item.is_adopted && <span className="ed-status" data-tone="positive">السلسلة المعتمدة</span>}<details><summary>تفاصيل المصدر</summary><p>{item.methodology || item.source?.description || 'مصدر مستخدم في توثيق هذا المؤشر.'}</p></details></div>{item.source?.url && <a href={item.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15} aria-hidden="true"/></a>}</li>)}</ul>
+        : latest?.source ? <ul className="ed-sources"><li><div><strong>{sourceLabel(latest.source,indicator.name)}</strong><p>{latest.methodology_note || 'مصدر أحدث قيمة منشورة.'}</p></div>{latest.source.url && <a href={latest.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15} aria-hidden="true"/></a>}</li></ul>
+        : <p className="ed-single-year">لم تُضف تفاصيل المصدر بعد.</p>}
+      <p className="ed-meta ed-doc-line">{latest?.document_url && <a className="ed-link" href={latest.document_url} target="_blank" rel="noopener noreferrer">وثيقة أحدث قيمة</a>}{latest?.publication_date && <span>تاريخ النشر: {formatArabicDate(latest.publication_date)}</span>}<CorrectionLink title={indicator.name} path={path} id={indicator.id} className="ed-correction"/></p>
+    </section>
+  </div></KnowledgeTheme>;
 }

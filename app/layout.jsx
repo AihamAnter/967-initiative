@@ -1,18 +1,9 @@
+// Root loads only fonts, tokens, base and the shell. Route styles belong to routes;
+// routes that are not redesigned yet import '@/app/legacy-styles' in their layout.
 import './fonts.css';
-import './design-tokens.css';
-import './globals.css';
-import './design-system.css';
-import './platform-refinements.css';
-import './visual-polish.css';
-import './ux-improvements.css';
-import './visual-foundation.css';
-import './completion-polish.css';
-import './team-collaboration.css';
-import './directories.css';
-import './phase5-navigation.css';
-import './knowledge-identity.css';
-import './knowledge-content.css';
-import './knowledge-data.css';
+import './foundation/tokens.css';
+import './foundation/base.css';
+import './foundation/shell.css';
 import {site} from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -37,5 +28,5 @@ export const metadata = {
 };
 export default async function RootLayout({children}){
  const settings=await getSiteSettings();
- return <html lang="ar" dir="rtl"><head><link rel="preload" href="/fonts/ibm-plex-arabic-1.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/><link rel="preload" href="/fonts/ibm-plex-arabic-13.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/></head><body><OperationalMonitor/><NavigationMemory/><JsonLd data={siteSchema(settings)}/><a className="skip-link" href="#content">انتقل إلى المحتوى</a><PageVisibilityProvider visibility={settings.pageVisibility} pages={(settings.contentPages||[]).map(({slug,isPublished})=>({slug,isPublished}))}><SiteUsageTracker/><InlineEditorProvider><Header actionLabel={settings.headerActionLabel} contentLinks={(settings.contentPages||[]).filter(page=>pageIsVisible(contentPagePath(page),settings.pageVisibility,settings.contentPages)).map(page=>({slug:page.slug,title:page.title,href:contentPagePath(page)}))}/><main id="content" className="visual-foundation">{children}</main><Footer settings={settings}/></InlineEditorProvider></PageVisibilityProvider></body></html>;
+ return <html lang="ar" dir="rtl" data-ed-theme="light" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{__html:"try{if(localStorage.getItem('967-editorial-theme')==='dark')document.documentElement.dataset.edTheme='dark'}catch(e){}"}}/><link rel="preload" href="/fonts/ibm-plex-arabic-1.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/><link rel="preload" href="/fonts/markazi-text-arabic-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/></head><body><OperationalMonitor/><NavigationMemory/><JsonLd data={siteSchema(settings)}/><a className="ed-skip" href="#content">انتقل إلى المحتوى</a><PageVisibilityProvider visibility={settings.pageVisibility} pages={(settings.contentPages||[]).map(({slug,isPublished})=>({slug,isPublished}))}><SiteUsageTracker/><InlineEditorProvider><Header actionLabel={settings.headerActionLabel} contentLinks={(settings.contentPages||[]).filter(page=>pageIsVisible(contentPagePath(page),settings.pageVisibility,settings.contentPages)).map(page=>({slug:page.slug,title:page.title,href:contentPagePath(page)}))}/><main id="content" className="visual-foundation">{children}</main><Footer settings={settings}/></InlineEditorProvider></PageVisibilityProvider></body></html>;
 }

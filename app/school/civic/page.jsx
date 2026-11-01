@@ -26,7 +26,7 @@ export default async function SchoolCivicPage(){
   const course=courses.find(c=>c.slug===t.slug&&c.category==='السياسة والاقتصاد');
   return course?{...t,course,count:(await publishedSchoolStages(db,t.slug)).length}:null;
  }));
- return <main className={school.root}>
+ return <div className={school.root}>
   <header className={styles.hero}><div className="container">
    <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/> السياسة والاقتصاد</div>
    <span className={styles.eyebrow}><Landmark size={18}/> القسم الخامس / مدرسة 967</span>
@@ -48,5 +48,5 @@ export default async function SchoolCivicPage(){
    <div className={styles.note}><Wallet size={17} style={{verticalAlign:'middle'}}/> تستخدم المختبرات دولًا وأسواقًا افتراضية ونماذج حسابية محددة. النتائج التعليمية لا تصنّف الأنظمة السياسية ولا تتنبأ بالأحداث أو الأسعار.</div>
   </div></section>
   <div className="container"><CrossSectionPaths items={civicCrossLinks(settings.pageVisibility)} id="civic-cross-paths" title="من الدرس إلى بيانات اليمن الحقيقية"/></div>
- </main>;
+ </div>;
 }

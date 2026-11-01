@@ -16,7 +16,7 @@ export default async function WritingPage(){
  const published=db?await publishedSchoolCatalog(db):[];
  const authored=published.filter(c=>c.category==='الكتابة والأدب'&&!['musnad','arud'].includes(c.slug));
  const musnad=published.find(c=>c.slug==='musnad'),arud=published.find(c=>c.slug==='arud');
- return <main className={styles.root}><section className={styles.innerHero}><div className="container">
+ return <div className={styles.root}><section className={styles.innerHero}><div className="container">
   <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/> الكتابة والأدب</div>
   <span className={styles.eyebrow}><PenTool size={17}/> الكتابة والأدب</span>
   <h1>من شكل الحرف، <em>إلى فن التعبير.</em></h1>
@@ -34,5 +34,5 @@ export default async function WritingPage(){
     
    </div>
   </div></section>
- </main>;
+ </div>;
 }

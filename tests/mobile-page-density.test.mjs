@@ -67,31 +67,30 @@ test('debate participant links stay available and nested debate interaction is u
  assert.ok(read('app/interior-design.css').includes('.interior-page .debate-detail-nav{display:flex;flex-wrap:nowrap;overflow-x:auto'));
 });
 
+// Iteration 2: school tracks and the games rail are back on home (components/front/FrontSections.jsx).
 test('homepage retains navigation with compact school grid and shorter secondary sections',()=>{
  const home=read('app/page.jsx');
- const css=read('app/home.module.css');
- const knowledge=read('components/home/HomeKnowledge.module.css');
+ const blocks=read('components/front/FrontSections.jsx');
+ const css=read('app/front.module.css');
  const start=read('components/home/HomeSmartStart.module.css');
- for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic'])assert.ok(home.includes("href:'"+href+"'"));
+ for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic'])assert.ok(blocks.includes("href: '"+href+"'"),href);
  assert.ok(home.includes('<HomeSmartStart initialDate={utcDay()}'));
- assert.ok(home.includes('<HomeKnowledge items={knowledgeLinks}/>'));
- assert.ok(home.includes('<HomeGames/>'));
- assert.ok(css.includes('.schoolTracks{grid-template-columns:repeat(2,minmax(0,1fr))'));
- assert.ok(css.includes('.schoolTrackText small{display:none}'));
- assert.ok(knowledge.includes('.grid{grid-template-columns:repeat(2,minmax(0,1fr))'));
+ assert.ok(home.includes('<KnowledgeBento items={knowledgeLinks}/>'));
+ assert.ok(home.includes('<GamesArcade'));
+ assert.ok(css.includes('.schoolTracks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))'));
+ assert.ok(css.includes('.schoolTracks { grid-template-columns: minmax(0, 1fr); }'));
  assert.ok(start.includes('.card{display:grid;grid-template-columns:38px minmax(0,1fr)'));
 });
 
 test('game preview rail keeps all three playable links and communicates scrolling',()=>{
- const game=read('components/home/HomeGames.jsx');
- const css=read('components/home/HomeGames.module.css');
- for(const href of ['/games/map','/games/timeline','/games/who'])assert.ok(game.includes("href:'"+href+"'"));
+ const game=read('components/front/FrontSections.jsx');
+ const css=read('app/front.module.css');
+ for(const href of ['/games/map','/games/timeline','/games/who'])assert.ok(game.includes("href: '"+href+"'"),href);
  assert.ok(game.includes('اسحب البطاقات لمشاهدة ألعاب إضافية'));
- assert.ok(css.includes('scroll-snap-type:x mandatory'));
- assert.ok(css.includes('grid-auto-flow:column'));
- assert.ok(css.includes('overflow-x:auto'));
- assert.ok(css.includes('.mobileSwipeHint{display:none}'));
- assert.ok(css.includes('.mobileSwipeHint{display:block'));
+ assert.ok(css.includes('scroll-snap-type: x mandatory'));
+ assert.ok(css.includes('overflow-x: auto'));
+ assert.ok(css.includes('.swipeHint { display: none; }'));
+ assert.ok(css.includes('.swipeHint { display: block;'));
  assert.ok(game.includes('href={dailyHref}'));
  assert.ok(game.includes('href="/games"'));
 });

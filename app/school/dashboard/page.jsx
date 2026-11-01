@@ -17,7 +17,7 @@ export const metadata=pageMetadata({
 export default async function SchoolDashboardPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
- return <main className={school.root}>
+ return <div className={school.root}>
   <header className={styles.hero}><div className="container">
    <nav className={school.breadcrumb} aria-label="مسار التنقل"><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/> رحلتي التعليمية</nav>
    <span className={styles.eyebrow}><GraduationCap size={18}/> حسابك في المدرسة</span>
@@ -25,5 +25,5 @@ export default async function SchoolDashboardPage(){
    <p>شاهد ما أنجزته في المسند والعروض، وواصل تعلمك من المحطة التالية. النتائج تأتي من محاولاتك المحفوظة، لا من تقديرات.</p>
   </div></header>
   <SchoolDashboard/>
- </main>;
+ </div>;
 }

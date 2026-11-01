@@ -1,28 +1,49 @@
 import NextLink from 'next/link';
 import {pageIsVisible} from '@/lib/pageVisibility';
-import {ArrowUpLeft, AtSign, ChevronDown, Facebook, Instagram, Youtube} from 'lucide-react';
+import {ArrowUpLeft, ChevronDown} from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import {defaultSiteSettings} from '@/lib/siteSettings';
 import {contentPagePath} from '@/lib/contentPages';
-// Closed <details> content is not keyboard-accessible even if CSS sets display:flex.
-// Render separate responsive structures: ordinary links on desktop, disclosures on mobile.
-function FooterGroup({title,children}){
+import {navSections} from '@/lib/navigation';
+
+// Closed <details> content is not keyboard-accessible even if CSS shows it.
+// Two responsive structures: plain link lists on wide screens, disclosures on phones.
+function FooterGroup({title, children}) {
   return <>
-   <div className="footer-link-desktop"><h3>{title}</h3><div className="footer-group-links">{children}</div></div>
-   <details className="footer-link-group"><summary><h3>{title}</h3><ChevronDown size={17} aria-hidden="true"/></summary><div className="footer-group-links">{children}</div></details>
+    <div className="ed-footer-group ed-footer-desktop"><h3>{title}</h3><ul>{children}</ul></div>
+    <details className="ed-footer-group ed-footer-fold"><summary><h3>{title}</h3><ChevronDown size={17} aria-hidden="true"/></summary><ul>{children}</ul></details>
   </>;
 }
-export default function Footer({settings=defaultSiteSettings}) {
-  const pages=(settings.contentPages||[]).filter(page=>page.showInFooter&&page.isPublished!==false);
-  const Link=({href,...props})=>pageIsVisible(href,settings.pageVisibility,settings.contentPages||[])?<NextLink href={href} {...props}/>:null;
-  const socials=[{key:'instagram',label:'إنستغرام',icon:Instagram},{key:'youtube',label:'يوتيوب',icon:Youtube},{key:'facebook',label:'فيسبوك',icon:Facebook},{key:'tiktok',label:'تيك توك',icon:AtSign}].filter(item=>settings[item.key]);
-  return <footer className="platform-footer"><div className="container">
-    <div className="platform-footer-grid"><div className="footer-about"><Link href="/" aria-label="مبادرة 967"><BrandLogo light/></Link><h2>{settings.footerTitle}</h2><p>{settings.footerDescription}</p><div className="footer-socials">{socials.map(({key,label,icon:Icon})=><a href={settings[key]} target="_blank" rel="noopener noreferrer" key={key}><Icon size={19}/><span>{label}</span><ArrowUpLeft size={15}/></a>)}</div></div>
-      <FooterGroup title="المحتوى والمعرفة"><Link href="/works">الأعمال الإعلامية</Link><Link href="/debates">مناظرات 967</Link><Link href="/magazine">مجلة 967</Link><Link href="/read-later">للقراءة لاحقاً</Link><Link href="/yemen-in-numbers">اليمن بالأرقام</Link><Link href="/yemen-ranking">ترتيب اليمن</Link><Link href="/yemen-map">خريطة اليمن</Link><Link href="/yemeni-figures">شخصيات يمنية</Link><Link href="/yemen-history">تاريخ اليمن</Link></FooterGroup>
-      <FooterGroup title="ألعاب 967"><Link href="/games">جميع الألعاب</Link><Link href="/games/leaderboard">لوحة المتصدرين</Link><Link href="/games/achievements">الشارات والإنجازات</Link></FooterGroup>
-      <FooterGroup title="مدرسة 967"><Link href="/school">جميع المسارات</Link><Link href="/school/dashboard">رحلتي التعليمية</Link><Link href="/school/writing">الكتابة والأدب</Link><Link href="/school/nature">الفلك والطبيعة</Link><Link href="/school/logic">المنطق والتفكير</Link><Link href="/school/civic">السياسة والاقتصاد</Link><Link href="/school/writing/musnad">تعلم خط المسند</Link><Link href="/school/writing/arud">تعلم علم العروض</Link></FooterGroup>
-      <FooterGroup title="الأدلة والمجتمع"><Link href="/yemeni-products">منتجات يمنية</Link><Link href="/professionals">المهنيون</Link><Link href="/universities">الجامعات والمعاهد</Link><Link href="/medical-centers">المراكز الطبية</Link><Link href="/contribute">ساهم في المنصة</Link></FooterGroup>
-      <FooterGroup title="مبادرة 967">{pages.filter(page=>!['privacy','terms'].includes(page.slug)).map(page=><Link key={page.id} href={contentPagePath(page)}>{page.title}</Link>)}<Link href="/#projects">مشاريعنا</Link><Link href="/contribute?type=تصحيح%20معلومة">أرسل تصحيحاً</Link><Link href="/admin">دخول المحررين</Link></FooterGroup>
-    </div><div className="platform-footer-bottom"><span>© {new Date().getFullYear()} مبادرة 967</span><span>المعرفة تجمعنا، والمشاركة تقرّبنا.</span><nav className="footer-policy-links" aria-label="الخصوصية والشروط">{pages.filter(page=>['privacy','terms'].includes(page.slug)).map(page=><Link key={page.id} href={contentPagePath(page)}>{page.title}</Link>)}</nav><Link href="/search">ابحث في المنصة <ArrowUpLeft size={14}/></Link></div>
+
+// Footer-only additions to the shared vocabulary.
+const extras = {
+  school: [['/school/writing/musnad', 'تعلم خط المسند'], ['/school/writing/arud', 'تعلم علم العروض']],
+  initiative: [['/contribute?type=تصحيح%20معلومة', 'أرسل تصحيحاً'], ['/admin', 'دخول المحررين']],
+};
+
+export default function Footer({settings = defaultSiteSettings}) {
+  const pages = (settings.contentPages || []).filter(page => page.showInFooter && page.isPublished !== false);
+  const visible = href => pageIsVisible(href, settings.pageVisibility, settings.contentPages || []);
+  const item = ([href, label]) => visible(href) ? <li key={href}><NextLink href={href}>{label}</NextLink></li> : null;
+  const socials = [{key: 'instagram', label: 'إنستغرام'}, {key: 'youtube', label: 'يوتيوب'}, {key: 'facebook', label: 'فيسبوك'}, {key: 'tiktok', label: 'تيك توك'}].filter(entry => settings[entry.key]);
+  const groupLinks = section => {
+    if (section.id !== 'initiative') return [...section.links, ...(extras[section.id] || [])];
+    const managed = pages.filter(page => !['privacy', 'terms'].includes(page.slug)).map(page => [contentPagePath(page), page.title]);
+    return [...managed, ['/#projects', 'مشاريعنا'], ['/contribute', 'ساهم معنا'], ...extras.initiative];
+  };
+  const groups = navSections.map(section => ({...section, links: groupLinks(section).filter(([href]) => visible(href))})).filter(section => section.links.length);
+  return <footer className="ed-footer"><div className="ed-footer-inner">
+    <div className="ed-footer-about">
+      <NextLink href="/" className="ed-footer-brand" aria-label="مبادرة 967 — الرئيسية"><BrandLogo light className="ed-footer-mark"/></NextLink>
+      <h2>{settings.footerTitle}</h2>
+      <p>{settings.footerDescription}</p>
+      {socials.length > 0 && <ul className="ed-footer-socials" aria-label="حسابات 967">{socials.map(({key, label}) => <li key={key}><a href={settings[key]} target="_blank" rel="noopener noreferrer">{label}<ArrowUpLeft size={14} aria-hidden="true"/><span className="sr-only"> (يفتح في نافذة جديدة)</span></a></li>)}</ul>}
+    </div>
+    <div className="ed-footer-groups">{groups.map(section => <FooterGroup key={section.id} title={section.label}>{section.links.map(item)}</FooterGroup>)}</div>
+    <div className="ed-footer-bottom">
+      <span>© {new Date().getFullYear()} مبادرة 967</span>
+      <span className="ed-footer-motto">المعرفة تجمعنا، والمشاركة تقرّبنا.</span>
+      <nav className="ed-footer-policy" aria-label="الخصوصية والشروط">{pages.filter(page => ['privacy', 'terms'].includes(page.slug)).map(page => visible(contentPagePath(page)) ? <NextLink key={page.id} href={contentPagePath(page)}>{page.title}</NextLink> : null)}{visible('/search') && <NextLink href="/search">ابحث في المنصة</NextLink>}</nav>
+    </div>
   </div></footer>;
 }

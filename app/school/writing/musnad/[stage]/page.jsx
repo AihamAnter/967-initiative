@@ -21,9 +21,9 @@ export default async function StagePage({params}){
  const db=serverDb();
  const overlay=db?await publishedSchoolStage(db,'musnad',original.index):null;
  const stage=overlay?{...original,...overlay}:original;
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <div className={styles.lessonPage}><div className="container"><div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing/musnad">خط المسند</Link><ChevronLeft size={14}/> المرحلة {raw}</div>
    <SchoolLesson stage={stage}/>
   </div></div>
- </main>;
+ </div>;
 }

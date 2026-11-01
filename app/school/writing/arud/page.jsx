@@ -13,7 +13,7 @@ export const metadata=pageMetadata({title:'علم العروض | مدرسة 967'
 export default async function ArudPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
- return <main className={school.root}>
+ return <div className={school.root}>
   <header className={styles.hero}><div className="container">
    <div className={school.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing">الكتابة والأدب</Link><ChevronLeft size={14}/>علم العروض</div>
    <div className={styles.heroInterior}>
@@ -28,5 +28,5 @@ export default async function ArudPage(){
   </div></header>
   <ArudJourney/>
   <section className={styles.reference}><div className="container"><div><h2>التدرّب قبل الحفظ</h2><p>بدأ المسار بأربع محطات تأسيسية، ثم انتقل إلى تقطيع الأشطر والأبيات الكاملة وتغيّرات التفعيلات. وتتناول المحطات الختامية الأوزان النظرية للبحور الستة عشر، مع التنبيه إلى اختلاف الصور المستعملة في الشعر.</p></div><div className={styles.referenceLinks}><a href={ARUD_SOURCE} target="_blank" rel="noopener noreferrer">مرجع العروض <ExternalLink size={17}/></a><a href={ARUD_VERSE_SOURCE} target="_blank" rel="noopener noreferrer">تقطيع بيت امرئ القيس <ExternalLink size={17}/></a><a href={ARUD_METER_SOURCE} target="_blank" rel="noopener noreferrer">البحور الستة عشر <ExternalLink size={17}/></a></div></div></section>
- </main>;
+ </div>;
 }

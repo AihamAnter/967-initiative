@@ -10,7 +10,7 @@ export const metadata=pageMetadata({title:'أبجدية المسند كاملة 
 export default async function MusnadAlphabetPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
- return <main className={styles.root}><section className={styles.innerHero}><div className="container">
+ return <div className={styles.root}><section className={styles.innerHero}><div className="container">
   <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing/musnad">خط المسند</Link><ChevronLeft size={14}/> دليل الأبجدية</div>
   <span className={styles.eyebrow}><PenTool size={16}/> مرجع تعليمي</span><h1>حروف المسند <em>الـ29.</em></h1>
   <p>أشكال الحروف ومقابلاتها التقريبية في العربية ورموز نقلها اللاتيني. لا تخلط بين معرفة الخط وترجمة اللغات القديمة التي كُتبت به.</p>
@@ -31,5 +31,5 @@ export default async function MusnadAlphabetPage(){
     <p>قد تحتاج أجهزة قديمة إلى دعم خط يونيكود «Old South Arabian» لعرض الرموز بشكل صحيح.</p>
     <a href={MUSNAD_NAMES} target="_blank" rel="noopener noreferrer">راجع أسماء الرموز في معيار يونيكود <ExternalLink size={16}/></a>
    </div>
- </div></section></main>;
+ </div></section></div>;
 }

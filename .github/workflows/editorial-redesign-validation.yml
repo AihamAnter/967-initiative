@@ -1,0 +1,68 @@
+name: Editorial redesign build validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'next.config.mjs'
+      - 'tests/editorial-theme.test.mjs'
+      - 'scripts/editorial-theme-smoke.mjs'
+      - '.github/workflows/editorial-redesign-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: editorial-check-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  editorial-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      LOCAL_CONTENT_FALLBACK: '1'
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Verify editorial theme, navigation and backup isolation
+        run: node --test tests/editorial-theme.test.mjs
+      - name: Compile Next.js production app
+        run: npm run build
+      - name: Install temporary Chromium browser runner
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify actual light / dark UI, persistence and mobile layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3129 >/tmp/967-editorial-next.log 2>&1 &
+          APP_PID=$!
+          trap 'kill "$APP_PID" 2>/dev/null || true' EXIT
+          ready=0
+          for i in $(seq 1 75); do
+            if curl -fsS http://127.0.0.1:3129/ >/dev/null; then ready=1; break; fi
+            sleep 3
+          done
+          if [ "$ready" -ne 1 ]; then cat /tmp/967-editorial-next.log; exit 1; fi
+          node scripts/editorial-theme-smoke.mjs || { cat /tmp/967-editorial-next.log; exit 1; }
+      - name: Upload editorial before/after screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-theme-light-dark-audit
+          path: docs/audit/editorial/*.png
+          if-no-files-found: ignore

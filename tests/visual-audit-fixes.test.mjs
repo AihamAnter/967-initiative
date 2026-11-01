@@ -62,22 +62,21 @@ test('school and homepage tablet layouts have balanced final rows',()=>{
  assert.ok(startCss.includes('.grid>*:last-child:nth-child(odd){grid-column:auto}'));
 });
 
+// Editorial Calm redesign: same disclosure behaviour with .ed-* markup.
 test('mobile navigation and footer groups are compact disclosures',()=>{
  const header=read('components/Header.jsx');
  const footer=read('components/Footer.jsx');
- const css=read('app/phase5-navigation.css');
- assert.ok(header.includes('<details className="mobile-navigation-group"'));
- assert.ok(header.indexOf('className="mobile-search-link"')<header.indexOf('className="mobile-navigation-groups"'));
- assert.ok(header.includes("querySelectorAll('.mobile-navigation-group[open]')"));
- assert.ok(footer.includes('className="footer-link-group"'));
- assert.ok(footer.includes('className="footer-link-desktop"'));
- assert.ok(css.includes('.footer-link-desktop{display:flex'));
- assert.ok(css.includes('.footer-link-desktop{display:none!important'));
- assert.ok(css.includes('.footer-link-group{display:none}'));
- assert.ok(css.includes('.footer-link-group{display:block'));
- assert.ok(footer.includes('<FooterGroup title="مدرسة 967">'));
- assert.ok(css.includes('.footer-link-group:not([open])>.footer-group-links{display:none}'));
- assert.ok(css.includes('.mobile-navigation-group>summary'));
+ const css=read('app/foundation/shell.css');
+ assert.ok(header.includes('<details className="ed-nav-group"'));
+ assert.ok(header.indexOf('className="ed-nav-search"')<header.indexOf('className="ed-nav-list"'));
+ assert.ok(header.includes("querySelectorAll('.ed-nav-group[open]')"));
+ assert.ok(footer.includes('className="ed-footer-group ed-footer-fold"'));
+ assert.ok(footer.includes('className="ed-footer-group ed-footer-desktop"'));
+ assert.ok(css.includes('.ed-footer-fold { display: none; }'));
+ assert.ok(css.includes('.ed-footer-desktop { display: none; }'));
+ assert.ok(css.includes('.ed-footer-fold { display: block;'));
+ assert.ok(css.includes('.ed-footer-fold:not([open]) > ul { display: none; }'));
+ assert.ok(css.includes('.ed-nav-group > summary'));
 });
 
 test('debate poll copy is specific and card covers do not crop participants',()=>{

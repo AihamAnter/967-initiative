@@ -7,15 +7,16 @@ import {readingListItem} from '../lib/readingList.js';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 
-test('smart start appears above the editorial mosaic and preserves the full home sections',()=>{
+// Iteration 2: the strip is shown to guests (three start cards + sign-in hint) and members again.
+test('smart start appears above the editorial picks and preserves the full home sections',()=>{
  const page=read('app/page.jsx');
  const smart=read('components/home/HomeSmartStart.jsx');
  assert.ok(page.includes("import HomeSmartStart from '@/components/home/HomeSmartStart'"));
  assert.ok(page.includes("<HomeSmartStart initialDate={utcDay()} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/>"));
- assert.ok(page.indexOf('<HomeSmartStart initialDate=')<page.indexOf('className={styles.curatedHeading}'));
+ assert.ok(page.indexOf('<HomeSmartStart initialDate=')<page.indexOf('className={styles.bento}'));
  assert.ok(page.indexOf('<HomeSmartStart initialDate=')<page.indexOf('id="home-school"'));
- assert.ok(page.indexOf('<HomeKnowledge items={knowledgeLinks}/>')<page.indexOf('<HomeGames/>'));
- for(const token of ['styles.mosaic','styles.discovery','styles.moreContent','styles.numbers','styles.participate','styles.about'])
+ assert.ok(page.indexOf('<KnowledgeBento items={knowledgeLinks}/>')<page.indexOf('<GamesArcade'));
+ for(const token of ['styles.bento','<DiscoverRail','styles.data','styles.community','styles.invite','styles.about'])
   assert.ok(page.includes(token),token);
  assert.ok(smart.includes('aria-labelledby="home-start-title"'));
 });

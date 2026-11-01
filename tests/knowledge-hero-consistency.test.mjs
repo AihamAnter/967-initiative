@@ -17,7 +17,8 @@ test('history, figures and map share the exact blue introductory design of the o
   assert.ok(!content.includes('className="ymap-hero"'),path);
  }
  assert.ok(read('app/yemen-ranking/page.jsx').includes('<PageIntro tone="blue"'));
- assert.ok(read('app/yemen-in-numbers/page.jsx').includes('<PageIntro tone="blue"'));
+ // Yemen in numbers moved to the Editorial Calm page head (redesign scope).
+ assert.ok(read('app/yemen-in-numbers/page.jsx').includes('<header className="ed-pagehead">'));
 });
 
 test('navigation in the unified headers remains actionable and content remains unchanged',()=>{

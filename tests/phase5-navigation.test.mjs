@@ -39,37 +39,50 @@ test('return links reuse safe user context while keeping section defaults',()=>{
  assert.match(back,/safeNavigationSource/);
  assert.match(back,/const href=source\|\|fallback/);
 });
+// Editorial Calm redesign: same behaviour, new markup (.ed-*) and the shared
+// vocabulary in lib/navigation.js; the shell stylesheet replaced phase5-navigation.css
+// in the root layout (the legacy sheet still loads on non-redesigned routes).
 test('mobile navigation closes safely, restores focus and isolates page content',()=>{
  const header=read('components/Header.jsx');
  const root=read('app/layout.jsx');
+ const nav=read('lib/navigation.js');
  assert.match(root,/id="content"/);
- assert.match(root,/phase5-navigation\.css/);
+ assert.match(root,/foundation\/shell\.css/);
+ assert.match(read('app/legacy-styles.js'),/phase5-navigation\.css/);
  assert.match(header,/aria-expanded=\{open\}/);
- assert.match(header,/mobile-school-links/);
- for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic','/school/dashboard'])assert.ok(header.includes("'"+href+"'"));
+ for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic','/school/dashboard'])assert.ok(nav.includes("'"+href+"'"));
  assert.match(header,/aria-controls="main-navigation"/);
- assert.match(header,/if \(open\) header\.current\?\.querySelector\('#main-navigation a'\)\?\.focus\(\)/);
- assert.match(header,/if\(mobileOpen\)toggle\.current\?\.focus\(\)/);
+ assert.match(header,/if \(open\) header\.current\?\.querySelector\('#main-navigation a, #main-navigation input'\)\?\.focus\(\)/);
+ // The tab-bar menu is the visible opener on phones, so Escape must
+ // restore focus to that control rather than the hidden masthead button.
+ assert.match(header,/const menuOpener = useRef\(null\)/);
+ assert.match(header,/const trigger=menuOpener\.current/);
+ assert.match(header,/trigger\?\.getClientRects\(\)\.length \? trigger : toggle\.current/);
+ assert.match(header,/onClick=\{toggleMenu\}/);
+ assert.match(header,/matchMedia\('\(max-width: 1179px\)'\)/);
  assert.match(header,/document\.body\.style\.overflow = 'hidden'/);
  assert.match(header,/document\.body\.style\.overflow = oldOverflow/);
  assert.match(header,/node\.inert = true/);
  assert.match(header,/node\.inert = previous\[index\]/);
+ assert.match(header,/document\.querySelector\('\.ed-footer'\)/);
  assert.match(header,/mobile\.addEventListener\('change', onViewportChange\)/);
  assert.match(header,/if \(!mobile\.matches\) setOpen\(false\)/);
- const css=read('app/phase5-navigation.css');
- assert.match(css,/@media \(max-width:900px\)/);
- assert.match(css,/@media \(max-width:390px\)/);
- assert.match(css,/grid-template-columns:minmax\(0,1fr\)/);
- assert.match(css,/@media \(prefers-reduced-motion:reduce\)/);
+ const css=read('app/foundation/shell.css');
+ assert.match(css,/@media \(max-width: 1179px\)/);
+ assert.match(css,/@media \(max-width: 420px\)/);
+ assert.match(css,/grid-template-columns: minmax\(0, 1fr\)/);
+ assert.match(read('app/foundation/tokens.css'),/@media \(prefers-reduced-motion: reduce\)/);
 });
 test('footer points to actual school and institution directory routes and respects visibility',()=>{
  const footer=read('components/Footer.jsx');
+ const nav=read('lib/navigation.js');
  const paths=['/school/nature','/school/logic','/school/civic','/universities','/medical-centers'];
  for(const href of paths){
-  assert.ok(footer.includes('href="'+href+'"'),'missing footer link '+href);
+  assert.ok(nav.includes("['"+href+"'"),'missing footer link '+href);
   assert.ok(existsSync(new URL('../app'+href+'/page.jsx',import.meta.url)),'broken footer route '+href);
  }
- assert.match(footer,/pageIsVisible\(href,settings\.pageVisibility/);
+ assert.ok(footer.includes('navSections.map'));
+ assert.match(footer,/pageIsVisible\(href, settings\.pageVisibility/);
  assert.equal(pageIsVisible('/school/civic',{school:false}),false);
  assert.equal(pageIsVisible('/universities',{universities:false}),false);
  assert.equal(pageIsVisible('/medical-centers',{medicalCenters:false}),false);

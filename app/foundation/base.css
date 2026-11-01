@@ -1,0 +1,65 @@
+/*
+ * Base layer. Element defaults live in a cascade layer so that, during the
+ * rollout, un-layered legacy stylesheets on not-yet-redesigned routes still
+ * win over them. Every new component styles itself with classes (un-layered).
+ */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--c-bg);
+    color: var(--c-ink);
+    font-family: var(--t-text);
+    font-size: var(--t-size-body);
+    line-height: var(--t-lh-body);
+    font-weight: var(--t-w-regular);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { margin: 0; font-weight: var(--t-w-strong); line-height: var(--t-lh-heading); text-wrap: balance; }
+  p { margin: 0; text-wrap: pretty; }
+  /* Two text weights (400/600): browser "bold" maps to 600 so no extra font file loads. */
+  b, strong, th, summary { font-weight: var(--t-w-strong); }
+  a { color: inherit; }
+  img, svg, video { display: block; max-width: 100%; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  table { border-collapse: collapse; }
+  [hidden] { display: none !important; }
+  :focus-visible { outline: 3px solid var(--c-focus); outline-offset: 3px; }
+  ::selection { background: var(--c-accent-soft); color: var(--c-ink); }
+  bdi, [dir="ltr"] { unicode-bidi: isolate; }
+}
+@media (prefers-reduced-motion: reduce) {
+  @layer base {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+}
+
+/* Native cross-document view transitions (full loads, back/forward) where
+   supported; ignored elsewhere and disabled for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: 180ms var(--m-ease) both ed-vt-out; }
+  ::view-transition-new(root) { animation: 320ms var(--m-ease) both ed-vt-in; }
+}
+@keyframes ed-vt-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes ed-vt-in { from { opacity: 0; transform: translateY(10px); } }
+
+/* Accessibility utilities: un-layered and shared with legacy markup. */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.ed-skip {
+  position: fixed; inset-inline-start: var(--s-4); top: var(--s-3); z-index: 100;
+  padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); background: var(--c-ink); color: var(--c-bg);
+  font: var(--t-w-strong) var(--t-size-ui)/var(--t-lh-ui) var(--t-text); text-decoration: none;
+  transform: translateY(-180%); transition: transform var(--m-fast) var(--m-ease);
+}
+.ed-skip:focus { transform: none; outline: 3px solid var(--c-focus); outline-offset: 2px; }
+
+/* Scroll-driven reveal (CSS only). Without support, content is simply visible. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ed-reveal { animation: ed-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+  }
+}
+@keyframes ed-reveal { from { opacity: 0; transform: translateY(28px) scale(.985); } to { opacity: 1; transform: none; } }

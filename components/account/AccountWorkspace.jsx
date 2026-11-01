@@ -93,9 +93,9 @@ export default function AccountWorkspace({initialTab='overview'}){
   }catch(e){setError(e.message);}finally{setBusy(false);}
  }
  if(!auth.ready)return <div className={styles.screenStatus} role="status">جارٍ التأكد من الحساب…</div>;
- if(!user)return <main className={styles.guest}><UserRound size={36}/><h1>مساحتك في 967</h1><p>سجّل الدخول للوصول إلى محفوظاتك ومجموعات القراءة ومساهمات المناظرات والإشعارات.</p><Link className={styles.primaryButton} href="/login?next=%2Faccount">تسجيل الدخول <ArrowLeft size={18}/></Link></main>;
+ if(!user)return <div className={styles.guest}><UserRound size={36}/><h1>مساحتك في 967</h1><p>سجّل الدخول للوصول إلى محفوظاتك ومجموعات القراءة ومساهمات المناظرات والإشعارات.</p><Link className={styles.primaryButton} href="/login?next=%2Faccount">تسجيل الدخول <ArrowLeft size={18}/></Link></div>;
  const headerName=profile?.display_name||user.user_metadata?.display_name||'عضو في 967';
- return <main className={styles.root} dir="rtl">
+ return <div className={styles.root} dir="rtl">
   <header className={styles.hero}>
    <div className={styles.heroInterior}>
     <div className={styles.avatar}>{profile?.avatar_url&&profile?.show_avatar?<Image unoptimized src={profile.avatar_url} width={62} height={62} alt="" onError={e=>{e.currentTarget.style.display='none';}}/>:<UserRound size={30}/>}</div>
@@ -159,6 +159,6 @@ export default function AccountWorkspace({initialTab='overview'}){
     </>}
    </div>
   </div>
- </main>;
+ </div>;
 }
 function Empty({icon:Icon,text}){return <div className={styles.empty}><Icon size={27}/><p>{text}</p></div>}

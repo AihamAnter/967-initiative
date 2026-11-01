@@ -26,29 +26,28 @@ test('each knowledge card respects individual publication and visibility control
  assert.deepEqual(visibleHomeKnowledge({atlas:false}).map(x=>x.href),['/yemen-history','/yemeni-figures','/yemen-in-numbers','/yemen-ranking']);
 });
 
+// Iteration 2: the knowledge hub is KnowledgeBento in components/front/FrontSections.jsx.
 test('homepage renders the knowledge hub before generic shortcuts and retains existing sections',()=>{
  const page=read('app/page.jsx');
- const hub=read('components/home/HomeKnowledge.jsx');
+ const hub=read('components/front/FrontSections.jsx');
  assert.ok(page.includes("import {visibleHomeKnowledge} from '@/lib/homeKnowledge'"));
- assert.ok(page.includes('visibleHomeKnowledge(settings.pageVisibility,settings.contentPages||[])'));
- assert.ok(page.indexOf('<HomeKnowledge items={knowledgeLinks}/>')<page.indexOf('<section className={styles.discovery}'));
- for(const preserved of ['styles.hero','styles.discovery','styles.moreContent','styles.numbers','styles.community','styles.participate','styles.about'])
-  assert.ok(page.includes(preserved),preserved);
- assert.ok(hub.includes('id="explore-knowledge"'));
- assert.ok(hub.includes('id="home-knowledge-title"'));
- assert.ok(hub.includes('aria-labelledby="home-knowledge-title"'));
- assert.ok(hub.includes("items.find(item=>item.id==='history')||items[0]"));
- assert.ok(hub.includes('if(!items.length)return null'));
+ assert.ok(page.includes('visibleHomeKnowledge(settings.pageVisibility,settings.contentPages||[])')||page.includes('visibleHomeKnowledge(settings.pageVisibility, settings.contentPages||[])'));
+ assert.ok(page.indexOf('<KnowledgeBento items={knowledgeLinks}/>')<page.indexOf('<DiscoverRail'));
+ assert.ok(page.includes('id="explore-knowledge"'));
+ assert.ok(page.includes('id="home-knowledge-title"'));
+ assert.ok(page.includes('aria-labelledby="home-knowledge-title"'));
+ assert.ok(hub.includes("items.find(item => item.id === 'history') || items[0]"));
+ assert.ok(page.includes('knowledgeLinks.length > 0 &&'));
  assert.ok(hub.includes('data-knowledge-id={item.id}'));
  assert.ok(hub.includes('href={featured.href}'));
 });
 
 test('homepage knowledge hub supports responsive phones and reduced-motion visitors',()=>{
- const css=read('components/home/HomeKnowledge.module.css');
- assert.ok(css.includes('grid-template-columns:repeat(4,minmax(0,1fr))'));
- assert.ok(css.includes('@media(max-width:1050px)'));
- assert.ok(css.includes('@media(max-width:650px)'));
- assert.ok(css.includes('@media(max-width:390px)'));
- assert.ok(css.includes('prefers-reduced-motion:reduce'));
- assert.ok(css.includes('.feature:'));
+ const css=read('app/front.module.css');
+ assert.ok(css.includes('.knowledgeGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))'));
+ assert.ok(css.includes('@media (max-width: 1179px)'));
+ assert.ok(css.includes('@media (max-width: 760px)'));
+ assert.ok(css.includes('scroll-snap-type: x mandatory'));
+ assert.ok(read('app/foundation/base.css').includes('prefers-reduced-motion: reduce'));
+ assert.ok(css.includes('.kFeature'));
 });

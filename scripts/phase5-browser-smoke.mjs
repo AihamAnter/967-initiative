@@ -25,14 +25,16 @@ try{
    await page.locator('#main-navigation').waitFor({state:'attached'});
    const info=await page.evaluate(()=>{
     const viewport=window.innerWidth;
-    const header=document.querySelector('.site-header').getBoundingClientRect();
-    const links=[...document.querySelectorAll('.site-header a,.site-header button')].filter(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=='hidden');
+    const headerElement=document.querySelector('.site-header,.ed-header');
+    if(!headerElement)throw new Error('Missing navigation masthead');
+    const header=headerElement.getBoundingClientRect();
+    const links=[...document.querySelectorAll('.site-header a,.site-header button,.ed-header a,.ed-header button')].filter(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=='hidden');
     const offscreen=links.filter(node=>{
       const r=node.getBoundingClientRect();
       return r.width>0&&(r.left< -2||r.right>viewport+2);
     }).map(node=>({name:node.getAttribute('aria-label')||node.textContent?.trim().slice(0,40),left:node.getBoundingClientRect().left,right:node.getBoundingClientRect().right}));
     return {viewport,documentWidth:document.documentElement.scrollWidth,headerWidth:Math.round(header.width),offscreen,
-      skipLink:Boolean(document.querySelector('a.skip-link[href="#content"]')),
+      skipLink:Boolean(document.querySelector('a.skip-link[href="#content"],a.ed-skip[href="#content"]')),
       mainTarget:Boolean(document.getElementById('content'))};
    });
    assert.ok(info.skipLink&&info.mainTarget,'missing accessible skip link target at '+route);
@@ -46,18 +48,17 @@ try{
  }
  await page.setViewportSize({width:390,height:900});
  await page.goto(base+'/school',{waitUntil:'domcontentloaded'});
- await page.getByRole('button',{name:'فتح القائمة'}).waitFor();
+ await page.locator('.ed-tabbar button[aria-controls="main-navigation"]:visible,button.menu-toggle:visible,button.ed-menu-toggle:visible').first().waitFor();
  // Wait for Next hydration before interacting with the client-side header.
  await page.waitForTimeout(1000);
- const open=page.getByRole('button',{name:'فتح القائمة'});
- await open.click();
- const toggle=page.locator('button.menu-toggle');
+ const toggle=page.locator('.ed-tabbar button[aria-controls="main-navigation"]:visible,button.menu-toggle:visible,button.ed-menu-toggle:visible').first();
+ await toggle.click();
  assert.equal(await toggle.getAttribute('aria-expanded'),'true');
  assert.ok(await page.locator('#main-navigation').isVisible());
  const locked=await page.evaluate(()=>({
   overflow:document.body.style.overflow,
   main:document.getElementById('content').inert,
-  footer:document.querySelector('.platform-footer').inert,
+  footer:document.querySelector('.platform-footer,.ed-footer').inert,
   focused:document.activeElement?.closest('#main-navigation')!==null
  }));
  assert.deepEqual(locked,{overflow:'hidden',main:true,footer:true,focused:true},'mobile modal navigation isolation');
@@ -67,22 +68,22 @@ try{
  await page.keyboard.press('Escape');
  assert.equal(await toggle.getAttribute('aria-expanded'),'false','Escape should close the menu');
  assert.equal(await page.evaluate(()=>document.getElementById('content').inert),false,'content focus restored after menu closed');
- assert.equal(await page.evaluate(()=>document.activeElement?.classList.contains('menu-toggle')),true,'Escape should restore focus to toggle');
+ assert.equal(await toggle.evaluate(node=>document.activeElement===node),true,'Escape should restore focus to visible toggle');
  await toggle.click();
  assert.equal(await toggle.getAttribute('aria-expanded'),'true');
  await page.setViewportSize({width:1440,height:900});
- await page.waitForFunction(()=>document.querySelector('.menu-toggle').getAttribute('aria-expanded')==='false');
+ await page.waitForFunction(()=>document.querySelector('.ed-menu-toggle,.menu-toggle').getAttribute('aria-expanded')==='false');
  assert.equal(await page.evaluate(()=>document.body.style.overflow),'','desktop resize should release body scroll');
- assert.equal(await page.evaluate(()=>document.querySelector('.platform-footer').inert),false);
- assert.equal(await page.locator('button.menu-toggle').isVisible(),false,'desktop shows direct navigation');
- const disclosure=page.locator('.platform-nav>.nav-group>summary').first();
+ assert.equal(await page.evaluate(()=>document.querySelector('.platform-footer,.ed-footer').inert),false);
+ assert.equal(await page.locator('button.menu-toggle,button.ed-menu-toggle').isVisible(),false,'desktop shows direct navigation');
+ const disclosure=page.locator('.platform-nav>.nav-group>summary,.ed-nav-group>summary').first();
  await disclosure.focus();
  await page.keyboard.press('Enter');
  assert.equal(await disclosure.evaluate(node=>node.parentElement.open),true,'desktop navigation opens by keyboard');
  await page.keyboard.press('Escape');
  assert.equal(await disclosure.evaluate(node=>node.parentElement.open),false,'Escape closes desktop navigation');
  const footerRoutes=['/school/nature','/school/logic','/school/civic','/universities','/medical-centers'];
- for(const href of footerRoutes)assert.ok(await page.locator('.platform-footer a[href="'+href+'"]').count()>0,'footer hides '+href);
+ for(const href of footerRoutes)assert.ok(await page.locator('.platform-footer a[href="'+href+'"],.ed-footer a[href="'+href+'"]').count()>0,'footer hides '+href);
  await writeFile(shots+'/results.json',JSON.stringify({passed:true,results,errors},null,2));
  assert.deepEqual(errors,[],'uncaught browser errors');
  console.log('Phase 5 browser tests passed: '+results.length+' route/viewport combinations, mobile menu, keyboard navigation, footer.');

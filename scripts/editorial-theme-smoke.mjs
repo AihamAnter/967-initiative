@@ -1,0 +1,57 @@
+// Run with playwright temporarily installed in CI; no extra production dependency.
+// LOCAL_CONTENT_FALLBACK=1 is used by the workflow: no credentials are required.
+// This checks the *rendered* UI rather than treating source text as a visual test.
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+import {mkdir} from 'node:fs/promises';
+
+const base=process.env.E2E_BASE_URL||'http://127.0.0.1:3129';
+const output='docs/audit/editorial/';
+await mkdir(output,{recursive:true});
+const browser=await chromium.launch({headless:true});
+const sizes=[320,375,1440];
+const results=[];
+
+try{
+ for(const width of sizes){
+  const context=await browser.newContext({viewport:{width,height:860},colorScheme:'dark'});
+  const page=await context.newPage();
+  await page.goto(base+'/',{waitUntil:'domcontentloaded',timeout:60000});
+  await page.locator('.ed-page').waitFor({timeout:30000});
+  const switcher=page.getByRole('button',{name:'تفعيل الوضع الداكن'});
+  await switcher.waitFor({timeout:15000});
+  const readTheme=()=>page.evaluate(()=>{
+   const r=document.documentElement,s=getComputedStyle(r);
+   return {mode:r.dataset.edTheme,scheme:s.colorScheme,background:s.getPropertyValue('--c-bg').trim(),overflow:document.documentElement.scrollWidth-window.innerWidth};
+  });
+  const light=await readTheme();
+  assert.equal(light.mode,'light',width+' should default to light even with dark OS');
+  assert.equal(light.background.toLowerCase(),'#f5f3ef');
+  assert.ok(light.overflow<=2,'home horizontal overflow at '+width+': '+light.overflow);
+  await page.screenshot({path:output+'light-'+width+'.png',fullPage:true});
+  await switcher.click();
+  await page.getByRole('button',{name:'تفعيل الوضع الفاتح'}).waitFor();
+  const dark=await readTheme();
+  assert.equal(dark.mode,'dark');
+  assert.equal(dark.scheme,'dark');
+  assert.equal(dark.background.toLowerCase(),'#0b0f10');
+  await page.screenshot({path:output+'dark-'+width+'.png',fullPage:true});
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.getByRole('button',{name:'تفعيل الوضع الفاتح'}).waitFor();
+  assert.equal((await readTheme()).mode,'dark','theme must persist after reload');
+  await page.goto(base+'/yemen-history',{waitUntil:'domcontentloaded'});
+  await page.locator('[data-knowledge-area="history"]').waitFor({timeout:30000});
+  const legacy=await readTheme();
+  assert.equal(legacy.background.toLowerCase(),'#f5f3ef','legacy pages remain light while still remembering the preference');
+  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+  await page.getByRole('button',{name:'تفعيل الوضع الفاتح'}).click();
+  assert.equal((await readTheme()).mode,'light');
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.getByRole('button',{name:'تفعيل الوضع الداكن'}).waitFor();
+  results.push({width,light,dark,legacy:legacy.background});
+  await context.close();
+ }
+ console.log(JSON.stringify({ok:true,checks:results},null,2));
+}finally{
+ await browser.close();
+}

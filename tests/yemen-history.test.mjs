@@ -51,7 +51,8 @@ test('history is a separate toggle, searchable, bookmarkable and editorially man
  assert.deepEqual(readingContentItem({kind:'history',href:'/yemen-history/saba',title:'سبأ'}),{kind:'history',href:'/yemen-history/saba',title:'سبأ'});
  assert.ok(ADMIN_TAB_IDS.includes('history'));
  const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
- assert.ok(read('components/Header.jsx').includes("['/yemen-history', 'تاريخ اليمن']"));
+ // Navigation vocabulary moved to lib/navigation.js (shared by header, footer and home).
+ assert.ok(read('lib/navigation.js').includes("['/yemen-history', 'تاريخ اليمن']"));
  assert.ok(read('components/AdminDashboard.jsx').includes("<HistoryAdminPanel"));
  assert.ok(read('app/yemen-history/page.jsx').includes('<HistoryExplorer'));
  assert.ok(read('app/yemen-history/[slug]/page.jsx').includes('CorrectionLink'));

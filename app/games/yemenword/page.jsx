@@ -17,11 +17,11 @@ export default async function Page({searchParams}){
  const params=await searchParams;
  const date=utcDay();
  if(params?.mode==='daily'&&dailyGameForDate(date)!=='yemenword')redirect(dailyGameUrl(date));
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <ArcadeIntro compact title="خمن الإجابة اليمنية" description={extraGameTypes.yemenword.description}>
    <Link href="/games" className={styles.heroSecondary}><ArrowRight size={17}/> جميع الألعاب</Link>
    <span className={styles.roundChip}>10 مهام <span aria-hidden="true">·</span> 7 ثوانٍ في تحدي اليوم</span>
   </ArcadeIntro>
   <ExtraArcadeChallenge game="yemenword" date={date} initialMode={params?.mode==='daily'?'daily':'practice'}/>
- </main>;
+ </div>;
 }
