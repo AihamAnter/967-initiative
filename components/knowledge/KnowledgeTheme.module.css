@@ -1,12 +1,4 @@
 .root{
- --knowledge-accent:var(--color-brand-strong);
- --knowledge-strong:var(--color-ink);
- --knowledge-soft:var(--color-brand-soft);
- --knowledge-soft-alt:var(--color-paper);
- --knowledge-edge:var(--color-border);
- --knowledge-hero:var(--color-paper);
- --knowledge-hero-end:var(--color-surface);
- --knowledge-art:var(--color-brand);
  background:var(--color-paper);
  min-width:0;
 }
