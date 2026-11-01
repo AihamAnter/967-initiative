@@ -1,0 +1,32 @@
+/* Knowledge-only color language. No global text, font, form or layout overrides.
+   Ink colors were chosen to remain readable on pale surfaces. */
+[data-knowledge-area="history"],[data-knowledge-id="history"]{
+ --knowledge-accent:#25645f;--knowledge-strong:#194d49;
+ --knowledge-soft:#e8f3ed;--knowledge-soft-alt:#f8f1e4;
+ --knowledge-edge:#bcd7ca;--knowledge-hero:#edf6f0;--knowledge-hero-end:#f9f3e8;
+ --knowledge-art:#ad8951;
+}
+[data-knowledge-area="figures"],[data-knowledge-id="figures"]{
+ --knowledge-accent:#715682;--knowledge-strong:#58406b;
+ --knowledge-soft:#f1eaf4;--knowledge-soft-alt:#f9edf0;
+ --knowledge-edge:#d9c7df;--knowledge-hero:#f5eff6;--knowledge-hero-end:#fcf3f2;
+ --knowledge-art:#bd8d9c;
+}
+[data-knowledge-area="atlas"],[data-knowledge-id="atlas"]{
+ --knowledge-accent:#287463;--knowledge-strong:#195848;
+ --knowledge-soft:#e5f3ed;--knowledge-soft-alt:#ebf5f8;
+ --knowledge-edge:#bcdcd1;--knowledge-hero:#edf7f1;--knowledge-hero-end:#eef7fa;
+ --knowledge-art:#6f9ead;
+}
+[data-knowledge-area="statistics"],[data-knowledge-id="statistics"]{
+ --knowledge-accent:#315f98;--knowledge-strong:#244b7a;
+ --knowledge-soft:#e9f1fa;--knowledge-soft-alt:#f1f5fc;
+ --knowledge-edge:#c2d6eb;--knowledge-hero:#eef5fb;--knowledge-hero-end:#f7f9fc;
+ --knowledge-art:#789ec4;
+}
+[data-knowledge-area="ranking"],[data-knowledge-id="ranking"]{
+ --knowledge-accent:#585c91;--knowledge-strong:#424674;
+ --knowledge-soft:#eeeff9;--knowledge-soft-alt:#fbf5e5;
+ --knowledge-edge:#d0d2eb;--knowledge-hero:#f1f2fa;--knowledge-hero-end:#fbf6e9;
+ --knowledge-art:#b69d61;
+}
