@@ -1,3 +1,5 @@
+import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
+import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import ContextBackLink from '@/components/ContextBackLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Image from 'next/image';
@@ -61,7 +63,7 @@ function ProfileFact({icon: Icon, label, value, ltr = false}) {
   if (!value) return null;
   return <div className="figure-profile-fact">
     <dt><Icon size={18}/>{label}</dt><dd dir={ltr ? 'ltr' : undefined}>{value}</dd>
-  </div>;
+  </div></KnowledgeTheme>;
 }
 
 export default async function YemeniFigureProfilePage({params}) {
@@ -85,7 +87,7 @@ export default async function YemeniFigureProfilePage({params}) {
     })
     .slice(0, 3);
 
-  return <div className="figure-profile-page">
+  return <KnowledgeTheme area="figures"><div className="figure-profile-page">
     <InlineTarget kind="figure" id={figure.id} slug={figure.slug} title={figure.fullName} href={detailPath('yemeni-figures',figure.slug)} isDemo={figure.isDemo}/>
     <JsonLd data={figureSchema(figure)}/>
     <JsonLd data={breadcrumbSchema([{name:'شخصيات يمنية', path:'/yemeni-figures'}, {name:figure.fullName, path:detailPath('yemeni-figures', figure.slug)}])}/>
@@ -116,6 +118,7 @@ export default async function YemeniFigureProfilePage({params}) {
         </div>
       </div>
     </section>
+    <KnowledgeNavigation/>
 
     <section className="figure-profile-body">
       <div className="container figure-profile-layout">
