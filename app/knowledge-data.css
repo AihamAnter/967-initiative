@@ -524,7 +524,16 @@
   border-color:#c4c7dd;
  }
 }
+/* Hidden on wide screens; a readable swipe instruction for narrow tables. */
+[data-knowledge-area="statistics"] .knowledge-table-hint,
+[data-knowledge-area="ranking"] .yr-table-hint{display:none}
 @media(max-width:760px){
+ [data-knowledge-area="statistics"] .knowledge-table-hint,
+ [data-knowledge-area="ranking"] .yr-table-hint{
+  display:block;margin:8px 0 11px;padding:7px 11px;
+  border-radius:7px;background:var(--knowledge-soft);
+  color:var(--knowledge-strong);font-size:12px;line-height:1.75;
+ }
  [data-knowledge-area="statistics"] .stats-section-heading{
   margin-bottom:18px;
  }
