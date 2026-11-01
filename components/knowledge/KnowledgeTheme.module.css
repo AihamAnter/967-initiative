@@ -1,0 +1,75 @@
+.root{
+ --knowledge-accent:var(--color-brand-strong);
+ --knowledge-strong:var(--color-ink);
+ --knowledge-soft:var(--color-brand-soft);
+ --knowledge-soft-alt:var(--color-paper);
+ --knowledge-edge:var(--color-border);
+ --knowledge-hero:var(--color-paper);
+ --knowledge-hero-end:var(--color-surface);
+ --knowledge-art:var(--color-brand);
+ background:var(--color-paper);
+ min-width:0;
+}
+/* Existing interiors previously all used the same blue statistics skin.
+   Reset only intro-local variables, never the atlas/figure/statistics controls. */
+.root :global(.interior-page[data-knowledge-intro]){
+ --section-fill:var(--knowledge-hero);
+ --section-tint:var(--knowledge-soft);
+ --section-ink:var(--knowledge-strong);
+ --intro-ink:var(--knowledge-strong);
+}
+.root :global(.page-intro){
+ background:linear-gradient(115deg,var(--knowledge-hero),var(--knowledge-hero-end));
+ color:var(--knowledge-strong);
+ border-block-end:1px solid var(--knowledge-edge);
+ position:relative;
+ isolation:isolate;
+}
+/* Higher specificity than the former shared .interior-page hero rules. */
+.root :global(.interior-page[data-knowledge-intro] .page-intro){
+ background:linear-gradient(115deg,var(--knowledge-hero),var(--knowledge-hero-end));
+ color:var(--knowledge-strong);
+ border-block-end:1px solid var(--knowledge-edge);
+}
+.root :global(.page-intro)::after{
+ content:'';pointer-events:none;position:absolute;inset-block:0;inset-inline-end:0;
+ width:min(38%,430px);
+ background:radial-gradient(ellipse at 85% 24%,var(--knowledge-soft-alt),transparent 72%);
+ opacity:.8;z-index:-1;
+}
+.root :global(.page-intro h1),
+.root :global(.interior-page[data-knowledge-intro] .page-intro h1){color:var(--knowledge-strong)}
+.root :global(.page-intro > .container > p),
+.root :global(.interior-page[data-knowledge-intro] .page-intro > .container > p){color:#405761}
+.root :global(.page-intro .breadcrumbs),
+.root :global(.interior-page[data-knowledge-intro] .page-intro .breadcrumbs){color:var(--knowledge-strong)}
+.root :global(.page-intro .breadcrumbs a){color:var(--knowledge-accent)}
+.root :global(.page-intro .eyebrow),
+.root :global(.interior-page[data-knowledge-intro] .page-intro .eyebrow){
+ color:var(--knowledge-strong);border-color:var(--knowledge-edge);
+ background:var(--knowledge-soft);border-radius:6px;
+}
+.root :global(.page-intro .directory-summary),
+.root :global(.interior-page[data-knowledge-intro] .directory-summary){color:var(--knowledge-strong)}
+.root :global(.page-intro .directory-summary > a),
+.root :global(.interior-page[data-knowledge-intro] .page-intro .directory-summary > a){
+ color:var(--knowledge-strong);background:#ffffffc9;
+ border:1px solid var(--knowledge-edge);border-radius:8px;
+}
+.root :global(.page-intro .directory-summary > span){
+ color:var(--knowledge-strong);
+ border-color:var(--knowledge-edge);
+}
+.root :global(.page-intro .directory-summary strong){color:var(--knowledge-accent)}
+.root :global(.page-intro-motif){color:var(--knowledge-art);opacity:.2}
+/* A restrained accent helps distinguish sections without painting every card. */
+.root :global(.eyebrow){color:var(--knowledge-accent)}
+.root :global(a:focus-visible),.root :global(button:focus-visible),.root :global(summary:focus-visible){
+ outline:3px solid var(--knowledge-accent);outline-offset:3px;
+}
+@media(max-width:700px){
+ .root :global(.page-intro){padding-block:20px 24px}
+ .root :global(.page-intro > .container > p){font-size:14px;line-height:1.8}
+ .root :global(.page-intro)::after{width:65%;opacity:.55}
+}
+/* Animations remain controlled by existing site-wide reduced-motion rules. */
