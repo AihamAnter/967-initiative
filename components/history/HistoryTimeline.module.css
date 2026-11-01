@@ -51,3 +51,28 @@
 @media(prefers-reduced-motion:reduce){.viewport{scroll-behavior:auto}.stopCard{transition:none}.stopButton.selected .stopCard{transform:none}}
 
 .spotlight:has(figure){flex-wrap:wrap}.spotlight:has(figure) .readButton{margin-inline-start:auto}
+
+
+/* Timeline inherits the historical identity while preserving scrolling/keys. */
+.timeline{--timeline-ink:var(--knowledge-strong,#194d49);--timeline-accent:var(--knowledge-accent,#25645f);border-color:var(--knowledge-edge,#bcd7ca)}
+.heading .kicker{color:var(--timeline-ink)}
+.navigator{background:var(--knowledge-soft,#e8f3ed);border-color:var(--knowledge-edge,#bcd7ca)}
+.navigator input{accent-color:var(--timeline-accent)}
+.viewport{border-color:var(--knowledge-edge,#bcd7ca);background:#fcfdf9;scrollbar-color:var(--timeline-accent) #edf6f0}
+.track:before{background:linear-gradient(to left,var(--timeline-accent),var(--knowledge-edge,#bcd7ca))}
+.stopButton{--stop-accent:var(--timeline-ink);--stop-soft:var(--knowledge-soft,#e8f3ed)}
+.stopButton[data-history-kind="state"]{--stop-accent:#76582d;--stop-soft:#f8eedc}
+.stopButton[data-history-kind="event"]{--stop-accent:#315e85;--stop-soft:#e9f2f9}
+.stopButton[data-history-kind="heritage"]{--stop-accent:#795f74;--stop-soft:#f4edf3}
+.stopButton[data-history-kind="place"]{--stop-accent:#396b74;--stop-soft:#e8f4f6}
+.stopButton[data-history-kind="theme"]{--stop-accent:#5f6190;--stop-soft:#eeeefa}
+.stopCard{border-block-start:3px solid var(--stop-accent)}
+.stopEra{color:var(--stop-accent)}
+.stopButton.selected .stopCard{background:var(--stop-soft);border-color:var(--stop-accent)}
+.stopButton.selected .marker{background:var(--timeline-accent);box-shadow:0 0 0 6px #fcfdf9,0 0 0 9px var(--timeline-accent)}
+.marker{border-color:var(--timeline-accent)}
+.marker>span{background:var(--timeline-accent)}
+.spotlight{border-color:var(--knowledge-edge,#bcd7ca)}
+.spotlightMeta span{border-color:var(--knowledge-edge,#bcd7ca);background:var(--knowledge-soft,#e8f3ed)}
+.readButton{background:var(--timeline-accent)}
+.readButton:focus-visible{outline:3px solid var(--timeline-accent);outline-offset:3px}
