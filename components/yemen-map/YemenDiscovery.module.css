@@ -15,3 +15,19 @@
 .governorateGrid a:hover{border-color:#409481;color:#24756f}
 @media(max-width:1000px){.governorateGrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:650px){.governorateCatalog header{display:block}.governorateCatalog header p{margin-top:8px}.governorateGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.governorateGrid a{font-size:13px}}
+
+
+/* Geographic catalog: strong map entry and calm, numbered province shortcuts. */
+.exploreChoices{grid-template-columns:1fr}
+.exploreChoices a{min-height:72px;background:linear-gradient(100deg,var(--knowledge-soft,#e5f3ed),var(--knowledge-soft-alt,#ebf5f8));border-color:var(--knowledge-edge,#bcdcd1)}
+.exploreChoices strong{color:var(--knowledge-strong,#195848)}
+.governorateCatalog{border-top:1px solid var(--knowledge-edge,#bcdcd1);padding-top:28px}
+.governorateCatalog h2{color:var(--knowledge-strong,#195848)}
+.governorateGrid a{justify-content:flex-start;min-height:60px;gap:9px;border:1px solid var(--knowledge-edge,#bcdcd1);border-inline-start:3px solid #b2d4c7;background:#fff;transition:background .16s ease,border-color .16s ease}
+.governorateGrid a strong{font-weight:700;min-width:0;flex:1}
+.governorateNumber{display:inline-grid;place-items:center;flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--knowledge-soft,#e5f3ed);color:var(--knowledge-strong,#195848);font-size:11px;font-variant-numeric:tabular-nums}
+.governorateGrid a>svg{flex-shrink:0;color:var(--knowledge-accent,#287463)}
+.governorateGrid a:focus-visible{outline:3px solid var(--knowledge-accent,#287463);outline-offset:3px}
+@media(hover:hover){.governorateGrid a:hover{border-color:var(--knowledge-accent,#287463);background:var(--knowledge-soft,#e5f3ed)}}
+@media(max-width:650px){.governorateGrid a{min-height:62px;padding:10px 9px;gap:6px}.governorateNumber{width:24px;height:24px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.governorateGrid a{transition:none}}
