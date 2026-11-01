@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {pageViewBucket,usageEvent,usageOverview,schoolLearningOverview,ACTIVITY_SECTIONS,SEARCH_MISS_TYPES} from '../lib/siteAnalytics.js';
+import {pageViewBucket,usageEvent,usageOverview,schoolLearningOverview,ACTIVITY_SECTIONS,SEARCH_MISS_TYPES,analyticsOriginAllowed} from '../lib/siteAnalytics.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 
 test('only public content routes are included and detailed URLs are collapsed to a category',()=>{
@@ -66,7 +66,8 @@ test('tracking requires privacy controls and does not collect identifiers',()=>{
  for(const token of ["doNotTrack","globalPrivacyControl","967-analytics-opt-out","credentials:'omit'","isVisible(pathname)"])assert.ok(tracker.includes(token),token);
  assert.ok(privacy.includes('تعطيل العدّ المجمّع'));
  assert.ok(endpoint.includes("db.rpc('record_site_usage'"));
- assert.ok(endpoint.includes('isSameOrigin(request)'));
+ assert.ok(endpoint.includes('analyticsOriginAllowed(request,isSameOrigin)'));
+ assert.ok(endpoint.includes("db.rpc('record_site_usage'"));
  assert.ok(endpoint.includes('usageEvent(body)'));
  for(const string of ['user_id uuid','ip_address','referrer','query_text','search_phrase'])
   assert.ok(!sql.includes(string),string);
@@ -107,4 +108,25 @@ test('presentation is mobile responsive, keyboard navigable and distinguishes vi
  assert.ok(ui.includes('role="img"'));
  assert.ok(ui.includes('role="alert"'));
  assert.ok(ui.includes('aria-label'));
+});
+
+
+test('anonymous analytics only trusts same-origin HTTPS tunnel requests for local upstream',()=>{
+ const make=(origin,site='same-origin',host='public.trycloudflare.com',url='http://localhost:3000/api/analytics/event',proto='https')=>({
+  url,headers:new Headers({'origin':origin,'sec-fetch-site':site,'host':host,'x-forwarded-proto':proto}),
+ });
+ const acceptDirect=()=>true;
+ const rejectDirect=()=>false;
+ const valid=make('https://public.trycloudflare.com');
+ assert.equal(analyticsOriginAllowed(valid,rejectDirect),true);
+ assert.equal(analyticsOriginAllowed(valid,acceptDirect),true);
+ assert.equal(analyticsOriginAllowed(make('https://evil.test'),rejectDirect),false);
+ assert.equal(analyticsOriginAllowed(make('https://public.trycloudflare.com','cross-site'),rejectDirect),false);
+ assert.equal(analyticsOriginAllowed(make('https://public.trycloudflare.com','same-origin','public.trycloudflare.com','https://evil.test/api/analytics/event'),rejectDirect),false);
+ assert.equal(analyticsOriginAllowed(make('https://public.trycloudflare.com','same-origin','public.trycloudflare.com','http://localhost:3000/api/analytics/event','http'),rejectDirect),false);
+ assert.equal(analyticsOriginAllowed(make('https://public.trycloudflare.com/path'),rejectDirect),false);
+ assert.equal(analyticsOriginAllowed(make('http://public.trycloudflare.com'),rejectDirect),false);
+ const route=read('app/api/analytics/event/route.js');
+ assert.ok(route.includes('analyticsOriginAllowed(request,isSameOrigin)'));
+ assert.ok(!read('lib/requestSecurity.js').includes('analyticsOriginAllowed'),'do not broaden auth/admin origin validation');
 });
