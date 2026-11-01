@@ -21,6 +21,8 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const [canEdit, setCanEdit] = useState(false);
   const header = useRef(null);
   const toggle = useRef(null);
+  const menuOpener = useRef(null);
+  const toggleMenu = event => {if (!open) menuOpener.current=event.currentTarget; setOpen(value=>!value);};
   const closeDisclosures = () => header.current?.querySelectorAll('details[open]').forEach(item => item.removeAttribute('open'));
   const close = () => {setOpen(false); closeDisclosures();};
   useEffect(() => {setOpen(false); closeDisclosures();}, [path]);
@@ -29,7 +31,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   }, [open]);
   useEffect(() => {
     if (!open) return;
-    const mobile = window.matchMedia('(max-width: 1099px)');
+    const mobile = window.matchMedia('(max-width: 1179px)');
     if (!mobile.matches) {setOpen(false); return;}
     // The sheet scrolls on its own; background content and footer must not take focus.
     const oldOverflow = document.body.style.overflow;
@@ -93,7 +95,10 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
       const mobileOpen = toggle.current?.getAttribute('aria-expanded') === 'true';
       if (event.key === 'Escape' && (mobileOpen || disclosure)) {
         close();
-        if (mobileOpen) toggle.current?.focus(); else disclosure?.querySelector('summary')?.focus();
+        if (mobileOpen) {
+          const trigger=menuOpener.current;
+          (trigger?.getClientRects().length ? trigger : toggle.current)?.focus();
+        } else disclosure?.querySelector('summary')?.focus();
       }
     };
     const onClick = event => {if (!header.current?.contains(event.target)) close();};
@@ -145,7 +150,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
         {account && <Link href={account[0]} className="ed-tool ed-tool-text ed-wide-only" aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
         {isVisible('/contribute') && <Link href="/contribute" className="ed-tool ed-tool-cta ed-wide-only" onClick={close}>{actionLabel}</Link>}
-        <button ref={toggle} type="button" className="ed-tool ed-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(value => !value)}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}<span className="ed-menu-word" aria-hidden="true">{open ? 'إغلاق' : 'القائمة'}</span></button>
+        <button ref={toggle} type="button" className="ed-tool ed-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}<span className="ed-menu-word" aria-hidden="true">{open ? 'إغلاق' : 'القائمة'}</span></button>
       </div>
     </div>
     {/* Phones: a thumb-reach tab bar for the most used destinations and the menu. */}
@@ -154,7 +159,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
       {isVisible('/works') && <Link href="/works" aria-current={active('/works') ? 'page' : undefined} onClick={close}><PlayCircle size={21} aria-hidden="true"/><span>الإعلام</span></Link>}
       {isVisible('/yemen-in-numbers') && <Link href="/yemen-in-numbers" aria-current={active('/yemen-in-numbers') ? 'page' : undefined} onClick={close}><Compass size={21} aria-hidden="true"/><span>المعرفة</span></Link>}
       <Link href="/search" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={21} aria-hidden="true"/><span>البحث</span></Link>
-      <button type="button" aria-controls="main-navigation" aria-expanded={open} onClick={() => setOpen(value => !value)}>{open ? <X size={21} aria-hidden="true"/> : <Menu size={21} aria-hidden="true"/>}<span>{open ? 'إغلاق' : 'القائمة'}</span></button>
+      <button type="button" aria-controls="main-navigation" aria-expanded={open} onClick={toggleMenu}>{open ? <X size={21} aria-hidden="true"/> : <Menu size={21} aria-hidden="true"/>}<span>{open ? 'إغلاق' : 'القائمة'}</span></button>
     </nav>}
   </header>;
 }
