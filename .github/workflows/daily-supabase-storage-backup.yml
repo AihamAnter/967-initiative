@@ -38,7 +38,7 @@ jobs:
 
           # Supabase's S3 endpoint has a path prefix; force path-style addressing.
           export AWS_CONFIG_FILE="$RUNNER_TEMP/supabase-s3-config"
-          printf '[default]\nregion = eu-west-1\ns3 =\n    addressing_style = path\n' > "$AWS_CONFIG_FILE"
+          printf '[default]\nregion = eu-west-1\ns3 =\n    addressing_style = path\n    preferred_transfer_client = classic\n' > "$AWS_CONFIG_FILE"
 
           mkdir -p "$RUNNER_TEMP/967-storage"
           for bucket in 967-account-avatars figure-profiles media; do
