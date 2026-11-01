@@ -1,3 +1,5 @@
+import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
+import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import ContextBackLink from '@/components/ContextBackLink';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Link from '@/components/SiteLink';
@@ -36,7 +38,7 @@ export default async function IndicatorPage({params}) {
   const latestFontScale = latestDisplayValue ? `${Math.max(4, Math.min(17, 125 / Math.max(1, latestDisplayValue.length)))}cqi` : null;
   const sourceIds = new Set(indicator.allValues.map(value => value.source_id));
   const yearCount=new Set(indicator.values.map(value=>value.year)).size;
-  return <>
+  return <KnowledgeTheme area="statistics">
     <InlineTarget kind="statistic" id={indicator.id} slug={indicator.slug} title={indicator.name} href={detailPath('yemen-in-numbers/indicator',indicator.slug)}/>
     <JsonLd data={indicatorSchema(indicator)}/>
     <JsonLd data={breadcrumbSchema([{name:'اليمن بالأرقام', path:'/yemen-in-numbers'}, {name:indicator.domain.name, path:detailPath('yemen-in-numbers', indicator.domain.slug)}, {name:indicator.name, path:detailPath('yemen-in-numbers/indicator', indicator.slug)}])}/>
@@ -48,6 +50,7 @@ export default async function IndicatorPage({params}) {
       {measurement&&measurement.kind!=='recent'&&<p className="stat-warning" role="note"><AlertTriangle size={17}/>{measurement.message}</p>}
       {indicator.updated_at && <p className="record-update">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
     </div></section>
+    <KnowledgeNavigation/>
     <section className="section stat-indicator-body"><div className="container">
       <ContentReadingAction kind="indicator" href={detailPath('yemen-in-numbers/indicator',indicator.slug)} title={indicator.name}/>
       <p className="indicator-reading-note">{indicatorReading(indicator)}</p>
@@ -59,5 +62,5 @@ export default async function IndicatorPage({params}) {
       <section className="stat-sources"><div className="stat-panel-head"><div><span>التوثيق</span><h2>المصادر والوثائق</h2></div></div>{indicator.sources.length ? <div className="stat-source-list">{indicator.sources.map(item => <article key={item.source_id}><div><strong>{sourceLabel(item.source,indicator.name)}</strong>{item.is_adopted && <span>السلسلة المعتمدة</span>}<details><summary>تفاصيل المصدر</summary><p>{item.methodology || item.source?.description || 'مصدر مستخدم في توثيق هذا المؤشر.'}</p></details></div>{item.source?.url && <a href={item.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15}/></a>}</article>)}</div> : latest?.source ? <div className="stat-source-list"><article><div><strong>{sourceLabel(latest.source,indicator.name)}</strong><p>{latest.methodology_note || 'مصدر أحدث قيمة منشورة.'}</p></div>{latest.source.url && <a href={latest.source.url} target="_blank" rel="noopener noreferrer">زيارة المصدر <ExternalLink size={15}/></a>}</article></div> : <p className="small-muted">لم تُضف تفاصيل المصدر بعد.</p>}
       {latest?.document_url && <a className="stat-document-link" href={latest.document_url} target="_blank" rel="noopener noreferrer">وثيقة أحدث قيمة <ExternalLink size={16}/></a>}{latest?.publication_date && <small>تاريخ النشر: {formatArabicDate(latest.publication_date)}</small>}</section>
     </div></section>
-  </>;
+  </KnowledgeTheme>;
 }
