@@ -1,3 +1,5 @@
+import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
+import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import {notFound} from 'next/navigation';
 import {BookOpenText,Clock3,Landmark} from 'lucide-react';
 import Link from '@/components/SiteLink';
@@ -25,8 +27,9 @@ export default async function YemenHistoryPage({searchParams}){
  try{catalog=await readHistoryCatalog(serverDb());}
  catch{return <main className="container" style={{padding:'80px 0'}}><h1>تعذر تحميل تاريخ اليمن</h1><p role="alert">حاول تحديث الصفحة لاحقاً؛ لا نعرض نسخة قديمة إذا تعذر التحقق من آخر التعديلات.</p></main>;}
  const locations=[...new Map(catalog.entries.filter(x=>x.isPublished!==false&&x.governorate).map(x=>[x.governorate,x])).values()].map(x=>({...x,governorateName:yemenGovernorates.find(g=>g.id===x.governorate)?.name})).filter(x=>x.governorateName);
- return <main>
+ return <KnowledgeTheme area="history"><main>
   <KnowledgePageIntro
+   area="history"
    title="تاريخ اليمن"
    category="موسوعة 967 التاريخية"
    description="من بدايات الاستيطان إلى قيام الدول الحديثة: اكتشف الممالك والأحداث والناس والمواقع والوثائق في سياقها التاريخي.">
@@ -36,7 +39,8 @@ export default async function YemenHistoryPage({searchParams}){
     <Link href="/yemeni-figures">شخصيات يمنية <BookOpenText size={16}/></Link>
    </div>
   </KnowledgePageIntro>
+  <KnowledgeNavigation/>
   <div id="eras"><HistoryExplorer entries={catalog.entries} initialEra={typeof params.era==='string'?params.era:''} initialType={typeof params.type==='string'?params.type:''}/></div>
   <section className={styles.locations} aria-labelledby="history-location-title"><div className="container"><span className="eyebrow">الأماكن على الخريطة</span><h2 id="history-location-title">أين دارت هذه الحكايات؟</h2><p>استكشف المواقع المرتبطة بالمواد التاريخية على <strong>خريطة المحافظات المعاصرة</strong>. هذه الروابط لا تمثل حدود الممالك القديمة.</p><div className={styles.locationGrid}>{locations.map(x=><Link key={x.governorate} href={'/yemen-map?region='+x.governorate+'#map'}><strong>{x.governorateName}</strong><span>{x.title}</span></Link>)}</div></div></section>
- </main>;
+ </main></KnowledgeTheme>;
 }
