@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   editorial-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
       NEXT_TELEMETRY_DISABLED: '1'
@@ -49,7 +49,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          npm run dev -- --hostname 127.0.0.1 --port 3129 >/tmp/967-editorial-next.log 2>&1 &
+          npm run start -- --hostname 127.0.0.1 --port 3129 >/tmp/967-editorial-next.log 2>&1 &
           APP_PID=$!
           trap 'kill "$APP_PID" 2>/dev/null || true' EXIT
           ready=0
