@@ -1,0 +1,6 @@
+import PublicPageBoundary from './PublicPageBoundary';
+
+const sections={media:'works',magazine:'magazine',debates:'debates',statistics:'statistics',ranking:'ranking',atlas:'atlas',products:'products',professionals:'professionals',universities:'universities',medical:'medicalCenters'};
+export default function InteriorLayout({area, children}) {
+  return <PublicPageBoundary section={sections[area]}><div className="interior-page" data-area={area}>{children}</div></PublicPageBoundary>;
+}

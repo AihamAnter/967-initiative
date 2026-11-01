@@ -1,0 +1,138 @@
+{
+  "label": "before",
+  "base": "http://localhost:3102",
+  "runs": 9,
+  "measuredAt": "2026-11-01T16:30:01.712Z",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "ttfbMedianMs": 1625,
+      "htmlCompleteMedianMs": 1631,
+      "htmlWire": 52980,
+      "htmlDecoded": 222131,
+      "totals": {
+        "document": 53349,
+        "script": 219151,
+        "stylesheet": 63576,
+        "font": 257368,
+        "image": 117367,
+        "other": 1494
+      },
+      "counts": {
+        "document": 1,
+        "script": 16,
+        "stylesheet": 5,
+        "font": 8,
+        "image": 5,
+        "other": 8
+      },
+      "total": 712305,
+      "lcpMs": 1628
+    },
+    {
+      "path": "/yemen-in-numbers",
+      "status": 200,
+      "ttfbMedianMs": 1616,
+      "htmlCompleteMedianMs": 1650,
+      "htmlWire": 193881,
+      "htmlDecoded": 2622669,
+      "totals": {
+        "document": 194276,
+        "script": 234775,
+        "stylesheet": 64452,
+        "font": 257368,
+        "image": 4232,
+        "other": 0
+      },
+      "counts": {
+        "document": 1,
+        "script": 20,
+        "stylesheet": 7,
+        "font": 8,
+        "image": 1,
+        "other": 8
+      },
+      "total": 755103,
+      "lcpMs": 1704
+    },
+    {
+      "path": "/yemen-in-numbers/indicator/government-effectiveness-score",
+      "status": 200,
+      "ttfbMedianMs": 422,
+      "htmlCompleteMedianMs": 426,
+      "htmlWire": 32574,
+      "htmlDecoded": 161197,
+      "totals": {
+        "document": 32818,
+        "script": 354208,
+        "stylesheet": 60521,
+        "font": 257368,
+        "image": 4232,
+        "other": 0
+      },
+      "counts": {
+        "document": 1,
+        "script": 21,
+        "stylesheet": 6,
+        "font": 8,
+        "image": 1,
+        "other": 8
+      },
+      "total": 709147,
+      "lcpMs": 444
+    },
+    {
+      "path": "/works",
+      "status": 200,
+      "ttfbMedianMs": 291,
+      "htmlCompleteMedianMs": 293,
+      "htmlWire": 16311,
+      "htmlDecoded": 74530,
+      "totals": {
+        "document": 16463,
+        "script": 228215,
+        "stylesheet": 58689,
+        "font": 257368,
+        "image": 197478,
+        "other": 142
+      },
+      "counts": {
+        "document": 1,
+        "script": 18,
+        "stylesheet": 5,
+        "font": 8,
+        "image": 2,
+        "other": 4
+      },
+      "total": 758355,
+      "lcpMs": 612
+    },
+    {
+      "path": "/works/work-mv6uhecd",
+      "status": 200,
+      "ttfbMedianMs": 281,
+      "htmlCompleteMedianMs": 285,
+      "htmlWire": 17746,
+      "htmlDecoded": 81733,
+      "totals": {
+        "document": 17912,
+        "script": 230513,
+        "stylesheet": 58689,
+        "font": 257368,
+        "image": 197478,
+        "other": 142
+      },
+      "counts": {
+        "document": 1,
+        "script": 19,
+        "stylesheet": 5,
+        "font": 8,
+        "image": 2,
+        "other": 5
+      },
+      "total": 762102,
+      "lcpMs": 308
+    }
+  ]
+}

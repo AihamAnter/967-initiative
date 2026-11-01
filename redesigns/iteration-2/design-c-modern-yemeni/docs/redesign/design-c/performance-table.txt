@@ -1,0 +1,7 @@
+| Page | Median TTFB, before → after | Initial bytes, before → after | Change |
+| --- | ---: | ---: | ---: |
+| Home | 1.833s → 0.741s | 1,739.1 → 1,528.4 KiB | -12.1% |
+| Numbers | 1.979s → 1.528s | 631.4 → 468.3 KiB | -25.8% |
+| Indicator detail | 0.419s → 0.446s | 583.1 → 543.0 KiB | -6.9% |
+| Works | 0.252s → 0.299s | 804.1 → 764.0 KiB | -5.0% |
+| Work detail | 0.254s → 0.275s | 807.7 → 767.6 KiB | -5.0% |

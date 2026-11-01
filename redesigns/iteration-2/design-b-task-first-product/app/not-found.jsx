@@ -1,0 +1,2 @@
+import Link from '@/components/SiteLink';
+export default function NotFound(){return <div className="ui-page"><div className="ui-wrap" style={{display:'grid',justifyItems:'start',gap:12,maxWidth:640}}><p className="ui-eyebrow" dir="ltr">404</p><h1>الصفحة غير موجودة</h1><p>ربما تغيّر الرابط أو نُقلت الصفحة. ابحث عمّا تريد أو عد إلى الرئيسية.</p><div style={{display:'flex',gap:8,flexWrap:'wrap'}}><Link className="ui-btn" href="/">العودة للرئيسية</Link><Link className="ui-btn" data-variant="quiet" href="/search">ابحث في المنصة</Link></div></div></div>}

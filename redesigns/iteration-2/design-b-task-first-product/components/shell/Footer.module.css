@@ -1,0 +1,38 @@
+/* Footer: a deep, gradient-lit brand moment with the same six colour worlds. */
+.footer{position:relative;overflow:hidden;margin-top:var(--ui-16);background:#0a1318;color:#eaf0f1;font-family:var(--ui-font);font-size:var(--ui-text-sm);line-height:1.7;isolation:isolate}
+.footer::before{content:"";position:absolute;inset:-30% -10% auto;height:520px;z-index:-1;background:radial-gradient(40% 60% at 85% 30%,rgba(0,167,160,.28),transparent 70%),radial-gradient(35% 55% at 15% 20%,rgba(139,92,255,.22),transparent 70%),radial-gradient(30% 50% at 50% 0%,rgba(255,90,60,.16),transparent 70%)}
+.footer::after{content:"967";position:absolute;inset-inline-start:-1vw;bottom:-6vw;z-index:-1;font-size:clamp(9rem,26vw,24rem);font-weight:700;line-height:1;letter-spacing:-.04em;direction:ltr;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.06);pointer-events:none}
+.inner{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:var(--ui-10);max-width:var(--ui-width);margin-inline:auto;padding:var(--ui-16) var(--ui-gutter) var(--ui-10)}
+.brand{display:inline-flex;min-height:var(--ui-target);align-items:center}
+.brand img{width:56px!important;height:auto!important;filter:brightness(0) invert(1)}
+.about h2{margin:var(--ui-3) 0 var(--ui-2);font-size:var(--ui-text-xl);color:#fff;line-height:1.3}
+.about p{color:#b8c4c8;max-width:40ch}
+.socials{display:flex;flex-wrap:wrap;gap:8px;margin:var(--ui-5) 0 0;padding:0;list-style:none}
+.socials a{display:inline-flex;align-items:center;gap:6px;min-height:var(--ui-target);padding:0 14px;border-radius:var(--ui-r-pill);background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);color:#fff;text-decoration:none;transition:background var(--ui-fast),transform var(--ui-fast) var(--ui-ease)}
+.socials a:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+.groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ui-8) var(--ui-6)}
+.groups section{--a:#3fd0c6}
+.groups section[data-tone=coral]{--a:#ff7a5c}.groups section[data-tone=cobalt]{--a:#7d9bff}.groups section[data-tone=leaf]{--a:#3fd6a0}.groups section[data-tone=night]{--a:#b39bff}.groups section[data-tone=sun]{--a:#ffc04d}.groups section[data-tone=brand]{--a:#3fd0c6}
+.groups h3{display:flex;flex-direction:column;margin:0 0 var(--ui-2);font-size:var(--ui-text-lg);color:#fff}
+.groups h3::before{content:"";width:28px;height:3px;margin-bottom:10px;border-radius:3px;background:var(--a)}
+.groups h3 span{font-size:var(--ui-text-xs);font-weight:400;color:#9fb0b6}
+.groups ul{margin:0;padding:0;list-style:none}
+.groups a{display:inline-flex;align-items:center;min-height:var(--ui-target);color:#d7e0e2;text-decoration:none;transition:color var(--ui-fast)}
+.groups a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--a);text-underline-offset:5px}
+.groups a:focus-visible,.bottom a:focus-visible,.socials a:focus-visible{outline-color:#8fb4ff}
+.bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--ui-3);max-width:var(--ui-width);margin-inline:auto;padding:var(--ui-4) var(--ui-gutter) var(--ui-8);border-top:1px solid rgba(255,255,255,.1);color:#9fb0b6}
+.bottom ul{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0;padding:0;list-style:none}
+.bottom a{display:inline-flex;align-items:center;gap:4px;min-height:var(--ui-target);color:#d7e0e2;text-decoration:none}
+@media (max-width:1023px){.inner{grid-template-columns:1fr;gap:var(--ui-8)}.groups{grid-template-columns:1fr 1fr}}
+/* Phones: groups become compact wrapped lists, all links remain reachable. */
+@media (max-width:560px){
+  .footer{margin-top:var(--ui-12)}
+  .inner{padding-top:var(--ui-10)}
+  .groups{grid-template-columns:1fr;gap:var(--ui-5)}
+  .groups h3{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:8px}
+  .groups h3::before{flex-basis:100%;max-width:28px}
+  .groups ul{display:flex;flex-wrap:wrap;gap:0 4px}
+  .groups li:not(:last-child)::after{content:"·";color:#6f8087;margin-inline-start:4px}
+  .groups a{min-height:var(--ui-target)}
+}
+@media (hover:hover) and (pointer:fine) and (min-width:561px){.groups a{min-height:34px}} /* mouse users get a denser list; touch keeps 44px */

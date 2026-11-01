@@ -1,0 +1,52 @@
+[
+  {
+    "route": "/",
+    "ttfb": 1.833,
+    "html": 52979,
+    "js": 257340,
+    "css": 63472,
+    "fonts": 87128,
+    "images": 1319884,
+    "total": 1780803
+  },
+  {
+    "route": "/yemen-in-numbers",
+    "ttfb": 1.979,
+    "html": 193876,
+    "js": 272953,
+    "css": 64314,
+    "fonts": 87128,
+    "images": 28319,
+    "total": 646590
+  },
+  {
+    "route": "/yemen-in-numbers/indicator/yemen-population",
+    "ttfb": 0.419,
+    "html": 27963,
+    "js": 393280,
+    "css": 60400,
+    "fonts": 87128,
+    "images": 28319,
+    "total": 597090
+  },
+  {
+    "route": "/works",
+    "ttfb": 0.252,
+    "html": 16307,
+    "js": 266377,
+    "css": 58585,
+    "fonts": 87128,
+    "images": 394999,
+    "total": 823396
+  },
+  {
+    "route": "/works/work-mv6uhecd",
+    "ttfb": 0.254,
+    "html": 17741,
+    "js": 268657,
+    "css": 58585,
+    "fonts": 87128,
+    "images": 394999,
+    "total": 827110
+  }
+]

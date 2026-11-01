@@ -1,0 +1,88 @@
+/* 967 visual foundation. New components use semantic tokens; legacy aliases
+   preserve the existing header, navigation and layouts during the staged rollout. */
+:root {
+  --color-brand: #3f43ed;
+  --color-brand-strong: #3034c7;
+  --color-brand-hover: #242791;
+  --color-brand-soft: #ececff;
+  --color-ink: #15162b;
+  --color-muted: #666982;
+  --color-paper: #f6f7fd;
+  --color-surface: #ffffff;
+  --color-surface-alt: #edf0fc;
+  --color-border: #dfe3f1;
+  --color-control-border: #858ba7;
+
+  --color-coral: #cf432f;
+  --color-coral-ink: #a83223;
+  --color-coral-soft: #ffe3d8;
+  --color-violet: #7040c5;
+  --color-violet-soft: #eee4ff;
+  --color-cobalt: #2855d9;
+  --color-cobalt-soft: #e3ebff;
+  --color-sun: #f6bc36;
+  --color-sun-ink: #704500;
+  --color-sun-soft: #fff0bf;
+  --color-leaf: #16734e;
+  --color-leaf-soft: #dcf3e5;
+  --color-danger: #b32d35;
+  --color-danger-soft: #ffe9e9;
+  --color-debate-blue: #195caf;
+  --color-debate-red: #c9232b;
+
+  --font-body: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  --font-size-caption: .8125rem;
+  --font-size-label: .875rem;
+  --font-size-body: 1.0625rem;
+  --font-size-lead: 1.1875rem;
+  --font-size-card-title: clamp(1.1875rem, 1.6vw, 1.4375rem);
+  --font-size-section-title: clamp(1.75rem, 2.8vw, 2.5rem);
+  --font-size-display: clamp(2.25rem, 4.5vw, 4.5rem);
+  --font-weight-body: 400;
+  --font-weight-label: 500;
+  --font-weight-heading: 600;
+  --font-weight-display: 700;
+  --leading-body: 1.9;
+  --leading-heading: 1.5;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --radius-control: 14px;
+  --radius-card: 28px;
+  --radius-editorial: 4px;
+  --radius-pill: 999px;
+  --shadow-card: 0 6px 22px #15162b0a;
+  --shadow-raised: 0 12px 28px #15162b12;
+  --motion-fast: 160ms;
+  --motion-normal: 220ms;
+  --focus-ring: 3px solid var(--color-brand-strong);
+  --target-size: 44px;
+  --content-width: 1200px;
+  --collection-width: 1280px;
+  --home-width: 1200px;
+
+  /* Compatibility values are intentionally unchanged outside the content area. */
+  --primary: #3f43ed; --primary-hover: #242791; --bg: #f6f7fd; --bg2: #eeeee6;
+  --surface: #fff; --panel: #fff; --text: #15162b; --muted: #666982;
+  --sand: #d6bd94; --green: #4d755d; --success: #326548; --soft-green: #eaf2e9;
+  --soft-primary: #e6f1ef; --line: #dfe3f1; --cream: #f6f7fd; --black: #15162b;
+  --blue: #315e91; --soft-blue: #edf3fb; --plum: #74518c; --soft-plum: #f3eef8;
+  --gold: #815b17; --soft-gold: #fbf3e3; --clay: #984b3d; --soft-clay: #faeee9;
+  --control-line: #71888c; --danger: #a3322b; --soft-danger: #fff1ee;
+  --red: var(--primary); --red2: var(--primary); --container: var(--content-width);
+  --radius: 12px; --radius-sm: 6px; --shadow: 0 4px 18px #15162b0a;
+  --text-sm: .85rem; --text-base: 1rem; --title-lg: clamp(1.8rem, 3.1vw, 2.65rem);
+  color-scheme: light;
+}
+
+:root{--c2-paper:#f6f7fd;--c2-surface:#fff;--c2-alt:#edf0fc;--c2-ink:#15162b;--c2-muted:#666982;--c2-line:#dfe3f1;--c2-brand:#3f43ed;--c2-strong:#3034c7;--c2-mint:#b8f7d7;--c2-glass:#ffffffd9;--c2-shadow:0 16px 48px #272c6d0d;--color-surface:#fff;--shadow-card:var(--c2-shadow);--radius:24px;--radius-sm:12px;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--c2-paper:#0d1020;--c2-surface:#191e34;--c2-alt:#20263e;--c2-ink:#f1f3ff;--c2-muted:#b1b9d3;--c2-line:#353d59;--c2-brand:#a8adff;--c2-strong:#b9beff;--c2-glass:#12172ade;--c2-shadow:0 20px 60px #0004;--color-paper:var(--c2-paper);--color-surface:var(--c2-surface);--color-surface-alt:var(--c2-alt);--color-ink:var(--c2-ink);--color-muted:var(--c2-muted);--color-border:var(--c2-line);--color-brand:var(--c2-brand);--color-brand-strong:var(--c2-strong);--color-brand-soft:#282f59;--color-coral-soft:#382a35;--color-violet-soft:#30284b;--color-cobalt-soft:#252f51;--color-leaf-soft:#203d36;--color-sun-soft:#40351e;--primary:var(--c2-brand);--primary-hover:var(--c2-strong);--bg:var(--c2-paper);--bg2:var(--c2-alt);--surface:var(--c2-surface);--panel:var(--c2-surface);--text:var(--c2-ink);--muted:var(--c2-muted);--line:var(--c2-line);--cream:var(--c2-paper);--black:var(--c2-ink);--soft-primary:#282f59;--soft-blue:#252f51;--soft-clay:#382a35;--control-line:#858ba7;--color-control-border:#858ba7;color-scheme:dark}}

@@ -1,0 +1,62 @@
+[
+  {
+    "route": "/",
+    "main": 1,
+    "h1": "من اليمن.نرى أبعد.",
+    "overflow": false
+  },
+  {
+    "route": "/school",
+    "main": 1,
+    "h1": "كل مهارة، رحلة جديدة.",
+    "overflow": false
+  },
+  {
+    "route": "/games",
+    "main": 1,
+    "h1": "ألعاب 967جاهز للتحدي؟",
+    "overflow": false
+  },
+  {
+    "route": "/search",
+    "main": 1,
+    "h1": "ابحث. واكتشف أكثر.",
+    "overflow": false
+  },
+  {
+    "route": "/about",
+    "main": 1,
+    "h1": "من نحن",
+    "overflow": false
+  },
+  {
+    "route": "/login",
+    "main": 1,
+    "h1": "تسجيل الدخول",
+    "overflow": false
+  },
+  {
+    "route": "/yemen-history",
+    "main": 1,
+    "h1": "تاريخ اليمن",
+    "overflow": false
+  },
+  {
+    "route": "/yemeni-products",
+    "main": 1,
+    "h1": "صُنع هنا، في اليمن.",
+    "overflow": false
+  },
+  {
+    "menuOpen": true,
+    "backgroundInert": true
+  },
+  {
+    "menuClosed": true,
+    "focusRestored": true
+  },
+  {
+    "imageFailure": "من اليمن.\nنرى أبعد.",
+    "worksVisible": true
+  }
+]

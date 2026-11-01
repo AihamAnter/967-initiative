@@ -1,0 +1,7 @@
+import '@/components/legacy/LegacyStyles';
+import PublicPageBoundary from '@/components/design/PublicPageBoundary';
+
+// Keep the same server-side visibility rule for this section and all descendants.
+export default function SectionLayout({children}){
+  return <PublicPageBoundary section="figures">{children}</PublicPageBoundary>;
+}

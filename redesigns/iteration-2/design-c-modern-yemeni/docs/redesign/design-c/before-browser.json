@@ -1,0 +1,122 @@
+[
+  {
+    "route": "/",
+    "width": 375,
+    "overflow": false,
+    "main": 1,
+    "h1": "اليمن، أقرب إليك.",
+    "errors": false
+  },
+  {
+    "route": "/yemen-in-numbers",
+    "width": 375,
+    "overflow": false,
+    "main": 1,
+    "h1": "اليمن بالأرقام.",
+    "errors": false
+  },
+  {
+    "route": "/yemen-in-numbers/indicator/yemen-population",
+    "width": 375,
+    "overflow": false,
+    "main": 1,
+    "h1": "عدد سكان اليمن",
+    "errors": false
+  },
+  {
+    "route": "/works",
+    "width": 375,
+    "overflow": false,
+    "main": 1,
+    "h1": "حكايات تستحق أن تُروى.",
+    "errors": false
+  },
+  {
+    "route": "/works/work-mv6uhecd",
+    "width": 375,
+    "overflow": false,
+    "main": 1,
+    "h1": "من انا ومن انتم؟",
+    "errors": false
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "overflow": false,
+    "main": 1,
+    "h1": "اليمن، أقرب إليك.",
+    "errors": false
+  },
+  {
+    "route": "/yemen-in-numbers",
+    "width": 768,
+    "overflow": false,
+    "main": 1,
+    "h1": "اليمن بالأرقام.",
+    "errors": false
+  },
+  {
+    "route": "/yemen-in-numbers/indicator/yemen-population",
+    "width": 768,
+    "overflow": false,
+    "main": 1,
+    "h1": "عدد سكان اليمن",
+    "errors": false
+  },
+  {
+    "route": "/works",
+    "width": 768,
+    "overflow": false,
+    "main": 1,
+    "h1": "حكايات تستحق أن تُروى.",
+    "errors": false
+  },
+  {
+    "route": "/works/work-mv6uhecd",
+    "width": 768,
+    "overflow": false,
+    "main": 1,
+    "h1": "من انا ومن انتم؟",
+    "errors": false
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "overflow": false,
+    "main": 1,
+    "h1": "اليمن، أقرب إليك.",
+    "errors": false
+  },
+  {
+    "route": "/yemen-in-numbers",
+    "width": 1440,
+    "overflow": false,
+    "main": 1,
+    "h1": "اليمن بالأرقام.",
+    "errors": false
+  },
+  {
+    "route": "/yemen-in-numbers/indicator/yemen-population",
+    "width": 1440,
+    "overflow": false,
+    "main": 1,
+    "h1": "عدد سكان اليمن",
+    "errors": false
+  },
+  {
+    "route": "/works",
+    "width": 1440,
+    "overflow": false,
+    "main": 1,
+    "h1": "حكايات تستحق أن تُروى.",
+    "errors": false
+  },
+  {
+    "route": "/works/work-mv6uhecd",
+    "width": 1440,
+    "overflow": false,
+    "main": 1,
+    "h1": "من انا ومن انتم؟",
+    "errors": false
+  }
+]

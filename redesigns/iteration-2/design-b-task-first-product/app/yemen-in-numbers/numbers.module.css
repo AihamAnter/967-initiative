@@ -1,0 +1,48 @@
+/* Yemen in numbers: stat bento, glass filter dock, data rows with sparklines. */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--ui-3);margin:var(--ui-5) 0 0}
+.stats div{display:flex;flex-direction:column-reverse;gap:4px;padding:var(--ui-4) var(--ui-5);border-radius:var(--ui-r-lg);background:var(--ui-surface);box-shadow:var(--ui-ring),var(--ui-shadow-1)}
+.stats div:first-child{background:linear-gradient(150deg,var(--ui-explore-a),var(--ui-explore-b));color:#fff}
+.stats div:first-child dt{color:#dfe6ff}
+.stats dd{margin:0;font-size:2.25rem;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+.stats dt{font-size:var(--ui-text-xs);font-weight:700;color:var(--ui-ink-3)}
+.timeline{display:inline-flex;align-items:center;gap:8px;min-height:var(--ui-target);margin-top:var(--ui-5);padding:0 18px;border-radius:var(--ui-r-pill);background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.26);backdrop-filter:blur(8px);font-weight:700;font-size:var(--ui-text-sm);color:#fff;text-decoration:none;transition:background var(--ui-fast)}
+.timeline:hover{color:#fff;background:rgba(255,255,255,.26)}
+.filters{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--ui-3);padding:var(--ui-4);border-radius:var(--ui-r-xl);background:var(--ui-glass-strong);backdrop-filter:blur(16px) saturate(1.5);-webkit-backdrop-filter:blur(16px) saturate(1.5);box-shadow:var(--ui-ring),var(--ui-shadow-2)}
+.field{display:flex;flex-direction:column;gap:6px;min-width:180px}
+.field[data-grow]{flex:1 1 280px}
+.field label{padding-inline-start:6px;font-size:var(--ui-text-xs);font-weight:700;color:var(--ui-ink-2)}
+.input{position:relative;display:flex;align-items:center}
+.input svg{position:absolute;inset-inline-start:16px;color:var(--ui-ink-3);pointer-events:none}
+.field input,.field select{width:100%;height:50px;padding:0 16px;border:0;border-radius:var(--ui-r-md);background:var(--ui-surface-2);box-shadow:var(--ui-ring);font-size:var(--ui-text-sm);color:var(--ui-ink);transition:box-shadow var(--ui-fast)}
+.input input{padding-inline-start:44px}
+.field input:focus-visible,.field select:focus-visible{outline:none;box-shadow:var(--ui-focus-ring)}
+.filters :global(.ui-btn){min-height:50px}
+.empty{display:grid;justify-items:center;gap:var(--ui-2);padding:var(--ui-12) var(--ui-4);border-radius:var(--ui-r-xl);background:var(--ui-surface);box-shadow:var(--ui-ring);text-align:center;color:var(--ui-ink-2)}
+.empty h3{color:var(--ui-ink);font-size:var(--ui-text-lg)}
+.loading{margin-top:var(--ui-8)}
+.latest{margin-top:var(--ui-8)}
+.latest h2,.explorerHead h2,.domains>h2{font-size:var(--ui-text-xl);margin-bottom:var(--ui-4)}
+.rows{display:grid;gap:var(--ui-3)}
+.explorer{margin-top:var(--ui-10);--tone:var(--ui-task-explore);--tone-soft:var(--ui-task-explore-soft)}
+.domains{margin-top:var(--ui-12)}
+.sectionGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ui-3)}
+.sectionCard{padding:var(--ui-4) var(--ui-5);box-shadow:var(--ui-ring),var(--ui-shadow-1);border-radius:var(--ui-r-lg);background:var(--ui-surface)}
+.sectionCard h3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:var(--ui-text-md)}
+.sectionCard h3 span{flex:none;font-size:var(--ui-text-xs);font-weight:400;color:var(--ui-ink-3)}
+.sectionCard p{margin-top:4px;font-size:var(--ui-text-xs);line-height:1.7;color:var(--ui-ink-2)}
+.sectionCard ul{display:flex;flex-wrap:wrap;gap:6px;margin:var(--ui-3) 0 0;padding:0;list-style:none}
+.sectionCard a{display:inline-flex;align-items:center;min-height:var(--ui-target);padding:0 12px;border-radius:var(--ui-r-pill);background:var(--ui-task-explore-soft);color:var(--ui-ink);font-size:var(--ui-text-xs);font-weight:700;text-decoration:none}
+.sectionCard a:hover{background:var(--ui-task-explore);color:#fff}
+.method{margin-top:var(--ui-10);padding:var(--ui-5) var(--ui-6);border-inline-start:4px solid var(--ui-task-explore);border-radius:var(--ui-r-md);background:var(--ui-surface)}
+.method h2{font-size:var(--ui-text-lg);margin-bottom:var(--ui-2)}
+.method p{max-width:var(--ui-measure);font-size:var(--ui-text-sm);color:var(--ui-ink-2)}
+.method p+p{margin-top:var(--ui-2)}
+@media (max-width:1023px){.sectionGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sectionGrid{grid-template-columns:1fr}
+  .field{min-width:0;flex:1 1 calc(50% - 12px)}
+  .field[data-grow]{flex-basis:100%}
+  .filters :global(.ui-btn){width:100%}
+  .method{padding:var(--ui-4)}
+}

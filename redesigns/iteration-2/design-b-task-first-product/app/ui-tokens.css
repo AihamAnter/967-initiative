@@ -1,0 +1,144 @@
+/*
+ * 967 Design B (iteration 2) — "Wayfinder 2026" tokens.
+ * One semantic source of truth for the shell and the redesigned routes, in light
+ * and dark. Six verbs = six colour worlds (vivid + deep + tint + ink).
+ * Prefix --ui- keeps it independent from the legacy token layer.
+ *
+ * Dark mode follows prefers-color-scheme, but only on documents that render a
+ * redesigned page (:has(.ui-page)); legacy sections keep their light styling
+ * until they are migrated, so a dark shell never sits on a light legacy page.
+ */
+:root{
+  color-scheme:light;
+  /* Neutrals */
+  --ui-paper:#f7f4ee;
+  --ui-paper-2:#efe9df;
+  --ui-surface:#ffffff;
+  --ui-surface-2:#fbf9f5;
+  --ui-sunken:#ece6db;
+  --ui-glass:rgba(255,255,255,.66);
+  --ui-glass-strong:rgba(255,255,255,.86);
+  --ui-line:rgba(20,35,44,.10);
+  --ui-line-strong:rgba(20,35,44,.22);
+  --ui-ink:#101c24;
+  --ui-ink-2:#384954;
+  --ui-ink-3:#56656e;      /* ≥5:1 on paper and surface */
+  --ui-inverse:#0c161d;
+  --ui-on-inverse:#f4f0e8;
+
+  /* Action (967 teal) */
+  --ui-action:#00646c;
+  --ui-action-hover:#004c53;
+  --ui-action-soft:#dceff0;
+  --ui-on-action:#ffffff;
+  --ui-focus:#2f6bff;
+
+  /* Six colour worlds: a = vivid, b = deep (gradient partner), tint = surface wash, ink = text on tint */
+  --ui-read-a:#ff5a3c;   --ui-read-b:#b3203f;   --ui-read-tint:#ffe9e3;   --ui-read-ink:#9c2615;
+  --ui-explore-a:#3a6bff;--ui-explore-b:#2a2fb8;--ui-explore-tint:#e6ecff;--ui-explore-ink:#2140b8;
+  --ui-learn-a:#12b981;  --ui-learn-b:#0a6b5a;  --ui-learn-tint:#dcf6ec;  --ui-learn-ink:#0b6648;
+  --ui-play-a:#8b5cff;   --ui-play-b:#3b1d8f;   --ui-play-tint:#ece6ff;   --ui-play-ink:#5b32c9;
+  --ui-find-a:#ffb020;   --ui-find-b:#b8430f;   --ui-find-tint:#fff2d6;   --ui-find-ink:#8a4b00;
+  --ui-join-a:#00a7a0;   --ui-join-b:#00646c;   --ui-join-tint:#d9f3f1;   --ui-join-ink:#00585f;
+
+  /* Back-compat aliases used by iteration-1 modules */
+  --ui-task-read:var(--ui-read-ink);       --ui-task-read-soft:var(--ui-read-tint);
+  --ui-task-explore:var(--ui-explore-ink); --ui-task-explore-soft:var(--ui-explore-tint);
+  --ui-task-learn:var(--ui-learn-ink);     --ui-task-learn-soft:var(--ui-learn-tint);
+  --ui-task-play:var(--ui-play-ink);       --ui-task-play-soft:var(--ui-play-tint);
+  --ui-task-find:var(--ui-find-ink);       --ui-task-find-soft:var(--ui-find-tint);
+  --ui-task-join:var(--ui-join-ink);       --ui-task-join-soft:var(--ui-join-tint);
+
+  /* Status — always paired with a word or icon */
+  --ui-warn:#8a4b00;  --ui-warn-soft:#fff1d6;
+  --ui-danger:#a3261b;--ui-danger-soft:#fde6e2;
+  --ui-ok:#0b6648;    --ui-ok-soft:#dcf6ec;
+
+  /* Type: IBM Plex Sans Arabic, two weights (400/700) */
+  --ui-font:'IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  --ui-text-xs:.8125rem;
+  --ui-text-sm:.9375rem;
+  --ui-text-md:1.0625rem;
+  --ui-text-lg:1.25rem;
+  --ui-text-xl:clamp(1.625rem,1.25rem + 1.5vw,2.25rem);
+  --ui-text-2xl:clamp(2.125rem,1.5rem + 2.8vw,3.5rem);
+  --ui-text-display:clamp(2.75rem,1.4rem + 6.2vw,6.25rem);
+  --ui-text-num:clamp(2.5rem,1.6rem + 3.6vw,4.5rem);
+  --ui-leading-body:1.85;
+  --ui-leading-tight:1.3;
+  --ui-leading-display:1.12;
+  --ui-measure:66ch;
+  --ui-weight-text:400;
+  --ui-weight-strong:700;
+
+  /* Space */
+  --ui-1:4px;--ui-2:8px;--ui-3:12px;--ui-4:16px;--ui-5:20px;--ui-6:24px;--ui-8:32px;--ui-10:40px;--ui-12:48px;--ui-16:64px;--ui-20:80px;
+  --ui-gutter:clamp(16px,4vw,40px);
+  --ui-width:1280px;
+  --ui-width-narrow:820px;
+
+  /* Shape & depth: layered, soft, tinted */
+  --ui-r-sm:10px;--ui-r-md:16px;--ui-r-lg:24px;--ui-r-xl:32px;--ui-r-pill:999px;
+  --ui-shadow-1:0 1px 1px rgba(16,28,36,.04),0 2px 6px -2px rgba(16,28,36,.08);
+  --ui-shadow-2:0 1px 2px rgba(16,28,36,.05),0 8px 24px -10px rgba(16,28,36,.20),0 2px 6px -3px rgba(16,28,36,.08);
+  --ui-shadow-3:0 2px 4px rgba(16,28,36,.05),0 24px 56px -20px rgba(16,28,36,.34),0 8px 18px -10px rgba(16,28,36,.14);
+  --ui-ring:inset 0 0 0 1px var(--ui-line);
+  --ui-highlight:inset 0 1px 0 rgba(255,255,255,.7);
+
+  /* Interaction */
+  --ui-target:44px;
+  --ui-focus-ring:0 0 0 3px var(--ui-paper),0 0 0 6px var(--ui-focus);
+  --ui-ease:cubic-bezier(.2,.8,.2,1);
+  --ui-spring:cubic-bezier(.34,1.56,.64,1);
+  --ui-fast:160ms;--ui-base:260ms;--ui-slow:520ms;
+
+  /* Shell */
+  --ui-header-h:68px;
+  --ui-tabbar-h:66px;
+
+  /* Brand mesh (hero / page headers) */
+  --ui-mesh:
+    radial-gradient(60% 80% at 92% 0%,color-mix(in oklab,var(--ui-join-a) 26%,transparent),transparent 70%),
+    radial-gradient(50% 70% at 10% 10%,color-mix(in oklab,var(--ui-play-a) 18%,transparent),transparent 70%),
+    radial-gradient(45% 60% at 60% 100%,color-mix(in oklab,var(--ui-find-a) 16%,transparent),transparent 70%);
+}
+
+@media (prefers-color-scheme:dark){
+  :root:has(.ui-page){
+    color-scheme:dark;
+    --ui-paper:#0b1217;
+    --ui-paper-2:#0f1920;
+    --ui-surface:#121d24;
+    --ui-surface-2:#16232b;
+    --ui-sunken:#0e171d;
+    --ui-glass:rgba(16,26,33,.62);
+    --ui-glass-strong:rgba(16,26,33,.86);
+    --ui-line:rgba(226,236,240,.10);
+    --ui-line-strong:rgba(226,236,240,.22);
+    --ui-ink:#eef3f4;
+    --ui-ink-2:#c3cfd4;
+    --ui-ink-3:#97a7ae;
+    --ui-inverse:#050a0d;
+    --ui-on-inverse:#eef3f4;
+    --ui-action:#3fd0c6;
+    --ui-action-hover:#7be3db;
+    --ui-action-soft:rgba(63,208,198,.14);
+    --ui-on-action:#04201f;
+    --ui-focus:#7ea6ff;
+    --ui-read-tint:rgba(255,90,60,.14);   --ui-read-ink:#ff9b86;
+    --ui-explore-tint:rgba(58,107,255,.16);--ui-explore-ink:#9db4ff;
+    --ui-learn-tint:rgba(18,185,129,.14); --ui-learn-ink:#5fe0b2;
+    --ui-play-tint:rgba(139,92,255,.18);  --ui-play-ink:#c4adff;
+    --ui-find-tint:rgba(255,176,32,.14);  --ui-find-ink:#ffc965;
+    --ui-join-tint:rgba(0,167,160,.16);   --ui-join-ink:#5fe0d6;
+    --ui-warn:#ffc965;  --ui-warn-soft:rgba(255,176,32,.12);
+    --ui-danger:#ff9b86;--ui-danger-soft:rgba(255,90,60,.12);
+    --ui-ok:#5fe0b2;    --ui-ok-soft:rgba(18,185,129,.12);
+    --ui-shadow-1:0 1px 0 rgba(255,255,255,.03) inset,0 2px 8px -2px rgba(0,0,0,.5);
+    --ui-shadow-2:0 1px 0 rgba(255,255,255,.04) inset,0 12px 30px -12px rgba(0,0,0,.7);
+    --ui-shadow-3:0 1px 0 rgba(255,255,255,.05) inset,0 30px 60px -20px rgba(0,0,0,.8);
+    --ui-highlight:inset 0 1px 0 rgba(255,255,255,.06);
+    --ui-focus-ring:0 0 0 3px var(--ui-paper),0 0 0 6px var(--ui-focus);
+  }
+}
+@media (prefers-reduced-motion:reduce){:root{--ui-fast:0ms;--ui-base:0ms;--ui-slow:0ms}}

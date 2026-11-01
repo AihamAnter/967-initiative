@@ -1,0 +1,7 @@
+app/home.module.css
+components/home/HomeCards.jsx
+components/home/HomeCards.module.css
+components/home/HomeGames.jsx
+components/home/HomeGames.module.css
+components/home/HomeKnowledge.jsx
+components/home/HomeKnowledge.module.css

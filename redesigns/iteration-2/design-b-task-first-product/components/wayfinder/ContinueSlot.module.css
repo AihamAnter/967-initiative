@@ -1,0 +1,19 @@
+.slot{margin-top:var(--ui-4);padding:var(--ui-4);border-radius:var(--ui-r-lg);background:linear-gradient(135deg,#0f1c24,#17213a);color:#eef3f4;box-shadow:var(--ui-shadow-2)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:var(--ui-3);margin-bottom:var(--ui-3)}
+.head h3{margin:0;font-size:var(--ui-text-md);color:#fff}
+.clear{display:inline-flex;align-items:center;gap:4px;min-height:var(--ui-target);padding:0 12px;border:0;border-radius:var(--ui-r-pill);background:rgba(255,255,255,.06);color:#c5d0d4;font-size:var(--ui-text-xs);cursor:pointer}
+.clear:hover{color:#fff;background:rgba(255,255,255,.12)}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--ui-2);margin:0;padding:0;list-style:none}
+.item{display:flex;align-items:center;gap:var(--ui-3);min-height:64px;height:100%;padding:10px 14px;border-radius:var(--ui-r-md);background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:background var(--ui-fast),transform var(--ui-fast) var(--ui-ease)}
+.item:hover{background:rgba(255,255,255,.12);color:#fff;transform:translateY(-1px)}
+.item:focus-visible{outline-color:#8fb4ff}
+.item svg{flex:none;color:#5fe0d6}
+.item[data-kind=saved] svg{color:#ffc965}
+.item[data-kind=game] svg{color:#c4adff}
+.item span{display:flex;flex-direction:column;min-width:0}
+.item small{font-size:var(--ui-text-xs);color:#b8c4c8;line-height:1.5}
+.item strong{font-size:var(--ui-text-sm);line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.skeleton{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--ui-3)}
+.skeleton span{height:96px;border-radius:var(--ui-r-lg);background:var(--ui-sunken)}
+/* The member summary keeps its own module; frame it in the new surface language. */
+.member{border-radius:var(--ui-r-lg)}
