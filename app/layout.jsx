@@ -10,6 +10,7 @@ import './completion-polish.css';
 import './team-collaboration.css';
 import './directories.css';
 import './phase5-navigation.css';
+import './knowledge-identity.css';
 import {site} from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
