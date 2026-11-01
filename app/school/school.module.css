@@ -309,3 +309,12 @@
 .natureCourseCard .cardAction{margin-top:auto;color:#deedc4}
 .natureFootnote{display:flex;align-items:center;gap:10px;margin-top:21px;font-size:12px;line-height:1.8;color:#51665c}
 @media(max-width:700px){.natureCourseGrid{grid-template-columns:1fr}.natureHero{padding:39px 0 55px}.natureCourseCard{min-height:250px}}
+
+/* The upcoming subject is a compact note on phones, not another tall course. */
+@media(max-width:550px){
+ .categoryLater{grid-column:1/-1;min-height:0;padding:17px 18px;gap:7px}
+ .categoryLater .categoryIcon{width:42px;height:42px}
+ .categoryLater .categoryIcon svg{width:23px;height:23px}
+ .categoryLater h3{font-size:20px;margin:2px 0 0}
+ .categoryLater p{font-size:12px;line-height:1.65}
+}
