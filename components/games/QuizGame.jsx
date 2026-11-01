@@ -1,5 +1,5 @@
 'use client';
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,Flame,Medal,RotateCcw,Share2,Target,Trophy,Zap,XCircle} from 'lucide-react';
 import {buildQuizRound,dailySeed,scoreRound,gameLevels,quizCategories,difficultyLabels} from '@/lib/gameEngine';
@@ -39,11 +39,18 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const current=round[step];
  const duration=roundDuration(mode,seconds);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,startTime:mode==='daily'?serverStartedAt:null,active:round.length>0&&!result&&picked===null&&!verifying&&(mode!=='daily'||clockReady),onExpire:()=>choose(-1,true)});
- useEffect(()=>{
-  if(!round.length||result)return;
+ // Align the timer AND question before the first paint after each transition.
+ // The global page may use smooth scrolling; never animate while the clock runs.
+ useLayoutEffect(()=>{
+  if(!round.length||result||!playRef.current)return;
+  const play=playRef.current;
+  const root=document.documentElement;
+  const previous=root.style.scrollBehavior;
+  root.style.scrollBehavior='auto';
+  try{play.scrollIntoView({block:'start',behavior:'instant'});}
+  catch{play.scrollIntoView({block:'start',behavior:'auto'});}
+  root.style.scrollBehavior=previous;
   questionTitleRef.current?.focus({preventScroll:true});
-  const frame=requestAnimationFrame(()=>playRef.current?.scrollIntoView({block:'start',behavior:'auto'}));
-  return()=>cancelAnimationFrame(frame);
  },[runId,step,round.length,result]);
  useEffect(()=>{
   if(mode==='daily'&&round.length&&picked===null&&!result&&!clockReady&&!readyPending&&!syncError)markReady();
