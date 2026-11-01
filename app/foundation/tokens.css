@@ -1,7 +1,7 @@
 /*
  * 967 · Editorial, made 2026 — design tokens (iteration 2).
  * Prefixes: --c colour · --t type · --s space · --r radius · --e elevation · --m motion · --w width.
- * Light is the default. Dark applies through prefers-color-scheme, but only on
+ * Light is the default. A visitor may opt into dark mode, but only on
  * pages built with the new system (.ed-page), so not-yet-migrated routes never
  * get a dark shell over a light legacy body.
  */
@@ -91,9 +91,8 @@
   --header-h: 68px;
 }
 
-/* Dark mode: redesigned pages only (see note above). */
-@media (prefers-color-scheme: dark) {
-  :root:has(.ed-page) {
+/* User-selected dark mode: redesigned pages only; legacy pages remain light. */
+:root[data-ed-theme="dark"]:has(.ed-page) {
     color-scheme: dark;
     --c-bg: #0b0f10;
     --c-bg-2: #070a0b;
@@ -124,7 +123,6 @@
     --e-2: 0 1px 2px rgb(0 0 0 / .4), 0 10px 28px -10px rgb(0 0 0 / .7);
     --e-3: 0 2px 4px rgb(0 0 0 / .4), 0 28px 60px -20px rgb(0 0 0 / .85);
     --e-glow: 0 0 0 1px rgb(255 255 255 / .06) inset;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   :root { --m-fast: 0ms; --m-base: 0ms; --m-slow: 0ms; }
