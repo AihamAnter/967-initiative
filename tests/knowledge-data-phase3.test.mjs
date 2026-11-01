@@ -6,7 +6,9 @@ const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const css=read('app/knowledge-data.css');
 
 test('stage-three stylesheet only targets statistics and rankings and preserves shared identity',()=>{
- assert.ok(read('app/layout.jsx').includes("import './knowledge-data.css';"));
+ // Legacy sheets now load per route through app/legacy-styles.js, not the root layout.
+ assert.ok(read('app/legacy-styles.js').includes("import './knowledge-data.css';"));
+ assert.ok(!read('app/layout.jsx').includes('knowledge-data.css'));
  assert.ok(read('app/knowledge-identity.css').includes('[data-knowledge-area="statistics"]'));
  assert.ok(read('app/knowledge-identity.css').includes('[data-knowledge-area="ranking"]'));
  assert.ok(css.includes('[data-knowledge-area="statistics"]'));
@@ -20,7 +22,8 @@ test('stage-three stylesheet only targets statistics and rankings and preserves 
 });
 
 test('the national indicator catalogue retains its published values, status and source evidence',()=>{
- const card=read('components/IndicatorCard.jsx');
+ // The redesigned list renders IndicatorEntry rows; IndicatorCard still serves the domain page.
+ const card=read('components/IndicatorCard.jsx')+read('components/numbers/IndicatorEntry.jsx');
  const explorer=read('components/StatisticsExplorer.jsx');
  const page=read('app/yemen-in-numbers/page.jsx');
  for(const token of ['indicator.latestValue','formatNumber(latest.value','formatYear(latest.year)','valueStatusLabels[latest.value_status]','dataStatusHelp[indicator.data_status]','sourceLabel(latest?.source','indicatorMeasurementEvidence(latest.year)','SaveForLater'])assert.ok(card.includes(token),token);

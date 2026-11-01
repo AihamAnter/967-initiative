@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 test('figures have their own knowledge route without an embedded atlas directory',()=>{
- const header=read('components/Header.jsx');
+ const header=read('lib/navigation.js'); // shared navigation vocabulary
  const atlas=read('components/yemen-map/YemenDiscovery.jsx');
  const figures=read('app/yemeni-figures/page.jsx');
  const listing=read('components/yemen-map/YemeniFiguresDirectory.jsx');

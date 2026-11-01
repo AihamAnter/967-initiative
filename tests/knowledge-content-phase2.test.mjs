@@ -96,7 +96,8 @@ test('atlas data panel remains functional and more readable with no pointer over
 
 test('all stage-two styling is scoped; nothing changes editor, database or global color tokens',()=>{
  const css=read('app/knowledge-content.css');
- const layout=read('app/layout.jsx');
+ // Root no longer loads route styles: legacy sheets moved to app/legacy-styles.js (non-redesigned routes).
+ const layout=read('app/legacy-styles.js');
  const root=read('app/knowledge-identity.css');
  assert.ok(layout.includes("import './knowledge-content.css';"));
  assert.ok(!css.includes(':root'));

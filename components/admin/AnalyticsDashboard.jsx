@@ -53,7 +53,7 @@ export default function AnalyticsDashboard(){
  const daily=usage?.timeline.slice(-14)||[];
  const peak=Math.max(1,...daily.map(x=>x.views));
 
- return <main className={styles.page}><div className="container">
+ return <div className={styles.page}><div className="container">
   <div className={styles.heading}><div><span className={styles.eyebrow}><Activity size={17} aria-hidden="true"/> إدارة 967 / التحليلات</span>
    <h1>تحليلات استخدام الموقع</h1><p>مؤشرات مجمعة تساعد الفريق على معرفة ما يحتاج تحسينًا، دون تتبع هوية الزوار.</p></div>
    <Link className={styles.back} href="/admin">لوحة الإدارة <ArrowLeft size={16} aria-hidden="true"/></Link>
@@ -110,5 +110,5 @@ export default function AnalyticsDashboard(){
     {school.sampled&&<p>وصلت العينة إلى سقف 3000 محاولة؛ النتائج التعليمية جزئية وليست إحصاءً كاملًا.</p>}
    </div></aside>
   </div>}
- </div></main>;
+ </div></div>;
 }

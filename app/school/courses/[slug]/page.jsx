@@ -16,7 +16,7 @@ export default async function CoursePage({params}){
  const course=(await publishedSchoolCatalog(db)).find(x=>x.slug===slug);
  if(!course)notFound();
  const stages=await publishedSchoolStages(db,slug);
- return <main className={styles.root}><header className={styles.hero}><div className="container">
+ return <div className={styles.root}><header className={styles.hero}><div className="container">
   <Link className={styles.back} href={course.category==='السياسة والاقتصاد'?'/school/civic':course.category==='الفلك والطبيعة'?'/school/nature':course.category==='المنطق والتفكير'?'/school/logic':'/school/writing'}><ArrowRight size={16}/> جميع المسارات</Link>
   <h1>{course.title}</h1><p>{course.description}</p>
   <p>{course.category} · {stages.length} محطة منشورة</p>
@@ -24,5 +24,5 @@ export default async function CoursePage({params}){
   <div className={styles.report}><h2>محطات هذا المسار</h2><p>أكمل المحطات بالترتيب؛ تحتاج إلى 5 إجابات صحيحة من 6 لفتح المحطة التالية.</p>
    <SchoolCourseMap slug={slug} stages={stages}/>
   </div>
- </div></section></main>;
+ </div></section></div>;
 }

@@ -22,8 +22,8 @@ export default async function ArudStagePage({params}){
  const db=serverDb();
  const overlay=db?await publishedSchoolStage(db,'arud',original.index):null;
  const stage=overlay?{...original,...overlay}:original;
- return <main className={school.root}><section className={styles.lessonBackground}><div className="container">
+ return <div className={school.root}><section className={styles.lessonBackground}><div className="container">
   <div className={styles.lessonBreadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing/arud">علم العروض</Link><ChevronLeft size={14}/>المحطة {raw}</div>
   <ArudLesson stage={stage}/>
- </div></section></main>;
+ </div></section></div>;
 }

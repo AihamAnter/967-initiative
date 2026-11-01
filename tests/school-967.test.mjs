@@ -157,15 +157,16 @@ test('the advanced course offers verified museum inscriptions without presenting
 });
 
 test('School 967 is a distinct searchable, visible site section and responsive classroom',()=>{
- const header=read('components/Header.jsx'),footer=read('components/Footer.jsx');
+ const header=read('lib/navigation.js'),footer=read('components/Footer.jsx');
  const home=read('app/page.jsx'),css=read('app/school/school.module.css');
  const board=read('components/school/SchoolLesson.jsx'),journey=read('components/school/SchoolJourney.jsx');
  assert.ok(publicSections.some(x=>x.id==='school'&&x.path==='/school'));
  assert.equal(sectionIsVisible('school',{school:false}),false);
  assert.equal(pageIsVisible('/school/writing/musnad',{school:false}),false);
  assert.equal(pageIsVisible('/games',{school:false}),true);
- assert.ok(header.includes("{label: 'مدرسة 967', standalone: true"));
- assert.ok(footer.includes('<FooterGroup title="مدرسة 967">'));
+ assert.ok(header.includes("id: 'school', label: 'مدرسة 967'"));
+ assert.ok(header.includes('standalone: true'));
+ assert.ok(footer.includes('<FooterGroup key={section.id} title={section.label}>'));
  assert.ok(home.includes("{visible('school')&&<section"));
  assert.ok(searchPages.some(x=>x.href==='/school/writing/musnad'));
  assert.ok(css.includes('@media(max-width:760px)')&&css.includes('@media(max-width:550px)'));

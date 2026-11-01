@@ -25,7 +25,7 @@ export default async function SchoolLogicPage(){
   const stages=await publishedSchoolStages(db,track.slug);
   return {...track,course,stageCount:stages.length};
  }));
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <section className={styles.innerHero}><div className="container">
    <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/> المنطق والتفكير</div>
    <span className={styles.eyebrow}><BrainCircuit size={18}/> القسم الثالث / مدرسة 967</span>
@@ -48,5 +48,5 @@ export default async function SchoolLogicPage(){
    {tracks.every(c=>c===null)&&<p className={styles.logicEmpty}>لا توجد مسارات منشورة في هذا القسم حاليًا.</p>}
    <div className={styles.logicBottomNote}><BookOpen size={18}/> يمكنك التنقل بين المسارات الأربعة بحرية، لكن المحطات داخل كل مسار تُفتح بالترتيب.</div>
   </div></section>
- </main>;
+ </div>;
 }

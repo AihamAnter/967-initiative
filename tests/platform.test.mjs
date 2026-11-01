@@ -153,3 +153,14 @@ test('modified public site text stays searchable after settings changes',()=>{
  const index=buildSearchIndex({pages:getSettingsSearchPages(settings)});
  for(const query of [settings.heroDescription,settings.aboutVision,settings.footerDescription,settings.participationTitle])assert.ok(index.some(item=>matchesSearchResult(query,item)),query);
 });
+test('pagination fetches remaining pages in parallel and falls back when a page is short', async () => {
+  const expected=Array.from({length:1203},(_,id)=>({id}));
+  let inFlight=0,maxInFlight=0;
+  const rows=await fetchAllRows(()=>({range:async(start,end)=>{inFlight++;maxInFlight=Math.max(maxInFlight,inFlight);await new Promise(r=>setTimeout(r,5));inFlight--;return {data:expected.slice(start,end+1),count:expected.length,error:null};}}));
+  assert.deepEqual(rows,expected);
+  assert.ok(maxInFlight>1,'later pages are requested concurrently');
+  // One middle page returns fewer rows than the server cap: no gap, no truncation.
+  let shortOnce=true;
+  const gapless=await fetchAllRows(()=>({range:async(start,end)=>{let data=expected.slice(start,end+1);if(start===500&&shortOnce){shortOnce=false;data=data.slice(0,120);}return {data,count:expected.length,error:null};}}));
+  assert.deepEqual(gapless,expected);
+});

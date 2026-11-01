@@ -156,9 +156,9 @@ test('Arud is independent, searchable, responsive, keyboard-accessible and respe
  const lesson=read('components/school/ArudLesson.jsx');
  const journey=read('components/school/ArudJourney.jsx');
  const css=read('app/school/writing/arud/arud.module.css');
- const footer=read('components/Footer.jsx');
+ const footer=read('components/Footer.jsx'); // footer-only school links stay in Footer.jsx extras
  assert.ok(catalog.includes('href="/school/writing/arud"'));
- assert.ok(footer.includes('href="/school/writing/arud"'));
+ assert.ok(footer.includes("['/school/writing/arud', 'تعلم علم العروض']"));
  assert.ok(searchPages.some(p=>p.href==='/school/writing/arud'));
  assert.ok(course.includes("sectionIsVisible('school'"));
  assert.ok(lesson.includes("aria-pressed={selection===i}"));

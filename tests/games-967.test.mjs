@@ -78,9 +78,11 @@ test('Games routes are visible, indexed, searchable and governed independently',
  assert.ok(!hidden.includes(DEFAULT_SITE_ORIGIN+'/games/quiz'));
 });
 test('Games navigation and actual playable UI plus authenticated editorial control are wired',()=>{
- assert.ok(read('components/Header.jsx').includes("['/games', 'ألعاب 967']"));
- assert.ok(read('components/Footer.jsx').includes('href="/games"'));
- assert.ok(read('app/page.jsx').includes("visible('games')"));
+ // Header, footer and home doors share lib/navigation.js; the home page shows today's UTC game.
+ assert.ok(read('lib/navigation.js').includes("['/games', 'جميع الألعاب']"));
+ assert.ok(read('components/Header.jsx').includes('resolveNavSections'));
+ assert.ok(read('components/Footer.jsx').includes('navSections.map'));
+ assert.ok(read('app/page.jsx').includes('dailyGameUrl(today)'));
  assert.ok(read('app/games/page.jsx').includes('<GamesHomeStatus initialDate={date}/>'));
  assert.ok(read('components/games/DailyCountdown.jsx').includes('dailyGameUrl(currentDate)'));
  assert.ok(read('app/games/quiz/page.jsx').includes('<QuizGame'));

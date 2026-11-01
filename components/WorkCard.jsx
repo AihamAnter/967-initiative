@@ -1,33 +1,30 @@
 import Link from '@/components/SiteLink';
-import WorkThumbnail from './WorkThumbnail';
-import {ArrowUpLeft, Play, Film} from 'lucide-react';
-import {workThumbnail, parseMediaUrl} from '@/lib/media';
+import {Film, Play} from 'lucide-react';
+import {parseMediaUrl, workThumbnail} from '@/lib/media';
 import {formatArabicDate} from '@/lib/format';
 import SaveForLater from './reading/SaveForLater';
-import ContentSurface from './design/ContentSurface';
-import YemeniMotif from './design/YemeniMotif';
+import SafeImage from './front/SafeImage';
+import Resilient from './front/Resilient';
 
-export default function WorkCard({work, index = 0, returnTo}) {
-  const thumb = workThumbnail(work);
+// Media card (iteration 2): full-bleed picture with a legible scrim, the
+// headline as the link (whole card clickable), save as a separate control.
+export default function WorkCard({work, returnTo, headingLevel = 3}) {
+  const demo = work.is_demo || work.isDemo;
+  const href = work.debate_slug ? '/debates/' + encodeURIComponent(work.debate_slug) : '/works/' + encodeURIComponent(work.slug) + (returnTo ? '?from=' + encodeURIComponent(returnTo) : '');
   const embedded = Boolean(parseMediaUrl(work.external_url).embedUrl);
-  const content = <>
-    <div className={'work-card-media tone-' + (index % 4)}>
-      <div className="work-card-placeholder" aria-hidden="true"><YemeniMotif/><Film size={30} strokeWidth={1.5}/><span>{work.category || 'من أعمال 967'}</span><strong>{work.title}</strong><span className="work-card-media-label">{work.platform || 'محتوى إعلامي'}</span></div>
-      {thumb && <WorkThumbnail src={thumb}/>}
-      {!work.is_demo && <span className="play-overlay" aria-hidden="true"><Play size={27} fill="currentColor"/></span>}
-      {work.is_demo && <span className="demo-label">نموذج توضيحي</span>}
+  const Heading = 'h' + headingLevel;
+  return <article className="ed-media-card">
+    <div className="ed-media-thumb" aria-hidden="true">
+      <span className="ed-media-placeholder"><Film size={40} strokeWidth={1.3}/></span>
+      <Resilient name="work-thumb" quiet><SafeImage src={workThumbnail(work)} sizes="(max-width: 700px) 100vw, (max-width: 1180px) 50vw, 640px" className="ed-media-img"/></Resilient>
     </div>
-    <div className="work-card-copy"><div className="work-card-meta"><span>{work.category}</span><span>{work.platform}</span></div>
-    <h3>{work.title}</h3>
-    <p>{work.summary}</p>
-    {work.published_at && <time className="work-published" dateTime={work.published_at}>{formatArabicDate(work.published_at)}</time>}
-    {work.is_demo
-      ? <span className="work-card-link muted-link">يظهر المحتوى بعد النشر</span>
-      : <span className="work-card-link">{embedded ? 'افتح العمل وخيارات المشاهدة' : 'التفاصيل ورابط المشاهدة'} <ArrowUpLeft size={17}/></span>}</div>
-  </>;
-  return <ContentSurface kind="video" className="work-card">
-    {work.is_demo ? <div className="work-card-static">{content}</div> :
-      <Link className="work-card-click" href={work.debate_slug?'/debates/'+encodeURIComponent(work.debate_slug):'/works/' + encodeURIComponent(work.slug)+(returnTo?'?from='+encodeURIComponent(returnTo):'')}>{content}</Link>}
-    {!work.is_demo && !work.isDemo && work.slug && <div className="card-save-action"><SaveForLater compact item={{kind:'work',href:'/works/'+encodeURIComponent(work.slug),title:work.title}}/></div>}
-  </ContentSurface>;
+    <div className="ed-media-scrim" aria-hidden="true"/>
+    <div className="ed-media-body">
+      <p className="ed-media-tag"><Play size={12} fill="currentColor" aria-hidden="true"/> {[work.category, work.platform].filter(Boolean).join(' · ') || 'عمل إعلامي'}</p>
+      <Heading className="ed-media-title">{demo ? work.title : <Link href={href}>{work.title}</Link>}</Heading>
+      {work.summary && <p className="ed-media-summary">{work.summary}</p>}
+      <p className="ed-media-meta">{work.published_at && <time dateTime={work.published_at}>{formatArabicDate(work.published_at)}</time>}{demo ? <span>نموذج توضيحي · يظهر بعد النشر</span> : <span>{embedded ? 'مشاهدة داخل الموقع متاحة' : 'رابط المشاهدة على المنصة الأصلية'}</span>}</p>
+    </div>
+    {!demo && work.slug && <div className="ed-media-save"><SaveForLater compact item={{kind: work.debate_slug ? 'debate' : 'work', href: work.debate_slug ? '/debates/' + encodeURIComponent(work.debate_slug) : '/works/' + encodeURIComponent(work.slug), title: work.title}}/></div>}
+  </article>;
 }

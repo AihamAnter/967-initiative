@@ -33,7 +33,7 @@ export default async function GamesPage(){
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
  const date=utcDay();
  const todayGame=dailyGameUrl(date);
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <ArcadeIntro description="تاريخ وجغرافيا وشخصيات وألغاز، ولكن بروح المنافسة. تسع طرق مختلفة لاكتشاف اليمن — اختر اللعبة التي تشدّك!">
    <Link className={styles.heroPrimary} href="#choose-your-game"><Gamepad2 size={19} aria-hidden="true"/> اختر لعبتك <ArrowLeft size={18} aria-hidden="true"/></Link>
    <Link className={styles.heroSecondary} href={todayGame}><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
@@ -94,5 +94,5 @@ export default async function GamesPage(){
     </div>
    </div>
   </section>
- </main>;
+ </div>;
 }

@@ -12,7 +12,7 @@ export const metadata=pageMetadata({title:'لوحة المتصدرين | ألع�
 export default async function Page(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
- return <main className={styles.root} dir="rtl">
+ return <div className={styles.root} dir="rtl">
   <header className={board.hero}>
    <div className="container">
     <nav className={board.breadcrumb} aria-label="مسار الصفحة"><Link href="/games">ألعاب 967</Link><ArrowLeft size={14}/><span aria-current="page">لوحة المتصدرين</span></nav>
@@ -23,5 +23,5 @@ export default async function Page(){
    </div>
   </header>
   <Leaderboard/>
- </main>;
+ </div>;
 }

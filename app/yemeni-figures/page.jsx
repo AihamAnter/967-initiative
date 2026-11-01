@@ -22,7 +22,7 @@ export default async function YemeniFiguresPage({searchParams}){
  const params=await searchParams;
  const region=yemenGovernorates.some(item=>item.id===params?.region)?params.region:null;
  const figures=(await getYemeniFigures()).map(toFigureDirectoryCard);
- return <KnowledgeTheme area="figures"><main className="yemeni-figures-page">
+ return <KnowledgeTheme area="figures"><div className="yemeni-figures-page">
   <KnowledgePageIntro
    area="figures"
    title="شخصيات يمنية"
@@ -35,5 +35,5 @@ export default async function YemeniFiguresPage({searchParams}){
   </KnowledgePageIntro>
   <KnowledgeNavigation/>
   <YemeniFiguresExplorer figures={figures} initialGovernorateId={region}/>
- </main></KnowledgeTheme>;
+ </div></KnowledgeTheme>;
 }

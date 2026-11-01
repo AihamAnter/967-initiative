@@ -4,12 +4,12 @@ import {useEffect,useState} from 'react';
 import useAudience,{audienceRequest} from '@/components/debates/useAudience';
 import {usePageVisibility} from '../PageVisibilityProvider';
 import Link from '@/components/SiteLink';
-import {ArrowUpLeft, BarChart3, BookOpen, Bookmark, BriefcaseBusiness, Building2, ChartNoAxesCombined, FileText, Film, Map, MessagesSquare, Search, UserRound, UsersRound, X} from 'lucide-react';
+import {ArrowUpLeft, BarChart3, BookOpen, Bookmark, BriefcaseBusiness, Building2, ChartNoAxesCombined, FileText, Film, Map as MapIcon, MessagesSquare, Search, UserRound, UsersRound, X} from 'lucide-react';
 import useReadingList, {removeReadingItem} from './useReadingList';
 import {formatNumber} from '@/lib/format';
 import {READING_KINDS} from '@/lib/readingList';
 
-const kindIcons={work:Film,issue:BookOpen,figure:UsersRound,company:Building2,professional:BriefcaseBusiness,indicator:BarChart3,domain:ChartNoAxesCombined,debate:MessagesSquare,speaker:UserRound,ranking:ChartNoAxesCombined,map:Map,timeline:ChartNoAxesCombined,search:Search,page:FileText};
+const kindIcons={work:Film,issue:BookOpen,figure:UsersRound,company:Building2,professional:BriefcaseBusiness,indicator:BarChart3,domain:ChartNoAxesCombined,debate:MessagesSquare,speaker:UserRound,ranking:ChartNoAxesCombined,map:MapIcon,timeline:ChartNoAxesCombined,search:Search,page:FileText};
 
 export default function ReadingList() {
   const {items:storedItems,ready,available} = useReadingList();
@@ -49,6 +49,6 @@ export default function ReadingList() {
         <Link href={item.href}><span>{READING_KINDS[item.kind]}</span><h2>{item.title}</h2><span>افتح المحتوى <ArrowUpLeft size={15}/></span></Link>
         <button type="button" className="reading-remove" onClick={()=>remove(item)} aria-label={`إزالة ${item.title} من القائمة`}><X size={17} aria-hidden="true"/><span>إزالة</span></button>
       </li>;
-    })}</ul> : <div className="empty-state"><Bookmark size={36} aria-hidden="true"/><h2>مساحة لما تود العودة إليه.</h2><p>احفظ ملف شخصية أو شركة أو مهني، أو مؤشراً أو مناظرة أو عملاً أو عدداً من المجلة، لتعود إليه عندما يناسبك الوقت.</p><div className="reading-empty-actions"><Link className="btn btn-primary" href="/magazine">تصفّح المجلة <BookOpen size={17}/></Link><Link className="btn btn-outline" href="/yemen-map">خريطة اليمن <Map size={17}/></Link></div></div>}
+    })}</ul> : <div className="empty-state"><Bookmark size={36} aria-hidden="true"/><h2>مساحة لما تود العودة إليه.</h2><p>احفظ ملف شخصية أو شركة أو مهني، أو مؤشراً أو مناظرة أو عملاً أو عدداً من المجلة، لتعود إليه عندما يناسبك الوقت.</p><div className="reading-empty-actions"><Link className="btn btn-primary" href="/magazine">تصفّح المجلة <BookOpen size={17}/></Link><Link className="btn btn-outline" href="/yemen-map">خريطة اليمن <MapIcon size={17}/></Link></div></div>}
   </div>;
 }

@@ -1,6 +1,10 @@
 'use client';
-import Link from '@/components/SiteLink';
-import {AlertCircle, RefreshCw} from 'lucide-react';
+import Link from 'next/link';
 export default function ErrorPage({reset}) {
-  return <section className="section"><div className="container empty-state" role="alert"><AlertCircle size={32}/><h1>تعذّر تحميل المحتوى</h1><p>حدثت مشكلة في الاتصال. حاول مجدداً بعد قليل.</p><button type="button" className="btn btn-primary" onClick={reset}>إعادة المحاولة <RefreshCw size={17}/></button><p><Link href="/">العودة إلى الرئيسية</Link></p></div></section>;
+  return <section className="ed-notice" role="alert" aria-labelledby="error-title">
+    <span className="ed-kicker">تعذّر عرض الصفحة</span>
+    <h1 id="error-title">حدث خطأ أثناء تحميل هذه الصفحة.</h1>
+    <p>قد يكون الاتصال بالبيانات مقطوعًا مؤقتًا. أعد المحاولة بعد قليل؛ بقية أقسام المنصة تعمل كالمعتاد.</p>
+    <div className="ed-notice-actions"><button type="button" className="ed-button" onClick={reset}>إعادة المحاولة</button><Link className="ed-button" data-variant="quiet" href="/">الصفحة الرئيسية</Link></div>
+  </section>;
 }

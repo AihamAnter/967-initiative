@@ -56,7 +56,7 @@ export default async function GovernorateProfilePage({params}){
   const crossLinks=governorateCrossLinks(id,{visibility:settings.pageVisibility,historyEntries:historical,figures:people});
   const refs=governorateHeritageSources[id]||[];
   const heading=region.nameAr;
-  return <KnowledgeTheme area="atlas"><main className={styles.page}>
+  return <KnowledgeTheme area="atlas"><div className={styles.page}>
     <header className={styles.hero}>
       <div className="container">
         <ContextBackLink className={styles.back} fallback={'/yemen-map?region='+encodeURIComponent(id)+'#map'} label="العودة إلى الخريطة التفاعلية"/>
@@ -97,5 +97,5 @@ export default async function GovernorateProfilePage({params}){
         {sectionIsVisible('figures',settings.pageVisibility)&&<Link className={styles.figureLink} href={'/yemeni-figures?region='+encodeURIComponent(id)}>تصفح الشخصيات المرتبطة بمحافظة {heading}</Link>}
       </aside>
     </div>
-  </main></KnowledgeTheme>;
+  </div></KnowledgeTheme>;
 }

@@ -10,7 +10,7 @@ export const metadata=pageMetadata({title:'مدرسة 967',description:'مدرس
 export default async function SchoolPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <div className={styles.schoolHero}><div className="container">
    <div className={styles.breadcrumb}><Link href="/">الرئيسية</Link><ChevronLeft size={14}/> مدرسة 967</div>
    <div className={styles.heroGrid}><div>
@@ -31,5 +31,5 @@ export default async function SchoolPage(){
     <article className={styles.categoryLater}><span className={styles.categoryIcon}><BookOpen size={29}/></span><small><LockKeyhole size={14}/> قيد الإعداد</small><h3>الفنون والمهارات</h3><p>الرسم والزخرفة والمهارات اليدوية ومشاريع التعلم العملي.</p></article>
    </div>
   </div></section>
- </main>;
+ </div>;
 }

@@ -19,7 +19,7 @@ export default async function MusnadPage(){
  const entries=sectionIsVisible('history',settings.pageVisibility)
   ?await readHistoryCatalog(serverDb()).then(result=>result.entries).catch(()=>[]):[];
  const crossLinks=musnadCrossLinks(entries,settings.pageVisibility);
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <section className={styles.innerHero}><div className="container">
    <div className={styles.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing">الكتابة والأدب</Link><ChevronLeft size={14}/> خط المسند</div>
    <span className={styles.eyebrow}><ScrollText size={17}/> مسار تعليمي · الكتابة والأدب</span>
@@ -38,5 +38,5 @@ export default async function MusnadPage(){
   </div></section>
   {crossLinks.length>0&&<div className="container"><CrossSectionPaths items={crossLinks} id="musnad-cross-paths" title="من حروف المسند إلى تاريخ النقوش"/></div>}
   <section className={styles.reference}><div className="container"><div><h2>نقرأ التاريخ بدقة</h2><p>خط المسند نظام كتابة استخدمته لغات قديمة في جنوب الجزيرة العربية. التدريب الأول على قراءة الحروف، وليس على ترجمة السبئية أو تحويل العربية المعاصرة إلى لغة قديمة.</p></div><a href={MUSNAD_SOURCE} target="_blank" rel="noopener noreferrer">مرجع يونيكود لخط جنوب الجزيرة العربية القديم <ExternalLink size={16}/></a></div></section>
- </main>;
+ </div>;
 }

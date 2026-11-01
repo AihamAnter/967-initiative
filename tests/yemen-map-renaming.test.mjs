@@ -17,10 +17,12 @@ test('Khareetat Al-Yemen is the name everywhere without changing the existing ro
  assert.ok(map.includes('title="خريطة اليمن"'));
  assert.ok(map.includes('<KnowledgePageIntro'));
  assert.ok(read('components/knowledge/KnowledgePageIntro.jsx').includes('<PageIntro tone="blue"'));
- for(const path of ['components/Header.jsx','components/Footer.jsx','components/ContextBackLink.jsx','components/reading/ReadingList.jsx','app/llms.txt/route.js']){
+ for(const path of ['lib/navigation.js','components/ContextBackLink.jsx','components/reading/ReadingList.jsx','app/llms.txt/route.js']){
   const source=read(path);
   assert.ok(source.includes('خريطة اليمن'),path);
   assert.ok(!source.includes('اكتشف اليمن'),path);
  }
- assert.ok(read('components/Header.jsx').includes("['/yemeni-figures', 'شخصيات يمنية']"));
+ assert.ok(read('lib/navigation.js').includes("['/yemeni-figures', 'شخصيات يمنية']"));
+ assert.ok(read('components/Header.jsx').includes('resolveNavSections'));
+ assert.ok(read('components/Footer.jsx').includes('navSections'));
 });

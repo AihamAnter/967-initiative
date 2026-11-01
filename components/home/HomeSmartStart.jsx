@@ -19,7 +19,9 @@ function Status({value}){
  return null;
 }
 
-export default function HomeSmartStart({initialDate,knowledgeHref='/search'}){
+// membersOnly: the redesigned home already gives guests clear section doors, so
+// this strip appears only once a signed-in member has something to resume.
+export default function HomeSmartStart({initialDate,knowledgeHref='/search',membersOnly=false}){
  const {user,ready,error:authError}=useAudience();
  const {isVisible}=usePageVisibility();
  const [day,setDay]=useState(initialDate);
@@ -97,6 +99,7 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search'}){
  const daily=games.status==='ready'&&games.value?.date===day?games.value.daily:null;
  const gameHref=dailyGameUrl(day);
 
+ if(membersOnly&&(!ready||!user))return null;
  return <section className={styles.section} aria-labelledby="home-start-title">
   <div className={styles.heading}>
    <div>

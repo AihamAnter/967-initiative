@@ -17,11 +17,11 @@ export default async function Page({searchParams}){
  const params=await searchParams;
  const date=utcDay();
  if(params?.mode==='daily'&&dailyGameForDate(date)!=='bigger')redirect(dailyGameUrl(date));
- return <main className={styles.root}>
+ return <div className={styles.root}>
   <ArcadeIntro compact title="أيهما أكبر؟" description={extraGameTypes.bigger.description}>
    <Link href="/games" className={styles.heroSecondary}><ArrowRight size={17}/> جميع الألعاب</Link>
    <span className={styles.roundChip}>10 مهام <span aria-hidden="true">·</span> 7 ثوانٍ في تحدي اليوم</span>
   </ArcadeIntro>
   <ExtraArcadeChallenge game="bigger" date={date} initialMode={params?.mode==='daily'?'daily':'practice'}/>
- </main>;
+ </div>;
 }
