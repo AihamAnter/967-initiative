@@ -15,6 +15,7 @@ function ParticipationGate({user,ready,slug,anchor,debateId}){
  const next='/debates/'+slug+'#'+anchor;
  function authenticate(event,mode){event.preventDefault();const target=prepareDebateDraftReturn(safeTabStorage(),debateId,next,crypto.randomUUID());location.assign('/'+mode+'?next='+encodeURIComponent(target));}
  if(!ready)return <p role="status">جارٍ التحقق من الحساب…</p>;
+ if(!user&&anchor==='polls')return <p className="debate-login-note">سجّل الدخول لاختيار موقفك وحفظ صوتك. <Link href={'/login?next='+encodeURIComponent(next)} onClick={event=>authenticate(event,'login')}>تسجيل الدخول</Link> أو <Link href={'/register?next='+encodeURIComponent(next)} onClick={event=>authenticate(event,'register')}>إنشاء حساب</Link>.</p>;
  if(!user)return <p className="debate-login-note">المشاهدة متاحة دون حساب. اكتب مسودتك هنا، ثم <Link href={'/login?next='+encodeURIComponent(next)} onClick={event=>authenticate(event,'login')}>سجل الدخول</Link> أو <Link href={'/register?next='+encodeURIComponent(next)} onClick={event=>authenticate(event,'register')}>أنشئ حساباً</Link> لإرسالها. تُحفظ المسودة في علامة التبويب هذه لمدة 30 دقيقة إذا سمحت إعدادات المتصفح بالتخزين.</p>;
  if(!user.email_confirmed_at)return <p className="debate-login-note">أكد بريدك الإلكتروني قبل المشاركة. <Link href={'/login?next='+encodeURIComponent(next)}>إرسال رسالة التحقق</Link></p>;
  return null;

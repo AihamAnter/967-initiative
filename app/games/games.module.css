@@ -215,6 +215,16 @@
 .arcadeGuide{display:flex;gap:11px 24px;flex-wrap:wrap;align-items:center;border:1px solid #34465e;border-radius:14px;padding:15px 19px;margin:0 0 21px;background:linear-gradient(100deg,#15253b,#101a2b);color:#bbcee1}
 .arcadeGuide span{display:inline-flex;align-items:center;gap:8px;font-size:12px;line-height:1.6}
 .arcadeGuide svg{flex-shrink:0;color:#a6ffcc}
+.secondarySections{display:grid;gap:12px;margin-top:30px}
+.secondarySection{border:1px solid #3c4e6c;border-radius:15px;background:#111a2e;overflow:hidden}
+.secondarySection>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;padding:14px 18px;color:#eff6ff;cursor:pointer;list-style:none;font-weight:800}
+.secondarySection>summary::-webkit-details-marker{display:none}
+.secondarySection>summary::after{content:'+';display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border:1px solid #58708f;border-radius:10px;color:#a6ffcf;font-size:21px}
+.secondarySection[open]>summary::after{content:'−'}
+.secondarySection>summary span{font-size:15px}
+.secondarySection>summary small{margin-inline-start:auto;color:#aebdd2;font-size:11px;font-weight:500}
+.secondaryContent{padding:0 16px 16px}
+.secondaryContent>:first-child{margin-top:0}
 .selectGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
 .selectTile{
  --tile-accent:#a6ffce;--tile-soft:#1e5144;--tile-line:#568b77;--tile-glow:#57dcb635;
@@ -270,6 +280,7 @@
  .tileOrbitOuter{width:123px;height:123px}.tileOrbitInner{width:98px;height:98px}
  .tileContent{min-height:0}.tileContent h3{font-size:22px}
  .arcadeGuide{gap:9px 17px;padding:13px 15px}.arcadeGuide span{font-size:11px}
+ .secondarySection>summary{align-items:flex-start;flex-wrap:wrap;padding:13px 14px}.secondarySection>summary small{order:3;width:calc(100% - 46px);margin:0}.secondaryContent{padding:0 8px 9px}
 }
 @media(hover:none){.selectTile:hover{transform:none}.selectTile:hover .tileIconFrame{transform:rotate(-6deg) scale(1)}}
 @media(prefers-reduced-motion:reduce){

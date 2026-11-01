@@ -31,9 +31,9 @@ test('main desktop and mobile navigation retain exactly one games entry and acti
 test('footer has a separate Games 967 heading with working destination routes',()=>{
  const footer=read('components/Footer.jsx');
  const css=read('app/platform-refinements.css');
- const heading=footer.indexOf('<h3>ألعاب 967</h3>');
- const knowledge=footer.indexOf('<h3>المحتوى والمعرفة</h3>');
- const guides=footer.indexOf('<h3>الأدلة والمجتمع</h3>');
+ const heading=footer.indexOf('<FooterGroup title="ألعاب 967">');
+ const knowledge=footer.indexOf('<FooterGroup title="المحتوى والمعرفة">');
+ const guides=footer.indexOf('<FooterGroup title="الأدلة والمجتمع">');
  assert.ok(knowledge>=0&&heading>knowledge&&guides>heading);
  assert.ok(footer.includes('<Link href="/games">جميع الألعاب</Link>'));
  assert.ok(footer.includes('<Link href="/games/leaderboard">لوحة المتصدرين</Link>'));

@@ -165,7 +165,7 @@ test('School 967 is a distinct searchable, visible site section and responsive c
  assert.equal(pageIsVisible('/school/writing/musnad',{school:false}),false);
  assert.equal(pageIsVisible('/games',{school:false}),true);
  assert.ok(header.includes("{label: 'مدرسة 967', standalone: true"));
- assert.ok(footer.includes('<h3>مدرسة 967</h3>'));
+ assert.ok(footer.includes('<FooterGroup title="مدرسة 967">'));
  assert.ok(home.includes("{visible('school')&&<section"));
  assert.ok(searchPages.some(x=>x.href==='/school/writing/musnad'));
  assert.ok(css.includes('@media(max-width:760px)')&&css.includes('@media(max-width:550px)'));

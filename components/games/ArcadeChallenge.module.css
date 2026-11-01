@@ -36,12 +36,20 @@
 .timelineOptions button:disabled{opacity:.4}.eventNumber{width:32px;height:32px;display:grid;place-items:center;flex-shrink:0;background:#2e3d60;color:#befed9;border:1px solid #5d6c88;border-radius:9px;font-size:12px}
 .undo{display:inline-flex;align-items:center;gap:7px;padding:12px 0;color:#cbdaff;font-size:13px;font-weight:600;background:transparent}
 .correctOrder{display:grid;gap:8px;margin-top:15px;padding:16px;border:1px solid #4f8d7a;border-radius:9px;background:#163a35}.correctOrder span{font-size:13px;color:#d6f7e7}.correctOrder b{color:#a6ffce}
-.mapSurface{width:100%;background:radial-gradient(ellipse at center,#183347,#11172b);border:1px solid #3f5474;border-radius:15px;overflow:hidden;padding:8px;position:relative}
-.mapSurface svg{width:100%;height:clamp(280px,43vw,510px);touch-action:manipulation;display:block}
+.mapZoomControls{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin:0 0 10px;color:#cbd8e7;font-size:12px}
+.mapZoomControls button{width:44px;height:44px;display:grid;place-items:center;border:1px solid #576985;border-radius:10px;background:#1b2943;color:#eff6ff}
+.mapZoomControls button:disabled{opacity:.35}
+.mapSurface{width:100%;max-height:560px;background:radial-gradient(ellipse at center,#183347,#11172b);border:1px solid #3f5474;border-radius:15px;overflow:auto;padding:8px;position:relative;overscroll-behavior:contain;scrollbar-color:#7085a7 #16233a}
+.mapCanvas{min-width:100%;transition:width .2s ease}
+.mapSurface svg{width:100%;height:auto;min-height:280px;touch-action:pan-x pan-y;display:block}
 .region{fill:#364b68;stroke:#89a5c7;stroke-width:1.2;vector-effect:non-scaling-stroke;transition:fill .12s;cursor:pointer}
 .region:hover,.region:focus-visible{fill:#a98dff;outline:none;stroke:#fff;stroke-width:2.3}
 .region.correctRegion{fill:#5cd89c!important;stroke:#d5ffe7;stroke-width:2.2}
 .region.wrongRegion{fill:#ff777b!important}
+.mapAlternative{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end;margin-top:13px}
+.mapAlternative label{display:grid;gap:7px;color:#cbd8e7;font-size:12px}
+.mapAlternative select{width:100%;min-height:48px;border:1px solid #526681;border-radius:10px;background:#111c32;color:#f3f7ff;padding:10px 13px;font-size:16px}
+.mapAlternative button{min-height:48px;border-radius:10px;background:#a5ffd0;color:#102723;padding:11px 17px;font-weight:800}
 .mapCredit{color:#95a7bd;font-size:11px;line-height:1.8;display:block;margin-top:9px}
 .feedback{position:relative;border:1px solid #6b7b8e;border-inline-start:4px solid #93dfc8;background:#1c343b;border-radius:11px;padding:18px 20px;margin:17px 0;color:#ebfff5;animation:stageIntro .25s}
 .feedback.bad{border-color:#9b667b;background:#392938}.feedback.good{border-color:#6bac93;background:#1c3b3c}
@@ -55,7 +63,7 @@
 .resultStats>div{display:grid;gap:7px;background:#292344;border:1px solid #5a5281;border-radius:12px;padding:21px 9px}
 .resultStats strong{font-size:clamp(23px,3vw,33px);color:#e4cfff;font-variant-numeric:tabular-nums}
 .resultStats span{font-size:12px;color:#c4c6e3}.result .actions{justify-content:center}
-@media(max-width:670px){.wrapper{padding:24px 0 55px}.setup,.arena,.result{padding:21px 15px}.options,.timelineOptions{grid-template-columns:1fr}.timelineSlots{grid-template-columns:repeat(2,minmax(0,1fr))}.placePhoto img{height:230px}.arenaHeader{font-size:11px}.taskTitle{font-size:23px}.resultStats{gap:6px}.resultStats strong{font-size:21px}.resultStats span{font-size:10px}.actions>*{flex:1;min-width:130px}.playerStats{gap:12px}}
+@media(max-width:670px){.wrapper{padding:24px 0 55px}.setup,.arena,.result{padding:21px 15px}.options,.timelineOptions{grid-template-columns:1fr}.timelineSlots{grid-template-columns:repeat(2,minmax(0,1fr))}.placePhoto img{height:230px}.arenaHeader{font-size:11px}.taskTitle{font-size:23px}.mapSurface{max-height:430px}.mapAlternative{grid-template-columns:1fr}.mapAlternative button{width:100%}.resultStats{gap:6px}.resultStats strong{font-size:21px}.resultStats span{font-size:10px}.actions>*{flex:1;min-width:130px}.playerStats{gap:12px}}
 @media(max-width:360px){.resultStats{grid-template-columns:1fr}.actions>*{flex:1 1 100%}}
 @media(prefers-reduced-motion:reduce){.wrapper *,.wrapper *::before,.wrapper *::after{animation:none!important;transition:none!important}}
 @keyframes stageIntro{from{opacity:.3;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}@keyframes float{50%{transform:translateY(-6px)}}

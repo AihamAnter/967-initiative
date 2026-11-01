@@ -27,6 +27,9 @@
 .sectionTitle p{font-size:13px;color:#546771;line-height:1.8;max-width:430px;margin:0}
 .catalogGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
 .categoryLive,.categoryLater{min-height:340px;padding:24px;border-radius:15px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;overflow:hidden;position:relative}
+.categoryLater{grid-column:1/-1;min-height:150px;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:18px}
+.categoryLater .categoryIcon{grid-row:1/4}
+.categoryLater h3,.categoryLater p{margin:0}
 .categoryLive{grid-column:span 2;background:linear-gradient(130deg,#265e58,#17443f);border:1px solid #136152;color:#fff}
 .categoryLater{background:#fff;border:1px solid #ddd7c8;color:#28424a}
 .categoryIcon{display:grid;place-items:center;width:57px;height:57px;border-radius:12px;border:1px solid #b9c9c1;background:#d9eee4;color:#186456}
@@ -161,7 +164,7 @@
 .resultActions{display:flex;gap:13px;flex-wrap:wrap;align-items:center;margin-top:22px}
 .resultActions>a:last-child{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#225a51}
 @media(max-width:1090px){.catalogGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.categoryLive{grid-column:span 1}.heroGrid{grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr)}.artifactRing{width:230px;height:230px}.artifactGlyph{font-size:155px}.courseGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.courseLive{grid-column:1/-1;min-height:280px}}
-@media(max-width:760px){.heroGrid{grid-template-columns:1fr;min-height:0}.heroArtifact{display:none}.schoolHero{padding:25px 0 46px}.schoolHero h1{font-size:43px}.schoolHero p{font-size:15px}.categoryLive,.categoryLater{min-height:250px}.pathGrid{grid-template-columns:1fr}.station,.stationLocked{min-height:240px}.stationNumber{font-size:72px}.lessonLearning{grid-template-columns:1fr}.courseGrid{grid-template-columns:1fr}.courseLive{grid-column:auto}.reference>.container{align-items:flex-start}.lessonPage{padding-bottom:50px}}
+@media(max-width:760px){.heroGrid{grid-template-columns:1fr;min-height:0}.heroArtifact{display:none}.schoolHero{padding:25px 0 46px}.schoolHero h1{font-size:43px}.schoolHero p{font-size:15px}.categoryLive{min-height:250px}.categoryLater{min-height:0;display:flex}.pathGrid{grid-template-columns:1fr}.station,.stationLocked{min-height:240px}.stationNumber{font-size:72px}.lessonLearning{grid-template-columns:1fr}.courseGrid{grid-template-columns:1fr}.courseLive{grid-column:auto}.reference>.container{align-items:flex-start}.lessonPage{padding-bottom:50px}}
 @media(max-width:550px){.root :global(.container){width:calc(100% - 32px)}.schoolHero h1{font-size:37px}.innerHero{padding-bottom:34px}.innerHero h1{font-size:36px}.catalogGrid{grid-template-columns:1fr}.catalogSection{padding:32px 0}.categoryLive,.categoryLater{min-height:245px}.schoolNotice>div{min-width:100%}.schoolNotice a{width:100%;justify-content:center}.lessonTop h1{font-size:31px}.lessonTop{gap:8px}.lessonIntroBanner{padding:22px}.lessonLearning>div{padding:17px}.letterTable .glyph{font-size:29px}.lessonLaunch button{width:100%}.choiceGrid{grid-template-columns:1fr}.choice,.choiceSelected{min-height:60px;font-size:17px}.glyphOptions{gap:6px}.glyphOptions button{min-height:88px}.glyphOptions .glyph{font-size:30px}.quizFooter button{width:100%}.resultActions>.primaryLink,.resultActions>button{width:100%}}
 @media(prefers-reduced-motion:reduce){.station:hover,.primaryLink:hover{transform:none}.quizProgress>span{transition:none}}
 

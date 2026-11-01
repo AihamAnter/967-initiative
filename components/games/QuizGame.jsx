@@ -32,14 +32,19 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const [category,setCategory]=useState('all'),[difficulty,setDifficulty]=useState('all');
  const [round,setRound]=useState([]),[step,setStep]=useState(0),[picked,setPicked]=useState(null),[answers,setAnswers]=useState([]),[result,setResult]=useState(null);
  const [stats,setStats]=useState(emptyStats),[shareNote,setShareNote]=useState('');
- const questionTitleRef=useRef(null);
+ const questionTitleRef=useRef(null),playRef=useRef(null);
  useEffect(()=>{setStats(readStats());},[]);
  const filtered=questions.filter(q=>(category==='all'||q.category===category)&&(difficulty==='all'||q.difficulty===Number(difficulty)));
  const canStart=(mode==='daily'?questions.length>=1:filtered.length>=1)&&daily.canStart;
  const current=round[step];
  const duration=roundDuration(mode,seconds);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,startTime:mode==='daily'?serverStartedAt:null,active:round.length>0&&!result&&picked===null&&!verifying&&(mode!=='daily'||clockReady),onExpire:()=>choose(-1,true)});
- useEffect(()=>{if(round.length&&!result)questionTitleRef.current?.focus({preventScroll:true});},[step,round.length,result]);
+ useEffect(()=>{
+  if(!round.length||result)return;
+  questionTitleRef.current?.focus({preventScroll:true});
+  const frame=requestAnimationFrame(()=>playRef.current?.scrollIntoView({block:'start',behavior:'auto'}));
+  return()=>cancelAnimationFrame(frame);
+ },[runId,step,round.length,result]);
  useEffect(()=>{
   if(mode==='daily'&&round.length&&picked===null&&!result&&!clockReady&&!readyPending&&!syncError)markReady();
  },[mode,round.length,step,picked,result,clockReady,readyPending,syncError]);
@@ -146,7 +151,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
      {stats.dailyDate===date&&<span className={styles.dailyBest}>أفضل نتيجة محلية لهذا اليوم (غير موثقة): {stats.dailyBest} نقطة</span>}
     </aside>
    </div>}
-   {!!round.length&&!result&&<div className={styles.play}>
+   {!!round.length&&!result&&<div className={styles.play} ref={playRef}>
     <div className={styles.playHeader}><span>{mode==='daily'?'DAILY QUEST / تحدي اليوم':'KNOWLEDGE QUEST / اختبر معرفتك'}</span><strong>السؤال {step+1} من {round.length}</strong><span className={styles.playScore}><Zap size={15} fill="currentColor" aria-hidden="true"/>{mode==='daily'?officialRaw:scoreRound(round.slice(0,step),answers.slice(0,step)).total} XP</span></div>
     <div className={styles.progress} role="progressbar" aria-label="التقدم في الأسئلة" aria-valuemin={0} aria-valuemax={round.length} aria-valuenow={step+1}><span style={{width:((step+1)/round.length*100)+'%'}}/></div>
     <GameTimer remaining={timer.remaining} duration={duration} paused={picked!==null}/>

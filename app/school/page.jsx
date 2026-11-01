@@ -17,11 +17,11 @@ export default async function SchoolPage(){
     <span className={styles.eyebrow}><GraduationCap size={18}/> مدرسة 967 / LEARNING STUDIO</span>
     <h1>كل مهارة، <em>رحلة جديدة.</em></h1>
     <p>هنا لا تكتفي بقراءة معلومة؛ تتعلّمها، تطبّقها، وتتقدم خطوة بخطوة. تنجح فتفتح المحطة التالية، وتتعثر فتتدرّب وتحاول من جديد.</p>
-    <div className={styles.heroActions}><Link className={styles.primaryLink} href="/school/nature">استكشف المسارات <ArrowLeft size={18}/></Link><Link className={styles.myLearningLink} href="/school/dashboard">رحلتي التعليمية <GraduationCap size={18}/></Link></div>
+    <div className={styles.heroActions}><Link className={styles.primaryLink} href="#school-paths">استكشف المسارات <ArrowLeft size={18}/></Link><Link className={styles.myLearningLink} href="/school/dashboard">رحلتي التعليمية <GraduationCap size={18}/></Link></div>
     <div className={styles.heroPills}><span><Layers size={16}/> مراحل متدرجة</span><span><Sparkles size={16}/> تمارين تتجدد</span><span><Star size={16}/> إتقان قبل الانتقال</span></div>
    </div><div className={styles.heroArtifact} aria-hidden="true"><div className={styles.artifactRing}/><span className={styles.artifactGlyph}>𐩣</span><span className={styles.artifactTag}>967 / MUSNAD</span></div></div>
   </div></div>
-  <section className={styles.catalogSection}><div className="container">
+  <section className={styles.catalogSection} id="school-paths"><div className="container">
    <div className={styles.sectionTitle}><div><span>المجالات التعليمية</span><h2>اختر ما تريد إتقانه</h2></div><p>تعلّم عبر 15 مسارًا و180 محطة تفاعلية، وتابع تقدمك من لوحة واحدة.</p></div>
    <div className={styles.catalogGrid}>
     <Link className={styles.categoryLive} href="/school/writing"><span className={styles.categoryIcon}><PenTool size={30}/></span><small>القسم الأول / متاح الآن</small><h3>الكتابة والأدب</h3><p>خط المسند والعروض والخطوط العربية، عبر 36 محطة متدرجة.</p><span className={styles.cardAction}>استكشف القسم <ArrowLeft size={18}/></span><span className={styles.categoryGlyph} aria-hidden="true">𐩣</span></Link>

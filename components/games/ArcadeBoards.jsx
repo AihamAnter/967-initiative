@@ -1,6 +1,6 @@
 'use client';
 import {useState} from 'react';
-import {RotateCcw} from 'lucide-react';
+import {Minus,Plus,RotateCcw} from 'lucide-react';
 import {formatYear} from '@/lib/arcadeChallenges';
 import {arcadeMapProjection,arcadeRegionPath} from '@/lib/arcadeMapProjection';
 import styles from './ArcadeChallenge.module.css';
@@ -45,11 +45,19 @@ export function TimelineBoard({task,locked,onAnswer}){
 }
 
 export function MapBoard({task,locked,onAnswer,data,selectedId}){
+ const [zoom,setZoom]=useState(1),[alternative,setAlternative]=useState('');
  if(!data)return <p role="status">جاري تحميل خريطة اليمن…</p>;
  const projection=arcadeMapProjection(data.country.bounds);
+ const regions=[...data.governorates].sort((a,b)=>a.nameAr.localeCompare(b.nameAr,'ar'));
  return <div className={styles.mapBoard}>
-  <p>أين تقع <strong>محافظة {task.name}</strong>؟ انقر على منطقتها في الخريطة. أسماء المحافظات مخفية حتى تختبر معرفتك.</p>
+  <p>أين تقع <strong>محافظة {task.name}</strong>؟ انقر على منطقتها في الخريطة، أو استخدم القائمة البديلة ثم أكّد اختيارك.</p>
+  <div className={styles.mapZoomControls} aria-label="أدوات تكبير الخريطة">
+   <button type="button" disabled={zoom<=1} onClick={()=>setZoom(value=>Math.max(1,value-.5))} aria-label="تصغير الخريطة"><Minus size={17}/></button>
+   <span aria-live="polite">تكبير {Math.round(zoom*100)}٪</span>
+   <button type="button" disabled={zoom>=2.5} onClick={()=>setZoom(value=>Math.min(2.5,value+.5))} aria-label="تكبير الخريطة"><Plus size={17}/></button>
+  </div>
   <div className={styles.mapSurface}>
+   <div className={styles.mapCanvas} style={{width:(zoom*100)+'%'}}>
    <svg viewBox={projection.viewBox} role="group" aria-label="خريطة تفاعلية لمحافظات اليمن دون أسماء؛ حدد المحافظة المطلوبة" preserveAspectRatio="xMidYMid meet">
     {data.governorates.map((region,i)=><path key={region.id} d={arcadeRegionPath(region.geometry,projection)}
      vectorEffect="non-scaling-stroke" strokeLinejoin="round"
@@ -60,6 +68,11 @@ export function MapBoard({task,locked,onAnswer,data,selectedId}){
      onKeyDown={e=>{if(!locked&&(e.key==='Enter'||e.key===' ')){e.preventDefault();onAnswer(region.id);}}}
     />)}
    </svg>
+   </div>
+  </div>
+  <div className={styles.mapAlternative}>
+   <label><span>اختيار بديل مناسب للمس</span><select value={alternative} disabled={locked} onChange={event=>setAlternative(event.target.value)}><option value="">اختر المحافظة من القائمة</option>{regions.map(region=><option value={region.id} key={region.id}>{region.nameAr}</option>)}</select></label>
+   <button type="button" disabled={locked||!alternative} onClick={()=>onAnswer(alternative)}>تأكيد الاختيار</button>
   </div>
   <small className={styles.mapCredit}>حدود المحافظات مأخوذة من ملفات الأطلس الجغرافي لمبادرة 967. الدقة للتعلم ولا تمثل حدوداً تاريخية.</small>
  </div>;

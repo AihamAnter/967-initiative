@@ -9,7 +9,7 @@ import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
 import styles from './games.module.css';
-import {utcDay} from '@/lib/dailyGame';
+import {dailyGameUrl,utcDay} from '@/lib/dailyGame';
 
 // UTC daily game selection must be computed for each request, not at build time.
 export const dynamic='force-dynamic';
@@ -32,15 +32,15 @@ export default async function GamesPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('games',settings.pageVisibility))notFound();
  const date=utcDay();
+ const todayGame=dailyGameUrl(date);
  return <main className={styles.root}>
   <ArcadeIntro description="تاريخ وجغرافيا وشخصيات وألغاز، ولكن بروح المنافسة. تسع طرق مختلفة لاكتشاف اليمن — اختر اللعبة التي تشدّك!">
    <Link className={styles.heroPrimary} href="#choose-your-game"><Gamepad2 size={19} aria-hidden="true"/> اختر لعبتك <ArrowLeft size={18} aria-hidden="true"/></Link>
-   <Link className={styles.heroSecondary} href="#daily-challenge"><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
+   <Link className={styles.heroSecondary} href={todayGame}><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
    <Link className={styles.heroSecondary} href="/games/leaderboard"><Trophy size={19} aria-hidden="true"/> لوحة المتصدرين</Link>
   </ArcadeIntro>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
-    <GamesHomeStatus initialDate={date}/>
     <div className={styles.sectionHeading}>
      <div><span className={styles.sectionEyebrow}><span/> SELECT YOUR GAME / 967 ARCADE</span>
       <h2 id="games-heading">اختر لعبتك التالية <span className={styles.headingStar} aria-hidden="true">✦</span></h2>
@@ -81,8 +81,11 @@ export default async function GamesPage(){
      })}
     </div>
 
-    <WeeklyArcade/>
-    <GameAchievementGallery preview/>
+    <div className={styles.secondarySections} aria-label="تحدي اليوم وملف اللاعب والمهمات والإنجازات">
+     <details className={styles.secondarySection}><summary><span>تحدي اليوم وملفي في ألعاب 967</span><small>العد التنازلي، النتائج الرسمية، وترتيبك</small></summary><div className={styles.secondaryContent}><GamesHomeStatus initialDate={date}/></div></details>
+     <details className={styles.secondarySection}><summary><span>المهمات الأسبوعية</span><small>ثلاث مهمات وترتيب أسبوعي متجدد</small></summary><div className={styles.secondaryContent}><WeeklyArcade/></div></details>
+     <details className={styles.secondarySection}><summary><span>الشارات والإنجازات</span><small>تابع ما جمعته وما تبقى أمامك</small></summary><div className={styles.secondaryContent}><GameAchievementGallery preview/></div></details>
+    </div>
     <Link href="/games/leaderboard" className={styles.leaderboardStrip}><Trophy size={25}/><span><strong>لوحة متصدري 967</strong><small>ترتيب يومي وأسبوعي وشهري وتاريخي · نتائج رسمية موثقة للألعاب التسع</small></span><ArrowUpLeft size={20}/></Link>
     <div className={styles.infoRow}>
      <span><Gamepad2 size={19} aria-hidden="true"/> الجولات الحرة بدون تسجيل</span>

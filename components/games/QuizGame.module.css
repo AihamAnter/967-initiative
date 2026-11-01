@@ -31,7 +31,7 @@
 .stats span{font-size:11px;line-height:1.5;color:#c8bddc}
 .profile p{font-size:12px;color:#b9b7d5;line-height:1.9}
 .dailyBest{display:inline-flex;padding:12px;border:1px solid #ad93ff57;border-radius:10px;background:#3429506b;color:#e2cdff;font-size:12px;line-height:1.7}
-.play{max-width:940px;margin:auto;animation:stageEnter .3s ease both}
+.play{max-width:940px;margin:auto;scroll-margin-top:98px;animation:stageEnter .3s ease both}
 .playHeader{display:flex;gap:14px;align-items:center;justify-content:space-between;color:#b6c7e0;font-size:12px;font-weight:700;flex-wrap:wrap}
 .playHeader>span:first-child{color:#a9ffd4;letter-spacing:.02em}
 .playHeader strong{font-size:13px;color:#e9effb}
@@ -82,6 +82,7 @@
 @media(max-width:900px){.setup{grid-template-columns:1fr}.profile{order:2}}
 @media(max-width:610px){
  .wrapper{padding:22px 0 57px}.setupMain,.profile,.play,.finish{padding:23px 17px;border-radius:14px}
+ .play{scroll-margin-top:88px}
  .setup h2,.finish h2{font-size:31px}.setup p,.finish p{font-size:13px}
  .modes{gap:8px}.modes button{font-size:12px;min-height:53px;padding:9px}
  .filters{grid-template-columns:1fr;gap:12px}.options{grid-template-columns:1fr;gap:10px}
