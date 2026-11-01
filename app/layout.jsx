@@ -12,6 +12,7 @@ import './directories.css';
 import './phase5-navigation.css';
 import './knowledge-identity.css';
 import './knowledge-content.css';
+import './knowledge-data.css';
 import {site} from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
