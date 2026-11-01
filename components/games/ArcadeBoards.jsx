@@ -45,34 +45,34 @@ export function TimelineBoard({task,locked,onAnswer}){
 }
 
 export function MapBoard({task,locked,onAnswer,data,selectedId}){
- const [zoom,setZoom]=useState(1),[alternative,setAlternative]=useState('');
+ const [zoom,setZoom]=useState(1),[candidate,setCandidate]=useState(null);
  if(!data)return <p role="status">جاري تحميل خريطة اليمن…</p>;
  const projection=arcadeMapProjection(data.country.bounds);
- const regions=[...data.governorates].sort((a,b)=>a.nameAr.localeCompare(b.nameAr,'ar'));
+ const pick=id=>{if(!locked)setCandidate(id);};
  return <div className={styles.mapBoard}>
-  <p>أين تقع <strong>محافظة {task.name}</strong>؟ انقر على منطقتها في الخريطة، أو استخدم القائمة البديلة ثم أكّد اختيارك.</p>
+  <p>أين تقع <strong>محافظة {task.name}</strong>؟ كبّر الخريطة عند الحاجة، ثم حدد المنطقة واضغط «تأكيد الموقع». لا تحتسب اللمسة الأولى إجابة.</p>
   <div className={styles.mapZoomControls} aria-label="أدوات تكبير الخريطة">
    <button type="button" disabled={zoom<=1} onClick={()=>setZoom(value=>Math.max(1,value-.5))} aria-label="تصغير الخريطة"><Minus size={17}/></button>
    <span aria-live="polite">تكبير {Math.round(zoom*100)}٪</span>
-   <button type="button" disabled={zoom>=2.5} onClick={()=>setZoom(value=>Math.min(2.5,value+.5))} aria-label="تكبير الخريطة"><Plus size={17}/></button>
+   <button type="button" disabled={zoom>=3.5} onClick={()=>setZoom(value=>Math.min(3.5,value+.5))} aria-label="تكبير الخريطة"><Plus size={17}/></button>
   </div>
   <div className={styles.mapSurface}>
    <div className={styles.mapCanvas} style={{width:(zoom*100)+'%'}}>
-   <svg viewBox={projection.viewBox} role="group" aria-label="خريطة تفاعلية لمحافظات اليمن دون أسماء؛ حدد المحافظة المطلوبة" preserveAspectRatio="xMidYMid meet">
-    {data.governorates.map((region,i)=><path key={region.id} d={arcadeRegionPath(region.geometry,projection)}
-     vectorEffect="non-scaling-stroke" strokeLinejoin="round"
-     className={[styles.region,locked&&region.id===task.regionId?styles.correctRegion:'',locked&&region.id===selectedId&&region.id!==task.regionId?styles.wrongRegion:''].join(' ')}
-     role="button" tabIndex={locked?-1:0} aria-label={'منطقة الخريطة رقم '+(i+1)}
-     aria-disabled={locked}
-     onClick={()=>{if(!locked)onAnswer(region.id);}}
-     onKeyDown={e=>{if(!locked&&(e.key==='Enter'||e.key===' ')){e.preventDefault();onAnswer(region.id);}}}
-    />)}
-   </svg>
+    <svg viewBox={projection.viewBox} role="group" aria-label="خريطة تفاعلية لمحافظات اليمن دون أسماء؛ حدد موضع المحافظة المطلوبة" preserveAspectRatio="xMidYMid meet">
+     {data.governorates.map((region,i)=><path key={region.id} d={arcadeRegionPath(region.geometry,projection)}
+      vectorEffect="non-scaling-stroke" strokeLinejoin="round"
+      className={[styles.region,!locked&&candidate===region.id?styles.selectedRegion:'',locked&&region.id===task.regionId?styles.correctRegion:'',locked&&region.id===selectedId&&region.id!==task.regionId?styles.wrongRegion:''].filter(Boolean).join(' ')}
+      role="button" tabIndex={locked?-1:0} aria-label={'منطقة الخريطة رقم '+(i+1)}
+      aria-pressed={!locked&&candidate===region.id} aria-disabled={locked}
+      onClick={()=>pick(region.id)}
+      onKeyDown={e=>{if(!locked&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(region.id);}}}
+     />)}
+    </svg>
    </div>
   </div>
-  <div className={styles.mapAlternative}>
-   <label><span>اختيار بديل مناسب للمس</span><select value={alternative} disabled={locked} onChange={event=>setAlternative(event.target.value)}><option value="">اختر المحافظة من القائمة</option>{regions.map(region=><option value={region.id} key={region.id}>{region.nameAr}</option>)}</select></label>
-   <button type="button" disabled={locked||!alternative} onClick={()=>onAnswer(alternative)}>تأكيد الاختيار</button>
+  <div className={styles.mapConfirm}>
+   <span aria-live="polite">{locked?'تم اعتماد الإجابة':candidate===null?'اضغط على موضع المحافظة لتحديده':'تم تحديد منطقة. يمكنك تغييرها قبل التأكيد.'}</span>
+   <button type="button" disabled={locked||candidate===null} onClick={()=>onAnswer(candidate)}>تأكيد الموقع</button>
   </div>
   <small className={styles.mapCredit}>حدود المحافظات مأخوذة من ملفات الأطلس الجغرافي لمبادرة 967. الدقة للتعلم ولا تمثل حدوداً تاريخية.</small>
  </div>;
