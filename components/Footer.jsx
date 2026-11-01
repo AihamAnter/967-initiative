@@ -4,8 +4,13 @@ import {ArrowUpLeft, AtSign, ChevronDown, Facebook, Instagram, Youtube} from 'lu
 import BrandLogo from './BrandLogo';
 import {defaultSiteSettings} from '@/lib/siteSettings';
 import {contentPagePath} from '@/lib/contentPages';
+// Closed <details> content is not keyboard-accessible even if CSS sets display:flex.
+// Render separate responsive structures: ordinary links on desktop, disclosures on mobile.
 function FooterGroup({title,children}){
-  return <details className="footer-link-group"><summary><h3>{title}</h3><ChevronDown size={17} aria-hidden="true"/></summary><div className="footer-group-links">{children}</div></details>;
+  return <>
+   <div className="footer-link-desktop"><h3>{title}</h3><div className="footer-group-links">{children}</div></div>
+   <details className="footer-link-group"><summary><h3>{title}</h3><ChevronDown size={17} aria-hidden="true"/></summary><div className="footer-group-links">{children}</div></details>
+  </>;
 }
 export default function Footer({settings=defaultSiteSettings}) {
   const pages=(settings.contentPages||[]).filter(page=>page.showInFooter&&page.isPublished!==false);
