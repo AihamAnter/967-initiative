@@ -1,0 +1,100 @@
+name: Daily Supabase database backup to Backblaze B2
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 2 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-967-supabase-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+      BACKUP_ENCRYPTION_PASSPHRASE: ${{ secrets.BACKUP_ENCRYPTION_PASSPHRASE }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.B2_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+      AWS_DEFAULT_REGION: eu-central-003
+      AWS_EC2_METADATA_DISABLED: "true"
+      B2_BUCKET: 967ye-supabase-backups-2026
+      B2_ENDPOINT: https://s3.eu-central-003.backblazeb2.com
+
+    steps:
+      - name: Check secrets and tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          for variable in SUPABASE_DB_URL BACKUP_ENCRYPTION_PASSPHRASE AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY; do
+            if [[ -z "${!variable:-}" ]]; then
+              echo "::error::Missing GitHub Actions secret for $variable"
+              exit 1
+            fi
+          done
+          docker --version
+          aws --version
+          gpg --version | head -1
+
+      - name: Export complete PostgreSQL database (including auth users)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/967-backup"
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -e SUPABASE_DB_URL \
+            -v "$RUNNER_TEMP/967-backup:/backup" \
+            postgres:17 \
+            sh -ec 'pg_dump --dbname="$SUPABASE_DB_URL" --format=custom --no-owner --no-privileges --file=/backup/database.dump'
+          test -s "$RUNNER_TEMP/967-backup/database.dump"
+
+          # Validate the dump catalog and that the protected auth.users table is included.
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -v "$RUNNER_TEMP/967-backup:/backup" \
+            postgres:17 \
+            pg_restore --list /backup/database.dump > "$RUNNER_TEMP/967-backup/catalog.txt"
+          grep -Eq 'TABLE DATA auth users ' "$RUNNER_TEMP/967-backup/catalog.txt" || {
+            echo "::error::Backup does not contain auth.users. Refusing to upload incomplete backup."
+            exit 1
+          }
+          sha256sum "$RUNNER_TEMP/967-backup/database.dump" > "$RUNNER_TEMP/967-backup/database.dump.sha256"
+
+      - name: Encrypt archive
+        id: archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          stamp="$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
+          echo "timestamp=$stamp" >> "$GITHUB_OUTPUT"
+          echo "Project 967; UTC $stamp; PostgreSQL 17; custom-format logical backup" > "$RUNNER_TEMP/967-backup/README.txt"
+          tar -C "$RUNNER_TEMP" -czf "$RUNNER_TEMP/967-$stamp.tar.gz" 967-backup
+          printf '%s\n' "$BACKUP_ENCRYPTION_PASSPHRASE" | \
+            gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+                --symmetric --cipher-algo AES256 \
+                --output "$RUNNER_TEMP/967-$stamp.tar.gz.gpg" \
+                "$RUNNER_TEMP/967-$stamp.tar.gz"
+          printf '%s\n' "$BACKUP_ENCRYPTION_PASSPHRASE" | \
+            gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+                --decrypt --output /dev/null "$RUNNER_TEMP/967-$stamp.tar.gz.gpg"
+          rm -rf "$RUNNER_TEMP/967-backup" "$RUNNER_TEMP/967-$stamp.tar.gz"
+
+      - name: Upload and verify round-trip from private Backblaze bucket
+        shell: bash
+        run: |
+          set -euo pipefail
+          stamp="${{ steps.archive.outputs.timestamp }}"
+          key="database/daily/967-$stamp.tar.gz.gpg"
+          file="$RUNNER_TEMP/967-$stamp.tar.gz.gpg"
+          aws --endpoint-url "$B2_ENDPOINT" s3 cp "$file" "s3://$B2_BUCKET/$key" --only-show-errors
+          aws --endpoint-url "$B2_ENDPOINT" s3 cp "s3://$B2_BUCKET/$key" "$RUNNER_TEMP/downloaded-backup.gpg" --only-show-errors
+          cmp "$file" "$RUNNER_TEMP/downloaded-backup.gpg"
+          printf '%s\n' "$BACKUP_ENCRYPTION_PASSPHRASE" | \
+            gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+                --decrypt --output /dev/null "$RUNNER_TEMP/downloaded-backup.gpg"
+          echo "Encrypted backup uploaded and downloaded successfully: $key"
+          rm -f "$file" "$RUNNER_TEMP/downloaded-backup.gpg"
