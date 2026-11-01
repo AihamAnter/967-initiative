@@ -82,6 +82,8 @@ test('mobile refinements and readable keyboard controls do not hide the real tab
  assert.ok(css.includes('@media(max-width:380px)'));
  assert.ok(css.includes('@media(prefers-reduced-motion:reduce)'));
  assert.ok(css.includes('.stat-series-table-scroll:focus-visible'));
+ assert.ok(read('components/YemenRankingExplorer.jsx').includes('className="yr-table-hint"'));
+ assert.ok(read('app/yemen-in-numbers/indicator/[slug]/page.jsx').includes('className="knowledge-table-hint"'));
  assert.ok(css.includes(':focus-visible'));
  const ranks=read('components/YemenRanking.css');
  assert.ok(ranks.includes('.yr-table-scroll{overflow-x:auto;max-width:100%'));
