@@ -1,0 +1,252 @@
+/* Knowledge stage 2 — figure directory and geographic information panels.
+   All overrides require the knowledge root; map gestures, data and filters stay untouched. */
+
+/* Personalities: distinguish photo, era, field, bio and related region. */
+[data-knowledge-area="figures"] .yfigures-head{
+ border-inline-start:4px solid var(--knowledge-accent);
+ padding-inline-start:16px;
+}
+[data-knowledge-area="figures"] .yfigures-head h2{
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="figures"] .yfigures-filters{
+ border:1px solid var(--knowledge-edge);
+ border-radius:12px;
+ background:var(--knowledge-soft-alt);
+}
+[data-knowledge-area="figures"] .yfigures-extra-filters{
+ border-color:var(--knowledge-edge);
+}
+[data-knowledge-area="figures"] .yfigures-results-bar{
+ border-block-end:1px solid var(--knowledge-edge);
+ margin-block-end:15px;
+}
+[data-knowledge-area="figures"] .yfigures-results-bar strong{
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="figures"] .yfigure-card{
+ overflow:hidden;
+ border:1px solid var(--knowledge-edge);
+ border-block-start:4px solid var(--knowledge-accent);
+ border-radius:13px;
+ background:#fff;
+ box-shadow:0 5px 20px #4c335015;
+}
+[data-knowledge-area="figures"] .yfigure-image{
+ background:linear-gradient(140deg,var(--knowledge-soft),var(--knowledge-soft-alt));
+}
+[data-knowledge-area="figures"] .yfigure-initials{
+ color:var(--knowledge-strong);
+ background:linear-gradient(135deg,var(--knowledge-soft),var(--knowledge-soft-alt));
+}
+[data-knowledge-area="figures"] .yfigure-era{
+ color:#fff;
+ background:#2e263be6;
+ border:1px solid #ffffff82;
+ border-radius:7px;
+ font-size:11px;
+ padding:5px 9px;
+}
+[data-knowledge-area="figures"] .yfigure-content{
+ padding:17px 18px 14px;
+}
+[data-knowledge-area="figures"] .yfigure-meta{
+ justify-content:flex-start;
+ flex-wrap:wrap;
+ gap:7px;
+}
+[data-knowledge-area="figures"] .yfigure-meta span{
+ display:inline-flex;
+ align-items:center;
+ padding:5px 8px;
+ border-radius:6px;
+ border:1px solid var(--knowledge-edge);
+ color:var(--knowledge-strong);
+ background:var(--knowledge-soft);
+ font-size:11px;
+ font-weight:650;
+ line-height:1.5;
+}
+[data-knowledge-area="figures"] .yfigure-meta span:last-child{
+ color:#5c5061;
+ background:#faf8fb;
+}
+[data-knowledge-area="figures"] .yfigure-content h3{
+ color:var(--knowledge-strong);
+ margin-top:12px;
+ font-size:clamp(20px,2vw,25px);
+}
+[data-knowledge-area="figures"] .yfigure-content>strong{
+ color:#4e3d57;
+ min-height:0;
+ font-size:13px;
+}
+[data-knowledge-area="figures"] .yfigure-content>p{
+ color:#53606a;
+ min-height:0;
+ margin-top:9px;
+ line-height:1.85;
+}
+[data-knowledge-area="figures"] .yfigure-footer{
+ border-color:var(--knowledge-edge);
+ margin-top:12px;
+ padding-top:12px;
+}
+[data-knowledge-area="figures"] .yfigure-location svg{
+ color:var(--knowledge-accent);
+}
+[data-knowledge-area="figures"] .yfigure-socials a{
+ border-radius:7px;
+ background:var(--knowledge-soft);
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="figures"] .yfigure-socials a:hover{
+ background:var(--knowledge-accent);
+ color:#fff;
+}
+[data-knowledge-area="figures"] .yfigure-open-icon{
+ color:var(--knowledge-accent);
+}
+[data-knowledge-area="figures"] .yfigure-card-hitarea:focus-visible{
+ outline:3px solid var(--knowledge-accent);
+ outline-offset:-4px;
+ border-radius:8px;
+}
+[data-knowledge-area="figures"] .yfigures-more{
+ border-color:var(--knowledge-edge);
+ background:var(--knowledge-soft);
+ color:var(--knowledge-strong);
+ border-radius:9px;
+}
+[data-knowledge-area="figures"] .figure-profile-hero{
+ background:linear-gradient(110deg,var(--knowledge-hero),var(--knowledge-hero-end));
+ border-bottom:1px solid var(--knowledge-edge);
+}
+[data-knowledge-area="figures"] .figure-profile-tags span{
+ background:#fff;
+ border:1px solid var(--knowledge-edge);
+ border-radius:7px;
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="figures"] .figure-profile-copy h1{
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="figures"] .figure-profile-portrait{
+ background:var(--knowledge-soft);
+ border:1px solid var(--knowledge-edge);
+}
+[data-knowledge-area="figures"] .figure-profile-facts{
+ border:1px solid var(--knowledge-edge);
+ border-block-start:4px solid var(--knowledge-accent);
+ background:linear-gradient(180deg,var(--knowledge-soft),#fff 50%);
+}
+[data-knowledge-area="figures"] .figure-profile-facts h2{
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="figures"] .figure-profile-significance{
+ border-color:var(--knowledge-edge);
+ background:var(--knowledge-soft);
+}
+[data-knowledge-area="figures"] .figure-profile-directory-link{
+ border-radius:8px;
+ background:var(--knowledge-accent);
+ color:#fff;
+}
+[data-knowledge-area="figures"] .figure-profile-related{
+ background:var(--knowledge-soft-alt);
+ border-color:var(--knowledge-edge);
+}
+[data-knowledge-area="figures"] .figure-profile-related-grid>a{
+ border:1px solid var(--knowledge-edge);
+ border-block-start:3px solid var(--knowledge-accent);
+ border-radius:10px;
+ background:#fff;
+}
+[data-knowledge-area="figures"] .figure-profile-related-grid span{
+ color:var(--knowledge-strong);
+}
+/* Atlas: readable administrative fact boxes and sources inside the existing panel.
+   No changes to map coordinates, pointer events, height or scroll handling. */
+[data-knowledge-area="atlas"] .ydiscovery-section-head h2{
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="atlas"] .ymap-info-head{
+ background:linear-gradient(115deg,var(--knowledge-soft),var(--knowledge-soft-alt));
+ border-color:var(--knowledge-edge);
+}
+[data-knowledge-area="atlas"] .ymap-info-head h2{
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="atlas"] .ymap-info-head button{
+ border-radius:8px;
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="atlas"] .ymap-info-empty>svg{
+ color:var(--knowledge-accent);
+}
+[data-knowledge-area="atlas"] .ymap-info-empty dl{
+ gap:6px;
+ background:transparent;
+}
+[data-knowledge-area="atlas"] .ymap-info-empty dl div{
+ background:var(--knowledge-soft);
+ border:1px solid var(--knowledge-edge);
+ border-radius:8px;
+}
+[data-knowledge-area="atlas"] .ymap-info-grid{
+ gap:8px;
+ background:transparent;
+}
+[data-knowledge-area="atlas"] .ymap-info-field{
+ background:#fff;
+ border:1px solid var(--knowledge-edge);
+ border-radius:8px;
+ padding:13px;
+}
+[data-knowledge-area="atlas"] .ymap-info-field span{
+ font-size:12px;
+ color:#47645d;
+}
+[data-knowledge-area="atlas"] .ymap-info-field strong{
+ font-size:14px;
+ color:var(--knowledge-strong);
+ line-height:1.6;
+}
+[data-knowledge-area="atlas"] .ymap-info-body h3{
+ border-inline-start:3px solid var(--knowledge-accent);
+ padding-inline-start:9px;
+ color:var(--knowledge-strong);
+}
+[data-knowledge-area="atlas"] .ymap-district-list button{
+ border-radius:7px;
+ border:1px solid var(--knowledge-edge);
+ background:var(--knowledge-soft);
+ color:var(--knowledge-strong);
+ min-height:44px;
+}
+[data-knowledge-area="atlas"] .ymap-district-list button:hover{
+ background:var(--knowledge-accent);
+ color:#fff;
+}
+[data-knowledge-area="atlas"] .ymap-info-panel footer{
+ border-color:var(--knowledge-edge);
+ background:var(--knowledge-soft-alt);
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ [data-knowledge-area="figures"] .yfigure-card:hover{
+  border-color:var(--knowledge-accent);
+  box-shadow:0 12px 28px #4c335024;
+ }
+ [data-knowledge-area="figures"] .figure-profile-related-grid>a:hover{
+  border-color:var(--knowledge-accent);
+ }
+}
+@media(max-width:760px){
+ [data-knowledge-area="figures"] .yfigures-head{padding-inline-start:12px}
+ [data-knowledge-area="figures"] .yfigure-content{padding:15px}
+ [data-knowledge-area="figures"] .yfigure-content>p{font-size:12px}
+ [data-knowledge-area="atlas"] .ymap-info-field{padding:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ [data-knowledge-area="figures"] .yfigure-card{transition:none}
+}
