@@ -67,8 +67,8 @@ test('all public knowledge landing pages share a hero and one accessible navigat
   assert.ok(src.includes('<KnowledgeTheme area="'+area.id+'">'),area.id);
   assert.ok(src.includes('<KnowledgeNavigation/>'),area.id);
   assert.equal((src.match(/<KnowledgeNavigation\/>/g)||[]).length,1,area.id);
-  assert.ok(src.indexOf('<KnowledgeNavigation/>')>src.indexOf('</PageIntro>')||
-            src.indexOf('<KnowledgeNavigation/>')>src.indexOf('</KnowledgePageIntro>'),area.id);
+  const introEnd=src.indexOf(src.includes('</KnowledgePageIntro>')?'</KnowledgePageIntro>':'</PageIntro>');
+  assert.ok(introEnd>=0&&src.indexOf('<KnowledgeNavigation/>')>introEnd,'nav follows intro: '+area.id);
  }
  const intro=read('components/knowledge/KnowledgePageIntro.jsx');
  assert.ok(intro.includes('data-area={area||"statistics"}'));
