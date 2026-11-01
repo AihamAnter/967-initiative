@@ -1,3 +1,5 @@
+import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
+import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
 import {getSiteSettings,getYemeniFigures} from '@/lib/data';
@@ -54,7 +56,7 @@ export default async function GovernorateProfilePage({params}){
   const crossLinks=governorateCrossLinks(id,{visibility:settings.pageVisibility,historyEntries:historical,figures:people});
   const refs=governorateHeritageSources[id]||[];
   const heading=region.nameAr;
-  return <main className={styles.page}>
+  return <KnowledgeTheme area="atlas"><main className={styles.page}>
     <header className={styles.hero}>
       <div className="container">
         <ContextBackLink className={styles.back} fallback={'/yemen-map?region='+encodeURIComponent(id)+'#map'} label="العودة إلى الخريطة التفاعلية"/>
@@ -69,6 +71,7 @@ export default async function GovernorateProfilePage({params}){
         </div>
       </div>
     </header>
+    <KnowledgeNavigation/>
     <div className={'container '+styles.layout}>
       <article className={styles.article}>
         <ContentSections profile={profile}/>
@@ -94,5 +97,5 @@ export default async function GovernorateProfilePage({params}){
         {sectionIsVisible('figures',settings.pageVisibility)&&<Link className={styles.figureLink} href={'/yemeni-figures?region='+encodeURIComponent(id)}>تصفح الشخصيات المرتبطة بمحافظة {heading}</Link>}
       </aside>
     </div>
-  </main>;
+  </main></KnowledgeTheme>;
 }
