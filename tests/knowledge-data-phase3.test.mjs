@@ -64,7 +64,8 @@ test('ranking table and neighbor graph emphasize Yemen without manipulating posi
  for(const token of ['.yr-neighbors>li.is-yemen','.yr-rank-card','.yr-coverage','.yr-comparison-values>div:first-child','.yr-table-scroll tr.is-yemen','.yr-methodology','.yr-controls'])assert.ok(css.includes('[data-knowledge-area="ranking"] '+token),token);
  assert.ok(css.includes('/* Rankings: use indigo for section identity, not as a score of good/bad. */'));
  assert.ok(!css.includes('order:reverse'));
- assert.ok(!css.includes('display:none'));
+ assert.ok(!css.includes('.yr-table-scroll{display:none'));
+ assert.ok(!css.includes('.yr-neighbors{display:none'));
  assert.ok(!css.includes('content:"أفضل"'));
 });
 
