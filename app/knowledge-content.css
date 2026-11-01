@@ -67,7 +67,7 @@
  font-weight:650;
  line-height:1.5;
 }
-[data-knowledge-area="figures"] .yfigure-meta span:last-child{
+[data-knowledge-area="figures"] .yfigure-meta span[dir="ltr"]{
  color:#5c5061;
  background:#faf8fb;
 }
