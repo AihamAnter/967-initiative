@@ -1,0 +1,121 @@
+name: Daily Supabase Storage backup to Backblaze B2
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '43 3 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-967-supabase-storage-backup
+  cancel-in-progress: false
+
+jobs:
+  storage-backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      B2_BUCKET: 967ye-supabase-backups-2026
+      B2_ENDPOINT: https://s3.eu-central-003.backblazeb2.com
+      SUPABASE_S3_ENDPOINT: https://faadtmvgeafgrzpvtnab.storage.supabase.co/storage/v1/s3
+
+    steps:
+      - name: Download all three Supabase Storage buckets
+        shell: bash
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SUPABASE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SUPABASE_S3_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: eu-west-1
+          AWS_EC2_METADATA_DISABLED: "true"
+        run: |
+          set -euo pipefail
+          if [[ -z "${AWS_ACCESS_KEY_ID:-}" || -z "${AWS_SECRET_ACCESS_KEY:-}" ]]; then
+            echo "::error::Create SUPABASE_S3_ACCESS_KEY_ID and SUPABASE_S3_SECRET_ACCESS_KEY repository secrets first."
+            exit 1
+          fi
+
+          # Supabase's S3 endpoint has a path prefix; force path-style addressing.
+          export AWS_CONFIG_FILE="$RUNNER_TEMP/supabase-s3-config"
+          printf '[default]\nregion = eu-west-1\ns3 =\n    addressing_style = path\n' > "$AWS_CONFIG_FILE"
+
+          mkdir -p "$RUNNER_TEMP/967-storage"
+          for bucket in 967-account-avatars figure-profiles media; do
+            echo "Downloading Storage bucket: $bucket"
+            destination="$RUNNER_TEMP/967-storage/$bucket"
+            mkdir -p "$destination"
+
+            # Compare object counts to detect incomplete transfers.
+            expected="$(aws --endpoint-url "$SUPABASE_S3_ENDPOINT" \
+              s3 ls "s3://$bucket/" --recursive | wc -l | tr -d ' ')"
+            if [[ "$expected" -eq 0 ]]; then
+              echo "::error::Bucket $bucket is empty or could not be enumerated; refusing incomplete backup."
+              exit 1
+            fi
+
+            aws --endpoint-url "$SUPABASE_S3_ENDPOINT" s3 sync \
+              "s3://$bucket/" "$destination/" --only-show-errors --no-progress
+
+            actual="$(find "$destination" -type f | wc -l | tr -d ' ')"
+            if [[ "$actual" -ne "$expected" ]]; then
+              echo "::error::Object count mismatch for $bucket: expected $expected, found $actual"
+              exit 1
+            fi
+            echo "Downloaded $actual objects from $bucket"
+          done
+
+      - name: Encrypt the complete Storage snapshot
+        id: package
+        shell: bash
+        env:
+          BACKUP_ENCRYPTION_PASSPHRASE: ${{ secrets.BACKUP_ENCRYPTION_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${BACKUP_ENCRYPTION_PASSPHRASE:-}" ]]; then
+            echo "::error::Missing BACKUP_ENCRYPTION_PASSPHRASE repository secret."
+            exit 1
+          fi
+          timestamp="$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
+          echo "timestamp=$timestamp" >> "$GITHUB_OUTPUT"
+          printf 'Project: 967\nBackup time: %s UTC\nContents: Supabase Storage bucket objects (all three buckets)\n' \
+            "$timestamp" > "$RUNNER_TEMP/967-storage/README.txt"
+          tar -C "$RUNNER_TEMP" -czf "$RUNNER_TEMP/967-storage-$timestamp.tar.gz" 967-storage
+          printf '%s\n' "$BACKUP_ENCRYPTION_PASSPHRASE" | \
+            gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+              --symmetric --cipher-algo AES256 \
+              --output "$RUNNER_TEMP/967-storage-$timestamp.tar.gz.gpg" \
+              "$RUNNER_TEMP/967-storage-$timestamp.tar.gz"
+          # Verify decryptability without leaving a plaintext archive behind.
+          printf '%s\n' "$BACKUP_ENCRYPTION_PASSPHRASE" | \
+            gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+              --decrypt --output /dev/null "$RUNNER_TEMP/967-storage-$timestamp.tar.gz.gpg"
+          rm -rf "$RUNNER_TEMP/967-storage" "$RUNNER_TEMP/967-storage-$timestamp.tar.gz"
+
+      - name: Upload encrypted snapshot and verify download
+        shell: bash
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.B2_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+          AWS_DEFAULT_REGION: eu-central-003
+          AWS_EC2_METADATA_DISABLED: "true"
+          BACKUP_ENCRYPTION_PASSPHRASE: ${{ secrets.BACKUP_ENCRYPTION_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${AWS_ACCESS_KEY_ID:-}" || -z "${AWS_SECRET_ACCESS_KEY:-}" ]]; then
+            echo "::error::Missing Backblaze B2 repository secrets."
+            exit 1
+          fi
+          timestamp="${{ steps.package.outputs.timestamp }}"
+          file="$RUNNER_TEMP/967-storage-$timestamp.tar.gz.gpg"
+          key="storage/daily/967-storage-$timestamp.tar.gz.gpg"
+          aws --endpoint-url "$B2_ENDPOINT" s3 cp \
+            "$file" "s3://$B2_BUCKET/$key" --only-show-errors --no-progress
+          aws --endpoint-url "$B2_ENDPOINT" s3 cp \
+            "s3://$B2_BUCKET/$key" "$RUNNER_TEMP/verify-storage.gpg" --only-show-errors --no-progress
+          cmp "$file" "$RUNNER_TEMP/verify-storage.gpg"
+          printf '%s\n' "$BACKUP_ENCRYPTION_PASSPHRASE" | \
+            gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+              --decrypt --output /dev/null "$RUNNER_TEMP/verify-storage.gpg"
+          rm -f "$file" "$RUNNER_TEMP/verify-storage.gpg"
+          echo "SUCCESS: encrypted Storage snapshot uploaded and verified at $key"
