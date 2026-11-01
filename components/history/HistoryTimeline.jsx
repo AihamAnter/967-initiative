@@ -65,7 +65,7 @@ export default function HistoryTimeline({entries}){
      const active=index===selectedIndex,top=index%2===0;
      const era=historyEras.find(item=>item.id===entry.era);
      return <div className={styles.stop} role="listitem" key={entry.slug}>
-      <button ref={node=>{stopRefs.current[index]=node;}} data-history-stop={entry.slug} className={[styles.stopButton,top?styles.top:styles.bottom,active?styles.selected:''].join(' ')}
+      <button ref={node=>{stopRefs.current[index]=node;}} data-history-stop={entry.slug} data-history-kind={entry.kind} className={[styles.stopButton,top?styles.top:styles.bottom,active?styles.selected:''].join(' ')}
        type="button" aria-pressed={active} aria-label={entry.title+'، '+historyYear(entry.year)}
        onClick={()=>chooseIndex(index)}
        onKeyDown={event=>{
