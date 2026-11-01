@@ -66,3 +66,24 @@
  .tile p{display:none}
  .tileCta{font-size:11px;min-height:36px;align-items:center;padding-top:1px}
 }
+
+
+/* Knowledge identity v1: tie home discovery cards to their actual section.
+   Palette tokens are shared with the five knowledge pages; no layout changes. */
+.tile[data-knowledge-id]{
+ border-block-start:3px solid var(--knowledge-accent,var(--color-brand-strong));
+}
+.tile[data-knowledge-id] .tileIcon{
+ background:var(--knowledge-soft,var(--color-brand-soft));
+ color:var(--knowledge-strong,var(--color-brand-strong));
+}
+.tile[data-knowledge-id] :is(.tileEyebrow,.tileCta){
+ color:var(--knowledge-strong,var(--color-brand-strong));
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .tile[data-knowledge-id]:hover{
+  background:linear-gradient(175deg,var(--knowledge-soft,#edf3f0),#fff 65%);
+  border-color:var(--knowledge-edge,var(--color-border));
+  border-block-start-color:var(--knowledge-accent,var(--color-brand-strong));
+ }
+}
