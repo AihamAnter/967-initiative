@@ -23,7 +23,7 @@
 }
 .ed-brand { display: inline-flex; align-items: center; gap: 10px; flex: none; color: var(--c-ink); text-decoration: none; min-height: var(--target); }
 .ed-brand .brand-logo.ed-brand-mark { width: 36px !important; height: auto !important; max-height: none !important; filter: brightness(0) !important; transition: transform var(--m-base) var(--m-spring); }
-@media (prefers-color-scheme: dark) { :root:has(.ed-page) .ed-brand .brand-logo.ed-brand-mark { filter: brightness(0) invert(1) !important; } }
+:root[data-ed-theme="dark"]:has(.ed-page) .ed-brand .brand-logo.ed-brand-mark { filter: brightness(0) invert(1) !important; }
 .ed-brand:hover .brand-logo.ed-brand-mark { transform: rotate(-8deg) scale(1.06); }
 .ed-brand-name { font: 700 1.55rem/1 var(--t-display); white-space: nowrap; }
 .ed-brand-name b { font-family: var(--t-text); font-weight: 600; font-size: 1.05rem; }
@@ -209,3 +209,9 @@
 .ed-button[data-variant="accent"] { background: var(--c-accent); color: #fff; }
 .ed-button[data-variant="light"] { background: #fff; color: #101817; }
 .ed-button:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* Compact theme control. Keep it visible in the phone header and usable by keyboard. */
+.ed-theme-toggle{border:1px solid var(--c-line-2);background:var(--c-surface);box-shadow:var(--e-1)}
+.ed-theme-toggle[aria-pressed="true"]{background:var(--c-accent-soft);color:var(--c-accent-strong)}
+.ed-theme-toggle:focus-visible{outline:3px solid var(--c-focus);outline-offset:3px}
+@media(max-width:430px){.ed-theme-toggle{min-width:44px;min-height:44px;padding:0}}
