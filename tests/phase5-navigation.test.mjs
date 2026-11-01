@@ -53,7 +53,13 @@ test('mobile navigation closes safely, restores focus and isolates page content'
  for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic','/school/dashboard'])assert.ok(nav.includes("'"+href+"'"));
  assert.match(header,/aria-controls="main-navigation"/);
  assert.match(header,/if \(open\) header\.current\?\.querySelector\('#main-navigation a, #main-navigation input'\)\?\.focus\(\)/);
- assert.match(header,/if \(mobileOpen\) toggle\.current\?\.focus\(\)/);
+ // The tab-bar menu is the visible opener on phones, so Escape must
+ // restore focus to that control rather than the hidden masthead button.
+ assert.match(header,/const menuOpener = useRef\\(null\\)/);
+ assert.match(header,/const trigger=menuOpener\\.current/);
+ assert.match(header,/trigger\\?\\.getClientRects\\(\\)\\.length \\? trigger : toggle\\.current/);
+ assert.match(header,/onClick=\\{toggleMenu\\}/);
+ assert.match(header,/matchMedia\\('\\(max-width: 1179px\\)'\\)/);
  assert.match(header,/document\.body\.style\.overflow = 'hidden'/);
  assert.match(header,/document\.body\.style\.overflow = oldOverflow/);
  assert.match(header,/node\.inert = true/);
