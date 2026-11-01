@@ -33,3 +33,24 @@
 .figureLink{padding:14px 18px;border:1px solid #24756f;border-radius:8px;text-align:center;font-size:14px;line-height:1.8;color:#24756f}
 @media(max-width:950px){.layout{grid-template-columns:1fr}.sidebar{position:static;max-height:none;grid-row:1;grid-template-columns:repeat(2,minmax(0,1fr))}.figureLink{grid-column:1/-1}}
 @media(max-width:640px){.hero{padding:32px 0}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.facts>div{padding:12px}.facts strong{font-size:14px}.hero p{font-size:15px}.layout{padding-top:28px;gap:22px}.sidebar{display:grid;grid-template-columns:1fr;gap:14px}.navigation,.districts{padding:17px}.figureLink{grid-column:auto}.section{padding-bottom:20px;margin-bottom:27px}.section p{font-size:15px;line-height:2.1}.sources{padding:20px}}
+
+
+/* Province dossiers use geographic blues/greens without changing atlas data. */
+.hero{background:linear-gradient(115deg,var(--knowledge-hero,#edf7f1),var(--knowledge-hero-end,#eef7fa));border-color:var(--knowledge-edge,#bcdcd1)}
+.hero h1{color:var(--knowledge-strong,#195848)}
+.kicker{color:var(--knowledge-strong,#195848)}
+.facts>div{background:#fff;border:1px solid var(--knowledge-edge,#bcdcd1);border-block-start:3px solid var(--knowledge-accent,#287463);box-shadow:0 4px 14px #1b514013}
+.facts span{color:#49645d}
+.facts strong{color:var(--knowledge-strong,#195848)}
+.section{border-color:var(--knowledge-edge,#bcdcd1);padding-inline-start:18px;border-inline-start:3px solid var(--knowledge-edge,#bcdcd1)}
+.section h2{color:var(--knowledge-strong,#195848)}
+.navigation,.districts{border-color:var(--knowledge-edge,#bcdcd1)}
+.navigation{border-block-start:4px solid var(--knowledge-accent,#287463);background:linear-gradient(180deg,var(--knowledge-soft,#e5f3ed),#fff 70%)}
+.navigation h2,.districts h2{color:var(--knowledge-strong,#195848)}
+.navigation a:hover,.districts a:hover{color:var(--knowledge-strong,#195848)}
+.districts li{min-width:0}
+.districts a{display:block;border-radius:7px;padding:6px 7px;background:var(--knowledge-soft,#e5f3ed);color:var(--knowledge-strong,#195848);overflow-wrap:anywhere;min-height:38px}
+.districts a:focus-visible,.navigation a:focus-visible{outline:3px solid var(--knowledge-accent,#287463);outline-offset:3px}
+.sources{border-color:var(--knowledge-edge,#bcdcd1);background:var(--knowledge-soft-alt,#ebf5f8)}
+.figureLink{border-color:var(--knowledge-accent,#287463);background:var(--knowledge-soft,#e5f3ed);color:var(--knowledge-strong,#195848)}
+@media(max-width:640px){.section{padding-inline-start:12px}.facts{gap:9px}.facts>div{padding:12px}}
