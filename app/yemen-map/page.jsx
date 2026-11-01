@@ -1,3 +1,5 @@
+import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
+import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import YemenDiscovery from '@/components/yemen-map/YemenDiscovery';
 import {pageMetadata} from '@/lib/seo';
 import {getSiteSettings} from '@/lib/data';
@@ -17,9 +19,10 @@ export default async function YemenMapPage({searchParams}) {
   const params = await searchParams;
   const region = yemenGovernorates.some(x=>x.id===params.region) ? params.region : null;
   const district = typeof params.district==='string' && /^YE\d{4}$/.test(params.district) ? params.district : null;
-  return <div className="ymap-page">
+  return <KnowledgeTheme area="atlas"><div className="ymap-page">
     <link rel="preload" href="/data/yemen-map/yemen-boundaries.json" as="fetch" crossOrigin="anonymous"/>
     <KnowledgePageIntro
+      area="atlas"
       title="خريطة اليمن"
       category="أطلس 967 الجغرافي"
       description="استكشف محافظات اليمن ومديرياته وتعرّف على تاريخ الأماكن وطبيعتها ومعالمها.">
@@ -28,6 +31,7 @@ export default async function YemenMapPage({searchParams}) {
         <Link href="/yemeni-figures">شخصيات يمنية</Link>
       </div>
     </KnowledgePageIntro>
+    <KnowledgeNavigation/>
     <YemenDiscovery key={(region||'')+':'+(district||'')} showFigures={sectionIsVisible('figures',settings.pageVisibility)} initialGovernorateId={region} initialDistrictId={district}/>
-  </div>;
+  </div></KnowledgeTheme>;
 }
