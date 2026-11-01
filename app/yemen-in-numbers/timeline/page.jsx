@@ -1,3 +1,5 @@
+import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
+import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import Link from '@/components/SiteLink';
 import {pageMetadata} from '@/lib/seo';
 import {ArrowRight} from 'lucide-react';
@@ -9,8 +11,9 @@ export const metadata = pageMetadata({title:'اليمن عبر الزمن', desc
 
 export default async function TimelinePage() {
   const indicators = await getTimelineIndicators();
-  return <>
+  return <KnowledgeTheme area="statistics">
     <section className="stat-page-head timeline-page-head"><div className="container"><Link className="back-link" href="/yemen-in-numbers"><ArrowRight size={17}/> العودة إلى اليمن بالأرقام</Link><span className="eyebrow">مقارنة وطنية / 1990 حتى أحدث سنة منشورة</span><h1>اليمن عبر الزمن.</h1><p>قارن السلاسل المتوافقة بوحداتها، وبدّل بين القيم الفعلية ونسبة التغير من سنة الأساس. السنوات الناقصة تبقى ظاهرة كفجوات.</p></div></section>
+    <KnowledgeNavigation/>
     <section className="section timeline-page-body"><div className="container"><TimelineExplorer indicators={indicators}/></div></section>
-  </>;
+  </KnowledgeTheme>;
 }
