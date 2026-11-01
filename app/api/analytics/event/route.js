@@ -1,6 +1,6 @@
 import {serverDb} from '@/lib/supabase-server';
 import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
-import {usageEvent} from '@/lib/siteAnalytics';
+import {usageEvent,analyticsOriginAllowed} from '@/lib/siteAnalytics';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -15,7 +15,7 @@ function allowRequest(){
  return ++counter<=240;
 }
 export async function POST(request){
- if(!isSameOrigin(request))return new Response(null,{status:403,headers:noStore});
+ if(!analyticsOriginAllowed(request,isSameOrigin))return new Response(null,{status:403,headers:noStore});
  // Browsers send one of these headers. Reject plain cross-site posts and
  // ad-hoc nonbrowser requests to reduce automated noise (not a security boundary).
  const origin=request.headers.get('origin');
