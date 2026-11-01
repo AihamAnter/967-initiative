@@ -46,10 +46,12 @@
 .region:hover,.region:focus-visible{fill:#a98dff;outline:none;stroke:#fff;stroke-width:2.3}
 .region.correctRegion{fill:#5cd89c!important;stroke:#d5ffe7;stroke-width:2.2}
 .region.wrongRegion{fill:#ff777b!important}
-.mapAlternative{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end;margin-top:13px}
-.mapAlternative label{display:grid;gap:7px;color:#cbd8e7;font-size:12px}
-.mapAlternative select{width:100%;min-height:48px;border:1px solid #526681;border-radius:10px;background:#111c32;color:#f3f7ff;padding:10px 13px;font-size:16px}
-.mapAlternative button{min-height:48px;border-radius:10px;background:#a5ffd0;color:#102723;padding:11px 17px;font-weight:800}
+.region.selectedRegion{fill:#a98dff!important;stroke:#fff;stroke-width:2.6}
+.mapConfirm{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:13px}
+.mapConfirm>span{color:#cfddf2;font-size:13px;line-height:1.7;flex:1}
+.mapConfirm button{min-height:48px;min-width:145px;border-radius:10px;background:#a5ffd0;color:#102723;padding:11px 17px;font-weight:800}
+.mapConfirm button:disabled{opacity:.48;cursor:not-allowed}
+.mapConfirm button:focus-visible,.mapZoomControls button:focus-visible{outline:3px solid #a5ffd0;outline-offset:3px}
 .mapCredit{color:#95a7bd;font-size:11px;line-height:1.8;display:block;margin-top:9px}
 .feedback{position:relative;border:1px solid #6b7b8e;border-inline-start:4px solid #93dfc8;background:#1c343b;border-radius:11px;padding:18px 20px;margin:17px 0;color:#ebfff5;animation:stageIntro .25s}
 .feedback.bad{border-color:#9b667b;background:#392938}.feedback.good{border-color:#6bac93;background:#1c3b3c}
@@ -63,7 +65,7 @@
 .resultStats>div{display:grid;gap:7px;background:#292344;border:1px solid #5a5281;border-radius:12px;padding:21px 9px}
 .resultStats strong{font-size:clamp(23px,3vw,33px);color:#e4cfff;font-variant-numeric:tabular-nums}
 .resultStats span{font-size:12px;color:#c4c6e3}.result .actions{justify-content:center}
-@media(max-width:670px){.wrapper{padding:24px 0 55px}.setup,.arena,.result{padding:21px 15px}.options,.timelineOptions{grid-template-columns:1fr}.timelineSlots{grid-template-columns:repeat(2,minmax(0,1fr))}.placePhoto img{height:230px}.arenaHeader{font-size:11px}.taskTitle{font-size:23px}.mapSurface{max-height:430px}.mapAlternative{grid-template-columns:1fr}.mapAlternative button{width:100%}.resultStats{gap:6px}.resultStats strong{font-size:21px}.resultStats span{font-size:10px}.actions>*{flex:1;min-width:130px}.playerStats{gap:12px}}
+@media(max-width:670px){.wrapper{padding:24px 0 55px}.setup,.arena,.result{padding:21px 15px}.options,.timelineOptions{grid-template-columns:1fr}.timelineSlots{grid-template-columns:repeat(2,minmax(0,1fr))}.placePhoto img{height:230px}.arenaHeader{font-size:11px}.taskTitle{font-size:23px}.mapSurface{max-height:430px}.mapConfirm{display:grid;grid-template-columns:1fr}.mapConfirm button{width:100%}.resultStats{gap:6px}.resultStats strong{font-size:21px}.resultStats span{font-size:10px}.actions>*{flex:1;min-width:130px}.playerStats{gap:12px}}
 @media(max-width:360px){.resultStats{grid-template-columns:1fr}.actions>*{flex:1 1 100%}}
 @media(prefers-reduced-motion:reduce){.wrapper *,.wrapper *::before,.wrapper *::after{animation:none!important;transition:none!important}}
 @keyframes stageIntro{from{opacity:.3;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}@keyframes float{50%{transform:translateY(-6px)}}
