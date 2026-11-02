@@ -27,3 +27,13 @@
 .focusedPost{box-shadow:inset 0 0 0 2px #c19627;background:#fff9e8}.deletedComment{font-style:italic;color:var(--muted)}.emptyDiscussion{padding:24px;text-align:center;font-size:13px;color:var(--muted)}.notificationTitle{display:block;font-size:13px;margin-top:9px}
 @media(max-width:1050px){.dailyFocus>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.dailyFocus{padding:17px;margin-block:18px}.dailyFocus>header{align-items:flex-start;flex-direction:column}.dailyFocus h2{font-size:22px}.dailyFocus>div{grid-template-columns:minmax(0,1fr)}.detailOverview{grid-template-columns:minmax(0,1fr);gap:16px}.taskPeople{padding:14px}.taskPeople>div{display:inline-flex;max-width:100%;margin-inline-end:14px}.participantPicker>div{grid-template-columns:minmax(0,1fr)}.discussionHeading h3{font-size:20px}.discussionComposer{padding:13px}.discussionPost{padding:13px}.threadReplies{margin-inline-start:10px;border-inline-start-width:2px}.discussionReply{padding:12px}.composerFooter>.primary{width:100%;margin-top:3px}.discussionPost footer small{margin-inline-start:0;width:100%}.detailJumpNav{gap:6px}.detailJumpNav a{font-size:11px;padding-inline:9px}.detailUpdateBar{align-items:flex-start}.discussionPost time{font-size:10px}}
+
+/* The task centre has many literal light surfaces; remap them at its module root. */
+:global(:root[data-ed-theme="dark"]) .shell :is(.workspace,.sidePanel,.report,.teamMetrics,.dialog,.discussionPost,.kanbanCard){background:var(--c-surface);color:var(--c-ink);border-color:var(--c-line-2)}
+:global(:root[data-ed-theme="dark"]) .shell :is(input,select,textarea,.search,.secondary,.scopeNav button,.detailJumpNav a,.column,.calendarDay){background:var(--c-surface-2);color:var(--c-ink);border-color:var(--c-control)}
+:global(:root[data-ed-theme="dark"]) .shell :is(.taskCard,.distribution,.projectRow,.subtask,.comment,.activity li,.discussionThread){border-color:var(--c-line)}
+:global(:root[data-ed-theme="dark"]) .shell :is(.detailUpdateBar,.taskPeople,.changeValues,.discussionReply,.threadToggle){background:var(--c-bg-2);color:var(--c-ink);border-color:var(--c-line-2)}
+:global(:root[data-ed-theme="dark"]) .shell .dailyFocus{background:linear-gradient(115deg,var(--c-accent-soft),var(--c-surface));border-color:var(--c-line-2)}
+:global(:root[data-ed-theme="dark"]) .shell .dailyFocus>div>button{background:var(--c-surface-2);color:var(--c-ink);border-color:var(--c-line-2)}
+:global(:root[data-ed-theme="dark"]) .shell .metrics button.attention{background:var(--c-danger-soft);border-color:var(--c-danger)}
+:global(:root[data-ed-theme="dark"]) .shell .metrics button.attention :is(span,strong){color:var(--c-danger)}

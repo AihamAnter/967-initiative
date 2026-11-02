@@ -1,9 +1,8 @@
 /*
  * 967 · Editorial, made 2026 — design tokens (iteration 2).
  * Prefixes: --c colour · --t type · --s space · --r radius · --e elevation · --m motion · --w width.
- * Light is the default. A visitor may opt into dark mode, but only on
- * pages built with the new system (.ed-page), so not-yet-migrated routes never
- * get a dark shell over a light legacy body.
+ * Light is the default. A visitor may opt into dark mode across the whole
+ * platform; the compatibility layer maps legacy route tokens to this system.
  */
 :root {
   color-scheme: light;
@@ -91,8 +90,8 @@
   --header-h: 68px;
 }
 
-/* User-selected dark mode: redesigned pages only; legacy pages remain light. */
-:root[data-ed-theme="dark"]:has(.ed-page) {
+/* User-selected dark mode, shared by every public and account route. */
+:root[data-ed-theme="dark"] {
     color-scheme: dark;
     --c-bg: #0b0f10;
     --c-bg-2: #070a0b;

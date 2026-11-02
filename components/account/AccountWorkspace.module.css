@@ -125,3 +125,35 @@
 @media(max-width:1000px){.shell{grid-template-columns:200px minmax(0,1fr);gap:16px}.main{padding:22px}.sidebar{padding:9px}.columns{grid-template-columns:1fr}}
 @media(max-width:760px){.hero{padding:35px 24px 83px}.heroInterior{gap:13px}.outlineLight{padding:9px;font-size:0}.outlineLight svg{width:19px}.avatar{width:56px;height:56px}.heroCopy h1{font-size:26px}.shell{grid-template-columns:minmax(0,1fr);margin-top:-49px;padding:0 14px}.sidebar{display:flex;flex-direction:row;overflow-x:auto;white-space:nowrap;padding:9px;border-radius:12px;gap:4px;scrollbar-width:thin}.navItem,.activeNav{flex:0 0 auto;width:auto;padding:10px 11px;gap:7px;font-size:11px}.activeNav{border-right:0;border-bottom:3px solid #007875;padding-right:11px}.sidebarFooter{display:none}.main{border-radius:13px;padding:17px}.welcome{padding:18px;gap:12px;align-items:flex-start;flex-direction:column}.welcome h3{font-size:19px}}
 @media(max-width:540px){.hero{padding:29px 19px 72px}.heroCopy h1{font-size:22px}.heroCopy p{font-size:11px}.statGrid{gap:7px}.stat{padding:12px 9px}.stat strong{font-size:22px}.stat span{font-size:10px}.statArrow{display:none}.panel{padding:17px}.savedItem,.groupRow,.noticeRead,.noticeUnread,.settingRow{flex-wrap:wrap}.savedItem>a{flex-basis:calc(100% - 38px)}.smallSelect{max-width:calc(100% - 50px);flex:1}.formGrid{grid-template-columns:1fr}.wide{grid-column:auto}.createCollection,.import{align-items:stretch;flex-direction:column}.settingRow>div{flex-basis:100%}.timelineItem time{white-space:normal}.filters select{min-width:0}.pictureLine{align-items:flex-start}}
+
+/* Shared 967 editorial skin. Account behaviour and layout stay untouched. */
+.root{
+ --account-ink:var(--c-ink);--account-muted:var(--c-ink-2);--account-teal:var(--c-accent);
+ --account-line:var(--c-line-2);--account-paper:var(--c-surface);
+ background:var(--c-bg);color:var(--c-ink)
+}
+.hero{
+ background:
+  radial-gradient(58% 130% at 92% 0%,color-mix(in srgb,var(--c-accent) 46%,transparent),transparent 72%),
+  radial-gradient(42% 110% at 5% 100%,color-mix(in srgb,var(--c-violet) 24%,transparent),transparent 76%),
+  linear-gradient(135deg,#121923 0%,#081012 58%,#0b1f20 100%)
+}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;background-image:radial-gradient(circle,rgb(255 255 255/.22) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(90deg,transparent,#000 35%,#000 85%,transparent)}
+.heroCopy h1{font-family:var(--t-display);font-size:clamp(32px,4.3vw,52px);letter-spacing:-.02em}
+.heroInterior{z-index:1}
+.sidebar,.main,.panel,.stat,.guest{background:var(--c-surface);border-color:var(--c-line-2);color:var(--c-ink);box-shadow:var(--e-1)}
+.welcome,.noticeUnread,.import,.info,.success{background:var(--c-accent-soft);border-color:color-mix(in srgb,var(--c-accent) 28%,transparent)}
+.sectionTop h2,.welcome h3,.panel h3,.stat strong,.feedItem strong,.groupRow strong,.contribution strong,.timelineItem strong{color:var(--c-ink)}
+.subtleEyebrow,.stat span,.feedItem small,.hint,.settingRow p,.timelineItem small,.guest p{color:var(--c-ink-2)}
+.navItem,.activeNav{color:var(--c-ink-2)}
+.navItem:hover,.activeNav{background:var(--c-accent-soft);color:var(--c-accent-strong)}
+.refreshButton,.iconButton,.secondaryButton,.uploadButton{background:var(--c-surface);border-color:var(--c-line-2);color:var(--c-accent)}
+.primaryButton{background:var(--c-accent);border-color:var(--c-accent);color:#fff}
+.filters select,.savedItem select,.createCollection input,.formGrid input,.formGrid textarea{background:var(--c-surface-2);border-color:var(--c-control);color:var(--c-ink)}
+.formGrid input:read-only{background:var(--c-bg-2);color:var(--c-ink-2)}
+.savedItem,.groupRow,.feedItem,.noticeRead,.noticeUnread,.settingRow,.contributionBlock{border-color:var(--c-line)}
+.contribution{background:var(--c-surface-2);border-color:var(--c-line)}
+
+:global(:root[data-ed-theme="dark"]) .heroCopy p{color:#b7c8c4}
+:global(:root[data-ed-theme="dark"]) .outlineLight{border-color:rgb(255 255 255/.2);background:rgb(255 255 255/.08)}
+:global(:root[data-ed-theme="dark"]) .error{background:var(--c-danger-soft);border-color:color-mix(in srgb,var(--c-danger) 32%,transparent);color:var(--c-danger)}

@@ -1,0 +1,1643 @@
+/*
+ * Platform-wide experience bridge.
+ *
+ * The home, media and numbers routes already use the editorial foundation.
+ * This file maps the remaining route-scoped styles to the same colour,
+ * typography and surface language without changing their markup or behaviour.
+ */
+
+:root[data-ed-theme="dark"] {
+  /* Semantic tokens consumed by the legacy bundle. */
+  --color-brand: var(--c-accent);
+  --color-brand-strong: var(--c-accent-strong);
+  --color-brand-hover: #9af0e7;
+  --color-brand-soft: var(--c-accent-soft);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-ink-2);
+  --color-paper: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-surface-alt: var(--c-surface-2);
+  --color-border: var(--c-line-2);
+  --color-control-border: var(--c-control);
+  --color-coral: var(--c-ember);
+  --color-coral-ink: var(--c-ember);
+  --color-coral-soft: var(--c-ember-soft);
+  --color-violet: var(--c-violet);
+  --color-violet-soft: var(--c-violet-soft);
+  --color-cobalt: var(--c-indigo);
+  --color-cobalt-soft: var(--c-indigo-soft);
+  --color-sun: var(--c-amber);
+  --color-sun-ink: var(--c-amber);
+  --color-sun-soft: var(--c-amber-soft);
+  --color-leaf: var(--c-leaf);
+  --color-leaf-soft: var(--c-leaf-soft);
+  --color-danger: var(--c-danger);
+  --color-danger-soft: var(--c-danger-soft);
+  --primary: var(--c-accent);
+  --primary-hover: var(--c-accent-strong);
+  --soft-primary: var(--c-accent-soft);
+  --bg: var(--c-bg);
+  --bg2: var(--c-bg-2);
+  --surface: var(--c-surface);
+  --panel: var(--c-surface);
+  --text: var(--c-ink);
+  --muted: var(--c-ink-2);
+  --line: var(--c-line-2);
+  --control-line: var(--c-control);
+  --cream: var(--c-bg);
+  --black: var(--c-ink);
+  --red: var(--c-accent);
+  --red2: var(--c-accent);
+  --soft-green: var(--c-leaf-soft);
+  --soft-blue: var(--c-indigo-soft);
+  --soft-plum: var(--c-violet-soft);
+  --soft-gold: var(--c-amber-soft);
+  --soft-clay: var(--c-ember-soft);
+  --soft-danger: var(--c-danger-soft);
+  --shadow: var(--e-1);
+  --shadow-card: var(--e-1);
+  --shadow-raised: var(--e-2);
+}
+
+body,
+.site-experience {
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+.site-experience {
+  min-height: calc(100vh - var(--header-h));
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+/* The home uses an atmospheric entrance. Legacy PageIntro routes now open with
+   the same dark, layered language while retaining their section colour. */
+.site-experience.site-experience .page-intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(42px, 6vw, 82px);
+  color: #f3f7f5;
+  border: 0;
+  background:
+    radial-gradient(58% 130% at 92% 0%, color-mix(in srgb, var(--section-fill, var(--c-accent)) 46%, transparent), transparent 72%),
+    radial-gradient(44% 100% at 4% 100%, color-mix(in srgb, var(--section-fill, var(--c-violet)) 24%, transparent), transparent 76%),
+    linear-gradient(135deg, #121923 0%, #081012 58%, #0b1f20 100%);
+}
+
+.site-experience.site-experience .page-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .38;
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / .24) 1px, transparent 1px),
+    linear-gradient(90deg, transparent 0 79px, rgb(255 255 255 / .035) 80px);
+  background-size: 28px 28px, 80px 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 34%, #000 82%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 34%, #000 82%, transparent);
+}
+
+.site-experience.site-experience .page-intro::after {
+  content: "967";
+  position: absolute;
+  inset-inline-end: clamp(-28px, -2vw, -8px);
+  inset-block-end: clamp(-64px, -5vw, -30px);
+  z-index: -1;
+  direction: ltr;
+  color: rgb(255 255 255 / .045);
+  font: 700 clamp(8rem, 23vw, 19rem)/.72 var(--t-text);
+  letter-spacing: -.12em;
+  pointer-events: none;
+}
+
+.site-experience.site-experience .page-intro > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.site-experience.site-experience .page-intro h1 {
+  max-width: 18ch;
+  margin-block: var(--s-3);
+  color: #fff;
+  font: 700 var(--t-size-display)/var(--t-lh-display) var(--t-display);
+  letter-spacing: -.025em;
+}
+
+.site-experience.site-experience .page-intro > .container > p {
+  max-width: var(--t-measure);
+  color: #c8d4d1;
+  font-size: var(--t-size-lead);
+  line-height: 1.9;
+}
+
+.site-experience.site-experience .page-intro :is(.breadcrumbs, .breadcrumbs a, .eyebrow) {
+  color: #d7e2df;
+}
+
+.site-experience.site-experience .page-intro .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  padding: 4px 12px;
+  border: 1px solid rgb(255 255 255 / .18);
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / .08);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.site-experience.site-experience .page-intro :is(.page-intro-motif, .page-intro-art) {
+  opacity: .13;
+}
+
+/* Shared rhythm for the older collection and utility pages. */
+.site-experience :is(.platform-search-body, .reading-list-section, .policy-body) {
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+.site-experience :is(.policy-article, .search-result, .empty-state, .reading-list, .content-surface) {
+  border-color: var(--c-line);
+  border-radius: var(--r-3);
+  background: var(--c-surface);
+  color: var(--c-ink);
+  box-shadow: var(--e-1);
+}
+
+.site-experience :is(.policy-article, .search-result, .content-surface) h2,
+.site-experience :is(.policy-article, .search-result, .content-surface) h3 {
+  font-family: var(--t-display);
+}
+
+.site-experience :is(.search-filters, .policy-navigation) a {
+  border-radius: var(--r-pill);
+}
+
+/* Legacy public sections: preserve their layout and functions, replace only
+   surfaces, controls and page colour variables. */
+:root[data-ed-theme="dark"] .site-experience .interior-page {
+  --intro-ink: #f4f7f6;
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+:root[data-ed-theme="dark"] .site-experience .interior-page :is(
+  .filter-bar,
+  .filter-search,
+  .work-detail-aside,
+  .issue-spotlight,
+  .stat-toolbar,
+  .stat-chart-panel,
+  .stat-facts,
+  .stat-source-list > article,
+  .timeline-controls,
+  .timeline-stage,
+  .yr-controls,
+  .ymap-app,
+  .ymap-info-panel,
+  .company-card,
+  .professional-card,
+  .company-profile-main > section,
+  .professional-profile-main > section,
+  .debate-filters,
+  .debate-card,
+  .debate-panel,
+  .pdf-find,
+  .pdf-pagination
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink);
+  border-color: var(--c-line-2) !important;
+  box-shadow: var(--e-1);
+}
+
+:root[data-ed-theme="dark"] .site-experience .interior-page :is(input, select, textarea) {
+  background-color: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .interior-page :is(
+  .latest-issue,
+  .stats-latest,
+  .products-directory-section,
+  .professionals-directory-section,
+  .work-detail-head,
+  .reader-intro,
+  .stat-page-head,
+  .stat-indicator-head
+) {
+  background: var(--c-bg-2) !important;
+  border-color: var(--c-line) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.policy-article, .search-result, .empty-state, .about-team-card, .contact-form) {
+  background: var(--c-surface);
+  color: var(--c-ink);
+  border-color: var(--c-line-2);
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.platform-search-body, .policy-body, .reading-list-section) :is(input, select, textarea) {
+  background: var(--c-surface-2);
+  color: var(--c-ink);
+  border-color: var(--c-control);
+}
+
+/* Search fields: legacy search shells used a literal white surface while the
+   dark theme correctly supplied light input text. Keep every input state on
+   the same dark semantic surface, including selection and browser autofill. */
+:root[data-ed-theme="dark"] .site-experience .global-search {
+  background: var(--c-surface);
+  color: var(--c-ink);
+  border-color: var(--c-control);
+  box-shadow: var(--e-2);
+}
+
+:root[data-ed-theme="dark"] .site-experience .global-search > svg {
+  color: var(--c-accent);
+}
+
+:root[data-ed-theme="dark"] .site-experience .global-search input {
+  background: transparent;
+  color: var(--c-ink) !important;
+  -webkit-text-fill-color: var(--c-ink);
+  caret-color: var(--c-accent);
+  color-scheme: dark;
+  opacity: 1;
+}
+
+:root[data-ed-theme="dark"] .site-experience .global-search input::placeholder {
+  color: var(--c-ink-3);
+  -webkit-text-fill-color: var(--c-ink-3);
+  opacity: 1;
+}
+
+:root[data-ed-theme="dark"] .site-experience .global-search input::selection {
+  background: var(--c-accent);
+  color: #071412;
+  -webkit-text-fill-color: #071412;
+}
+
+:root[data-ed-theme="dark"] .site-experience .global-search input:-webkit-autofill,
+:root[data-ed-theme="dark"] .site-experience .global-search input:-webkit-autofill:hover,
+:root[data-ed-theme="dark"] .site-experience .global-search input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--c-ink);
+  caret-color: var(--c-accent);
+  box-shadow: 0 0 0 1000px var(--c-surface) inset;
+  transition: background-color 9999s ease-out 0s;
+}
+
+:root[data-ed-theme="dark"] .site-experience .global-search button {
+  background: var(--c-accent);
+  color: #071412;
+}
+
+:root[data-ed-theme="dark"] .site-experience .global-search button:hover {
+  background: var(--c-accent-strong);
+  color: #071412;
+}
+
+/* Authentication: completion-polish.css intentionally uses a literal white
+   card in the light theme. The stronger route-aware selector keeps every auth
+   state on the dark palette without changing the authentication flow. */
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth {
+  background: var(--c-surface);
+  color: var(--c-ink);
+  border-color: var(--c-line-2);
+  border-top-color: var(--c-accent);
+  box-shadow: var(--e-3);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth h1 {
+  color: var(--c-ink);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth > p,
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-required-note,
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .auth-password-hint {
+  color: var(--c-ink-2);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth :is(.eyebrow, .debate-actions a, summary) {
+  color: var(--c-accent);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-form label {
+  color: var(--c-ink);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-form :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  background: var(--c-surface-2);
+  color: var(--c-ink);
+  -webkit-text-fill-color: var(--c-ink);
+  caret-color: var(--c-accent);
+  border-color: var(--c-control);
+  color-scheme: dark;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-form :is(input, textarea)::placeholder {
+  color: var(--c-ink-3);
+  -webkit-text-fill-color: var(--c-ink-3);
+  opacity: 1;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .auth-password-toggle {
+  background: var(--c-surface);
+  color: var(--c-accent);
+  border: 1px solid var(--c-line-2);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-form .btn-primary {
+  background: var(--c-accent);
+  color: #071412;
+  border-color: var(--c-accent);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-form .btn-primary:hover {
+  background: var(--c-accent-strong);
+  color: #071412;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-form .btn-outline {
+  background: var(--c-surface-2);
+  color: var(--c-accent);
+  border-color: var(--c-control);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-actions {
+  border-color: var(--c-line-2);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth details {
+  background: var(--c-surface-2);
+  color: var(--c-ink-2);
+  border: 1px solid var(--c-line-2);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .feedback {
+  background: var(--c-surface-2);
+  color: var(--c-ink);
+  border: 1px solid var(--c-line-2);
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .feedback.error {
+  background: #2b1719;
+  color: #ffb4ad;
+  border-color: #7d3d43;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .feedback.success {
+  background: #10271f;
+  color: #9ce8c2;
+  border-color: #2d6c55;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth .debate-validation-summary,
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth :is(input, textarea, select)[aria-invalid="true"] {
+  background: #2b1719 !important;
+  color: #ffb4ad !important;
+  -webkit-text-fill-color: #ffb4ad;
+  border-color: #c7656d !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth fieldset:disabled {
+  opacity: .72;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .debate-auth :is(button, input, select, textarea):disabled {
+  cursor: not-allowed;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.debate-card, .debate-panel, .debate-filters, .debate-suggest-banner, .debate-live-callout) {
+  background-color: var(--c-surface);
+  color: var(--c-ink);
+  border-color: var(--c-line-2);
+}
+
+/* --------------------------------------------------------------------------
+   Complete dark-mode contrast pass
+
+   A number of the older sections still ship their own light-only palettes.
+   Keep their layout and behaviour intact, but make every interactive surface
+   inherit the same semantic colours as the home page.
+   -------------------------------------------------------------------------- */
+
+:root[data-ed-theme="dark"] .site-experience {
+  color-scheme: dark;
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(input, select, textarea)::placeholder {
+  color: var(--c-ink-3) !important;
+  opacity: 1;
+}
+
+:root[data-ed-theme="dark"] .site-experience select option {
+  background: var(--c-surface-2);
+  color: var(--c-ink);
+}
+
+:root[data-ed-theme="dark"] .site-experience.site-experience .page-intro {
+  --intro-ink: #f7fbfa;
+  background:
+    radial-gradient(circle at 84% 10%, rgb(79 209 197 / .22), transparent 34%),
+    radial-gradient(circle at 10% 90%, rgb(142 162 255 / .12), transparent 32%),
+    linear-gradient(118deg, #0f171b 0%, #0a1114 52%, #0d2423 100%) !important;
+  border-color: rgb(79 209 197 / .18) !important;
+  color: #f7fbfa !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.site-experience .page-intro :is(
+  h1, h2, p, a, span, strong, small, .breadcrumb, .breadcrumb a, .page-intro-eyebrow
+) {
+  color: inherit !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.site-experience .page-intro > .container > p,
+:root[data-ed-theme="dark"] .site-experience.site-experience .page-intro .breadcrumb {
+  color: #c4cecb !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.site-experience .page-intro :is(
+  .page-intro-eyebrow,
+  .directory-summary span,
+  .directory-summary a,
+  .page-intro-actions a
+) {
+  border-color: rgb(255 255 255 / .2) !important;
+  background: rgb(255 255 255 / .07) !important;
+  color: #f5faf8 !important;
+}
+
+/* Directories: education, health, companies and professionals. */
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-disclosure,
+  .institution-directory-section,
+  .medical-directory-section,
+  .products-directory-section,
+  .professionals-directory-section,
+  .companies-directory-section,
+  .directory-results,
+  .institution-results
+) {
+  background: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-disclosure,
+  .medical-disclosure,
+  .directory-disclosure
+) {
+  background: var(--c-amber-soft) !important;
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-toolbar,
+  .medical-toolbar,
+  .products-filters,
+  .professionals-filters,
+  .directory-toolbar,
+  .company-card,
+  .professional-card,
+  .institution-card,
+  .medical-card,
+  .product-card,
+  .company-profile-main > section,
+  .professional-profile-main > section,
+  .institution-profile-main > section
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+  box-shadow: var(--e-1) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-toolbar,
+  .medical-toolbar,
+  .products-filters,
+  .professionals-filters,
+  .directory-toolbar
+) :is(input, select, textarea),
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-search,
+  .institution-select,
+  .medical-search,
+  .product-search,
+  .product-location,
+  .product-category
+) :is(input, select) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-card,
+  .medical-card,
+  .product-card,
+  .company-card,
+  .professional-card
+) :is(h2, h3, h4, strong) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-card,
+  .medical-card,
+  .product-card,
+  .company-card,
+  .professional-card
+) :is(p, small, .meta, .institution-card-meta, .medical-card-meta, .product-card-meta) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-card,
+  .medical-card,
+  .product-card,
+  .company-card,
+  .professional-card
+) :is(.tag, .chip, .badge, .institution-card-meta span) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink-2) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+/* Contribution and all public forms. */
+:root[data-ed-theme="dark"] .site-experience :is(
+  .contribution-body,
+  .contact-page-body,
+  .contact-layout,
+  .contact-form,
+  .contribution-guide,
+  .contact-guide
+) {
+  background-color: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.contact-form, .contribution-form) {
+  background: var(--c-surface) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.contact-form, .contribution-form) :is(input, select, textarea) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+  -webkit-text-fill-color: var(--c-ink);
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.contribution-guide, .contact-guide) {
+  background: var(--c-accent-soft) !important;
+}
+
+/* Shared knowledge identity and navigation. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area] {
+  --knowledge-strong: var(--c-ink);
+  --knowledge-ink: var(--c-ink-2);
+  --knowledge-muted: var(--c-ink-3);
+  --knowledge-accent: var(--c-accent);
+  --knowledge-soft: var(--c-accent-soft);
+  --knowledge-soft-alt: var(--c-surface-2);
+  --knowledge-edge: var(--c-line-2);
+  --knowledge-paper: var(--c-surface);
+  --knowledge-hero: #10191d;
+  --knowledge-hero-end: #0c2322;
+  --knowledge-art: #86a39d;
+  background: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] {
+  --knowledge-accent: #c3a6dc;
+  --knowledge-soft: #2c2035;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="statistics"],
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] {
+  --knowledge-accent: #9aabff;
+  --knowledge-soft: #1b2447;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area] :is(
+  [class*="KnowledgeNavigation_nav"],
+  [class*="KnowledgeNavigation_inner"],
+  .knowledge-navigation,
+  .knowledge-subnav
+) {
+  background: var(--c-bg-2) !important;
+  border-color: var(--c-line) !important;
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area] :is(
+  [class*="KnowledgeNavigation_link"],
+  [class*="KnowledgeNavigation_label"],
+  .knowledge-navigation a,
+  .knowledge-subnav a
+) {
+  background: var(--c-surface) !important;
+  border-color: var(--c-line) !important;
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area] :is(
+  [class*="KnowledgeNavigation_active"],
+  .knowledge-navigation a[aria-current="page"],
+  .knowledge-subnav a[aria-current="page"]
+) {
+  background: var(--knowledge-soft) !important;
+  border-color: var(--knowledge-accent) !important;
+  color: var(--knowledge-accent) !important;
+}
+
+/* Yemen map, history and figures. */
+:root[data-ed-theme="dark"] .site-experience :is(
+  .ymap-page,
+  .ymap-shell,
+  .ymap-directory,
+  .history-page,
+  .history-directory,
+  .figures-page,
+  .yfigure-directory,
+  .yfigure-profile
+) {
+  background: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .ymap-app,
+  .ymap-toolbar,
+  .ymap-info-panel,
+  .ymap-location-card,
+  .history-intro,
+  .history-controls,
+  .history-card,
+  .history-article,
+  .yfigure-filter,
+  .yfigure-card,
+  .yfigure-card-content,
+  .yfigure-facts,
+  .yfigure-related,
+  .yfigure-content,
+  .yfigure-profile-main
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .yfigure-card-content,
+  .yfigure-facts,
+  .yfigure-related,
+  .yfigure-profile-main,
+  .history-article
+) :is(h1, h2, h3, h4, strong) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .yfigure-card-content,
+  .yfigure-facts,
+  .yfigure-related,
+  .yfigure-profile-main,
+  .history-article
+) :is(p, li, small, dt, dd) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.yfigure-filter, .history-controls, .ymap-toolbar) :is(input, select) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .ymap-canvas {
+  background: #10191a !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.ymap-governorate, .ymap-district) {
+  fill: #264340 !important;
+  stroke: #86a9a2 !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.ymap-governorate:hover, .ymap-governorate.is-active, .ymap-district:hover) {
+  fill: #356a64 !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.ymap-label, .ymap-map-label) {
+  fill: #f2f7f5 !important;
+  color: #f2f7f5 !important;
+  text-shadow: 0 1px 2px #000;
+}
+
+/* Ranking and statistics: retain their colour identity with readable values. */
+:root[data-ed-theme="dark"] .site-experience .yr-explorer {
+  --yr-ink: var(--c-ink);
+  --yr-muted: var(--c-ink-2);
+  --yr-paper: var(--c-surface);
+  --yr-soft: var(--c-indigo-soft);
+  --yr-line: var(--c-line-2);
+  --yr-teal: var(--c-accent);
+  --yr-indigo: var(--c-indigo);
+  --yr-sand: var(--c-amber);
+  background: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .yr-explorer :is(
+  .yr-controls,
+  .yr-card,
+  .yr-story,
+  .yr-neighbors,
+  .yr-table,
+  .yr-ranking-list,
+  .yr-stat-card,
+  .yr-chart
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .yr-explorer :is(h1, h2, h3, strong, .yr-value) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .yr-explorer :is(p, small, .yr-muted, .yr-description) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .yr-explorer :is(input, select, button[role="combobox"]) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .yr-explorer :is(.yr-sort-note, .yr-context-note, .yr-callout) {
+  background: var(--c-amber-soft) !important;
+  color: var(--c-ink) !important;
+}
+
+/* PDF reader chrome stays dark; the document pages remain paper by design. */
+:root[data-ed-theme="dark"] .site-experience :is(
+  .pdf-reader,
+  .pdf-reader-shell,
+  .reader-toolbar,
+  .pdf-find,
+  .pdf-pagination,
+  .reader-notes,
+  .pdf-reader-footer
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.pdf-find, .reader-toolbar) :is(input, select) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+/* Debates, debate detail, polls and the discussion arena. */
+:root[data-ed-theme="dark"] .site-experience :is(
+  .debates-page,
+  .debate-detail-content,
+  .debate-arena,
+  .arena-page
+) {
+  --debate-ink: var(--c-ink);
+  --debate-muted: var(--c-ink-2);
+  --soft-primary: var(--c-indigo-soft);
+  --line: var(--c-line-2);
+  --arena-ink: var(--c-ink);
+  --arena-muted: var(--c-ink-2);
+  --arena-line: var(--c-line-2);
+  background: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .debate-filters,
+  .debate-card,
+  .debate-panel,
+  .debate-disclosure,
+  .debate-guide-panel,
+  .debate-guide-card,
+  .debate-poll,
+  .debate-summary,
+  .arena-toolbar,
+  .arena-composer,
+  .arena-thread,
+  .arena-post,
+  .arena-comment,
+  .discussion-card,
+  .question-card
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .debate-guide-card > header,
+  .debate-guide-card-header,
+  .debate-poll > header,
+  .debate-summary > header
+) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .debate-disclosure,
+  .debate-guide-panel,
+  .debate-guide-card,
+  .debate-poll,
+  .debate-summary,
+  .arena-post,
+  .arena-comment,
+  .discussion-card,
+  .question-card
+) :is(h2, h3, h4, strong, p, li, small, label, span) {
+  color: inherit !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(.arena-composer, .debate-poll, .debate-filters) :is(input, select, textarea) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .question-card {
+  background: var(--c-amber-soft) !important;
+  color: var(--c-ink) !important;
+}
+
+/* Screenshot audit: exact legacy selectors that still painted light surfaces. */
+:root[data-ed-theme="dark"] .site-experience .products-filter-bar,
+:root[data-ed-theme="dark"] .site-experience .products-category-select {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .products-search,
+  .products-location,
+  .products-category-select,
+  .professionals-search,
+  .professionals-select
+) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink-2) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .products-search,
+  .products-location,
+  .products-category-select,
+  .professionals-search,
+  .professionals-select
+) :is(input, select, span, svg) {
+  color: var(--c-ink-2) !important;
+}
+
+/* University and medical-center detail pages. */
+:root[data-ed-theme="dark"] .site-experience .institution-detail-hero {
+  background:
+    radial-gradient(circle at 84% 12%, rgb(79 209 197 / .16), transparent 35%),
+    linear-gradient(120deg, #10181b, #0b1215 58%, #102421) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-detail-heading :is(h1, p),
+:root[data-ed-theme="dark"] .site-experience .institution-lead {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-detail-body,
+:root[data-ed-theme="dark"] .site-experience .institution-related {
+  background: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-detail-layout :is(
+  .institution-detail-main > section,
+  .institution-contact-panel,
+  .institution-programs article,
+  .institution-related-list article,
+  .institution-related-list > a
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-facts > div {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-detail-layout :is(
+  h1, h2, h3, strong, .institution-action
+) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-detail-layout :is(
+  p, small, .small-muted, .institution-facts span
+) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-action {
+  background: var(--c-surface-2) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-status {
+  background: var(--c-amber-soft) !important;
+  border-color: color-mix(in srgb, var(--c-amber) 45%, transparent) !important;
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-status :is(strong, span, svg) {
+  color: inherit !important;
+}
+
+/* Ranking: all content panels must use the dark palette, not white paper. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-explorer :is(
+  .yr-neighborhood,
+  .yr-time,
+  .yr-full-list,
+  .yr-editorial,
+  .yr-methodology,
+  .yr-coverage,
+  .yr-comparison-values > div,
+  .yr-table-scroll
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-neighbors > li,
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-neighbors > li.is-yemen {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] :is(
+  .yr-neighborhood,
+  .yr-time,
+  .yr-full-list,
+  .yr-editorial,
+  .yr-comparison,
+  .yr-methodology
+) :is(h2, h3, strong, b, th, td) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] :is(
+  .yr-neighborhood,
+  .yr-time,
+  .yr-full-list,
+  .yr-editorial,
+  .yr-comparison,
+  .yr-methodology
+) :is(p, small, span) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] :is(
+  .yr-kicker,
+  .yr-editorial-part h3,
+  .yr-methodology a,
+  .yr-list-heading button
+) {
+  color: var(--c-indigo) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-table-scroll :is(thead, tr.is-yemen),
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-list-heading button {
+  background: var(--c-indigo-soft) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-table-scroll tbody tr:nth-child(even):not(.is-yemen) {
+  background: var(--c-bg-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-value-track {
+  background: var(--c-bg-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-history :is(text) {
+  fill: var(--c-ink-2) !important;
+}
+
+/* Statistics cards and detail panels. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="statistics"] :is(
+  .stats-latest,
+  .stats-catalog,
+  .stat-indicator-grid .saveable-card,
+  .stat-indicator-card,
+  .stat-card-value,
+  .stat-toolbar,
+  .stat-toolbar > label,
+  .domain-accordion > details,
+  .stats-domain-links a,
+  .stat-page-title > strong,
+  .stat-latest,
+  .stat-chart-panel,
+  .stat-facts,
+  .stat-sources,
+  .stat-series-table-scroll,
+  .timeline-controls,
+  .timeline-stage
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="statistics"] :is(
+  .stat-indicator-card,
+  .stat-card-value,
+  .stat-facts,
+  .stat-chart-panel,
+  .stat-sources,
+  .timeline-stage
+) :is(h1, h2, h3, strong, td, th) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="statistics"] :is(
+  .stat-indicator-card,
+  .stat-card-value,
+  .stat-facts,
+  .stat-chart-panel,
+  .stat-sources,
+  .timeline-stage
+) :is(p, small, span, dt, dd) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="statistics"] .stat-series-table tbody tr:nth-child(even) {
+  background: var(--c-bg-2) !important;
+}
+
+/* Atlas controls and legend. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] :is(
+  .ymap-search,
+  .ymap-search-wrap select,
+  .ymap-controls button,
+  .ymap-display-options > summary,
+  .ymap-label-size,
+  .ymap-legend,
+  .ymap-coordinate-note,
+  .ymap-data-note
+) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-legend :is(div, p, span) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-search :is(input, svg),
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-search-wrap select {
+  color: var(--c-ink) !important;
+  background: transparent !important;
+}
+
+/* Figure directory and profile. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] :is(
+  .yfigures-filters,
+  .yfigures-extra-filters,
+  .yfigures-more,
+  .yfigures-results-bar,
+  .figure-profile-facts,
+  .figure-profile-significance,
+  .figure-profile-related,
+  .figure-profile-related-grid > a
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] :is(
+  .yfigures-filters,
+  .yfigures-extra-filters,
+  .yfigures-sort
+) :is(input, select) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] .figure-profile-tags span {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink-2) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] .figure-profile-facts :is(h2, dt, dd, svg) {
+  color: var(--c-ink) !important;
+}
+
+/* Help/privacy navigation: light accent plus white text was unreadable. */
+:root[data-ed-theme="dark"] .site-experience .policy-navigation a {
+  background: var(--c-surface) !important;
+  color: var(--c-ink-2) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .policy-navigation a[aria-current="page"] {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  border-color: var(--c-accent) !important;
+  font-weight: 750;
+}
+
+/*
+ * Dark contrast closure
+ *
+ * A handful of legacy route styles still use literal white/pastel surfaces after
+ * the semantic theme tokens have been applied. Keep these selectors explicit so
+ * that route CSS cannot silently reintroduce low-contrast text.
+ */
+
+/* Atlas: the mobile information drawer and its data cards. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-info-panel {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-info-head {
+  background: linear-gradient(135deg, var(--c-accent-soft), var(--c-surface)) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-info-field,
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-district-list button {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-info-field span,
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-info-panel :is(p, small) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-info-field strong,
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-district-list button :is(span, strong) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="atlas"] .ymap-info-panel footer {
+  background: var(--c-bg-2) !important;
+  color: var(--c-ink-2) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+/* Ranking: scope switch, Yemen marker and the large rank value. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-scope {
+  background: var(--c-bg-2) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-scope button {
+  background: transparent !important;
+  color: var(--c-ink-2) !important;
+  border-color: transparent !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-scope button[aria-pressed="true"] {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  border-color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-rank-number {
+  color: #f8faf9 !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .28);
+}
+
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="ranking"] .yr-you {
+  background: var(--c-accent-soft) !important;
+  color: var(--c-accent) !important;
+  border-color: color-mix(in srgb, var(--c-accent) 45%, transparent) !important;
+}
+
+/* Reader chrome: dark UI around the intentionally paper-coloured document. */
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-reader,
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-toolbar,
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-find,
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-pagination {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-view-area,
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-paper-view,
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-book-viewport {
+  background: var(--c-bg-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-toolbar :is(button, a),
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-find form,
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-pagination :is(button, input) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-toolbar :is(span, svg),
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-find :is(input, button, span, svg),
+:root[data-ed-theme="dark"] .site-experience .interior-page .pdf-pagination :is(label, span, svg) {
+  color: inherit !important;
+}
+
+/* Debate guide: pastel headers and numbered bubbles need their own dark palette. */
+:root[data-ed-theme="dark"] .site-experience .debate-guide-panel {
+  --guide-soft: var(--c-indigo-soft);
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .debate-guide-flow {
+  --guide-color: var(--c-danger);
+  --guide-soft: var(--c-danger-soft);
+}
+
+:root[data-ed-theme="dark"] .site-experience .debate-guide-panel > header {
+  background: var(--guide-soft) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .debate-guide-panel > header :is(h3, p, span) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .debate-guide-icon {
+  background: var(--c-surface) !important;
+  color: var(--guide-color) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .debate-guide-number {
+  background: var(--guide-soft) !important;
+  color: var(--c-ink) !important;
+  border: 1px solid color-mix(in srgb, var(--guide-color) 55%, var(--c-line-2)) !important;
+}
+
+/* Institution and professional recommendations live outside their detail grid. */
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-related,
+  .company-related,
+  .professional-related
+) {
+  background: var(--c-bg) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-related-list > a,
+  .institution-related-list > article,
+  .company-related-grid > a,
+  .professional-related-grid > a
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-related-list > a,
+  .institution-related-list > article,
+  .company-related-grid > a,
+  .professional-related-grid > a
+) :is(h3, strong) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .institution-related-list > a,
+  .institution-related-list > article,
+  .company-related-grid > a,
+  .professional-related-grid > a
+) :is(p, span, small, svg) {
+  color: var(--c-ink-2) !important;
+}
+
+/* Amber call-to-action: use dark ink rather than white on the bright fill. */
+:root[data-ed-theme="dark"] .site-experience .company-website-link {
+  background: var(--c-amber) !important;
+  color: #241700 !important;
+  border-color: var(--c-amber) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .company-website-link :is(span, svg) {
+  color: inherit !important;
+}
+
+/* Debate arena: its late-loaded component stylesheet contains literal paper. */
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .debate-arena {
+  --arena-ink: var(--c-ink);
+  --arena-muted: var(--c-ink-2);
+  --arena-line: var(--c-line-2);
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page :is(
+  .arena-composer,
+  .arena-feed-toolbar,
+  .arena-post,
+  .arena-empty
+) {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+  box-shadow: var(--e-1) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-post[data-kind="question"],
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-post-reply {
+  background: var(--c-surface) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page :is(
+  .arena-compose-heading strong,
+  .arena-post-header strong,
+  .arena-post-body,
+  .arena-heading h2
+) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page :is(
+  .arena-compose-heading small,
+  .arena-results-note,
+  .arena-feed-tools label,
+  .arena-post-header time,
+  .arena-post-header strong small,
+  .arena-character-count,
+  .arena-empty p
+) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-compose-switch {
+  background: var(--c-bg-2) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-compose-switch button {
+  background: transparent !important;
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-compose-switch button[aria-pressed="true"],
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-compose-switch button:last-child[aria-pressed="true"] {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  border-color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-composer .debate-login-note {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink-2) !important;
+  border: 1px solid var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-composer .debate-login-note a {
+  color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page :is(
+  .arena-compose-form textarea,
+  .arena-compose-form select,
+  .arena-feed-tools select
+) {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-feed-tools {
+  border-color: var(--c-line) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-filters button {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-filters button[aria-pressed="true"] {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  border-color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-filter-count {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-filters button[aria-pressed="true"] .arena-filter-count {
+  background: #071412 !important;
+  color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-refresh {
+  background: var(--c-surface-2) !important;
+  color: var(--c-accent) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-post-kind {
+  background: var(--c-accent-soft) !important;
+  color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-post-kind.question,
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-question-context > span {
+  background: var(--c-amber-soft) !important;
+  color: var(--c-amber) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-post-status {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink-2) !important;
+  border: 1px solid var(--c-line) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience.visual-foundation .interior-page .arena-post-actions {
+  border-color: var(--c-line) !important;
+}
+
+/* Directory zero-results state was the final literal white public card. */
+:root[data-ed-theme="dark"] .site-experience .institution-empty {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-empty :is(h2, p) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .institution-empty svg {
+  color: var(--c-accent) !important;
+}
+
+/* Admin workspace: late legacy styles still paint page visibility cards and
+   map selects as light paper. Keep every control on the dark surface scale. */
+:root[data-ed-theme="dark"] .site-experience .admin-page .page-visibility-panel {
+  background: var(--c-surface) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+  border-top-color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .page-visibility-panel header p {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .page-visibility-item {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .page-visibility-item.is-hidden {
+  background: var(--c-violet-soft) !important;
+  border-color: color-mix(in srgb, var(--c-violet) 52%, var(--c-line-2)) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .page-visibility-item :is(strong, svg) {
+  color: var(--c-ink) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .page-visibility-item :is(small, span) {
+  color: var(--c-ink-2) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .page-visibility-item .btn-outline {
+  background: var(--c-surface) !important;
+  color: var(--c-accent) !important;
+  border-color: var(--c-control) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .map-admin-panel > :is(.form-row, .debate-field-label) select,
+:root[data-ed-theme="dark"] .site-experience .admin-page .map-admin-panel > :is(.form-row, .debate-field-label) option {
+  background: var(--c-surface-2) !important;
+  color: var(--c-ink) !important;
+  -webkit-text-fill-color: var(--c-ink) !important;
+  border-color: var(--c-control) !important;
+  color-scheme: dark;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .map-admin-panel select:disabled {
+  opacity: .72;
+}
+
+/* Primary editor actions use a bright teal fill. Dark ink is the accessible
+   foreground on that fill, including icons and the disabled save state. */
+:root[data-ed-theme="dark"] .site-experience .admin-page .editor-actions .btn-primary {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  border-color: var(--c-accent) !important;
+  -webkit-text-fill-color: #071412 !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .editor-actions .btn-primary :is(span, svg) {
+  color: inherit !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience .admin-page .editor-actions .btn-primary:disabled {
+  opacity: .68;
+}
+
+/* Bright teal submit actions require dark ink in the dark theme. */
+:root[data-ed-theme="dark"] .site-experience :is(
+  .contact-form,
+  .contribution-form,
+  .arena-compose-form
+) .btn-primary {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  border-color: var(--c-accent) !important;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .contact-form,
+  .contribution-form,
+  .arena-compose-form
+) .btn-primary:disabled {
+  opacity: .62;
+}
+
+:root[data-ed-theme="dark"] .site-experience :is(
+  .contact-form,
+  .contribution-form,
+  .arena-compose-form
+) .btn-primary :is(span, svg) {
+  color: inherit !important;
+}
+
+/* Keep the fixed phone navigation from covering the final action or form. */
+@media (max-width: 760px) {
+  body:has(.ed-tabbar) .site-experience {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+  .site-experience.site-experience .page-intro {
+    padding-block: 34px 44px;
+  }
+  .site-experience.site-experience .page-intro h1 {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+  .site-experience.site-experience .page-intro > .container > p {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  .site-experience,
+  .ed-header::before,
+  .ed-theme-toggle {
+    transition: background-color var(--m-base) var(--m-ease), color var(--m-base) var(--m-ease), border-color var(--m-base) var(--m-ease);
+  }
+}

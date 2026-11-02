@@ -184,3 +184,35 @@
  .streakNumber strong{font-size:33px}
  .titleRow>p{font-size:11px}
 }
+
+/* Dark theme: keep the learning dashboard legible without changing its hierarchy. */
+:global(:root[data-ed-theme="dark"]) .dashboard{
+ background:radial-gradient(circle at 15% 0%,color-mix(in srgb,var(--c-accent) 10%,transparent),transparent 34%),var(--c-bg);
+ color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .notice,
+:global(:root[data-ed-theme="dark"]) .staffNotice,
+:global(:root[data-ed-theme="dark"]) .stat,
+:global(:root[data-ed-theme="dark"]) .course,
+:global(:root[data-ed-theme="dark"]) .habitCard,
+:global(:root[data-ed-theme="dark"]) .reviewItem,
+:global(:root[data-ed-theme="dark"]) .reviewEmpty,
+:global(:root[data-ed-theme="dark"]) .achievement,
+:global(:root[data-ed-theme="dark"]) .leaderboardWrap{
+ background:var(--c-surface);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .resume{
+ background:linear-gradient(135deg,color-mix(in srgb,var(--c-amber) 16%,var(--c-surface)),var(--c-surface));
+ border-color:color-mix(in srgb,var(--c-amber) 42%,var(--c-line))
+}
+:global(:root[data-ed-theme="dark"]) .levelPill,
+:global(:root[data-ed-theme="dark"]) .leaderboardEmpty,
+:global(:root[data-ed-theme="dark"]) .participationForm input{
+ background:var(--c-surface-2);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .dashboard h2,
+:global(:root[data-ed-theme="dark"]) .dashboard h3,
+:global(:root[data-ed-theme="dark"]) .dashboard strong{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .dashboard p,
+:global(:root[data-ed-theme="dark"]) .dashboard small,
+:global(:root[data-ed-theme="dark"]) .dashboard .stat>span{color:var(--c-ink-2)}

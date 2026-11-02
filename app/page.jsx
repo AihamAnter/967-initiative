@@ -2,6 +2,7 @@ import NextLink from 'next/link';
 import {ChevronDown, Compass, Handshake, MapPin, MessagesSquare, Search} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
 import HomeSmartStart from '@/components/home/HomeSmartStart';
+import MobileFold from '@/components/mobile/MobileFold';
 import Resilient from '@/components/front/Resilient';
 import {LeadTile, IssueTile, DebateTile, NumberTile, Invitation, SchoolBlock, KnowledgeBento, GamesArcade, DiscoverRail, DataCard, CompanyCard, ProfessionalCard} from '@/components/front/FrontSections';
 import {utcDay, dailyGameUrl, dailyGameForDate, DAILY_GAME_TITLES} from '@/lib/dailyGame';
@@ -68,7 +69,7 @@ export default async function Home() {
         {visible(leadIsDebate ? 'debates' : 'works') && <div className={styles.slotLead}><Resilient name="home-lead" label="تعذّر عرض القصة الرئيسية الآن.">{leadIsDebate ? (content.debate ? <DebateTile item={content.debate}/> : <Invitation kind="debate" failed={debates.failed}/>) : (content.work ? <LeadTile item={content.work}/> : <Invitation kind="video" failed={works.failed}/>)}</Resilient></div>}
         {visible('magazine') && <div className={styles.slotIssue}><Resilient name="home-issue" quiet>{content.issue ? <IssueTile issue={content.issue}/> : <Invitation kind="issue" failed={issues.failed}/>}</Resilient></div>}
         {visible('statistics') && <div className={styles.slotNumber}><Resilient name="home-number" quiet>{featuredNumber ? <NumberTile indicator={featuredNumber}/> : <Invitation kind="indicator" failed={indicators.failed}/>}</Resilient></div>}
-        {visible(leadIsDebate ? 'works' : 'debates') && <div className={styles.slotSecond}><Resilient name="home-second" quiet>{leadIsDebate ? (content.work ? <LeadTile item={content.work}/> : <Invitation kind="video" failed={works.failed}/>) : (content.debate ? <DebateTile item={content.debate}/> : <Invitation kind="debate" failed={debates.failed}/>)}</Resilient></div>}
+        {visible(leadIsDebate ? 'works' : 'debates') && <MobileFold title="عرض مختارات إضافية" className={styles.slotSecond}><Resilient name="home-second" quiet>{leadIsDebate ? (content.work ? <LeadTile item={content.work}/> : <Invitation kind="video" failed={works.failed}/>) : (content.debate ? <DebateTile item={content.debate}/> : <Invitation kind="debate" failed={debates.failed}/>)}</Resilient></MobileFold>}
       </div>
     </div></section>}
 
@@ -84,6 +85,7 @@ export default async function Home() {
     {/* 6 · ألعاب 967 */}
     {visible('games')&&<section id="home-games" className={`${styles.section} ed-reveal`} aria-labelledby="home-games-title"><div className="ed-wrap"><GamesArcade dailyHref={dailyGameUrl(today)} dailyTitle={DAILY_GAME_TITLES[dailyGameForDate(today)]}/></div></section>}
 
+    <MobileFold title="المزيد من طرق الاستكشاف" className={styles.homeExtras}>
     {/* 7 · فضولك، يحدد البداية. */}
     <section className={`${styles.section} ed-reveal`} aria-labelledby="explore-title"><div className="ed-wrap">
       <div className="ed-section-head"><div><span className="ed-kicker">ابدأ من فضولك</span><h2 id="explore-title">فضولك، يحدد البداية.</h2></div><Link href="/search" className="ed-link"><Search size={16} aria-hidden="true"/> ابحث في كل المنصة</Link></div>
@@ -110,6 +112,7 @@ export default async function Home() {
         {visible('atlas')&&<Link href="/yemen-map" className={styles.atlas}><span className={styles.atlasMap} aria-hidden="true"><MapPin size={22}/></span><span className={styles.atlasText}>وكل مكان، له حكاية.<strong>استكشف محافظات اليمن وأماكنه وشخصياته.</strong></span><span aria-hidden="true">←</span></Link>}
       </div>
     </div></section>}
+    </MobileFold>
 
     {/* 10 · لديك حكاية، معلومة، أو فكرة؟ نسمعك. */}
     {visible('contribute')&&<section className={`${styles.section} ed-reveal`} id="contact" aria-labelledby="contact-title"><div className="ed-wrap"><div className={styles.invite}>

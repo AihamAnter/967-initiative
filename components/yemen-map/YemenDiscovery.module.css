@@ -28,6 +28,15 @@
 .governorateNumber{display:inline-grid;place-items:center;flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--knowledge-soft,#e5f3ed);color:var(--knowledge-strong,#195848);font-size:11px;font-variant-numeric:tabular-nums}
 .governorateGrid a>svg{flex-shrink:0;color:var(--knowledge-accent,#287463)}
 .governorateGrid a:focus-visible{outline:3px solid var(--knowledge-accent,#287463);outline-offset:3px}
+
+:global(:root[data-ed-theme="dark"]) .exploreChoices a{background:linear-gradient(100deg,var(--c-accent-soft),var(--c-surface-2));border-color:var(--c-line-2);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .exploreChoices strong{color:var(--c-accent)}
+:global(:root[data-ed-theme="dark"]) .exploreChoices span,:global(:root[data-ed-theme="dark"]) .governorateCatalog header p{color:var(--c-ink-2)}
+:global(:root[data-ed-theme="dark"]) .governorateCatalog{border-color:var(--c-line-2)}
+:global(:root[data-ed-theme="dark"]) .governorateCatalog h2{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .governorateGrid a{background:var(--c-surface);border-color:var(--c-line-2);border-inline-start-color:var(--c-accent);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .governorateNumber{background:var(--c-accent-soft);color:var(--c-accent)}
+:global(:root[data-ed-theme="dark"]) .governorateGrid a>svg{color:var(--c-accent)}
 @media(hover:hover){.governorateGrid a:hover{border-color:var(--knowledge-accent,#287463);background:var(--knowledge-soft,#e5f3ed)}}
 @media(max-width:650px){.governorateGrid a{min-height:62px;padding:10px 9px;gap:6px}.governorateNumber{width:24px;height:24px;font-size:10px}}
 @media(prefers-reduced-motion:reduce){.governorateGrid a{transition:none}}

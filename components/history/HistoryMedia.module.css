@@ -18,6 +18,6 @@
 .spotlight{margin:0;flex:0 0 235px;max-width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
 .spotlight img{width:235px;height:147px;object-fit:cover}
 .spotlight figcaption{font-size:10px;padding:7px 10px;color:var(--muted)}
-.spotlight figcaption a{color:var(--red2)}
+.spotlight figcaption a{color:var(--red2);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 @media(max-width:700px){.galleryGrid{grid-template-columns:1fr}.photoLink img{height:225px}.spotlight{width:100%}.spotlight img{width:100%;height:190px}}
 @media(prefers-reduced-motion:reduce){.photoLink img{transition:none}.photoLink:hover img{transform:none}}

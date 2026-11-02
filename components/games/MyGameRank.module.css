@@ -6,3 +6,11 @@
 .rank a{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:#185c60;margin-top:12px}
 .rank a:hover{text-decoration:underline}
 @media(max-width:640px){.stats{grid-template-columns:auto 1fr;gap:9px 13px}.rank{padding:17px}}
+
+:global(:root[data-ed-theme="dark"]) .rank{border-color:var(--c-line-2);background:linear-gradient(120deg,var(--c-surface),var(--c-surface-2));color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .title h3{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .title p,
+:global(:root[data-ed-theme="dark"]) .stats span,
+:global(:root[data-ed-theme="dark"]) .noRank{color:var(--c-ink-2)}
+:global(:root[data-ed-theme="dark"]) .stats strong,
+:global(:root[data-ed-theme="dark"]) .rank a{color:var(--c-accent)}

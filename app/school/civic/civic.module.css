@@ -90,3 +90,27 @@
 .exerciseProgress{margin:0;color:#235f63;font-size:12px;font-weight:750}
 .confirmButton{font:inherit;display:inline-flex;align-items:center;gap:9px;width:max-content;max-width:100%;cursor:pointer;border-radius:10px;background:#1d6c5f;color:#fff;border:0;padding:11px 17px;font-size:13px;font-weight:800}
 .confirmButton:focus-visible{outline:3px solid #2e8193;outline-offset:3px}
+
+/* Dark theme for civic course cards and neutral simulation controls. */
+:global(:root[data-ed-theme="dark"]) .card,
+:global(:root[data-ed-theme="dark"]) .note,
+:global(:root[data-ed-theme="dark"]) .lab,
+:global(:root[data-ed-theme="dark"]) .results>div,
+:global(:root[data-ed-theme="dark"]) .numberField,
+:global(:root[data-ed-theme="dark"]) .exerciseMetric,
+:global(:root[data-ed-theme="dark"]) .observationPanel{
+ background:var(--c-surface);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .predictions button,
+:global(:root[data-ed-theme="dark"]) .exerciseChoices button,
+:global(:root[data-ed-theme="dark"]) .pathGrid button,
+:global(:root[data-ed-theme="dark"]) .sequencePending{
+ background:var(--c-surface-2);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .card h3,
+:global(:root[data-ed-theme="dark"]) .lab h2,
+:global(:root[data-ed-theme="dark"]) .lab h3,
+:global(:root[data-ed-theme="dark"]) .lab strong{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .card p,
+:global(:root[data-ed-theme="dark"]) .lab p,
+:global(:root[data-ed-theme="dark"]) .lab small{color:var(--c-ink-2)}

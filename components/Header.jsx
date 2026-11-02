@@ -110,6 +110,8 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   }, []);
   const active = href => href !== '/' && !href.includes('#') && (path === href || path.startsWith(href + '/'));
   const sectionActive = section => section.links.some(([href]) => active(href));
+  const mobileSectionActive = id => sections.some(section => section.id === id && sectionActive(section));
+  const mobileMenuSection = sections.find(section => !['media','knowledge'].includes(section.id) && sectionActive(section));
   const onlyOneOpen = event => {if (event.currentTarget.open) header.current?.querySelectorAll('.ed-nav-group[open]').forEach(item => {if (item !== event.currentTarget) item.removeAttribute('open');});};
   const account = signedIn === true ? (canEdit ? utilityLinks.editor : utilityLinks.account) : signedIn === false ? utilityLinks.login : null;
   const savedVisible = isVisible(utilityLinks.saved[0]);
@@ -145,7 +147,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         </div>
       </nav>
       <div className="ed-tools">
-        {(path==='/' || path==='/works' || path.startsWith('/works/') || path==='/yemen-in-numbers' || path.startsWith('/yemen-in-numbers/indicator/')) && <ThemeToggle/>}
+        <ThemeToggle/>
         <Link href="/search" className="ed-tool ed-tool-icon" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
         {account && <Link href={account[0]} className="ed-tool ed-tool-text ed-wide-only" aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
@@ -156,10 +158,10 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
     {/* Phones: a thumb-reach tab bar for the most used destinations and the menu. */}
     {!immersive && <nav className="ed-tabbar" aria-label="اختصارات سريعة">
       <Link href="/" aria-current={path === '/' ? 'page' : undefined} onClick={close}><House size={21} aria-hidden="true"/><span>الرئيسية</span></Link>
-      {isVisible('/works') && <Link href="/works" aria-current={active('/works') ? 'page' : undefined} onClick={close}><PlayCircle size={21} aria-hidden="true"/><span>الإعلام</span></Link>}
-      {isVisible('/yemen-in-numbers') && <Link href="/yemen-in-numbers" aria-current={active('/yemen-in-numbers') ? 'page' : undefined} onClick={close}><Compass size={21} aria-hidden="true"/><span>المعرفة</span></Link>}
+      {isVisible('/works') && <Link href="/works" aria-current={mobileSectionActive('media') ? 'page' : undefined} onClick={close}><PlayCircle size={21} aria-hidden="true"/><span>الإعلام</span></Link>}
+      {isVisible('/yemen-in-numbers') && <Link href="/yemen-in-numbers" aria-current={mobileSectionActive('knowledge') ? 'page' : undefined} onClick={close}><Compass size={21} aria-hidden="true"/><span>المعرفة</span></Link>}
       <Link href="/search" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={21} aria-hidden="true"/><span>البحث</span></Link>
-      <button type="button" aria-controls="main-navigation" aria-expanded={open} onClick={toggleMenu}>{open ? <X size={21} aria-hidden="true"/> : <Menu size={21} aria-hidden="true"/>}<span>{open ? 'إغلاق' : 'القائمة'}</span></button>
+      <button type="button" data-current={mobileMenuSection ? true : undefined} aria-label={open ? 'إغلاق القائمة' : mobileMenuSection ? 'فتح القائمة، القسم الحالي: '+mobileMenuSection.label : 'فتح القائمة'} aria-controls="main-navigation" aria-expanded={open} onClick={toggleMenu}>{open ? <X size={21} aria-hidden="true"/> : <Menu size={21} aria-hidden="true"/>}<span>{open ? 'إغلاق' : mobileMenuSection?.label || 'القائمة'}</span></button>
     </nav>}
   </header>;
 }

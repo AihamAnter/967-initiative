@@ -1,7 +1,7 @@
 .fold{min-width:0}.trigger{display:none}.content{min-width:0}
 @media(max-width:700px){
  .fold{min-width:0}
- .trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:48px;padding:12px 15px;border:1px solid #c5d5cc;border-radius:10px;background:#fff;color:#1e5c50;text-align:start;font:inherit;font-size:14px;font-weight:750;cursor:pointer}
+ .trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:48px;padding:12px 15px;border:1px solid var(--c-line-2,#c5d5cc);border-radius:10px;background:var(--c-surface,#fff);color:var(--c-ink,#1e5c50);text-align:start;font:inherit;font-size:14px;font-weight:750;cursor:pointer}
  .trigger svg{flex-shrink:0;transition:transform .18s ease}
  .open>.trigger svg{transform:rotate(180deg)}
  .trigger:focus-visible{outline:3px solid #216f8d;outline-offset:3px}

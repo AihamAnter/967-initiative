@@ -110,7 +110,7 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search',memb
    {user&&<Link className={styles.accountLink} href="/account">حسابي <ArrowLeft size={16} aria-hidden="true"/></Link>}
   </div>
 
-  {!ready?<div className={styles.grid} aria-busy="true" aria-label="جارٍ التحقق من حالة الحساب">{[0,1,2].map(index=><div key={index} className={styles.skeleton} aria-hidden="true"/>)}</div>
+  {!ready?<div className={styles.grid} role="status" aria-busy="true"><span className="sr-only">جارٍ التحقق من حالة الحساب</span>{[0,1,2].map(index=><div key={index} className={styles.skeleton} aria-hidden="true"/>)}</div>
   :user?<div className={styles.grid}>
    {showSchool&&<article className={styles.card}>
     <span className={styles.icon} data-kind="school"><GraduationCap size={23} aria-hidden="true"/></span>

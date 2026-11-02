@@ -158,4 +158,32 @@
 .referenceLinks{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 @media(max-width:540px){.fullVerseTarget{padding:11px}.fullVerseTarget p{font-size:18px;line-height:2.15}}
 
+/* Dark theme for the prosody journey and its exercise surfaces. */
+:global(:root[data-ed-theme="dark"]) .journey{background:var(--c-bg);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .station,
+:global(:root[data-ed-theme="dark"]) .stationDone,
+:global(:root[data-ed-theme="dark"]) .stationLocked,
+:global(:root[data-ed-theme="dark"]) .lessonStudy>section,
+:global(:root[data-ed-theme="dark"]) .question,
+:global(:root[data-ed-theme="dark"]) .reviewGood,
+:global(:root[data-ed-theme="dark"]) .reviewBad{
+ background:var(--c-surface);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .patternBuilder>span,
+:global(:root[data-ed-theme="dark"]) .patternKeys button,
+:global(:root[data-ed-theme="dark"]) .footBuilder>span,
+:global(:root[data-ed-theme="dark"]) .footKeys button,
+:global(:root[data-ed-theme="dark"]) .questionExample,
+:global(:root[data-ed-theme="dark"]) .verseTarget,
+:global(:root[data-ed-theme="dark"]) .fullVerseTarget,
+:global(:root[data-ed-theme="dark"]) .footBuilder{
+ background:var(--c-surface-2);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .journey h2,
+:global(:root[data-ed-theme="dark"]) .journey h3,
+:global(:root[data-ed-theme="dark"]) .journey strong{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .journey p,
+:global(:root[data-ed-theme="dark"]) .journey small,
+:global(:root[data-ed-theme="dark"]) .sectionIntro>p{color:var(--c-ink-2)}
+
 .draftStatus{font-size:12px;color:#52796a;margin:12px 0;line-height:1.6}

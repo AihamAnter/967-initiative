@@ -54,3 +54,30 @@
 .sources{border-color:var(--knowledge-edge,#bcdcd1);background:var(--knowledge-soft-alt,#ebf5f8)}
 .figureLink{border-color:var(--knowledge-accent,#287463);background:var(--knowledge-soft,#e5f3ed);color:var(--knowledge-strong,#195848)}
 @media(max-width:640px){.section{padding-inline-start:12px}.facts{gap:9px}.facts>div{padding:12px}}
+
+/* Atlas dossier dark theme: replace light-only cards while retaining map accents. */
+:global(:root[data-ed-theme="dark"]) .page{color:var(--c-ink);background:var(--c-bg)}
+:global(:root[data-ed-theme="dark"]) .hero{
+ background:linear-gradient(115deg,var(--c-surface),color-mix(in srgb,var(--c-accent) 9%,var(--c-bg)));
+ border-color:var(--c-line)
+}
+:global(:root[data-ed-theme="dark"]) .facts>div,
+:global(:root[data-ed-theme="dark"]) .navigation,
+:global(:root[data-ed-theme="dark"]) .districts,
+:global(:root[data-ed-theme="dark"]) .sources{
+ background:var(--c-surface);border-color:var(--c-line);color:var(--c-ink);box-shadow:none
+}
+:global(:root[data-ed-theme="dark"]) .districts a,
+:global(:root[data-ed-theme="dark"]) .figureLink{
+ background:var(--c-surface-2);border-color:var(--c-line);color:var(--c-accent)
+}
+:global(:root[data-ed-theme="dark"]) .hero h1,
+:global(:root[data-ed-theme="dark"]) .kicker,
+:global(:root[data-ed-theme="dark"]) .facts strong,
+:global(:root[data-ed-theme="dark"]) .section h2,
+:global(:root[data-ed-theme="dark"]) .navigation h2,
+:global(:root[data-ed-theme="dark"]) .districts h2{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .hero p,
+:global(:root[data-ed-theme="dark"]) .facts span,
+:global(:root[data-ed-theme="dark"]) .section p,
+:global(:root[data-ed-theme="dark"]) .districts p{color:var(--c-ink-2)}

@@ -56,7 +56,7 @@ export default async function GamesPage(){
     <div className={styles.selectGrid} aria-label="جميع ألعاب 967 التسع">
      {games.map(game=>{
       const Icon=game.icon;
-      return <Link href={game.href} key={game.id} className={[styles.selectTile,styles['tile_'+game.id]].join(' ')} aria-label={'العب '+game.title}>
+      return <Link href={game.href} key={game.id} className={[styles.selectTile,styles['tile_'+game.id]].join(' ')}>
        <div className={styles.tileTop}>
         <span className={styles.tileSerial} dir="ltr">{game.number} <span>/ 09</span></span>
         <span className={styles.tileAvailable}><span aria-hidden="true"/> متاحة للعب</span>

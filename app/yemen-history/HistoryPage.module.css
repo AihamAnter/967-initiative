@@ -16,5 +16,15 @@
 .locationGrid a{position:relative;min-width:0;gap:8px;border-color:var(--knowledge-edge,#bcd7ca);border-inline-start:4px solid var(--knowledge-accent,#25645f);background:#fff;box-shadow:0 4px 15px #143c3110}
 .locationGrid a strong{color:var(--knowledge-strong,#194d49)}
 .locationGrid a:focus-visible,.related a:focus-visible{outline:3px solid var(--knowledge-accent,#25645f);outline-offset:2px}
+
+:global(:root[data-ed-theme="dark"]) .articlePage{--surface:var(--c-surface);--bg:var(--c-bg);--text:var(--c-ink);--muted:var(--c-ink-2);--line:var(--c-line-2);background:var(--c-bg);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .articleHero{background:linear-gradient(115deg,#10191d,#0c2322);border-color:var(--c-line-2)}
+:global(:root[data-ed-theme="dark"]) .articleHero h1{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .articleHero .articleMeta span{background:var(--c-surface-2);border-color:var(--c-line-2);color:var(--c-ink-2)}
+:global(:root[data-ed-theme="dark"]) .articleAside,:global(:root[data-ed-theme="dark"]) .warning,:global(:root[data-ed-theme="dark"]) .geoNote{background:var(--c-surface);border-color:var(--c-line-2);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .articleAside h2{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .related a,:global(:root[data-ed-theme="dark"]) .locationGrid a{background:var(--c-surface);border-color:var(--c-line-2);color:var(--c-ink);box-shadow:var(--e-1)}
+:global(:root[data-ed-theme="dark"]) .locations{background:linear-gradient(180deg,var(--c-bg-2),var(--c-bg));border-color:var(--c-line)}
+:global(:root[data-ed-theme="dark"]) .locationGrid a strong{color:var(--c-ink)}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.locationGrid a:hover,.related a:hover{border-color:var(--knowledge-accent,#25645f);box-shadow:0 8px 22px #143c3118}}
 @media(max-width:550px){.articleMeta span{padding:8px 10px}.articleAside{padding:18px}.locationGrid a{padding:16px}}

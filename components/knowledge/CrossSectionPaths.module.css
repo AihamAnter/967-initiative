@@ -14,3 +14,12 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.card:hover{border-color:#448577;box-shadow:0 3px 12px #132e2620}}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.section{padding:17px;margin:27px 0}.card{padding:13px}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}}
+
+:global(:root[data-ed-theme="dark"]) .section{background:var(--c-surface);border-color:var(--c-line-2);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .heading>span{color:var(--c-accent)}
+:global(:root[data-ed-theme="dark"]) .heading h2{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .heading p{color:var(--c-ink-2)}
+:global(:root[data-ed-theme="dark"]) .card{background:var(--c-surface-2);border-color:var(--c-line-2);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .icon{background:var(--c-accent-soft);color:var(--c-accent)}
+:global(:root[data-ed-theme="dark"]) .content small,:global(:root[data-ed-theme="dark"]) .arrow{color:var(--c-accent)}
+:global(:root[data-ed-theme="dark"]) .content>span{color:var(--c-ink-2)}

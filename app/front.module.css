@@ -277,6 +277,7 @@
 }
 /* ---------- Phone ---------- */
 @media (max-width: 760px) {
+  .front { --s-section: 40px; }
   .hero { padding-bottom: var(--s-8); }
   .heroTitle { max-width: none; }
   .start { margin-top: 0; }
@@ -302,4 +303,7 @@
   .companyMedia { aspect-ratio: 16 / 9; }
   .atlas { min-height: 0; }
   .about { grid-template-columns: minmax(0, 1fr); }
+  .homeExtras { margin-top: var(--s-section); }
+  .homeExtras > button { width: calc(100% - (var(--s-gutter) * 2)); max-width: var(--w-page); margin-inline: auto; background: var(--c-surface); border-color: var(--c-line-2); color: var(--c-ink); box-shadow: var(--e-1); }
+  .homeExtras > div > .section:first-child { padding-top: var(--s-4); }
 }

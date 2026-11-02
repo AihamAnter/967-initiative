@@ -288,3 +288,51 @@
 .scienceObservationChoices button:focus-visible{outline:3px solid #25796e;outline-offset:2px}
 .scienceObservationChoices button[aria-pressed=true]{background:#206b57;color:#fff;border-color:#206b57}
 @media(max-width:540px){.scienceObservationChoices{display:grid;grid-template-columns:1fr 1fr}.scienceObservationChoices button{min-width:0;padding:10px 8px}}
+
+/* Dark theme for authoring, lessons and interactive labs. */
+:global(:root[data-ed-theme="dark"]) .root{background:var(--c-bg);color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .tabs button,
+:global(:root[data-ed-theme="dark"]) .sidebar,
+:global(:root[data-ed-theme="dark"]) .editor,
+:global(:root[data-ed-theme="dark"]) .report,
+:global(:root[data-ed-theme="dark"]) .lessonCard,
+:global(:root[data-ed-theme="dark"]) .guidedLesson,
+:global(:root[data-ed-theme="dark"]) .scriptHistorical,
+:global(:root[data-ed-theme="dark"]) .learningIllustration,
+:global(:root[data-ed-theme="dark"]) .learningSteps li,
+:global(:root[data-ed-theme="dark"]) .scienceObservation,
+:global(:root[data-ed-theme="dark"]) .scienceSlider,
+:global(:root[data-ed-theme="dark"]) .scienceMetrics>div{
+ background:var(--c-surface);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .sidebar>button,
+:global(:root[data-ed-theme="dark"]) .questionRows button,
+:global(:root[data-ed-theme="dark"]) .editor input,
+:global(:root[data-ed-theme="dark"]) .editor textarea,
+:global(:root[data-ed-theme="dark"]) .editor select,
+:global(:root[data-ed-theme="dark"]) .practiceSample,
+:global(:root[data-ed-theme="dark"]) .practiceTools button,
+:global(:root[data-ed-theme="dark"]) .orderUndo,
+:global(:root[data-ed-theme="dark"]) .typeExercise input,
+:global(:root[data-ed-theme="dark"]) .timelineStage>a,
+:global(:root[data-ed-theme="dark"]) .guidedSecondary,
+:global(:root[data-ed-theme="dark"]) .courseAuthActions a+a,
+:global(:root[data-ed-theme="dark"]) .practiceScriptPicker select,
+:global(:root[data-ed-theme="dark"]) .labLabel input,
+:global(:root[data-ed-theme="dark"]) .morseTapControls button,
+:global(:root[data-ed-theme="dark"]) .sciencePredictionChoices button,
+:global(:root[data-ed-theme="dark"]) .scienceRevise,
+:global(:root[data-ed-theme="dark"]) .learningTerm,
+:global(:root[data-ed-theme="dark"]) .scienceObservationChoices button{
+ background:var(--c-surface-2);border-color:var(--c-line);color:var(--c-ink)
+}
+:global(:root[data-ed-theme="dark"]) .practiceCanvas{
+ background-color:var(--c-surface-2);border-color:var(--c-line);
+ background-image:linear-gradient(to bottom,transparent 0,transparent 31%,var(--c-line) 31.5%,transparent 32%,transparent 64%,var(--c-line) 64.5%,transparent 65%,transparent 96%,var(--c-line) 96.5%)
+}
+:global(:root[data-ed-theme="dark"]) .root h2,
+:global(:root[data-ed-theme="dark"]) .root h3,
+:global(:root[data-ed-theme="dark"]) .root strong{color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .root p,
+:global(:root[data-ed-theme="dark"]) .root small,
+:global(:root[data-ed-theme="dark"]) .root label{color:var(--c-ink-2)}
