@@ -246,3 +246,9 @@
 :global(:root[data-ed-theme="dark"]) .staffNotice :is(strong, p, span, svg) {
   color: var(--c-ink) !important;
 }
+
+
+:global(:root[data-ed-theme="dark"]) .referenceLinks a,
+:global(:root[data-ed-theme="dark"]) .lessonHeading > a {
+  color: var(--c-accent) !important;
+}

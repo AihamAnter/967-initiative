@@ -1689,3 +1689,27 @@ body,
 :root[data-ed-theme="dark"] .site-experience [data-knowledge-area="history"] a[class*="readButton"] {
   color: #071412 !important;
 }
+
+
+/* Dark contrast follow-up: active search, debate empty-state and guide badges.
+   Preserve debate red/blue meaning; change foreground rather than its identity. */
+:root[data-ed-theme="dark"] .site-experience .search-filters a[aria-current="page"] {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  border-color: var(--c-accent) !important;
+}
+:root[data-ed-theme="dark"] .site-experience.site-experience .page-intro .debate-intro-actions a.btn.btn-primary {
+  background: var(--c-accent) !important;
+  color: #071412 !important;
+  -webkit-text-fill-color: #071412 !important;
+}
+:root[data-ed-theme="dark"] .site-experience .debate-empty h3 {
+  color: var(--c-ink) !important;
+}
+:root[data-ed-theme="dark"] .site-experience .debate-guide-total,
+:root[data-ed-theme="dark"] .site-experience .debate-guide-total :is(span, strong) {
+  color: #071412 !important;
+}
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] .yfigures-extra-filters > summary {
+  color: var(--c-accent) !important;
+}
