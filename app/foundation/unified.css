@@ -1713,3 +1713,15 @@ body,
 :root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] .yfigures-extra-filters > summary {
   color: var(--c-accent) !important;
 }
+
+/* Legacy red-action class maps to the bright accent in dark mode: pair with ink. */
+:root[data-ed-theme="dark"] .site-experience :is(a.btn.btn-red,button.btn.btn-red){
+  background:var(--c-accent) !important;
+  border-color:var(--c-accent) !important;
+  color:#071412 !important;
+  -webkit-text-fill-color:#071412 !important;
+}
+:root[data-ed-theme="dark"] .site-experience :is(a.btn.btn-red,button.btn.btn-red):hover{
+  background:var(--c-accent-strong) !important;
+  border-color:var(--c-accent-strong) !important;
+}
