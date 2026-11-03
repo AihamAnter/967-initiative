@@ -27,6 +27,7 @@ export default function ManagementUsersDashboard(){
  const [directory,setDirectory]=useState(null);
  const [loading,setLoading]=useState(false);
  const [error,setError]=useState('');
+ const [denied,setDenied]=useState(false);
  const [notice,setNotice]=useState('');
  const [modal,setModal]=useState(null);
  const [duration,setDuration]=useState('24h');
@@ -44,7 +45,7 @@ export default function ManagementUsersDashboard(){
    ...(body?{'Content-Type':'application/json'}:{})
   },...(body?{body:JSON.stringify(body)}:{}),signal,cache:'no-store'});
   const result=await response.json();
-  if(!response.ok)throw Error(result.error||'تعذر تنفيذ الطلب.');
+  if(!response.ok)throw Object.assign(Error(result.error||'تعذر تنفيذ الطلب.'),{status:response.status});
   return result;
  },[]);
 
@@ -53,16 +54,16 @@ export default function ManagementUsersDashboard(){
  }).toString(),[filters]);
 
  useEffect(()=>{
-  if(!ready||!user){setDirectory(null);setLoading(false);return;}
+  if(!ready||!user){setDirectory(null);setDenied(false);setLoading(false);return;}
   let live=true;
   const controller=new AbortController();
   const timer=setTimeout(async()=>{
    setLoading(true);setError('');
    try{
     const result=await request('/api/admin/users?'+query,null,controller.signal);
-    if(live)setDirectory(result);
+    if(live){setDirectory(result);setDenied(false);}
    }catch(failure){
-    if(live&&!controller.signal.aborted){setDirectory(null);setError(failure.message);}
+    if(live&&!controller.signal.aborted){setDirectory(null);setDenied(failure.status===403);setError(failure.message);}
    }finally{if(live)setLoading(false);}
   },filters.q?300:0);
   return()=>{live=false;clearTimeout(timer);controller.abort();};
@@ -112,6 +113,7 @@ export default function ManagementUsersDashboard(){
   </header>
   {!ready?<div className={styles.statePanel} role="status">جارٍ التحقق من صلاحيات الحساب…</div>:
   !user?<div className={styles.statePanel}><ShieldAlert size={26}/><h2>سجّل الدخول بحساب الإدارة</h2><p>{authError||'يجب تسجيل الدخول حتى تتمكن من عرض حسابات المستخدمين.'}</p><Link href="/login?next=%2Fadmin%2Fusers">تسجيل الدخول</Link></div>:
+  denied?<div className={styles.statePanel} role="alert"><ShieldAlert size={26}/><h2>هذه الصفحة للإدارة فقط</h2><p>{error}</p><Link href="/admin">العودة إلى لوحة التحرير</Link></div>:
   <>
    {error&&!modal&&<p role="alert" className={styles.error}>{error}</p>}
    {notice&&<p role="status" className={styles.success}>{notice}</p>}
