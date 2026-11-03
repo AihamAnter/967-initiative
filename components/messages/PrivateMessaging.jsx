@@ -185,7 +185,7 @@ export default function PrivateMessaging(){
   <header className={styles.heading}><div><div className={styles.crumb}>967 / حسابي / الرسائل</div><h1>الرسائل الخاصة</h1><p>تواصل مع أعضاء 967 بعد قبول طلب المحادثة. لا توجد رسائل بريدية.</p></div><Link href="/account"><ArrowRight size={16}/> حسابي</Link></header>
   {!ready?<div className={styles.gate}>جارٍ التحقق من الحساب…</div>:!user?
    <div className={styles.gate}><ShieldAlert size={29}/><h2>سجّل الدخول أولًا</h2><p>الرسائل الخاصة متاحة للمستخدمين المسجلين فقط.</p><Link href="/login">تسجيل الدخول</Link></div>:
-  <div className={styles.layout} data-chat-open={tab==='inbox'&&Boolean(selected&&thread)}>
+  <div className={styles.layout} data-chat-open={tab==='inbox'&&Boolean(selected&&thread)} data-list-filled={tab==='inbox'&&visible.length>0&&!selected}>
    <aside className={styles.sidebar} aria-label="أقسام الرسائل">
     <div className={styles.tabs}>
      <button type="button" data-active={tab==='inbox'} onClick={()=>selectTab('inbox')}><MessageCircle size={18}/> المحادثات {unread>0&&<b>{unread}</b>}</button>
