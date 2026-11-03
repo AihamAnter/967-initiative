@@ -1725,3 +1725,8 @@ body,
   background:var(--c-accent-strong) !important;
   border-color:var(--c-accent-strong) !important;
 }
+
+/* The legacy contribution banner turns light teal in dark mode. */
+:root[data-ed-theme="dark"] .site-experience .participate-banner :is(h2,.container>div>span){
+  color:#071412 !important;
+}
