@@ -94,6 +94,8 @@
 .ed-tool-cta { color: var(--c-bg); }
 .ed-tool-cta:hover { background: var(--c-accent); color: #fff; }
 .ed-menu-toggle { display: none; padding-inline: 12px; }
+/* The compact mobile menu has its own trigger before the brand. */
+.ed-header-inner > .ed-mobile-menu-toggle { display: none; }
 .ed-menu-word { font-size: var(--t-size-ui); }
 
 @media (min-width: 1180px) { .ed-nav-group[data-standalone] { display: none; } }
@@ -144,7 +146,12 @@
 /* ---------- Mobile tab bar ---------- */
 .ed-tabbar { display: none; }
 @media (max-width: 760px) {
-  .ed-header[data-tabbar] .ed-menu-toggle { display: none; }
+  /* Header: menu · logo on the right, theme + messages on the left. */
+  .ed-header-inner { gap: 6px; padding-inline: 12px; }
+  .ed-header-inner > .ed-mobile-menu-toggle { display: inline-flex; min-width: 44px; padding-inline: 9px; flex: 0 0 auto; }
+  .ed-header .ed-tools .ed-menu-toggle, .ed-header .ed-top-search { display: none; }
+  .ed-header .ed-tools { gap: 3px; }
+  .ed-header .ed-brand { min-width: 0; }
   .ed-tabbar {
     position: fixed; inset-inline: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 70;
     display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; padding: 6px;
@@ -162,6 +169,11 @@
   body:has(.ed-tabbar) { scroll-padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   body:has(.ed-tabbar) #content { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
   body:has(.ed-tabbar) .ed-footer { padding-bottom: 96px; }
+}
+
+/* Keep all four header controls usable at 320px without horizontal overflow. */
+@media (max-width: 360px) {
+  .ed-header .ed-brand-name { display: none; }
 }
 
 /* ---------- Colophon ---------- */

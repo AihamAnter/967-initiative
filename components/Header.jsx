@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect, useMemo, useRef, useState} from 'react';
-import {Bookmark, ChevronDown, Compass, House, Menu, PlayCircle, Search, MessageCircle, X} from 'lucide-react';
+import {Bookmark, ChevronDown, Compass, Gamepad2, House, Menu, PlayCircle, Search, MessageCircle, X} from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import ThemeToggle from './ThemeToggle';
 import useSessionDb from './useSessionDb';
@@ -27,6 +27,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const messageAlertRef = useRef({initialized:false,latest:0});
   const header = useRef(null);
   const toggle = useRef(null);
+  const mobileToggle = useRef(null);
   const menuOpener = useRef(null);
   const toggleMenu = event => {if (!open) menuOpener.current=event.currentTarget; setOpen(value=>!value);};
   const closeDisclosures = () => header.current?.querySelectorAll('details[open]').forEach(item => item.removeAttribute('open'));
@@ -191,12 +192,12 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   useEffect(() => {
     const onKey = event => {
       const disclosure = header.current?.querySelector('.ed-nav-group[open]');
-      const mobileOpen = toggle.current?.getAttribute('aria-expanded') === 'true';
+      const mobileOpen = toggle.current?.getAttribute('aria-expanded') === 'true' || mobileToggle.current?.getAttribute('aria-expanded') === 'true';
       if (event.key === 'Escape' && (mobileOpen || disclosure)) {
         close();
         if (mobileOpen) {
           const trigger=menuOpener.current;
-          (trigger?.getClientRects().length ? trigger : toggle.current)?.focus();
+          (trigger?.getClientRects().length ? trigger : (mobileToggle.current?.getClientRects().length ? mobileToggle.current : toggle.current))?.focus();
         } else disclosure?.querySelector('summary')?.focus();
       }
     };
@@ -210,7 +211,6 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const active = href => href !== '/' && !href.includes('#') && (path === href || path.startsWith(href + '/'));
   const sectionActive = section => section.links.some(([href]) => active(href));
   const mobileSectionActive = id => sections.some(section => section.id === id && sectionActive(section));
-  const mobileMenuSection = sections.find(section => !['media','knowledge'].includes(section.id) && sectionActive(section));
   const onlyOneOpen = event => {if (event.currentTarget.open) header.current?.querySelectorAll('.ed-nav-group[open]').forEach(item => {if (item !== event.currentTarget) item.removeAttribute('open');});};
   const account = signedIn === true ? (canEdit ? utilityLinks.editor : utilityLinks.account) : signedIn === false ? utilityLinks.login : null;
   const savedVisible = isVisible(utilityLinks.saved[0]);
@@ -219,6 +219,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
 
   return <header className="ed-header" ref={header} data-open={open || undefined} data-tabbar={!immersive || undefined}>
     <div className="ed-header-inner">
+      <button ref={mobileToggle} type="button" className="ed-tool ed-menu-toggle ed-mobile-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}</button>
       <Link href="/" className="ed-brand" onClick={close} aria-label="مبادرة 967 — الرئيسية"><BrandLogo priority className="ed-brand-mark"/><span className="ed-brand-name" aria-hidden="true">مبادرة <b>967</b></span></Link>
       <nav id="main-navigation" className="ed-nav" aria-label="التنقل الرئيسي">
         <form action="/search" role="search" className="ed-nav-search">
@@ -248,21 +249,21 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
       </nav>
       <div className="ed-tools">
         <ThemeToggle/>
-        <Link href="/search" className="ed-tool ed-tool-icon" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
+        <Link href="/messages" className="ed-tool ed-tool-icon ed-message-link" aria-label={messageLinkLabel} title={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/>{signedIn&&newMessageCount>0&&<span className="ed-message-count" aria-hidden="true">{messageCountText}</span>}</Link>
+        <Link href="/search" className="ed-tool ed-tool-icon ed-top-search" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
-        {signedIn && <Link href="/messages" className="ed-tool ed-tool-icon ed-wide-only ed-message-link" aria-label={messageLinkLabel} title={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/>{newMessageCount>0&&<span className="ed-message-count" aria-hidden="true">{messageCountText}</span>}</Link>}
         {account && <Link href={account[0]} className="ed-tool ed-tool-text ed-wide-only" aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
         {isVisible('/contribute') && <Link href="/contribute" className="ed-tool ed-tool-cta ed-wide-only" onClick={close}>{actionLabel}</Link>}
         <button ref={toggle} type="button" className="ed-tool ed-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}<span className="ed-menu-word" aria-hidden="true">{open ? 'إغلاق' : 'القائمة'}</span></button>
       </div>
     </div>
-    {/* Phones: a thumb-reach tab bar for the most used destinations and the menu. */}
+    {/* Phones: five primary destinations; the menu sits beside the brand above. */}
     {!immersive && <nav className="ed-tabbar" aria-label="اختصارات سريعة">
       <Link href="/" aria-current={path === '/' ? 'page' : undefined} onClick={close}><House size={21} aria-hidden="true"/><span>الرئيسية</span></Link>
+      <Link href="/search" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={21} aria-hidden="true"/><span>البحث</span></Link>
       {isVisible('/works') && <Link href="/works" aria-current={mobileSectionActive('media') ? 'page' : undefined} onClick={close}><PlayCircle size={21} aria-hidden="true"/><span>الإعلام</span></Link>}
       {isVisible('/yemen-in-numbers') && <Link href="/yemen-in-numbers" aria-current={mobileSectionActive('knowledge') ? 'page' : undefined} onClick={close}><Compass size={21} aria-hidden="true"/><span>المعرفة</span></Link>}
-      <Link href="/search" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={21} aria-hidden="true"/><span>البحث</span></Link>
-      <button type="button" data-current={mobileMenuSection ? true : undefined} aria-label={open ? 'إغلاق القائمة' : mobileMenuSection ? 'فتح القائمة، القسم الحالي: '+mobileMenuSection.label : 'فتح القائمة'} aria-controls="main-navigation" aria-expanded={open} onClick={toggleMenu}>{open ? <X size={21} aria-hidden="true"/> : <Menu size={21} aria-hidden="true"/>}<span>{open ? 'إغلاق' : mobileMenuSection?.label || 'القائمة'}</span></button>
+      {isVisible('/games') && <Link href="/games" aria-current={active('/games') ? 'page' : undefined} onClick={close}><Gamepad2 size={21} aria-hidden="true"/><span>الألعاب</span></Link>}
     </nav>}
   </header>;
 }
