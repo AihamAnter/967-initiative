@@ -5,6 +5,7 @@ import {Eye,ShieldAlert,X} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS} from '@/lib/privateMessaging';
+import {accountScopedState} from '@/lib/accountScopedState';
 import styles from './MessageReports.module.css';
 
 const displayDate=value=>value?new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Malta',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(value)):'—';
@@ -17,8 +18,8 @@ export default function MessageReports(){
  const [opened,setOpened]=useState(null);
  const ownerRef=useRef(null);
  ownerRef.current=user?.id||null;
- const result=resultState?.owner===user?.id?resultState.data:null;
- const visibleThread=opened?.owner===user?.id?opened:null;
+ const result=accountScopedState(resultState,user?.id)?.data??null;
+ const visibleThread=accountScopedState(opened,user?.id);
 
  const request=useCallback(async(body=null,query=null)=>{
   const db=browserDb();

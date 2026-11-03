@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {accountScopedState} from '../lib/accountScopedState.js';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {PGlite} from '@electric-sql/pglite';
@@ -74,4 +75,20 @@ test('report numbers are assigned to existing reports and moderation transcript 
  assert.equal((await pg.query('select count(*)::int as n from public.private_message_report_views')).rows[0].n,1);
  const rls=(await pg.query("select relrowsecurity from pg_class where oid='public.private_message_report_views'::regclass")).rows[0];
  assert.equal(rls.relrowsecurity,true);
+});
+
+
+test('report page initial render is safe before auth or data has loaded',()=>{
+ assert.equal(accountScopedState(null,null),null);
+ assert.equal(accountScopedState(undefined,undefined),null);
+ assert.equal(accountScopedState(null,'management-user'),null);
+ assert.equal(accountScopedState({owner:null,data:{reports:[]}},null),null);
+ assert.equal(accountScopedState({owner:undefined,data:{reports:[]}},undefined),null);
+ assert.equal(accountScopedState({owner:'a',data:{reports:[1]}},'a')?.data.reports[0],1);
+ assert.equal(accountScopedState({owner:'a',data:{reports:[1]}},'b'),null);
+ assert.equal(accountScopedState({owner:'a',data:{reports:[1]}},null),null);
+ const component=read('components/admin/MessageReports.jsx');
+ assert.ok(component.includes('const result=accountScopedState(resultState,user?.id)?.data??null;'));
+ assert.ok(component.includes('const visibleThread=accountScopedState(opened,user?.id);'));
+ assert.ok(!component.includes('resultState?.owner===user?.id?resultState.data:null'));
 });
