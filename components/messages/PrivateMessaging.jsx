@@ -6,6 +6,7 @@ import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS} from '@/lib/privateMessaging';
 import {shouldSendComposerEnter,composerHeight} from '@/lib/messageComposer';
+import {buildMessageTimeline,messageClock} from '@/lib/messageTimeline';
 import MemberLink from '@/components/members/MemberLink';
 import styles from './PrivateMessaging.module.css';
 
@@ -264,8 +265,13 @@ export default function PrivateMessaging(){
         const data=await request('mode=thread&id='+selected+'&before='+encodeURIComponent(thread.nextBefore));
         setThread(t=>t&&t.conversation.id===selected?{...t,messages:[...data.messages,...t.messages],hasMore:data.hasMore,nextBefore:data.nextBefore}:t);
        }}>تحميل رسائل أقدم</button>}
-       {thread.messages.map(m=><div key={m.id} className={styles.bubbleRow} data-own={m.sender_id===user.id}><div className={styles.bubble}><p>{m.body}</p><footer><time>{date(m.created_at)}</time>
-        {m.sender_id!==user.id&&<button title="الإبلاغ عن هذه الرسالة" onClick={()=>setDialog({type:'report',conversation:selected,message:m.id})}><ShieldAlert size={13}/></button>}</footer></div></div>)}
+       {buildMessageTimeline(thread.messages).map(entry=>entry.kind==='day'?
+        <div key={entry.key} className={styles.daySeparator} role="separator" aria-label={entry.label}><time dateTime={entry.day}>{entry.label}</time></div>:
+        <div key={entry.key} className={styles.bubbleRow} data-own={entry.message.sender_id===user.id}><div className={styles.bubble}><div className={styles.bubbleContent}>
+         <time dateTime={entry.message.created_at} dir="ltr">{messageClock(entry.message.created_at)}</time>
+         <p>{entry.message.body}</p>
+         {entry.message.sender_id!==user.id&&<button type="button" aria-label="الإبلاغ عن هذه الرسالة" title="الإبلاغ عن هذه الرسالة" onClick={()=>setDialog({type:'report',conversation:selected,message:entry.message.id})}><ShieldAlert size={13}/></button>}
+        </div></div></div>)}
        {!thread.messages.length&&<p className={styles.empty}>المحادثة جاهزة. اكتب أول رسالة.</p>}
       </div>
       <form className={styles.composer} onSubmit={send}><div className={styles.composerField}><textarea ref={composerRef} rows={1} maxLength={2000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={onComposerKeyDown} placeholder="اكتب رسالتك…" aria-label="نص الرسالة" aria-describedby="message-composer-hint"/><small id="message-composer-hint" className={styles.composerHint}>Enter للإرسال · Shift+Enter لسطر جديد</small></div><button type="submit" disabled={busy||!draft.trim()} aria-label="إرسال الرسالة"><Send size={19}/> إرسال</button></form>
