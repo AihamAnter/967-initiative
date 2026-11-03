@@ -102,3 +102,7 @@
 :global(:root[data-ed-theme="dark"]) .previewNav a:last-child {
   color: #071412 !important;
 }
+
+/* The dark preview's bright mint motif requires a dark foreground. */
+:global(:root[data-ed-theme="dark"]) .motifPanel>span,
+:global(:root[data-ed-theme="dark"]) .motifPanel>span strong{color:#071412!important}
