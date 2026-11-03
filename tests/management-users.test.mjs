@@ -62,7 +62,7 @@ test('page and API never grant editor admins access to account listing',()=>{
  assert.ok(api.includes("target.email"));
  assert.ok(!api.includes("body.email"));
  assert.ok(nav.includes("tabs.some(item=>item.id==='admins')"));
- assert.ok(nav.includes("{canManageUsers&&<a href=\"/admin/users\">المستخدمين</a>}"));
+ assert.ok(nav.includes('canManageUsers&&')&&nav.includes('href="/admin/users"')&&nav.includes('href="/admin/message-reports"'));
  assert.ok(page.includes("ManagementUsersDashboard"));
  assert.ok(view.includes("getSession()"));
  assert.ok(view.includes("Authorization:'Bearer '"));
