@@ -220,7 +220,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   return <header className="ed-header" ref={header} data-open={open || undefined} data-tabbar={!immersive || undefined}>
     <div className="ed-header-inner">
       <button ref={mobileToggle} type="button" className="ed-tool ed-menu-toggle ed-mobile-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}</button>
-      <Link href="/" className="ed-brand" onClick={close} aria-label="مبادرة 967 — الرئيسية"><BrandLogo priority className="ed-brand-mark"/><span className="ed-brand-name" aria-hidden="true">مبادرة <b>967</b></span></Link>
+      <Link href="/" className="ed-brand" onClick={close} aria-label="مبادرة 967 — الرئيسية"><BrandLogo priority className="ed-brand-mark"/></Link>
       <nav id="main-navigation" className="ed-nav" aria-label="التنقل الرئيسي">
         <form action="/search" role="search" className="ed-nav-search">
           <label htmlFor="menu-search" className="sr-only">ابحث في منصة 967</label>

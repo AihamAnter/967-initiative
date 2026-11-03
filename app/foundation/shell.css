@@ -25,8 +25,6 @@
 .ed-brand .brand-logo.ed-brand-mark { width: 36px !important; height: auto !important; max-height: none !important; filter: brightness(0) !important; transition: transform var(--m-base) var(--m-spring); }
 :root[data-ed-theme="dark"] .ed-brand .brand-logo.ed-brand-mark { filter: brightness(0) invert(1) !important; }
 .ed-brand:hover .brand-logo.ed-brand-mark { transform: rotate(-8deg) scale(1.06); }
-.ed-brand-name { font: 700 1.55rem/1 var(--t-display); white-space: nowrap; }
-.ed-brand-name b { font-family: var(--t-text); font-weight: 600; font-size: 1.05rem; }
 
 .ed-nav { flex: 1; min-width: 0; display: flex; justify-content: center; }
 .ed-nav-list { list-style: none; margin: 0; padding: 4px; display: flex; align-items: center; gap: 2px; border-radius: var(--r-pill); background: color-mix(in srgb, var(--c-surface) 55%, transparent); box-shadow: var(--e-1), var(--e-glow); }
@@ -138,7 +136,6 @@
   .ed-nav-utility a:last-child { background: var(--c-ink); color: var(--c-bg); }
 }
 @media (max-width: 420px) {
-  .ed-brand-name { font-size: 1.35rem; }
   .ed-menu-word { display: none; }
   .ed-nav-panel ul { grid-template-columns: minmax(0, 1fr); }
 }
@@ -169,11 +166,6 @@
   body:has(.ed-tabbar) { scroll-padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   body:has(.ed-tabbar) #content { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
   body:has(.ed-tabbar) .ed-footer { padding-bottom: 96px; }
-}
-
-/* Keep all four header controls usable at 320px without horizontal overflow. */
-@media (max-width: 360px) {
-  .ed-header .ed-brand-name { display: none; }
 }
 
 /* ---------- Colophon ---------- */
