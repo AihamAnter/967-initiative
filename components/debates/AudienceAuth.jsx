@@ -38,7 +38,8 @@ export default function AudienceAuth({mode='login'}){
    if(mode==='login')result=await db.auth.signInWithPassword({email,password});
    if(mode==='register'){
     if(!form.get('accepted'))throw Error('الموافقة على الشروط والخصوصية مطلوبة.');
-    result=await db.auth.signUp({email,password,options:{emailRedirectTo:location.origin+'/auth/callback?next='+encodeURIComponent(next),data:{display_name:String(form.get('display_name')).trim(),audience_terms:true}}});
+    const displayName=String(form.get('display_name')||'').trim();
+    result=await db.auth.signUp({email,password,options:{emailRedirectTo:location.origin+'/auth/callback?next='+encodeURIComponent(next),data:{display_name:displayName,full_name:displayName,audience_terms:true}}});
    }
    if(mode==='forgot')result=await db.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/update-password?next='+encodeURIComponent(next)});
    if(mode==='update'){
@@ -59,7 +60,7 @@ export default function AudienceAuth({mode='login'}){
   {next.includes('draft=')&&<p className="small-muted">للحفاظ على مسودة مشاركتك، أكمل الدخول في علامة التبويب هذه خلال 30 دقيقة. إذا فتحت رسالة التأكيد في علامة تبويب أخرى، عُد إلى هذه العلامة وسجل الدخول.</p>}
   {mode==='register'&&!termsAvailable&&<p className="feedback" role="status">إنشاء الحسابات غير متاح مؤقتًا. شروط الاستخدام وسياسة الخصوصية قيد التحديث.</p>}
   {mode!=='callback'&&<ValidatedForm className="debate-form" onSubmit={submit} key={formVersion}><fieldset disabled={busy||!db||mode==='update'&&!recoveryReady||mode==='register'&&!termsAvailable}>
-   {mode==='register'&&<FormLabel>اسم العرض<FormInput name="display_name" required minLength={2} maxLength={60} autoComplete="nickname"/><small>يمكن استخدام اسم مستعار. لا يُطلب نشر اسمك الحقيقي.</small></FormLabel>}
+   {mode==='register'&&<FormLabel>اسم العرض<FormInput name="display_name" required minLength={2} maxLength={60} autoComplete="nickname"/><small>هذا الاسم سيظهر في ملفك الشخصي وبحث الأعضاء. يمكنك استخدام اسم مستعار وإيقاف ظهوره في البحث من إعدادات الرسائل.</small></FormLabel>}
    {mode!=='update'&&<FormLabel>البريد الإلكتروني<FormInput name="email" type="email" dir="ltr" required maxLength={254} autoComplete="email"/></FormLabel>}
    {mode!=='forgot'&&<AuthPasswordField label={mode==='update'?'كلمة المرور الجديدة':'كلمة المرور'} newPassword={mode!=='login'}/>}
    {mode==='update'&&<AuthPasswordField name="confirmation" label="تأكيد كلمة المرور" newPassword confirmation/>}
