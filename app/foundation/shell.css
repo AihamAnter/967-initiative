@@ -70,6 +70,22 @@
   font: var(--t-w-strong) var(--t-size-ui)/1 var(--t-text);
   transition: background var(--m-fast) var(--m-ease), transform var(--m-fast) var(--m-ease);
 }
+/* Counts unread private messages and incoming conversation requests. */
+.ed-message-link { position: relative; }
+.ed-message-count,.ed-message-menu-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 19px; height: 19px; padding-inline: 4px;
+  border-radius: 999px; background: #e3394b; color: #fff;
+  font: 800 11px/1 var(--t-text);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.ed-message-count {
+  position: absolute; inset-block-start: 0; inset-inline-start: 0;
+  transform: translate(28%,-23%);
+  box-shadow: 0 0 0 2px var(--c-bg);
+  pointer-events: none;
+}
+.ed-message-menu-count { margin-inline-start: 9px; }
 .ed-tool:hover { background: var(--c-surface); }
 .ed-tool:active { transform: scale(.96); }
 .ed-tool-text { padding-inline: 12px; }
