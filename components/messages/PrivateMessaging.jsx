@@ -228,7 +228,7 @@ export default function PrivateMessaging(){
    {dialog.type==='request'?<><p>اكتب رسالة تعريفية واحدة. لن تتمكن من إرسال المزيد حتى قبول الطلب.</p>
     <textarea value={intro} maxLength={500} rows={4} onChange={e=>setIntro(e.target.value)} placeholder="مرحبًا، أود التواصل معك بشأن…"/>
     <button className={styles.primary} disabled={busy||!intro.trim()} onClick={()=>create(dialog.person.id)}>إرسال الطلب</button></>:
-    <><p>يصل هذا البلاغ إلى الإدارة مع محتوى الرسالة أو الطلب المعني فقط.</p>
+    <><p>عند إرسال البلاغ، تستطيع الإدارة مراجعة الرسائل السابقة في هذه المحادثة حتى وقت البلاغ للتحقق من السياق. تُسجّل عمليات اطلاع الإدارة.</p>
     <label>سبب البلاغ<select value={reason} onChange={e=>setReason(e.target.value)}>{Object.entries(REPORT_REASONS).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></label>
     <textarea rows={3} maxLength={1000} value={detail} onChange={e=>setDetail(e.target.value)} placeholder="ملاحظات إضافية (اختيارية)"/>
     <button className={styles.primary} disabled={busy} onClick={review}>إرسال البلاغ</button></>}
