@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {PGlite} from '@electric-sql/pglite';
-import {validateMessagingAction,safeMessagingQuery} from '../lib/privateMessaging.js';
+import {validateMessagingAction,safeMessagingQuery,canReceiveSearchRequests} from '../lib/privateMessaging.js';
 
 const migration=readFileSync(new URL('../supabase/migrations/20261103033657_private_messaging.sql',import.meta.url),'utf8');
 const U={
@@ -117,4 +117,21 @@ test('production-style service_role may save settings with only required auth.us
  assert.deepEqual(result.rows[0].outcome,{ok:true});
  const saved=(await pg.query('select discoverable,allow_requests,notify_messages from public.private_messaging_settings where user_id=$1',[U.a])).rows[0];
  assert.deepEqual(saved,{discoverable:true,allow_requests:true,notify_messages:true});
+});
+
+test('search visibility defaults on without a preference row and respects explicit opt-out',()=>{
+ assert.equal(canReceiveSearchRequests(undefined),true,'users with no saved settings are discoverable');
+ assert.equal(canReceiveSearchRequests(null),true);
+ assert.equal(canReceiveSearchRequests({discoverable:true,allow_requests:true}),true);
+ assert.equal(canReceiveSearchRequests({discoverable:false,allow_requests:true}),false,'explicitly hidden users stay hidden');
+ assert.equal(canReceiveSearchRequests({discoverable:true,allow_requests:false}),false,'closed requests hide users from new-chat search');
+});
+test('UI and API both default to searchable while database default is true',()=>{
+ const api=readFileSync(new URL('../app/api/messages/route.js',import.meta.url),'utf8');
+ const ui=readFileSync(new URL('../components/messages/PrivateMessaging.jsx',import.meta.url),'utf8');
+ const ddl=readFileSync(new URL('../supabase/migrations/20261103052630_private_messaging_auth_service_role_columns.sql',import.meta.url),'utf8');
+ assert.match(api,/settings:\{discoverable:true,allow_requests:true,notify_messages:true/);
+ assert.match(api,/canReceiveSearchRequests\(prefs\.get\(p\.user_id\)\)/);
+ assert.match(ui,/const defaults=\{discoverable:true,allow_requests:true,notify_messages:true\}/);
+ assert.ok(ddl.includes('auth.users'));
 });
