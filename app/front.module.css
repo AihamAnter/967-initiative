@@ -307,3 +307,8 @@
   .homeExtras > button { width: calc(100% - (var(--s-gutter) * 2)); max-width: var(--w-page); margin-inline: auto; background: var(--c-surface); border-color: var(--c-line-2); color: var(--c-ink); box-shadow: var(--e-1); }
   .homeExtras > div > .section:first-child { padding-top: var(--s-4); }
 }
+
+/* Expanded about disclosures must use light text on dark surfaces. */
+:global(:root[data-ed-theme="dark"]) .foldBody h3{color:#eef2f0!important}
+:global(:root[data-ed-theme="dark"]) .foldBody p{color:#b7c2bf!important}
+:global(:root[data-ed-theme="dark"]) .foldBody :global(.ed-link){color:#eef2f0!important}
