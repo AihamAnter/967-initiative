@@ -96,7 +96,7 @@ export default function MemberProfile({memberId}){
      <label>تفاصيل البلاغ<textarea required minLength={10} maxLength={1000} rows={4} value={detail} onChange={event=>setDetail(event.target.value)} placeholder="اشرح ما حدث بشكل واضح…" /></label>
      <div className={styles.reportActions}><button className={styles.primary} disabled={busy||detail.trim().length<10}>{busy?'جارٍ الإرسال…':'إرسال البلاغ'}</button><button type="button" className={styles.secondary} onClick={()=>setReportOpen(false)}>إلغاء</button></div>
     </form>}
-    <p className={styles.footnote}>يمكنك التحكم في ظهور اسمك داخل بحث الرسائل وإعدادات استقبال طلبات المحادثة من صفحة الخصوصية.</p>
+    <p className={styles.footnote}>يمكنك التحكم في ظهور اسمك في البحث العام وبحث الرسائل، والتحكم في استقبال طلبات المحادثة من صفحة الخصوصية.</p>
    </div>}
  </div></main>;
 }
