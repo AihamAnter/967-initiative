@@ -106,6 +106,7 @@ export default function AccountWorkspace({initialTab='overview'}){
   <div className={styles.shell}>
    <nav className={styles.sidebar} aria-label="أقسام الحساب">
     {views.map(({id,label,icon:Icon})=><button key={id} type="button" aria-current={tab===id?'page':undefined} className={tab===id?styles.activeNav:styles.navItem} onClick={()=>go(id)}><Icon size={18}/><span>{label}</span>{id==='notifications'&&workspace.unread>0&&<b>{workspace.unread}</b>}</button>)}
+    <Link href="/messages" className={styles.navItem}><MessageSquare size={18}/><span>رسائلي الخاصة</span></Link>
     <div className={styles.sidebarFooter}><Link href="/games/leaderboard"><Trophy size={16}/> ترتيبي في ألعاب 967</Link><Link href="/debates"><ArrowUpLeft size={16}/> تصفّح المناظرات</Link><Link href="/help"><ArrowUpLeft size={16}/> مركز المساعدة</Link></div>
    </nav>
    <div className={styles.main}>
