@@ -47,8 +47,17 @@ export async function GET(request){
   ]);
   if(editorResult.error)throw editorResult.error;
   const editorRoles=new Map((editorResult.data||[]).map(item=>[item.user_id,item.role]));
+  // Keep the management directory consistent with public member pages, chat and search.
+  // Batch the IDs to respect PostgREST query limits as the account list grows.
+  const profileNames=new Map();
+  for(let offset=0;offset<accounts.length;offset+=200){
+   const ids=accounts.slice(offset,offset+200).map(user=>user.id);
+   const {data,error}=await db.from('public_profiles').select('user_id,display_name').in('user_id',ids);
+   if(error)throw error;
+   for(const p of data||[])profileNames.set(p.user_id,p.display_name);
+  }
   const now=Date.now();
-  const rows=accounts.map(user=>accountRow(user,editorRoles.get(user.id),now));
+  const rows=accounts.map(user=>accountRow(user,editorRoles.get(user.id),now,profileNames.get(user.id)));
   return json({...filterAccountRows(rows,filters),summary:accountSummary(rows)});
  }catch(error){return handleFailure(error);}
 }
