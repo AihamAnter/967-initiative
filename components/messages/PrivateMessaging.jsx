@@ -185,7 +185,7 @@ export default function PrivateMessaging(){
   <header className={styles.heading}><div><div className={styles.crumb}>967 / حسابي / الرسائل</div><h1>الرسائل الخاصة</h1><p>تواصل مع أعضاء 967 بعد قبول طلب المحادثة. لا توجد رسائل بريدية.</p></div><Link href="/account"><ArrowRight size={16}/> حسابي</Link></header>
   {!ready?<div className={styles.gate}>جارٍ التحقق من الحساب…</div>:!user?
    <div className={styles.gate}><ShieldAlert size={29}/><h2>سجّل الدخول أولًا</h2><p>الرسائل الخاصة متاحة للمستخدمين المسجلين فقط.</p><Link href="/login">تسجيل الدخول</Link></div>:
-  <div className={styles.layout} data-chat-open={tab==='inbox'&&Boolean(selected&&thread)} data-list-filled={tab==='inbox'&&visible.length>0&&!selected}>
+  <div className={styles.layout} data-chat-open={tab==='inbox'&&Boolean(selected&&thread)} data-sidebar-only={tab!=='inbox'||visible.length>0&&!selected}>
    <aside className={styles.sidebar} aria-label="أقسام الرسائل">
     <div className={styles.tabs}>
      <button type="button" data-active={tab==='inbox'} onClick={()=>selectTab('inbox')}><MessageCircle size={18}/> المحادثات {unread>0&&<b>{unread}</b>}</button>
@@ -244,7 +244,7 @@ export default function PrivateMessaging(){
       </div>
       <form className={styles.composer} onSubmit={send}><textarea rows={2} maxLength={2000} value={draft} onChange={e=>setDraft(e.target.value)} placeholder="اكتب رسالتك…" aria-label="نص الرسالة"/><button disabled={busy||!draft.trim()} aria-label="إرسال الرسالة"><Send size={19}/> إرسال</button></form>
      </>:<div className={styles.empty}><Bell size={26}/><h3>بانتظار الموافقة</h3><p>{thread.conversation.intro}</p><p>يمكن إرسال رسائل جديدة بعد قبول الطرف الآخر فقط.</p></div>}
-    </section>:<div className={styles.placeholder}><MessageCircle size={44}/><h2>مساحة خاصة للتواصل</h2><p>اختر محادثة من القائمة. تبدأ المحادثات الجديدة بطلب يحتاج موافقة المستلم.</p></div>}
+    </section>:tab==='inbox'&&visible.length===0?<div className={styles.placeholder}><MessageCircle size={44}/><h2>مساحة خاصة للتواصل</h2><p>اختر محادثة من القائمة. تبدأ المحادثات الجديدة بطلب يحتاج موافقة المستلم.</p></div>:null}
    </main>
   </div>}
   {dialog&&<div className={styles.modalBackdrop} onMouseDown={e=>{if(e.target===e.currentTarget&&!busy)setDialog(null);}}><section className={styles.modal} role="dialog" aria-modal="true" aria-label={dialog.type==='request'?'طلب محادثة':'الإبلاغ عن إساءة'}>

@@ -85,9 +85,9 @@
 .openConversation:focus-visible{outline:2px solid var(--c-accent);border-radius:5px}
 .threadHeader>div:first-child{flex-wrap:wrap;gap:8px}
 
-/* On narrow screens, a populated inbox uses the full height for the
-   scrollable conversation list. Keep notices/errors visible below it. */
+/* The inbox list and the other sidebar tabs get the available height
+   on mobile. Preserve the auto-height status area for errors/notices. */
 @media(max-width:650px){
- .layout[data-list-filled=true]{grid-template-rows:minmax(0,1fr) auto}
- .layout[data-list-filled=true] .placeholder{display:none}
+ .layout[data-sidebar-only=true]{grid-template-rows:minmax(0,1fr) auto}
+ .layout[data-sidebar-only=true] .placeholder{display:none}
 }
