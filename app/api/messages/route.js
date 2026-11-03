@@ -1,7 +1,7 @@
 import {serverDb} from '@/lib/supabase-server';
 import {authorizeAudience} from '@/lib/debateApi';
 import {readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
-import {validateMessagingAction,safeMessagingQuery,messagingError,MESSAGE_PAGE_SIZE,UUID_RE} from '@/lib/privateMessaging';
+import {validateMessagingAction,safeMessagingQuery,messagingError,canReceiveSearchRequests,MESSAGE_PAGE_SIZE,UUID_RE} from '@/lib/privateMessaging';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -69,7 +69,7 @@ async function search(db,actor,q){
  if(blocks.error)throw blocks.error;
  const prefs=new Map((settings.data||[]).map(s=>[s.user_id,s]));
  const forbidden=new Set((blocks.data||[]).map(b=>b.blocker_id===actor?b.blocked_id:b.blocker_id));
- return {users:candidates.filter(p=>prefs.get(p.user_id)?.discoverable&&prefs.get(p.user_id)?.allow_requests&&!forbidden.has(p.user_id)).slice(0,15)
+ return {users:candidates.filter(p=>canReceiveSearchRequests(prefs.get(p.user_id))&&!forbidden.has(p.user_id)).slice(0,15)
   .map(p=>({id:p.user_id,name:p.display_name,avatar_url:p.show_avatar?p.avatar_url:null}))};
 }
 
@@ -98,7 +98,7 @@ export async function GET(request){
    profiles=result.data||[];
   }
   const names=new Map(profiles.map(p=>[p.user_id,p.display_name]));
-  return json({settings:{discoverable:false,allow_requests:true,notify_messages:true,...setting.data},
+  return json({settings:{discoverable:true,allow_requests:true,notify_messages:true,...setting.data},
    blocked:(blocks.data||[]).map(b=>({id:b.blocked_id,name:names.get(b.blocked_id)||'مستخدم 967'}))});
  }catch(error){
   if(!(error instanceof RequestValidationError))console.error('private messages GET failed',error?.code||error?.name||'unknown');
