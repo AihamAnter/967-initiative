@@ -8,6 +8,7 @@ import {REPORT_REASONS} from '@/lib/privateMessaging';
 import {shouldSendComposerEnter,composerHeight} from '@/lib/messageComposer';
 import {buildMessageTimeline,messageClock} from '@/lib/messageTimeline';
 import MemberLink from '@/components/members/MemberLink';
+import ProfileAvatar from '@/components/design/ProfileAvatar';
 import styles from './PrivateMessaging.module.css';
 
 const date=value=>value?new Intl.DateTimeFormat('ar',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(value)):'';
@@ -224,13 +225,15 @@ export default function PrivateMessaging(){
    <aside className={styles.sidebar} aria-label="محتوى قسم الرسائل">
     {tab==='inbox'&&<div className={styles.listHeading}><strong>المحادثات <small>{visible.length}</small></strong><button type="button" onClick={()=>selectTab('search')} aria-label="بدء محادثة جديدة"><MailPlus size={17}/><span>جديدة</span></button></div>}
     <div className={styles.list}>
-     {tab==='inbox'&&<>{visible.map(c=><div className={styles.personRow} key={c.id} data-active={selected===c.id}>
-      <MemberLink id={c.partner_id} name={c.partner_name} avatarUrl={c.avatar_url} className={styles.personLink}/>
-      <button type="button" className={styles.openConversation} onClick={()=>open(c.id)} aria-label={'فتح المحادثة مع '+c.partner_name}>
+     {tab==='inbox'&&<>{visible.map(c=><button type="button" className={styles.conversationCard} key={c.id} data-active={selected===c.id} onClick={()=>open(c.id)} aria-label={'فتح المحادثة مع '+c.partner_name}>
+      <ProfileAvatar name={c.partner_name} src={c.avatar_url} className={styles.conversationAvatar}/>
+      <span className={styles.conversationText}>
+       <strong>{c.partner_name}</strong>
        <span>{c.status==='pending'?'في انتظار قبول الطلب':c.last_excerpt||'فتح المحادثة'}</span>
-       {Number(c.unread)>0&&<b className={styles.unread}>{c.unread}</b>}
-       <ChevronLeft size={15}/>
-      </button></div>)}
+      </span>
+      {Number(c.unread)>0&&<b className={styles.unread}>{c.unread}</b>}
+      <ChevronLeft size={17} aria-hidden="true"/>
+     </button>)}
       {!visible.length&&<div className={styles.emptyState}><MessageCircle size={28}/><h3>لا توجد محادثات بعد</h3><p>ابدأ بطلب محادثة مع عضو آخر في 967.</p><button type="button" className={styles.primary} onClick={()=>selectTab('search')}><MailPlus size={17}/> محادثة جديدة</button></div>}</>}
      {tab==='requests'&&<><div className={styles.sectionIntro}><h2>طلبات المحادثة</h2><p>اقبل الطلب لبدء تبادل الرسائل.</p></div>{pending.map(c=><article className={styles.requestCard} key={c.id}>
       <MemberLink id={c.partner_id} name={c.partner_name} avatarUrl={c.avatar_url}/><p>{c.intro}</p><small>{date(c.requested_at)}</small>

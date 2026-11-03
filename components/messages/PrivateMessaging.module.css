@@ -21,6 +21,16 @@
 .listHeading button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;padding:6px 10px;border:1px solid var(--border);border-radius:9px;background:var(--pale);color:var(--ink);font:inherit;font-size:12px;cursor:pointer}
 .listHeading button:hover{color:var(--c-accent);border-color:var(--c-accent)}
 .list{min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+/* The entire inbox card, including avatar and name, opens the thread.
+   Only this list replaces profile links; other member links stay unchanged. */
+.conversationCard{display:flex;align-items:center;gap:11px;width:100%;min-width:0;min-height:76px;padding:13px 17px;text-align:start;border:0;border-bottom:1px solid var(--border);border-radius:0;background:transparent;color:var(--ink);font:inherit;cursor:pointer;transition:background var(--m-fast)}
+.conversationCard:hover,.conversationCard[data-active=true]{background:var(--c-accent-soft)}
+.conversationCard:focus-visible{outline:2px solid var(--c-accent);outline-offset:-3px}
+.conversationAvatar{width:42px!important;height:42px!important;flex:0 0 42px!important;font-size:13px!important}
+.conversationText{display:grid;gap:5px;flex:1;min-width:0}
+.conversationText strong{font-size:14px;font-weight:750;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.conversationText>span{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.conversationCard>svg{color:var(--muted);flex:0 0 auto}
 .personRow{padding:13px 17px;border-bottom:1px solid var(--border);display:grid;gap:4px;min-width:0;transition:background var(--m-fast)}
 .personRow:hover,.personRow[data-active=true]{background:var(--c-accent-soft)}
 .personLink{min-width:0;max-width:100%;width:max-content;font-size:14px}
