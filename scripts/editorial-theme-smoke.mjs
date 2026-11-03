@@ -42,7 +42,8 @@ try{
   await page.goto(base+'/yemen-history',{waitUntil:'domcontentloaded'});
   await page.locator('[data-knowledge-area="history"]').waitFor({timeout:30000});
   const legacy=await readTheme();
-  assert.equal(legacy.background.toLowerCase(),'#f5f3ef','legacy pages remain light while still remembering the preference');
+  assert.equal(legacy.background.toLowerCase(),'#0b0f10','legacy pages now use the shared dark palette');
+  assert.equal(legacy.scheme,'dark','legacy route must retain dark system controls');
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
   await page.getByRole('button',{name:'تفعيل الوضع الفاتح'}).click();
   assert.equal((await readTheme()).mode,'light');
