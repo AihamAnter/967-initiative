@@ -35,6 +35,8 @@ export default function PrivateMessaging(){
   });
   const body=await res.json();
   if(!res.ok)throw Error(body.error||'تعذر تنفيذ الطلب.');
+  // Refresh the shared header badge immediately after reads, sends or decisions.
+  if(isAction&&typeof window!=='undefined')window.dispatchEvent(new Event('967:messages-changed'));
   return body;
  },[]);
 
