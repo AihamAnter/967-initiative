@@ -1641,3 +1641,51 @@ body,
     transition: background-color var(--m-base) var(--m-ease), color var(--m-base) var(--m-ease), border-color var(--m-base) var(--m-ease);
   }
 }
+
+
+/* Dark mode audited in Chromium on 2026-11-03.
+   These are measured text/surface collisions in real visible page content,
+   not a blanket light-theme inversion. Keep scope tied to the dark root. */
+
+/* Figure cards used two hard-coded dark labels on a now-dark card. */
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] .yfigure-content > strong,
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] .yfigure-content > p {
+  color: var(--c-ink-2) !important;
+}
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="figures"] .yfigures-filters summary {
+  color: var(--c-accent) !important;
+}
+
+/* Professional sidebar was excluded from the first profile dark-surface rule.
+   A legacy interior stylesheet gives these cards a literal white background. */
+:root[data-ed-theme="dark"] .site-experience :is(.professional-facts, .professional-contact-panel) {
+  background: var(--c-surface) !important;
+  border-color: var(--c-line-2) !important;
+  color: var(--c-ink) !important;
+}
+:root[data-ed-theme="dark"] .site-experience :is(.professional-facts, .professional-contact-panel) h2,
+:root[data-ed-theme="dark"] .site-experience .professional-facts > div strong {
+  color: var(--c-ink) !important;
+}
+:root[data-ed-theme="dark"] .site-experience .professional-facts > div span,
+:root[data-ed-theme="dark"] .site-experience .professional-contact-panel > p {
+  color: var(--c-ink-2) !important;
+}
+:root[data-ed-theme="dark"] .site-experience .professional-facts > div {
+  border-color: var(--c-line-2) !important;
+}
+
+/* Light-teal actions are too bright for white text; use dark ink instead.
+   Includes the historic .btn.btn-primary actions and knowledge read buttons. */
+:root[data-ed-theme="dark"] .site-experience :is(a.btn.btn-primary, button.btn.btn-primary, a.btn-primary, button.btn-primary) {
+  background-color: var(--c-accent) !important;
+  border-color: var(--c-accent) !important;
+  color: #071412 !important;
+  -webkit-text-fill-color: #071412 !important;
+}
+:root[data-ed-theme="dark"] .site-experience :is(a.btn.btn-primary, button.btn.btn-primary, a.btn-primary, button.btn-primary):hover {
+  background-color: var(--c-accent-strong) !important;
+}
+:root[data-ed-theme="dark"] .site-experience [data-knowledge-area="history"] a[class*="readButton"] {
+  color: #071412 !important;
+}
