@@ -34,6 +34,10 @@
 
 المصادر: https://supabase.com/pricing، https://supabase.com/docs/guides/realtime/limits، https://vercel.com/docs/plans/hobby.
 
+## إصلاح حفظ إعدادات الرسائل (3 نوفمبر 2026)
+
+تستخدم دالة `private_messaging_action` تنفيذ `SECURITY INVOKER` للتحقق من أن الحساب مؤكد وغير محظور عبر `auth.users`. في Supabase لا يملك دور `service_role` بشكل افتراضي `SELECT` مباشرًا على هذا الجدول، ولهذا كان طلب حفظ التفضيلات يُرجع خطأً عامًا `503`. يعالج ترحيل `20261103052630_private_messaging_auth_service_role_columns.sql` الأمر بمنح قراءة ثلاثة أعمدة فقط (`id`, `email_confirmed_at`, `banned_until`) لدور الخادم دون منح الصلاحية للمستخدمين أو لبقية أعمدة المصادقة. تم التحقق من الحفظ داخل معاملة متراجَع عنها دون تغيير أي تفضيلات حقيقية.
+
 ## اختبار القبول
 
 1. اختبر الترحيل في بيئة معزولة (PGlite) ومقارنة عدد الجداول الحالية، ثم راجع تطبيقه في Supabase.
