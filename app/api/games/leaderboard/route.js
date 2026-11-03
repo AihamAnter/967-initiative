@@ -75,13 +75,14 @@ export async function GET(request){
    if(rank===1&&period==='weekly')badges.badges.unshift('بطل الأسبوع');
    return {...e,rank,name,awards:badges};
   });
-  let viewer=null;
+  let viewer=null,signedIn=false;
   const token=request.headers.get('authorization')?.match(/^Bearer\s+([^\s]{1,8000})$/i)?.[1];
   if(token){
    const {data}=await db.auth.getUser(token);
-   if(data?.user)viewer=ordered.find(x=>x.id===data.user.id)||null;
+   if(data?.user){signedIn=true;viewer=ordered.find(x=>x.id===data.user.id)||null;}
   }
-  const publicEntry=({id,rows,latest,...rest})=>rest;
+  // A member link is exposed only to an authenticated viewer, never to guests.
+  const publicEntry=({id,rows,latest,...rest})=>({...rest,...(signedIn?{member_id:id}:{})});
   return json({period,today,top:ordered.slice(0,100).map(e=>({...publicEntry(e),isMe:viewer?.id===e.id})),
    mine:viewer?publicEntry(viewer):null,participants:entries.length,completed:rows.length});
  }catch(error){

@@ -92,8 +92,8 @@ export default function MessageReports(){
    {result&&<><div className={styles.cards}>{result.reports.map(report=><article key={report.id}>
     <div className={styles.summary}><strong>{report.reference} · {REPORT_REASONS[report.reason]||report.reason}</strong><span>{displayDate(report.created_at)}</span></div>
     <div className={styles.parties}>
-     <div><span>مقدّم البلاغ</span><strong>{report.reporter.name}</strong></div>
-     <div><span>المُبلّغ عنه</span><strong>{report.reported.name}</strong></div>
+     <div><span>مقدّم البلاغ</span><Link href={'/members/'+encodeURIComponent(report.reporter.id)}><strong>{report.reporter.name}</strong></Link></div>
+     <div><span>المُبلّغ عنه</span><Link href={'/members/'+encodeURIComponent(report.reported.id)}><strong>{report.reported.name}</strong></Link></div>
     </div>
     <p className={styles.detail}><strong>موضوع البلاغ:</strong> {report.subject_type} · <strong>الحالة:</strong> {states[report.status]||report.status}</p>
     <p className={styles.text}>{report.evidence}</p>

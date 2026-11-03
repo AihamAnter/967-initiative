@@ -46,7 +46,8 @@ test('reported-thread endpoint is management only, strictly report-scoped and au
  assert.match(dashboard,/المُبلّغ عنه/);
  assert.match(dashboard,/قراءة المحادثة المرتبطة بالبلاغ/);
  assert.match(dashboard,/report\.reference/);
- assert.match(messaging,/if\(editor\.data\?\.role!=='management'\)/);
+ assert.match(messaging,/if\(mode==='contact'\)return json\(await directContact/);
+ assert.match(messaging,/prefResult\.data\?\.allow_requests===false/);
  assert.match(messaging,/mode==='contact'/);
  assert.match(directory,/\/messages\?to=/);
  assert.throws(()=>safeMessagingQuery(new URLSearchParams('mode=contact&id=bogus')),/المحادثة/);

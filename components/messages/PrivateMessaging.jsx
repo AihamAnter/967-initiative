@@ -5,6 +5,7 @@ import {ArrowRight,Ban,Bell,Check,CheckCheck,ChevronLeft,Inbox,MailPlus,MessageC
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS} from '@/lib/privateMessaging';
+import MemberLink from '@/components/members/MemberLink';
 import styles from './PrivateMessaging.module.css';
 
 const date=value=>value?new Intl.DateTimeFormat('ar',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(value)):'';
@@ -193,25 +194,32 @@ export default function PrivateMessaging(){
      <button type="button" data-active={tab==='settings'} onClick={()=>selectTab('settings')}><Settings2 size={18}/> الخصوصية</button>
     </div>
     <div className={styles.list}>
-     {tab==='inbox'&&<>{visible.map(c=><button type="button" key={c.id} data-active={selected===c.id} className={styles.item} onClick={()=>open(c.id)}>
-      <span className={styles.avatar}><UserRound size={19}/></span><span className={styles.itemText}><strong>{c.partner_name}</strong><small>{c.status==='pending'?'في انتظار قبول الطلب':c.last_excerpt||'ابدأ المحادثة'}</small></span>
-      {Number(c.unread)>0&&<b className={styles.unread}>{c.unread}</b>}</button>)}
+     {tab==='inbox'&&<>{visible.map(c=><div className={styles.personRow} key={c.id} data-active={selected===c.id}>
+      <MemberLink id={c.partner_id} name={c.partner_name} avatarUrl={c.avatar_url} className={styles.personLink}/>
+      <button type="button" className={styles.openConversation} onClick={()=>open(c.id)} aria-label={'فتح المحادثة مع '+c.partner_name}>
+       <span>{c.status==='pending'?'في انتظار قبول الطلب':c.last_excerpt||'فتح المحادثة'}</span>
+       {Number(c.unread)>0&&<b className={styles.unread}>{c.unread}</b>}
+       <ChevronLeft size={15}/>
+      </button></div>)}
       {!visible.length&&<p className={styles.empty}>لا توجد محادثات بعد. ابدأ بطلب محادثة من تبويب «محادثة جديدة».</p>}</>}
      {tab==='requests'&&<>{pending.map(c=><article className={styles.requestCard} key={c.id}>
-      <strong>{c.partner_name}</strong><p>{c.intro}</p><small>{date(c.requested_at)}</small>
+      <MemberLink id={c.partner_id} name={c.partner_name} avatarUrl={c.avatar_url}/><p>{c.intro}</p><small>{date(c.requested_at)}</small>
       <div><button disabled={busy} onClick={()=>approve('accept',c.id)}><Check size={15}/> قبول</button><button disabled={busy} onClick={()=>run({action:'decline',conversation:c.id},reload)}><X size={15}/> رفض</button></div>
       <button className={styles.linkButton} onClick={()=>setDialog({type:'report',conversation:c.id})}>إبلاغ عن الطلب</button>
      </article>)}{!pending.length&&<p className={styles.empty}>لا توجد طلبات جديدة.</p>}</>}
      {tab==='search'&&<><label className={styles.search}><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث بالاسم (حرفان على الأقل)" maxLength={60}/></label>
       <p className={styles.hint}>يظهر الأعضاء في البحث افتراضيًا، ويمكن لكل مستخدم إخفاء اسمه أو إيقاف طلبات المحادثة من إعدادات الخصوصية.</p>
-      {results.map(p=><button type="button" key={p.id} className={styles.item} onClick={()=>setDialog({type:'request',person:p})}><span className={styles.avatar}><UserRound size={19}/></span><span className={styles.itemText}><strong>{p.name}</strong><small>إرسال طلب محادثة</small></span><ChevronLeft size={16}/></button>)}
+      {results.map(p=><div key={p.id} className={styles.personRow}>
+       <MemberLink id={p.id} name={p.name} avatarUrl={p.avatar_url} className={styles.personLink}/>
+       <button type="button" className={styles.openConversation} onClick={()=>setDialog({type:'request',person:p})}><MailPlus size={15}/> طلب محادثة</button>
+      </div>)}
       {query.trim().length>=2&&!results.length&&<p className={styles.empty}>لا توجد نتائج مطابقة.</p>}</>}
      {tab==='settings'&&<div className={styles.settings}><h2>خصوصية الرسائل</h2>
       <label><input type="checkbox" checked={settings.allow_requests} onChange={e=>setSettings(s=>({...s,allow_requests:e.target.checked}))}/> استقبال طلبات المحادثة</label>
       <label><input type="checkbox" checked={settings.discoverable} onChange={e=>setSettings(s=>({...s,discoverable:e.target.checked}))}/> إظهار اسمي في البحث عن المستخدمين</label>
       <label><input type="checkbox" checked={settings.notify_messages} onChange={e=>setSettings(s=>({...s,notify_messages:e.target.checked}))}/> إشعارات الرسائل داخل الموقع</label>
       <button className={styles.primary} disabled={busy} onClick={saveSettings}>حفظ التفضيلات</button>
-      <h3>المستخدمون المحظورون</h3>{blocked.map(b=><div key={b.id} className={styles.blocked}><span>{b.name}</span><button disabled={busy} onClick={()=>block(b,true)}>رفع الحظر</button></div>)}
+      <h3>المستخدمون المحظورون</h3>{blocked.map(b=><div key={b.id} className={styles.blocked}><MemberLink id={b.id} name={b.name} showAvatar={false}/><button disabled={busy} onClick={()=>block(b,true)}>رفع الحظر</button></div>)}
       {!blocked.length&&<p className={styles.hint}>لا توجد حسابات محظورة.</p>}
      </div>}
     </div>
@@ -221,7 +229,7 @@ export default function PrivateMessaging(){
     {notice&&<p className={styles.success} role="status">{notice}</p>}
     {loading&&<p className={styles.hint}>جارٍ تحميل الرسائل…</p>}
     {tab==='inbox'&&selected&&thread?<section className={styles.thread}>
-     <header className={styles.threadHeader}><div><UserRound size={23}/><div><h2>{thread.conversation.partner_name}</h2><small>{thread.conversation.status==='accepted'?'محادثة خاصة':'طلب محادثة'}</small></div></div>
+     <header className={styles.threadHeader}><div><MemberLink id={thread.conversation.partner_id} name={thread.conversation.partner_name} avatarUrl={thread.conversation.avatar_url}/><small>{thread.conversation.status==='accepted'?'محادثة خاصة':'طلب محادثة'}</small></div>
       <div><button type="button" title="إبلاغ" onClick={()=>setDialog({type:'report',conversation:selected})}><ShieldAlert size={18}/></button>
       <button type="button" title="حظر المستخدم" onClick={()=>block({id:thread.conversation.partner_id,name:thread.conversation.partner_name})}><Ban size={18}/></button></div></header>
      {thread.conversation.status==='accepted'?<>

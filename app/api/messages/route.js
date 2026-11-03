@@ -75,21 +75,29 @@ async function search(db,actor,q){
 
 // A management-only account-directory deep link. This does not grant a
 // conversation or bypass the recipient's messaging privacy/blocks.
-async function managedContact(db,actor,targetId){
+// Direct member-profile links are permitted for signed-in members.
+// New requests still respect the recipient's settings and both users' blocks.
+async function directContact(db,actor,targetId){
  if(actor===targetId)throw new RequestValidationError('لا يمكنك مراسلة نفسك.',400);
- const editor=await db.from('editors').select('role').eq('user_id',actor).maybeSingle();
- if(editor.error)throw editor.error;
- if(editor.data?.role!=='management')throw new RequestValidationError('هذا الرابط متاح للإدارة فقط.',403);
  const {data:userInfo,error:userError}=await db.auth.admin.getUserById(targetId);
  if(userError||!userInfo?.user)throw new RequestValidationError('المستخدم المطلوب غير موجود.',404);
  const target=userInfo.user;
  if(!target.email_confirmed_at||target.banned_until&&Date.parse(target.banned_until)>Date.now())
   throw new RequestValidationError('المستخدم غير متاح للمراسلة حاليًا.',409);
- const {data:profile,error:profileError}=await db.from('public_profiles')
-  .select('display_name,suspended,deletion_requested_at').eq('user_id',targetId).maybeSingle();
- if(profileError)throw profileError;
- if(profile?.suspended||profile?.deletion_requested_at)throw new RequestValidationError('المستخدم غير متاح للمراسلة حاليًا.',409);
- return {person:{id:targetId,name:profile?.display_name||'مستخدم 967'}};
+ const [profileResult,prefResult,blockResult]=await Promise.all([
+  db.from('public_profiles').select('display_name,avatar_url,show_avatar,suspended,deletion_requested_at').eq('user_id',targetId).maybeSingle(),
+  db.from('private_messaging_settings').select('allow_requests').eq('user_id',targetId).maybeSingle(),
+  db.from('private_user_blocks').select('blocker_id,blocked_id')
+   .or('and(blocker_id.eq.'+actor+',blocked_id.eq.'+targetId+'),and(blocker_id.eq.'+targetId+',blocked_id.eq.'+actor+')')
+ ]);
+ if(profileResult.error||prefResult.error||blockResult.error)
+  throw profileResult.error||prefResult.error||blockResult.error;
+ const p=profileResult.data;
+ if(!p||p.suspended||p.deletion_requested_at)
+  throw new RequestValidationError('المستخدم غير متاح للمراسلة حاليًا.',409);
+ if(prefResult.data?.allow_requests===false||(blockResult.data||[]).length>0)
+  throw new RequestValidationError('هذا المستخدم لا يستقبل طلبات محادثة حاليًا.',403);
+ return {person:{id:targetId,name:p.display_name||'عضو 967',avatar_url:p.show_avatar?p.avatar_url:null}};
 }
 
 export async function GET(request){
@@ -104,7 +112,7 @@ export async function GET(request){
   }
   if(mode==='thread')return json(await getThread(db,user.id,id,before));
   if(mode==='search')return json(await search(db,user.id,q));
-  if(mode==='contact')return json(await managedContact(db,user.id,id));
+  if(mode==='contact')return json(await directContact(db,user.id,id));
   const [setting,blocks]=await Promise.all([
    db.from('private_messaging_settings').select('discoverable,allow_requests,notify_messages').eq('user_id',user.id).maybeSingle(),
    db.from('private_user_blocks').select('blocked_id,created_at').eq('blocker_id',user.id).limit(100)
