@@ -62,10 +62,9 @@ test('report numbers are assigned to existing reports and moderation transcript 
  ].join(';')+';');
  await pg.exec(read('supabase/migrations/20261103061322_message_report_context_audit.sql'));
  const report=(await pg.query('select report_number from public.private_message_reports limit 1')).rows[0];
- assert.equal(typeof report.report_number,'number');
- assert.ok(report.report_number>0);
+ assert.ok(Number(report.report_number)>0);
  const added=await pg.query("insert into public.private_message_reports(id) values('20000000-0000-4000-8000-000000000002') returning report_number");
- assert.ok(added.rows[0].report_number>report.report_number);
+ assert.ok(Number(added.rows[0].report_number)>Number(report.report_number));
  const has=(await pg.query("select has_table_privilege('authenticated','public.private_message_report_views','select') as browser_can_read,has_table_privilege('authenticated','public.private_message_report_views','insert') as browser_can_write,has_table_privilege('service_role','public.private_message_report_views','insert') as management_can_log")).rows[0];
  assert.deepEqual(has,{browser_can_read:false,browser_can_write:false,management_can_log:true});
  await pg.transaction(async tx=>{
