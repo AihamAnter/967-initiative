@@ -139,3 +139,6 @@
 .ed-page [class*="CrossSectionPaths_content"] small { color: var(--c-accent-strong); }
 .ed-page [class*="CrossSectionPaths_content"] strong { font-family: var(--t-display); font-size: 1.35rem; }
 .ed-page [class*="ExplorationProgress_trail"] { border-radius: var(--r-3); border: 1px solid var(--c-line); background: linear-gradient(160deg, var(--c-indigo-soft), var(--c-surface)); }
+
+/* Domain explanations stay readable in the user-selected night palette. */
+:root[data-ed-theme="dark"] .ed-page .ed-domains details>p{color:#b7c2bf}
