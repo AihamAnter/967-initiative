@@ -77,7 +77,8 @@ async function check(page,route,width){
      const value=ratio(c,b);
      if(value+0.001<threshold&&issues.length<40){
       issues.push({ratio:+value.toFixed(2),target:el.tagName+'.'+(typeof el.className==='string'?el.className.split(/\s+/).slice(0,2).join('.'):''),
-       text:(el.innerText||el.value||el.getAttribute('aria-label')||'').trim().slice(0,55),
+       text:(el.innerText||el.textContent||el.value||el.getAttribute('aria-label')||'').trim().slice(0,55),
+       context:[el.parentElement,el.parentElement?.parentElement].filter(Boolean).map(p=>p.tagName.toLowerCase()+(typeof p.className==='string'?'.'+p.className.trim().split(/\s+/).slice(0,2).join('.'):'' )).join(' < '),
        fg:st.color,bg:'rgb('+b.slice(0,3).map(v=>Math.round(v)).join(',')+')'});
      }
     }
