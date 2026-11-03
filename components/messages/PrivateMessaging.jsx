@@ -19,6 +19,8 @@ export default function PrivateMessaging(){
  const [draft,setDraft]=useState(''),[intro,setIntro]=useState('');
  const [dialog,setDialog]=useState(null),[reason,setReason]=useState('harassment'),[detail,setDetail]=useState('');
  const [busy,setBusy]=useState(false),[loading,setLoading]=useState(false),[notice,setNotice]=useState(''),[error,setError]=useState('');
+ const messagesRef=useRef(null);
+ const scrollStateRef=useRef({conversation:null,lastMessage:null});
  const live=useRef({user:null,selected:null});
  live.current={user:user?.id||null,selected};
 
@@ -49,7 +51,7 @@ export default function PrivateMessaging(){
  const open=useCallback(async(id,changeUrl=true)=>{
   if(!id||!live.current.user)return;
   const owner=live.current.user;
-  setSelected(id);setThread(null);setError('');
+  setSelected(id);setThread(previous=>previous?.conversation?.id===id?previous:null);setError('');
   if(changeUrl&&typeof window!=='undefined')history.replaceState(null,'','/messages?conversation='+encodeURIComponent(id));
   try{
    const data=await request('mode=thread&id='+encodeURIComponent(id));
@@ -103,6 +105,20 @@ export default function PrivateMessaging(){
    .subscribe();
   return()=>{if(channel)db.removeChannel(channel);};
  },[selected,thread?.conversation?.status,open]);
+
+ useEffect(()=>{
+  const box=messagesRef.current;
+  if(!box||tab!=='inbox'||!selected||thread?.conversation?.status!=='accepted'){
+   if(!selected||tab!=='inbox')scrollStateRef.current={conversation:null,lastMessage:null};
+   return;
+  }
+  const lastMessage=thread.messages?.[thread.messages.length-1]?.id||null;
+  const previous=scrollStateRef.current;
+  if(previous.conversation!==selected||previous.lastMessage!==lastMessage){
+   box.scrollTop=box.scrollHeight;
+  }
+  scrollStateRef.current={conversation:selected,lastMessage};
+ },[tab,selected,thread]);
 
  useEffect(()=>{
   if(!user||tab!=='search'||query.trim().length<2){setResults([]);return;}
@@ -168,7 +184,7 @@ export default function PrivateMessaging(){
   <header className={styles.heading}><div><div className={styles.crumb}>967 / حسابي / الرسائل</div><h1>الرسائل الخاصة</h1><p>تواصل مع أعضاء 967 بعد قبول طلب المحادثة. لا توجد رسائل بريدية.</p></div><Link href="/account"><ArrowRight size={16}/> حسابي</Link></header>
   {!ready?<div className={styles.gate}>جارٍ التحقق من الحساب…</div>:!user?
    <div className={styles.gate}><ShieldAlert size={29}/><h2>سجّل الدخول أولًا</h2><p>الرسائل الخاصة متاحة للمستخدمين المسجلين فقط.</p><Link href="/login">تسجيل الدخول</Link></div>:
-  <div className={styles.layout}>
+  <div className={styles.layout} data-chat-open={tab==='inbox'&&Boolean(selected&&thread)}>
    <aside className={styles.sidebar} aria-label="أقسام الرسائل">
     <div className={styles.tabs}>
      <button type="button" data-active={tab==='inbox'} onClick={()=>selectTab('inbox')}><MessageCircle size={18}/> المحادثات {unread>0&&<b>{unread}</b>}</button>
@@ -209,7 +225,7 @@ export default function PrivateMessaging(){
       <div><button type="button" title="إبلاغ" onClick={()=>setDialog({type:'report',conversation:selected})}><ShieldAlert size={18}/></button>
       <button type="button" title="حظر المستخدم" onClick={()=>block({id:thread.conversation.partner_id,name:thread.conversation.partner_name})}><Ban size={18}/></button></div></header>
      {thread.conversation.status==='accepted'?<>
-      <div className={styles.messages} aria-label="الرسائل">
+      <div className={styles.messages} ref={messagesRef} aria-label="الرسائل">
        {thread.hasMore&&<button className={styles.older} disabled={busy} onClick={async()=>{
         const data=await request('mode=thread&id='+selected+'&before='+encodeURIComponent(thread.nextBefore));
         setThread(t=>t&&t.conversation.id===selected?{...t,messages:[...data.messages,...t.messages],hasMore:data.hasMore,nextBefore:data.nextBefore}:t);
