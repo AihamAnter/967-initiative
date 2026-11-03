@@ -92,3 +92,13 @@
   .videoArt { min-height:165px; }
   .controls > div { align-items:stretch; }
 }
+
+
+/* Preview swatches use inline original palette colours; their dark-mode
+   light variants require a dark text ink, not the light-mode white. */
+:global(:root[data-ed-theme="dark"]) .swatch > div {
+  color: #071412 !important;
+}
+:global(:root[data-ed-theme="dark"]) .previewNav a:last-child {
+  color: #071412 !important;
+}
