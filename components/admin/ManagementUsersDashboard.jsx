@@ -133,7 +133,7 @@ export default function ManagementUsersDashboard(){
      <table className={styles.table}>
       <thead><tr><th scope="col">الاسم</th><th scope="col">البريد الإلكتروني</th><th scope="col">تاريخ الإنشاء</th><th scope="col">آخر دخول</th><th scope="col">الحالة</th><th scope="col">الصلاحية</th><th scope="col">الإجراءات</th></tr></thead>
       <tbody>{directory.users.map(account=><tr key={account.id}>
-       <th scope="row"><div className={styles.person}><span className={styles.avatar}>{account.name.slice(0,1)}</span><div><strong>{account.name}</strong><small dir="ltr" title={account.id}>{account.id.slice(0,8)}…</small></div></div></th>
+       <th scope="row"><div className={styles.person}><span className={styles.avatar}>{account.name.slice(0,1)}</span><div><Link href={'/members/'+encodeURIComponent(account.id)}><strong>{account.name}</strong></Link><small dir="ltr" title={account.id}>{account.id.slice(0,8)}…</small></div></div></th>
        <td><span dir="ltr" className={styles.email}>{account.email||'—'}</span><small>{providers[account.provider]||account.provider} · {account.email?(account.email_confirmed?'بريد مؤكّد':'بريد غير مؤكّد'):'لا يوجد بريد'}</small></td>
        <td className={styles.dateCell} dir="ltr">{dateTime(account.created_at)}</td>
        <td className={styles.dateCell} dir="ltr">{dateTime(account.last_sign_in_at)}</td>

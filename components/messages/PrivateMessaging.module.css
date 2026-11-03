@@ -74,3 +74,13 @@
 @media(max-width:840px){.layout{grid-template-columns:260px minmax(0,1fr)}.tabs button{font-size:11px}}
 @media(max-width:650px){.page{padding:20px 0 60px}.wrap{width:calc(100% - 22px)}.heading{align-items:start}.heading h1{font-size:28px}.layout{grid-template-columns:1fr;grid-template-rows:minmax(225px,45%) minmax(0,1fr);height:clamp(500px,calc(100dvh - 165px),830px);min-height:0;max-height:none}.layout[data-chat-open=true]{grid-template-rows:minmax(145px,175px) minmax(0,1fr)}.sidebar{min-height:0;max-height:none;border-inline-end:0;border-bottom:1px solid var(--border)}.sidebar:has(+ .threadArea .thread){max-height:none}.list{min-height:0}.threadArea{min-height:0}.messages{padding:14px}.threadHeader{padding:12px}.bubble{max-width:90%}.composer{padding:10px}.composer button{padding:11px}.placeholder{padding:30px}.gate{padding:35px 16px}.heading p{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important}}
+
+/* Profile identity and conversation controls are separate, never nested links inside buttons. */
+.personRow{display:grid;gap:6px;padding:12px 13px;border-bottom:1px solid var(--border);min-width:0}
+.personRow[data-active=true]{background:var(--c-accent-soft)}
+.personLink{min-width:0;width:max-content;max-width:100%;font-size:14px}
+.openConversation{display:flex;align-items:center;gap:8px;padding:4px 0;border:0;background:transparent;text-align:right;color:var(--muted);font-size:12px;cursor:pointer;min-height:30px;min-width:0}
+.openConversation span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.openConversation:hover{color:var(--c-accent)}
+.openConversation:focus-visible{outline:2px solid var(--c-accent);border-radius:5px}
+.threadHeader>div:first-child{flex-wrap:wrap;gap:8px}

@@ -1,13 +1,13 @@
 'use client';
 import {useEffect,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,CheckCircle2,Clock3,Crown,Flame,Medal,RefreshCw,ShieldCheck,Trophy,UserRound,Zap} from 'lucide-react';
+import {ArrowLeft,CheckCircle2,Clock3,Crown,Flame,Medal,RefreshCw,ShieldCheck,Trophy,Zap} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/games/leaderboard/leaderboard.module.css';
+import MemberLink from '@/components/members/MemberLink';
 
 const periods=[{id:'daily',label:'اليوم'},{id:'weekly',label:'الأسبوع'},{id:'monthly',label:'الشهر'},{id:'all',label:'كل الوقت'}];
 const format=n=>Number(n||0).toLocaleString('ar');
-function PlayerFace({name}){return <div className={styles.avatar} aria-hidden="true">{name?.slice(0,1)||<UserRound size={20}/>}</div>}
 function Badges({items=[]}){return items.length?<div className={styles.badges}>{items.map(b=><span key={b}><Medal size={13}/>{b}</span>)}</div>:null;}
 export default function Leaderboard(){
  const [period,setPeriod]=useState('daily'),[loading,setLoading]=useState(true);
@@ -52,23 +52,24 @@ export default function Leaderboard(){
    {leaders.length===0?<div className={styles.empty}><Trophy size={48}/><h3>لا توجد نتائج موثقة لهذه الفترة بعد.</h3><p>يمكنك أن تكون أول المتصدرين. شارك في تحدي اليوم الرسمي بحسابك المسجل.</p><Link href="/games">اذهب إلى الألعاب <ArrowLeft size={17}/></Link></div>
    :<>
     <div className={styles.podium}>
-     {podium.map((player,index)=>player?<button type="button" key={index} onClick={()=>setSelected(player)} className={[styles.podiumCard,index===1?styles.champion:''].join(' ')}>
+     {podium.map((player,index)=>player?<div key={index} className={[styles.podiumCard,index===1?styles.champion:''].join(' ')}>
       <span className={styles.rankIcon}>{index===1?<Crown size={28}/>:<Medal size={25}/>}</span>
-      <PlayerFace name={player.name}/>
-      <span className={styles.playerName}>{player.name}{player.isMe&&<span className={styles.meLabel}>أنت</span>}</span>
+      <MemberLink id={player.member_id} name={player.name} className={styles.playerIdentity}/>
+      {player.isMe&&<span className={styles.meLabel}>أنت</span>}
       <strong className={styles.points} dir="ltr">{format(player.score)} XP</strong>
       <span className={styles.rankNumber}>المركز {format(player.rank)}</span>
       <small>{format(player.played)} تحديات مكتملة</small>
-     </button>:<div key={index} className={styles.placeholder} aria-hidden="true"/>)}
+      <button type="button" className={styles.playerStatsButton} onClick={()=>setSelected(player)}>عرض الإحصاءات</button>
+     </div>:<div key={index} className={styles.placeholder} aria-hidden="true"/>)}
     </div>
     <div className={styles.rankTable}>
      <div className={styles.tableHead}><span>الترتيب</span><span>اللاعب</span><span>التحديات</span><span>النقاط</span></div>
-     {leaders.slice(3).map((player,index)=><button type="button" onClick={()=>setSelected(player)} key={index} className={[styles.rankRow,player.isMe?styles.myRow:''].join(' ')}>
+     {leaders.slice(3).map((player,index)=><div key={index} className={[styles.rankRow,player.isMe?styles.myRow:''].join(' ')}>
       <strong>#{format(player.rank)}</strong>
-      <span className={styles.rowPlayer}><PlayerFace name={player.name}/><span>{player.name}{player.isMe&&<b className={styles.meLabel}>أنت</b>}</span></span>
-      <span>{format(player.played)}</span>
+      <span className={styles.rowPlayer}><MemberLink id={player.member_id} name={player.name}/>{player.isMe&&<b className={styles.meLabel}>أنت</b>}</span>
+      <button type="button" className={styles.playerStatsButton} onClick={()=>setSelected(player)} aria-label={'عرض إحصاءات '+player.name}>{format(player.played)} <small>تحديات</small></button>
       <strong dir="ltr">{format(player.score)} XP</strong>
-     </button>)}
+     </div>)}
     </div>
    </>}
    <div className={styles.bottom}>
@@ -79,7 +80,7 @@ export default function Leaderboard(){
    {selected&&<div className={styles.profileOverlay} role="presentation" onClick={()=>setSelected(null)}>
     <div className={styles.profileCard} role="dialog" aria-modal="true" aria-label={'إحصائيات '+selected.name} onClick={e=>e.stopPropagation()}>
      <button type="button" onClick={()=>setSelected(null)} className={styles.close}>إغلاق ×</button>
-     <div className={styles.profileHeader}><PlayerFace name={selected.name}/><div><h3>{selected.name}</h3><p>المركز #{format(selected.rank)} · {name}</p></div></div>
+     <div className={styles.profileHeader}><MemberLink id={selected.member_id} name={selected.name}/><div><h3>{selected.name}</h3><p>المركز #{format(selected.rank)} · {name}</p></div></div>
      <div className={styles.profileStats}><div><strong>{format(selected.score)}</strong><small>النقاط</small></div><div><strong>{format(selected.played)}</strong><small>تحديات مكتملة</small></div><div><strong>{format(selected.correct)}</strong><small>إجابات صحيحة</small></div><div><strong>{format(selected.awards.streak)}</strong><small>سلسلة الأيام</small></div></div>
      <Badges items={selected.awards.badges}/>
      <p className={styles.notice}><CheckCircle2 size={15}/> جميع النتائج المعروضة رسمية وتم احتسابها على الخادم.</p>

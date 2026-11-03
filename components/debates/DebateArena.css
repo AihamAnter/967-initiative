@@ -84,3 +84,7 @@
 @media(max-width:390px){.visual-foundation .interior-page .arena-compose-form .debate-form-columns{grid-template-columns:1fr;}.visual-foundation .interior-page .arena-composer{padding:14px;}.visual-foundation .interior-page .arena-post{padding:14px;}.visual-foundation .interior-page .arena-total{gap:5px;}.visual-foundation .interior-page .arena-heading p{max-width:170px;}.visual-foundation .interior-page .arena-filter-count{min-width:18px;padding:1px 4px;}}
 .arena-focus-notice{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 15px;border:1px solid var(--line);border-radius:8px;color:var(--primary);font-size:12px}.arena-focus-notice button{min-height:44px;border:0;background:var(--surface);color:var(--primary);font:inherit;padding:8px 12px;border-radius:6px;cursor:pointer}
 .inline-pinned-label{display:inline-flex;align-items:center;gap:5px;color:var(--color-violet);font-size:11px;}
+
+/* Make a published author's image and name a shared accessible profile link. */
+.visual-foundation .interior-page .arena-post-member{max-width:100%;min-width:0;font-size:13px}
+.visual-foundation .interior-page .arena-post-member:focus-visible{outline:2px solid var(--c-accent);outline-offset:3px}
