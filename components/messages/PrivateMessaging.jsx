@@ -1,10 +1,11 @@
 'use client';
-import {useCallback,useEffect,useRef,useState} from 'react';
+import {useCallback,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowRight,Ban,Bell,Check,CheckCheck,ChevronLeft,Inbox,MailPlus,MessageCircle,RefreshCcw,Search,Send,Settings2,ShieldAlert,UserRound,X} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS} from '@/lib/privateMessaging';
+import {shouldSendComposerEnter,composerHeight} from '@/lib/messageComposer';
 import MemberLink from '@/components/members/MemberLink';
 import styles from './PrivateMessaging.module.css';
 
@@ -20,7 +21,22 @@ export default function PrivateMessaging(){
  const [draft,setDraft]=useState(''),[intro,setIntro]=useState('');
  const [dialog,setDialog]=useState(null),[reason,setReason]=useState('harassment'),[detail,setDetail]=useState('');
  const [busy,setBusy]=useState(false),[loading,setLoading]=useState(false),[notice,setNotice]=useState(''),[error,setError]=useState('');
- const messagesRef=useRef(null);
+ const messagesRef=useRef(null),composerRef=useRef(null);
+ const resizeComposer=useCallback(()=>{
+  const field=composerRef.current;
+  if(!field)return;
+  field.style.height='auto';
+  const threadHeight=field.closest('section')?.clientHeight||window.innerHeight;
+  const {height,overflow}=composerHeight(field.scrollHeight,window.innerHeight,threadHeight);
+  field.style.height=height+'px';
+  field.style.overflowY=overflow;
+ },[]);
+ useLayoutEffect(()=>{resizeComposer();},[draft,selected,thread?.conversation?.status,resizeComposer]);
+ useEffect(()=>{
+  const onResize=()=>resizeComposer();
+  window.addEventListener('resize',onResize);
+  return()=>window.removeEventListener('resize',onResize);
+ },[resizeComposer]);
  const scrollStateRef=useRef({conversation:null,lastMessage:null});
  const live=useRef({user:null,selected:null});
  live.current={user:user?.id||null,selected};
@@ -148,6 +164,11 @@ export default function PrivateMessaging(){
  const visible=items.filter(x=>x.status==='accepted'||x.status==='pending'&&x.requested_by===user?.id);
  const backToList=()=>{setSelected(null);setThread(null);history.replaceState(null,'','/messages');};
  const selectTab=name=>{setTab(name);setError('');setNotice('');if(name!=='inbox')backToList();};
+ const onComposerKeyDown=event=>{
+  if(!shouldSendComposerEnter(event,window.matchMedia('(max-width: 680px)').matches))return;
+  event.preventDefault();
+  if(!busy&&selected&&draft.trim())event.currentTarget.form?.requestSubmit();
+ };
  const send=async event=>{
   event.preventDefault();
   if(!selected||!draft.trim())return;
@@ -247,7 +268,7 @@ export default function PrivateMessaging(){
         {m.sender_id!==user.id&&<button title="الإبلاغ عن هذه الرسالة" onClick={()=>setDialog({type:'report',conversation:selected,message:m.id})}><ShieldAlert size={13}/></button>}</footer></div></div>)}
        {!thread.messages.length&&<p className={styles.empty}>المحادثة جاهزة. اكتب أول رسالة.</p>}
       </div>
-      <form className={styles.composer} onSubmit={send}><textarea rows={2} maxLength={2000} value={draft} onChange={e=>setDraft(e.target.value)} placeholder="اكتب رسالتك…" aria-label="نص الرسالة"/><button disabled={busy||!draft.trim()} aria-label="إرسال الرسالة"><Send size={19}/> إرسال</button></form>
+      <form className={styles.composer} onSubmit={send}><div className={styles.composerField}><textarea ref={composerRef} rows={1} maxLength={2000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={onComposerKeyDown} placeholder="اكتب رسالتك…" aria-label="نص الرسالة" aria-describedby="message-composer-hint"/><small id="message-composer-hint" className={styles.composerHint}>Enter للإرسال · Shift+Enter لسطر جديد</small></div><button type="submit" disabled={busy||!draft.trim()} aria-label="إرسال الرسالة"><Send size={19}/> إرسال</button></form>
      </>:<div className={styles.empty}><Bell size={26}/><h3>بانتظار الموافقة</h3><p>{thread.conversation.intro}</p><p>يمكن إرسال رسائل جديدة بعد قبول الطرف الآخر فقط.</p></div>}
     </section>:tab==='inbox'&&selected?<div className={styles.threadLoading} role="status">{error?'تعذر فتح المحادثة. يمكنك العودة للقائمة.':'جارٍ فتح المحادثة…'}<button type="button" onClick={backToList}>العودة للمحادثات</button></div>:tab==='inbox'?<div className={styles.placeholder}><MessageCircle size={35}/><h2>اختر محادثة للبدء</h2><p>ستظهر الرسائل هنا عند اختيار أي محادثة من القائمة.</p><button type="button" onClick={()=>selectTab('search')} className={styles.secondaryButton}><MailPlus size={17}/> محادثة جديدة</button></div>:null}
    </main>
