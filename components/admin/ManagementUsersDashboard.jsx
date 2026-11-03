@@ -2,7 +2,7 @@
 
 import {useCallback,useEffect,useMemo,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,Ban,CheckCircle2,Mail,RefreshCw,Search,ShieldAlert,ShieldCheck,UsersRound,X} from 'lucide-react';
+import {ArrowLeft,Ban,CheckCircle2,Mail,MessageCircle,RefreshCw,Search,ShieldAlert,ShieldCheck,UsersRound,X} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useAudience from '@/components/debates/useAudience';
 import styles from './ManagementUsersDashboard.module.css';
@@ -32,8 +32,6 @@ export default function ManagementUsersDashboard(){
  const [notice,setNotice]=useState('');
  const [modal,setModal]=useState(null);
  const [duration,setDuration]=useState('24h');
- const [subject,setSubject]=useState('');
- const [message,setMessage]=useState('');
  const [busy,setBusy]=useState(false);
 
  const request=useCallback(async (path,body,signal)=>{
@@ -74,7 +72,7 @@ export default function ManagementUsersDashboard(){
  const refresh=()=>setRevision(value=>value+1);
  const open=(kind,account)=>{
   setModal({kind,account});
-  setDuration('24h');setSubject('رسالة من فريق 967');setMessage('');
+  setDuration('24h');
   setError('');setNotice('');
  };
  const close=()=>{if(!busy)setModal(null);};
@@ -87,10 +85,9 @@ export default function ManagementUsersDashboard(){
   setBusy(true);setError('');
   try{
    const result=await request('/api/admin/users',{
-    action:kind==='email'?'send_email':kind,
+    action:kind,
     user_id:account.id,
     ...(kind==='ban'?{duration}:{}),
-    ...(kind==='email'?{subject:subject.trim(),message:message.trim()}:{})
    });
    setNotice(result.message||'تم تنفيذ العملية.');
    setModal(null);
@@ -98,9 +95,6 @@ export default function ManagementUsersDashboard(){
   }catch(failure){setError(failure.message);}
   finally{setBusy(false);}
  };
- const mailto=modal?.kind==='email'&&modal.account.email?
-  'mailto:'+modal.account.email+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message):'';
- const canSend=subject.trim().length>=3&&subject.trim().length<=160&&message.trim().length>=10&&message.trim().length<=4000;
 
  return <div className={styles.page} dir="rtl"><div className={styles.wrap}>
   <header className={styles.heading}>
@@ -146,7 +140,7 @@ export default function ManagementUsersDashboard(){
        <td><span className={styles.status} data-status={account.status}>{states[account.status]||account.status}</span>{account.status==='banned'&&<small>حتى {dateTime(account.banned_until)}</small>}</td>
        <td>{roles[account.role]||roles.user}</td>
        <td><div className={styles.actions}>
-        {account.email&&<button type="button" onClick={()=>open('email',account)} aria-label={'مراسلة '+account.name}><Mail size={15}/> مراسلة</button>}
+        {account.id!==user.id&&account.status==='active'&&<Link href={'/messages?to='+encodeURIComponent(account.id)} aria-label={'مراسلة '+account.name+' داخل موقع 967'}><MessageCircle size={15}/> مراسلة</Link>}
         {account.id!==user.id&&account.role==='user'&&(account.status==='banned'?
          <button className={styles.unban} type="button" onClick={()=>open('unban',account)}><CheckCircle2 size={15}/> رفع الحظر</button>:
          <button className={styles.ban} type="button" onClick={()=>open('ban',account)}><Ban size={15}/> حظر</button>)}
@@ -167,17 +161,12 @@ export default function ManagementUsersDashboard(){
   </>}
   {modal&&<div className={styles.overlay} role="presentation" onMouseDown={event=>{if(event.target===event.currentTarget)close();}}>
    <section className={styles.dialog} role="dialog" aria-modal="true" aria-labelledby="manage-user-title">
-    <div className={styles.dialogTitle}><h2 id="manage-user-title">{modal.kind==='email'?'مراسلة المستخدم':modal.kind==='ban'?'حظر حساب مستخدم':'رفع الحظر عن المستخدم'}</h2><button type="button" disabled={busy} onClick={close} aria-label="إغلاق"><X size={20}/></button></div>
+    <div className={styles.dialogTitle}><h2 id="manage-user-title">{modal.kind==='ban'?'حظر حساب مستخدم':'رفع الحظر عن المستخدم'}</h2><button type="button" disabled={busy} onClick={close} aria-label="إغلاق"><X size={20}/></button></div>
     <p className={styles.recipient}><strong>{modal.account.name}</strong><span dir="ltr">{modal.account.email||modal.account.id}</span></p>
     {error&&<p role="alert" className={styles.error}>{error}</p>}
-    {modal.kind==='email'?<div className={styles.form}>
-     <label>الموضوع<input value={subject} onChange={e=>setSubject(e.target.value)} maxLength={160}/></label>
-     <label>الرسالة<textarea value={message} onChange={e=>setMessage(e.target.value)} rows={7} maxLength={4000} placeholder="اكتب رسالتك إلى المستخدم…"/></label>
-     <small>الإرسال المباشر يتطلب تفعيل مزوّد Resend وبريد مرسل موثّق. ويمكن فتح الرسالة في برنامج بريدك بدلًا من ذلك.</small>
-    </div>:modal.kind==='ban'?<div className={styles.form}><label>مدة الحظر<select value={duration} onChange={e=>setDuration(e.target.value)}>{durations.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label><p>سيُمنع هذا الحساب من تسجيل الدخول أو تجديد الجلسة خلال مدة الحظر. لن تُحذف بياناته أو مشاركاته.</p></div>:<p>سيتم السماح لهذا المستخدم بتسجيل الدخول مرة أخرى دون حذف بياناته.</p>}
+    {modal.kind==='ban'?<div className={styles.form}><label>مدة الحظر<select value={duration} onChange={e=>setDuration(e.target.value)}>{durations.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label><p>سيُمنع هذا الحساب من تسجيل الدخول أو تجديد الجلسة خلال مدة الحظر. لن تُحذف بياناته أو مشاركاته.</p></div>:<p>سيتم السماح لهذا المستخدم بتسجيل الدخول مرة أخرى دون حذف بياناته.</p>}
     <div className={styles.dialogActions}>
-     <button type="button" onClick={action} disabled={busy||(modal.kind==='email'&&!canSend)} className={modal.kind==='ban'?styles.dangerAction:styles.primaryAction}>{busy?'جارٍ التنفيذ…':modal.kind==='email'?'إرسال البريد الآن':modal.kind==='ban'?'تأكيد الحظر':'رفع الحظر'}</button>
-     {mailto&&<a className={styles.mailto} href={mailto}>فتح في برنامج البريد</a>}
+     <button type="button" onClick={action} disabled={busy} className={modal.kind==='ban'?styles.dangerAction:styles.primaryAction}>{busy?'جارٍ التنفيذ…':modal.kind==='ban'?'تأكيد الحظر':'رفع الحظر'}</button>
      <button type="button" onClick={close} disabled={busy} className={styles.cancelAction}>إلغاء</button>
     </div>
    </section>
