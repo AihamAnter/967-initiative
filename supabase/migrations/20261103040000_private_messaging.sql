@@ -98,7 +98,7 @@ create policy private_messages_participants on public.private_messages
 -- from the transactional action function to deduplicate in-site notifications.
 create or replace function public.private_messaging_notice(p_user uuid,p_title text,p_link text)
 returns void language plpgsql security invoker set search_path='' as $$
-declare found_id uuid;
+found_id uuid;
 begin
  select id into found_id from public.account_notifications
  where user_id=p_user and kind='system' and href=p_link
@@ -119,16 +119,15 @@ create or replace function public.private_messaging_action(
  p_actor uuid,p_action text,p_target uuid default null,p_conversation uuid default null,
  p_text text default null,p_message uuid default null,p_options jsonb default '{}'::jsonb
 ) returns jsonb language plpgsql security invoker set search_path='' as $$
-declare c public.private_conversations%rowtype;
-declare target_user uuid;
-declare me_low uuid;
-declare me_high uuid;
-declare blocked boolean;
-declare count_recent bigint;
-declare message_id uuid;
-declare content text;
-declare approved boolean;
-declare recipient uuid;
+c public.private_conversations%rowtype;
+me_low uuid;
+me_high uuid;
+blocked boolean;
+count_recent bigint;
+message_id uuid;
+content text;
+approved boolean;
+recipient uuid;
 begin
  if p_actor is null or not exists(
   select 1 from auth.users u where u.id=p_actor and u.email_confirmed_at is not null
@@ -140,9 +139,9 @@ begin
   raise exception 'MESSAGE_AUTH_DENIED' using errcode='42501';
  end if;
  if p_action='settings' then
-  if jsonb_typeof(p_options->'discoverable')<>'boolean' or
-     jsonb_typeof(p_options->'allow_requests')<>'boolean' or
-     jsonb_typeof(p_options->'notify_messages')<>'boolean' then
+  if jsonb_typeof(p_options->'discoverable') is distinct from 'boolean' or
+     jsonb_typeof(p_options->'allow_requests') is distinct from 'boolean' or
+     jsonb_typeof(p_options->'notify_messages') is distinct from 'boolean' then
    raise exception 'MESSAGE_INVALID_INPUT' using errcode='22023';
   end if;
   insert into public.private_messaging_settings(user_id,discoverable,allow_requests,notify_messages)
@@ -190,7 +189,8 @@ begin
   end if;
   select * into c from public.private_conversations
    where user_low=me_low and user_high=me_high for update;
-  if found and (c.status<>'declined' or c.declined_at>now()-interval '30 days') then
+  approved=found;
+  if approved and (c.status<>'declined' or c.declined_at>now()-interval '30 days') then
    raise exception 'MESSAGE_ALREADY_EXISTS' using errcode='23505';
   end if;
   select count(*) into count_recent from public.private_conversations
@@ -198,7 +198,7 @@ begin
   if count_recent>=5 then
    raise exception 'MESSAGE_REQUEST_LIMIT' using errcode='22023';
   end if;
-  if found then
+  if approved then
    update public.private_conversations
     set status='pending',requested_by=p_actor,intro=content,requested_at=now(),
      accepted_at=null,declined_at=null,updated_at=now(),last_message_at=null,last_excerpt=null
