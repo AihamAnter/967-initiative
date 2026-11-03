@@ -66,5 +66,5 @@ test('page and API never grant editor admins access to account listing',()=>{
  assert.ok(page.includes("ManagementUsersDashboard"));
  assert.ok(view.includes("getSession()"));
  assert.ok(view.includes("Authorization:'Bearer '"));
- assert.ok(view.includes("لا يمكن"));
+ assert.ok(view.includes("فتح في برنامج البريد"));
 });
