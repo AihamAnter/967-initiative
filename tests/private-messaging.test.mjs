@@ -129,9 +129,22 @@ test('search visibility defaults on without a preference row and respects explic
 test('UI and API both default to searchable while database default is true',()=>{
  const api=readFileSync(new URL('../app/api/messages/route.js',import.meta.url),'utf8');
  const ui=readFileSync(new URL('../components/messages/PrivateMessaging.jsx',import.meta.url),'utf8');
- const ddl=readFileSync(new URL('../supabase/migrations/20261103052630_private_messaging_auth_service_role_columns.sql',import.meta.url),'utf8');
+ const ddl=readFileSync(new URL('../supabase/migrations/20261103053738_private_messaging_discoverable_default.sql',import.meta.url),'utf8');
  assert.match(api,/settings:\{discoverable:true,allow_requests:true,notify_messages:true/);
  assert.match(api,/canReceiveSearchRequests\(prefs\.get\(p\.user_id\)\)/);
  assert.match(ui,/const defaults=\{discoverable:true,allow_requests:true,notify_messages:true\}/);
- assert.ok(ddl.includes('auth.users'));
+ assert.match(ddl,/alter table public\.private_messaging_settings alter column discoverable set default true/i);
+});
+
+test('database default is visible, but users can opt out and keep their saved choice',async t=>{
+ const pg=await fixture(t);
+ await pg.exec(readFileSync(new URL('../supabase/migrations/20261103053738_private_messaging_discoverable_default.sql',import.meta.url),'utf8'));
+ const fresh=await pg.query('insert into public.private_messaging_settings(user_id) values($1) returning discoverable',[U.a]);
+ assert.equal(fresh.rows[0].discoverable,true);
+ const disabled=await pg.query('update public.private_messaging_settings set discoverable=false where user_id=$1 returning discoverable',[U.a]);
+ assert.equal(disabled.rows[0].discoverable,false);
+ const enabled=await pg.query('insert into public.private_messaging_settings(user_id) values($1) returning discoverable',[U.b]);
+ assert.equal(enabled.rows[0].discoverable,true);
+ const stillDisabled=await pg.query('select discoverable from public.private_messaging_settings where user_id=$1',[U.a]);
+ assert.equal(stillDisabled.rows[0].discoverable,false);
 });
