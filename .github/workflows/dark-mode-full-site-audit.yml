@@ -1,0 +1,57 @@
+name: Whole-site dark theme browser audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/audit-dark-all-pages.mjs'
+      - '.github/workflows/dark-mode-full-site-audit.yml'
+      - 'app/**'
+      - 'components/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-dark-mode:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      LOCAL_CONTENT_FALLBACK: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install application dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build production application
+        run: npm run build
+      - name: Install Chromium runner
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start production preview and audit dark-mode routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run start -- --hostname 127.0.0.1 --port 3133 >/tmp/967-dark-audit-next.log 2>&1 &
+          APP_PID=$!
+          trap 'kill "$APP_PID" 2>/dev/null || true' EXIT
+          ready=0
+          for i in $(seq 1 75); do
+            if curl -fsS http://127.0.0.1:3133/ >/dev/null; then ready=1; break; fi
+            sleep 3
+          done
+          if [ "$ready" -ne 1 ]; then cat /tmp/967-dark-audit-next.log; exit 1; fi
+          node scripts/audit-dark-all-pages.mjs || { tail -120 /tmp/967-dark-audit-next.log; exit 1; }
+      - name: Upload route matrix, contrast warnings, screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dark-mode-full-site-audit
+          path: docs/audit/dark-20261103/browser/
+          if-no-files-found: ignore

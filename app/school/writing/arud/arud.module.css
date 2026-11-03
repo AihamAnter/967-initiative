@@ -45,7 +45,7 @@
 .reference{background:#ede9dc;border-top:1px solid #dcd1b9;padding:29px 0}
 .reference>.container{display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap}
 .reference h2{font-size:20px;color:#23434a;margin:0 0 6px}
-.reference p{font-size:12px;color:#58706b;line-height:1.85;margin:0;max-width:680px}
+.reference p{font-size:12px;color:#49615b;line-height:1.85;margin:0;max-width:680px}
 .reference a{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:#226759;font-weight:800}
 .lessonBackground{background:radial-gradient(circle at 12% 10%,#e4ece3,transparent 40%),#faf7ee;min-height:65vh;padding:23px 0 70px}
 .lessonBreadcrumb{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:#61736c;font-size:12px;margin-bottom:27px}
@@ -72,7 +72,7 @@
 .lessonStart{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;border:1px solid #dbc9a5;border-radius:13px;background:#f1ead9;padding:19px 22px;margin-top:16px}
 .lessonStart>div{flex:1;min-width:240px}
 .lessonStart strong{font-size:16px}
-.lessonStart p{font-size:12px;line-height:1.9;color:#67706b;margin:5px 0 0}
+.lessonStart p{font-size:12px;line-height:1.9;color:#54605a;margin:5px 0 0}
 .lessonStart button,.questionFooter button,.outcomeActions button,.mainAction{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 17px;background:#216657;color:#fff;border-radius:9px;font-size:13px;font-weight:800}
 .lessonStart button:disabled,.questionFooter button:disabled,.outcomeActions button:disabled{opacity:.45;cursor:not-allowed}
 .questionStatus{display:flex;justify-content:space-between;align-items:center;gap:9px;margin-bottom:8px;font-size:12px;font-weight:800;color:#345e54}
@@ -187,3 +187,68 @@
 :global(:root[data-ed-theme="dark"]) .sectionIntro>p{color:var(--c-ink-2)}
 
 .draftStatus{font-size:12px;color:#52796a;margin:12px 0;line-height:1.6}
+
+
+/* Dark-mode visual audit: keep the original warm lesson identity, but stop
+   mixing legacy cream surfaces with inherited light-mode/white text. */
+:global(:root[data-ed-theme="dark"]) .journey,
+:global(:root[data-ed-theme="dark"]) .lessonBackground,
+:global(:root[data-ed-theme="dark"]) .reference {
+  background: var(--c-bg) !important;
+  color: var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .lessonHeading h1,
+:global(:root[data-ed-theme="dark"]) .sectionIntro h2,
+:global(:root[data-ed-theme="dark"]) .reference h2 {
+  color: var(--c-ink) !important;
+}
+:global(:root[data-ed-theme="dark"]) .lessonHeading p,
+:global(:root[data-ed-theme="dark"]) .sectionIntro > p,
+:global(:root[data-ed-theme="dark"]) .reference p,
+:global(:root[data-ed-theme="dark"]) .journeyNote,
+:global(:root[data-ed-theme="dark"]) .lessonBreadcrumb {
+  color: var(--c-ink-2) !important;
+}
+:global(:root[data-ed-theme="dark"]) .lessonStudy > section,
+:global(:root[data-ed-theme="dark"]) .question,
+:global(:root[data-ed-theme="dark"]) .station,
+:global(:root[data-ed-theme="dark"]) .stationDone,
+:global(:root[data-ed-theme="dark"]) .stationLocked {
+  background: var(--c-surface) !important;
+  border-color: var(--c-line-2) !important;
+  color: var(--c-ink) !important;
+}
+:global(:root[data-ed-theme="dark"]) .lessonStudy h3,
+:global(:root[data-ed-theme="dark"]) .examples strong,
+:global(:root[data-ed-theme="dark"]) .lessonStart strong {
+  color: var(--c-ink) !important;
+}
+:global(:root[data-ed-theme="dark"]) .examples > div {
+  background: var(--c-surface-2) !important;
+  border-color: var(--c-amber) !important;
+  color: var(--c-ink) !important;
+}
+:global(:root[data-ed-theme="dark"]) .examples small,
+:global(:root[data-ed-theme="dark"]) .lessonStart p {
+  color: var(--c-ink-2) !important;
+}
+:global(:root[data-ed-theme="dark"]) .lessonStart,
+:global(:root[data-ed-theme="dark"]) .notice,
+:global(:root[data-ed-theme="dark"]) .staffNotice {
+  background: var(--c-caution-soft) !important;
+  border-color: var(--c-line-2) !important;
+  color: var(--c-ink) !important;
+}
+:global(:root[data-ed-theme="dark"]) .staffNotice {
+  background: var(--c-accent-soft) !important;
+}
+:global(:root[data-ed-theme="dark"]) .notice :is(strong, p, span, svg),
+:global(:root[data-ed-theme="dark"]) .staffNotice :is(strong, p, span, svg) {
+  color: var(--c-ink) !important;
+}
+
+
+:global(:root[data-ed-theme="dark"]) .referenceLinks a,
+:global(:root[data-ed-theme="dark"]) .lessonHeading > a {
+  color: var(--c-accent) !important;
+}

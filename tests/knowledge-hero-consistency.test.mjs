@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 
-test('history, figures and map share the exact blue introductory design of the other knowledge pages',()=>{
+test('history, figures and map share the adaptive knowledge-page introduction',()=>{
  const shared=read('components/knowledge/KnowledgePageIntro.jsx');
  assert.ok(shared.includes("import PageIntro from '@/components/PageIntro'"));
  assert.ok(shared.includes("import '@/app/interior-design.css'"));
- assert.ok(shared.includes('className="interior-page" data-area="statistics"'));
- assert.ok(shared.includes('<PageIntro tone="blue"'));
+ assert.ok(shared.includes('className="interior-page" data-area={area||"statistics"}'));
+ assert.ok(shared.includes('<PageIntro tone="primary"'));
  for(const path of ['app/yemen-history/page.jsx','app/yemeni-figures/page.jsx','app/yemen-map/page.jsx']){
   const content=read(path);
   assert.ok(content.includes("import KnowledgePageIntro from '@/components/knowledge/KnowledgePageIntro'"),path);

@@ -157,3 +157,7 @@
 :global(:root[data-ed-theme="dark"]) .heroCopy p{color:#b7c8c4}
 :global(:root[data-ed-theme="dark"]) .outlineLight{border-color:rgb(255 255 255/.2);background:rgb(255 255 255/.08)}
 :global(:root[data-ed-theme="dark"]) .error{background:var(--c-danger-soft);border-color:color-mix(in srgb,var(--c-danger) 32%,transparent);color:var(--c-danger)}
+
+/* The selected dark palette uses bright teal; white text loses contrast on it. */
+:global(:root[data-ed-theme="dark"]) .primaryButton{background:var(--c-accent);border-color:var(--c-accent);color:#071412;-webkit-text-fill-color:#071412}
+:global(:root[data-ed-theme="dark"]) .primaryButton:hover{background:var(--c-accent-strong);border-color:var(--c-accent-strong);color:#071412}

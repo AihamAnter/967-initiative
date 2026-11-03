@@ -43,7 +43,7 @@
 .missionFooter>span{flex:1;min-width:150px}
 .missionFooter a{display:inline-flex;align-items:center;gap:6px;font-weight:800;color:#abf4d3;white-space:nowrap}
 .notice{border:1px solid #54617e;border-radius:12px;padding:18px;margin-top:18px;background:#1f2a45;font-size:12px;color:#ced9f0;line-height:1.8}
-.notice button{text-decoration:underline;color:#b9ffd9;font-weight:750}
+.notice button{appearance:none;background:transparent;border:0;padding:0;cursor:pointer;text-decoration:underline;color:#b9ffd9;font:inherit;font-weight:750}
 .guestNotice{display:flex;align-items:flex-start;gap:8px;margin:10px 0;border:1px solid #61557f;background:#292344;padding:10px 12px;border-radius:10px;line-height:1.7;color:#dcd3ff;font-size:11px}
 .guestNotice svg{flex-shrink:0;margin-top:2px}
 .guestNotice a{font-weight:850;text-decoration:underline;color:#d0ffd8}
