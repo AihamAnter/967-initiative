@@ -32,3 +32,5 @@
 .gate h1{font-size:24px;margin:0}.gate p{color:var(--c-ink-2);line-height:1.8;margin:0}
 .gate a{color:var(--c-accent)}.status{padding:50px;text-align:center;color:var(--c-ink-2)}
 @media(max-width:560px){.identity{gap:13px;padding:0 16px 18px;align-items:end}.heroAvatar{width:74px!important;height:74px!important;font-size:23px!important}.topBand{min-height:94px}.actions{padding:0 16px 18px;gap:8px}.actions>*{flex:1 1 145px}.report{margin:4px 15px 22px;padding:15px}.footnote{padding:18px 16px}.identity h1{font-size:25px}}
+
+.demoInfo{margin:0 30px 23px;border:1px solid var(--c-line-2);background:var(--c-surface-2);border-radius:12px;padding:16px 18px}.demoInfo strong{display:block;color:var(--c-accent);font-size:14px;margin-bottom:6px}.demoInfo p{font-size:13px;color:var(--c-ink-2);line-height:1.9;margin:0}.demoInfo .demoBio{margin-top:12px;padding-top:12px;border-top:1px solid var(--c-line-2);white-space:pre-line}@media(max-width:560px){.demoInfo{margin:0 16px 20px}}

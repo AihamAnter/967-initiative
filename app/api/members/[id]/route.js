@@ -2,6 +2,7 @@ import {serverDb} from '@/lib/supabase-server';
 import {authorizeAudience} from '@/lib/debateApi';
 import {RequestValidationError,readJsonObject} from '@/lib/requestSecurity';
 import {validateMemberId,validateMemberReport,memberReportReference} from '@/lib/memberProfiles';
+import {demoSpeakerProfile} from '@/lib/demoSpeakerProfiles';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -29,7 +30,17 @@ async function publicMember(db,id){
   .select('user_id,display_name,avatar_url,show_avatar,created_at,suspended,deletion_requested_at')
   .eq('user_id',id).maybeSingle();
  if(error)throw error;
- if(!p||p.suspended||p.deletion_requested_at)
+ if(!p){
+  // Published speakers without a login can have clearly marked preview profiles.
+  const {data:speaker,error:speakerError}=await db.from('debate_speakers')
+   .select('id,slug,name,specialty,bio,photo_url,is_published')
+   .eq('id',id).eq('is_published',true).maybeSingle();
+  if(speakerError)throw speakerError;
+  const demo=demoSpeakerProfile(speaker);
+  if(!demo)throw new RequestValidationError('حساب العضو غير متاح.',404);
+  return demo;
+ }
+ if(p.suspended||p.deletion_requested_at)
   throw new RequestValidationError('حساب العضو غير متاح.',404);
  // Never return email, personal profile preferences or private account metadata.
  return {id:p.user_id,name:p.display_name||'عضو في 967',
@@ -40,6 +51,7 @@ export async function GET(request,{params}){
   const db=serverDb(),target=validateMemberId((await params).id);
   const actor=await authorize(request,db);
   const member=await publicMember(db,target);
+  if(member.is_demo)return json({member,self:false,blocked:false,canMessage:false,hasConversation:false});
   const self=actor.id===target;
   if(self)return json({member,self:true,blocked:false,canMessage:false,hasConversation:false});
   const [blocks,prefs,conversation]=await Promise.all([
@@ -63,7 +75,8 @@ export async function POST(request,{params}){
   const db=serverDb(),target=validateMemberId((await params).id);
   const actor=await authorize(request,db);
   if(actor.id===target)throw new RequestValidationError('لا يمكنك الإبلاغ عن حسابك.',400);
-  await publicMember(db,target);
+  const targetMember=await publicMember(db,target);
+  if(targetMember.is_demo)throw new RequestValidationError('هذا ملف تجريبي، وليس حسابًا فعليًا يمكن الإبلاغ عنه.',403);
   const body=await readJsonObject(request,1500);
   const validated=validateMemberReport(body);
   const {data,error}=await db.from('member_profile_reports')

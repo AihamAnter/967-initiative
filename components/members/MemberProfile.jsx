@@ -67,21 +67,22 @@ export default function MemberProfile({memberId}){
   catch{setActionError('تعذر نسخ الرابط من هذا المتصفح.');}
  };
  return <main className={styles.page} dir="rtl"><div className={styles.wrap}>
-  <nav className={styles.breadcrumb}><Link href="/messages"><ArrowRight size={16}/> الرسائل</Link><span>/ الملف الشخصي</span></nav>
+  <nav className={styles.breadcrumb}><Link href={member?.is_demo?'/debates/speakers/'+encodeURIComponent(member.speaker_slug):'/messages'}><ArrowRight size={16}/>{member?.is_demo?'المناظرون':'الرسائل'}</Link><span>/ الملف الشخصي</span></nav>
   {!ready?<p className={styles.status}>جارٍ التحقق من الحساب…</p>:!user?
    <section className={styles.gate}><UserRound size={33}/><h1>الملفات الشخصية للأعضاء</h1><p>سجّل الدخول للتعرف على الأعضاء والتواصل معهم.</p><Link className={styles.primary} href={'/login?next='+encodeURIComponent('/members/'+memberId)}>تسجيل الدخول</Link></section>:
    !valid||state.loading?<p className={styles.status}>جارٍ تحميل الملف الشخصي…</p>:
    state.error?<section className={styles.gate}><AlertTriangle size={30}/><h1>تعذر عرض الملف الشخصي</h1><p role="alert">{state.error}</p><Link href="/messages">العودة إلى الرسائل</Link></section>:
    member&&<div className={styles.card}>
-    <div className={styles.topBand}><span>أعضاء مبادرة 967</span><ShieldCheck size={22}/></div>
+    <div className={styles.topBand}><span>{member.is_demo?'ملف مناظر تجريبي':'أعضاء مبادرة 967'}</span><ShieldCheck size={22}/></div>
     <div className={styles.identity}><ProfileAvatar name={member.name} src={member.avatar_url} className={styles.heroAvatar}/>
-     <div><h1>{member.name}</h1><p>عضو في مبادرة 967{joined(member.joined_at)?' · منذ '+joined(member.joined_at):''}</p>
-      <span className={styles.visibility}><ShieldCheck size={14}/> الملف يعرض معلومات الحساب العامة فقط</span></div>
+     <div><h1>{member.name}</h1><p>{member.is_demo?'مشارك في مناظرات 967'+(member.specialty?' · '+member.specialty:''):'عضو في مبادرة 967'+(joined(member.joined_at)?' · منذ '+joined(member.joined_at):'')}</p>
+      <span className={styles.visibility}><ShieldCheck size={14}/>{member.is_demo?'ملف للعرض التجريبي، غير مرتبط بحساب دخول':'الملف يعرض معلومات الحساب العامة فقط'}</span></div>
     </div>
+    {member.is_demo&&<section className={styles.demoInfo} aria-label="تنبيه الملف التجريبي"><strong>ملف تجريبي — ليس حساب مستخدم حقيقي</strong><p>أنشئنا هذا الملف لعرض المناظر وربطه بمناظرات 967. لا يملك صاحب الاسم حساب دخول مرتبطًا به، ولذلك لا يمكن مراسلته أو حظره أو الإبلاغ عن حسابه من هنا.</p>{member.bio&&<p className={styles.demoBio}>{member.bio}</p>}</section>}
     {notice&&<p className={styles.success} role="status"><CheckCircle2 size={16}/>{notice}</p>}
     {actionError&&<p className={styles.error} role="alert">{actionError}</p>}
     <div className={styles.actions}>
-     {data.self?<Link className={styles.primary} href="/account?tab=profile"><UserRound size={18}/> تعديل ملفي</Link>:<>
+     {data.self?<Link className={styles.primary} href="/account?tab=profile"><UserRound size={18}/> تعديل ملفي</Link>:member.is_demo?<Link className={styles.primary} href={'/debates/speakers/'+encodeURIComponent(member.speaker_slug)}><ArrowRight size={18}/> صفحة المناظر والمناظرات</Link>:<>
       {data.canMessage?<Link className={styles.primary} href={'/messages?to='+encodeURIComponent(memberId)}><MessageCircle size={18}/>{data.hasConversation?'فتح المحادثة':'إرسال رسالة'}</Link>:
        <span className={styles.disabled}><MessageCircle size={17}/> المراسلة غير متاحة حاليًا</span>}
       <button type="button" className={styles.secondary} disabled={busy} onClick={setBlock}>{data.blocked?<><UserRound size={18}/> رفع الحظر</>:<><Ban size={18}/> حظر المستخدم</>}</button>
@@ -96,7 +97,7 @@ export default function MemberProfile({memberId}){
      <label>تفاصيل البلاغ<textarea required minLength={10} maxLength={1000} rows={4} value={detail} onChange={event=>setDetail(event.target.value)} placeholder="اشرح ما حدث بشكل واضح…" /></label>
      <div className={styles.reportActions}><button className={styles.primary} disabled={busy||detail.trim().length<10}>{busy?'جارٍ الإرسال…':'إرسال البلاغ'}</button><button type="button" className={styles.secondary} onClick={()=>setReportOpen(false)}>إلغاء</button></div>
     </form>}
-    <p className={styles.footnote}>يمكنك التحكم في ظهور اسمك في البحث العام وبحث الرسائل، والتحكم في استقبال طلبات المحادثة من صفحة الخصوصية.</p>
+    {!member.is_demo&&<p className={styles.footnote}>يمكنك التحكم في ظهور اسمك في البحث العام وبحث الرسائل، والتحكم في استقبال طلبات المحادثة من صفحة الخصوصية.</p>}
    </div>}
  </div></main>;
 }

@@ -44,7 +44,7 @@ export default function MemberSearchResults({query,mode,exclude,onlyMembers=fals
   <div className={styles.heading}><h2>الأعضاء</h2><span>عدد النتائج: {current.users.length}{current.hasMore?' أو أكثر':''}</span></div>
   <div className={styles.list}>{current.users.map(person=><Link href={'/members/'+encodeURIComponent(person.id)} className={styles.item} key={person.id}>
    <ProfileAvatar name={person.name} src={person.avatar_url} className={styles.avatar}/>
-   <span className={styles.details}><strong>{person.name}</strong><small>عضو في 967 · عرض الملف الشخصي</small></span>
+   <span className={styles.details}><strong>{person.name}</strong><small>{person.is_demo?'مناظر · ملف تجريبي':'عضو في 967'} · عرض الملف الشخصي</small></span>
    <ArrowUpLeft className={styles.arrow} size={18}/>
   </Link>)}</div>
   {current.hasMore&&<p className={styles.hint}>توجد نتائج إضافية. استخدم اسمًا أكثر تحديدًا لتضييق البحث.</p>}

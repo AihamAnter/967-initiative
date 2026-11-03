@@ -2,6 +2,8 @@ import {serverDb} from '@/lib/supabase-server';
 import {authorizeAudience} from '@/lib/debateApi';
 import {RequestValidationError} from '@/lib/requestSecurity';
 import {memberSearchTerms,matchingMembers} from '@/lib/memberSearch';
+import {searchDemoSpeakers} from '@/lib/demoSpeakerProfiles';
+import {rankSearchResults} from '@/lib/search';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -26,23 +28,38 @@ export async function GET(request){
   const exclude=(params.get('exclude')||'').trim().slice(0,150);
   const terms=memberSearchTerms(query);
   if(!terms.length)return json({users:[],hasMore:false});
-  const {data:profiles,error:profileError}=await db.from('public_profiles')
-   .select('user_id,display_name,avatar_url,show_avatar,suspended,deletion_requested_at')
-   .or(terms.map(term=>'display_name.ilike.%'+term+'%').join(','))
-   .order('display_name',{ascending:true}).limit(150);
-  if(profileError)throw profileError;
-  const candidates=(profiles||[]).filter(p=>p.user_id!==actor.id&&!p.suspended&&!p.deletion_requested_at);
-  if(!candidates.length)return json({users:[],hasMore:false});
-  const ids=candidates.map(p=>p.user_id);
-  const [settings,blocks]=await Promise.all([
-   db.from('private_messaging_settings').select('user_id,discoverable').in('user_id',ids),
-   db.from('private_user_blocks').select('blocker_id,blocked_id')
-    .or('blocker_id.eq.'+actor.id+',blocked_id.eq.'+actor.id)
+  const [real,speakers]=await Promise.all([
+   db.from('public_profiles')
+    .select('user_id,display_name,avatar_url,show_avatar,suspended,deletion_requested_at')
+    .or(terms.map(term=>'display_name.ilike.%'+term+'%').join(','))
+    .order('display_name',{ascending:true}).limit(150),
+   db.from('debate_speakers')
+    .select('id,slug,name,specialty,photo_url,is_published')
+    .eq('is_published',true)
+    .or(terms.map(term=>'name.ilike.%'+term+'%').join(','))
+    .order('name',{ascending:true}).limit(40)
   ]);
-  if(settings.error||blocks.error)throw settings.error||blocks.error;
-  // Discoverability and permission to start a conversation are separate choices.
-  const results=matchingMembers(candidates,settings.data,blocks.data,actor.id,query,{mode,exclude});
-  return json({users:results.slice(0,24),hasMore:results.length>24});
+  if(real.error||speakers.error)throw real.error||speakers.error;
+  const candidates=(real.data||[]).filter(p=>p.user_id!==actor.id&&!p.suspended&&!p.deletion_requested_at);
+  let prefs=[],blocks=[];
+  if(candidates.length){
+   const ids=candidates.map(p=>p.user_id);
+   const [settingsResult,blocksResult]=await Promise.all([
+    db.from('private_messaging_settings').select('user_id,discoverable').in('user_id',ids),
+    db.from('private_user_blocks').select('blocker_id,blocked_id')
+     .or('blocker_id.eq.'+actor.id+',blocked_id.eq.'+actor.id)
+   ]);
+   if(settingsResult.error||blocksResult.error)throw settingsResult.error||blocksResult.error;
+   prefs=settingsResult.data||[];blocks=blocksResult.data||[];
+  }
+  // The demo entries are not Auth users and cannot be messaged or blocked.
+  const realResults=matchingMembers(candidates,prefs,blocks,actor.id,query,{mode,exclude});
+  const demos=searchDemoSpeakers(speakers.data,query,{mode,exclude});
+  const ranked=rankSearchResults(query,[...realResults,...demos].map(person=>({
+   ...person,type:'members',title:person.name,description:'',meta:''
+  })),{mode,scope:'title',exclude});
+  const users=ranked.slice(0,24).map(({type,title,description,meta,...person})=>person);
+  return json({users,hasMore:ranked.length>24});
  }catch(error){
   if(!(error instanceof RequestValidationError))
    console.error('member directory search failed',error?.code||error?.name||'unknown');
