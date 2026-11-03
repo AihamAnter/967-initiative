@@ -8,7 +8,7 @@ import {REPORT_REASONS} from '@/lib/privateMessaging';
 import styles from './PrivateMessaging.module.css';
 
 const date=value=>value?new Intl.DateTimeFormat('ar',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(value)):'';
-const defaults={discoverable:false,allow_requests:true,notify_messages:true};
+const defaults={discoverable:true,allow_requests:true,notify_messages:true};
 
 export default function PrivateMessaging(){
  const {user,ready}=useAudience();
@@ -176,7 +176,7 @@ export default function PrivateMessaging(){
       <button className={styles.linkButton} onClick={()=>setDialog({type:'report',conversation:c.id})}>إبلاغ عن الطلب</button>
      </article>)}{!pending.length&&<p className={styles.empty}>لا توجد طلبات جديدة.</p>}</>}
      {tab==='search'&&<><label className={styles.search}><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث بالاسم (حرفان على الأقل)" maxLength={60}/></label>
-      <p className={styles.hint}>تظهر فقط الحسابات التي سمحت بالظهور في البحث واستقبال الطلبات.</p>
+      <p className={styles.hint}>يظهر الأعضاء في البحث افتراضيًا، ويمكن لكل مستخدم إخفاء اسمه أو إيقاف طلبات المحادثة من إعدادات الخصوصية.</p>
       {results.map(p=><button type="button" key={p.id} className={styles.item} onClick={()=>setDialog({type:'request',person:p})}><span className={styles.avatar}><UserRound size={19}/></span><span className={styles.itemText}><strong>{p.name}</strong><small>إرسال طلب محادثة</small></span><ChevronLeft size={16}/></button>)}
       {query.trim().length>=2&&!results.length&&<p className={styles.empty}>لا توجد نتائج مطابقة.</p>}</>}
      {tab==='settings'&&<div className={styles.settings}><h2>خصوصية الرسائل</h2>
