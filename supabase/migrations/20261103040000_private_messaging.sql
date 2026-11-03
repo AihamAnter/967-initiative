@@ -97,8 +97,9 @@ create policy private_messages_participants on public.private_messages
 -- This helper is NOT callable by browser roles; server service role invokes it
 -- from the transactional action function to deduplicate in-site notifications.
 create or replace function public.private_messaging_notice(p_user uuid,p_title text,p_link text)
-returns void language plpgsql security invoker set search_path='' as $$
-found_id uuid;
+returns void language plpgsql security invoker set search_path='' as $
+declare
+ found_id uuid;
 begin
  select id into found_id from public.account_notifications
  where user_id=p_user and kind='system' and href=p_link
