@@ -35,7 +35,7 @@ async function getThread(db,id,conversation,before){
  if(error)throw error;
  if(!c||![c.user_low,c.user_high].includes(id))throw new RequestValidationError('المحادثة غير موجودة.',404);
  let query=db.from('private_messages')
-  .select('id,sender_id,body,created_at')
+  .select('id,sender_id,body,created_at,edited_at,deleted_at')
   .eq('conversation_id',conversation)
   .order('created_at',{ascending:false}).order('id',{ascending:false})
   .limit(MESSAGE_PAGE_SIZE+1);
@@ -149,6 +149,13 @@ export async function POST(request){
   const {db,user}=await authorized(request);
   const body=await readJsonObject(request,6500);
   const params=validateMessagingAction(body);
+  if(body.action==='edit'||body.action==='delete'){
+   const result=check(await db.rpc('private_messaging_message_mutate',{
+    p_actor:user.id,p_action:params.p_action,
+    p_conversation:params.p_conversation,p_message:params.p_message,p_text:params.p_text
+   }));
+   return json(result);
+  }
   const result=check(await db.rpc('private_messaging_action',{p_actor:user.id,...params}));
   return json(result);
  }catch(error){

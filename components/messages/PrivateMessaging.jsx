@@ -23,6 +23,8 @@ export default function PrivateMessaging(){
  const [draft,setDraft]=useState(''),[intro,setIntro]=useState('');
  const [dialog,setDialog]=useState(null),[reason,setReason]=useState('harassment'),[detail,setDetail]=useState('');
  const [busy,setBusy]=useState(false),[loading,setLoading]=useState(false),[notice,setNotice]=useState(''),[error,setError]=useState('');
+ const [messageMenu,setMessageMenu]=useState(null),[editing,setEditing]=useState(null),[copyToast,setCopyToast]=useState(0);
+ const messageMenuRef=useRef(null),lastTapRef=useRef(null),touchStartRef=useRef(null);
  const messagesRef=useRef(null),composerRef=useRef(null);
  const resizeComposer=useCallback(()=>{
   const field=composerRef.current;
@@ -70,6 +72,7 @@ export default function PrivateMessaging(){
  const open=useCallback(async(id,changeUrl=true)=>{
   if(!id||!live.current.user)return;
   const owner=live.current.user;
+  if(live.current.selected!==id){setMessageMenu(null);setEditing(null);}
   setSelected(id);setThread(previous=>previous?.conversation?.id===id?previous:null);setError('');
   if(changeUrl&&typeof window!=='undefined')history.replaceState(null,'','/messages?conversation='+encodeURIComponent(id));
   try{
@@ -119,7 +122,7 @@ export default function PrivateMessaging(){
   if(!thread||thread.conversation?.status!=='accepted'||!selected)return;
   const db=browserDb();
   const channel=db?.channel('private-messages-'+selected)
-   .on('postgres_changes',{event:'INSERT',schema:'public',table:'private_messages',filter:'conversation_id=eq.'+selected},
+   .on('postgres_changes',{event:'*',schema:'public',table:'private_messages',filter:'conversation_id=eq.'+selected},
     ()=>{if(document.visibilityState==='visible')open(selected,false);})
    .subscribe();
   return()=>{if(channel)db.removeChannel(channel);};
@@ -164,7 +167,7 @@ export default function PrivateMessaging(){
  const unread=items.reduce((sum,x)=>sum+Number(x.unread||0),0);
  const pending=items.filter(x=>x.status==='pending'&&x.requested_by!==user?.id);
  const visible=items.filter(x=>x.status==='accepted'||x.status==='pending'&&x.requested_by===user?.id);
- const backToList=()=>{setSelected(null);setThread(null);history.replaceState(null,'','/messages');};
+ const backToList=()=>{setSelected(null);setThread(null);setMessageMenu(null);setEditing(null);history.replaceState(null,'','/messages');};
  const selectTab=name=>{setTab(name);setError('');setNotice('');if(name!=='inbox')backToList();};
  const onComposerKeyDown=event=>{
   if(!shouldSendComposerEnter(event,window.matchMedia('(max-width: 680px)').matches))return;
@@ -177,6 +180,66 @@ export default function PrivateMessaging(){
   const text=draft.trim();
   const result=await run({action:'send',conversation:selected,text},async()=>{setDraft('');await open(selected,false);await reload();});
   if(!result)setDraft(text);
+ };
+ // Double click on desktop or double tap on touchscreens opens message actions.
+ const openMessageMenu=message=>{
+  if(!message?.deleted_at&&!editing)setMessageMenu(message.id);
+ };
+ const onMessageTouchStart=(event,id)=>{
+  if(event.touches.length!==1){touchStartRef.current=null;return;}
+  const touch=event.touches[0];
+  touchStartRef.current={id,x:touch.clientX,y:touch.clientY};
+ };
+ const onMessageTouchEnd=(event,message)=>{
+  if(message.deleted_at||event.touches.length||!event.changedTouches.length)return;
+  const start=touchStartRef.current,touch=event.changedTouches[0];
+  touchStartRef.current=null;
+  if(start?.id!==message.id||Math.hypot(start.x-touch.clientX,start.y-touch.clientY)>14)return;
+  const now=Date.now(),prior=lastTapRef.current;
+  if(prior?.id===message.id&&now-prior.at<=380&&Math.hypot(prior.x-touch.clientX,prior.y-touch.clientY)<30){
+   event.preventDefault();
+   lastTapRef.current=null;
+   openMessageMenu(message);
+  }else lastTapRef.current={id:message.id,at:now,x:touch.clientX,y:touch.clientY};
+ };
+ useEffect(()=>{
+  if(!messageMenu)return;
+  const dismiss=event=>{
+   if(messageMenuRef.current?.contains(event.target))return;
+   const bubble=event.target.closest?.('[data-message-bubble]');
+   if(bubble?.dataset.messageBubble!==messageMenu)setMessageMenu(null);
+  };
+  const escape=event=>{if(event.key==='Escape')setMessageMenu(null);};
+  document.addEventListener('pointerdown',dismiss);
+  document.addEventListener('keydown',escape);
+  return()=>{document.removeEventListener('pointerdown',dismiss);document.removeEventListener('keydown',escape);};
+ },[messageMenu]);
+ useEffect(()=>{
+  if(!copyToast)return;
+  const timeout=window.setTimeout(()=>setCopyToast(0),500);
+  return()=>window.clearTimeout(timeout);
+ },[copyToast]);
+ const copyMessage=async message=>{
+  setMessageMenu(null);
+  try{
+   await navigator.clipboard.writeText(message.body);
+   setCopyToast(value=>value+1);
+  }catch{setError('تعذر نسخ الرسالة. تحقق من إذن الحافظة.');}
+ };
+ const editMessage=message=>{setMessageMenu(null);setEditing({id:message.id,text:message.body});};
+ const saveMessageEdit=async event=>{
+  event.preventDefault();
+  if(!editing?.text.trim()||!selected)return;
+  await run({action:'edit',conversation:selected,message:editing.id,text:editing.text.trim()},async()=>{
+   setEditing(null);await open(selected,false);await reload();
+  });
+ };
+ const deleteMessage=async message=>{
+  setMessageMenu(null);
+  if(!window.confirm('هل تريد حذف هذه الرسالة لدى الطرفين؟'))return;
+  await run({action:'delete',conversation:selected,message:message.id},async()=>{
+   setEditing(null);await open(selected,false);await reload();
+  });
  };
  const approve=(action,id)=>run({action,conversation:id},async()=>{setTab('inbox');await reload();await open(id);});
  const create=async target=>{
@@ -270,11 +333,31 @@ export default function PrivateMessaging(){
        }}>تحميل رسائل أقدم</button>}
        {buildMessageTimeline(thread.messages).map(entry=>entry.kind==='day'?
         <div key={entry.key} className={styles.daySeparator} role="separator" aria-label={entry.label}><time dateTime={entry.day}>{entry.label}</time></div>:
-        <div key={entry.key} className={styles.bubbleRow} data-own={entry.message.sender_id===user.id}><div className={styles.bubble}><div className={styles.bubbleContent}>
-         <time dateTime={entry.message.created_at} dir="ltr">{messageClock(entry.message.created_at)}</time>
-         <p>{entry.message.body}</p>
-         {entry.message.sender_id!==user.id&&<button type="button" aria-label="الإبلاغ عن هذه الرسالة" title="الإبلاغ عن هذه الرسالة" onClick={()=>setDialog({type:'report',conversation:selected,message:entry.message.id})}><ShieldAlert size={13}/></button>}
-        </div></div></div>)}
+        <div key={entry.key} className={styles.bubbleRow} data-own={entry.message.sender_id===user.id} data-menu-open={messageMenu===entry.message.id||undefined}>
+         <div className={styles.bubble} data-message-bubble={entry.message.id}
+          tabIndex={entry.message.deleted_at?-1:0} role="group" aria-label="رسالة، اضغط Enter لعرض خياراتها"
+          onKeyDown={event=>{if(event.target===event.currentTarget&&!entry.message.deleted_at&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openMessageMenu(entry.message);}}}
+          onDoubleClick={event=>{event.preventDefault();openMessageMenu(entry.message);}}
+          onTouchStart={event=>onMessageTouchStart(event,entry.message.id)}
+          onTouchEnd={event=>onMessageTouchEnd(event,entry.message)}>
+          {editing?.id===entry.message.id?
+           <form className={styles.editMessage} onSubmit={saveMessageEdit}>
+            <textarea rows={3} maxLength={2000} aria-label="تعديل الرسالة" value={editing.text} onChange={event=>setEditing(value=>({...value,text:event.target.value}))} autoFocus/>
+            <div><button type="submit" disabled={busy||!editing.text.trim()}>حفظ</button><button type="button" disabled={busy} onClick={()=>setEditing(null)}>إلغاء</button></div>
+           </form>:
+           <div className={styles.bubbleContent}>
+            <time dateTime={entry.message.created_at} dir="ltr">{messageClock(entry.message.created_at)}</time>
+            {entry.message.edited_at&&!entry.message.deleted_at&&<span className={styles.editedLabel}>معدل</span>}
+            <p className={entry.message.deleted_at?styles.deletedText:undefined}>{entry.message.deleted_at?'حذفت الرسالة':entry.message.body}</p>
+            {entry.message.sender_id!==user.id&&!entry.message.deleted_at&&<button type="button" aria-label="الإبلاغ عن هذه الرسالة" title="الإبلاغ عن هذه الرسالة" onClick={()=>setDialog({type:'report',conversation:selected,message:entry.message.id})}><ShieldAlert size={13}/></button>}
+           </div>}
+          {messageMenu===entry.message.id&&!entry.message.deleted_at&&!editing&&<div ref={messageMenuRef} className={styles.messageMenu} role="group" aria-label="خيارات الرسالة">
+           {entry.message.sender_id===user.id&&<button type="button" onClick={()=>editMessage(entry.message)}>تعديل</button>}
+           <button type="button" onClick={()=>copyMessage(entry.message)}>نسخ</button>
+           {entry.message.sender_id===user.id&&<button type="button" className={styles.deleteAction} onClick={()=>deleteMessage(entry.message)}>حذف</button>}
+          </div>}
+         </div>
+        </div>)}
        {!thread.messages.length&&<p className={styles.empty}>المحادثة جاهزة. اكتب أول رسالة.</p>}
       </div>
       <form className={styles.composer} onSubmit={send}><div className={styles.composerField}><textarea ref={composerRef} rows={1} maxLength={2000} value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={onComposerKeyDown} placeholder="اكتب رسالتك…" aria-label="نص الرسالة"/></div><button type="submit" disabled={busy||!draft.trim()} aria-label="إرسال الرسالة"><Send size={19}/> إرسال</button></form>
@@ -283,6 +366,7 @@ export default function PrivateMessaging(){
    </main>
    </div>
   </div>}
+  {copyToast>0&&<div key={copyToast} className={styles.copyToast} role="status">تم النسخ</div>}
   {dialog&&<div className={styles.modalBackdrop} onMouseDown={e=>{if(e.target===e.currentTarget&&!busy)setDialog(null);}}><section className={styles.modal} role="dialog" aria-modal="true" aria-label={dialog.type==='request'?'طلب محادثة':'الإبلاغ عن إساءة'}>
    <header><h2>{dialog.type==='request'?'طلب محادثة مع '+dialog.person.name:'الإبلاغ عن محتوى'}</h2><button onClick={()=>setDialog(null)} disabled={busy} aria-label="إغلاق"><X size={19}/></button></header>
    {dialog.type==='request'?<><p>اكتب رسالة تعريفية واحدة. لن تتمكن من إرسال المزيد حتى قبول الطلب.</p>
