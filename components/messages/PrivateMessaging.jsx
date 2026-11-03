@@ -65,13 +65,22 @@ export default function PrivateMessaging(){
  useEffect(()=>{
   if(!ready||!user){setItems([]);setSelected(null);setThread(null);return;}
   setLoading(true);
-  const requested=new URLSearchParams(window.location.search).get('conversation');
+  const params=new URLSearchParams(window.location.search);
+  const requested=params.get('conversation');
+  const contactId=params.get('to');
   Promise.all([request('mode=inbox'),request('mode=settings')]).then(([data,opts])=>{
    if(live.current.user!==user.id)return;
    setItems(data.conversations||[]);
    setSettings(opts.settings||defaults);
    setBlocked(opts.blocked||[]);
-   if(requested&&/^[\da-f-]{36}$/i.test(requested))open(requested,false);
+   if(requested&&/^[0-9a-f-]{36}$/i.test(requested))open(requested,false);
+   else if(contactId&&/^[0-9a-f-]{36}$/i.test(contactId)){
+    const existing=(data.conversations||[]).find(c=>c.partner_id===contactId);
+    if(existing){setTab('inbox');open(existing.id);}
+    else request('mode=contact&id='+encodeURIComponent(contactId)).then(contact=>{
+     if(live.current.user===user.id){setDialog({type:'request',person:contact.person});setTab('inbox');}
+    }).catch(failure=>{if(live.current.user===user.id)setError(failure.message);});
+   }
   }).catch(e=>{if(live.current.user===user.id)setError(e.message);})
     .finally(()=>{if(live.current.user===user.id)setLoading(false);});
  },[ready,user?.id,request,open]);
@@ -219,7 +228,7 @@ export default function PrivateMessaging(){
    {dialog.type==='request'?<><p>اكتب رسالة تعريفية واحدة. لن تتمكن من إرسال المزيد حتى قبول الطلب.</p>
     <textarea value={intro} maxLength={500} rows={4} onChange={e=>setIntro(e.target.value)} placeholder="مرحبًا، أود التواصل معك بشأن…"/>
     <button className={styles.primary} disabled={busy||!intro.trim()} onClick={()=>create(dialog.person.id)}>إرسال الطلب</button></>:
-    <><p>يصل هذا البلاغ إلى الإدارة مع محتوى الرسالة أو الطلب المعني فقط.</p>
+    <><p>عند إرسال البلاغ، تستطيع الإدارة مراجعة الرسائل السابقة في هذه المحادثة حتى وقت البلاغ للتحقق من السياق. تُسجّل عمليات اطلاع الإدارة.</p>
     <label>سبب البلاغ<select value={reason} onChange={e=>setReason(e.target.value)}>{Object.entries(REPORT_REASONS).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></label>
     <textarea rows={3} maxLength={1000} value={detail} onChange={e=>setDetail(e.target.value)} placeholder="ملاحظات إضافية (اختيارية)"/>
     <button className={styles.primary} disabled={busy} onClick={review}>إرسال البلاغ</button></>}

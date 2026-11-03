@@ -35,15 +35,13 @@ test('directory search, server pagination, filters and sorting',()=>{
  assert.equal(filterAccountRows(rows,{page:999}).page,1);
  assert.deepEqual(accountSummary(rows),{total:3,active:1,banned:1,unverified:1});
 });
-test('ban and email actions strictly validate server-side payloads',()=>{
+test('ban and unban actions strictly validate server-side payloads',()=>{
  const id=a.id;
  assert.equal(validateManagementAction({action:'ban',user_id:id,duration:'24h'}),null);
  assert.equal(validateManagementAction({action:'unban',user_id:id}),null);
- assert.equal(validateManagementAction({action:'send_email',user_id:id,subject:'تنبيه مهم',message:'رسالة اختبار طويلة بما يكفي'}),null);
+ assert.match(validateManagementAction({action:'send_email',user_id:id,subject:'test',message:'test'}),/الإجراء غير مدعوم/);
  assert.match(validateManagementAction({action:'ban',user_id:id,duration:'123456789h'}),/مدة/);
  assert.match(validateManagementAction({action:'ban',user_id:'hacker',duration:'24h'}),/معرّف/);
- assert.match(validateManagementAction({action:'send_email',user_id:id,subject:'Hello\nBcc:bad@example.test',message:'رسالة طويلة كفاية'}),/عنوان/);
- assert.match(validateManagementAction({action:'send_email',user_id:id,subject:'ok',message:'too short'}),/عنوان/);
 });
 test('page and API never grant editor admins access to account listing',()=>{
  const api=read('app/api/admin/users/route.js');
@@ -57,14 +55,15 @@ test('page and API never grant editor admins access to account listing',()=>{
  assert.ok(api.includes("editor.data?.role==='admin'"));
  assert.ok(api.includes("editor.data?.role==='management'"));
  assert.ok(api.includes("ban_duration"));
- assert.ok(api.includes("RESEND_API_KEY"));
- assert.ok(api.includes("MANAGEMENT_EMAIL_FROM"));
- assert.ok(api.includes("target.email"));
- assert.ok(!api.includes("body.email"));
+ assert.ok(!api.includes('send_email'));
+ assert.ok(!api.includes('RESEND_API_KEY'));
+ assert.ok(!api.includes('resend.com'));
+ assert.ok(!api.includes('body.email'));
  assert.ok(nav.includes("tabs.some(item=>item.id==='admins')"));
  assert.ok(nav.includes('canManageUsers&&')&&nav.includes('href="/admin/users"')&&nav.includes('href="/admin/message-reports"'));
  assert.ok(page.includes("ManagementUsersDashboard"));
  assert.ok(view.includes("getSession()"));
  assert.ok(view.includes("Authorization:'Bearer '"));
- assert.ok(view.includes("فتح في برنامج البريد"));
+ assert.ok(view.includes("/messages?to="));
+ assert.ok(!view.includes("فتح في برنامج البريد"));
 });

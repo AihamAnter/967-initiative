@@ -42,7 +42,7 @@
 .status[data-status=banned]{background:var(--c-danger-soft);color:var(--c-danger)}
 .status[data-status=unverified]{background:var(--c-caution-soft);color:var(--c-caution)}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:7px;min-width:140px}
-.actions button{font-size:11px;min-height:37px;padding:7px 9px;white-space:nowrap}
+.actions button,.actions a{font-size:11px;min-height:37px;padding:7px 9px;white-space:nowrap;border:1px solid var(--border);border-radius:9px;background:var(--surface);color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px} .actions a:hover{border-color:var(--c-accent);color:var(--c-accent)}
 .actions .ban{color:var(--c-danger);border-color:color-mix(in srgb,var(--c-danger) 34%,transparent)}
 .actions .unban{color:var(--c-accent);border-color:color-mix(in srgb,var(--c-accent) 34%,transparent)}
 .actions small{white-space:normal}
