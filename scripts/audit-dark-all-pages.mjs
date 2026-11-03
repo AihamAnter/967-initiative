@@ -62,12 +62,24 @@ async function check(page,route,width){
     };
     const lum=c=>c.slice(0,3).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((s,x,i)=>s+x*[.2126,.7152,.0722][i],0);
     const ratio=(a,b)=>{let x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
-    const visible=e=>{let s=getComputedStyle(e),r=e.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&s.opacity!=='0'&&r.width>3&&r.height>3};
+    const visible=e=>{
+      if(e.closest('[hidden],[inert],[aria-hidden="true"]'))return false;
+      // Chromium may report a positive bounding box for collapsed <details>
+      // descendants even though their text is not painted.
+      for(let p=e.parentElement;p;p=p.parentElement){
+       if(p.tagName==='DETAILS'&&!p.open&&!(p.querySelector(':scope > summary')?.contains(e)))return false;
+      }
+      const s=getComputedStyle(e),r=e.getBoundingClientRect();
+      return s.display!=='none'&&s.visibility!=='hidden'&&s.opacity!=='0'&&r.width>3&&r.height>3;
+    };
     const issues=[];let evaluated=0,skipped=0;
     const els=[...document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,a,button,label,small,strong,li,th,td,summary,input,textarea,select')].slice(0,4500);
     for(const el of els){
      if(!visible(el))continue;
      const isField=['INPUT','TEXTAREA','SELECT'].includes(el.tagName);
+     // Non-text input controls (sliders etc.) have no visible text; their
+     // numeric value should not be treated as painted foreground glyphs.
+     if(el.tagName==='INPUT'&&['range','checkbox','radio','color','file','hidden'].includes(el.type))continue;
      if(!isField&&![...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim()))continue;
      const st=getComputedStyle(el),c=parse(st.color),b=bg(el);
      if(!c||!b){skipped++;continue}
