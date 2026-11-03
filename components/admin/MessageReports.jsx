@@ -5,11 +5,11 @@ import {Eye,ShieldAlert,X} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS} from '@/lib/privateMessaging';
+import {REPORT_STATUS_LABELS,REPORT_DECISION_LABELS,reportDecisionPrompt} from '@/lib/reportDecisionLabels';
 import {accountScopedState} from '@/lib/accountScopedState';
 import styles from './MessageReports.module.css';
 
 const displayDate=value=>value?new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Malta',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(value)):'—';
-const states={open:'قيد المراجعة',reviewed:'تمت المراجعة',dismissed:'مغلق'};
 
 export default function MessageReports(){
  const {user,ready}=useAudience();
@@ -51,8 +51,8 @@ export default function MessageReports(){
 
  useEffect(()=>{if(!ready||!user){setResultState(null);setOpened(null);return;}load();},[ready,user?.id,load]);
 
- const update=async(id,status)=>{
-  if(!window.confirm('تأكيد تسجيل قرار البلاغ؟'))return;
+ const update=async(id,status,reference)=>{
+  if(!window.confirm(reportDecisionPrompt(status,reference)))return;
   setBusy(true);setError('');
   try{await request({id,status});await load();}catch(e){setError(e.message);}
   finally{setBusy(false);}
@@ -88,21 +88,22 @@ export default function MessageReports(){
   <header className={styles.heading}><div><p>967 / الإدارة فقط</p><h1>بلاغات الرسائل الخاصة</h1><p>كل بلاغ يوضح مَن أرسله، ومَن أُبلغ عنه، ونص الإساءة وسياق المحادثة حتى وقت البلاغ.</p></div><Link href="/admin">العودة إلى لوحة الإدارة</Link></header>
   {!ready?<p>جارٍ التحقق من الحساب…</p>:!user?<p>سجّل الدخول بحساب الإدارة للمتابعة.</p>:<>
    {error&&<p role="alert" className={styles.error}>{error}</p>}
-   <div className={styles.tools}><label>حالة البلاغ <select value={filter} onChange={e=>{setFilter(e.target.value);setPage(1);setOpened(null);}}><option value="open">قيد المراجعة</option><option value="reviewed">تمت المراجعة</option><option value="dismissed">مغلقة</option></select></label><button onClick={load}>تحديث</button></div>
+   <div className={styles.tools}><label>حالة البلاغ <select value={filter} onChange={e=>{setFilter(e.target.value);setPage(1);setOpened(null);}}><option value="open">{REPORT_STATUS_LABELS.open}</option><option value="reviewed">{REPORT_STATUS_LABELS.reviewed}</option><option value="dismissed">{REPORT_STATUS_LABELS.dismissed}</option></select></label><button onClick={load}>تحديث</button></div>
+   <p className={styles.decisionHelp}><strong>تسجيل اكتمال المراجعة:</strong> توثيق انتهاء مراجعة البلاغ فقط، دون حظر أو عقوبة تلقائية. <strong>إغلاق دون إجراء:</strong> إنهاء البلاغ لأنه لا يستدعي إجراءً حاليًا.</p>
    {result&&<><div className={styles.cards}>{result.reports.map(report=><article key={report.id}>
     <div className={styles.summary}><strong>{report.reference} · {REPORT_REASONS[report.reason]||report.reason}</strong><span>{displayDate(report.created_at)}</span></div>
     <div className={styles.parties}>
      <div><span>مقدّم البلاغ</span><Link href={'/members/'+encodeURIComponent(report.reporter.id)}><strong>{report.reporter.name}</strong></Link></div>
      <div><span>المُبلّغ عنه</span><Link href={'/members/'+encodeURIComponent(report.reported.id)}><strong>{report.reported.name}</strong></Link></div>
     </div>
-    <p className={styles.detail}><strong>موضوع البلاغ:</strong> {report.subject_type} · <strong>الحالة:</strong> {states[report.status]||report.status}</p>
+    <p className={styles.detail}><strong>موضوع البلاغ:</strong> {report.subject_type} · <strong>الحالة:</strong> {REPORT_STATUS_LABELS[report.status]||report.status}</p>
     <p className={styles.text}>{report.evidence}</p>
     {report.note&&<p className={styles.note}><strong>ملاحظة مقدّم البلاغ:</strong> {report.note}</p>}
     <div className={styles.actions}>
      <button type="button" onClick={()=>viewConversation(report)}><Eye size={17}/> قراءة المحادثة المرتبطة بالبلاغ</button>
      {report.status==='open'&&<>
-      <button disabled={busy} onClick={()=>update(report.id,'reviewed')}>تمت المراجعة</button>
-      <button disabled={busy} onClick={()=>update(report.id,'dismissed')}>إغلاق البلاغ</button>
+      <button disabled={busy} onClick={()=>update(report.id,'reviewed',report.reference)}>{REPORT_DECISION_LABELS.reviewed}</button>
+      <button disabled={busy} onClick={()=>update(report.id,'dismissed',report.reference)}>{REPORT_DECISION_LABELS.dismissed}</button>
      </>}
     </div>
    </article>)}</div>

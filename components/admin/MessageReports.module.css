@@ -22,3 +22,6 @@
 .messageLine small{color:var(--c-ink-2);font-size:11px}
 .more{justify-self:center;background:var(--c-surface);color:var(--c-accent);border:1px solid var(--c-line-2);border-radius:9px;padding:9px 16px;cursor:pointer}
 @media(max-width:600px){.parties{grid-template-columns:1fr}.dialogHeader{padding:14px}.privacyNote{margin:12px 14px 0}.transcript{padding:14px}.dialogHeader h2{font-size:20px}}
+
+.decisionHelp{font-size:12px;color:var(--c-ink-2);line-height:1.9;padding:12px 15px;border:1px solid var(--c-line-2);border-radius:10px;background:var(--c-surface-2);margin:0 0 18px}
+.decisionHelp strong{color:var(--c-ink);font-weight:750}
