@@ -107,8 +107,19 @@ export async function GET(request){
   if(mode==='inbox')return json({conversations:await inbox(db,user.id)});
   if(mode==='summary'){
    const rows=await inbox(db,user.id);
+   const unreadRows=rows.filter(c=>c.status==='accepted'&&Number(c.unread)>0);
+   const [preferences,recent]=await Promise.all([
+    db.from('private_messaging_settings').select('notify_messages').eq('user_id',user.id).maybeSingle(),
+    unreadRows.length?db.from('private_messages').select('created_at')
+     .in('conversation_id',unreadRows.map(c=>c.id)).neq('sender_id',user.id)
+     .order('created_at',{ascending:false}).limit(1).maybeSingle()
+     :Promise.resolve({data:null,error:null})
+   ]);
+   if(preferences.error||recent.error)throw preferences.error||recent.error;
    return json({requests:rows.filter(c=>c.status==='pending'&&c.requested_by!==user.id).length,
-    unread:rows.reduce((n,c)=>n+Number(c.unread||0),0)});
+    unread:rows.reduce((n,c)=>n+Number(c.unread||0),0),
+    notify_messages:preferences.data?.notify_messages!==false,
+    latest_incoming_unread_at:recent.data?.created_at||null});
   }
   if(mode==='thread')return json(await getThread(db,user.id,id,before));
   if(mode==='search')return json(await search(db,user.id,q));

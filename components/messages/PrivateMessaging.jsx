@@ -217,7 +217,7 @@ export default function PrivateMessaging(){
      {tab==='settings'&&<div className={styles.settings}><h2>خصوصية الرسائل</h2>
       <label><input type="checkbox" checked={settings.allow_requests} onChange={e=>setSettings(s=>({...s,allow_requests:e.target.checked}))}/> استقبال طلبات المحادثة</label>
       <label><input type="checkbox" checked={settings.discoverable} onChange={e=>setSettings(s=>({...s,discoverable:e.target.checked}))}/> إظهار اسمي في البحث عن المستخدمين</label>
-      <label><input type="checkbox" checked={settings.notify_messages} onChange={e=>setSettings(s=>({...s,notify_messages:e.target.checked}))}/> إشعارات الرسائل داخل الموقع</label>
+      <label><input type="checkbox" checked={settings.notify_messages} onChange={e=>setSettings(s=>({...s,notify_messages:e.target.checked}))}/> إشعارات الرسائل داخل الموقع (تنبيه صوتي عند وصول رسالة)</label>
       <button className={styles.primary} disabled={busy} onClick={saveSettings}>حفظ التفضيلات</button>
       <h3>المستخدمون المحظورون</h3>{blocked.map(b=><div key={b.id} className={styles.blocked}><MemberLink id={b.id} name={b.name} showAvatar={false}/><button disabled={busy} onClick={()=>block(b,true)}>رفع الحظر</button></div>)}
       {!blocked.length&&<p className={styles.hint}>لا توجد حسابات محظورة.</p>}

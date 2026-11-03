@@ -9,6 +9,7 @@ import useSessionDb from './useSessionDb';
 import {usePageVisibility} from './PageVisibilityProvider';
 import {resolveNavSections, utilityLinks} from '@/lib/navigation';
 import {messageBadgeCount,messageBadgeLabel} from '@/lib/messageBadge';
+import {advanceMessageAlert,playMessageChime} from '@/lib/messageSound';
 
 // Masthead: one row on wide screens, a menu sheet below 1100px.
 // Sections come from lib/navigation.js, shared with the footer and home doors.
@@ -22,6 +23,8 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const [canEdit, setCanEdit] = useState(false);
   const [sessionUserId, setSessionUserId] = useState(null);
   const [messageCounts, setMessageCounts] = useState({unread:0,requests:0});
+  const messageAudioRef = useRef(null);
+  const messageAlertRef = useRef({initialized:false,latest:0});
   const header = useRef(null);
   const toggle = useRef(null);
   const menuOpener = useRef(null);
@@ -93,6 +96,36 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
     });
     return () => {active = false; requestId++; timers.forEach(timer => window.clearTimeout(timer)); subscription.unsubscribe();};
   }, [db, sessionReady]);
+  // A click or key press unlocks audio where browser policy permits it.
+  // Never try to bypass browser autoplay restrictions or create an audio
+  // context merely because a new message arrived.
+  useEffect(() => {
+    messageAlertRef.current={initialized:false,latest:0};
+    if (!sessionUserId) {
+      const old=messageAudioRef.current;
+      messageAudioRef.current=null;
+      if(old)void old.close().catch(()=>{});
+      return;
+    }
+    const unlock = () => {
+      try {
+        const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+        if(!AudioContextClass)return;
+        let context=messageAudioRef.current;
+        if(!context||context.state==='closed'){
+          context=new AudioContextClass();
+          messageAudioRef.current=context;
+        }
+        if(context.state==='suspended')void context.resume().catch(()=>{});
+      }catch{/* Some browsers restrict Web Audio even after interaction. */}
+    };
+    window.addEventListener('pointerdown',unlock,{passive:true});
+    window.addEventListener('keydown',unlock);
+    return () => {
+      window.removeEventListener('pointerdown',unlock);
+      window.removeEventListener('keydown',unlock);
+    };
+  },[sessionUserId]);
   // The header badge uses a lightweight summary request while the page is visible.
   // No always-on Realtime socket is required on the Supabase free tier.
   useEffect(() => {
@@ -120,7 +153,12 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         if (!active) return;
         if (response.ok) {
           const result = await response.json();
-          if (active) setMessageCounts({unread:result.unread,requests:result.requests});
+          if (active) {
+            setMessageCounts({unread:result.unread,requests:result.requests});
+            const decision=advanceMessageAlert(messageAlertRef.current,result,path);
+            messageAlertRef.current=decision.state;
+            if(decision.play)playMessageChime(messageAudioRef.current);
+          }
         } else if (response.status===401 || response.status===403) {
           setMessageCounts({unread:0,requests:0});
         }
