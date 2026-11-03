@@ -1730,3 +1730,7 @@ body,
 :root[data-ed-theme="dark"] .site-experience .participate-banner :is(h2,.container>div>span){
   color:#071412 !important;
 }
+
+/* Editorial directory accent links and metadata on night surfaces. */
+:root[data-ed-theme="dark"] .site-experience .figure-profile-directory-link{color:#17121d!important}
+:root[data-ed-theme="dark"] .site-experience .yfigures-extra-filters>p{color:#b7c2bf!important}
