@@ -44,7 +44,9 @@ test('hover and click highlighting use small constant SVG stroke width rather th
  assert.ok(board.includes('viewBox={projection.viewBox}'));
  assert.ok(board.includes('vectorEffect="non-scaling-stroke"'));
  assert.ok(board.includes('strokeLinejoin="round"'));
- assert.ok(board.includes("onAnswer(region.id)"));
+ assert.ok(board.includes("const pick=id=>{if(!locked)setCandidate(id);}"));
+ assert.ok(board.includes("onClick={()=>onAnswer(candidate)}"));
+ assert.ok(board.includes("disabled={locked||candidate===null}"));
  assert.ok(board.includes('onKeyDown'));
  const base=css.match(/\.region\{[^}]+\}/)?.[0]||'';
  const hover=css.match(/\.region:hover,\.region:focus-visible\{[^}]+\}/)?.[0]||'';
