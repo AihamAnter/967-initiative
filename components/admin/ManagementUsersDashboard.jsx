@@ -24,7 +24,8 @@ export default function ManagementUsersDashboard(){
  const {user,ready,error:authError}=useAudience();
  const [filters,setFilters]=useState(initialFilters);
  const [revision,setRevision]=useState(0);
- const [directory,setDirectory]=useState(null);
+ const [directoryState,setDirectoryState]=useState({owner:null,data:null});
+ const directory=directoryState.owner===user?.id?directoryState.data:null;
  const [loading,setLoading]=useState(false);
  const [error,setError]=useState('');
  const [denied,setDenied]=useState(false);
@@ -54,16 +55,16 @@ export default function ManagementUsersDashboard(){
  }).toString(),[filters]);
 
  useEffect(()=>{
-  if(!ready||!user){setDirectory(null);setDenied(false);setLoading(false);return;}
+  if(!ready||!user){setDirectoryState({owner:null,data:null});setDenied(false);setLoading(false);return;}
   let live=true;
   const controller=new AbortController();
   const timer=setTimeout(async()=>{
    setLoading(true);setError('');
    try{
     const result=await request('/api/admin/users?'+query,null,controller.signal);
-    if(live){setDirectory(result);setDenied(false);}
+    if(live){setDirectoryState({owner:user.id,data:result});setDenied(false);}
    }catch(failure){
-    if(live&&!controller.signal.aborted){setDirectory(null);setDenied(failure.status===403);setError(failure.message);}
+    if(live&&!controller.signal.aborted){setDirectoryState({owner:null,data:null});setDenied(failure.status===403);setError(failure.message);}
    }finally{if(live)setLoading(false);}
   },filters.q?300:0);
   return()=>{live=false;clearTimeout(timer);controller.abort();};
@@ -109,7 +110,7 @@ export default function ManagementUsersDashboard(){
     <h1>المستخدمين</h1>
     <p>إدارة حسابات 967، والبحث عنها، ومراجعة نشاط تسجيل الدخول وحالة الوصول.</p>
    </div>
-   <button type="button" className={styles.refresh} onClick={refresh} disabled={loading||!directory}><RefreshCw size={17}/> تحديث القائمة</button>
+   <button type="button" className={styles.refresh} onClick={refresh} disabled={loading||!ready||!user}><RefreshCw size={17}/> تحديث القائمة</button>
   </header>
   {!ready?<div className={styles.statePanel} role="status">جارٍ التحقق من صلاحيات الحساب…</div>:
   !user?<div className={styles.statePanel}><ShieldAlert size={26}/><h2>سجّل الدخول بحساب الإدارة</h2><p>{authError||'يجب تسجيل الدخول حتى تتمكن من عرض حسابات المستخدمين.'}</p><Link href="/login?next=%2Fadmin%2Fusers">تسجيل الدخول</Link></div>:
