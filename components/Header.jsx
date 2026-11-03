@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect, useMemo, useRef, useState} from 'react';
-import {Bookmark, ChevronDown, Compass, House, Menu, PlayCircle, Search, X} from 'lucide-react';
+import {Bookmark, ChevronDown, Compass, House, Menu, PlayCircle, Search, MessageCircle, X} from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import ThemeToggle from './ThemeToggle';
 import useSessionDb from './useSessionDb';
@@ -142,6 +142,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         </ul>
         <div className="ed-nav-utility">
           {savedVisible && <Link href={utilityLinks.saved[0]} onClick={close}>{utilityLinks.saved[1]}</Link>}
+          {signedIn && <Link href="/messages" aria-current={path==='/messages'?'page':undefined} onClick={close}>الرسائل</Link>}
           {account && <Link href={account[0]} aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
           {isVisible('/contribute') && <Link href="/contribute" onClick={close}>{actionLabel}</Link>}
         </div>
@@ -150,6 +151,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         <ThemeToggle/>
         <Link href="/search" className="ed-tool ed-tool-icon" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
+        {signedIn && <Link href="/messages" className="ed-tool ed-tool-icon ed-wide-only" aria-label="الرسائل الخاصة" title="الرسائل الخاصة" aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/></Link>}
         {account && <Link href={account[0]} className="ed-tool ed-tool-text ed-wide-only" aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
         {isVisible('/contribute') && <Link href="/contribute" className="ed-tool ed-tool-cta ed-wide-only" onClick={close}>{actionLabel}</Link>}
         <button ref={toggle} type="button" className="ed-tool ed-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}<span className="ed-menu-word" aria-hidden="true">{open ? 'إغلاق' : 'القائمة'}</span></button>
