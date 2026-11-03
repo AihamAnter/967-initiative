@@ -1,1 +1,24 @@
 .page{background:var(--c-bg);color:var(--c-ink);padding:35px 0 80px;min-height:65vh}.wrap{width:min(1000px,calc(100% - 32px));margin:auto}.heading{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.heading p{font-size:13px;color:var(--c-ink-2);line-height:1.8}.heading h1{font-size:clamp(24px,3vw,36px);margin:5px 0}.heading a{color:var(--c-accent);font-size:13px}.tools{display:flex;gap:12px;align-items:end;margin:25px 0}.tools label{display:grid;gap:8px;font-size:12px}.tools select,.tools button,.actions button,.pages button{border:1px solid var(--c-line-2);color:var(--c-ink);background:var(--c-surface);border-radius:8px;padding:10px 14px;min-height:42px;cursor:pointer}.cards{display:grid;gap:14px}.cards article{background:var(--c-surface);border:1px solid var(--c-line-2);padding:22px;border-radius:12px;display:grid;gap:12px;overflow-wrap:anywhere}.summary{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:15px}.summary span{font-size:12px;color:var(--c-ink-2)}.text{white-space:pre-wrap;background:var(--c-surface-2);padding:15px;border-radius:9px;line-height:2;margin:0}.note{margin:0;font-size:13px;line-height:1.9}.cards small{color:var(--c-ink-3)}.actions,.pages,.pages div{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.actions button:first-child{background:var(--c-accent);color:var(--c-bg)}.pages{justify-content:space-between;margin-top:20px}.error{background:var(--c-danger-soft);color:var(--c-danger);padding:14px;border-radius:10px}.empty{padding:32px;text-align:center;color:var(--c-ink-2)}@media(max-width:600px){.cards article{padding:14px}.heading{align-items:start}}
+.parties{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.parties>div{display:grid;gap:5px;background:var(--c-surface-2);border:1px solid var(--c-line-2);padding:12px 14px;border-radius:10px}
+.parties span{font-size:12px;color:var(--c-ink-2)}.parties strong{font-size:15px;overflow-wrap:anywhere}
+.detail{font-size:13px;line-height:1.8;margin:0;color:var(--c-ink-2)}
+.actions{margin-top:5px}.actions button{display:inline-flex;align-items:center;gap:7px}
+.actions button:focus-visible,.dialog button:focus-visible{outline:2px solid var(--c-accent);outline-offset:3px}
+.overlay{position:fixed;inset:0;background:rgb(0 0 0 / .7);display:flex;align-items:center;justify-content:center;padding:16px;z-index:1200}
+.dialog{display:flex;flex-direction:column;width:min(760px,100%);max-height:calc(100dvh - 32px);background:var(--c-surface);color:var(--c-ink);border:1px solid var(--c-line-2);border-radius:16px;box-shadow:0 18px 50px rgb(0 0 0 / .23);overflow:hidden}
+.dialogHeader{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;border-bottom:1px solid var(--c-line-2);padding:18px 22px}
+.dialogHeader h2{font-size:22px;margin:5px 0}
+.dialogHeader p{color:var(--c-ink-2);font-size:13px;line-height:1.8;margin:0}
+.dialogHeader button{display:grid;place-items:center;background:var(--c-surface-2);color:var(--c-ink);border:1px solid var(--c-line-2);border-radius:9px;min-width:40px;min-height:40px;cursor:pointer}
+.reference{display:inline-flex;color:var(--c-accent);font-weight:800;font-variant-numeric:tabular-nums;font-size:13px}
+.privacyNote{display:flex;gap:9px;align-items:center;background:var(--c-surface-2);margin:14px 22px 0;padding:12px 14px;font-size:12px;line-height:1.9;color:var(--c-ink-2);border-radius:9px}
+.privacyNote svg{flex:0 0 auto;color:var(--c-accent)}
+.transcript{padding:20px 22px 26px;display:grid;align-content:start;gap:12px;min-height:120px;overflow-y:auto;scrollbar-width:thin}
+.messageLine{border:1px solid var(--c-line-2);border-radius:12px;padding:13px 15px;background:var(--c-surface-2);display:grid;gap:7px;overflow-wrap:anywhere}
+.messageLine[data-flagged=true]{border-color:var(--c-accent);background:var(--c-accent-soft)}
+.sender{font-size:12px;color:var(--c-accent);font-weight:800}
+.messageLine p{margin:0;white-space:pre-wrap;line-height:1.9;font-size:14px}
+.messageLine small{color:var(--c-ink-2);font-size:11px}
+.more{justify-self:center;background:var(--c-surface);color:var(--c-accent);border:1px solid var(--c-line-2);border-radius:9px;padding:9px 16px;cursor:pointer}
+@media(max-width:600px){.parties{grid-template-columns:1fr}.dialogHeader{padding:14px}.privacyNote{margin:12px 14px 0}.transcript{padding:14px}.dialogHeader h2{font-size:20px}}
