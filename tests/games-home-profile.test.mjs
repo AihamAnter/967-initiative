@@ -51,5 +51,6 @@ test('homepage shows player summary and has a completion-aware daily challenge',
  assert.ok(timer.includes('شاهد لوحة المتصدرين'));
  assert.ok(timer.includes('dailyGameUrl(currentDate)'));
  assert.ok(css.includes('@media(max-width:540px)'));
- assert.ok(home.indexOf('<GamesHomeStatus')<home.indexOf('className={styles.selectGrid}'));
+ assert.ok(home.indexOf('<GamesHomeStatus')>home.indexOf('className={styles.selectGrid}'));
+ assert.ok(home.includes('className={styles.secondarySection}'));
 });
