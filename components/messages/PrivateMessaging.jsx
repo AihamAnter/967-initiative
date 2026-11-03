@@ -73,8 +73,8 @@ export default function PrivateMessaging(){
    setItems(data.conversations||[]);
    setSettings(opts.settings||defaults);
    setBlocked(opts.blocked||[]);
-   if(requested&&/^[\\da-f-]{36}$/i.test(requested))open(requested,false);
-   else if(contactId&&/^[\\da-f-]{36}$/i.test(contactId)){
+   if(requested&&/^[0-9a-f-]{36}$/i.test(requested))open(requested,false);
+   else if(contactId&&/^[0-9a-f-]{36}$/i.test(contactId)){
     const existing=(data.conversations||[]).find(c=>c.partner_id===contactId);
     if(existing){setTab('inbox');open(existing.id);}
     else request('mode=contact&id='+encodeURIComponent(contactId)).then(contact=>{
