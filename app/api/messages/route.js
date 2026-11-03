@@ -28,28 +28,50 @@ function check(result){
 async function inbox(db,id){
  return check(await db.rpc('private_messaging_inbox',{p_actor:id}))||[];
 }
-async function getThread(db,id,conversation,before){
+async function getThread(db,id,conversation,before,around){
  const {data:c,error}=await db.from('private_conversations')
   .select('id,user_low,user_high,status,requested_by,intro,requested_at')
   .eq('id',conversation).maybeSingle();
  if(error)throw error;
  if(!c||![c.user_low,c.user_high].includes(id))throw new RequestValidationError('المحادثة غير موجودة.',404);
+ let quoteTarget=null;
+ if(around){
+  const lookup=await db.from('private_messages')
+   .select('id,sender_id,body,created_at,edited_at,deleted_at,reply_to_message_id')
+   .eq('conversation_id',conversation).eq('id',around).maybeSingle();
+  if(lookup.error)throw lookup.error;
+  if(!lookup.data)throw new RequestValidationError('الرسالة الأصلية غير موجودة.',404);
+  quoteTarget=lookup.data;
+ }
  let query=db.from('private_messages')
-  .select('id,sender_id,body,created_at,edited_at,deleted_at')
+  .select('id,sender_id,body,created_at,edited_at,deleted_at,reply_to_message_id')
   .eq('conversation_id',conversation)
   .order('created_at',{ascending:false}).order('id',{ascending:false})
   .limit(MESSAGE_PAGE_SIZE+1);
  if(before)query=query.lt('created_at',before);
+ if(quoteTarget)query=query.lt('created_at',quoteTarget.created_at);
  const {data:messages,error:messageError}=await query;
  if(messageError)throw messageError;
  const hasMore=(messages||[]).length>MESSAGE_PAGE_SIZE;
- const page=(messages||[]).slice(0,MESSAGE_PAGE_SIZE);
+ const page=(messages||[]).slice(0,MESSAGE_PAGE_SIZE).reverse();
+ if(quoteTarget)page.push(quoteTarget);
+ // Resolve the current quoted source body; never store duplicate private text.
+ const quoteIds=[...new Set(page.map(m=>m.reply_to_message_id).filter(Boolean))];
+ let quotes=new Map();
+ if(quoteIds.length){
+  const referenced=await db.from('private_messages')
+   .select('id,sender_id,body,deleted_at')
+   .eq('conversation_id',conversation).in('id',quoteIds);
+  if(referenced.error)throw referenced.error;
+  quotes=new Map((referenced.data||[]).map(m=>[m.id,m]));
+ }
+ const detailed=page.map(m=>({...m,reply:m.reply_to_message_id?quotes.get(m.reply_to_message_id)||null:null}));
  const partner=c.user_low===id?c.user_high:c.user_low;
  const {data:p,error:profileError}=await db.from('public_profiles')
   .select('display_name,avatar_url,show_avatar').eq('user_id',partner).maybeSingle();
  if(profileError)throw profileError;
  return {conversation:{id:c.id,status:c.status,requested_by:c.requested_by,intro:c.intro,requested_at:c.requested_at,partner_id:partner,partner_name:p?.display_name||'مستخدم 967',avatar_url:p?.show_avatar?p.avatar_url:null},
-  messages:page.reverse(),hasMore,nextBefore:hasMore?page[page.length-1]?.created_at:null};
+  messages:detailed,hasMore,nextBefore:hasMore?page[0]?.created_at:null};
 }
 async function search(db,actor,q){
  if(q.length<2)return {users:[]};
@@ -103,7 +125,7 @@ async function directContact(db,actor,targetId){
 export async function GET(request){
  try{
   const {db,user}=await authorized(request);
-  const {mode,id,q,before}=safeMessagingQuery(new URL(request.url).searchParams);
+  const {mode,id,q,before,around}=safeMessagingQuery(new URL(request.url).searchParams);
   if(mode==='inbox')return json({conversations:await inbox(db,user.id)});
   if(mode==='summary'){
    const rows=await inbox(db,user.id);
@@ -121,7 +143,7 @@ export async function GET(request){
     notify_messages:preferences.data?.notify_messages!==false,
     latest_incoming_unread_at:recent.data?.created_at||null});
   }
-  if(mode==='thread')return json(await getThread(db,user.id,id,before));
+  if(mode==='thread')return json(await getThread(db,user.id,id,before,around));
   if(mode==='search')return json(await search(db,user.id,q));
   if(mode==='contact')return json(await directContact(db,user.id,id));
   const [setting,blocks]=await Promise.all([
