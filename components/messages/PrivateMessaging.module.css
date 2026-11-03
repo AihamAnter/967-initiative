@@ -140,7 +140,7 @@
  .threadHeader>div:last-of-type button{width:34px;height:34px}
  .messages{padding:12px;gap:10px}
  .bubble{max-width:91%;padding:9px 11px}
- .composer{padding:8px;gap:7px}
+ .composer{padding:8px;gap:7px;flex-direction:row-reverse}
  .composer textarea{min-height:45px;max-height:min(45dvh,440px);font-size:14px}.composerHint{display:none}
  .composer button{min-height:45px;padding:9px 11px;font-size:12px}
  .listHeading{padding:11px 13px}
