@@ -16,7 +16,7 @@
 
 ## قاعدة البيانات
 
-نفذ الترحيل الإضافي `supabase/migrations/20261103040000_private_messaging.sql` بعد التحقق من نسخة احتياطية سليمة، ومقارنة ترحيلات الإنتاج. **لا تشغّله في production قبل اختبار الترحيل.**
+نفذ الترحيل الإضافي `supabase/migrations/20261103033657_private_messaging.sql` بعد التحقق من نسخة احتياطية سليمة، ومقارنة ترحيلات الإنتاج. **لا تشغّله في production قبل اختبار الترحيل.**
 
 الجداول الجديدة: `private_conversations`, `private_conversation_states`, `private_messages`, `private_user_blocks`, `private_message_reports`, `private_messaging_settings`.
 
