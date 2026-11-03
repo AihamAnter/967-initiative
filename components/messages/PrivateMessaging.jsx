@@ -65,13 +65,22 @@ export default function PrivateMessaging(){
  useEffect(()=>{
   if(!ready||!user){setItems([]);setSelected(null);setThread(null);return;}
   setLoading(true);
-  const requested=new URLSearchParams(window.location.search).get('conversation');
+  const params=new URLSearchParams(window.location.search);
+  const requested=params.get('conversation');
+  const contactId=params.get('to');
   Promise.all([request('mode=inbox'),request('mode=settings')]).then(([data,opts])=>{
    if(live.current.user!==user.id)return;
    setItems(data.conversations||[]);
    setSettings(opts.settings||defaults);
    setBlocked(opts.blocked||[]);
-   if(requested&&/^[\da-f-]{36}$/i.test(requested))open(requested,false);
+   if(requested&&/^[\\da-f-]{36}$/i.test(requested))open(requested,false);
+   else if(contactId&&/^[\\da-f-]{36}$/i.test(contactId)){
+    const existing=(data.conversations||[]).find(c=>c.partner_id===contactId);
+    if(existing){setTab('inbox');open(existing.id);}
+    else request('mode=contact&id='+encodeURIComponent(contactId)).then(contact=>{
+     if(live.current.user===user.id){setDialog({type:'request',person:contact.person});setTab('inbox');}
+    }).catch(failure=>{if(live.current.user===user.id)setError(failure.message);});
+   }
   }).catch(e=>{if(live.current.user===user.id)setError(e.message);})
     .finally(()=>{if(live.current.user===user.id)setLoading(false);});
  },[ready,user?.id,request,open]);
