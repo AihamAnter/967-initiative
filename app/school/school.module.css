@@ -361,3 +361,9 @@
 
 /* Empty-state copy remains readable against the shared dark school background. */
 :global(:root[data-ed-theme="dark"]) .logicEmpty{color:var(--c-ink-2)}
+
+/* Musnad reference and practice navigation must remain legible at night. */
+:global(:root[data-ed-theme="dark"]) .alphabetNotes a,
+:global(:root[data-ed-theme="dark"]) .writingBack{color:#7fe3d9!important}
+.logicEmpty{color:#53645c}
+.letterTable small{color:#53626a}
