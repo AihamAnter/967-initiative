@@ -1,4 +1,3 @@
-import {randomUUID} from 'node:crypto';
 import {authorizeEditorRequest} from '@/lib/adminAuthorization';
 import {serverDb} from '@/lib/supabase-server';
 import {readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
@@ -66,34 +65,10 @@ export async function POST(request){
   const body=await readJsonObject(request,10000);
   const invalid=validateManagementAction(body);
   if(invalid)throw new RequestValidationError(invalid,400);
-  if(actor.id===body.user_id)throw new RequestValidationError('لا يمكنك إدارة حظر حسابك الحالي أو مراسلته من هنا.',403);
+  if(actor.id===body.user_id)throw new RequestValidationError('لا يمكنك تغيير حالة حظر حسابك الحالي من هنا.',403);
   const target=await findTarget(db,body.user_id);
   const editor=await db.from('editors').select('role').eq('user_id',target.id).maybeSingle();
   if(editor.error)throw editor.error;
-
-  if(body.action==='send_email'){
-   if(!target.email||!target.email.includes('@'))throw new RequestValidationError('لا يوجد بريد إلكتروني صالح لهذا المستخدم.');
-   const key=process.env.RESEND_API_KEY;
-   const from=process.env.MANAGEMENT_EMAIL_FROM;
-   if(!key||!from)return fail('الإرسال المباشر غير مهيأ بعد. أضف RESEND_API_KEY و MANAGEMENT_EMAIL_FROM إلى إعدادات الخادم، أو افتح برنامج البريد من الصفحة.',503);
-   const message=body.message.trim(),subject=body.subject.trim();
-   const replyTo=process.env.MANAGEMENT_EMAIL_REPLY_TO;
-   let response;
-   try{
-    response=await fetch('https://api.resend.com/emails',{
-     method:'POST',
-     headers:{Authorization:'Bearer '+key,'Content-Type':'application/json','Idempotency-Key':randomUUID()},
-     body:JSON.stringify({
-      from,to:[target.email],subject,text:message,
-      ...(replyTo?{reply_to:replyTo}:{})
-     }),
-     cache:'no-store',
-     signal:AbortSignal.timeout(12000)
-    });
-   }catch{return fail('تعذر الوصول إلى خدمة البريد. لم يتم تأكيد الإرسال.',503);}
-   if(!response.ok)return fail('رفضت خدمة البريد الرسالة. تحقق من تفعيل المرسل وإعدادات البريد.',503);
-   return json({ok:true,message:'قبلت خدمة البريد الرسالة للإرسال.'});
-  }
 
   // Prevent all staff lockouts, not merely self-bans: changes to staff
   // privileges must first be made explicitly in the editors management UI.
