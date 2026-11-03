@@ -42,8 +42,6 @@ test('ban and unban actions strictly validate server-side payloads',()=>{
  assert.match(validateManagementAction({action:'send_email',user_id:id,subject:'test',message:'test'}),/الإجراء غير مدعوم/);
  assert.match(validateManagementAction({action:'ban',user_id:id,duration:'123456789h'}),/مدة/);
  assert.match(validateManagementAction({action:'ban',user_id:'hacker',duration:'24h'}),/معرّف/);
- assert.match(validateManagementAction({action:'send_email',user_id:id,subject:'Hello\nBcc:bad@example.test',message:'رسالة طويلة كفاية'}),/عنوان/);
- assert.match(validateManagementAction({action:'send_email',user_id:id,subject:'ok',message:'too short'}),/عنوان/);
 });
 test('page and API never grant editor admins access to account listing',()=>{
  const api=read('app/api/admin/users/route.js');
