@@ -8,6 +8,7 @@ import ThemeToggle from './ThemeToggle';
 import useSessionDb from './useSessionDb';
 import {usePageVisibility} from './PageVisibilityProvider';
 import {resolveNavSections, utilityLinks} from '@/lib/navigation';
+import {messageBadgeCount,messageBadgeLabel} from '@/lib/messageBadge';
 
 // Masthead: one row on wide screens, a menu sheet below 1100px.
 // Sections come from lib/navigation.js, shared with the footer and home doors.
@@ -19,6 +20,8 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const [open, setOpen] = useState(false);
   const [signedIn, setSignedIn] = useState(null);
   const [canEdit, setCanEdit] = useState(false);
+  const [sessionUserId, setSessionUserId] = useState(null);
+  const [messageCounts, setMessageCounts] = useState({unread:0,requests:0});
   const header = useRef(null);
   const toggle = useRef(null);
   const menuOpener = useRef(null);
@@ -57,6 +60,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
       if (!active) return;
       const currentRequest = ++requestId;
       setSignedIn(Boolean(session?.user));
+      setSessionUserId(session?.user?.id || null);
       setCanEdit(false);
       if (!session?.user) return;
       // Run database calls after Supabase has released its auth event lock.
@@ -89,6 +93,63 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
     });
     return () => {active = false; requestId++; timers.forEach(timer => window.clearTimeout(timer)); subscription.unsubscribe();};
   }, [db, sessionReady]);
+  // The header badge uses a lightweight summary request while the page is visible.
+  // No always-on Realtime socket is required on the Supabase free tier.
+  useEffect(() => {
+    if (!db || !sessionUserId) {
+      setMessageCounts({unread:0,requests:0});
+      return;
+    }
+    let active = true;
+    let pending = false;
+    const refresh = async () => {
+      if (!active || pending || document.visibilityState !== 'visible') return;
+      pending = true;
+      try {
+        const {data,error} = await db.auth.getSession();
+        if (!active) return;
+        const session = data?.session;
+        if (error || !session?.access_token || session.user?.id !== sessionUserId) {
+          setMessageCounts({unread:0,requests:0});
+          return;
+        }
+        const response = await fetch('/api/messages?mode=summary', {
+          headers:{Authorization:'Bearer '+session.access_token},
+          cache:'no-store',
+        });
+        if (!active) return;
+        if (response.ok) {
+          const result = await response.json();
+          if (active) setMessageCounts({unread:result.unread,requests:result.requests});
+        } else if (response.status===401 || response.status===403) {
+          setMessageCounts({unread:0,requests:0});
+        }
+      } catch {
+        // Retain the last confirmed badge if the network temporarily fails.
+      } finally {
+        pending = false;
+      }
+    };
+    void refresh();
+    const timer = window.setInterval(refresh,30000);
+    const onVisibility = () => {if (document.visibilityState==='visible') void refresh();};
+    window.addEventListener('focus',refresh);
+    window.addEventListener('967:messages-changed',refresh);
+    document.addEventListener('visibilitychange',onVisibility);
+    return () => {
+      active=false;
+      window.clearInterval(timer);
+      window.removeEventListener('focus',refresh);
+      window.removeEventListener('967:messages-changed',refresh);
+      document.removeEventListener('visibilitychange',onVisibility);
+    };
+  }, [db,sessionUserId,path]);
+  const newMessageCount=messageBadgeCount(messageCounts);
+  const messageCountText=messageBadgeLabel(newMessageCount);
+  const messageLinkLabel=newMessageCount
+    ? 'الرسائل الخاصة — '+newMessageCount+' رسالة أو طلب محادثة غير مقروء'
+    : 'الرسائل الخاصة';
+
   useEffect(() => {
     const onKey = event => {
       const disclosure = header.current?.querySelector('.ed-nav-group[open]');
@@ -142,7 +203,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         </ul>
         <div className="ed-nav-utility">
           {savedVisible && <Link href={utilityLinks.saved[0]} onClick={close}>{utilityLinks.saved[1]}</Link>}
-          {signedIn && <Link href="/messages" aria-current={path==='/messages'?'page':undefined} onClick={close}>الرسائل</Link>}
+          {signedIn && <Link href="/messages" aria-label={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}>الرسائل{newMessageCount>0&&<span className="ed-message-menu-count" aria-hidden="true">{messageCountText}</span>}</Link>}
           {account && <Link href={account[0]} aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
           {isVisible('/contribute') && <Link href="/contribute" onClick={close}>{actionLabel}</Link>}
         </div>
@@ -151,7 +212,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         <ThemeToggle/>
         <Link href="/search" className="ed-tool ed-tool-icon" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
-        {signedIn && <Link href="/messages" className="ed-tool ed-tool-icon ed-wide-only" aria-label="الرسائل الخاصة" title="الرسائل الخاصة" aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/></Link>}
+        {signedIn && <Link href="/messages" className="ed-tool ed-tool-icon ed-wide-only ed-message-link" aria-label={messageLinkLabel} title={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/>{newMessageCount>0&&<span className="ed-message-count" aria-hidden="true">{messageCountText}</span>}</Link>}
         {account && <Link href={account[0]} className="ed-tool ed-tool-text ed-wide-only" aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
         {isVisible('/contribute') && <Link href="/contribute" className="ed-tool ed-tool-cta ed-wide-only" onClick={close}>{actionLabel}</Link>}
         <button ref={toggle} type="button" className="ed-tool ed-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}<span className="ed-menu-word" aria-hidden="true">{open ? 'إغلاق' : 'القائمة'}</span></button>
