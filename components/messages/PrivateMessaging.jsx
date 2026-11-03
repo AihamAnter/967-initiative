@@ -146,7 +146,8 @@ export default function PrivateMessaging(){
  const unread=items.reduce((sum,x)=>sum+Number(x.unread||0),0);
  const pending=items.filter(x=>x.status==='pending'&&x.requested_by!==user?.id);
  const visible=items.filter(x=>x.status==='accepted'||x.status==='pending'&&x.requested_by===user?.id);
- const selectTab=name=>{setTab(name);setError('');setNotice('');if(name!=='inbox'){setSelected(null);setThread(null);history.replaceState(null,'','/messages');}};
+ const backToList=()=>{setSelected(null);setThread(null);history.replaceState(null,'','/messages');};
+ const selectTab=name=>{setTab(name);setError('');setNotice('');if(name!=='inbox')backToList();};
  const send=async event=>{
   event.preventDefault();
   if(!selected||!draft.trim())return;
@@ -154,7 +155,7 @@ export default function PrivateMessaging(){
   const result=await run({action:'send',conversation:selected,text},async()=>{setDraft('');await open(selected,false);await reload();});
   if(!result)setDraft(text);
  };
- const approve=(action,id)=>run({action,conversation:id},async()=>{await reload();await open(id,false);});
+ const approve=(action,id)=>run({action,conversation:id},async()=>{setTab('inbox');await reload();await open(id);});
  const create=async target=>{
   if(!intro.trim())return;
   await run({action:'request',target,text:intro.trim()},async(result)=>{
@@ -182,17 +183,24 @@ export default function PrivateMessaging(){
  });
 
  return <div className={styles.page} dir="rtl"><div className={styles.wrap}>
-  <header className={styles.heading}><div><div className={styles.crumb}>967 / حسابي / الرسائل</div><h1>الرسائل الخاصة</h1><p>تواصل مع أعضاء 967 بعد قبول طلب المحادثة. لا توجد رسائل بريدية.</p></div><Link href="/account"><ArrowRight size={16}/> حسابي</Link></header>
+  <header className={styles.heading}><div><span className={styles.kicker}>تواصل الأعضاء</span><h1>الرسائل الخاصة</h1><p>محادثاتك وطلبات التواصل في مكان واحد.</p></div><Link href="/account" className={styles.accountLink}><ArrowRight size={16}/> حسابي</Link></header>
   {!ready?<div className={styles.gate}>جارٍ التحقق من الحساب…</div>:!user?
    <div className={styles.gate}><ShieldAlert size={29}/><h2>سجّل الدخول أولًا</h2><p>الرسائل الخاصة متاحة للمستخدمين المسجلين فقط.</p><Link href="/login">تسجيل الدخول</Link></div>:
-  <div className={styles.layout} data-chat-open={tab==='inbox'&&Boolean(selected&&thread)} data-sidebar-only={tab!=='inbox'||visible.length>0&&!selected}>
-   <aside className={styles.sidebar} aria-label="أقسام الرسائل">
-    <div className={styles.tabs}>
-     <button type="button" data-active={tab==='inbox'} onClick={()=>selectTab('inbox')}><MessageCircle size={18}/> المحادثات {unread>0&&<b>{unread}</b>}</button>
-     <button type="button" data-active={tab==='requests'} onClick={()=>selectTab('requests')}><Inbox size={18}/> الطلبات {pending.length>0&&<b>{pending.length}</b>}</button>
-     <button type="button" data-active={tab==='search'} onClick={()=>selectTab('search')}><MailPlus size={18}/> محادثة جديدة</button>
-     <button type="button" data-active={tab==='settings'} onClick={()=>selectTab('settings')}><Settings2 size={18}/> الخصوصية</button>
-    </div>
+  <div className={styles.layout} data-view={tab} data-chat-open={tab==='inbox'&&Boolean(selected)}>
+   <nav className={styles.tabs} aria-label="أقسام الرسائل">
+    <button type="button" data-active={tab==='inbox'} aria-pressed={tab==='inbox'} onClick={()=>selectTab('inbox')}><MessageCircle size={19}/><span>المحادثات</span>{unread>0&&<b>{unread}</b>}</button>
+    <button type="button" data-active={tab==='requests'} aria-pressed={tab==='requests'} onClick={()=>selectTab('requests')}><Inbox size={19}/><span>الطلبات</span>{pending.length>0&&<b>{pending.length}</b>}</button>
+    <button type="button" data-active={tab==='search'} aria-pressed={tab==='search'} onClick={()=>selectTab('search')}><MailPlus size={19}/><span>محادثة جديدة</span></button>
+    <button type="button" data-active={tab==='settings'} aria-pressed={tab==='settings'} onClick={()=>selectTab('settings')}><Settings2 size={19}/><span>الخصوصية</span></button>
+   </nav>
+   {(error||notice||loading)&&<div className={styles.statusArea} aria-live="polite">
+    {error&&<p className={styles.error} role="alert">{error}</p>}
+    {notice&&<p className={styles.success} role="status">{notice}</p>}
+    {loading&&<p className={styles.hint}>جارٍ تحميل الرسائل…</p>}
+   </div>}
+   <div className={styles.workspace}>
+   <aside className={styles.sidebar} aria-label="محتوى قسم الرسائل">
+    {tab==='inbox'&&<div className={styles.listHeading}><strong>المحادثات <small>{visible.length}</small></strong><button type="button" onClick={()=>selectTab('search')} aria-label="بدء محادثة جديدة"><MailPlus size={17}/><span>جديدة</span></button></div>}
     <div className={styles.list}>
      {tab==='inbox'&&<>{visible.map(c=><div className={styles.personRow} key={c.id} data-active={selected===c.id}>
       <MemberLink id={c.partner_id} name={c.partner_name} avatarUrl={c.avatar_url} className={styles.personLink}/>
@@ -201,20 +209,20 @@ export default function PrivateMessaging(){
        {Number(c.unread)>0&&<b className={styles.unread}>{c.unread}</b>}
        <ChevronLeft size={15}/>
       </button></div>)}
-      {!visible.length&&<p className={styles.empty}>لا توجد محادثات بعد. ابدأ بطلب محادثة من تبويب «محادثة جديدة».</p>}</>}
-     {tab==='requests'&&<>{pending.map(c=><article className={styles.requestCard} key={c.id}>
+      {!visible.length&&<div className={styles.emptyState}><MessageCircle size={28}/><h3>لا توجد محادثات بعد</h3><p>ابدأ بطلب محادثة مع عضو آخر في 967.</p><button type="button" className={styles.primary} onClick={()=>selectTab('search')}><MailPlus size={17}/> محادثة جديدة</button></div>}</>}
+     {tab==='requests'&&<><div className={styles.sectionIntro}><h2>طلبات المحادثة</h2><p>اقبل الطلب لبدء تبادل الرسائل.</p></div>{pending.map(c=><article className={styles.requestCard} key={c.id}>
       <MemberLink id={c.partner_id} name={c.partner_name} avatarUrl={c.avatar_url}/><p>{c.intro}</p><small>{date(c.requested_at)}</small>
       <div><button disabled={busy} onClick={()=>approve('accept',c.id)}><Check size={15}/> قبول</button><button disabled={busy} onClick={()=>run({action:'decline',conversation:c.id},reload)}><X size={15}/> رفض</button></div>
       <button className={styles.linkButton} onClick={()=>setDialog({type:'report',conversation:c.id})}>إبلاغ عن الطلب</button>
-     </article>)}{!pending.length&&<p className={styles.empty}>لا توجد طلبات جديدة.</p>}</>}
-     {tab==='search'&&<><label className={styles.search}><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث بالاسم (حرفان على الأقل)" maxLength={60}/></label>
-      <p className={styles.hint}>يظهر الأعضاء في البحث افتراضيًا، ويمكن لكل مستخدم إخفاء اسمه أو إيقاف طلبات المحادثة من إعدادات الخصوصية.</p>
+     </article>)}{!pending.length&&<div className={styles.emptyState}><Inbox size={28}/><h3>لا توجد طلبات جديدة</h3><p>ستظهر طلبات التواصل هنا عند وصولها.</p></div>}</>}
+     {tab==='search'&&<><div className={styles.sectionIntro}><h2>محادثة جديدة</h2><p>ابحث عن عضو ثم أرسل له طلب تواصل.</p></div><label className={styles.search}><Search size={18}/><input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="ابحث عن عضو بالاسم…" maxLength={60}/></label>
+      <p className={styles.hint}>اكتب حرفين على الأقل. تظهر الحسابات التي تسمح بالبحث وطلبات المحادثة فقط.</p>
       {results.map(p=><div key={p.id} className={styles.personRow}>
        <MemberLink id={p.id} name={p.name} avatarUrl={p.avatar_url} className={styles.personLink}/>
        <button type="button" className={styles.openConversation} onClick={()=>setDialog({type:'request',person:p})}><MailPlus size={15}/> طلب محادثة</button>
       </div>)}
       {query.trim().length>=2&&!results.length&&<p className={styles.empty}>لا توجد نتائج مطابقة.</p>}</>}
-     {tab==='settings'&&<div className={styles.settings}><h2>خصوصية الرسائل</h2>
+     {tab==='settings'&&<div className={styles.settings}><div className={styles.sectionIntro}><h2>الخصوصية والإشعارات</h2><p>اختر من يمكنه العثور عليك والتواصل معك.</p></div>
       <label><input type="checkbox" checked={settings.allow_requests} onChange={e=>setSettings(s=>({...s,allow_requests:e.target.checked}))}/> استقبال طلبات المحادثة</label>
       <label><input type="checkbox" checked={settings.discoverable} onChange={e=>setSettings(s=>({...s,discoverable:e.target.checked}))}/> إظهار اسمي في البحث عن المستخدمين</label>
       <label><input type="checkbox" checked={settings.notify_messages} onChange={e=>setSettings(s=>({...s,notify_messages:e.target.checked}))}/> إشعارات الرسائل داخل الموقع (تنبيه صوتي عند وصول رسالة)</label>
@@ -225,11 +233,8 @@ export default function PrivateMessaging(){
     </div>
    </aside>
    <main className={styles.threadArea}>
-    {error&&<p className={styles.error} role="alert">{error}</p>}
-    {notice&&<p className={styles.success} role="status">{notice}</p>}
-    {loading&&<p className={styles.hint}>جارٍ تحميل الرسائل…</p>}
     {tab==='inbox'&&selected&&thread?<section className={styles.thread}>
-     <header className={styles.threadHeader}><div><MemberLink id={thread.conversation.partner_id} name={thread.conversation.partner_name} avatarUrl={thread.conversation.avatar_url}/><small>{thread.conversation.status==='accepted'?'محادثة خاصة':'طلب محادثة'}</small></div>
+     <header className={styles.threadHeader}><button type="button" className={styles.backToList} onClick={backToList} aria-label="العودة إلى قائمة المحادثات"><ArrowRight size={20}/><span>العودة</span></button><div><MemberLink id={thread.conversation.partner_id} name={thread.conversation.partner_name} avatarUrl={thread.conversation.avatar_url}/><small>{thread.conversation.status==='accepted'?'محادثة خاصة':'طلب محادثة'}</small></div>
       <div><button type="button" title="إبلاغ" onClick={()=>setDialog({type:'report',conversation:selected})}><ShieldAlert size={18}/></button>
       <button type="button" title="حظر المستخدم" onClick={()=>block({id:thread.conversation.partner_id,name:thread.conversation.partner_name})}><Ban size={18}/></button></div></header>
      {thread.conversation.status==='accepted'?<>
@@ -244,8 +249,9 @@ export default function PrivateMessaging(){
       </div>
       <form className={styles.composer} onSubmit={send}><textarea rows={2} maxLength={2000} value={draft} onChange={e=>setDraft(e.target.value)} placeholder="اكتب رسالتك…" aria-label="نص الرسالة"/><button disabled={busy||!draft.trim()} aria-label="إرسال الرسالة"><Send size={19}/> إرسال</button></form>
      </>:<div className={styles.empty}><Bell size={26}/><h3>بانتظار الموافقة</h3><p>{thread.conversation.intro}</p><p>يمكن إرسال رسائل جديدة بعد قبول الطرف الآخر فقط.</p></div>}
-    </section>:tab==='inbox'&&visible.length===0?<div className={styles.placeholder}><MessageCircle size={44}/><h2>مساحة خاصة للتواصل</h2><p>اختر محادثة من القائمة. تبدأ المحادثات الجديدة بطلب يحتاج موافقة المستلم.</p></div>:null}
+    </section>:tab==='inbox'&&selected?<div className={styles.threadLoading} role="status">{error?'تعذر فتح المحادثة. يمكنك العودة للقائمة.':'جارٍ فتح المحادثة…'}<button type="button" onClick={backToList}>العودة للمحادثات</button></div>:tab==='inbox'?<div className={styles.placeholder}><MessageCircle size={35}/><h2>اختر محادثة للبدء</h2><p>ستظهر الرسائل هنا عند اختيار أي محادثة من القائمة.</p><button type="button" onClick={()=>selectTab('search')} className={styles.secondaryButton}><MailPlus size={17}/> محادثة جديدة</button></div>:null}
    </main>
+   </div>
   </div>}
   {dialog&&<div className={styles.modalBackdrop} onMouseDown={e=>{if(e.target===e.currentTarget&&!busy)setDialog(null);}}><section className={styles.modal} role="dialog" aria-modal="true" aria-label={dialog.type==='request'?'طلب محادثة':'الإبلاغ عن إساءة'}>
    <header><h2>{dialog.type==='request'?'طلب محادثة مع '+dialog.person.name:'الإبلاغ عن محتوى'}</h2><button onClick={()=>setDialog(null)} disabled={busy} aria-label="إغلاق"><X size={19}/></button></header>
