@@ -94,7 +94,6 @@
 .composer textarea,.modal textarea,.modal select{border:1px solid var(--c-control);border-radius:10px;background:var(--pale);color:var(--ink);font:inherit;font-size:14px;line-height:1.8;padding:10px 12px;resize:vertical;min-height:48px;outline-offset:2px}
 .composerField{display:flex;flex:1;flex-direction:column;gap:3px;min-width:0}
 .composer textarea{width:100%;min-width:0;min-height:48px;max-height:min(45dvh,440px);resize:none;overflow-y:hidden}
-.composerHint{font-size:10px;line-height:1.4;color:var(--muted);text-align:start;padding-inline:2px}
 .composer button{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 15px;min-height:47px;border:0;border-radius:10px;background:var(--c-accent);color:var(--c-bg);font:inherit;font-size:13px;font-weight:750;cursor:pointer}
 .placeholder{margin:auto;text-align:center;color:var(--muted);padding:30px;max-width:340px}
 .placeholder>svg{color:var(--c-accent)}
@@ -151,7 +150,7 @@
  .messages{padding:12px;gap:10px}
  .bubble{max-width:91%;padding:9px 11px}
  .composer{padding:8px;gap:7px;flex-direction:row-reverse}
- .composer textarea{min-height:45px;max-height:min(45dvh,440px);font-size:14px}.composerHint{display:none}
+ .composer textarea{min-height:45px;max-height:min(45dvh,440px);font-size:14px}
  .composer button{min-height:45px;padding:9px 11px;font-size:12px}
  .listHeading{padding:11px 13px}
  .sectionIntro{padding:20px 15px 6px}

@@ -42,5 +42,8 @@ test('textarea sends through existing submit pathway and grows automatically as 
  assert.match(component,/field\.style\.overflowY=overflow/);
  assert.match(css,/\.composer textarea\{width:100%;min-width:0;min-height:48px;max-height:min\(45dvh,440px\);resize:none;overflow-y:hidden\}/);
  assert.doesNotMatch(css,/max-height:105px/);
- assert.match(component,/Shift\+Enter لسطر جديد/);
+ assert.doesNotMatch(component,/Enter للإرسال · Shift\+Enter لسطر جديد/);
+ assert.doesNotMatch(component,/message-composer-hint/);
+ assert.doesNotMatch(css,/\.composerHint/);
+ assert.match(component,/onKeyDown=\{onComposerKeyDown\}/);
 });
