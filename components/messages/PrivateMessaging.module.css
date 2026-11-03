@@ -125,11 +125,14 @@
  .workspace{display:flex;min-height:0}
  .sidebar{border:0;width:100%}
  .threadArea{display:none}
- .layout[data-chat-open=true]{height:clamp(390px,calc(100dvh - 145px),900px)}
+ .layout[data-chat-open=true]{height:100%;min-height:0;max-height:none}
  .layout[data-chat-open=true] .tabs,.layout[data-chat-open=true] .sidebar{display:none}
  .layout[data-chat-open=true] .threadArea{display:flex;flex:1}
  .page:has(.layout[data-chat-open=true]) .heading{display:none}
- .page:has(.layout[data-chat-open=true]){padding-top:8px}
+ /* Keep the opened conversation inside the visible space between the
+    unchanged masthead and bottom navigation; no extra page below it. */
+ .page:has(.layout[data-chat-open=true]){height:100%;min-height:0;overflow:hidden;padding:0}
+ .page:has(.layout[data-chat-open=true]) .wrap{height:100%}
  .backToList{display:inline-flex!important;gap:4px!important;width:auto!important;height:36px!important;padding:0 8px!important;font-size:11px!important;flex:0 0 auto}
  .threadHeader{padding:9px 10px;gap:6px}
  .threadHeader>div:first-of-type{gap:4px}

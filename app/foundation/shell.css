@@ -168,6 +168,18 @@
   body:has(.ed-tabbar) .ed-footer { padding-bottom: 96px; }
 }
 
+/* Mobile open chats occupy the space above the unchanged bottom tabbar.
+   Remove footer and legacy bottom padding only while a thread is selected. */
+@media (max-width: 680px) {
+  body:has(#content [data-view="inbox"][data-chat-open="true"]) .ed-footer { display: none; }
+  body:has(#content [data-view="inbox"][data-chat-open="true"]) #content {
+    height: calc(100dvh - var(--header-h, 68px) - 86px - env(safe-area-inset-bottom));
+    min-height: 0;
+    padding-bottom: 0 !important;
+    overflow: hidden;
+  }
+}
+
 /* ---------- Colophon ---------- */
 .ed-footer { position: relative; overflow: hidden; background: var(--c-night); color: #b9c4c1; font-family: var(--t-text); line-height: var(--t-lh-ui); }
 .ed-footer::before { content: ""; position: absolute; inset: -40% -10% auto auto; width: 70%; aspect-ratio: 1; background: radial-gradient(closest-side, rgb(46 196 182 / .22), transparent); pointer-events: none; }
