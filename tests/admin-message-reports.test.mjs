@@ -55,7 +55,7 @@ test('report numbers are assigned to existing reports and moderation transcript 
  const pg=new PGlite();
  t.after(()=>pg.close());
  await pg.exec([
-  'create role authenticated nologin','create role anon nologin','create role service_role nologin',
+  'create role authenticated nologin','create role anon nologin','create role service_role nologin bypassrls',
   'grant usage on schema public to service_role',
   'create table public.private_message_reports(id uuid primary key)',
   "insert into public.private_message_reports(id) values('20000000-0000-4000-8000-000000000001')"
