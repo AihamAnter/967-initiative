@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {PGlite} from '@electric-sql/pglite';
 import {validateMessagingAction,safeMessagingQuery} from '../lib/privateMessaging.js';
 
-const migration=readFileSync(new URL('../supabase/migrations/20261103040000_private_messaging.sql',import.meta.url),'utf8');
+const migration=readFileSync(new URL('../supabase/migrations/20261103033657_private_messaging.sql',import.meta.url),'utf8');
 const U={
  a:'30000000-0000-4000-8000-000000000001',
  b:'30000000-0000-4000-8000-000000000002',
