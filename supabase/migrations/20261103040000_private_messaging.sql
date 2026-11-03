@@ -173,6 +173,8 @@ begin
   if char_length(content)<1 or char_length(content)>500 then
    raise exception 'MESSAGE_INVALID_INPUT' using errcode='22023';
   end if;
+  -- Serialize the sender's daily request quota across different recipients.
+  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('requests:'||p_actor::text,1));
   me_low=least(p_actor,p_target);me_high=greatest(p_actor,p_target);
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(me_low::text||':'||me_high::text,0));
   if not exists(select 1 from public.public_profiles p
@@ -257,6 +259,7 @@ begin
    (b.blocker_id=recipient and b.blocked_id=p_actor)) then
    raise exception 'MESSAGE_REQUESTS_CLOSED' using errcode='42501';
   end if;
+  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('send:'||p_actor::text,1));
   select count(*) into count_recent from public.private_messages
    where sender_id=p_actor and created_at>=now()-interval '1 minute';
   if count_recent>=10 then raise exception 'MESSAGE_SEND_LIMIT' using errcode='22023'; end if;
@@ -279,6 +282,7 @@ begin
    char_length(coalesce(p_text,''))>1000 then
    raise exception 'MESSAGE_INVALID_INPUT' using errcode='22023';
   end if;
+  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('reports:'||p_actor::text,1));
   select count(*) into count_recent from public.private_message_reports
    where reporter_id=p_actor and created_at>=now()-interval '24 hours';
   if count_recent>=5 then raise exception 'MESSAGE_SEND_LIMIT' using errcode='22023'; end if;
