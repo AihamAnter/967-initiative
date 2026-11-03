@@ -75,7 +75,7 @@
 .ed-message-count,.ed-message-menu-count {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 19px; height: 19px; padding-inline: 4px;
-  border-radius: 999px; background: #e3394b; color: #fff;
+  border-radius: 999px; background: #b91c36; color: #fff;
   font: 800 11px/1 var(--t-text);
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
