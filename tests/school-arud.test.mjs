@@ -132,7 +132,7 @@ test('server grading requires 5 out of 6, handles incomplete attempts, and refus
 test('Arud API uses the same verified account and staff preview rules without mixing course records',()=>{
  const api=read('app/api/school/arud/route.js');
  const server=read('lib/schoolArudServer.js');
- const migration=read('supabase/migrations/20261029141600_school_arud_course_enable.sql');
+ const migration=read('supabase/migrations/20261029141931_school_arud_course_enable.sql');
  assert.ok(api.includes('schoolUser(request,db)'));
  assert.ok(api.includes('isSameOrigin(request)'));
  assert.ok(api.includes("readJsonObject(request,14500)"));

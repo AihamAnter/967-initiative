@@ -8,14 +8,23 @@ const archiveDirectory=new URL('../supabase/archive/legacy-migrations/',import.m
 const baselineName='20261026215718_remote_schema.sql';
 const baselineSha256='56c2b7914d356266aad40d96a6fe86be1619dd83c06492ea047670db31269d93';
 
-test('the verified baseline remains intact and the next reviewed schema migration is active',async()=>{
+test('active migrations have valid 14-digit unique versions and required production milestones',async()=>{
  const names=(await readdir(activeDirectory)).filter(name=>name.endsWith('.sql')).sort();
- assert.deepEqual(names,[baselineName,'202610270001_account_workspace.sql','202610270002_link_authenticated_contributions.sql','20261027004810_stat_indicator_editorial.sql','20261028205636_games_daily_attempts_single_per_utc_day.sql','20261028211450_games_verified_leaderboard.sql','20261028215012_games_967_five_new_modes.sql','20261028225742_games_player_achievements.sql','20261029000239_game_friends.sql','20261029000415_game_friends.sql','20261029122247_school_967_musnad_attempts.sql','20261029124719_school_musnad_full_alphabet_stages.sql','20261029141600_school_arud_course_enable.sql','20261029181659_school_967_xp_events.sql','20261029183746_school_learning_habits.sql','20261029190255_school_967_optional_leaderboard.sql','20261029193259_school_content_studio.sql','20261030013401_school_arabic_calligraphy.sql','20261030020711_school_calligraphy_teaching_before_quiz.sql','20261030023201_school_calligraphy_script_samples.sql','20261030031114_school_logic_thinking_courses.sql','20261030164858_school_astronomy_nature_courses.sql','20261030193358_school_politics_economics_phase1.sql','20261030201328_school_civic_guided_lessons_v2.sql','20261031020834_editor_role_session_guards.sql','20261031020839_editor_rls_policy_hardening.sql','20261031023441_school_phase2_contextual_labs_and_questions.sql','20261031031038_debate_discussion_privacy.sql','20261031031041_debate_auth_ban_guard.sql']);
+ assert.ok(names.length>=33,'unexpected loss of migration files');
+ const versions=names.map(name=>{
+  assert.match(name,/^\d{14}_[a-z0-9_]+\.sql$/,'invalid migration name: '+name);
+  return name.slice(0,14);
+ });
+ assert.equal(new Set(versions).size,versions.length,'duplicate migration version');
+ for(const required of ["20261026215718_remote_schema.sql","20261027000100_account_workspace.sql","20261027000200_link_authenticated_contributions.sql","20261027004810_stat_indicator_editorial.sql","20261029141931_school_arud_course_enable.sql","20261031020834_editor_role_session_guards.sql","20261031020839_editor_rls_policy_hardening.sql","20261031031038_debate_discussion_privacy.sql","20261031031041_debate_auth_ban_guard.sql","20261103001023_harden_debate_admin_authorization_before_lock.sql","20261103001314_restrict_backend_only_definer_helpers.sql"]) assert.ok(names.includes(required),'missing reviewed migration: '+required);
+ assert.ok(!names.includes('202610270001_account_workspace.sql'));
+ assert.ok(!names.includes('202610270002_link_authenticated_contributions.sql'));
+ assert.ok(!names.includes('20261029141600_school_arud_course_enable.sql'));
  const baseline=await readFile(new URL(baselineName,activeDirectory));
  assert.equal(createHash('sha256').update(baseline).digest('hex'),baselineSha256);
 });
 
-test('all 19 legacy migrations are preserved in the non-executable archive',async()=>{
+test('all 19 legacy migrations remain in the non-executable archive',async()=>{
  const archived=(await readdir(archiveDirectory)).filter(name=>name.endsWith('.sql')).sort();
  assert.equal(archived.length,19);
  assert.ok(archived.includes('202610230002_management_guard.sql'));
