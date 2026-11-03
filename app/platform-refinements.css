@@ -321,7 +321,7 @@
 .advanced-search-options{margin-top:12px}
 .advanced-search-options summary{display:flex;align-items:center;gap:9px;min-height:44px;width:fit-content;color:var(--primary);font-size:15px;cursor:pointer}
 .advanced-search-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
-.advanced-search-fields label{display:grid;gap:7px;font-size:14px;min-width:0}
+.advanced-search-fields label{display:grid;gap:7px;font-size:14px;min-width:0;color:var(--text)}
 .advanced-search-fields select,.advanced-search-fields input{width:100%;min-width:0;min-height:48px;padding:10px;border:1px solid #b3bfb8;border-radius:6px;background:var(--surface);color:var(--text);font-size:16px}
 .advanced-search-options p{font-size:14px;color:var(--muted);margin:12px 0}
 .search-scope-note{font-size:14px}
