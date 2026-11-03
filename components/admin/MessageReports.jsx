@@ -1,7 +1,7 @@
 'use client';
 import {useCallback,useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {Eye,MessageSquareText,ShieldAlert,X} from 'lucide-react';
+import {Eye,ShieldAlert,X} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS} from '@/lib/privateMessaging';
