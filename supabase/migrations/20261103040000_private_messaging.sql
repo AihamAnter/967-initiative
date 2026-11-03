@@ -118,8 +118,9 @@ end $$;
 create or replace function public.private_messaging_action(
  p_actor uuid,p_action text,p_target uuid default null,p_conversation uuid default null,
  p_text text default null,p_message uuid default null,p_options jsonb default '{}'::jsonb
-) returns jsonb language plpgsql security invoker set search_path='' as $$
-c public.private_conversations%rowtype;
+) returns jsonb language plpgsql security invoker set search_path='' as $
+declare
+ c public.private_conversations%rowtype;
 me_low uuid;
 me_high uuid;
 blocked boolean;
