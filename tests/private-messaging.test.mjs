@@ -92,3 +92,29 @@ test('unconfirmed or banned accounts cannot request or send, rejection enforces 
  await action(pg,U.b,'decline',{conversation:x.id});
  await assert.rejects(action(pg,U.a,'request',{target:U.b,text:'again'}),/MESSAGE_ALREADY_EXISTS/);
 });
+
+test('production-style service_role may save settings with only required auth.users columns',async t=>{
+ const pg=await fixture(t);
+ await pg.exec([
+  'alter role service_role bypassrls',
+  'grant usage on schema auth to service_role',
+  'grant select on public.public_profiles to service_role',
+  'grant select,insert,update on public.private_messaging_settings to service_role'
+ ].join(';')+';');
+ const settingsSql="select public.private_messaging_action($1,'settings',null,null,null,null,$2::jsonb) as outcome";
+ const options=JSON.stringify({discoverable:true,allow_requests:true,notify_messages:true});
+ await assert.rejects(pg.transaction(async tx=>{
+  await tx.exec('set local role service_role');
+  return tx.query(settingsSql,[U.a,options]);
+ }),/permission denied for table users/i);
+ await pg.exec(readFileSync(new URL('../supabase/migrations/20261103052630_private_messaging_auth_service_role_columns.sql',import.meta.url),'utf8'));
+ const permissions=(await pg.query("select has_column_privilege('service_role','auth.users','id','select') as id,has_column_privilege('service_role','auth.users','email_confirmed_at','select') as confirmed,has_column_privilege('service_role','auth.users','banned_until','select') as banned,has_table_privilege('service_role','auth.users','select') as full_access,has_column_privilege('authenticated','auth.users','email_confirmed_at','select') as visitor_access")).rows[0];
+ assert.deepEqual(permissions,{id:true,confirmed:true,banned:true,full_access:false,visitor_access:false});
+ const result=await pg.transaction(async tx=>{
+  await tx.exec('set local role service_role');
+  return tx.query(settingsSql,[U.a,options]);
+ });
+ assert.deepEqual(result.rows[0].outcome,{ok:true});
+ const saved=(await pg.query('select discoverable,allow_requests,notify_messages from public.private_messaging_settings where user_id=$1',[U.a])).rows[0];
+ assert.deepEqual(saved,{discoverable:true,allow_requests:true,notify_messages:true});
+});
