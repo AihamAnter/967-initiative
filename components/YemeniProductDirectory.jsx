@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from '@/components/SiteLink';
 import {useMemo} from 'react';
-import {ArrowUpLeft, CheckCircle2, ChevronDown, Factory, MapPin, Package, Search, SlidersHorizontal, X} from 'lucide-react';
+import {CheckCircle2, ChevronDown, Factory, MapPin, Package, Search, SlidersHorizontal, X} from 'lucide-react';
 import {formatNumber} from '@/lib/format';
 import {matchesSearch} from '@/lib/search';
 import useListState from './useListState';
@@ -46,7 +46,6 @@ function CompanyCard({company,returnTo}){
             {remainingProducts>0&&<span className={styles.moreProducts}>+{formatNumber(remainingProducts)} أخرى</span>}
           </div>
         </div>}
-        <div className={styles.open}><span>استكشف ملف الشركة</span><span className={styles.arrow}><ArrowUpLeft size={19} aria-hidden="true"/></span></div>
       </div>
     </Link>
     <div className="card-save-action"><SaveForLater compact item={{kind:'company',href:'/yemeni-products/'+encodeURIComponent(company.id),title:company.name}}/></div>
