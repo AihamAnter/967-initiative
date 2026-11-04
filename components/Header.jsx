@@ -9,6 +9,7 @@ import useSessionDb from './useSessionDb';
 import {usePageVisibility} from './PageVisibilityProvider';
 import {resolveNavSections, utilityLinks} from '@/lib/navigation';
 import {messageBadgeCount,messageBadgeLabel} from '@/lib/messageBadge';
+import NotificationBell from './notifications/NotificationBell';
 import {advanceMessageAlert,playMessageChime} from '@/lib/messageSound';
 
 // Masthead: one row on wide screens, a menu sheet below 1100px.
@@ -243,12 +244,14 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         <div className="ed-nav-utility">
           {savedVisible && <Link href={utilityLinks.saved[0]} onClick={close}>{utilityLinks.saved[1]}</Link>}
           {signedIn && <Link href="/messages" aria-label={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}>الرسائل{newMessageCount>0&&<span className="ed-message-menu-count" aria-hidden="true">{messageCountText}</span>}</Link>}
+          {signedIn && <Link href="/notifications" aria-current={path==='/notifications'?'page':undefined} onClick={close}>الإشعارات</Link>}
           {account && <Link href={account[0]} aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
           {isVisible('/contribute') && <Link href="/contribute" onClick={close}>{actionLabel}</Link>}
         </div>
       </nav>
       <div className="ed-tools">
         <ThemeToggle/>
+        {signedIn&&<NotificationBell userId={sessionUserId} onNavigate={close}/>}
         <Link href="/messages" className="ed-tool ed-tool-icon ed-message-link" aria-label={messageLinkLabel} title={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/>{signedIn&&newMessageCount>0&&<span className="ed-message-count" aria-hidden="true">{messageCountText}</span>}</Link>
         <Link href="/search" className="ed-tool ed-tool-icon ed-top-search" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
