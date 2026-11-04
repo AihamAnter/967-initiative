@@ -27,7 +27,7 @@ function dbError(error){
 async function preferences(db,user){
  const service=serverDb();
  const [account,messaging]=await Promise.all([
-  db.from('account_preferences').select('notify_replies,notify_moderation,notify_tasks')
+  db.from('account_preferences').select('notify_replies,notify_moderation,notify_tasks,notify_new_debates_since')
    .eq('user_id',user.id).maybeSingle(),
   service?service.from('private_messaging_settings').select('notify_messages')
    .eq('user_id',user.id).maybeSingle():Promise.resolve({data:null,error:null}),
@@ -37,8 +37,8 @@ async function preferences(db,user){
 }
 function accountQuery(db,id,category,limit,prefs){
  if(category==='messages'||category==='tasks')return null;
- const kinds=(category==='account'?['system']:category==='debates'?['reply','moderation']:['system','reply','moderation'])
-  .filter(kind=>kind==='system'||(kind==='reply'?prefs.replies:prefs.debates));
+ const kinds=(category==='account'?['system']:category==='debates'?['reply','moderation','debate']:['system','reply','moderation','debate'])
+  .filter(kind=>kind==='system'||kind==='debate'||(kind==='reply'?prefs.replies:prefs.debates));
  if(!kinds.length)return null;
  return db.from('account_notifications')
   .select('id,kind,title,description,href,created_at,read_at',{count:'exact'})
@@ -145,6 +145,13 @@ async function setPreference(db,user,key,enabled){
   if(!service)throw new RequestValidationError('خدمة الإشعارات غير متاحة.',503);
   const {error}=await service.from('private_messaging_settings')
    .upsert({user_id:user.id,notify_messages:enabled},{onConflict:'user_id',defaultToNull:false});
+  dbError(error);
+  return;
+ }
+ if(key==='new_debates'){
+  const {error}=await db.from('account_preferences')
+   .upsert({user_id:user.id,notify_new_debates_since:enabled?new Date().toISOString():null},
+    {onConflict:'user_id',defaultToNull:false});
   dbError(error);
   return;
  }

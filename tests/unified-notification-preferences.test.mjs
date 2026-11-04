@@ -18,10 +18,10 @@ const debate=(id,when,parent=b,read_at=null)=>
   title:'رد جديد على تعليقك',created_at:when,read_at,reply_parent:parent});
 test('settings default to enabled, while missing account rows are handled',()=>{
  assert.deepEqual(normalizeNotificationPreferences(null,null),DEFAULT_NOTIFICATION_PREFERENCES);
- assert.deepEqual(NOTIFICATION_PREFERENCE_KEYS,['messages','tasks','replies','debates']);
+ assert.deepEqual(NOTIFICATION_PREFERENCE_KEYS,['messages','tasks','replies','debates','new_debates']);
  assert.deepEqual(normalizeNotificationPreferences(
   {notify_tasks:false,notify_replies:false,notify_moderation:true},{notify_messages:false}),
-  {messages:false,tasks:false,replies:false,debates:true});
+  {messages:false,tasks:false,replies:false,debates:true,new_debates:false});
 });
 test('security/system updates remain visible regardless of any preference',()=>{
  const prefs={messages:false,tasks:false,replies:false,debates:false};

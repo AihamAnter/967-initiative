@@ -77,7 +77,8 @@ export default function NotificationCenter(){
   {key:'messages',title:'الرسائل الخاصة',detail:'إشعارات المحادثات والطلبات الجديدة، وكذلك صوت الرسالة.'},
   {key:'tasks',title:'مركز المهام',detail:'التكليفات والردود والمواعيد والتغييرات في المهام.'},
   {key:'replies',title:'الردود على تعليقاتك',detail:'تنبيه عندما يرد عضو على تعليقك في مناظرة.'},
-  {key:'debates',title:'تحديثات مشاركات المناظرات',detail:'الموافقة أو الرفض وتحديث حالة السؤال أو المقترح.'}
+  {key:'debates',title:'تحديثات مشاركات المناظرات',detail:'الموافقة أو الرفض وتحديث حالة السؤال أو المقترح.'},
+  {key:'new_debates',title:'الإعلان عن مناظرات جديدة',detail:'أرسل لي إشعارًا عند نشر مناظرة جديدة. لن تُرسل إشعارات عن مناظرات سابقة.'}
  ];
  if(!ready)return <section className={styles.page}><p role="status">جارٍ التحقق من حسابك…</p></section>;
  if(!user)return <section className={styles.page}><div className={styles.guest}><Bell size={32}/><h1>إشعارات 967</h1><p>سجّل الدخول لمتابعة تحديثات حسابك ومهامك ورسائلك.</p><Link href="/login?next=%2Fnotifications">تسجيل الدخول</Link></div></section>;

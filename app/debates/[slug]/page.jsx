@@ -12,6 +12,7 @@ import DebateVideo from '@/components/debates/DebateVideo';
 import DebateInteraction from '@/components/debates/DebateInteraction';
 import DebateCard from '@/components/debates/DebateCard';
 import DebateShare from '@/components/debates/DebateShare';
+import DebateReminderAction from '@/components/debates/DebateReminderAction';
 import DebateDisclosure from '@/components/debates/DebateDisclosure';
 import MobileFold from '@/components/mobile/MobileFold';
 import InlineTarget from '@/components/inline/InlineTarget';
@@ -24,7 +25,7 @@ export default async function Page({params}){
  const hasRecording=publicRecordingAvailable(d);
  const videoSchema=hasRecording&&d.first_published_at&&httpsUrl(d.cover_url)?{'@context':'https://schema.org','@type':'VideoObject',name:d.title,description:d.description||d.question,thumbnailUrl:d.cover_url,uploadDate:d.first_published_at,url:siteUrl('/debates/'+d.slug),...(d.duration_seconds?{duration:'PT'+d.duration_seconds+'S'}:{})}:null;
  return <><InlineTarget kind="debate" id={d.id} slug={d.slug} title={d.title} href={'/debates/'+d.slug}/><JsonLd data={breadcrumbSchema([{name:'مناظرات 967',path:'/debates'},{name:d.title,path:'/debates/'+d.slug}])}/><JsonLd data={videoSchema}/>
-  <header className="debate-detail-hero debate-detail-header"><div className="container"><div className="debate-detail-topline"><ContextBackLink fallback="/debates" label="مناظرات 967" className="eyebrow debate-brand-link" leading={<DebateLogo decorative sizes="44px"/>}/><div className="debate-meta"><span>{d.category}</span><span>{DEBATE_TYPES[d.debate_type]}</span><span>{DEBATE_STAGES[d.stage]}</span></div></div><h1>{d.title}</h1><div className="debate-detail-toolbar">{d.debate_type==='external_live'&&d.stage!=='cancelled'&&d.stage!=='postponed'&&d.scheduled_at&&<p>{debateDateLabel(d)}: <time dateTime={d.scheduled_at}>{formatDebateDateTime(d.scheduled_at)}</time></p>}<DebateShare/></div></div></header>
+  <header className="debate-detail-hero debate-detail-header"><div className="container"><div className="debate-detail-topline"><ContextBackLink fallback="/debates" label="مناظرات 967" className="eyebrow debate-brand-link" leading={<DebateLogo decorative sizes="44px"/>}/><div className="debate-meta"><span>{d.category}</span><span>{DEBATE_TYPES[d.debate_type]}</span><span>{DEBATE_STAGES[d.stage]}</span></div></div><h1>{d.title}</h1><div className="debate-detail-toolbar">{d.debate_type==='external_live'&&d.stage!=='cancelled'&&d.stage!=='postponed'&&d.scheduled_at&&<p>{debateDateLabel(d)}: <time dateTime={d.scheduled_at}>{formatDebateDateTime(d.scheduled_at)}</time></p>}<DebateShare/><DebateReminderAction debate={{id:d.id,slug:d.slug,debate_type:d.debate_type,scheduled_at:d.scheduled_at,recording_published:d.recording_published,recording_first_published_at:d.recording_first_published_at,publication_status:d.publication_status,stage:d.stage}}/></div></div></header>
   <div className="container debate-detail-content debate-detail-compact">
    <div className="debate-watch-layout"><div className="debate-watch-main"><DebateVideo key={d.id+':'+(hasRecording?d.recording_url:'preview')} debate={d} now={Date.now()}/>
    <ContentReadingAction kind="debate" href={'/debates/'+encodeURIComponent(d.slug)} title={d.title}/>

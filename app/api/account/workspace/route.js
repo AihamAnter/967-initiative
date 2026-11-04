@@ -77,7 +77,7 @@ async function perform(db,id,body){
    const value=simple(body[key],max);ensure(value!==null,'تحقق من حقل '+key);if(key.endsWith('url')||key==='website')ensure(safeHttps(value),'استخدم روابط HTTPS صحيحة.');out[key]=value;
   }
   for(const key of ['notify_replies','notify_moderation','activity_tracking']){ensure(typeof body[key]==='boolean','إعداد غير صالح.');out[key]=body[key];}
-  const {error}=await db.from('account_preferences').upsert(out,{onConflict:'user_id'});failed(error);return {success:true};
+  const {error}=await db.from('account_preferences').upsert(out,{onConflict:'user_id',defaultToNull:false});failed(error);return {success:true};
  }
  if(action==='notification_read'){
   if(body.id!==null)ensure(ID.test(body.id),'معرّف الإشعار غير صالح.');
