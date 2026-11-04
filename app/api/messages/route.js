@@ -1,7 +1,7 @@
 import {serverDb} from '@/lib/supabase-server';
 import {authorizeAudience} from '@/lib/debateApi';
 import {readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
-import {validateMessagingAction,safeMessagingQuery,messagingError,canReceiveSearchRequests,MESSAGE_PAGE_SIZE,UUID_RE} from '@/lib/privateMessaging';
+import {validateMessagingAction,safeMessagingQuery,messagingError,canReceiveSearchRequests,MESSAGE_PAGE_SIZE,MESSAGE_SEARCH_PAGE_SIZE,UUID_RE} from '@/lib/privateMessaging';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -28,12 +28,48 @@ function check(result){
 async function inbox(db,id){
  return check(await db.rpc('private_messaging_inbox',{p_actor:id}))||[];
 }
-async function getThread(db,id,conversation,before,around){
+
+async function conversationForParticipant(db,actor,conversation){
  const {data:c,error}=await db.from('private_conversations')
   .select('id,user_low,user_high,status,requested_by,intro,requested_at')
   .eq('id',conversation).maybeSingle();
  if(error)throw error;
- if(!c||![c.user_low,c.user_high].includes(id))throw new RequestValidationError('المحادثة غير موجودة.',404);
+ if(!c||![c.user_low,c.user_high].includes(actor))
+  throw new RequestValidationError('المحادثة غير موجودة.',404);
+ return c;
+}
+async function partnerReadAt(db,conversation,partnerId){
+ const {data:state,error}=await db.from('private_conversation_states')
+  .select('last_read_at').eq('conversation_id',conversation)
+  .eq('user_id',partnerId).maybeSingle();
+ if(error)throw error;
+ return state?.last_read_at||null;
+}
+async function readReceipt(db,actor,conversation){
+ const c=await conversationForParticipant(db,actor,conversation);
+ const partner=c.user_low===actor?c.user_high:c.user_low;
+ return {partner_last_read_at:await partnerReadAt(db,conversation,partner)};
+}
+async function searchThread(db,actor,conversation,term,before){
+ await conversationForParticipant(db,actor,conversation);
+ if(term.length<2)return {matches:[],hasMore:false,nextBefore:null};
+ // Search the entire conversation, not only the messages loaded on screen.
+ // Deleted messages are tombstones and must never be returned as searchable content.
+ let query=db.from('private_messages')
+  .select('id,sender_id,body,created_at')
+  .eq('conversation_id',conversation).is('deleted_at',null)
+  .ilike('body','%'+term+'%')
+  .order('created_at',{ascending:false}).order('id',{ascending:false})
+  .limit(MESSAGE_SEARCH_PAGE_SIZE+1);
+ if(before)query=query.lt('created_at',before);
+ const {data,error}=await query;
+ if(error)throw error;
+ const hasMore=(data||[]).length>MESSAGE_SEARCH_PAGE_SIZE;
+ const matches=(data||[]).slice(0,MESSAGE_SEARCH_PAGE_SIZE);
+ return {matches,hasMore,nextBefore:hasMore?matches[matches.length-1]?.created_at:null};
+}
+async function getThread(db,id,conversation,before,around){
+ const c=await conversationForParticipant(db,id,conversation);
  let quoteTarget=null;
  if(around){
   const lookup=await db.from('private_messages')
@@ -71,7 +107,8 @@ async function getThread(db,id,conversation,before,around){
   .select('display_name,avatar_url,show_avatar').eq('user_id',partner).maybeSingle();
  if(profileError)throw profileError;
  return {conversation:{id:c.id,status:c.status,requested_by:c.requested_by,intro:c.intro,requested_at:c.requested_at,partner_id:partner,partner_name:p?.display_name||'مستخدم 967',avatar_url:p?.show_avatar?p.avatar_url:null},
-  messages:detailed,hasMore,nextBefore:hasMore?page[0]?.created_at:null};
+  messages:detailed,hasMore,nextBefore:hasMore?page[0]?.created_at:null,
+  partner_last_read_at:await partnerReadAt(db,conversation,partner)};
 }
 async function search(db,actor,q){
  if(q.length<2)return {users:[]};
@@ -144,6 +181,8 @@ export async function GET(request){
     latest_incoming_unread_at:recent.data?.created_at||null});
   }
   if(mode==='thread')return json(await getThread(db,user.id,id,before,around));
+  if(mode==='receipt')return json(await readReceipt(db,user.id,id));
+  if(mode==='thread-search')return json(await searchThread(db,user.id,id,q,before));
   if(mode==='search')return json(await search(db,user.id,q));
   if(mode==='contact')return json(await directContact(db,user.id,id));
   const [setting,blocks]=await Promise.all([

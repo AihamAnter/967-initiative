@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {ArrowRight,Ban,Bell,Check,CheckCheck,ChevronLeft,Inbox,MailPlus,MessageCircle,RefreshCcw,Search,Send,Settings2,ShieldAlert,UserRound,X} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
-import {REPORT_REASONS} from '@/lib/privateMessaging';
+import {REPORT_REASONS,isMessageRead} from '@/lib/privateMessaging';
 import {shouldSendComposerEnter,composerHeight} from '@/lib/messageComposer';
 import {buildMessageTimeline,messageClock} from '@/lib/messageTimeline';
 import {placeMessageMenu} from '@/lib/messageMenuPlacement';
@@ -27,6 +27,10 @@ export default function PrivateMessaging(){
  const [busy,setBusy]=useState(false),[loading,setLoading]=useState(false),[notice,setNotice]=useState(''),[error,setError]=useState('');
  const [messageMenu,setMessageMenu]=useState(null),[menuPosition,setMenuPosition]=useState(null),[editing,setEditing]=useState(null),[copyToast,setCopyToast]=useState(0);
  const [replying,setReplying]=useState(null),[historical,setHistorical]=useState(false),[jumpTo,setJumpTo]=useState(null);
+ const [threadSearchOpen,setThreadSearchOpen]=useState(false),[threadSearchTerm,setThreadSearchTerm]=useState('');
+ const [threadSearchHits,setThreadSearchHits]=useState([]),[threadSearchHasMore,setThreadSearchHasMore]=useState(false),[threadSearchNextBefore,setThreadSearchNextBefore]=useState(null);
+ const [threadSearchLoading,setThreadSearchLoading]=useState(false),[threadSearchError,setThreadSearchError]=useState('');
+ const threadSearchSeq=useRef(0);
  const historicalRef=useRef(false);
  const messageMenuRef=useRef(null),lastTapRef=useRef(null),touchStartRef=useRef(null);
  const messagesRef=useRef(null),composerRef=useRef(null);
@@ -76,7 +80,7 @@ export default function PrivateMessaging(){
  const open=useCallback(async(id,changeUrl=true)=>{
   if(!id||!live.current.user)return;
   const owner=live.current.user;
-  if(live.current.selected!==id){setMessageMenu(null);setEditing(null);setReplying(null);setJumpTo(null);historicalRef.current=false;setHistorical(false);}
+  if(live.current.selected!==id){setMessageMenu(null);setEditing(null);setReplying(null);setJumpTo(null);historicalRef.current=false;setHistorical(false);setThreadSearchOpen(false);setThreadSearchTerm('');}
   setSelected(id);setThread(previous=>previous?.conversation?.id===id?previous:null);setError('');
   if(changeUrl&&typeof window!=='undefined')history.replaceState(null,'','/messages?conversation='+encodeURIComponent(id));
   try{
@@ -160,6 +164,52 @@ export default function PrivateMessaging(){
   return()=>window.clearTimeout(timer);
  },[jumpTo,thread?.messages]);
 
+ // Read receipts come from the other participant's server-owned last-read time.
+ // Poll only while the conversation is on screen; no global Realtime sockets.
+ useEffect(()=>{
+  if(!ready||!user||tab!=='inbox'||!selected||thread?.conversation?.status!=='accepted')return;
+  let cancelled=false,inFlight=false;
+  const refresh=async()=>{
+   if(document.visibilityState==='hidden'||inFlight)return;
+   inFlight=true;
+   const owner=live.current.user,conversation=selected;
+   try{
+    const data=await request('mode=receipt&id='+encodeURIComponent(conversation));
+    if(!cancelled&&live.current.user===owner&&live.current.selected===conversation)
+     setThread(old=>old?.conversation?.id===conversation?{...old,partner_last_read_at:data.partner_last_read_at}:old);
+   }catch{ /* Keep the last confirmed receipt and retry on the next refresh. */ }
+   finally{inFlight=false;}
+  };
+  const timer=window.setInterval(refresh,15000);
+  window.addEventListener('focus',refresh);
+  return()=>{cancelled=true;window.clearInterval(timer);window.removeEventListener('focus',refresh);};
+ },[ready,user?.id,tab,selected,thread?.conversation?.status,request]);
+
+ // Debounced search uses the server, so older messages not currently
+ // loaded by the conversation scroller still appear in the results.
+ useEffect(()=>{
+  const sequence=++threadSearchSeq.current;
+  const term=threadSearchTerm.trim().slice(0,60);
+  setThreadSearchHits([]);setThreadSearchHasMore(false);setThreadSearchNextBefore(null);setThreadSearchError('');
+  if(!threadSearchOpen||!selected||tab!=='inbox'||thread?.conversation?.status!=='accepted'||term.length<2){
+   setThreadSearchLoading(false);return;
+  }
+  setThreadSearchLoading(true);
+  const owner=live.current.user,conversation=selected;
+  const timer=window.setTimeout(()=>{
+   request('mode=thread-search&id='+encodeURIComponent(conversation)+'&q='+encodeURIComponent(term))
+    .then(data=>{
+     if(threadSearchSeq.current!==sequence||live.current.user!==owner||live.current.selected!==conversation)return;
+     setThreadSearchHits(data.matches||[]);
+     setThreadSearchHasMore(Boolean(data.hasMore));
+     setThreadSearchNextBefore(data.nextBefore||null);
+    })
+    .catch(error=>{if(threadSearchSeq.current===sequence)setThreadSearchError(error.message);})
+    .finally(()=>{if(threadSearchSeq.current===sequence)setThreadSearchLoading(false);});
+  },300);
+  return()=>{window.clearTimeout(timer);threadSearchSeq.current++;};
+ },[threadSearchOpen,threadSearchTerm,selected,tab,thread?.conversation?.status,request]);
+
  useEffect(()=>{
   if(!user||tab!=='search'||query.trim().length<2){setResults([]);return;}
   let active=true;
@@ -185,7 +235,7 @@ export default function PrivateMessaging(){
  const unread=items.reduce((sum,x)=>sum+Number(x.unread||0),0);
  const pending=items.filter(x=>x.status==='pending'&&x.requested_by!==user?.id);
  const visible=items.filter(x=>x.status==='accepted'||x.status==='pending'&&x.requested_by===user?.id);
- const backToList=()=>{setSelected(null);setThread(null);setMessageMenu(null);setEditing(null);setReplying(null);setJumpTo(null);historicalRef.current=false;setHistorical(false);history.replaceState(null,'','/messages');};
+ const backToList=()=>{setSelected(null);setThread(null);setMessageMenu(null);setEditing(null);setReplying(null);setJumpTo(null);setThreadSearchOpen(false);setThreadSearchTerm('');historicalRef.current=false;setHistorical(false);history.replaceState(null,'','/messages');};
  const selectTab=name=>{setTab(name);setError('');setNotice('');if(name!=='inbox')backToList();};
  const onComposerKeyDown=event=>{
   if(!shouldSendComposerEnter(event,window.matchMedia('(max-width: 680px)').matches))return;
@@ -283,6 +333,28 @@ export default function PrivateMessaging(){
    if(owner!==live.current.user||conversation!==live.current.selected)return;
    historicalRef.current=true;setHistorical(true);setThread(data);setJumpTo({id,nonce:Date.now()});
   }catch(e){setError(e.message);}
+ };
+ const loadMoreThreadSearch=async()=>{
+  const conversation=selected,term=threadSearchTerm.trim(),before=threadSearchNextBefore;
+  if(!conversation||!before||!threadSearchHasMore||threadSearchLoading)return;
+  const sequence=threadSearchSeq.current,owner=live.current.user;
+  setThreadSearchLoading(true);
+  try{
+   const data=await request('mode=thread-search&id='+encodeURIComponent(conversation)+
+    '&q='+encodeURIComponent(term)+'&before='+encodeURIComponent(before));
+   if(sequence!==threadSearchSeq.current||owner!==live.current.user||conversation!==live.current.selected)return;
+   setThreadSearchHits(previous=>{
+    const existing=new Set(previous.map(m=>m.id));
+    return [...previous,...(data.matches||[]).filter(m=>!existing.has(m.id))];
+   });
+   setThreadSearchHasMore(Boolean(data.hasMore));
+   setThreadSearchNextBefore(data.nextBefore||null);
+  }catch(error){if(sequence===threadSearchSeq.current)setThreadSearchError(error.message);}
+  finally{if(sequence===threadSearchSeq.current)setThreadSearchLoading(false);}
+ };
+ const showSearchResult=message=>{
+  setThreadSearchOpen(false);setThreadSearchTerm('');
+  void jumpToOriginal(message.id);
  };
  const returnToLatest=async()=>{
   historicalRef.current=false;setHistorical(false);setJumpTo(null);
@@ -386,8 +458,35 @@ export default function PrivateMessaging(){
    <main className={styles.threadArea}>
     {tab==='inbox'&&selected&&thread?<section className={styles.thread}>
      <header className={styles.threadHeader}><button type="button" className={styles.backToList} onClick={backToList} aria-label="العودة إلى قائمة المحادثات"><ArrowRight size={20}/><span>العودة</span></button><div><MemberLink id={thread.conversation.partner_id} name={thread.conversation.partner_name} avatarUrl={thread.conversation.avatar_url}/><small>{thread.conversation.status==='accepted'?'محادثة خاصة':'طلب محادثة'}</small></div>
-      <div><button type="button" title="إبلاغ" onClick={()=>setDialog({type:'report',conversation:selected})}><ShieldAlert size={18}/></button>
+      <div>{thread.conversation.status==='accepted'&&<button type="button" title="بحث داخل المحادثة" aria-label="بحث داخل المحادثة" aria-expanded={threadSearchOpen} aria-controls="conversation-message-search" onClick={()=>{setThreadSearchOpen(open=>!open);setThreadSearchTerm('');}}><Search size={18}/></button>}
+      <button type="button" title="إبلاغ" onClick={()=>setDialog({type:'report',conversation:selected})}><ShieldAlert size={18}/></button>
       <button type="button" title="حظر المستخدم" onClick={()=>block({id:thread.conversation.partner_id,name:thread.conversation.partner_name})}><Ban size={18}/></button></div></header>
+     {threadSearchOpen&&thread.conversation.status==='accepted'&&
+      <section id="conversation-message-search" className={styles.threadSearch} aria-label="البحث داخل المحادثة">
+       <div className={styles.threadSearchControls}>
+        <label className={styles.threadSearchField}><Search size={16} aria-hidden="true"/>
+         <input type="search" maxLength={60} value={threadSearchTerm} autoFocus
+          onChange={event=>setThreadSearchTerm(event.target.value)} placeholder="ابحث داخل هذه المحادثة…" aria-label="نص البحث داخل المحادثة"/>
+        </label>
+        <button type="button" className={styles.closeThreadSearch} onClick={()=>{setThreadSearchOpen(false);setThreadSearchTerm('');}} aria-label="إغلاق البحث"><X size={18}/></button>
+       </div>
+       {threadSearchTerm.trim().length<2?
+        <p className={styles.threadSearchHint}>اكتب حرفين على الأقل للبحث في جميع رسائل المحادثة.</p>:
+        <div className={styles.threadSearchResults} aria-live="polite">
+         {threadSearchLoading&&!threadSearchHits.length&&<p className={styles.threadSearchHint}>جارٍ البحث…</p>}
+         {threadSearchError&&<p className={styles.threadSearchError} role="alert">{threadSearchError}</p>}
+         {!threadSearchLoading&&!threadSearchError&&!threadSearchHits.length&&<p className={styles.threadSearchHint}>لم يتم العثور على رسائل مطابقة.</p>}
+         {threadSearchHits.map(message=>
+          <button key={message.id} type="button" className={styles.threadSearchHit} onClick={()=>showSearchResult(message)}>
+           <span><strong>{message.sender_id===user.id?'أنت':thread.conversation.partner_name}</strong><time>{date(message.created_at)}</time></span>
+           <span>{message.body}</span>
+          </button>
+         )}
+         {threadSearchHasMore&&<button type="button" className={styles.moreThreadSearch} disabled={threadSearchLoading} onClick={loadMoreThreadSearch}>
+          {threadSearchLoading?'جارٍ التحميل…':'عرض نتائج أقدم'}
+         </button>}
+        </div>}
+      </section>}
      {thread.conversation.status==='accepted'?<>
       <div className={styles.messages} ref={messagesRef} aria-label="الرسائل">
        {thread.hasMore&&<button className={styles.older} disabled={busy} onClick={async()=>{
@@ -419,6 +518,12 @@ export default function PrivateMessaging(){
             </button>}
             <div className={styles.bubbleContent}>
              <time dateTime={entry.message.created_at} dir="ltr">{messageClock(entry.message.created_at)}</time>
+             {entry.message.sender_id===user.id&&<span className={styles.deliveryStatus}
+              data-read={isMessageRead(entry.message,user.id,thread.partner_last_read_at)||undefined}
+              title={isMessageRead(entry.message,user.id,thread.partner_last_read_at)?'تمت القراءة':'تم الإرسال'}
+              aria-label={isMessageRead(entry.message,user.id,thread.partner_last_read_at)?'تمت قراءة الرسالة':'تم إرسال الرسالة'}>
+              {isMessageRead(entry.message,user.id,thread.partner_last_read_at)?<CheckCheck size={13} aria-hidden="true"/>:<Check size={13} aria-hidden="true"/>}
+             </span>}
              {entry.message.edited_at&&!entry.message.deleted_at&&<span className={styles.editedLabel}>معدل</span>}
              <p className={entry.message.deleted_at?styles.deletedText:undefined}>{entry.message.deleted_at?'حذفت الرسالة':entry.message.body}</p>
              {entry.message.sender_id!==user.id&&!entry.message.deleted_at&&<button type="button" aria-label="الإبلاغ عن هذه الرسالة" title="الإبلاغ عن هذه الرسالة" onClick={()=>setDialog({type:'report',conversation:selected,message:entry.message.id})}><ShieldAlert size={13}/></button>}
