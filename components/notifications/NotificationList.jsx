@@ -18,7 +18,7 @@ export default function NotificationList({items=[],onOpen,onRead,disabled=false,
     <span className={styles.noticeIcon} aria-hidden="true"><Icon size={19}/></span>
     <button type="button" className={styles.noticeMain} onClick={()=>onOpen(item)} disabled={disabled}
      aria-label={item.title+' — '+item.description}>
-     <span className={styles.noticeTop}><strong>{item.title}</strong>{item.unread&&<i className={styles.dot} aria-label="غير مقروء"/>}</span>
+     <span className={styles.noticeTop}><strong>{item.title}</strong>{item.group_count>1&&<span className={styles.groupCount}>{item.group_count}</span>}{item.unread&&<i className={styles.dot} aria-label="غير مقروء"/>}</span>
      <span className={styles.noticeDescription}>{item.description}</span>
      <span className={styles.noticeMeta}><span>{labels[item.category]||'إشعار'}</span><time dateTime={item.created_at}>{timestamp(item.created_at)}</time></span>
     </button>

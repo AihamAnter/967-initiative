@@ -56,13 +56,13 @@ export default function NotificationBell({userId,onNavigate}){
   setOpen(false);onNavigate?.();
   // Marking a preview as read never marks private messages as read.
   if(item.unread&&item.source!=='message')
-   void markNotification(item.source,item.source_id).catch(()=>{});
+   void markNotification(item.source,item.source_id,item.source_ids).catch(()=>{});
   router.push(item.href);
  };
  const mark=item=>{
   if(busy)return;
   setBusy(true);setError('');
-  markNotification(item.source,item.source_id)
+  markNotification(item.source,item.source_id,item.source_ids)
    .then(()=>{setData(state=>({...state,count:Math.max(0,state.count-1),markable_count:Math.max(0,state.markable_count-1),
     items:state.items.map(n=>n.id===item.id?{...n,unread:false}:n)}));})
    .catch(e=>setError(e.message))
