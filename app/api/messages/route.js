@@ -31,12 +31,22 @@ async function inbox(db,id){
 
 async function conversationForParticipant(db,actor,conversation){
  const {data:c,error}=await db.from('private_conversations')
-  .select('id,user_low,user_high,status,requested_by,intro,requested_at')
+  .select('id,user_low,user_high,status,requested_by,intro,requested_at,pinned_message_id,pinned_by,pinned_at')
   .eq('id',conversation).maybeSingle();
  if(error)throw error;
  if(!c||![c.user_low,c.user_high].includes(actor))
   throw new RequestValidationError('المحادثة غير موجودة.',404);
  return c;
+}
+async function pinnedMessage(db,conversation){
+ if(!conversation?.pinned_message_id)return null;
+ const {data:message,error}=await db.from('private_messages')
+  .select('id,sender_id,body,created_at,deleted_at')
+  .eq('conversation_id',conversation.id)
+  .eq('id',conversation.pinned_message_id).maybeSingle();
+ if(error)throw error;
+ if(!message||message.deleted_at)return null;
+ return {...message,pinned_by:conversation.pinned_by,pinned_at:conversation.pinned_at};
 }
 async function partnerReadAt(db,conversation,partnerId){
  const {data:state,error}=await db.from('private_conversation_states')
@@ -48,7 +58,8 @@ async function partnerReadAt(db,conversation,partnerId){
 async function readReceipt(db,actor,conversation){
  const c=await conversationForParticipant(db,actor,conversation);
  const partner=c.user_low===actor?c.user_high:c.user_low;
- return {partner_last_read_at:await partnerReadAt(db,conversation,partner)};
+ const [partnerLastReadAt,pin]=await Promise.all([partnerReadAt(db,conversation,partner),pinnedMessage(db,c)]);
+ return {partner_last_read_at:partnerLastReadAt,pinned_message:pin};
 }
 async function searchThread(db,actor,conversation,term,before){
  await conversationForParticipant(db,actor,conversation);
@@ -108,7 +119,8 @@ async function getThread(db,id,conversation,before,around){
  if(profileError)throw profileError;
  return {conversation:{id:c.id,status:c.status,requested_by:c.requested_by,intro:c.intro,requested_at:c.requested_at,partner_id:partner,partner_name:p?.display_name||'مستخدم 967',avatar_url:p?.show_avatar?p.avatar_url:null},
   messages:detailed,hasMore,nextBefore:hasMore?page[0]?.created_at:null,
-  partner_last_read_at:await partnerReadAt(db,conversation,partner)};
+  partner_last_read_at:await partnerReadAt(db,conversation,partner),
+  pinned_message:await pinnedMessage(db,c)};
 }
 async function search(db,actor,q){
  if(q.length<2)return {users:[]};
@@ -210,6 +222,13 @@ export async function POST(request){
   const {db,user}=await authorized(request);
   const body=await readJsonObject(request,6500);
   const params=validateMessagingAction(body);
+  if(body.action==='pin'||body.action==='unpin'){
+   const result=check(await db.rpc('private_messaging_set_pin',{
+    p_actor:user.id,p_conversation:params.p_conversation,
+    p_message:params.p_message,p_remove:body.action==='unpin'
+   }));
+   return json(result);
+  }
   if(body.action==='edit'||body.action==='delete'){
    const result=check(await db.rpc('private_messaging_message_mutate',{
     p_actor:user.id,p_action:params.p_action,

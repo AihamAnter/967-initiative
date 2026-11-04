@@ -2,7 +2,7 @@
 import {useCallback,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal} from 'react-dom';
 import Link from 'next/link';
-import {ArrowRight,Ban,Bell,Check,CheckCheck,ChevronLeft,Inbox,MailPlus,MessageCircle,RefreshCcw,Search,Send,Settings2,ShieldAlert,UserRound,X} from 'lucide-react';
+import {ArrowRight,Ban,Bell,Check,CheckCheck,ChevronLeft,Inbox,MailPlus,MessageCircle,RefreshCcw,Search,Send,Settings2,ShieldAlert,UserRound,Pin,PinOff,X} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS,isMessageRead} from '@/lib/privateMessaging';
@@ -176,7 +176,7 @@ export default function PrivateMessaging(){
    try{
     const data=await request('mode=receipt&id='+encodeURIComponent(conversation));
     if(!cancelled&&live.current.user===owner&&live.current.selected===conversation)
-     setThread(old=>old?.conversation?.id===conversation?{...old,partner_last_read_at:data.partner_last_read_at}:old);
+     setThread(old=>old?.conversation?.id===conversation?{...old,partner_last_read_at:data.partner_last_read_at,pinned_message:data.pinned_message||null}:old);
    }catch{ /* Keep the last confirmed receipt and retry on the next refresh. */ }
    finally{inFlight=false;}
   };
@@ -361,6 +361,18 @@ export default function PrivateMessaging(){
   await open(selected,false);
  };
  const selectedMenuMessage=thread?.messages?.find(m=>m.id===messageMenu);
+ const togglePin=async(message,remove=false)=>{
+  setMessageMenu(null);
+  if(!selected||!message?.id)return;
+  const conversation=selected;
+  await run({action:remove?'unpin':'pin',conversation,message:message.id},async()=>{
+   // Read the authoritative shared pin; works even when viewing older history.
+   const state=await request('mode=receipt&id='+encodeURIComponent(conversation));
+   if(live.current.selected===conversation)
+    setThread(old=>old?.conversation?.id===conversation?
+     {...old,pinned_message:state.pinned_message||null}:old);
+  });
+ };
  const editMessage=message=>{setMessageMenu(null);setEditing({id:message.id,text:message.body});};
  const saveMessageEdit=async event=>{
   event.preventDefault();
@@ -461,6 +473,22 @@ export default function PrivateMessaging(){
       <div>{thread.conversation.status==='accepted'&&<button type="button" title="بحث داخل المحادثة" aria-label="بحث داخل المحادثة" aria-expanded={threadSearchOpen} aria-controls="conversation-message-search" onClick={()=>{setThreadSearchOpen(open=>!open);setThreadSearchTerm('');}}><Search size={18}/></button>}
       <button type="button" title="إبلاغ" onClick={()=>setDialog({type:'report',conversation:selected})}><ShieldAlert size={18}/></button>
       <button type="button" title="حظر المستخدم" onClick={()=>block({id:thread.conversation.partner_id,name:thread.conversation.partner_name})}><Ban size={18}/></button></div></header>
+     {thread.conversation.status==='accepted'&&thread.pinned_message&&
+      <div className={styles.pinnedBar} role="group" aria-label="الرسالة المثبتة">
+       <button type="button" className={styles.pinnedJump}
+        onClick={()=>void jumpToOriginal(thread.pinned_message.id)}
+        aria-label="الانتقال إلى الرسالة المثبتة">
+        <Pin size={17} aria-hidden="true"/>
+        <span className={styles.pinnedSummary}>
+         <strong>رسالة مثبتة · {thread.pinned_message.sender_id===user.id?'أنت':thread.conversation.partner_name}</strong>
+         <span>{thread.pinned_message.body}</span>
+        </span>
+       </button>
+       <button type="button" className={styles.pinnedUnpin} disabled={busy}
+        onClick={()=>togglePin(thread.pinned_message,true)} title="إلغاء تثبيت الرسالة" aria-label="إلغاء تثبيت الرسالة">
+        <PinOff size={17} aria-hidden="true"/>
+       </button>
+      </div>}
      {threadSearchOpen&&thread.conversation.status==='accepted'&&
       <section id="conversation-message-search" className={styles.threadSearch} aria-label="البحث داخل المحادثة">
        <div className={styles.threadSearchControls}>
@@ -551,6 +579,9 @@ export default function PrivateMessaging(){
     <button type="button" onClick={()=>replyToMessage(selectedMenuMessage)}>رد</button>
     {selectedMenuMessage.sender_id===user?.id&&<button type="button" onClick={()=>editMessage(selectedMenuMessage)}>تعديل</button>}
     <button type="button" onClick={()=>copyMessage(selectedMenuMessage)}>نسخ</button>
+    <button type="button" onClick={()=>togglePin(selectedMenuMessage,thread?.pinned_message?.id===selectedMenuMessage.id)}>
+     {thread?.pinned_message?.id===selectedMenuMessage.id?'إلغاء التثبيت':'تثبيت'}
+    </button>
     {selectedMenuMessage.sender_id===user?.id&&<button type="button" className={styles.deleteAction} onClick={()=>deleteMessage(selectedMenuMessage)}>حذف</button>}
    </div>,document.body)}
   {copyToast>0&&<div key={copyToast} className={styles.copyToast} role="status">تم النسخ</div>}
