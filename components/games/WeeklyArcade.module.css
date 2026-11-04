@@ -1,5 +1,5 @@
 .section{--weekly-ink:#f3f6ff;--weekly-mute:#b5c2db;direction:rtl;color:var(--weekly-ink);margin:30px 0 20px}
-.sectionHeader{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:17px}
+.sectionHeader{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:17px}
 .overline{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:850;letter-spacing:.07em;color:#b5a7ff;direction:ltr;justify-content:flex-end}
 .overline svg{color:#f3a2a9}
 .sectionHeader h2{font-size:clamp(25px,3.2vw,35px);line-height:1.45;color:#fff;margin:9px 0 5px;font-weight:850}

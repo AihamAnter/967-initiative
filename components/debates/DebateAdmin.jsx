@@ -13,6 +13,7 @@ import DebateAxesField from './DebateAxesField';
 import DebateMemberSearch from './DebateMemberSearch';
 import {draftSpeakerForMember,attachMemberToSpeaker} from '@/lib/debateMemberPicker';
 import {auditActionLabel,auditDateOptions} from '@/lib/debateAudit';
+import LoadingState from '@/components/LoadingState';
 
 // Preserve seconds and milliseconds: rounding a saved poll to minutes can make
 // a valid opening/closing pair appear equal and prevent unrelated edits.
@@ -92,7 +93,7 @@ export default function DebateAdmin(){
   if(approved.size<2)return 'أضف مشاركين مختلفين بملفين معتمدين للنشر على الأقل.';
   if(form.polls.some(p=>p.enabled)&&form.options.length<2)return 'أضف خيارين للتصويت على الأقل قبل نشر استطلاع مفعّل.';
  }
- if(!auth.ready)return <p className="container section" role="status">جارٍ التحقق من الحساب…</p>;
+ if(!auth.ready)return <div className="ed-loading-page"><LoadingState title="نجهّز إدارة المناظرات…" description="نتحقق من صلاحيات التحرير ونحمّل مساحة العمل."/></div>;
  if(!auth.user)return <div className="container debate-auth"><h1>إدارة مناظرات 967</h1><p>يتطلب هذا القسم حساب تحرير معتمداً.</p><Link href="/admin" className="btn btn-primary">دخول لوحة الإدارة الحالية</Link></div>;
  const candidates=(workspace?.debates||[]).filter(d=>[d.title,d.question,d.slug].some(v=>v.includes(filter)));
  return <div className="container debate-admin"><div className="debate-section-heading"><div><Link href="/admin" className="eyebrow">لوحة إدارة 967</Link><h1><MessagesSquare size={30}/> إدارة المناظرات</h1><p>البث خارجي، والتفاعل والمراجعة هنا.</p></div><div className="debate-actions"><Link href="/admin/tasks" className="btn btn-outline">مركز المهام</Link><Link href="/debates" className="btn btn-outline">القسم العام</Link><button className="btn btn-outline" disabled={busy} onClick={refreshWorkspace}><RefreshCw size={16}/> تحديث</button></div></div>

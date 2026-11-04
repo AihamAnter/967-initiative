@@ -10,6 +10,7 @@ import MyGameRank from '@/components/games/MyGameRank';
 import useReadingList,{removeReadingItem} from '@/components/reading/useReadingList';
 import {COMMENT_STATUSES,QUESTION_STATUSES,SUGGESTION_STATUSES} from '@/lib/debates';
 import {formatArabicDate} from '@/lib/format';
+import LoadingState from '@/components/LoadingState';
 import styles from './AccountWorkspace.module.css';
 
 const views=[
@@ -92,7 +93,7 @@ export default function AccountWorkspace({initialTab='overview'}){
    setNotice('تم تجهيز نسخة من بيانات الحساب المتاحة.');
   }catch(e){setError(e.message);}finally{setBusy(false);}
  }
- if(!auth.ready)return <div className={styles.screenStatus} role="status">جارٍ التأكد من الحساب…</div>;
+ if(!auth.ready)return <div className={styles.screenStatus}><LoadingState title="نتأكد من حسابك…" description="نحمي مساحتك الشخصية قبل عرض بياناتها."/></div>;
  if(!user)return <div className={styles.guest}><UserRound size={36}/><h1>مساحتك في 967</h1><p>سجّل الدخول للوصول إلى محفوظاتك ومجموعات القراءة ومساهمات المناظرات والإشعارات.</p><Link className={styles.primaryButton} href="/login?next=%2Faccount">تسجيل الدخول <ArrowLeft size={18}/></Link></div>;
  const headerName=profile?.display_name||user.user_metadata?.display_name||user.user_metadata?.full_name||'عضو في 967';
  return <div className={styles.root} dir="rtl">
@@ -113,7 +114,7 @@ export default function AccountWorkspace({initialTab='overview'}){
     <div className={styles.sectionTop}><div><span className={styles.subtleEyebrow}>حسابي / {tabName(tab)}</span><h2>{tabName(tab)}</h2></div><button className={styles.refreshButton} type="button" disabled={busy||loading} onClick={fetchAll} aria-label="تحديث البيانات"><RefreshCw size={17}/></button></div>
     {notice&&<p className={styles.success} role="status"><CheckCircle2 size={17}/>{notice}<button aria-label="إغلاق" onClick={()=>setNotice('')}><X size={15}/></button></p>}
     {error&&<p className={styles.error} role="alert">{error} <button type="button" onClick={fetchAll}>إعادة المحاولة</button></p>}
-    {loading&&!account?<div className={styles.loading}>جارٍ تحميل مساحتك الشخصية…</div>:account&&<>
+    {loading&&!account?<div className={styles.loading}><LoadingState compact title="نرتّب مساحتك الشخصية…" description="نحمّل محفوظاتك ومشاركاتك وإعدادات حسابك."/></div>:account&&<>
      {profile?.deletion_requested_at&&<div className={styles.info}>طلب حذف الحساب قيد المعالجة لدى الإدارة.</div>}
      {profile?.suspended&&<div className={styles.error}>المشاركة موقوفة حالياً. تواصل مع إدارة المبادرة للاستفسار.</div>}
      {tab==='overview'&&<>

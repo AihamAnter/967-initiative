@@ -21,7 +21,7 @@
 .resume h2{font-size:25px;line-height:1.5;margin:7px 0 4px;color:#23473f}
 .resume p,.resume small{color:#5a7068;font-size:13px;line-height:1.8;margin:0}
 .resume small{display:block;font-size:12px;margin-top:6px}
-.titleRow{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin:0 0 16px}
+.titleRow{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin:0 0 16px}
 .titleRow>div>span{color:#936f3f;font-size:12px;font-weight:850}
 .titleRow h2{font-size:clamp(24px,3vw,33px);margin:5px 0 0;color:#23443f}
 .titleRow>p{font-size:12px;line-height:1.8;color:#5d736a;max-width:370px;margin:0}
@@ -51,7 +51,7 @@
 .xpEyebrow{font-size:11px;font-weight:850;color:#5d796c}
 .xpHeading h2{font-size:21px;color:#23483f;margin:3px 0 0}
 .levelPill{display:inline-flex;align-items:center;border:1px solid #b5cda9;border-radius:99px;padding:8px 15px;color:#265f48;background:#f8fff1;font-size:13px;font-weight:850}
-.xpNumbers{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px}
+.xpNumbers{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px}
 .xpNumbers strong{font-size:clamp(27px,4vw,37px);line-height:1.2;color:#224a3f}
 .xpNumbers>span{font-size:12px;color:#486a59}
 .xpTrack{height:12px;margin:12px 0 13px;border-radius:99px;overflow:hidden;background:#dce7d9}

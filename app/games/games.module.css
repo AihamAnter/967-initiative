@@ -75,7 +75,7 @@
 .roundChip{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--arc-cyan);border:1px solid #75dbff4a;border-radius:10px;padding:13px 17px;background:#121e34}
 .roundChip span{color:#99a9c5}
 .gameSection{position:relative;padding:clamp(48px,6vw,83px) 0 72px;background:radial-gradient(ellipse 45% 24% at 94% 13%,#1a23493c,transparent),#080c1a}
-.sectionHeading{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:17px;margin-bottom:26px}
+.sectionHeading{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:17px;margin-bottom:26px}
 .sectionEyebrow{display:flex;align-items:center;gap:10px;direction:ltr;justify-content:flex-end;color:var(--arc-mint);font-size:12px;letter-spacing:.13em;font-weight:800}
 .sectionEyebrow span{width:7px;height:7px;border-radius:50%;background:var(--arc-mint);box-shadow:0 0 12px #a2ffc6}
 .sectionHeading h2{font-size:clamp(30px,4vw,44px);line-height:1.3;color:#fff;margin:12px 0}

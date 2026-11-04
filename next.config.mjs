@@ -21,7 +21,7 @@ const nextConfig = {
     '/api/rankings': ['./data/rankings/*.json'],
     '/api/admin/rankings': ['./data/rankings/*.json'],
   },
-  images: {remotePatterns},
+  images: {remotePatterns, qualities: [60, 75]},
   // Keep route CSS in per-route files (in import order) instead of merging CSS
   // modules from many routes into shared chunks that every page then downloads.
   experimental: {cssChunking: 'strict'},

@@ -21,7 +21,7 @@
 .artifactGlyph{font-size:clamp(135px,19vw,220px);color:#e4d19f;position:relative;text-shadow:0 15px 45px #0006;line-height:1.4}
 .artifactTag{position:absolute;bottom:0;left:5%;border:1px solid #e3c7a56b;color:#fbdfb6;background:#1c4038bd;padding:10px 14px;font-size:11px;letter-spacing:.09em}
 .catalogSection{padding:clamp(45px,6vw,75px) 0}
-.sectionTitle{display:flex;justify-content:space-between;align-items:end;gap:18px 32px;margin-bottom:23px;flex-wrap:wrap}
+.sectionTitle{display:flex;justify-content:space-between;align-items:flex-end;gap:18px 32px;margin-bottom:23px;flex-wrap:wrap}
 .sectionTitle>div>span{color:#176456;font-size:12px;font-weight:700}
 .sectionTitle h2{font-size:clamp(28px,3vw,40px);line-height:1.45;margin:6px 0 0;color:#20333c}
 .sectionTitle p{font-size:13px;color:#546771;line-height:1.8;max-width:430px;margin:0}
@@ -86,7 +86,7 @@
 .lessonPage{padding:23px 0 70px;background:radial-gradient(circle at 15% 10%,#ddebe0,transparent 35%),#faf7ee}
 .lessonPage .breadcrumb{color:#4b6560}
 .lessonShell{max-width:980px;margin:0 auto}
-.lessonTop{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:20px;margin-bottom:23px}
+.lessonTop{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;margin-bottom:23px}
 .lessonEyebrow{font-size:12px;color:#197263;font-weight:800}
 .lessonTop h1{font-size:clamp(31px,4vw,51px);margin:6px 0;line-height:1.35}
 .lessonTop p{font-size:14px;color:#536972;margin:0}

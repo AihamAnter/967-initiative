@@ -7,7 +7,7 @@
 .return{display:inline-flex;gap:10px;align-items:center;padding:13px 18px;border:1px solid #7188a0;border-radius:11px;color:#fff;font-size:13px}
 .return:hover{border-color:#acffd5}
 .section{padding:40px 0 95px;background:radial-gradient(ellipse at 50% 10%,#201f494c,transparent 45%),#080c1a;min-height:560px}
-.toolbar{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}.toolbar h2{font-size:clamp(26px,3vw,36px);margin:8px 0 17px;color:#f5fbff}
+.toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}.toolbar h2{font-size:clamp(26px,3vw,36px);margin:8px 0 17px;color:#f5fbff}
 .refresh{background:#18263a;border:1px solid #495d7d;border-radius:10px;color:#d5eeff;display:inline-flex;gap:8px;padding:12px 17px;align-items:center}.refresh:disabled{opacity:.5}
 .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:660px;gap:8px;padding:5px;background:#151c33;border:1px solid #333e59;border-radius:13px;margin:17px 0 27px}
 .tabs button{border:0;background:transparent;color:#bbcbdf;border-radius:9px;padding:13px 8px;font-weight:750;font-size:13px}.tabs button.active{background:#23453e;color:#b2ffdb;box-shadow:0 0 0 1px #50806c}

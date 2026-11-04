@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {ArrowLeft,Ban,CheckCircle2,Mail,MessageCircle,RefreshCw,Search,ShieldAlert,ShieldCheck,UsersRound,X} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useAudience from '@/components/debates/useAudience';
+import LoadingState from '@/components/LoadingState';
 import styles from './ManagementUsersDashboard.module.css';
 
 const readable=count=>Number(count||0).toLocaleString('en-US');
@@ -106,7 +107,7 @@ export default function ManagementUsersDashboard(){
    </div>
    <button type="button" className={styles.refresh} onClick={refresh} disabled={loading||!ready||!user}><RefreshCw size={17}/> تحديث القائمة</button>
   </header>
-  {!ready?<div className={styles.statePanel} role="status">جارٍ التحقق من صلاحيات الحساب…</div>:
+  {!ready?<div className={styles.statePanel}><LoadingState compact title="نتحقق من صلاحيات الحساب…" description="لن نعرض بيانات المستخدمين قبل تأكيد مستوى الوصول."/></div>:
   !user?<div className={styles.statePanel}><ShieldAlert size={26}/><h2>سجّل الدخول بحساب الإدارة</h2><p>{authError||'يجب تسجيل الدخول حتى تتمكن من عرض حسابات المستخدمين.'}</p><Link href="/login?next=%2Fadmin%2Fusers">تسجيل الدخول</Link></div>:
   denied?<div className={styles.statePanel} role="alert"><ShieldAlert size={26}/><h2>هذه الصفحة للإدارة فقط</h2><p>{error}</p><Link href="/admin">العودة إلى لوحة التحرير</Link></div>:
   <>

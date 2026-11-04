@@ -15,7 +15,7 @@
 .pulseLine{position:relative;color:#f0cc95;direction:ltr;font-family:Georgia,serif;font-size:57px;letter-spacing:10px}
 .tafila{font-size:32px;color:#f3efe4;position:relative}
 .journey{padding:clamp(42px,6vw,70px) 0;background:#faf7ee}
-.sectionIntro{display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap;margin-bottom:23px}
+.sectionIntro{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:23px}
 .sectionIntro>div>span{color:#946b3c;font-size:12px;font-weight:850}
 .sectionIntro h2{color:#1d3740;font-size:clamp(27px,3.3vw,39px);margin:6px 0 0;line-height:1.4}
 .sectionIntro>p{color:#5c706d;font-size:13px;line-height:1.85;max-width:450px;margin:0}

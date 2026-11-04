@@ -116,7 +116,8 @@
 .settingRow:last-child{border:0}
 .settingRow strong{font-size:13px}.settingRow p{font-size:11px;color:#70827e;margin:4px 0 0}
 .logout{background:none;border:0;color:#ad4d4d;text-align:right;width:max-content;font-size:13px;font-weight:700}
-.loading,.screenStatus{text-align:center;padding:90px 15px;color:#456d71}
+.loading{min-height:310px;display:grid;place-items:center;padding:30px 0}
+.screenStatus{min-height:calc(100svh - 150px);display:grid;place-items:center;padding:50px 20px;background:var(--c-bg)}
 .guest{max-width:510px;margin:90px auto;text-align:center;background:#fff;border:1px solid #dce5e3;border-radius:17px;padding:44px 28px}
 .guest svg{color:#006b6c}.guest h1{font-size:28px}.guest p{color:#5b737c;line-height:1.9}
 .info,.success,.error{border-radius:9px;padding:12px 15px;margin:12px 0 21px;display:flex;align-items:center;gap:11px;font-size:12px}

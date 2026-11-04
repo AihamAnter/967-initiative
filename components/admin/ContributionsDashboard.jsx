@@ -4,6 +4,7 @@ import {useEffect,useMemo,useState} from 'react';
 import {BarChart3,RefreshCw,Search,ArrowRight,Users,FileText,Activity} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import {contributionActions as actions,contributionSections as sections,contributionTypes as types,contributionKeys,contributionEditorHref} from '@/lib/editorialContributions';
+import LoadingState from '@/components/LoadingState';
 import styles from './ContributionsDashboard.module.css';
 const number=v=>Number(v||0).toLocaleString('ar-YE');
 const date=v=>v?new Date(v).toLocaleString('ar-YE',{timeZone:'Asia/Aden',dateStyle:'medium',timeStyle:'short'}):'—';
@@ -19,7 +20,7 @@ export default function ContributionsDashboard(){
   },250);return()=>{clearTimeout(timer);control.abort();};
  },[db,filters,session,refresh]);
  const change=patch=>setFilters(f=>({...f,page:'',contentPage:'',...patch}));
- if(session===undefined||!filters)return <div className={styles.page}><p role="status">جارٍ التحقق من الحساب…</p></div>;
+ if(session===undefined||!filters)return <div className={styles.page}><LoadingState title="نتحقق من حساب الفريق…" description="نجهّز سجل المساهمات والفلاتر المتاحة."/></div>;
  if(!session)return <div className={styles.page}><h1>مساهمات الفريق — 967</h1><p>هذه المساحة متاحة لحسابات التحرير المعتمدة.</p><Link className="btn btn-red" href="/login?next=%2Fadmin%2Fcontributions">تسجيل الدخول</Link></div>;
  const summary=data?.summary,member=data?.memberOptions.find(m=>m.id===filters.member),max=Math.max(1,...(data?.daily||[]).map(d=>Number(d.operations)));
  return <div className={styles.page}>

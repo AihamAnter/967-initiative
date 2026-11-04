@@ -7,6 +7,7 @@ import useAudience from '@/components/debates/useAudience';
 import {fetchNotifications,markNotification,markNotificationsRead,updateNotificationPreference} from './notificationClient';
 import NotificationList from './NotificationList';
 import {NOTIFICATION_CATEGORIES,noticeCategoryLabel,noticeCountLabel} from '@/lib/unifiedNotifications';
+import LoadingState from '@/components/LoadingState';
 import styles from './Notifications.module.css';
 
 export default function NotificationCenter(){
@@ -80,7 +81,7 @@ export default function NotificationCenter(){
   {key:'debates',title:'تحديثات مشاركات المناظرات',detail:'الموافقة أو الرفض وتحديث حالة السؤال أو المقترح.'},
   {key:'new_debates',title:'الإعلان عن مناظرات جديدة',detail:'أرسل لي إشعارًا عند نشر مناظرة جديدة. لن تُرسل إشعارات عن مناظرات سابقة.'}
  ];
- if(!ready)return <section className={styles.page}><p role="status">جارٍ التحقق من حسابك…</p></section>;
+ if(!ready)return <section className={styles.page}><LoadingState title="نجهّز مركز الإشعارات…" description="نتحقق من حسابك ونرتّب أحدث التنبيهات."/></section>;
  if(!user)return <section className={styles.page}><div className={styles.guest}><Bell size={32}/><h1>إشعارات 967</h1><p>سجّل الدخول لمتابعة تحديثات حسابك ومهامك ورسائلك.</p><Link href="/login?next=%2Fnotifications">تسجيل الدخول</Link></div></section>;
  return <section className={styles.page}>
   <Link href="/account" className={styles.back}><ArrowRight size={17}/> حسابي</Link>

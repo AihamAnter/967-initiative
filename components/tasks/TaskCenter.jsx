@@ -11,6 +11,7 @@ import TaskForm from './TaskForm';
 import TaskDetail from './TaskDetail';
 import TaskDialog from './TaskDialog';
 import {TaskCard,TaskKanban,TaskCalendar} from './TaskViews';
+import LoadingState from '@/components/LoadingState';
 import styles from './TaskCenter.module.css';
 const filterKeys=['q','scope','status','priority','assignee','project','sort','archive','view','page'];
 const readFilters=()=>{const p=new URLSearchParams(window.location.search);return {...Object.fromEntries(filterKeys.map(k=>[k,p.get(k)||''])),scope:p.get('scope')||'mine'};};
@@ -54,7 +55,7 @@ export default function TaskCenter(){
  }
  async function saveForm(data){const result=await mutate({action:editor.task?'update':'create',id:editor.task?.id||null,revision:editor.task?.revision||null,data});if(result){setEditor(null);await openTask(result.id);}}
  const onStatus=(task,status)=>mutate({action:'status',id:task.id,revision:task.revision,data:{status}});
- if(session===undefined)return <section className={styles.shell}><p role="status">جارٍ التحقق من الحساب…</p></section>;
+ if(session===undefined)return <section className={styles.shell}><LoadingState title="نجهّز مساحة الفريق…" description="نتحقق من الحساب ونحمّل المهام المصرّح بها."/></section>;
  if(!session)return <section className={`${styles.shell} ${styles.gate}`}><LockKeyhole size={34}/><h1>مركز مهام 967</h1><p>سجّل الدخول بحساب الإدارة أو الأدمن لفتح مساحة عمل الفريق.</p><Link className={styles.primary} href="/admin">تسجيل الدخول إلى لوحة الإدارة</Link></section>;
  const metricCards=[['total','إجمالي المهام',{}],['not_started','لم تبدأ',{status:'not_started'}],['in_progress','قيد التنفيذ',{status:'in_progress'}],['completed','مكتملة',{status:'completed'}],['overdue','متأخرة',{scope:'overdue'}],['today','تستحق اليوم',{scope:'today'}],['week','خلال 7 أيام',{scope:'week'}],['completion_rate','معدل الإنجاز',{scope:'completed'}],['on_time_rate','الالتزام بالموعد',{scope:'completed'}]];
  const tasks=(workspace?.tasks||[]).map(t=>({...t,manager:workspace.actor.role==='management'}));

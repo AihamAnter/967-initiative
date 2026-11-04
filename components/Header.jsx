@@ -226,7 +226,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         <form action="/search" role="search" className="ed-nav-search">
           <label htmlFor="menu-search" className="sr-only">ابحث في منصة 967</label>
           <Search size={18} aria-hidden="true"/>
-          <input id="menu-search" name="q" type="search" placeholder="ابحث في منصة 967" maxLength={150}/>
+          <input id="menu-search" name="q" type="search" placeholder="ابحث في منصة 967" maxLength={150} suppressHydrationWarning/>
           <button type="submit">ابحث</button>
         </form>
         <ul className="ed-nav-list">
