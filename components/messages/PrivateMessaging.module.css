@@ -157,6 +157,11 @@
 .replyDraft>button{display:inline-grid;place-items:center;border:0;border-radius:7px;background:var(--pale);color:var(--ink);width:34px;height:34px;cursor:pointer;flex:0 0 auto}
 .latest{align-self:center;border:1px solid var(--c-line-2);border-radius:999px;padding:8px 14px;background:var(--c-accent-soft);color:var(--c-accent);font:inherit;font-size:12px;cursor:pointer}
 @media(prefers-reduced-motion:reduce){.bubbleRow[data-highlighted=true] .bubble{animation:none}}
+/* A snapshot of incoming unread messages. Consistent on light/dark and
+   compact mobile layouts; does not cover or displace message bubbles. */
+.unreadSeparator{display:flex;align-items:center;justify-content:center;gap:10px;flex-shrink:0;min-width:0;font-size:12px;line-height:1.6;color:var(--c-accent);font-weight:750;scroll-margin-top:12px}
+.unreadSeparator::before,.unreadSeparator::after{content:'';height:1px;min-width:0;flex:1;background:color-mix(in srgb,var(--c-accent) 48%,var(--border))}
+.unreadSeparator span{flex:0 0 auto;white-space:nowrap;border-radius:999px;padding:5px 14px;background:var(--c-accent-soft);border:1px solid color-mix(in srgb,var(--c-accent) 24%,var(--border))}
 .daySeparator{display:flex;align-items:center;justify-content:center;gap:12px;flex-shrink:0;color:var(--muted);font-size:12px;line-height:1.6}
 .daySeparator::before,.daySeparator::after{content:'';height:1px;min-width:0;flex:1;background:var(--border)}
 .daySeparator time{white-space:nowrap;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px}
@@ -191,6 +196,9 @@
 .layout[data-view=requests] .threadArea,.layout[data-view=search] .threadArea,.layout[data-view=settings] .threadArea{display:none}
 @media(max-width:850px){.workspace{grid-template-columns:minmax(245px,300px) minmax(0,1fr)}.tabs button{font-size:12px}}
 @media(max-width:680px){
+ .unreadSeparator{gap:8px;font-size:11px}
+ .unreadSeparator span{padding:4px 10px}
+
  .pinnedBar{padding:6px 8px;gap:4px}
  .pinnedJump{gap:7px}
  .pinnedUnpin{width:32px;height:32px;flex-basis:32px}

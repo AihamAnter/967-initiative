@@ -79,6 +79,23 @@ async function searchThread(db,actor,conversation,term,before){
  const matches=(data||[]).slice(0,MESSAGE_SEARCH_PAGE_SIZE);
  return {matches,hasMore,nextBefore:hasMore?matches[matches.length-1]?.created_at:null};
 }
+// Snapshot the FIRST unread incoming message before the browser marks this
+// conversation as read. Only participants can reach this server-only query.
+async function firstUnreadMessage(db,actor,conversation){
+ const {data:state,error:stateError}=await db.from('private_conversation_states')
+  .select('last_read_at').eq('conversation_id',conversation)
+  .eq('user_id',actor).maybeSingle();
+ if(stateError)throw stateError;
+ const lastRead=state?.last_read_at||'1970-01-01T00:00:00.000Z';
+ const {data:message,error}=await db.from('private_messages')
+  .select('id,created_at')
+  .eq('conversation_id',conversation).neq('sender_id',actor)
+  .gt('created_at',lastRead)
+  .order('created_at',{ascending:true}).order('id',{ascending:true})
+  .limit(1).maybeSingle();
+ if(error)throw error;
+ return message?{id:message.id,created_at:message.created_at}:null;
+}
 async function getThread(db,id,conversation,before,around){
  const c=await conversationForParticipant(db,id,conversation);
  let quoteTarget=null;
@@ -120,7 +137,8 @@ async function getThread(db,id,conversation,before,around){
  return {conversation:{id:c.id,status:c.status,requested_by:c.requested_by,intro:c.intro,requested_at:c.requested_at,partner_id:partner,partner_name:p?.display_name||'مستخدم 967',avatar_url:p?.show_avatar?p.avatar_url:null},
   messages:detailed,hasMore,nextBefore:hasMore?page[0]?.created_at:null,
   partner_last_read_at:await partnerReadAt(db,conversation,partner),
-  pinned_message:await pinnedMessage(db,c)};
+  pinned_message:await pinnedMessage(db,c),
+  first_unread_message:before||around?null:await firstUnreadMessage(db,id,conversation)};
 }
 async function search(db,actor,q){
  if(q.length<2)return {users:[]};

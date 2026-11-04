@@ -32,6 +32,10 @@ export default function PrivateMessaging(){
  const [threadSearchLoading,setThreadSearchLoading]=useState(false),[threadSearchError,setThreadSearchError]=useState('');
  const threadSearchSeq=useRef(0);
  const historicalRef=useRef(false);
+ // Freeze the first-unread position for this visit, even after POST read.
+ const unreadMarkerRef=useRef({conversation:null,initialized:false,message:null});
+ const scrollToLatestRequestedRef=useRef(false);
+ const [showLatestJump,setShowLatestJump]=useState(false);
  const messageMenuRef=useRef(null),lastTapRef=useRef(null),touchStartRef=useRef(null);
  const messagesRef=useRef(null),composerRef=useRef(null);
  const resizeComposer=useCallback(()=>{
@@ -80,12 +84,23 @@ export default function PrivateMessaging(){
  const open=useCallback(async(id,changeUrl=true)=>{
   if(!id||!live.current.user)return;
   const owner=live.current.user;
-  if(live.current.selected!==id){setMessageMenu(null);setEditing(null);setReplying(null);setJumpTo(null);historicalRef.current=false;setHistorical(false);setThreadSearchOpen(false);setThreadSearchTerm('');}
+  if(live.current.selected!==id||unreadMarkerRef.current.conversation!==id){
+   setMessageMenu(null);setEditing(null);setReplying(null);setJumpTo(null);
+   historicalRef.current=false;setHistorical(false);setThreadSearchOpen(false);setThreadSearchTerm('');
+   unreadMarkerRef.current={conversation:id,initialized:false,message:null};
+   scrollStateRef.current={conversation:null,lastMessage:null};
+   scrollToLatestRequestedRef.current=false;
+   setShowLatestJump(false);
+  }
   setSelected(id);setThread(previous=>previous?.conversation?.id===id?previous:null);setError('');
   if(changeUrl&&typeof window!=='undefined')history.replaceState(null,'','/messages?conversation='+encodeURIComponent(id));
   try{
    const data=await request('mode=thread&id='+encodeURIComponent(id));
    if(live.current.user!==owner||live.current.selected!==id)return;
+   // Only the initial thread response may set the marker. Subsequent polls,
+   // edits and read confirmations must not remove it.
+   if(unreadMarkerRef.current.conversation===id&&!unreadMarkerRef.current.initialized)
+    unreadMarkerRef.current={conversation:id,initialized:true,message:data.first_unread_message||null};
    setThread(data);
    if(data.conversation?.status==='accepted'){
     await request('',{action:'read',conversation:id});
@@ -95,7 +110,10 @@ export default function PrivateMessaging(){
  },[request,reload]);
 
  useEffect(()=>{
-  if(!ready||!user){setItems([]);setSelected(null);setThread(null);return;}
+  if(!ready||!user){
+   unreadMarkerRef.current={conversation:null,initialized:false,message:null};
+   setItems([]);setSelected(null);setThread(null);return;
+  }
   setLoading(true);
   const params=new URLSearchParams(window.location.search);
   const requested=params.get('conversation');
@@ -136,6 +154,10 @@ export default function PrivateMessaging(){
   return()=>{if(channel)db.removeChannel(channel);};
  },[selected,thread?.conversation?.status,open]);
 
+ const updateLatestJump=()=>{
+  const box=messagesRef.current;
+  if(box)setShowLatestJump(box.scrollHeight-box.scrollTop-box.clientHeight>95);
+ };
  useEffect(()=>{
   const box=messagesRef.current;
   if(!box||tab!=='inbox'||!selected||thread?.conversation?.status!=='accepted'){
@@ -144,10 +166,23 @@ export default function PrivateMessaging(){
   }
   const lastMessage=thread.messages?.[thread.messages.length-1]?.id||null;
   const previous=scrollStateRef.current;
-  if(previous.conversation!==selected||previous.lastMessage!==lastMessage){
+  if(scrollToLatestRequestedRef.current){
    box.scrollTop=box.scrollHeight;
+   scrollToLatestRequestedRef.current=false;
+  }else if(previous.conversation!==selected){
+   const divider=box.querySelector('[data-unread-separator]');
+   if(divider){
+    // On opening, show the beginning of the unread portion rather than
+    // skipping to the very last message.
+    const target=divider.getBoundingClientRect().top-box.getBoundingClientRect().top;
+    box.scrollTop=Math.max(0,box.scrollTop+target-12);
+   }else box.scrollTop=box.scrollHeight;
+  }else if(previous.lastMessage!==lastMessage&&!historicalRef.current){
+   const distance=box.scrollHeight-box.scrollTop-box.clientHeight;
+   if(distance<150)box.scrollTop=box.scrollHeight;
   }
   scrollStateRef.current={conversation:selected,lastMessage};
+  setShowLatestJump(box.scrollHeight-box.scrollTop-box.clientHeight>95);
  },[tab,selected,thread]);
 
  // Keep navigation inside the message scroller; do not scroll the site page.
@@ -235,7 +270,15 @@ export default function PrivateMessaging(){
  const unread=items.reduce((sum,x)=>sum+Number(x.unread||0),0);
  const pending=items.filter(x=>x.status==='pending'&&x.requested_by!==user?.id);
  const visible=items.filter(x=>x.status==='accepted'||x.status==='pending'&&x.requested_by===user?.id);
- const backToList=()=>{setSelected(null);setThread(null);setMessageMenu(null);setEditing(null);setReplying(null);setJumpTo(null);setThreadSearchOpen(false);setThreadSearchTerm('');historicalRef.current=false;setHistorical(false);history.replaceState(null,'','/messages');};
+ const backToList=()=>{
+  unreadMarkerRef.current={conversation:null,initialized:false,message:null};
+  scrollStateRef.current={conversation:null,lastMessage:null};
+  scrollToLatestRequestedRef.current=false;
+  setShowLatestJump(false);setSelected(null);setThread(null);setMessageMenu(null);
+  setEditing(null);setReplying(null);setJumpTo(null);setThreadSearchOpen(false);
+  setThreadSearchTerm('');historicalRef.current=false;setHistorical(false);
+  history.replaceState(null,'','/messages');
+ };
  const selectTab=name=>{setTab(name);setError('');setNotice('');if(name!=='inbox')backToList();};
  const onComposerKeyDown=event=>{
   if(!shouldSendComposerEnter(event,window.matchMedia('(max-width: 680px)').matches))return;
@@ -246,7 +289,7 @@ export default function PrivateMessaging(){
   event.preventDefault();
   if(!selected||!draft.trim())return;
   const text=draft.trim();
-  const result=await run({action:'send',conversation:selected,text,...(replying?{message:replying.id}:{})},async()=>{setDraft('');setReplying(null);historicalRef.current=false;setHistorical(false);await open(selected,false);await reload();});
+  const result=await run({action:'send',conversation:selected,text,...(replying?{message:replying.id}:{})},async()=>{setDraft('');setReplying(null);historicalRef.current=false;setHistorical(false);scrollToLatestRequestedRef.current=true;await open(selected,false);await reload();});
   if(!result)setDraft(text);
  };
  // Double click on desktop or double tap on touchscreens opens message actions.
@@ -357,8 +400,17 @@ export default function PrivateMessaging(){
   void jumpToOriginal(message.id);
  };
  const returnToLatest=async()=>{
-  historicalRef.current=false;setHistorical(false);setJumpTo(null);
-  await open(selected,false);
+  if(historicalRef.current){
+   historicalRef.current=false;setHistorical(false);setJumpTo(null);
+   scrollToLatestRequestedRef.current=true;
+   await open(selected,false);
+   return;
+  }
+  const box=messagesRef.current;
+  if(box){
+   box.scrollTo({top:box.scrollHeight,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+   setShowLatestJump(false);
+  }
  };
  const selectedMenuMessage=thread?.messages?.find(m=>m.id===messageMenu);
  const togglePin=async(message,remove=false)=>{
@@ -516,13 +568,17 @@ export default function PrivateMessaging(){
         </div>}
       </section>}
      {thread.conversation.status==='accepted'?<>
-      <div className={styles.messages} ref={messagesRef} aria-label="الرسائل">
+      <div className={styles.messages} ref={messagesRef} onScroll={updateLatestJump} aria-label="الرسائل">
        {thread.hasMore&&<button className={styles.older} disabled={busy} onClick={async()=>{
         const data=await request('mode=thread&id='+selected+'&before='+encodeURIComponent(thread.nextBefore));
         setThread(t=>t&&t.conversation.id===selected?{...t,messages:[...data.messages,...t.messages],hasMore:data.hasMore,nextBefore:data.nextBefore}:t);
        }}>تحميل رسائل أقدم</button>}
-       {buildMessageTimeline(thread.messages).map(entry=>entry.kind==='day'?
+       {buildMessageTimeline(thread.messages,unreadMarkerRef.current.message).map(entry=>entry.kind==='day'?
         <div key={entry.key} className={styles.daySeparator} role="separator" aria-label={entry.label}><time dateTime={entry.day}>{entry.label}</time></div>:
+        entry.kind==='unread'?
+        <div key={entry.key} className={styles.unreadSeparator} data-unread-separator role="separator" aria-label="رسائل جديدة">
+         <span>{entry.label}</span>
+        </div>:
         <div key={entry.key} className={styles.bubbleRow} data-own={entry.message.sender_id===user.id} data-highlighted={jumpTo?.id===entry.message.id||undefined}>
          <div className={styles.bubble} data-message-bubble={entry.message.id}
           tabIndex={entry.message.deleted_at?-1:0} role="group" aria-label="رسالة، اضغط Enter لعرض خياراتها"
@@ -561,7 +617,7 @@ export default function PrivateMessaging(){
         </div>)}
        {!thread.messages.length&&<p className={styles.empty}>المحادثة جاهزة. اكتب أول رسالة.</p>}
       </div>
-      {historical&&<button type="button" className={styles.latest} onClick={returnToLatest}>العودة إلى أحدث الرسائل</button>}
+      {(historical||showLatestJump)&&<button type="button" className={styles.latest} onClick={returnToLatest}>الانتقال إلى أحدث رسالة</button>}
       {replying&&<div className={styles.replyDraft}>
        <div><strong>الرد على {replying.sender_id===user.id?'رسالتك':thread.conversation.partner_name}</strong>
        <span>{replying.deleted_at?'حذفت الرسالة':replying.body}</span></div>

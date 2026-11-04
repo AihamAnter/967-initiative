@@ -36,7 +36,7 @@ test('prepending older messages retains one divider per day',()=>{
 test('rendering retains the existing 14px message text and 10px muted time',()=>{
  const ui=read('components/messages/PrivateMessaging.jsx');
  const css=read('components/messages/PrivateMessaging.module.css');
- assert.match(ui,/buildMessageTimeline\(thread\.messages\)\.map/);
+ assert.match(ui,/buildMessageTimeline\(thread\.messages,unreadMarkerRef\.current\.message\)\.map/);
  assert.match(ui,/className=\{styles\.daySeparator\}/);
  assert.match(ui,/messageClock\(entry\.message\.created_at\)/);
  assert.match(ui,/\<p\>\{entry\.message\.body\}\<\/p\>/);
