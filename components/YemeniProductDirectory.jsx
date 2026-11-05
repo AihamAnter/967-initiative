@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from '@/components/SiteLink';
-import {useMemo} from 'react';
+import {useMemo,useState} from 'react';
 import {CheckCircle2, ChevronDown, Factory, MapPin, Package, Search, SlidersHorizontal, X} from 'lucide-react';
 import {formatNumber} from '@/lib/format';
 import {matchesSearch} from '@/lib/search';
@@ -14,7 +14,11 @@ import SaveForLater from './reading/SaveForLater';
 import ContentSurface from './design/ContentSurface';
 import styles from './YemeniProductDirectory.module.css';
 
+function CompanyPlaceholder(){
+  return <div className={styles.placeholder} aria-hidden="true"><span className={styles.placeholderGlow}/><Factory size={54} strokeWidth={1.2}/><strong>صُنع في اليمن</strong></div>;
+}
 function CompanyCard({company,returnTo}){
+  const [imageFailed,setImageFailed]=useState(false);
   const illustrative=Boolean(company.imageUrl?.includes('/wiki/Special:FilePath/'));
   const shownProducts=company.products.slice(0,3);
   const remainingProducts=Math.max(0,company.products.length-shownProducts.length);
@@ -22,13 +26,14 @@ function CompanyCard({company,returnTo}){
     <Link className={`company-card ${styles.card}`} href={'/yemeni-products/'+company.id+'?from='+encodeURIComponent(returnTo)}>
       <div className={styles.media}>
         {company.imageUrl?
-          <Image src={company.imageUrl}
-            alt={illustrative?'صورة توضيحية لفئة المنتجات، لا تمثل منتجات '+company.name:company.products.length?'منتجات '+company.name:'صورة '+company.name}
+          imageFailed?<CompanyPlaceholder/>:<Image src={company.imageUrl}
+            alt={illustrative?'صورة توضيحية لفئة المنتجات، لا تمثل منتجات '+company.name:'صورة منشورة مرتبطة بـ '+company.name}
             fill sizes="(max-width: 680px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            onError={()=>setImageFailed(true)}
             unoptimized={illustrative} style={{objectPosition:company.imagePosition||'center'}}/>:
-          <div className={styles.placeholder} aria-hidden="true"><span className={styles.placeholderGlow}/><Factory size={54} strokeWidth={1.2}/><strong>صُنع في اليمن</strong></div>}
+          <CompanyPlaceholder/>}
         <span className={styles.category}>{company.category}</span>
-        {illustrative&&<span className={styles.illustrative}>صورة توضيحية — ليست صورة الشركة</span>}
+        {illustrative&&!imageFailed&&<span className={styles.illustrative}>صورة توضيحية — ليست صورة الشركة</span>}
       </div>
       <div className={styles.content}>
         <div className={styles.metadata}>
@@ -70,11 +75,11 @@ export default function YemeniProductDirectory({companies}) {
 
   return <div className={`products-directory ${styles.directory}`}>
     <div className="products-filter-bar">
-      <label className="products-search">
+      <div className="products-search">
         <Search size={19} aria-hidden="true"/>
         <input type="search" value={query} onChange={event=>setQuery(event.target.value)} placeholder="شركة، منتج، صناعة أو محافظة..." aria-label="البحث في المنتجات اليمنية"/>
         {query&&<button type="button" onClick={()=>setQuery('')} title="مسح البحث" aria-label="مسح البحث"><X size={17}/></button>}
-      </label>
+      </div>
       <label className="products-location">
         <MapPin size={18} aria-hidden="true"/>
         <select value={location} onChange={event=>setLocation(event.target.value)} aria-label="اختيار المحافظة">{locations.map(item=><option key={item}>{item}</option>)}</select>
