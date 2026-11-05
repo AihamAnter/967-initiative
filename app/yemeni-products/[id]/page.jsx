@@ -57,6 +57,25 @@ function ProfileFact({icon: Icon, label, value, ltr = false}) {
   </div>;
 }
 
+function CompanyProductEntry({product,index}) {
+  return <article className={product.imageUrl ? 'has-image' : ''} key={product.name}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              {product.imageUrl && <div className="company-product-image"><Image src={product.imageUrl} alt={product.name} fill sizes="(max-width: 580px) 100vw, 170px"/></div>}
+              <div className="company-product-content"><h3>{product.name}</h3><p>{product.description}</p>{product.sources?.length?<small><a href={product.sources[0].url} target="_blank" rel="noopener noreferrer">مصدر بيانات المنتج: {product.sources[0].title} <ExternalLink size={12}/></a></small>:<small className="small-muted" role="note">لم يُرفق مصدر مستقل لهذا المنتج؛ التفاصيل تحتاج إلى توثيق.</small>}{product.format && <small><PackageCheck size={14}/>{product.format}</small>}
+                {(product.size || product.weight || hasValue(product.quantity)) && <div className="company-product-specs">
+                  {product.size && <span><Ruler size={14}/><b>الحجم</b>{product.size}</span>}
+                  {product.weight && <span><Scale size={14}/><b>الوزن</b>{product.weight}</span>}
+                  {hasValue(product.quantity) && <span><Boxes size={14}/><b>الكمية</b>{formatNumber(product.quantity)}</span>}
+                </div>}
+                {(hasValue(product.wholesalePrice) || hasValue(product.retailPrice)) && <div className="company-product-prices">
+                  <CircleDollarSign size={18}/>
+                  {hasValue(product.wholesalePrice) && <span><b>سعر الجملة</b>{formatNumber(product.wholesalePrice, {maximumFractionDigits: 2})} {currencyLabels[product.currency] || product.currency}</span>}
+                  {hasValue(product.retailPrice) && <span><b>سعر التجزئة</b>{formatNumber(product.retailPrice, {maximumFractionDigits: 2})} {currencyLabels[product.currency] || product.currency}</span>}<small className="small-muted">الأسعار دون تاريخ سريان موثق؛ تأكد من المنشأة قبل الشراء.</small>
+                </div>}
+              </div>
+            </article>;
+}
+
 export default async function YemeniCompanyPage({params}) {
   const {id} = await params;
   const company = await getYemeniCompany(id);
@@ -92,22 +111,11 @@ export default async function YemeniCompanyPage({params}) {
 
           <section>
             <div className="company-section-heading"><div><span className="eyebrow">المنتجات</span><h2>ماذا تقدم المنشأة؟</h2></div><strong>عدد المنتجات: {formatNumber(company.productDetails.length)}</strong></div>
-            <div className="company-product-list">{company.productDetails.map((product, index) => <article className={product.imageUrl ? 'has-image' : ''} key={product.name}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              {product.imageUrl && <div className="company-product-image"><Image src={product.imageUrl} alt={product.name} fill sizes="(max-width: 580px) 100vw, 170px"/></div>}
-              <div className="company-product-content"><h3>{product.name}</h3><p>{product.description}</p>{product.sources?.length?<small><a href={product.sources[0].url} target="_blank" rel="noopener noreferrer">مصدر بيانات المنتج: {product.sources[0].title} <ExternalLink size={12}/></a></small>:<small className="small-muted" role="note">لم يُرفق مصدر مستقل لهذا المنتج؛ التفاصيل تحتاج إلى توثيق.</small>}{product.format && <small><PackageCheck size={14}/>{product.format}</small>}
-                {(product.size || product.weight || hasValue(product.quantity)) && <div className="company-product-specs">
-                  {product.size && <span><Ruler size={14}/><b>الحجم</b>{product.size}</span>}
-                  {product.weight && <span><Scale size={14}/><b>الوزن</b>{product.weight}</span>}
-                  {hasValue(product.quantity) && <span><Boxes size={14}/><b>الكمية</b>{formatNumber(product.quantity)}</span>}
-                </div>}
-                {(hasValue(product.wholesalePrice) || hasValue(product.retailPrice)) && <div className="company-product-prices">
-                  <CircleDollarSign size={18}/>
-                  {hasValue(product.wholesalePrice) && <span><b>سعر الجملة</b>{formatNumber(product.wholesalePrice, {maximumFractionDigits: 2})} {currencyLabels[product.currency] || product.currency}</span>}
-                  {hasValue(product.retailPrice) && <span><b>سعر التجزئة</b>{formatNumber(product.retailPrice, {maximumFractionDigits: 2})} {currencyLabels[product.currency] || product.currency}</span>}<small className="small-muted">الأسعار دون تاريخ سريان موثق؛ تأكد من المنشأة قبل الشراء.</small>
-                </div>}
-              </div>
-            </article>)}</div>
+            <div className="company-product-list">{company.productDetails.slice(0,8).map((product,index)=><CompanyProductEntry key={product.name} product={product} index={index}/>)}</div>
+            {company.productDetails.length>8&&<details className="company-more-products">
+              <summary>عرض {formatNumber(company.productDetails.length-8)} منتجًا إضافيًا</summary>
+              <div className="company-product-list">{company.productDetails.slice(8).map((product,index)=><CompanyProductEntry key={product.name} product={product} index={index+8}/>)}</div>
+            </details>}
           </section>
 
           {(company.impact || company.strengths.length>0) && <section className="company-impact-section">
@@ -148,7 +156,9 @@ export default async function YemeniCompanyPage({params}) {
             <ProfileFact icon={Mail} label="البريد الإلكتروني" value={company.email} ltr/>
             <ProfileFact icon={Phone} label="الهاتف" value={company.phone} ltr/>
             {(company.website || googleMapsUrl) && <div className="company-contact-links">
-              {googleMapsUrl && <a className="company-website-link company-maps-link" href={googleMapsUrl} target="_blank" rel="noopener noreferrer">{company.googleMapsUrl?'فتح الموقع في خرائط Google':'بحث العنوان في خرائط Google'} <MapPinned size={16}/></a>}
+              {company.phone && <a className="company-website-link company-phone-link" href={`tel:${company.phone.split(/[\/،؛,]/)[0].replace(/[^+0-9]/g,'')}`}>اتصل بالشركة <Phone size={16}/></a>}
+               {company.email && <a className="company-website-link company-email-link" href={`mailto:${company.email.trim()}`}>إرسال بريد إلكتروني <Mail size={16}/></a>}
+               {googleMapsUrl && <a className="company-website-link company-maps-link" href={googleMapsUrl} target="_blank" rel="noopener noreferrer">{company.googleMapsUrl?'فتح الموقع في خرائط Google':'بحث العنوان في خرائط Google'} <MapPinned size={16}/></a>}
               {company.website && <a className="company-website-link" href={company.website} target="_blank" rel="noopener noreferrer">زيارة الموقع الإلكتروني <ExternalLink size={15}/></a>}
             </div>}
           </div>}
