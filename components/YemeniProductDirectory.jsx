@@ -53,44 +53,49 @@ function CompanyCard({company,returnTo}){
 }
 
 export default function YemeniProductDirectory({companies}) {
-  const [{q:query,page,category,location},update]=useListState(collectionDefaults.products);
-  const setQuery=q=>update({q,page:1}),setPage=page=>update({page}),setCategory=category=>update({category,page:1}),setLocation=location=>update({location,page:1});
+  const [{q:query,page,category,location,sort},update]=useListState(collectionDefaults.products);
+  const setQuery=q=>update({q,page:1}),setPage=page=>update({page}),setCategory=category=>update({category,page:1}),setLocation=location=>update({location,page:1}),setSort=sort=>update({sort,page:1});
   const results=useMemo(()=>companies.filter(company=>{
     const haystack=[company.name,company.summary,company.location,company.category,...company.products,...company.strengths];
     return matchesSearch(query,haystack)
       &&(category==='الكل'||company.category===category)
       &&(location==='كل المحافظات'||company.location===location);
-  }),[category,companies,location,query]);
+  }).sort((a,b)=>sort==='products'?b.products.length-a.products.length||a.name.localeCompare(b.name,'ar'):a.name.localeCompare(b.name,'ar')),[category,companies,location,query,sort]);
 
   const locations=['كل المحافظات',...new Set(companies.map(company=>company.location).filter(Boolean))];
   const categories=useMemo(()=>['الكل',...new Set(companies.map(company=>company.category).filter(Boolean))],[companies]);
-  const clearFilters=()=>update({q:'',page:1,category:'الكل',location:'كل المحافظات'});
+  const clearFilters=()=>update({...collectionDefaults.products});
   const currentPage=Math.min(page,Math.max(1,Math.ceil(results.length/12)));
-  const returnTo='/yemeni-products'+listStateSearch('',{q:query,page:currentPage,category,location},collectionDefaults.products)+'#directory';
+  const returnTo='/yemeni-products'+listStateSearch('',{q:query,page:currentPage,category,location,sort},collectionDefaults.products)+'#directory';
 
   return <div className={`products-directory ${styles.directory}`}>
     <div className="products-filter-bar">
       <label className="products-search">
-        <Search size={19}/>
-        <input value={query} onChange={event=>setQuery(event.target.value)} placeholder="ابحث عن شركة، منتج أو مدينة..." aria-label="البحث في المنتجات اليمنية"/>
+        <Search size={19} aria-hidden="true"/>
+        <input type="search" value={query} onChange={event=>setQuery(event.target.value)} placeholder="شركة، منتج، صناعة أو محافظة..." aria-label="البحث في المنتجات اليمنية"/>
         {query&&<button type="button" onClick={()=>setQuery('')} title="مسح البحث" aria-label="مسح البحث"><X size={17}/></button>}
       </label>
       <label className="products-location">
-        <MapPin size={18}/>
-        <select value={location} onChange={event=>setLocation(event.target.value)} aria-label="اختيار المحافظة">
-          {locations.map(item=><option key={item}>{item}</option>)}
+        <MapPin size={18} aria-hidden="true"/>
+        <select value={location} onChange={event=>setLocation(event.target.value)} aria-label="اختيار المحافظة">{locations.map(item=><option key={item}>{item}</option>)}</select>
+        <ChevronDown size={16} aria-hidden="true"/>
+      </label>
+      <label className="products-category-select">
+        <SlidersHorizontal size={18} aria-hidden="true"/>
+        <select value={category} onChange={event=>setCategory(event.target.value)} aria-label="اختيار تصنيف المنتجات">
+          {categories.map(item=><option key={item} value={item}>{item==='الكل'?'كل القطاعات':item}</option>)}
         </select>
-        <ChevronDown size={16}/>
+        <ChevronDown size={17} aria-hidden="true"/>
+      </label>
+      <label className="products-sort">
+        <span>الترتيب</span>
+        <select value={sort} onChange={event=>setSort(event.target.value)} aria-label="ترتيب الشركات">
+          <option value="name">الاسم أبجديًا</option>
+          <option value="products">الأكثر منتجات</option>
+        </select>
+        <ChevronDown size={16} aria-hidden="true"/>
       </label>
     </div>
-    <label className="products-category-select">
-      <SlidersHorizontal size={18}/>
-      <span>تصنيف المنتجات</span>
-      <select value={category} onChange={event=>setCategory(event.target.value)} aria-label="اختيار تصنيف المنتجات">
-        {categories.map(item=><option key={item} value={item}>{item}</option>)}
-      </select>
-      <ChevronDown size={17}/>
-    </label>
     <ActiveFilters filters={[
       query&&{key:'q',label:'البحث: '+query,onRemove:()=>setQuery('')},
       category!=='الكل'&&{key:'category',label:'التصنيف: '+category,onRemove:()=>setCategory('الكل')},
