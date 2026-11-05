@@ -1,0 +1,938 @@
+/*
+ * 967 directory experience — scoped to the three public directories.
+ * Uses the shared --c-* tokens so both light and dark themes stay consistent.
+ * Intentionally leaves administration and other sections untouched.
+ */
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"],[data-area="products"]) {
+  --directory-accent:var(--c-accent);
+  --directory-soft:var(--c-accent-soft);
+  --directory-stroke:var(--c-line-2);
+}
+.site-experience .interior-page[data-area="medical"],
+.site-experience .interior-page[data-area="products"] {
+  --directory-accent:var(--c-amber);
+  --directory-soft:var(--c-amber-soft);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"],[data-area="products"]) :is(.products-directory-section,.institution-directory-section) {
+  padding-block:clamp(26px,4vw,54px) clamp(48px,6vw,80px);
+  background:var(--c-bg);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-disclosure {
+  background:var(--directory-soft);
+  color:var(--c-ink-2);
+  border-block:1px solid var(--c-line-2);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-disclosure .container {
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding-block:14px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-disclosure svg {
+  color:var(--directory-accent);
+  flex-shrink:0;
+  margin-top:3px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-disclosure p {
+  font-size:13px;
+  line-height:1.85;
+  color:var(--c-ink-2);
+}
+
+/* Search and filters: the main query and geographic filter are always visible. */
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-toolbar {
+  display:block;
+  padding:16px;
+  border:1px solid var(--c-line-2);
+  background:var(--c-surface);
+  border-radius:20px;
+  box-shadow:var(--e-1);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-toolbar-primary {
+  display:grid;
+  grid-template-columns:minmax(0,2fr) minmax(190px,.72fr);
+  gap:12px;
+  align-items:end;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-search {
+  width:100%;
+  min-width:0;
+  min-height:52px;
+  padding-inline:14px 8px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid var(--c-control);
+  border-radius:12px;
+  background:var(--c-surface-2);
+  color:var(--c-ink-3);
+  transition:border-color var(--m-fast),box-shadow var(--m-fast);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-search:focus-within {
+  border-color:var(--directory-accent);
+  box-shadow:0 0 0 3px var(--directory-soft);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-search input {
+  font-size:16px;
+  line-height:1.6;
+  color:var(--c-ink);
+  background:transparent;
+  min-width:0;
+  border:0;
+  box-shadow:none;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-search input:focus-visible {outline:0}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-search button {
+  flex-shrink:0;
+  min-width:44px;
+  min-height:44px;
+  border-radius:10px;
+  background:transparent;
+  color:var(--c-ink-2);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-extra-filters {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:end;
+  gap:12px;
+  padding-top:14px;
+  margin-top:14px;
+  border-top:1px solid var(--c-line);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-filter {
+  min-width:0;
+  gap:6px;
+  font-size:13px;
+  font-weight:650;
+  color:var(--c-ink-2);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-select select {
+  min-width:0;
+  width:100%;
+  height:48px;
+  background:var(--c-surface-2);
+  color:var(--c-ink);
+  border:1px solid var(--c-control);
+  border-radius:11px;
+  padding-inline:12px 34px;
+  font-size:14px;
+  font-weight:550;
+  text-overflow:ellipsis;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-select svg {
+  inset-inline-end:11px;
+  inset-inline-start:auto;
+  color:var(--c-ink-3);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-select:focus-within select {
+  border-color:var(--directory-accent);
+  outline-offset:2px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-filter-toggle {display:none}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-results-line {
+  margin:18px 0 16px;
+  padding-inline:2px;
+  color:var(--c-ink-3);
+  font-size:14px;
+  gap:10px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-results-line strong {
+  color:var(--directory-accent);
+  font-size:15px;
+  font-weight:750;
+}
+
+/* Institution cards: logos lead, content is scanned in a consistent order. */
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(14px,1.6vw,22px);
+  align-items:stretch;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card {
+  min-width:0;
+  min-height:300px;
+  border:1px solid var(--directory-stroke);
+  border-radius:19px;
+  background:var(--c-surface);
+  box-shadow:var(--e-1);
+  overflow:hidden;
+  transition:transform var(--m-fast) var(--m-ease),border-color var(--m-fast),box-shadow var(--m-fast);
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--e-2);
+    border-color:var(--directory-accent);
+  }
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card:focus-within{
+  border-color:var(--directory-accent);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-link{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  height:100%;
+  padding:20px;
+  gap:0;
+  text-decoration:none;
+  color:var(--c-ink);
+  background:transparent;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-link:focus-visible{
+  outline:3px solid var(--c-focus);
+  outline-offset:-3px;
+  border-radius:18px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-top {
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  align-items:start;
+  gap:13px;
+  min-width:0;
+  padding-inline-end:38px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-icon {
+  width:64px;
+  height:64px;
+  border:1px solid var(--c-line);
+  border-radius:16px;
+  background:var(--directory-soft);
+  color:var(--directory-accent);
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-icon img{
+  max-width:60px!important;
+  max-height:60px!important;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-heading {
+  min-width:0;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-meta {
+  gap:5px;
+  margin-bottom:8px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-meta span{
+  color:var(--c-ink-2);
+  background:var(--c-surface-2);
+  border:1px solid var(--c-line);
+  padding:3px 9px;
+  font-size:11px;
+  line-height:1.5;
+  font-weight:650;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card h2 {
+  margin:0;
+  font-size:clamp(18px,1.5vw,21px);
+  line-height:1.58;
+  font-weight:750;
+  color:var(--c-ink);
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-body {
+  min-width:0;
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  padding-top:13px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-location {
+  color:var(--c-ink-3);
+  margin:0 0 10px;
+  font-size:13px;
+  line-height:1.65;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-location svg {color:var(--directory-accent)}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card .institution-card-summary {
+  -webkit-line-clamp:3;
+  color:var(--c-ink-2);
+  line-height:1.85;
+  font-size:14px;
+  margin:0 0 12px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-evidence {
+  color:var(--c-caution);
+  background:var(--c-caution-soft);
+  font-size:12px;
+  line-height:1.7;
+  border-radius:7px;
+  padding:7px 10px;
+  margin:0 0 12px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:0 0 15px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-tags span {
+  display:inline-block;
+  max-width:100%;
+  background:var(--directory-soft);
+  color:var(--directory-accent);
+  border-color:transparent;
+  border-radius:8px;
+  padding:4px 9px;
+  font-size:12px;
+  line-height:1.55;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-footer {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:13px;
+  margin-top:auto;
+  border-top:1px solid var(--c-line);
+  min-width:0;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-facts {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  color:var(--c-ink-3);
+  font-size:12px;
+  line-height:1.6;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-details-link {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:0;
+  margin:0;
+  min-height:28px;
+  color:var(--directory-accent);
+  font-size:13px;
+  font-weight:750;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card > .card-save-action {
+  position:absolute;
+  inset-block-start:14px;
+  inset-inline-end:14px;
+  inset-inline-start:auto;
+  z-index:3;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card .card-save-action .reading-save-button {
+  min-width:42px;
+  width:42px;
+  min-height:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--c-surface-2);
+  border:1px solid var(--c-line-2);
+  color:var(--directory-accent);
+  box-shadow:none;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-empty {
+  background:var(--c-surface);
+  color:var(--c-ink);
+  border:1px dashed var(--c-control);
+  border-radius:18px;
+  padding:38px 18px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-empty p{color:var(--c-ink-2)}
+
+/* Product search — same visual rhythm, without changing the photo-card layout. */
+.site-experience .interior-page[data-area="products"] .products-filter-bar{
+  display:grid;
+  grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));
+  gap:10px;
+  align-items:stretch;
+  padding:14px;
+  border:1px solid var(--c-line-2);
+  border-radius:18px;
+  background:var(--c-surface);
+  box-shadow:var(--e-1);
+}
+.site-experience .interior-page[data-area="products"] .products-filter-bar > label {
+  min-width:0;
+  min-height:50px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding-inline:12px;
+  margin:0;
+  border:1px solid var(--c-control);
+  border-radius:11px;
+  background:var(--c-surface-2);
+  color:var(--c-ink-2);
+  position:relative;
+}
+.site-experience .interior-page[data-area="products"] .products-filter-bar > label:focus-within {
+  border-color:var(--directory-accent);
+  box-shadow:0 0 0 3px var(--directory-soft);
+}
+.site-experience .interior-page[data-area="products"] .products-filter-bar select,
+.site-experience .interior-page[data-area="products"] .products-filter-bar input {
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--c-ink);
+  min-width:0;
+  width:100%;
+  font-size:15px;
+  line-height:1.6;
+  font-weight:550;
+}
+.site-experience .interior-page[data-area="products"] .products-filter-bar :is(select,input):focus-visible{
+  outline:none;
+}
+.site-experience .interior-page[data-area="products"] .products-filter-bar select {
+  appearance:none;
+  text-overflow:ellipsis;
+  cursor:pointer;
+}
+.site-experience .interior-page[data-area="products"] .products-filter-bar > label > svg:last-child {
+  flex:0 0 auto;
+  color:var(--c-ink-3);
+}
+.site-experience .interior-page[data-area="products"] .products-search button {
+  width:42px;
+  min-width:42px;
+  height:42px;
+  min-height:42px;
+  display:grid;
+  place-items:center;
+  background:transparent;
+  color:var(--c-ink-2);
+  padding:0;
+  border-radius:9px;
+}
+.site-experience .interior-page[data-area="products"] .products-sort > span {
+  flex:0 0 auto;
+  font-size:12px;
+  font-weight:700;
+  color:var(--c-ink-3);
+}
+.site-experience .interior-page[data-area="products"] .products-results-line {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  margin:19px 0 16px;
+  padding-inline:2px;
+  gap:10px;
+  color:var(--c-ink-3);
+  font-size:14px;
+}
+.site-experience .interior-page[data-area="products"] .products-results-line strong {
+  color:var(--directory-accent);
+  font-weight:750;
+}
+.site-experience .interior-page[data-area="products"] .products-empty {
+  background:var(--c-surface);
+  color:var(--c-ink);
+  border-color:var(--c-line-2);
+  border-radius:18px;
+}
+
+/* Detail pages: reading width, credible source styling, and clear contact actions. */
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-hero{
+  padding-block:clamp(28px,4vw,56px);
+  background:linear-gradient(145deg,var(--directory-soft),var(--c-bg));
+  border-block-end:1px solid var(--c-line-2);
+  color:var(--c-ink);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-heading{
+  margin-top:26px;
+  gap:17px;
+  align-items:center;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-icon {
+  width:88px;
+  height:88px;
+  border:1px solid var(--c-line-2);
+  border-radius:20px;
+  color:var(--directory-accent);
+  background:var(--c-surface);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-heading h1{
+  font-size:clamp(29px,3.4vw,48px);
+  line-height:1.45;
+  margin:8px 0;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-lead {
+  max-width:77ch;
+  color:var(--c-ink-2);
+  font-size:clamp(16px,1.4vw,18px);
+  line-height:2;
+  margin:22px 0;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-status {
+  max-width:980px;
+  background:var(--c-caution-soft);
+  color:var(--c-ink-2);
+  border-color:var(--c-line-2);
+  border-inline-start:3px solid var(--c-caution);
+  border-radius:13px;
+  padding:14px 17px;
+  line-height:1.8;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-status strong,
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-status span {
+  color:var(--c-ink-2);
+  font-size:13px;
+  line-height:1.8;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-body {
+  padding-block:32px 70px;
+  background:var(--c-bg);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 305px;
+  gap:clamp(17px,2.3vw,30px);
+  align-items:start;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-main{
+  min-width:0;
+  gap:15px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-main > section,
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-contact-panel{
+  border:1px solid var(--c-line-2);
+  border-radius:18px;
+  background:var(--c-surface);
+  box-shadow:var(--e-1);
+  padding:clamp(17px,2vw,25px);
+  min-width:0;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-main h2{
+  font-size:clamp(21px,2vw,27px);
+  line-height:1.5;
+  margin:8px 0 18px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-facts {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-facts > div{
+  min-width:0;
+  padding:12px;
+  background:var(--c-surface-2);
+  border:1px solid var(--c-line);
+  border-radius:10px;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-facts span{
+  color:var(--c-ink-3);
+  font-size:12px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-facts strong{
+  color:var(--c-ink);
+  font-size:14px;
+  line-height:1.6;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-programs{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-programs article{
+  background:var(--c-surface-2);
+  border:1px solid var(--c-line-2);
+  border-radius:12px;
+  min-width:0;
+  padding:14px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-programs h3{
+  color:var(--c-ink);
+  font-size:16px;
+  line-height:1.65;
+  margin:0 0 5px;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-programs p{
+  color:var(--c-ink-2);
+  font-size:13px;
+  line-height:1.8;
+  margin:0 0 8px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-programs .text-link{
+  color:var(--directory-accent);
+  font-size:12px;
+  margin-top:4px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-contact-panel{
+  position:sticky;
+  top:calc(var(--header-h) + 18px);
+  gap:9px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-contact-panel h2{
+  font-size:20px;
+  margin-bottom:4px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-action {
+  min-height:44px;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid var(--c-line-2);
+  background:var(--c-surface-2);
+  color:var(--c-ink);
+  font-size:13px;
+  line-height:1.75;
+  overflow-wrap:anywhere;
+  text-align:start;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-action:hover{
+  border-color:var(--directory-accent);
+  color:var(--directory-accent);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-sources a {
+  min-height:52px;
+  padding:12px;
+  border:1px solid var(--c-line);
+  border-radius:10px;
+  background:var(--c-surface-2);
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-sources a:hover {
+  border-color:var(--directory-accent);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-sources a small{
+  color:var(--c-ink-3);
+  font-size:12px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-related {
+  background:var(--c-bg-2);
+  padding-block:34px 54px;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-related-list {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-related-list > a {
+  border:1px solid var(--c-line-2);
+  background:var(--c-surface);
+  border-radius:12px;
+  min-width:0;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-related-list h3 {
+  font-size:17px;
+  line-height:1.7;
+}
+
+/* Product company details: avoid huge image and dense tables, keep actions together. */
+.site-experience .interior-page[data-area="products"] .company-profile-hero {
+  border-top:0;
+  background:var(--c-bg);
+  color:var(--c-ink);
+}
+.site-experience .interior-page[data-area="products"] .company-profile-hero:has(.company-profile-image) {
+  width:min(var(--w-page),calc(100% - 2 * var(--s-gutter)));
+  margin-inline:auto;
+  margin-block:24px 0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.16fr);
+  gap:clamp(16px,3vw,36px);
+  align-items:center;
+  border:1px solid var(--c-line-2);
+  border-radius:22px;
+  padding:clamp(15px,2.5vw,26px);
+  background:var(--c-surface);
+  overflow:hidden;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-image{
+  width:100%;
+  height:auto;
+  min-height:280px;
+  aspect-ratio:4/3;
+  border-radius:15px;
+  background:var(--directory-soft);
+  overflow:hidden;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-image img{object-fit:cover}
+.site-experience .interior-page[data-area="products"] .company-profile-copy{
+  color:var(--c-ink);
+  min-width:0;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-copy h1 {
+  font-size:clamp(29px,3.1vw,44px);
+  line-height:1.45;
+  margin-block:12px;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-copy > p{
+  color:var(--c-ink-2);
+  font-size:16px;
+  line-height:1.9;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-body {
+  background:var(--c-bg);
+  padding-block:30px 68px;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 300px;
+  gap:clamp(18px,2.2vw,30px);
+  align-items:start;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-main {min-width:0}
+.site-experience .interior-page[data-area="products"] .company-profile-main > section,
+.site-experience .interior-page[data-area="products"] .company-profile-panel {
+  min-width:0;
+  background:var(--c-surface);
+  border:1px solid var(--c-line-2);
+  border-radius:18px;
+  box-shadow:var(--e-1);
+  padding:clamp(17px,2vw,25px);
+  margin-bottom:16px;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-main h2{
+  font-size:clamp(22px,2.1vw,28px);
+  line-height:1.5;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-aside{
+  position:sticky;
+  top:calc(var(--header-h) + 20px);
+  min-width:0;
+}
+.site-experience .interior-page[data-area="products"] .company-product-list {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.site-experience .interior-page[data-area="products"] .company-product-list > article{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-width:0;
+  margin:0;
+  padding:16px;
+  border-radius:13px;
+  border:1px solid var(--c-line-2);
+  background:var(--c-surface-2);
+  color:var(--c-ink);
+}
+.site-experience .interior-page[data-area="products"] .company-product-list h3{
+  color:var(--c-ink);
+  font-size:17px;
+  line-height:1.6;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page[data-area="products"] .company-product-list p{
+  color:var(--c-ink-2);
+  font-size:13px;
+  line-height:1.85;
+}
+.site-experience .interior-page[data-area="products"] .company-product-content{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page[data-area="products"] .company-product-list a{
+  color:var(--directory-accent);
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page[data-area="products"] .company-product-specs,
+.site-experience .interior-page[data-area="products"] .company-product-prices{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.site-experience .interior-page[data-area="products"] .company-product-image{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  max-height:180px;
+  border-radius:10px;
+  overflow:hidden;
+}
+.site-experience .interior-page[data-area="products"] .company-product-image img{object-fit:contain}
+.site-experience .interior-page[data-area="products"] .company-profile-fact{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page[data-area="products"] .company-profile-panel h2{
+  font-size:20px;
+}
+.site-experience .interior-page[data-area="products"] .company-contact-links a{
+  min-height:44px;
+  border-radius:10px;
+}
+.site-experience .interior-page[data-area="products"] :is(.company-sources a,.company-contact-links a):focus-visible {
+  outline:3px solid var(--c-focus);
+  outline-offset:3px;
+}
+
+/* Tablet: simple columns, advanced filters behind an explicit control. */
+@media(max-width:1080px) {
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-extra-filters{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .site-experience .interior-page[data-area="products"] .products-filter-bar{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .site-experience .interior-page[data-area="products"] .products-search{grid-column:1/-1}
+  .site-experience .interior-page[data-area="products"] .company-profile-layout{
+    grid-template-columns:minmax(0,1fr) 270px;
+  }
+}
+@media(max-width:900px) {
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-toolbar-primary {
+    grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;
+    align-items:end;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-filter-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    min-width:44px;
+    min-height:48px;
+    border:1px solid var(--c-line-2);
+    border-radius:11px;
+    background:var(--directory-soft);
+    color:var(--directory-accent);
+    font-size:13px;
+    font-weight:750;
+    padding:7px 12px;
+    white-space:nowrap;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-filter-toggle > span{
+    display:grid;
+    place-items:center;
+    background:var(--c-surface);
+    border-radius:50%;
+    width:22px;
+    height:22px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-filter-toggle[aria-expanded="true"] > svg:last-child{
+    transform:rotate(180deg);
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-extra-filters{
+    display:none;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-extra-filters.is-open{display:grid}
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-layout,
+  .site-experience .interior-page[data-area="products"] .company-profile-layout{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-layout > aside,
+  .site-experience .interior-page[data-area="products"] .company-profile-layout > aside{
+    grid-row:1;
+    position:static;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-contact-panel{position:static}
+  .site-experience .interior-page[data-area="products"] .company-profile-hero:has(.company-profile-image){
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .site-experience .interior-page[data-area="products"] .company-profile-image{min-height:240px}
+}
+@media(max-width:640px) {
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-toolbar,
+  .site-experience .interior-page[data-area="products"] .products-filter-bar{
+    padding:12px;
+    border-radius:15px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-toolbar-primary{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-search{
+    grid-column:1/-1;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-filter-toggle{
+    white-space:normal;
+    font-size:12px;
+    padding-inline:8px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-extra-filters.is-open{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-grid{
+    grid-template-columns:minmax(0,1fr);
+    gap:13px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card{
+    min-height:0;
+    border-radius:16px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-link{
+    padding:17px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-top{
+    grid-template-columns:56px minmax(0,1fr);
+    gap:11px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-icon{
+    width:56px;height:56px;border-radius:14px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card h2{font-size:19px}
+  .site-experience .interior-page[data-area="products"] .products-filter-bar {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .site-experience .interior-page[data-area="products"] .products-search{grid-column:1/-1}
+  .site-experience .interior-page[data-area="products"] .products-sort{grid-column:1/-1}
+  .site-experience .interior-page[data-area="products"] .products-filter-bar > label{
+    padding-inline:10px;
+    gap:6px;
+  }
+  .site-experience .interior-page[data-area="products"] .products-filter-bar :is(select,input){font-size:14px}
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-heading{
+    flex-direction:row;
+    align-items:flex-start;
+    margin-top:16px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-icon{
+    width:68px;height:68px;border-radius:15px;flex:0 0 68px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-detail-heading h1{
+    font-size:clamp(23px,6vw,31px);
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-facts,
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-programs,
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-related-list{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .site-experience .interior-page[data-area="products"] .company-profile-hero:has(.company-profile-image){
+    width:calc(100% - 32px);
+    margin-top:14px;
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+    padding:13px;
+  }
+  .site-experience .interior-page[data-area="products"] .company-profile-image{
+    min-height:0;
+    aspect-ratio:16/9;
+  }
+  .site-experience .interior-page[data-area="products"] .company-profile-copy{
+    padding:8px 5px 10px;
+    width:100%;
+  }
+  .site-experience .interior-page[data-area="products"] .company-profile-copy h1{
+    font-size:clamp(26px,6vw,34px);
+  }
+  .site-experience .interior-page[data-area="products"] .company-product-list{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .site-experience .interior-page[data-area="products"] .company-profile-main > section,
+  .site-experience .interior-page[data-area="products"] .company-profile-panel {
+    padding:16px;
+  }
+}
+@media(max-width:365px) {
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-top{
+    grid-template-columns:48px minmax(0,1fr);
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-icon{
+    width:48px;height:48px;
+  }
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card-meta span{font-size:10px}
+  .site-experience .interior-page[data-area="products"] .products-filter-bar{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .site-experience .interior-page[data-area="products"] .products-sort{grid-column:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-card{
+    transition:none;
+    transform:none!important;
+  }
+}
