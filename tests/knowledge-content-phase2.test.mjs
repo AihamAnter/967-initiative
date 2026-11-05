@@ -68,8 +68,8 @@ test('province entries are visually numbered, but links and map behavior are unc
  const css=read('components/yemen-map/YemenDiscovery.module.css');
  const province=read('app/yemen-map/governorates/[id]/page.jsx');
  const provinceCss=read('app/yemen-map/governorates/[id]/GovernorateProfile.module.css');
- assert.ok(discovery.includes("yemenGovernorates.map((item,index)=>"));
- assert.ok(discovery.includes("String(index+1).padStart(2,'0')"));
+ assert.ok(discovery.includes("visibleGovernorates.map(item=>"));
+ assert.ok(discovery.includes("String(yemenGovernorates.indexOf(item)+1).padStart(2,'0')"));
  assert.ok(discovery.includes("href={'/yemen-map/governorates/'+item.id}"));
  assert.ok(discovery.includes('<YemenMap'));
  assert.ok(discovery.includes('onGovernorateExplore={explorePlace}'));

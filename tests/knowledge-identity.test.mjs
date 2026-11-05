@@ -83,9 +83,9 @@ test('knowledge navigation filters hidden sections, marks current section, and w
  assert.ok(nav.includes('aria-label="التنقل بين أقسام المعرفة"'));
  assert.ok(nav.includes("aria-current={selected?'page':undefined}"));
  assert.ok(nav.includes('data-knowledge-id={area.id}'));
- assert.ok(css.includes('min-height:44px'));
- assert.ok(css.includes('grid-template-columns:repeat(2,minmax(0,1fr))'));
- assert.ok(css.includes('white-space:normal'));
+ assert.ok(css.includes('min-height:71px'));
+ assert.ok(css.includes('scroll-snap-type:x proximity'));
+ assert.ok(css.includes('scroll-snap-align:start'));
  assert.ok(css.includes(':focus-visible'));
  assert.ok(css.includes('@media(prefers-reduced-motion:reduce)'));
 });

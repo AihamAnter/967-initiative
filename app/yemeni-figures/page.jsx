@@ -6,6 +6,7 @@ import {sectionIsVisible} from '@/lib/pageVisibility';
 import {toFigureDirectoryCard,yemenGovernorates} from '@/lib/yemeniFigures';
 import {pageMetadata} from '@/lib/seo';
 import YemeniFiguresExplorer from '@/components/yemen-map/YemeniFiguresExplorer';
+import {KnowledgeReadingGuide} from '@/components/knowledge/KnowledgeGuides';
 import KnowledgePageIntro from '@/components/knowledge/KnowledgePageIntro';
 import Link from '@/components/SiteLink';
 
@@ -34,6 +35,7 @@ export default async function YemeniFiguresPage({searchParams}){
    </div>
   </KnowledgePageIntro>
   <KnowledgeNavigation/>
+  <KnowledgeReadingGuide kind="figures"/>
   <YemeniFiguresExplorer figures={figures} initialGovernorateId={region}/>
  </div></KnowledgeTheme>;
 }

@@ -2,7 +2,7 @@ import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
 import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import {notFound} from 'next/navigation';
 import Link from '@/components/SiteLink';
-import {ArrowUpLeft,BookOpenText,CalendarDays,ExternalLink,MapPinned,ScrollText} from 'lucide-react';
+import {ArrowUpLeft,BookOpenText,CalendarDays,Clock3,ExternalLink,MapPinned,ScrollText} from 'lucide-react';
 import {getSiteSettings,getYemeniFigures} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {serverDb} from '@/lib/supabase-server';
@@ -43,20 +43,24 @@ export default async function YemenHistoryDetail({params}){
  const figures=item.figureQuery&&sectionIsVisible('figures',settings.pageVisibility)
   ?await getYemeniFigures(relatedProjections.figures).catch(()=>[]):[];
  const crossLinks=historyCrossLinks(item,{visibility:settings.pageVisibility,figures});
+ const wordCount=(item.paragraphs||[]).join(' ').trim().split(/\s+/).filter(Boolean).length;
+ const readingMinutes=Math.max(1,Math.ceil(wordCount/180));
  return <KnowledgeTheme area="history"><div className={styles.articlePage}>
   <JsonLd data={breadcrumbSchema([{name:'تاريخ اليمن',path:'/yemen-history'},{name:item.title,path:historyEntryPath(item.slug)}])}/>
   <header className={styles.articleHero}><div className="container">
    <ContextBackLink className={styles.back} fallback="/yemen-history" label="العودة إلى تاريخ اليمن" leading={<ArrowUpLeft size={16}/>}/>
    <span className="eyebrow">{era?.title||'تاريخ اليمن'} / {historyKinds[item.kind]}</span>
    <h1>{item.title}</h1><p>{item.summary}</p>
-   <div className={styles.articleMeta}><span><CalendarDays size={17}/>{item.period}</span>{item.location&&<span><MapPinned size={17}/>{item.location}</span>}<span><BookOpenText size={17}/>{(item.sources||[]).length} مصادر</span></div>
+   <div className={styles.articleMeta}><span><CalendarDays size={17}/>{item.period}</span>{item.location&&<span><MapPinned size={17}/>{item.location}</span>}<span><BookOpenText size={17}/>{(item.sources||[]).length} مصادر</span><span><Clock3 size={17}/>{readingMinutes} دقائق قراءة تقريبًا</span></div>
   </div></header>
     <KnowledgeNavigation/>
   <div className={'container '+styles.articleGrid}>
    <article className={styles.articleBody}>
     <ContentReadingAction kind="history" href={historyEntryPath(item.slug)} title={item.title}/>
     <HistoryEditAction slug={item.slug}/>
+    <nav className={styles.articleToc} aria-label="اختصارات داخل الملف التاريخي"><strong>في هذا الملف</strong><a href="#history-reading">المادة التاريخية</a><a href="#references-heading">المصادر والمراجع</a>{related.length>0&&<a href="#history-related">مواد مرتبطة</a>}</nav>
     {item.certainty&&<p className={styles.warning}><ScrollText size={17}/> درجة التوثيق: {item.certainty}. يُرجى مراجعة المصادر قبل نقل التواريخ أو الاستنتاجات.</p>}
+    <h2 className={styles.storyHeading} id="history-reading">القصة التاريخية</h2>
     {item.paragraphs.slice(0,1).map((p,i)=><p key={i}>{p}</p>)}
     <HistoryMedia entry={item}/>
     {item.paragraphs.slice(1).map((p,i)=><p key={i}>{p}</p>)}
@@ -66,6 +70,6 @@ export default async function YemenHistoryDetail({params}){
    </article>
    <aside className={styles.articleAside}><div className={styles.facts}><h2>الملف التاريخي</h2><dl><dt>التصنيف</dt><dd>{historyKinds[item.kind]}</dd><dt>العصر</dt><dd>{era?.title||'غير محدد'}</dd><dt>مرجع زمني</dt><dd>{historyYear(item.year)}</dd><dt>الفترة</dt><dd>{item.period}</dd><dt>الموقع</dt><dd>{item.location||'مناطق متعددة'}</dd></dl></div><p>تنبيه: الممالك القديمة والدول المتعاقبة قد تزامنت في أجزاء مختلفة من اليمن. لا ينبغي فهم الخط الزمني على أنه قائمة حكام لدولة واحدة.</p></aside>
   </div>
-  {related.length>0&&<section className={'container '+styles.related}><h2>مواد مرتبطة</h2><div>{related.map(x=><Link key={x.slug} href={historyEntryPath(x.slug)}><small>{historyKinds[x.kind]} · {historyYear(x.year)}</small><strong>{x.title}</strong><ArrowUpLeft size={18}/></Link>)}</div></section>}
+  {related.length>0&&<section id="history-related" className={'container '+styles.related}><h2>مواد مرتبطة</h2><div>{related.map(x=><Link key={x.slug} href={historyEntryPath(x.slug)}><small>{historyKinds[x.kind]} · {historyYear(x.year)}</small><strong>{x.title}</strong><ArrowUpLeft size={18}/></Link>)}</div></section>}
  </div></KnowledgeTheme>;
 }

@@ -35,6 +35,6 @@ test('mobile discovery is compact without hiding desktop content or horizontal f
  assert.ok(home.includes('<MobileFold title="المزيد من طرق الاستكشاف"'));
  assert.ok(home.includes('<MobileFold title="عرض مختارات إضافية"'));
  assert.ok(front.includes('.front { --s-section: 40px; }'));
- assert.ok(knowledge.includes('grid-template-columns:repeat(2,minmax(0,1fr))'));
+ assert.ok(knowledge.includes('scroll-snap-type:x proximity'));
  assert.ok(search.includes('.search-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'));
 });

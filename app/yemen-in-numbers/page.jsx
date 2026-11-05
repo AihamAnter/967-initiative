@@ -5,6 +5,7 @@ import Link from '@/components/SiteLink';
 import {pageMetadata} from '@/lib/seo';
 import StatisticsExplorer from '@/components/StatisticsExplorer';
 import FigureLedger from '@/components/numbers/FigureLedger';
+import {KnowledgeReadingGuide} from '@/components/knowledge/KnowledgeGuides';
 import {getStatIndicators, getStatSections, getSiteSettings} from '@/lib/data';
 import {statisticsCrossLinks} from '@/lib/knowledgeConnections';
 import CrossSectionPaths from '@/components/knowledge/CrossSectionPaths';
@@ -41,6 +42,8 @@ export default async function YemenInNumbersPage() {
    <div className="ed-section-head"><h2 id="latest-title">أحدث سنوات القياس</h2><p>القيمة الأحدث في السلسلة المعتمدة، وليست تاريخ تحديث السجل.</p></div>
    <FigureLedger indicators={highlights.map(indicatorListItem)}/>
   </section>}
+
+  <KnowledgeReadingGuide kind="statistics"/>
 
   <section className="ed-wrap ed-block" id="indicators" aria-labelledby="indicators-title">
    <div className="ed-section-head"><h2 id="indicators-title">فهرس المؤشرات</h2><p>ابحث بالاسم أو الموضوع، أو صفِّ بحسب المجال وسنة القياس.</p></div>

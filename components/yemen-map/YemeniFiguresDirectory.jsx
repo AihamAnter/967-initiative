@@ -36,6 +36,11 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,o
   useEffect(()=>{const load=()=>{const f=readFigureFilters(location.search);setFilters(f);setMore(Boolean(f.photo||f.social||f.century||f.birthFrom||f.birthTo));setReady(true);};load();window.addEventListener('popstate',load);return()=>window.removeEventListener('popstate',load);},[]);
   useEffect(()=>{if(!ready)return;const p=figureFilterSearch(location.search,filters);const url=location.pathname+(p.size?'?'+p:'')+location.hash;if(url!==location.pathname+location.search+location.hash)history.replaceState(history.state,'',url);},[filters,ready]);
   const fields=useMemo(()=>[...new Set(figures.map(f=>f.field).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar')),[figures]);
+  const featuredFields=useMemo(()=>{
+    const counts=new Map();
+    for(const figure of figures)if(figure.field)counts.set(figure.field,(counts.get(figure.field)||0)+1);
+    return [...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'ar')).slice(0,5);
+  },[figures]);
   const governorates=useMemo(()=>yemenGovernorates.filter(g=>figures.some(f=>f.governorateId===g.id)),[figures]);
   const centuries=useMemo(()=>[...new Set(figures.filter(f=>Number.isInteger(f.birthYear)).map(f=>Math.ceil(f.birthYear/100)))].sort((a,b)=>a-b),[figures]);
   const filteredFigures=useMemo(()=>filterFigures(figures,{...filters,region:selectedGovernorateId}),[figures,filters,selectedGovernorateId]);
@@ -54,8 +59,15 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,o
 
       {figures.some(figure=>figure.isDemo) && <p className="data-disclosure">يتضمن العرض ملفات من الكتالوج التجريبي للمشروع. هذه الملفات موسومة كتوضيحية وتحتاج مراجعة مصادرها قبل اعتمادها كمحتوى منشور.</p>}
 
+      <section className="yfigures-discovery" aria-label="اكتشف الشخصيات بحسب مجالها">
+        <header><div><span className="eyebrow">ابدأ بالمجال الذي يهمك</span><h3>وجوه اليمن، مجالات متعددة</h3></div><p>توزيع ملفات هذا الدليل حسب المجال المسجل؛ الأعداد ليست تقييمًا لأهمية المجالات.</p></header>
+        <div className="yfigures-field-shortcuts">
+          <button type="button" className={field==='الكل'?'selected':''} aria-pressed={field==='الكل'} onClick={()=>change({field:'الكل'})}><strong>جميع المجالات</strong><span>{formatNumber(figures.length)} شخصية</span></button>
+          {featuredFields.map(([name,count])=><button type="button" key={name} className={field===name?'selected':''} aria-pressed={field===name} onClick={()=>change({field:name})}><strong>{name}</strong><span>{formatNumber(count)} شخصية</span></button>)}
+        </div>
+      </section>
       <div className="yfigures-filters" role="search" aria-label="البحث وتصفية الشخصيات">
-        <label className="yfigures-search"><Search size={19}/><span className="sr-only">ابحث بالاسم</span><input value={query} onChange={e=>change({figureQ:e.target.value})} placeholder="ابحث باسم الشخصية..."/></label>
+        <label className="yfigures-search"><Search size={19}/><span className="sr-only">ابحث بالاسم</span><input type="search" value={query} onChange={e=>change({figureQ:e.target.value})} placeholder="ابحث بالاسم أو العمل أو الأثر..." aria-label="البحث في الشخصيات اليمنية"/></label>
         <label><span>المجال</span><select value={field} onChange={e=>change({field:e.target.value})}><option>الكل</option>{fields.map(item=><option key={item}>{item}</option>)}</select></label>
         <label><span>المحافظة المرتبطة</span><select value={selectedGovernorateId||''} onChange={e=>{setFilters(f=>({...f,visible:12}));onGovernorateChange(e.target.value||null);}}><option value="">كل المحافظات</option>{governorates.map(g=><option value={g.id} key={g.id}>{g.name}</option>)}</select></label>
         <label><span>الفترة</span><select value={era} onChange={e=>change({era:e.target.value})}><option>الكل</option>{yemeniFigureEras.map(item=><option key={item}>{item}</option>)}</select></label>

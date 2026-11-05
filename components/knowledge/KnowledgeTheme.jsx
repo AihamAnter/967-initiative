@@ -1,4 +1,5 @@
 import {knowledgeAreaId} from '@/lib/knowledgeIdentity';
+import '@/app/knowledge-experience.css';
 import styles from './KnowledgeTheme.module.css';
 
 // Scope all knowledge styling to the public knowledge section's content tree.

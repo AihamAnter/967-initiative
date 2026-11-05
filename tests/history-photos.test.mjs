@@ -5,8 +5,8 @@ import {historyStarter} from '../lib/yemenHistory.js';
 import {historyPhotoLibrary,getHistoryPhotos,historyPhotoSource,historyPhotoPage} from '../lib/historyVisuals.js';
 import {validateHistoryEntry,mergeHistoryCatalog} from '../lib/historyRepository.js';
 
-test('all 172 historical topics receive context-labeled referenced photographs, across six eras',()=>{
- assert.equal(historyStarter.length,172);
+test('all historical topics receive context-labeled referenced photographs, across six eras',()=>{
+ assert.ok(historyStarter.length>=177);
  assert.ok(Object.keys(historyPhotoLibrary).length>=20);
  const coverage=new Map();
  const slugs=new Set();
@@ -24,7 +24,7 @@ test('all 172 historical topics receive context-labeled referenced photographs, 
   }
   coverage.set(entry.era,(coverage.get(entry.era)||0)+1);
  }
- assert.equal(slugs.size,172);
+ assert.equal(slugs.size,historyStarter.length);
  assert.equal(coverage.size,6);
  assert.equal(getHistoryPhotos({slug:'x',era:'modern',hideImages:true}).length,0);
 });

@@ -14,6 +14,7 @@ import {getMapBoundaries,readPublicMapProfiles} from '@/lib/mapProfileRepository
 import {yemenGovernorates} from '@/lib/yemeniFigures';
 import {governorateHeritageSources,governorateProfileSections,isGovernorateId} from '@/lib/governorateEditorial';
 import {pageMetadata} from '@/lib/seo';
+import {formatNumber} from '@/lib/format';
 import styles from './GovernorateProfile.module.css';
 import ContextBackLink from '@/components/ContextBackLink';
 
@@ -65,18 +66,19 @@ export default async function GovernorateProfilePage({params}){
         <p>{profile.description?.split(/\n\s*\n/)[0]||'ملف معرفي عن المحافظة.'}</p>
         <div className={styles.facts}>
           <div><span>المركز الإداري</span><strong>{profile.capital||'غير موثق في الدليل'}</strong></div>
-          <div><span>المساحة المسجلة</span><strong>{profile.area_km2?Number(profile.area_km2).toLocaleString('ar')+' كم²':'غير متوفرة'}</strong></div>
-          <div><span>المديريات بالخريطة</span><strong>{districts.length.toLocaleString('ar')}</strong></div>
-          <div><span>السكان</span><strong>{profile.population?Number(profile.population).toLocaleString('ar')+' · '+(profile.population_year||'السنة غير متوفرة'):'لا يوجد تقدير سكاني موثق'}</strong></div>
+          <div><span>المساحة المسجلة</span><strong>{profile.area_km2?formatNumber(Number(profile.area_km2))+' كم²':'غير متوفرة'}</strong></div>
+          <div><span>المديريات بالخريطة</span><strong>{formatNumber(districts.length)}</strong></div>
+          <div><span>السكان</span><strong>{profile.population?formatNumber(Number(profile.population))+' · '+(profile.population_year||'السنة غير متوفرة'):'لا يوجد تقدير سكاني موثق'}</strong></div>
         </div>
       </div>
     </header>
     <KnowledgeNavigation/>
+    <nav className={'container '+styles.quickNav} aria-label="انتقل داخل ملف المحافظة"><strong>في هذا الملف</strong>{governorateProfileSections.filter(item=>profile[item.key]).slice(0,3).map(item=><a href={'#'+item.key} key={item.key}>{item.title}</a>)}<a href="#districts">المديريات</a><a href="#province-sources">المصادر</a></nav>
     <div className={'container '+styles.layout}>
       <article className={styles.article}>
         <ContentSections profile={profile}/>
         <CrossSectionPaths items={crossLinks} id="governorate-cross-paths" title="من هذه المحافظة إلى تاريخها وشخصياتها"/>
-        <section className={styles.sources} aria-label="مراجع وتحذيرات التوثيق">
+        <section className={styles.sources} id="province-sources" aria-label="مراجع وتحذيرات التوثيق">
           <h2>المصادر وحدود المعلومات</h2>
           <p>النصوص التعريفية من أطلس 967، وهي مادة معرفية عامة وليست بياناً رسمياً محدثاً للخدمات أو الأمن أو أحوال الطرق. الأعداد والحدود الإدارية من فهرس الخريطة المعتمد بالموقع، ولا نعرض تقدير سكان دون سنة ومصدر.</p>
           {refs.length>0&&<><p>المراجع الخارجية التالية تتعلق تحديداً بالمواقع التراثية المذكورة، ولا تشكل توثيقاً لجميع التفاصيل الاجتماعية والاقتصادية:</p><ul>{refs.map(ref=><li key={ref.url}><a href={ref.url} target="_blank" rel="noopener noreferrer">{ref.title}</a></li>)}</ul></>}
@@ -92,7 +94,7 @@ export default async function GovernorateProfilePage({params}){
         <section className={styles.districts} id="districts">
           <h2>المديريات التابعة</h2>
           <p>وفق حدود الخريطة الإدارية في 967.</p>
-          <ul>{districts.map(d=><li key={d.id}><Link href={'/yemen-map?region='+id+'&district='+encodeURIComponent(d.id)+'#map'}>{d.nameAr}</Link></li>)}</ul>
+          <details className={styles.districtDisclosure}><summary>عرض {formatNumber(districts.length)} مديرية على الخريطة</summary><ul>{districts.map(d=><li key={d.id}><Link href={'/yemen-map?region='+id+'&district='+encodeURIComponent(d.id)+'#map'}>{d.nameAr}</Link></li>)}</ul></details>
         </section>
         {sectionIsVisible('figures',settings.pageVisibility)&&<Link className={styles.figureLink} href={'/yemeni-figures?region='+encodeURIComponent(id)}>تصفح الشخصيات المرتبطة بمحافظة {heading}</Link>}
       </aside>

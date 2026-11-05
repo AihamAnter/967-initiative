@@ -77,6 +77,7 @@ export default async function YemeniFigureProfilePage({params}) {
   const links = socialLinks(figure);
   const hasDossier=figure.profile&&['sections','facts','timeline','works','gallery','notes'].some(key=>figure.profile[key]?.length);
   const portrait=figure.profile?.gallery.find(photo=>photo.url===figure.imageUrl);
+  const sourceCount=figure.profile?.sources?.length||figure.sources?.length||0;
   const hasAttributedPortrait=hasFigureImageProvenance(figure,portrait);
   const related = figures
     .filter(item => item.id !== figure.id && (item.field === figure.field || (figure.governorateId && item.governorateId === figure.governorateId)))
@@ -105,6 +106,11 @@ export default async function YemeniFigureProfilePage({params}) {
           {figure.isDemo && <p className="data-disclosure">ملف توضيحي من الكتالوج التجريبي للمشروع. يحتاج إلى مراجعة المصادر والبيانات قبل اعتماده؛ لا يمثل ملفاً موثقاً منشوراً.</p>}
           <strong>{toLatinDigits(figure.knownFor)}</strong>
           <p>{toLatinDigits(figure.shortBio)}</p>
+          <div className="figure-profile-reading-path">
+            <a href="#figure-profile-content">ابدأ قراءة السيرة <ArrowUpLeft size={16} aria-hidden="true"/></a>
+            <a href="#figure-sources">المصادر والمراجع <BookOpenText size={16} aria-hidden="true"/></a>
+            {sourceCount>0&&<span>{sourceCount} مصادر مسجلة</span>}
+          </div>
           {links.length > 0 && <nav className="figure-profile-socials" aria-label={`روابط ${figure.fullName}`}>
             {links.map(({url, label, icon: Icon}) => <a href={url} target="_blank" rel="noopener noreferrer" key={label}><Icon size={17}/><span>{label}</span><ExternalLink size={13}/></a>)}
           </nav>}
@@ -121,7 +127,7 @@ export default async function YemeniFigureProfilePage({params}) {
     <KnowledgeNavigation/>
 
     <section className="figure-profile-body">
-      <div className="container figure-profile-layout">
+      <div className="container figure-profile-layout" id="figure-profile-content">
         <div className="figure-profile-main">
           <ContentReadingAction kind="figure" href={detailPath('yemen-map/figures',figure.slug)} title={figure.fullName}/>
           {hasDossier ? <FigureDossier profile={figure.profile} figure={figure}/> : <>
@@ -137,7 +143,7 @@ export default async function YemeniFigureProfilePage({params}) {
             ...(figure.deathYear ? [{year:figure.deathYear,title:'الوفاة'}] : []),
           ].sort((a,b)=>Number(a.year)-Number(b.year)).map((item,index)=><li key={index}><time>{item.year}</time><div><strong>{item.title}</strong>{item.description&&<p>{item.description}</p>}</div></li>)}</ol></section>}
 
-          <section><span className="eyebrow">المراجع</span><h2>مصادر الملف</h2>{figure.sources?.length ? <ul>{figure.sources.map(item=><li key={item.url}><a className="text-link" href={item.url} target="_blank" rel="noopener noreferrer">{item.title}<ExternalLink size={14}/></a></li>)}</ul> : <p className="small-muted">لم تُرفق مراجع تفصيلية بهذا الملف بعد. <Link className="text-link" href="/contribute?type=اقتراح%20شخصية%20أو%20معلومة%20تاريخية">ساهم بمصدر أو تصحيح</Link></p>}</section>
+          <section id="figure-sources"><span className="eyebrow">المراجع</span><h2>مصادر الملف</h2>{figure.sources?.length ? <ul>{figure.sources.map(item=><li key={item.url}><a className="text-link" href={item.url} target="_blank" rel="noopener noreferrer">{item.title}<ExternalLink size={14}/></a></li>)}</ul> : <p className="small-muted">لم تُرفق مراجع تفصيلية بهذا الملف بعد. <Link className="text-link" href="/contribute?type=اقتراح%20شخصية%20أو%20معلومة%20تاريخية">ساهم بمصدر أو تصحيح</Link></p>}</section>
 
           <section className="figure-profile-significance">
             <BookOpenText size={27}/>

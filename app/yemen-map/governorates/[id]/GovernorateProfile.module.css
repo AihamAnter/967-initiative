@@ -81,3 +81,40 @@
 :global(:root[data-ed-theme="dark"]) .facts span,
 :global(:root[data-ed-theme="dark"]) .section p,
 :global(:root[data-ed-theme="dark"]) .districts p{color:var(--c-ink-2)}
+
+/* Province reader: calmer typography, accessible contents and expandable districts. */
+.page{background:var(--c-bg);color:var(--c-ink)}
+.hero{background:linear-gradient(110deg,var(--c-accent-soft),var(--c-bg));border-color:var(--c-line-2);padding-block:clamp(32px,5vw,62px)}
+.hero h1{font-size:clamp(36px,4.5vw,61px);line-height:1.35;color:var(--c-ink)}
+.hero p{color:var(--c-ink-2);font-size:clamp(16px,1.4vw,18px);line-height:1.9;max-width:72ch}
+.kicker{color:var(--c-accent)}
+.facts{margin-top:25px;gap:12px}
+.facts>div{background:var(--c-surface);border:1px solid var(--c-line-2);border-block-start:3px solid var(--c-accent);border-radius:14px;box-shadow:var(--e-1);padding:17px}
+.facts span{color:var(--c-ink-3);font-size:12px}
+.facts strong{color:var(--c-ink);font-size:17px;font-variant-numeric:tabular-nums}
+.layout{grid-template-columns:minmax(0,1fr) minmax(240px,292px);gap:clamp(20px,3vw,44px);padding-top:clamp(24px,3vw,43px)}
+.article{min-width:0}
+.section{background:var(--c-surface);border:1px solid var(--c-line-2);border-inline-start:4px solid var(--c-accent);padding:clamp(18px,2.6vw,30px);margin-bottom:15px;border-radius:16px;box-shadow:var(--e-1)}
+.section h2{color:var(--c-ink);font-size:clamp(22px,2.3vw,30px);line-height:1.45}
+.section p{color:var(--c-ink-2);font-size:16px;line-height:2.03;max-width:77ch}
+.section p:first-of-type{color:var(--c-ink);font-weight:500}
+.section p:last-child{color:var(--c-ink-2)}
+.navigation,.districts,.sources{border:1px solid var(--c-line-2);border-radius:16px;background:var(--c-surface);box-shadow:var(--e-1);padding:22px}
+.navigation{border-block-start:4px solid var(--c-accent)}
+.navigation h2,.districts h2,.sources h2{color:var(--c-ink)}
+.navigation a{color:var(--c-ink-2);border-color:var(--c-line);min-height:42px;display:flex;align-items:center}
+.navigation a:hover{color:var(--c-accent)}
+.districts p,.sources p{color:var(--c-ink-2)}
+.sources{scroll-margin-top:calc(var(--header-h) + 20px);margin-top:20px}
+.sources a{color:var(--c-accent)}
+.sidebar{gap:14px;top:calc(var(--header-h) + 18px)}
+.figureLink{background:var(--c-accent-soft);border:1px solid var(--c-line-2);color:var(--c-accent);border-radius:11px;min-height:44px}
+.districtDisclosure{border-top:1px solid var(--c-line);margin-top:12px}
+.districtDisclosure summary{display:list-item;list-style-position:inside;cursor:pointer;color:var(--c-accent);font-size:14px;font-weight:750;min-height:44px;align-content:center;padding-block:9px}
+.districtDisclosure ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0}
+.districtDisclosure a{min-height:38px;display:flex;align-items:center;padding:8px;color:var(--c-ink);background:var(--c-surface-2);border-radius:8px;border:1px solid var(--c-line);overflow-wrap:anywhere}
+.districtDisclosure a:hover{color:var(--c-accent);border-color:var(--c-accent)}
+.quickNav{display:none}
+@media(max-width:950px){.layout{grid-template-columns:minmax(0,1fr)}.sidebar{position:static;max-height:none;grid-row:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.figureLink{grid-column:1/-1}.navigation{display:none}.quickNav{display:flex;align-items:center;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;padding-block:13px;border-bottom:1px solid var(--c-line);scroll-snap-type:x proximity}.quickNav strong{flex:0 0 auto;color:var(--c-ink-2);font-size:13px;margin-inline-end:5px}.quickNav a{flex:0 0 auto;min-height:38px;display:inline-flex;align-items:center;padding:7px 12px;border-radius:9px;border:1px solid var(--c-line-2);background:var(--c-surface);color:var(--c-accent);font-size:13px;font-weight:700;scroll-snap-align:start}}
+@media(max-width:660px){.hero{padding-block:30px}.hero h1{font-size:clamp(31px,7vw,42px)}.facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.facts>div{padding:11px}.facts strong{font-size:14px}.layout{padding-block:18px 46px;gap:16px}.section{padding:17px;margin-bottom:12px}.section p{font-size:15px}.sidebar{grid-template-columns:minmax(0,1fr)}.navigation,.districts,.sources{padding:17px}.quickNav{width:calc(100% - 2 * var(--s-gutter,16px))}}
+@media(prefers-reduced-motion:reduce){.quickNav{scroll-behavior:auto}}
