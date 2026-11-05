@@ -209,3 +209,33 @@
 :global(:root[data-ed-theme="dark"]) .pathGrid button small{
  opacity:1;
 }
+
+
+/* Finish the civic laboratory's warning/simulation and keyboard states. */
+:global(:root[data-ed-theme="dark"]) :is(.challenge,.explanation,.complete,.results>div,.control,.sequenceBoard){
+ background:var(--c-surface-2);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.challenge p,.explanation p,.complete p,.control span,.hint,.exerciseLimit,.disclaimer){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.challenge svg,.complete svg,.activityEyebrow,.exerciseContinue,.exerciseReset){
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .predictions button[aria-pressed=true]{
+ background:#176e55;
+ border-color:#4fd1c5;
+ color:#fff;
+}
+:global(:root[data-ed-theme="dark"]) :is(.predictions button,.controls input,.confirmButton):focus-visible{
+ outline:3px solid var(--c-focus);
+ outline-offset:3px;
+}
+:global(:root[data-ed-theme="dark"]) .warning{
+ background:var(--c-caution-soft);
+ border:1px solid var(--c-line-2);
+ color:var(--c-ink);
+ border-radius:9px;
+ padding:11px 13px;
+}

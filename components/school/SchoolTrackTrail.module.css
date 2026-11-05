@@ -57,3 +57,17 @@
 @media(max-width:380px){.trailHead{flex-wrap:wrap}.trailCount{flex-direction:row;align-items:center;gap:7px}.trailCount strong{font-size:20px}.steps{padding-inline-start:18px}.pathPin{inset-inline-start:-27px}}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.quest:hover .artGlyph{transform:scale(1.08)}.artGlyph{transition:transform .25s}}
 @media(prefers-reduced-motion:reduce){.quest,.artGlyph,.questAction svg{transition:none!important}.quest:hover,.quest:hover .questAction svg{transform:none}}
+
+/* Journey labels must not inherit the low-contrast daytime teal at night. */
+:global(:root[data-ed-theme="dark"]) .trail :is(.questMeta>span,.questMeta .isOpen,.trailCount strong,.trailCount small){
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .trail :is(.questMeta>span,.trailCount span,.trailHead p,.foot p){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .trail .questMeta .isOpen{
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .trail .questMeta .isOpen span{
+ background:#4fd1c5;
+}

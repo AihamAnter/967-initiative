@@ -252,3 +252,95 @@
 :global(:root[data-ed-theme="dark"]) .lessonHeading > a {
   color: var(--c-accent) !important;
 }
+
+
+/* Dark mode: complete the lesson/quiz palettes, including selected answers. */
+:global(:root[data-ed-theme="dark"]) :is(.wordTarget,.answer,.answerActive,.optionIndex,.lessonError,.outcomePassed,.outcomeRetry,.reviewGood,.reviewBad){
+ background:var(--c-surface-2);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.answer,.answerActive,.wordTarget){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .answerActive,
+:global(:root[data-ed-theme="dark"]) .answer:hover{
+ background:var(--c-accent-soft);
+ border-color:var(--c-accent);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .answerActive :is(span,strong,svg),
+:global(:root[data-ed-theme="dark"]) .answer :is(span,strong){
+ color:inherit;
+}
+:global(:root[data-ed-theme="dark"]) .optionIndex{
+ background:var(--c-bg);
+ color:var(--c-ink-2);
+ border:1px solid var(--c-line-2);
+}
+:global(:root[data-ed-theme="dark"]) .outcomePassed{
+ background:var(--c-leaf-soft);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .outcomeRetry{
+ background:var(--c-caution-soft);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.outcomePassed,.outcomeRetry) :is(h2,strong,p,span){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.reviewGood,.reviewBad){
+ background:var(--c-surface);
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.reviewGood,.reviewBad) :is(strong,span){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.reviewGood,.reviewBad) p,
+:global(:root[data-ed-theme="dark"]) .questionFooter p,
+:global(:root[data-ed-theme="dark"]) .questionStatus{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .lessonError{
+ background:var(--c-danger-soft);
+ border-color:var(--c-danger);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.lessonError,.lessonError a){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.questionKind,.progressSummary,.questionExample>span,.outcomeActions>a:last-child){
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) :is(.questionExample p,.footBuilder>small,.sectionIntro>p,.wordTarget small){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .footBuilder>button{
+ background:var(--c-accent-soft);
+ color:var(--c-accent);
+ border:1px solid var(--c-line-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.answer,.answerActive,.footKeys button,.patternKeys button):focus-visible{
+ outline:3px solid var(--c-focus);
+ outline-offset:3px;
+}
+
+
+/* Arud journey: status labels were too dark on dark station cards. */
+:global(:root[data-ed-theme="dark"]) :is(.stationStatus,.progressSummary,.stationBottom,.questionKind,.lessonHeading>div>span){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.station,.stationDone) .stationStatus{
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .stationLocked .stationStatus{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.station,.stationDone,.stationLocked) .stationIndex{
+ color:var(--c-ink-3);
+}
+:global(:root[data-ed-theme="dark"]) :is(.station,.stationDone,.stationLocked) .stationBottom{
+ border-top-color:var(--c-line-2);
+}

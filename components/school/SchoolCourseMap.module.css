@@ -77,3 +77,18 @@
 @media(max-width:630px){.courseProgress{grid-template-columns:minmax(0,1fr);padding:18px}.courseContinue{width:100%}.courseTrack{grid-column:1}.courseTimeline{padding:18px 12px;border-radius:15px}.timelineStage{min-height:133px;padding-bottom:22px}.timelineStage:before{inset-inline-start:16px}.timelineStage:after{inset-inline-start:8px}.timelineNode{top:15px;inset-inline-start:0;width:37px;height:37px}.timelineStage>a,.timelineStage>div,.timelineStage:nth-child(even)>a,.timelineStage:nth-child(even)>div{width:calc(100% - 50px);margin-inline-start:50px;padding:12px;gap:9px}.timelineIndex{width:34px;height:34px}.timelineBody strong{font-size:12px}.timelineBody small{font-size:11px}.timelineSegment,.timelineStage:nth-child(even) .timelineSegment{display:none}.courseAuthBox{padding:16px}.courseAuthActions>a{flex:1}}
 @media(max-width:375px){.courseTimeline{padding-inline:9px}.timelineStage>a,.timelineStage>div,.timelineStage:nth-child(even)>a,.timelineStage:nth-child(even)>div{width:calc(100% - 44px);margin-inline-start:44px}.timelineBody strong{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.courseTrack span,.timelineStage>a{transition:none}.timelineStage>a:hover{transform:none}}
+
+/* Distinct error, link and wayfinding contrast on the authenticated route. */
+:global(:root[data-ed-theme="dark"]) .courseMap .error{
+ background:var(--c-danger-soft);
+ border:1px solid var(--c-danger);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .courseMap .routeHead>div>span{
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .courseMap .courseAuthActions a+a{
+ background:var(--c-surface-2);
+ border:1px solid var(--c-line-2);
+ color:var(--c-ink);
+}

@@ -81,3 +81,17 @@
 @media(max-width:360px){.worldItem{padding-inline-start:24px}.worldItem:before{inset-inline-start:11px}.roadNode{inset-inline-start:-5px;width:33px;height:33px}.worldKicker .open{display:none}.routeBadges{gap:5px}.routeBadges span{padding:6px}.landmarks>span{font-size:10px}.scene{min-height:160px;max-height:160px}}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.world:hover .sceneMark{transform:scale(1.05) rotate(-4deg)}.sceneMark{transition:transform .25s ease}}
 @media(prefers-reduced-motion:reduce){.world,.worldAction svg,.sceneMark{transition:none!important}.world:hover,.world:hover .worldAction svg{transform:none}}
+
+/* The illustrative world map retains readable badges on dark destinations. */
+:global(:root[data-ed-theme="dark"]) .map :is(.futureTag,.lockText,.worldKicker .open,.worldKicker>span:first-child){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .map .worldKicker .open{
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .map .futureTag{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .map .mapTag svg{
+ color:var(--c-accent);
+}

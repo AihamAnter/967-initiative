@@ -421,3 +421,130 @@
  outline:3px solid var(--c-focus);
  outline-offset:3px;
 }
+
+
+/* Complete school dark-mode audit — status badges, results and Musnad pages. */
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked){
+ background:var(--c-surface);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root .stationLocked{
+ background:var(--c-surface-2);
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationTop>span:first-child{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationTop :is(.done,.open,.locked,.staffOpen){
+ border:1px solid var(--c-line-2);
+ font-weight:850;
+ opacity:1;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationTop .done{
+ background:#173d2c;
+ border-color:#417e61;
+ color:#d5f9dc;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationTop .open{
+ background:#153d35;
+ border-color:#397d6b;
+ color:#d4fff0;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationTop .locked{
+ background:#31393e;
+ border-color:#566269;
+ color:#f0f5f4;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationTop .staffOpen{
+ background:#173a52;
+ border-color:#457f9f;
+ color:#e4f6ff;
+}
+:global(:root[data-ed-theme="dark"]) .root .stationTop :is(.done,.open,.locked,.staffOpen) svg{
+ color:inherit;
+}
+:global(:root[data-ed-theme="dark"]) .root .stationNumber{
+ color:#9eb7aa;
+}
+:global(:root[data-ed-theme="dark"]) .root .stationLocked .stationNumber{
+ color:#8e9d98;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationCopy h3{
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationCopy p,
+:global(:root[data-ed-theme="dark"]) .root :is(.station,.stationLocked) .stationFoot{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root .stationFoot{
+ border-top-color:var(--c-line-2);
+}
+:global(:root[data-ed-theme="dark"]) .root .staffPreviewNotice{
+ background:#142d3d;
+ color:#e2f1ff;
+ border:1px solid #41647c;
+}
+:global(:root[data-ed-theme="dark"]) .root .staffPreviewNotice :is(strong,p,svg,span){
+ color:inherit;
+}
+
+/* The question feedback panels must not remain cream/white in dark mode. */
+:global(:root[data-ed-theme="dark"]) .root :is(.reviewCorrect,.reviewWrong,.lessonError){
+ background:var(--c-surface);
+ border:1px solid var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root .reviewCorrect{
+ border-inline-start:4px solid #68c59b;
+}
+:global(:root[data-ed-theme="dark"]) .root .reviewWrong{
+ border-inline-start:4px solid #e1af78;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.reviewCorrect,.reviewWrong) :is(p,span){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root .reviewCorrect>span{
+ color:#8de0b7;
+}
+:global(:root[data-ed-theme="dark"]) .root .reviewWrong>span{
+ color:#ffc998;
+}
+:global(:root[data-ed-theme="dark"]) .root .lessonError{
+ background:var(--c-danger-soft);
+ border-color:var(--c-danger);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.lessonError,.lessonError a){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.quizFooter span,.lessonPage .breadcrumb,.stationFoot,.pathEnd,.sectionTitle p,.stationCopy p){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.quizProgress,.quizProgress>span){
+ border-color:var(--c-line-2);
+}
+:global(:root[data-ed-theme="dark"]) .root .quizProgress{
+ background:var(--c-surface-2);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.chapterHeading>div>span,.chapterHeading>span){
+ color:var(--c-ink-2);
+}
+
+/* The Musnad freehand canvas uses fixed dark-green ink (#176456).
+   Provide a light writing sheet even while its surrounding UI is dark. */
+:global(:root[data-ed-theme="dark"]) .root .writingBoard{
+ background-color:#f5faf4;
+ border:1px solid #7fa996;
+ background-image:repeating-linear-gradient(0deg,transparent 0 81px,#bcd4c4 82px);
+ color:#173e2d;
+}
+:global(:root[data-ed-theme="dark"]) .root .writingBoard :is(.writingGhost,.writingHint){
+ color:#58776b;
+}
+:global(:root[data-ed-theme="dark"]) .root .writingPanelTop>div>span{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root .writingSelectedGlyph{
+ color:var(--c-ink);
+}

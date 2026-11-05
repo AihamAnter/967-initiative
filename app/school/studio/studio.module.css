@@ -511,3 +511,65 @@
  color:var(--school-text);
  border-color:var(--school-edge);
 }
+
+
+/* Remaining lesson and authoring surfaces, plus correctly visible ink on canvas. */
+:global(:root[data-ed-theme="dark"]) .root :is(.calligraphyPractice,.courseAuthBox,.courseStageLink,.scriptHistorical,.practiceSample,.lessonCard,.report){
+ background:var(--c-surface);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scriptHeading span,.status,.notice,.target,.orderAnswer,.orderAnswer span,.lessonCard .answerReview,.scriptExerciseText){
+ background:var(--c-surface-2);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scriptHeading,.scriptHeading span,.scriptExerciseText small,.scriptArchiveCaption,.calligraphyPractice .practiceNote,.practiceSample span,.orderExercise p,.courseStageLink small){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scriptLiveText>strong,.scriptExerciseText>strong,.practiceSample strong,.calligraphyPractice h2,.courseAuthBox h3,.courseStageLink){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scriptCredit,.courseStageLink:hover,.practiceEyebrow,.notice){
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.courseAuthBox p,.calligraphyPractice p,.report p,.report td){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root .scriptHistoricalImage{
+ background:var(--c-surface-2);
+}
+:global(:root[data-ed-theme="dark"]) .root .guidedCaution{
+ background:var(--c-caution-soft);
+ color:var(--c-ink);
+ border:1px solid var(--c-line-2);
+}
+/* The canvas itself is paper, not a dark box: the drawing tool paints
+   #204d3c strokes. Keeping paper light guarantees visible strokes and matches
+   the PNG export, while the outer workshop stays in the dark theme. */
+:global(:root[data-ed-theme="dark"]) .root .practiceCanvas{
+ background-color:#f5faf4;
+ border:1px solid #7ea995;
+ background-image:linear-gradient(to bottom,transparent 0,transparent 31%,#b8d1c0 31.5%,transparent 32%,transparent 64%,#b8d1c0 64.5%,transparent 65%,transparent 96%,#b8d1c0 96.5%);
+ color:#153d2f;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.editor label,.practiceScriptPicker,.typeExercise){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.sidebar>button.activeCourse,.tabs button[aria-pressed=true]){
+ background:var(--c-accent-soft);
+ border-color:var(--c-accent);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root .tabs button{
+ border-color:var(--c-line-2);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.actions button.secondary,.orderUndo){
+ background:var(--c-surface-2);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.actions button,.genericChoices button,.courseAuthActions a,.guidedActions button,.practiceTools button):focus-visible{
+ outline:3px solid var(--c-focus);
+ outline-offset:3px;
+}

@@ -216,3 +216,80 @@
 :global(:root[data-ed-theme="dark"]) .dashboard p,
 :global(:root[data-ed-theme="dark"]) .dashboard small,
 :global(:root[data-ed-theme="dark"]) .dashboard .stat>span{color:var(--c-ink-2)}
+
+
+/* Dashboard night palette: XP, review, badges, goals and leaderboard. */
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.xpPanel,.leaderboardEntry,.periodTabs,.reviewItem .reviewContext,.goalChoice,.goalSelected,.courseTop>span:last-child,.achievementIcon,.achievementLocked .achievementIcon,.leaderboardMine,.leaveCompetition){
+ background:var(--c-surface-2);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .xpPanel{
+ background:linear-gradient(135deg,var(--c-surface),var(--c-surface-2));
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.xpEyebrow,.xpNumbers>span,.xpPanel>p,.xpHeading>div>span,.courseXp span,.courseTop,.courseFoot,.progressLabel,.habitProgressLabel,.habitHeading,.achievementProgress,.leaderboardRank,.leaderboardInfo,.leaderboardPoints small,.privacyLabel){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.resume>div>span,.titleRow>div>span,.xpNumbers strong,.courseXp,.habitHeading svg,.reviewItem>span){
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.resume>div>span,.resume p,.resume small){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.courseFoot a,.reviewItem a,.achievementIcon,.leaderboardRank){
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .reviewItem .reviewContext{
+ background:var(--c-surface-2);
+ border:1px solid var(--c-line-2);
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .reviewItem .reviewContext :is(strong,span){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.achievementEarned,.leaderboardMine){
+ background:var(--c-accent-soft);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .achievementLocked{
+ opacity:1;
+ background:var(--c-surface-2);
+ border-color:var(--c-line-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .achievementLocked .achievementIcon{
+ background:var(--c-surface);
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .achievementLocked :is(strong,p,span){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .goalSelected{
+ background:var(--c-accent-soft);
+ border-color:var(--c-accent);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.goalChoice,.periodTab){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .periodSelected{
+ background:#176e55;
+ color:#fff;
+}
+:global(:root[data-ed-theme="dark"]) .dashboard .leaveCompetition{
+ background:var(--c-danger-soft);
+ border:1px solid var(--c-danger);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.xpTrack,.habitTrack,.track){
+ background:var(--c-surface-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.course,.habitCard,.stat,.achievement,.reviewItem,.leaderboardEntry,.xpPanel) :is(p,small){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .dashboard :is(.goalChoice,.goalSelected,.periodTab,.periodSelected,.leaveCompetition,.participationForm button):focus-visible{
+ outline:3px solid var(--c-focus);
+ outline-offset:3px;
+}
