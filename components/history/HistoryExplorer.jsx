@@ -1,16 +1,16 @@
 'use client';
 import {useMemo,useState,useEffect} from 'react';
 import Link from '@/components/SiteLink';
-import {ArrowUpLeft,BookOpen,CalendarDays,MapPinned,Search,ScrollText,SlidersHorizontal,Layers,GitCompareArrows} from 'lucide-react';
+import {ArrowUpLeft,BookOpen,CalendarDays,MapPinned,Search,ScrollText,SlidersHorizontal,Layers} from 'lucide-react';
 import {historyEras,historyKinds,historyEntryPath,historyYear} from '@/lib/yemenHistory';
 import styles from './HistoryExplorer.module.css';
 import HistoryTimeline from './HistoryTimeline';
 import HistoryMedia from './HistoryMedia';
+import HistoryComparison from './HistoryComparison';
 
 function normalized(s){return String(s||'').normalize('NFKD').replace(/[\u064B-\u065F]/g,'').replace(/[أإآ]/g,'ا').toLowerCase();}
 export default function HistoryExplorer({entries,initialEra='',initialType=''}) {
  const [era,setEra]=useState(initialEra),[type,setType]=useState(initialType),[query,setQuery]=useState(''),[mode,setMode]=useState('timeline'),[more,setMore]=useState(12);
- const [first,setFirst]=useState(''),[second,setSecond]=useState('');
  useEffect(()=>{
   const onBack=()=>{const p=new URLSearchParams(location.search);setEra(p.get('era')||'');setType(p.get('type')||'');};
   addEventListener('popstate',onBack);return()=>removeEventListener('popstate',onBack);
@@ -20,12 +20,11 @@ export default function HistoryExplorer({entries,initialEra='',initialType=''}) 
   const p=new URLSearchParams(location.search);
   if(nextEra)p.set('era',nextEra);else p.delete('era');
   if(nextType)p.set('type',nextType);else p.delete('type');
-  history.replaceState(history.state,'',location.pathname+(p.size?'?'+p:''));
+  history.replaceState(history.state,'',location.pathname+(p.size?'?'+p:'')+location.hash);
  };
  const published=useMemo(()=>entries.filter(e=>e.isPublished!==false),[entries]);
  const selected=useMemo(()=>published.filter(e=>(!era||e.era===era)&&(!type||e.kind===type)&&(!query||normalized([e.title,e.summary,e.period,e.location].join(' ')).includes(normalized(query)))),[published,era,type,query]);
  const states=published.filter(e=>e.kind==='state');
- const a=states.find(e=>e.slug===first),b=states.find(e=>e.slug===second);
  return <div className={styles.wrap}>
   <div className={styles.eras} aria-label="اختر عصراً تاريخياً لاستكشاف محطاته على الخط الزمني">
    {historyEras.map((item,index)=><button key={item.id} className={era===item.id?styles.eraSelected:styles.era} type="button" onClick={()=>change(era===item.id?'':item.id,type)} aria-pressed={era===item.id}>
@@ -51,11 +50,7 @@ export default function HistoryExplorer({entries,initialEra='',initialType=''}) 
     <div className={styles.cardBottom}><span><BookOpen size={15}/> {entry.sources?.length||0} مصادر</span>{entry.location&&<span><MapPinned size={15}/>{entry.location}</span>}<Link href={historyEntryPath(entry.slug)} aria-label={'قراءة '+entry.title}>اقرأ الملف <ArrowUpLeft size={16}/></Link></div>
    </article>)}</div>}
   {mode==='cards'&&selected.length>more&&<button className={styles.more} type="button" onClick={()=>setMore(x=>x+12)}>عرض المزيد ({Math.min(12,selected.length-more).toLocaleString('ar')})</button>}
-  <section id="compare" className={styles.compare} aria-labelledby="history-compare-heading">
-   <div><span className="eyebrow">معرفة في سياقها</span><h2 id="history-compare-heading"><GitCompareArrows size={24}/> قارن بين دولتين</h2><p>قارن التواريخ التقريبية ومراكز الارتباط والمراجع، دون افتراض تطابق الحدود القديمة مع الخريطة الحديثة.</p></div>
-   <div className={styles.compareSelectors}><label>الدولة الأولى<select value={first} onChange={e=>setFirst(e.target.value)}><option value="">اختر دولة</option>{states.map(x=><option key={x.slug} value={x.slug}>{x.title}</option>)}</select></label><label>الدولة الثانية<select value={second} onChange={e=>setSecond(e.target.value)}><option value="">اختر دولة</option>{states.map(x=><option key={x.slug} value={x.slug}>{x.title}</option>)}</select></label></div>
-   {a&&b&&(a.slug!==b)?<div className={styles.compareGrid}>{[a,b].map(x=><div key={x.slug}><h3>{x.title}</h3><dl><dt>الفترة</dt><dd>{x.period}</dd><dt>التاريخ المرجعي</dt><dd>{historyYear(x.year)}</dd><dt>المكان المرتبط</dt><dd>{x.location||'مناطق متعددة'}</dd><dt>المصادر</dt><dd>{x.sources?.length||0}</dd></dl><Link href={historyEntryPath(x.slug)}>الملف الكامل <ArrowUpLeft size={15}/></Link></div>)}</div>:<p className={styles.compareHint}>اختر دولتين مختلفتين لعرض المقارنة.</p>}
-  </section>
+  <HistoryComparison entries={states}/>
   <section className={styles.evidence}><ScrollText size={24}/><div><h2>كيف نعرف ما حدث؟</h2><p>نعتمد في المواد على النقوش والمواقع الأثرية والدراسات التاريخية والمراجع المنشورة. التواريخ القديمة تقريبية وقد تتداخل الممالك والدول؛ لا تعرض الخريطة الحالية حدوداً سياسية قديمة.</p></div></section>
  </div>;
 }

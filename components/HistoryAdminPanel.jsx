@@ -6,6 +6,7 @@ import {historyEras,historyKinds} from '@/lib/yemenHistory';
 import {yemenGovernorates} from '@/lib/yemeniFigures';
 import useAdminEditor from './admin/useAdminEditor';
 import HistoryMedia from './history/HistoryMedia';
+import HistoryComparisonEditor from './history/HistoryComparisonEditor';
 import styles from './history/HistoryAdminPanel.module.css';
 
 const blank=()=>({slug:'',title:'',kind:'event',era:'modern',year:1990,period:'',summary:'',paragraphs:[''],sources:[{title:'',url:''}],related:[],location:'',governorate:'',figureQuery:'',certainty:'',images:[],hideImages:false,isPublished:false});
@@ -31,7 +32,7 @@ export default function HistoryAdminPanel({db,canDelete=false,initialItem=''}){
   finally{if(mounted.current)setLoading(false);}
  },[api,editor.markClean,initialItem]);
  useEffect(()=>{mounted.current=true;load();return()=>{mounted.current=false;};},[load]);
- const patch=(key,value)=>{setForm(f=>({...f,[key]:value}));setMessage('');};
+ const patch=(key,value)=>{setForm(f=>({...f,[key]:value,...(key==='kind'&&value!=='state'?{comparison:undefined}:{})}));setMessage('');};
  const pick=entry=>{if(!editor.confirm())return;choose(entry);};
  async function save(e){
   e.preventDefault();if(busy||!form)return;setBusy(true);setMessage('');
@@ -65,6 +66,7 @@ export default function HistoryAdminPanel({db,canDelete=false,initialItem=''}){
      {field('ملخص المادة',<textarea required minLength={25} maxLength={700} rows={3} value={form.summary} onChange={e=>patch('summary',e.target.value)}/>)}
      {field('فقرات المادة (افصل بين الفقرات بسطر فارغ)',<textarea required rows={11} value={form.paragraphs.join('\n\n')} onChange={e=>patch('paragraphs',e.target.value.split(/\n\s*\n/))}/>)}
      {field('المراجع – سطر لكل مصدر بالصيغة: العنوان | https://example.com',<textarea required rows={4} dir="auto" value={form.sources.map(s=>s.title+' | '+s.url).join('\n')} onChange={e=>patch('sources',e.target.value.split('\n').filter(Boolean).map(line=>{const j=line.lastIndexOf(' | ');return j<0?{title:line,url:''}:{title:line.slice(0,j),url:line.slice(j+3)}}))}/>)}
+     {form.kind==='state'&&<HistoryComparisonEditor value={form.comparison} sources={form.sources} onChange={value=>patch('comparison',value)}/>}
      <div className={styles.photoEditor}>
       <h4>الصور والوثائق البصرية</h4>
       <p>يمكنك إضافة ما يصل إلى 8 صور مرخّصة من ويكيميديا كومنز. كل سطر: اسم الملف | وصف الصورة | المصور أو المصدر | الترخيص. صور الأرشيف الافتراضية سياقية، أما الصور الجديدة فيمكن تخصيصها لكل مادة.</p>
