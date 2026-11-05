@@ -936,3 +936,61 @@
     transform:none!important;
   }
 }
+
+/* Progressive disclosure keeps large source-backed catalogs scannable. */
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-more-entries,
+.site-experience .interior-page[data-area="products"] .company-more-products{
+  margin-top:14px;
+  min-width:0;
+  border:1px solid var(--c-line-2);
+  border-radius:12px;
+  padding:0 13px;
+  background:var(--c-surface-2);
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-more-entries > summary,
+.site-experience .interior-page[data-area="products"] .company-more-products > summary{
+  display:list-item;
+  cursor:pointer;
+  list-style-position:inside;
+  min-height:48px;
+  align-content:center;
+  padding-block:12px;
+  color:var(--directory-accent);
+  font-size:14px;
+  font-weight:750;
+}
+.site-experience .interior-page:is([data-area="universities"],[data-area="medical"]) .institution-more-entries > .institution-programs,
+.site-experience .interior-page[data-area="products"] .company-more-products > .company-product-list{
+  padding-block:12px 15px;
+  border-top:1px solid var(--c-line);
+}
+.site-experience .interior-page[data-area="products"] .company-contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.site-experience .interior-page[data-area="products"] .company-contact-links a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:10px 12px;
+  min-height:44px;
+  font-size:13px;
+  line-height:1.7;
+  overflow-wrap:anywhere;
+}
+.site-experience .interior-page[data-area="products"] .company-contact-links .company-phone-link,
+.site-experience .interior-page[data-area="products"] .company-contact-links .company-email-link{
+  color:var(--c-ink);
+  background:var(--c-surface-2);
+  border:1px solid var(--c-line-2);
+}
+.site-experience .interior-page[data-area="products"] .company-contact-links .company-phone-link:hover,
+.site-experience .interior-page[data-area="products"] .company-contact-links .company-email-link:hover{
+  color:var(--directory-accent);
+  border-color:var(--directory-accent);
+}
+:root[data-ed-theme="dark"] .site-experience .interior-page:is([data-area="universities"],[data-area="medical"],[data-area="products"]) :is(input,select){
+  color-scheme:dark;
+}
