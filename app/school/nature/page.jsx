@@ -7,6 +7,7 @@ import {pageMetadata} from '@/lib/seo';
 import {serverDb} from '@/lib/supabase-server';
 import {publishedSchoolCatalog,publishedSchoolStages} from '@/lib/schoolContentServer';
 import styles from '../school.module.css';
+import SchoolTrackTrail from '@/components/school/SchoolTrackTrail';
 export const dynamic='force-dynamic';
 export const metadata=pageMetadata({title:'الفلك والطبيعة | مدرسة 967',description:'اكتشف المجموعة الشمسية والطقس والأرض من الداخل وأسرار الكون عبر 48 محطة وتجارب علمية.',path:'/school/nature'});
 const TRACKS=[
@@ -36,16 +37,7 @@ export default async function SchoolNaturePage(){
   <section className={styles.catalogSection}><div className="container">
    <div className={styles.sectionTitle}><div><span>المسارات الأربعة</span><h2>اختر موضوعًا لتجربته</h2></div>
     <p>12 محطة في كل مسار. تعلم أولًا، ثم توقع نتيجة التجربة، وغيّر المتغيرات قبل بدء الاختبار. اجتياز 5 من 6 يفتح المحطة التالية.</p></div>
-   <div className={styles.natureCourseGrid}>
-    {tracks.filter(Boolean).map(({slug,icon:Icon,glyph,course,stageCount,tag})=>
-     <Link className={styles.natureCourseCard} href={'/school/courses/'+slug} key={slug}>
-      <div className={styles.natureCardHead}><Icon size={28}/><span>{stageCount} محطة</span></div>
-      <div className={styles.natureCardGlyph} aria-hidden="true">{glyph}</div>
-      <span className={styles.natureCardLabel}>{tag}</span>
-      <h3>{course.title}</h3><p>{course.description}</p>
-      <span className={styles.cardAction}>استكشف التجارب <ArrowLeft size={17}/></span>
-     </Link>)}
-   </div>
+   <SchoolTrackTrail theme="nature" tracks={tracks.filter(Boolean).map(({slug,icon,glyph,course,stageCount,tag})=>({slug,icon,glyph,title:course.title,description:course.description,count:stageCount,label:tag}))} intro="من أقرب الكواكب إلى أبعد المجرات: افتح رحلة علمية واختر التجربة التي تثير فضولك."/>
    {!tracks.some(Boolean)&&<p className={styles.logicEmpty}>لم تُنشر مسارات هذا القسم بعد.</p>}
    <div className={styles.natureFootnote}><FlaskConical size={18}/> نماذج علمية مبسطة مع مصادر موثقة، وليست توقعات جوية أو جيولوجية أو فلكية تشغيلية.</div>
   </div></section>

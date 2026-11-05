@@ -10,6 +10,7 @@ import {serverDb} from '@/lib/supabase-server';
 import {publishedSchoolCatalog,publishedSchoolStages} from '@/lib/schoolContentServer';
 import school from '../school.module.css';
 import styles from './civic.module.css';
+import SchoolTrackTrail from '@/components/school/SchoolTrackTrail';
 export const dynamic='force-dynamic';
 export const metadata=pageMetadata({title:'السياسة والاقتصاد | مدرسة 967',description:'تعلّم الدولة وأنظمة الحكم والاقتصاد والبنوك عبر محطات ومحاكاة قرارات حيادية.',path:'/school/civic'});
 const TRACKS=[
@@ -36,14 +37,7 @@ export default async function SchoolCivicPage(){
   </div></header>
   <section className={school.catalogSection}><div className="container">
    <div className={school.sectionTitle}><div><span>المرحلة الأولى</span><h2>أربعة مسارات، 48 محطة</h2></div><p>12 محطة في كل مسار؛ النجاح في 5 من 6 أسئلة يفتح التالية. محاكاة القرارات للتجربة والتعلم، ولا تمنح درجة سياسية.</p></div>
-   <div className={styles.cards}>
-    {tracks.filter(Boolean).map(({slug,icon:Icon,area,course,count})=>
-     <Link key={slug} className={styles.card} href={'/school/courses/'+slug}>
-      <div className={styles.cardTop}><Icon size={30}/><span>{area} · {count} محطة</span></div>
-      <h3>{course.title}</h3><p>{course.description}</p>
-      <span className={styles.cardAction}>ابدأ المسار <ArrowLeft size={18}/></span>
-     </Link>)}
-   </div>
+   <SchoolTrackTrail theme="civic" tracks={tracks.filter(Boolean).map(({slug,icon,area,course,count})=>({slug,icon,glyph:area==='السياسة'?'§':'%',title:course.title,description:course.description,count,label:area}))} intro="تعرّف على العالم من زاوية صنع القرار: كيف تعمل الدول والأسواق والمال؟ تعلّم الفكرة ثم جرّب أثر القرار."/>
    {!tracks.some(Boolean)&&<p className={styles.note}>لم تُنشر مسارات السياسة والاقتصاد بعد.</p>}
    <div className={styles.note}><Wallet size={17} style={{verticalAlign:'middle'}}/> تستخدم المختبرات دولًا وأسواقًا افتراضية ونماذج حسابية محددة. النتائج التعليمية لا تصنّف الأنظمة السياسية ولا تتنبأ بالأحداث أو الأسعار.</div>
   </div></section>

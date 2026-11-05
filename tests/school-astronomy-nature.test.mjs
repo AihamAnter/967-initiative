@@ -120,9 +120,11 @@ test('science learning sequence mandates prediction and at least one real slider
 test('public section, protected progression and migration remain compatible with existing school courses',()=>{
  const landing=read('app/school/page.jsx');
  const section=read('app/school/nature/page.jsx');
- assert.ok(landing.includes('href="/school/nature"'));
+ assert.ok(landing.includes('<SchoolWorldMap/>'));
+ const worlds=read('components/school/SchoolWorldMap.jsx');
+ assert.ok(worlds.includes("href:'/school/nature'"));
  assert.ok(landing.includes('180 محطة'));
- assert.ok(landing.includes('href="/school/civic"'));
+ assert.ok(worlds.includes("href:'/school/civic'"));
  assert.ok(section.includes("course.category!=='الفلك والطبيعة'"));
  assert.ok(section.includes("publishedSchoolCatalog"));
  assert.ok(read('lib/schoolGenericServer.js').includes('schoolStaffPreview'));

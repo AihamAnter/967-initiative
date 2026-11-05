@@ -97,7 +97,8 @@ test('Morse and gates are practical ungraded labs only after three teaching pane
  assert.ok(read('lib/schoolGenericServer.js').includes('gradeSchoolChoice'));
 });
 test('new courses are discoverable in their own category, not misfiled in Writing',()=>{
- assert.ok(read('app/school/page.jsx').includes('href="/school/logic"'));
+ assert.ok(read('app/school/page.jsx').includes('<SchoolWorldMap/>'));
+ assert.ok(read('components/school/SchoolWorldMap.jsx').includes("href:'/school/logic'"));
  assert.ok(read('app/school/logic/page.jsx').includes("course.category!=='المنطق والتفكير'"));
  assert.ok(read('app/school/writing/page.jsx').includes("c.category==='الكتابة والأدب'"));
  assert.ok(read('components/school/SchoolStudio.jsx').includes('المختبر التفاعلي للمحطة'));

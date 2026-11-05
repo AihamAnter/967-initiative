@@ -7,6 +7,7 @@ import {pageMetadata} from '@/lib/seo';
 import {serverDb} from '@/lib/supabase-server';
 import {publishedSchoolCatalog,publishedSchoolStages} from '@/lib/schoolContentServer';
 import styles from '../school.module.css';
+import SchoolTrackTrail from '@/components/school/SchoolTrackTrail';
 export const dynamic='force-dynamic';
 export const metadata=pageMetadata({title:'المنطق والتفكير | مدرسة 967',description:'تعلم الاستدلال والمغالطات ومورس والبوابات المنطقية في 48 محطة عملية.',path:'/school/logic'});
 const TRACKS=[
@@ -36,15 +37,7 @@ export default async function SchoolLogicPage(){
   <section className={styles.catalogSection}><div className="container">
    <div className={styles.sectionTitle}><div><span>المسارات الأربعة</span><h2>اختر مهارة تفكير جديدة</h2></div>
     <p>12 محطة متدرجة في كل مسار. اجتز خمس إجابات من ست في اختبار المحطة لفتح التالية. المختبرات للتعلّم وليست نقاطًا إضافية.</p></div>
-   <div className={styles.logicCourseGrid}>
-    {tracks.filter(Boolean).map(({slug,icon:Icon,visual,course,stageCount})=>
-     <Link key={slug} href={'/school/courses/'+slug} className={styles.logicCourseCard}>
-      <div className={styles.logicCardTop}><Icon size={29} aria-hidden="true"/><span>{stageCount} محطة</span></div>
-      <div className={styles.logicCardVisual} aria-hidden="true" dir="ltr">{visual}</div>
-      <h3>{course.title}</h3><p>{course.description}</p>
-      <span className={styles.cardAction}>ابدأ المسار <ArrowLeft size={18}/></span>
-     </Link>)}
-   </div>
+   <SchoolTrackTrail theme="logic" tracks={tracks.filter(Boolean).map(({slug,icon,visual,course,stageCount})=>({slug,icon,glyph:visual,title:course.title,description:course.description,count:stageCount,label:'تجارب في التفكير'}))} intro="كل مسار مغامرة مستقلة: استدلال وألغاز، كشف المغالطات، إشارات مورس والدوائر الرقمية."/>
    {tracks.every(c=>c===null)&&<p className={styles.logicEmpty}>لا توجد مسارات منشورة في هذا القسم حاليًا.</p>}
    <div className={styles.logicBottomNote}><BookOpen size={18}/> يمكنك التنقل بين المسارات الأربعة بحرية، لكن المحطات داخل كل مسار تُفتح بالترتيب.</div>
   </div></section>

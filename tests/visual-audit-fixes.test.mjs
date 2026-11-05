@@ -50,14 +50,17 @@ test('game selection is presented before account, weekly, and achievement sectio
  assert.ok(css.includes('min-height:154px'));
 });
 
-test('school and homepage tablet layouts have balanced final rows',()=>{
+test('school expedition map and homepage tablet layouts are responsive',()=>{
  const school=read('app/school/page.jsx');
- const schoolCss=read('app/school/school.module.css');
+ const world=read('components/school/SchoolWorldMap.jsx');
+ const css=read('components/school/SchoolWorldMap.module.css');
  const startCss=read('components/home/HomeSmartStart.module.css');
  assert.ok(school.includes('href="#school-paths"'));
  assert.ok(school.includes('id="school-paths"'));
- assert.ok(schoolCss.includes('.categoryLater{grid-column:1/-1'));
- assert.ok(schoolCss.includes('.categoryLater{grid-column:1/-1;min-height:0;padding:17px'));
+ assert.ok(school.includes('<SchoolWorldMap/>'));
+ assert.ok(world.includes('الفنون والمهارات'));
+ assert.ok(css.includes('@media(max-width:700px)'));
+ assert.ok(css.includes('@media(max-width:360px)'));
  assert.ok(startCss.includes('.grid>*:last-child:nth-child(odd){grid-column:1/-1}'));
  assert.ok(startCss.includes('.grid>*:last-child:nth-child(odd){grid-column:auto}'));
 });
