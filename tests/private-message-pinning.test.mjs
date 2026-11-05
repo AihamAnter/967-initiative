@@ -53,7 +53,7 @@ async function fixture(t){
 test('pin action validates authenticated conversation and message IDs',()=>{
  assert.equal(validateMessagingAction({action:'pin',conversation:A,message:B}).p_message,B);
  assert.equal(validateMessagingAction({action:'unpin',conversation:A,message:B}).p_action,'unpin');
- assert.throws(()=>validateMessagingAction({action:'pin',conversation:A,message:'invalid'}),/التثبيت/);
+ assert.throws(()=>validateMessagingAction({action:'pin',conversation:A,message:'invalid'}),/الرسالة المحددة للتثبيت غير صالحة/);
  assert.throws(()=>validateMessagingAction({action:'unpin',conversation:'invalid',message:B}),/المحادثة/);
 });
 

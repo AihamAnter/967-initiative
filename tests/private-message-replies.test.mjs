@@ -95,7 +95,7 @@ test('quote navigation and portal remain bounded inside the chat view',()=>{
  assert.match(ui,/onClick=\{\(\)=>replyToMessage\(selectedMenuMessage\)\}>رد/);
  assert.match(ui,/className=\{styles\.messageQuote\}/);
  assert.match(ui,/jumpToOriginal\(entry\.message\.reply_to_message_id\)/);
- assert.match(ui,/العودة إلى أحدث الرسائل/);
+ assert.match(ui,/\(historical\|\|showLatestJump\)&&<button type="button" className=\{styles\.latest\} onClick=\{returnToLatest\}>الانتقال إلى أحدث رسالة/);
  assert.match(api,/reply_to_message_id/);
  assert.match(api,/\.eq\('conversation_id',conversation\)\.eq\('id',around\)/);
  assert.match(replies,/m\.conversation_id=c\.id/);

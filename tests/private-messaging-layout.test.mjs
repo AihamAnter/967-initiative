@@ -31,7 +31,14 @@ test('chat opens on latest message while older-message navigation remains possib
  assert.match(view,/ref=\{messagesRef\}/);
  assert.match(view,/const scrollStateRef=useRef\(\{conversation:null,lastMessage:null\}\)/);
  assert.match(view,/box\.scrollTop=box\.scrollHeight/);
- assert.match(view,/if\(previous\.conversation!==selected\|\|previous\.lastMessage!==lastMessage\)/);
+ // Opening a conversation lands on the unread divider when there is one,
+ // otherwise on the latest message; a new message only follows when the
+ // reader is near the bottom and not browsing older history.
+ assert.match(view,/\}else if\(previous\.conversation!==selected\)\{/);
+ assert.match(view,/const divider=box\.querySelector\('\[data-unread-separator\]'\)/);
+ assert.match(view,/\}else box\.scrollTop=box\.scrollHeight;/);
+ assert.match(view,/\}else if\(previous\.lastMessage!==lastMessage&&!historicalRef\.current\)\{/);
+ assert.match(view,/if\(distance<150\)box\.scrollTop=box\.scrollHeight/);
  assert.match(view,/setThread\(previous=>previous\?\.conversation\?\.id===id\?previous:null\)/);
  assert.match(view,/messages:\[\.\.\.data\.messages,\.\.\.t\.messages\]/);
 });

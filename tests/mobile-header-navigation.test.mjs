@@ -37,6 +37,7 @@ test('mobile top displays messaging beside theme, search stays available below',
  assert.match(tools,/className="ed-tool ed-tool-icon ed-message-link"/);
  assert.match(tools,/className="ed-tool ed-tool-icon ed-top-search"/);
  assert.match(tools,/newMessageCount>0&&<span className="ed-message-count"/);
- assert.match(css,/@media \(max-width: 360px\)/);
+ // The 360px rule only hid the brand name, which the header no longer renders
+ // (see header-brand-logo-only.test.mjs).
  assert.match(header,/!immersive && <nav className="ed-tabbar"/);
 });

@@ -212,6 +212,9 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const active = href => href !== '/' && !href.includes('#') && (path === href || path.startsWith(href + '/'));
   const sectionActive = section => section.links.some(([href]) => active(href));
   const mobileSectionActive = id => sections.some(section => section.id === id && sectionActive(section));
+  // Sections without their own tab live behind the phone menu button, so its
+  // label tells screen-reader users which of those sections they are in.
+  const mobileMenuSection = sections.find(section => !['media','knowledge'].includes(section.id) && sectionActive(section));
   const onlyOneOpen = event => {if (event.currentTarget.open) header.current?.querySelectorAll('.ed-nav-group[open]').forEach(item => {if (item !== event.currentTarget) item.removeAttribute('open');});};
   const account = signedIn === true ? (canEdit ? utilityLinks.editor : utilityLinks.account) : signedIn === false ? utilityLinks.login : null;
   const savedVisible = isVisible(utilityLinks.saved[0]);
@@ -220,7 +223,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
 
   return <header className="ed-header" ref={header} data-open={open || undefined} data-tabbar={!immersive || undefined}>
     <div className="ed-header-inner">
-      <button ref={mobileToggle} type="button" className="ed-tool ed-menu-toggle ed-mobile-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}</button>
+      <button ref={mobileToggle} type="button" className="ed-tool ed-menu-toggle ed-mobile-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : mobileMenuSection ? 'فتح القائمة، القسم الحالي: '+mobileMenuSection.label : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}</button>
       <Link href="/" className="ed-brand" onClick={close} aria-label="مبادرة 967 — الرئيسية"><BrandLogo priority className="ed-brand-mark"/></Link>
       <nav id="main-navigation" className="ed-nav" aria-label="التنقل الرئيسي">
         <form action="/search" role="search" className="ed-nav-search">
