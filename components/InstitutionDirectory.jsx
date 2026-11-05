@@ -59,7 +59,7 @@ export default function InstitutionDirectory({kind,items}){
   return <div className={'institution-directory '+(medical?'medical':'education')}>
     <div className="institution-toolbar">
       <div className="institution-toolbar-primary">
-        <label className="institution-search"><Search size={19} aria-hidden="true"/><input type="search" value={state.q} onChange={event=>set('q',event.target.value)} placeholder={medical?'ابحث عن مستشفى أو تخصص أو خدمة...':'ابحث عن جامعة أو معهد أو برنامج...'} aria-label={medical?'البحث في المراكز الطبية':'البحث في الجامعات والمعاهد'}/>{state.q&&<button type="button" onClick={()=>set('q','')} aria-label="مسح البحث"><X size={17}/></button>}</label>
+        <div className="institution-search"><Search size={19} aria-hidden="true"/><input type="search" value={state.q} onChange={event=>set('q',event.target.value)} placeholder={medical?'ابحث عن مستشفى أو تخصص أو خدمة...':'ابحث عن جامعة أو معهد أو برنامج...'} aria-label={medical?'البحث في المراكز الطبية':'البحث في الجامعات والمعاهد'}/>{state.q&&<button type="button" onClick={()=>set('q','')} aria-label="مسح البحث"><X size={17}/></button>}</div>
         {fields.governorates.length>1&&<SelectFilter label="المحافظة" value={state.governorate} onChange={value=>set('governorate',value)}>{fields.governorates.map(value=><option key={value}>{value}</option>)}</SelectFilter>}
         <button type="button" className="institution-filter-toggle" aria-expanded={filtersOpen} aria-controls={'institution-extra-'+kind} onClick={()=>setFiltersOpen(value=>!value)}>
           <SlidersHorizontal size={18} aria-hidden="true"/> فلاتر إضافية{active.length>0&&<span>{formatNumber(active.length)}</span>}<ChevronDown size={16} aria-hidden="true"/>
