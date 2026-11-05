@@ -114,3 +114,98 @@
 :global(:root[data-ed-theme="dark"]) .card p,
 :global(:root[data-ed-theme="dark"]) .lab p,
 :global(:root[data-ed-theme="dark"]) .lab small{color:var(--c-ink-2)}
+
+
+/*
+ * Dark-mode readability for simulations. These callouts used pale daytime
+ * backgrounds with white shared-theme text (near invisible on screenshots).
+ */
+:global(:root[data-ed-theme="dark"]) .lab{
+ --civic-panel:var(--c-surface);
+ --civic-raised:var(--c-surface-2);
+ --civic-text:var(--c-ink);
+ --civic-muted:var(--c-ink-2);
+ --civic-edge:var(--c-line-2);
+ --civic-link:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) :is(.lab,.note,.card){
+ background:var(--c-surface);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.activityStory,.exerciseExplanation,.observationPanel,.sequencePending,.sequenceDone){
+ background:var(--c-surface-2);
+ border:1px solid var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.activityEyebrow,.exerciseProgress,.exerciseContinue,.exerciseReset,.cardAction){
+ color:var(--c-accent);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exercisePrompt,.exerciseExplanation strong,.observationPanel strong,.labTitle h3,.choiceIndex,.numberField strong,.exerciseMetric>strong){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.activityStory,.exerciseExplanation p,.exerciseExplanation small,.observationPanel p,.observationPanel small,.exerciseLimit,.metricBefore,.labTitle p,.exerciseMetric>span,.numberField small,.sequencePending,.note){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) .exerciseExplanation{
+ background:var(--c-leaf-soft);
+}
+:global(:root[data-ed-theme="dark"]) .exerciseExplanation :is(strong,p,small,span){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .choiceIndex{
+ background:var(--c-bg);
+ border:1px solid var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.numberField,.exerciseMetric,.results>div){
+ background:var(--c-surface-2);
+ border-color:var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .numberField span{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exerciseChoices button,.pathGrid button,.predictions button){
+ background:var(--c-surface-2);
+ border:1px solid var(--c-line-2);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exerciseChoices button,.pathGrid button) :is(span,small){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exerciseChoices button,.pathGrid button) span:first-child{
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exerciseChoices button,.pathGrid button):hover{
+ background:var(--c-accent-soft);
+ border-color:var(--c-accent);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exerciseChoices button,.pathGrid button)[aria-pressed=true]{
+ background:var(--c-accent-soft);
+ border:2px solid var(--c-accent);
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exerciseChoices button,.pathGrid button)[aria-pressed=true] :is(span,small){
+ color:var(--c-ink);
+}
+:global(:root[data-ed-theme="dark"]) .sequenceDone{
+ background:var(--c-leaf-soft);
+ color:var(--c-ink);
+ border-color:var(--c-line-2);
+}
+:global(:root[data-ed-theme="dark"]) .sequencePending{
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.warning,.disclaimer,.hint,.explanation){
+ color:var(--c-ink-2);
+}
+:global(:root[data-ed-theme="dark"]) :is(.exerciseChoices button,.pathGrid button,.confirmButton,.exerciseReset):focus-visible{
+ outline:3px solid var(--c-focus);
+ outline-offset:3px;
+}
+/* The explanatory labels are not disabled; keep subdued text readable. */
+:global(:root[data-ed-theme="dark"]) .pathGrid button small{
+ opacity:1;
+}

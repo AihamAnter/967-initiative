@@ -336,3 +336,178 @@
 :global(:root[data-ed-theme="dark"]) .root p,
 :global(:root[data-ed-theme="dark"]) .root small,
 :global(:root[data-ed-theme="dark"]) .root label{color:var(--c-ink-2)}
+
+
+/*
+ * School dark-mode contrast repair (2026-11-05).
+ * Keep every teaching surface dark when the shared .root typography switches
+ * to light ink. Never put light text back on a light instructional panel.
+ */
+:global(:root[data-ed-theme="dark"]) .root{
+ --school-panel:var(--c-surface);
+ --school-panel-raised:var(--c-surface-2);
+ --school-text:var(--c-ink);
+ --school-text-muted:var(--c-ink-2);
+ --school-text-subtle:var(--c-ink-3);
+ --school-edge:var(--c-line-2);
+ --school-link:var(--c-accent);
+}
+
+/* Instruction pages, notes, definition blocks and the exact faded boxes. */
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedTips,.guidedExample,.learningIllustration,.learningSteps li,.learningTerm,.scienceLearningInstructions,.scienceObservation){
+ background:var(--school-panel-raised);
+ border:1px solid var(--school-edge);
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root .guidedLesson{
+ background:var(--school-panel);
+ border-color:var(--school-edge);
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedPage h2,.guidedTips h3,.guidedExample>strong,.learningSteps li strong,.learningTerm,.learningStory,.scienceLearningInstructions strong,.scienceObservation>strong){
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedPage .guidedBody,.guidedTips li,.guidedExample>p,.learningHint,.learningHint p,.learningSteps li,.scienceLearningInstructions ol,.scienceObservation>p,.scienceObservation>small){
+ color:var(--school-text-muted);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedTop,.guidedCount,.guidedExample>span,.illustrationEyebrow){
+ color:var(--school-text-muted);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedEyebrow,.scienceMicroLabel,.guidedScientificSource,.guidedReview,.scienceSource a,.scienceSource,.learningHint svg){
+ color:var(--school-link);
+}
+:global(:root[data-ed-theme="dark"]) .root .guidedLabel{
+ background:var(--c-accent-soft);
+ border:1px solid var(--school-edge);
+ color:var(--school-link);
+}
+:global(:root[data-ed-theme="dark"]) .root .guidedTrack{
+ background:var(--school-panel-raised);
+}
+:global(:root[data-ed-theme="dark"]) .root .learningHint{
+ border-top-color:var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root .learningSteps li>span{
+ background:#125646;
+ color:#fff;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedReady,.scienceActivityDone){
+ background:var(--c-leaf-soft);
+ color:var(--school-text);
+ border:1px solid var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedReady p,.guidedReady strong,.scienceActivityDone p,.scienceActivityDone strong){
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scienceActivityPrompt,.scienceCaveat){
+ background:var(--c-caution-soft);
+ color:var(--school-text);
+ border:1px solid var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scienceActivityPrompt p,.scienceCaveat p){
+ color:var(--school-text-muted);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedSecondary,.guidedReview,.scienceRevise,.scienceReset){
+ background:var(--school-panel-raised);
+ color:var(--school-text);
+ border-color:var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root .guidedPrimary{
+ background:#17765b;
+ color:#fff;
+ border-color:#17765b;
+}
+:global(:root[data-ed-theme="dark"]) .root .guidedActions button:disabled{
+ opacity:.75;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.guidedSecondary,.guidedPrimary,.guidedReview,.scienceRevise,.scienceReset):focus-visible{
+ outline:3px solid var(--c-focus);
+ outline-offset:3px;
+}
+
+/* Practical labs and data displays — dark surfaces with distinct value colours. */
+:global(:root[data-ed-theme="dark"]) .root :is(.thinkingLab,.scienceLab,.logicCircuit,.sciencePredictionResult,.logicToggle,.logicGateSymbol,.labTruthTable th,.logicCurrentRow){
+ background:var(--school-panel-raised);
+ color:var(--school-text);
+ border-color:var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.labHeading,.labHeading strong,.labLabel,.logicOutput strong,.scienceLabHead,.scienceLabHead h3,.sciencePrediction h4,.scienceSlider>strong,.scienceMetrics strong,.scienceObservation>strong){
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.labHeading small,.morseTap p,.labExplainer,.labHint,.logicOutput small,.scienceLabHead p,.scienceSlider>span:first-child,.scienceRange,.scienceMetrics small,.scienceInterpretation,.sciencePredictionResult p,.scienceSource,.scienceCaveat p){
+ color:var(--school-text-muted);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.thinkingLab,.scienceLab,.scienceLabHead,.morseTap,.labTruthTable th,.labTruthTable td){
+ border-color:var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scienceSlider,.scienceMetrics>div,.scienceObservation,.logicCircuit){
+ background:var(--school-panel-raised);
+ border-color:var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.logicToggle,.logicToggle b,.labTruthTable td,.labTruthTable th){
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root .logicToggle b{
+ background:var(--school-panel);
+}
+:global(:root[data-ed-theme="dark"]) .root .logicToggle[aria-pressed=true] b{
+ background:#176e55;
+ color:#fff;
+}
+:global(:root[data-ed-theme="dark"]) .root .logicCurrentRow{
+ background:var(--c-accent-soft);
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root .scienceMicroLabel{
+ background:var(--c-accent-soft);
+ color:var(--school-link);
+}
+:global(:root[data-ed-theme="dark"]) .root .sciencePredictionChoices button[aria-pressed=true],
+:global(:root[data-ed-theme="dark"]) .root .scienceObservationChoices button[aria-pressed=true]{
+ background:#176e55;
+ color:#fff;
+ border-color:#4fd1c5;
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.sciencePredictionChoices button:not([aria-pressed=true]):hover,.scienceObservationChoices button:not([aria-pressed=true]):hover){
+ background:var(--c-accent-soft);
+ border-color:var(--school-link);
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.scienceSlider,.scienceObservation,.sciencePredictionResult,.scienceLearningInstructions){
+ border-color:var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.morseTapControls button,.labLabel input,.sciencePredictionChoices button,.scienceObservationChoices button){
+ background:var(--school-panel);
+ border-color:var(--c-control);
+ color:var(--school-text);
+}
+
+/* Quiz/review controls and input fields use the same contrast palette. */
+:global(:root[data-ed-theme="dark"]) .root :is(.genericChoices button,.orderAnswer,.orderAnswer span,.target,.status,.notice,.report th,.guidedReview){
+ background:var(--school-panel-raised);
+ color:var(--school-text);
+ border-color:var(--school-edge);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.genericLesson>h1,.lessonCard h2,.answerReview strong,.questionMeta){
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.genericLesson>p,.lessonCard p,.lessonCard li,.orderExercise p,.target,.helper,.muted){
+ color:var(--school-text-muted);
+}
+:global(:root[data-ed-theme="dark"]) .root .genericChoices button[aria-pressed=true]{
+ background:var(--c-accent-soft);
+ border-color:var(--c-accent);
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.typeExercise input,.editor input,.editor textarea,.editor select,.practiceScriptPicker select){
+ background:var(--school-panel-raised);
+ border-color:var(--c-control);
+ color:var(--school-text);
+}
+:global(:root[data-ed-theme="dark"]) .root :is(.typeExercise input,.editor input,.editor textarea)::placeholder{
+ color:var(--school-text-subtle);
+}
+:global(:root[data-ed-theme="dark"]) .root .report :is(th,td){
+ color:var(--school-text);
+ border-color:var(--school-edge);
+}
