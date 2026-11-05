@@ -55,11 +55,13 @@
 /* Iteration 2 (2026): a floating glass panel that overlaps the hero, with
    colour-keyed icons. Legacy variable names are mapped locally so the strip
    also works where app/design-tokens.css is not loaded. */
-.section{--line:var(--c-line,#e3ded6);--color-brand-strong:var(--c-accent,#0a6f74);--color-ink:var(--c-ink,#101817);--color-muted:var(--c-ink-2,#3e4947);--color-cobalt:var(--c-focus,#0a6f74);--shadow-raised:var(--e-3);position:relative;padding:clamp(18px,2.4vw,28px);border:1px solid var(--c-glass-edge,#fff);border-radius:var(--r-4,32px);background:var(--c-glass,rgb(255 255 255 / .75));-webkit-backdrop-filter:saturate(170%) blur(18px);backdrop-filter:saturate(170%) blur(18px);box-shadow:var(--e-3)}
+.section{--line:var(--c-line,#e3ded6);--color-brand-strong:var(--c-accent,#0a6f74);--color-ink:var(--c-ink,#101817);--color-muted:var(--c-ink-2,#3e4947);--shadow-raised:var(--e-3);--color-cobalt:var(--c-focus,#0a6f74);position:relative;padding:clamp(16px,2vw,23px);border:1px solid var(--c-glass-edge,#fff);border-radius:var(--r-4,32px);background:var(--c-glass,rgb(255 255 255 / .75));-webkit-backdrop-filter:saturate(170%) blur(18px);backdrop-filter:saturate(170%) blur(18px);box-shadow:var(--e-3)}
 .eyebrow{display:inline-flex;align-items:center;gap:8px}
 .eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:currentColor}
-.heading h2{font-family:var(--t-display,serif);font-weight:600;font-size:clamp(26px,2.6vw,36px);line-height:1.2}
+.heading h2{font-family:var(--t-display,serif);font-weight:600;font-size:clamp(25px,2.3vw,33px);line-height:1.2}
 .card,.guestCard{border-radius:var(--r-3,24px);background:var(--c-surface,#fff);border:1px solid var(--line);box-shadow:var(--e-1);transition:transform var(--m-base,.28s) var(--m-ease,ease),box-shadow var(--m-base,.28s) var(--m-ease,ease)}
+.heading{margin-bottom:12px}
+.card{min-height:170px;padding:15px;gap:8px}
 .guestCard{min-height:116px;padding:18px}
 .guestCopy strong{font-family:var(--t-display,serif);font-weight:600;font-size:22px;line-height:1.2}
 .icon{width:48px;height:48px;border-radius:16px;background:var(--c-amber-soft,#fcebcf);color:var(--c-amber,#b86a00)}
@@ -70,4 +72,4 @@
 .skeleton{min-height:116px;border-radius:var(--r-3,24px);background:linear-gradient(100deg,var(--c-bg-2,#ece8e1) 30%,var(--c-surface,#fff) 50%,var(--c-bg-2,#ece8e1) 70%);background-size:300% 100%}
 .hint a,.retry button,.accountLink{color:var(--c-accent,#0a6f74)}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.guestCard:hover,.card:hover{transform:translateY(-3px);box-shadow:var(--e-3)}}
-@media(max-width:600px){.icon{width:40px;height:40px}.guestCard,.skeleton{min-height:84px}.guestCopy strong{font-size:19px}}
+@media(max-width:600px){.section{padding:14px;border-radius:18px}.heading{margin-bottom:9px}.card{min-height:0;padding:12px 13px;gap:5px}.icon{width:40px;height:40px}.guestCard,.skeleton{min-height:84px}.guestCopy strong{font-size:19px}}
