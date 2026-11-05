@@ -1,4 +1,4 @@
-import {BookOpen, ChartNoAxesCombined, Film, MessagesSquare, Package, UserRound} from 'lucide-react';
+import {BookOpen, Building2, ChartNoAxesCombined, Film, MessagesSquare, Package, UserRound} from 'lucide-react';
 
 const contentKinds = {
   video: {label: 'عمل إعلامي', icon: Film},
@@ -7,6 +7,7 @@ const contentKinds = {
   indicator: {label: 'اليمن بالأرقام', icon: ChartNoAxesCombined},
   profile: {label: 'ملف مهني', icon: UserRound},
   product: {label: 'منتجات يمنية', icon: Package},
+  directory: {label: 'مؤسسة من الدليل', icon: Building2},
 };
 
 // Presentation only: routing, editorial data and interactive controls stay
