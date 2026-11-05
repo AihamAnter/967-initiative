@@ -57,7 +57,7 @@ test('mobile navigation closes safely, restores focus and isolates page content'
  // restore focus to that control rather than the hidden masthead button.
  assert.match(header,/const menuOpener = useRef\(null\)/);
  assert.match(header,/const trigger=menuOpener\.current/);
- assert.match(header,/trigger\?\.getClientRects\(\)\.length \? trigger : toggle\.current/);
+ assert.match(header,/trigger\?\.getClientRects\(\)\.length \? trigger : \(mobileToggle\.current\?\.getClientRects\(\)\.length \? mobileToggle\.current : toggle\.current\)/);
  assert.match(header,/onClick=\{toggleMenu\}/);
  assert.match(header,/matchMedia\('\(max-width: 1179px\)'\)/);
  assert.match(header,/document\.body\.style\.overflow = 'hidden'/);

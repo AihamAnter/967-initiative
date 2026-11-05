@@ -7,7 +7,7 @@ test('mobile uses one screen for the list and one for an open conversation',()=>
  const ui=read('components/messages/PrivateMessaging.jsx'),css=read('components/messages/PrivateMessaging.module.css');
  assert.match(ui,/data-chat-open=\{tab==='inbox'&&Boolean\(selected\)\}/);
  assert.match(ui,/className=\{styles\.backToList\} onClick=\{backToList\}/);
- assert.match(ui,/const backToList=\(\)=>\{setSelected\(null\);setThread\(null\);/);
+ assert.match(ui,/const backToList=\(\)=>\{[\s\S]{0,600}?setSelected\(null\);setThread\(null\);/);
  assert.match(css,/\.layout\[data-chat-open=true\] \.sidebar\{display:none\}/);
  assert.match(css,/\.layout\[data-chat-open=true\] \.threadArea\{display:flex;flex:1\}/);
  assert.match(css,/\.page:has\(\.layout\[data-chat-open=true\]\) \.heading\{display:none\}/);

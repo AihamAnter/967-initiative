@@ -39,7 +39,7 @@ test('rendering retains the existing 14px message text and 10px muted time',()=>
  assert.match(ui,/buildMessageTimeline\(thread\.messages,unreadMarkerRef\.current\.message\)\.map/);
  assert.match(ui,/className=\{styles\.daySeparator\}/);
  assert.match(ui,/messageClock\(entry\.message\.created_at\)/);
- assert.match(ui,/\<p\>\{entry\.message\.body\}\<\/p\>/);
+ assert.match(ui,/\{entry\.message\.deleted_at\?'حذفت الرسالة':entry\.message\.body\}\<\/p\>/);
  assert.match(css,/\.bubbleContent p\{[^}]*font-size:14px;line-height:1\.85/);
  assert.match(css,/\.bubbleContent time\{[^}]*color:var\(--muted\);font-size:10px/);
  assert.match(ui,/message:entry\.message\.id/);

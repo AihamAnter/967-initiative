@@ -9,8 +9,9 @@ test('mobile tabs represent route groups and non-primary sections',()=>{
  const shell=read('app/foundation/shell.css');
  assert.ok(header.includes("mobileSectionActive('media')"));
  assert.ok(header.includes("mobileSectionActive('knowledge')"));
- assert.ok(header.includes("const mobileMenuSection = sections.find"));
- assert.ok(header.includes("mobileMenuSection?.label || 'القائمة'"));
+ // The phone menu opener moved from the tab bar to the top bar (commit 1276571).
+ assert.ok(header.includes('<button ref={mobileToggle} type="button" className="ed-tool ed-menu-toggle ed-mobile-menu-toggle" aria-controls="main-navigation"'));
+ assert.ok(!/<nav className="ed-tabbar"[\s\S]*?aria-controls="main-navigation"[\s\S]*?<\/nav>/.test(header));
  assert.ok(shell.includes('.ed-tabbar button[data-current]'));
 });
 

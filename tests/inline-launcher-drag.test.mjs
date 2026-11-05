@@ -54,5 +54,6 @@ test('mobile launcher defaults above bottom tabbar, keeps reset and keyboard fal
  assert.match(hook,/window\.localStorage\.removeItem\(key\)/);
  assert.match(hook,/const onKeyDown=event=>/);
  assert.match(hook,/event\.altKey/);
- assert.match(runtime,/aria-description="على الهاتف/);
+ assert.match(runtime,/aria-describedby="inline-launcher-help"/);
+ assert.match(runtime,/id="inline-launcher-help" className="sr-only">على الهاتف/);
 });
