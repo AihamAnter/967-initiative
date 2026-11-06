@@ -30,6 +30,10 @@
   ::selection { background: var(--c-accent-soft); color: var(--c-ink); }
   bdi, [dir="ltr"] { unicode-bidi: isolate; }
 }
+
+/* Arabic letters join; any letter-spacing breaks the joins. This beats the
+   negative tracking that legacy and route styles put on Arabic headings. */
+:root :is(h1, h2, h3, h4, h5, h6, p, li, a, button, label, strong, span, small, dt, dd, figcaption, blockquote):lang(ar) { letter-spacing: normal !important; }
 @media (prefers-reduced-motion: reduce) {
   @layer base {
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
@@ -56,10 +60,11 @@
 }
 .ed-skip:focus { transform: none; outline: 3px solid var(--c-focus); outline-offset: 2px; }
 
-/* Scroll-driven reveal (CSS only). Without support, content is simply visible. */
+/* Scroll-driven reveal (CSS only). Motion only: content is never transparent,
+   so fast scrolling on slow phones and screenshots never show empty bands. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .ed-reveal { animation: ed-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+    .ed-reveal { animation: ed-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 25%; }
   }
 }
-@keyframes ed-reveal { from { opacity: 0; transform: translateY(28px) scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes ed-reveal { from { transform: translateY(14px); } to { transform: none; } }

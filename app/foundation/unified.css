@@ -6,11 +6,12 @@
  * typography and surface language without changing their markup or behaviour.
  */
 
-:root[data-ed-theme="dark"] {
-  /* Semantic tokens consumed by the legacy bundle. */
+/* Semantic tokens consumed by the legacy bundle, in BOTH themes (doubled :root
+   beats the legacy :root definitions that load later on old routes). */
+:root:root {
   --color-brand: var(--c-accent);
   --color-brand-strong: var(--c-accent-strong);
-  --color-brand-hover: #9af0e7;
+  --color-brand-hover: var(--c-accent-strong);
   --color-brand-soft: var(--c-accent-soft);
   --color-ink: var(--c-ink);
   --color-muted: var(--c-ink-2);
@@ -57,6 +58,16 @@
   --shadow: var(--e-1);
   --shadow-card: var(--e-1);
   --shadow-raised: var(--e-2);
+  /* Debate sides: two neutral hues, not party red/blue. */
+  --color-debate-blue: var(--c-indigo);
+  --color-debate-red: var(--c-clay);
+  /* One radius scale and one type family everywhere. */
+  --radius-control: var(--r-1);
+  --radius-card: var(--r-2);
+  --radius-editorial: var(--r-1);
+  --font-body: var(--t-text);
+  --blue: var(--c-indigo);
+  --gold: var(--c-amber);
 }
 
 body,

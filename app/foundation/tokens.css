@@ -1,127 +1,137 @@
 /*
- * 967 · Editorial, made 2026 — design tokens (iteration 2).
+ * 967 · Yemeni editorial (paper, ink, plaster) — design tokens, iteration 3 (2026-11-06).
  * Prefixes: --c colour · --t type · --s space · --r radius · --e elevation · --m motion · --w width.
  * Light is the default. A visitor may opt into dark mode across the whole
  * platform; the compatibility layer maps legacy route tokens to this system.
  */
 :root {
   color-scheme: light;
-  /* Surfaces */
-  --c-bg: #f5f3ef;            /* page: warm porcelain */
-  --c-bg-2: #ece8e1;          /* sunken bands */
+  /* Surfaces: Sana'a plaster and paper */
+  --c-bg: #f7f4ee;            /* page */
+  --c-bg-2: #efeae1;          /* sunken bands, page intros */
   --c-surface: #ffffff;       /* cards */
-  --c-surface-2: #faf9f6;     /* raised-on-card, inputs */
-  --c-glass: rgb(255 255 255 / .72);
-  --c-glass-edge: rgb(255 255 255 / .6);
-  --c-line: rgb(16 24 23 / .09);
-  --c-line-2: rgb(16 24 23 / .16);
-  --c-control: #7a7468;       /* input/chip borders — 4.2:1 (WCAG 1.4.11) */
-  /* Text */
-  --c-ink: #101817;           /* 17.4:1 on bg */
-  --c-ink-2: #3e4947;         /* 8.9:1 */
-  --c-ink-3: #5a6462;         /* 5.9:1 */
-  --c-on-dark: #f6f5f1;
-  /* Brand + accent */
-  --c-accent: #0a6f74;        /* 967 teal — 6.0:1 */
-  --c-accent-strong: #06555a;
-  --c-accent-soft: #d8ecea;
-  --c-accent-glow: #2ec4b6;
-  /* Story colours (tints for media, magazine, debate, numbers, school, games, places) */
-  --c-ember: #d9472b;   --c-ember-soft: #fbe3dc;
-  --c-violet: #6a4de0;  --c-violet-soft: #e9e3fd;
-  --c-indigo: #2f4fd8;  --c-indigo-soft: #e1e7fd;
-  --c-teal: #0d8a7f;    --c-teal-soft: #d6f0ec;
-  --c-amber: #b86a00;   --c-amber-soft: #fcebcf;
-  --c-plum: #a3266f;    --c-plum-soft: #f8dcec;
-  --c-leaf: #2f7d3d;    --c-leaf-soft: #dcf0de;
+  --c-surface-2: #fbf9f5;     /* raised-on-card, inputs */
+  --c-surface-3: #f3efe7;     /* hover / pressed */
+  --c-glass: rgb(247 244 238 / .86);
+  --c-glass-edge: rgb(255 255 255 / .7);
+  --c-line: #e6e0d6;
+  --c-line-2: #d5cdc0;
+  --c-control: #857b6d;       /* input/chip borders — 4.0:1 (WCAG 1.4.11) */
+  /* Text: basalt ink */
+  --c-ink: #1a1612;           /* 16.6:1 on bg */
+  --c-ink-2: #4a4239;         /* 9.0:1 */
+  --c-ink-3: #6b6256;         /* 5.6:1 */
+  --c-on-dark: #f6f1e8;
+  /* Brand: 967 teal, plus one warm clay accent */
+  --c-accent: #0b6b6e;        /* 6.2:1 */
+  --c-accent-strong: #08514f;
+  --c-accent-soft: #dcede9;
+  --c-accent-glow: #2aa198;
+  --c-clay: #b4441f;          /* 5.1:1 */
+  --c-clay-soft: #f6e2d7;
+  /* Section accents — identity marks only, never page backgrounds */
+  --c-ember: #b4441f;   --c-ember-soft: #f6e2d7;   /* media, magazine */
+  --c-violet: #6a48b3;  --c-violet-soft: #ece6f7;  /* games */
+  --c-indigo: #2c4c99;  --c-indigo-soft: #e3e9f6;  /* numbers, ranking */
+  --c-teal: #0b6b6e;    --c-teal-soft: #dcede9;    /* knowledge, history, map */
+  --c-amber: #8f5a00;   --c-amber-soft: #f6e8cc;   /* directories */
+  --c-plum: #8f2f62;    --c-plum-soft: #f4e0ea;    /* debates */
+  --c-leaf: #3a7337;    --c-leaf-soft: #e1eedc;    /* school */
   /* Status (always paired with a word) */
-  --c-caution: #8a4a0c; --c-caution-soft: #f7ead8;
-  --c-danger: #b0281c;  --c-danger-soft: #fbe2de;
-  --c-focus: #0a6f74;
-  /* The arcade and data bands are dark in both modes */
-  --c-night: #0c1214;   --c-night-2: #141c1f;   --c-night-line: rgb(255 255 255 / .1);
+  --c-caution: #8a5000; --c-caution-soft: #f7ead6;
+  --c-danger: #b3261e;  --c-danger-soft: #f9e0dc;
+  --c-success: #2e7a3e; --c-success-soft: #e0efe2;
+  --c-focus: #0b6b6e;
+  /* Basalt: the footer and the PDF reader chrome */
+  --c-night: #1c1814;   --c-night-2: #26211c;   --c-night-line: rgb(255 255 255 / .1);
 
-  /* Type */
+  /* Type: Markazi for display, IBM Plex Sans Arabic for reading and UI */
   --t-display: 'Markazi Text', 'IBM Plex Sans Arabic', serif;
   --t-text: 'IBM Plex Sans Arabic', system-ui, 'Segoe UI', Tahoma, sans-serif;
-  --t-size-hero: clamp(3.4rem, 1.6rem + 7.6vw, 8.5rem);     /* 54 → 136px */
-  --t-size-display: clamp(2.6rem, 1.5rem + 4.4vw, 5rem);     /* 42 → 80px */
-  --t-size-h1: clamp(2.3rem, 1.6rem + 2.8vw, 4rem);          /* 37 → 64px */
-  --t-size-h2: clamp(1.9rem, 1.45rem + 1.8vw, 3rem);         /* 30 → 48px */
-  --t-size-h3: clamp(1.4rem, 1.22rem + .7vw, 1.85rem);       /* 22 → 30px */
-  --t-size-lead: clamp(1.1rem, 1.04rem + .32vw, 1.3rem);
-  --t-size-body: 1.0625rem;
-  --t-size-ui: .9375rem;
-  --t-size-meta: .8125rem;
-  --t-size-figure: clamp(2.6rem, 1.8rem + 3vw, 4.6rem);
-  --t-lh-display: 1.08;
+  --t-size-hero: clamp(2.75rem, 1.9rem + 4.2vw, 4.75rem);    /* 44 → 76px */
+  --t-size-display: clamp(2.25rem, 1.7rem + 2.8vw, 3.5rem);  /* 36 → 56px */
+  --t-size-h1: clamp(2.125rem, 1.7rem + 2vw, 3.25rem);       /* 34 → 52px */
+  --t-size-h2: clamp(1.625rem, 1.35rem + 1.3vw, 2.375rem);   /* 26 → 38px */
+  --t-size-h3: clamp(1.1875rem, 1.1rem + .4vw, 1.5rem);      /* 19 → 24px */
+  --t-size-lead: clamp(1.0625rem, 1.02rem + .25vw, 1.25rem); /* 17 → 20px */
+  --t-size-body: 1.0625rem;   /* 17px */
+  --t-size-ui: .9375rem;      /* 15px */
+  --t-size-meta: .8125rem;    /* 13px — the floor */
+  --t-size-figure: clamp(2.25rem, 1.7rem + 2.4vw, 3.75rem);
+  --t-lh-display: 1.15;
   --t-lh-heading: 1.3;
   --t-lh-body: 1.85;
   --t-lh-ui: 1.5;
   --t-w-regular: 400;
   --t-w-strong: 600;
-  --t-measure: 38em;
+  --t-measure: 36em;
 
   /* Space */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
   --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
   --s-gutter: clamp(16px, 4vw, 40px);
-  --s-section: clamp(48px, 6.5vw, 96px);
+  --s-section: clamp(40px, 6vw, 88px);
   --s-gap: clamp(12px, 1.6vw, 20px);
 
-  /* Shape */
-  --r-1: 10px; --r-2: 16px; --r-3: 24px; --r-4: 32px; --r-pill: 999px;
+  /* Shape: inputs/chips 6 · cards 12 · media/sheets 20 · pill */
+  --r-1: 6px; --r-2: 12px; --r-3: 20px; --r-4: 24px; --r-pill: 999px;
 
-  /* Elevation: layered, soft, tinted by the ink */
-  --e-1: 0 1px 2px rgb(16 24 23 / .05), 0 2px 8px -2px rgb(16 24 23 / .06);
-  --e-2: 0 1px 2px rgb(16 24 23 / .05), 0 8px 24px -8px rgb(16 24 23 / .14);
-  --e-3: 0 2px 4px rgb(16 24 23 / .05), 0 24px 56px -20px rgb(16 24 23 / .28);
+  /* Elevation: two soft shadows on light */
+  --e-1: 0 1px 2px rgb(40 30 20 / .06);
+  --e-2: 0 1px 2px rgb(40 30 20 / .05), 0 8px 24px -10px rgb(40 30 20 / .16);
+  --e-3: 0 2px 4px rgb(40 30 20 / .05), 0 24px 48px -20px rgb(40 30 20 / .26);
   --e-glow: 0 0 0 1px rgb(255 255 255 / .5) inset;
 
   /* Motion */
-  --m-fast: 160ms; --m-base: 280ms; --m-slow: 700ms;
+  --m-fast: 160ms; --m-base: 260ms; --m-slow: 600ms;
   --m-ease: cubic-bezier(.2, .8, .2, 1);
   --m-spring: cubic-bezier(.34, 1.4, .64, 1);
 
   /* Layout */
-  --w-page: 1320px;
-  --w-text: 46rem;
+  --w-page: 1240px;
+  --w-text: 44rem;
   --target: 44px;
-  --header-h: 68px;
+  --header-h: 60px;
 }
 
-/* User-selected dark mode, shared by every public and account route. */
+/* Dark: warm basalt, not an inverted cold black. Depth comes from lighter
+   surfaces with a faint top highlight; shadows are nearly invisible on dark. */
 :root[data-ed-theme="dark"] {
     color-scheme: dark;
-    --c-bg: #0b0f10;
-    --c-bg-2: #070a0b;
-    --c-surface: #131a1c;
-    --c-surface-2: #1a2225;
-    --c-glass: rgb(16 22 24 / .7);
-    --c-glass-edge: rgb(255 255 255 / .08);
-    --c-line: rgb(255 255 255 / .08);
-    --c-line-2: rgb(255 255 255 / .16);
-    --c-control: #8b9693;
-    --c-ink: #eef2f0;            /* 16.9:1 on bg */
-    --c-ink-2: #b7c2bf;          /* 10.3:1 */
-    --c-ink-3: #8f9b98;          /* 6.6:1 */
-    --c-accent: #4fd1c5;         /* 10.6:1 */
-    --c-accent-strong: #7fe3d9;
-    --c-accent-soft: #10302f;
-    --c-ember: #ff8a6b;   --c-ember-soft: #3a1c15;
-    --c-violet: #a993ff;  --c-violet-soft: #241c45;
-    --c-indigo: #8ea2ff;  --c-indigo-soft: #19214a;
-    --c-teal: #4fd1c5;    --c-teal-soft: #0f2e2b;
-    --c-amber: #ffc46b;   --c-amber-soft: #3a2a10;
-    --c-plum: #f08cc4;    --c-plum-soft: #3b1630;
-    --c-leaf: #7fd68b;    --c-leaf-soft: #13301a;
-    --c-caution: #ffb870; --c-caution-soft: #33240f;
-    --c-danger: #ff8f80;  --c-danger-soft: #3a1714;
-    --c-focus: #4fd1c5;
-    --e-1: 0 1px 2px rgb(0 0 0 / .4);
-    --e-2: 0 1px 2px rgb(0 0 0 / .4), 0 10px 28px -10px rgb(0 0 0 / .7);
-    --e-3: 0 2px 4px rgb(0 0 0 / .4), 0 28px 60px -20px rgb(0 0 0 / .85);
-    --e-glow: 0 0 0 1px rgb(255 255 255 / .06) inset;
+    --c-bg: #13110f;
+    --c-bg-2: #0e0c0a;
+    --c-surface: #1c1916;
+    --c-surface-2: #24201c;
+    --c-surface-3: #2d2823;
+    --c-glass: rgb(19 17 15 / .84);
+    --c-glass-edge: rgb(255 255 255 / .06);
+    --c-line: #332d27;
+    --c-line-2: #463f37;
+    --c-control: #8d8375;
+    --c-ink: #f2ede4;            /* 15.9:1 on bg */
+    --c-ink-2: #cbc2b5;          /* 10.6:1 */
+    --c-ink-3: #9e9486;          /* 6.4:1 */
+    --c-accent: #5ec2b7;         /* 8.6:1 */
+    --c-accent-strong: #8ad7cd;
+    --c-accent-soft: #1a3330;
+    --c-accent-glow: #5ec2b7;
+    --c-clay: #e8906b;    --c-clay-soft: #3a241a;
+    --c-ember: #e8906b;   --c-ember-soft: #3a241a;
+    --c-violet: #b9a2ef;  --c-violet-soft: #2a2238;
+    --c-indigo: #9cb0ea;  --c-indigo-soft: #1f2639;
+    --c-teal: #5ec2b7;    --c-teal-soft: #1a3330;
+    --c-amber: #e3b367;   --c-amber-soft: #352914;
+    --c-plum: #e59bc1;    --c-plum-soft: #38202c;
+    --c-leaf: #93cc8a;    --c-leaf-soft: #1f2f1c;
+    --c-caution: #f0b66d; --c-caution-soft: #362612;
+    --c-danger: #f2978a;  --c-danger-soft: #3a1b17;
+    --c-success: #8fd09a; --c-success-soft: #1b301f;
+    --c-focus: #5ec2b7;
+    --c-night: #0e0c0a;   --c-night-2: #1c1916;   --c-night-line: rgb(255 255 255 / .08);
+    --e-1: inset 0 1px 0 rgb(255 255 255 / .04);
+    --e-2: inset 0 1px 0 rgb(255 255 255 / .05), 0 10px 28px -14px rgb(0 0 0 / .7);
+    --e-3: inset 0 1px 0 rgb(255 255 255 / .06), 0 24px 56px -24px rgb(0 0 0 / .85);
+    --e-glow: 0 0 0 1px rgb(255 255 255 / .05) inset;
 }
 @media (prefers-reduced-motion: reduce) {
   :root { --m-fast: 0ms; --m-base: 0ms; --m-slow: 0ms; }
