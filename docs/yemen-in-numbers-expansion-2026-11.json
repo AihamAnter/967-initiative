@@ -1,0 +1,2064 @@
+{
+ "checked_at": "2026-11-06T21:22:37.068Z",
+ "write": true,
+ "added": [
+  {
+   "code": "NY.GDP.MKTP.KD",
+   "domain": "gdp",
+   "slug": "gdp-constant-2015-usd",
+   "name": "الناتج المحلي الإجمالي بالأسعار الثابتة (2015)",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NY.GDP.MKTP.PP.CD",
+   "domain": "gdp",
+   "slug": "gdp-ppp-current",
+   "name": "الناتج المحلي الإجمالي وفق تعادل القوة الشرائية",
+   "values": 24,
+   "first": 1990,
+   "latest": 2013
+  },
+  {
+   "code": "NY.GDP.PCAP.KD",
+   "domain": "gdp",
+   "slug": "gdp-per-capita-constant",
+   "name": "نصيب الفرد من الناتج المحلي بالأسعار الثابتة",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NY.GDP.PCAP.PP.CD",
+   "domain": "gdp",
+   "slug": "gdp-per-capita-ppp",
+   "name": "نصيب الفرد من الناتج المحلي وفق تعادل القوة الشرائية",
+   "values": 24,
+   "first": 1990,
+   "latest": 2013
+  },
+  {
+   "code": "NY.GDP.PCAP.KD.ZG",
+   "domain": "gdp",
+   "slug": "gdp-per-capita-growth",
+   "name": "نمو نصيب الفرد من الناتج المحلي",
+   "values": 28,
+   "first": 1991,
+   "latest": 2018
+  },
+  {
+   "code": "NY.GNP.PCAP.CD",
+   "domain": "gdp",
+   "slug": "gni-per-capita-atlas",
+   "name": "نصيب الفرد من الدخل القومي الإجمالي (أطلس)",
+   "values": 27,
+   "first": 1992,
+   "latest": 2018
+  },
+  {
+   "code": "NY.GNP.MKTP.CD",
+   "domain": "gdp",
+   "slug": "gni-current-usd",
+   "name": "الدخل القومي الإجمالي",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NY.GDS.TOTL.ZS",
+   "domain": "gdp",
+   "slug": "gross-domestic-savings",
+   "name": "الادخار المحلي الإجمالي",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NE.CON.PRVT.ZS",
+   "domain": "gdp",
+   "slug": "household-consumption-share",
+   "name": "الإنفاق الاستهلاكي للأسر",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NE.CON.GOVT.ZS",
+   "domain": "public-finance",
+   "slug": "government-consumption-share",
+   "name": "الإنفاق الاستهلاكي الحكومي",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NV.SRV.TOTL.ZS",
+   "domain": "gdp",
+   "slug": "services-value-added-share",
+   "name": "مساهمة قطاع الخدمات في الناتج المحلي",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NV.IND.TOTL.ZS",
+   "domain": "manufacturing",
+   "slug": "industry-value-added-share",
+   "name": "مساهمة الصناعة (مع البناء) في الناتج المحلي",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NV.IND.TOTL.KD.ZG",
+   "domain": "manufacturing",
+   "slug": "industry-growth",
+   "name": "نمو القيمة المضافة للصناعة",
+   "values": 28,
+   "first": 1991,
+   "latest": 2018
+  },
+  {
+   "code": "NV.AGR.TOTL.KD.ZG",
+   "domain": "agriculture",
+   "slug": "agriculture-growth",
+   "name": "نمو القيمة المضافة للزراعة",
+   "values": 28,
+   "first": 1991,
+   "latest": 2018
+  },
+  {
+   "code": "NV.SRV.TOTL.KD.ZG",
+   "domain": "gdp",
+   "slug": "services-growth",
+   "name": "نمو القيمة المضافة للخدمات",
+   "values": 28,
+   "first": 1991,
+   "latest": 2018
+  },
+  {
+   "code": "NY.GDP.DEFL.KD.ZG",
+   "domain": "inflation-prices",
+   "slug": "gdp-deflator-inflation",
+   "name": "التضخم وفق مخفض الناتج المحلي",
+   "values": 28,
+   "first": 1991,
+   "latest": 2018
+  },
+  {
+   "code": "FP.CPI.TOTL",
+   "domain": "inflation-prices",
+   "slug": "consumer-price-index",
+   "name": "مؤشر أسعار المستهلك",
+   "values": 25,
+   "first": 1990,
+   "latest": 2014
+  },
+  {
+   "code": "PA.NUS.PPP",
+   "domain": "inflation-prices",
+   "slug": "ppp-conversion-factor",
+   "name": "معامل تحويل تعادل القوة الشرائية",
+   "values": 24,
+   "first": 1990,
+   "latest": 2013
+  },
+  {
+   "code": "PA.NUS.PRVT.PP",
+   "domain": "inflation-prices",
+   "slug": "price-level-ratio",
+   "name": "نسبة مستوى الأسعار إلى سعر الصرف",
+   "values": 24,
+   "first": 1990,
+   "latest": 2013
+  },
+  {
+   "code": "SL.TLF.CACT.ZS",
+   "domain": "labor-unemployment",
+   "slug": "labor-force-participation",
+   "name": "معدل المشاركة في قوة العمل",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SL.TLF.CACT.FE.ZS",
+   "domain": "women",
+   "slug": "female-labor-force-participation",
+   "name": "مشاركة النساء في قوة العمل",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SL.TLF.CACT.MA.ZS",
+   "domain": "labor-unemployment",
+   "slug": "male-labor-force-participation",
+   "name": "مشاركة الرجال في قوة العمل",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SL.TLF.TOTL.IN",
+   "domain": "labor-unemployment",
+   "slug": "labor-force-total",
+   "name": "حجم قوة العمل",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SL.UEM.TOTL.FE.ZS",
+   "domain": "women",
+   "slug": "female-unemployment-rate",
+   "name": "معدل البطالة بين النساء",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.UEM.TOTL.MA.ZS",
+   "domain": "labor-unemployment",
+   "slug": "male-unemployment-rate",
+   "name": "معدل البطالة بين الرجال",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.EMP.TOTL.SP.ZS",
+   "domain": "labor-unemployment",
+   "slug": "employment-to-population",
+   "name": "نسبة العاملين إلى السكان",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.AGR.EMPL.ZS",
+   "domain": "agriculture",
+   "slug": "employment-in-agriculture",
+   "name": "العاملون في الزراعة",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.IND.EMPL.ZS",
+   "domain": "manufacturing",
+   "slug": "employment-in-industry",
+   "name": "العاملون في الصناعة",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.SRV.EMPL.ZS",
+   "domain": "labor-unemployment",
+   "slug": "employment-in-services",
+   "name": "العاملون في الخدمات",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.EMP.VULN.ZS",
+   "domain": "labor-unemployment",
+   "slug": "vulnerable-employment",
+   "name": "العمالة الهشة",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.EMP.SELF.ZS",
+   "domain": "labor-unemployment",
+   "slug": "self-employed-share",
+   "name": "العاملون لحسابهم الخاص",
+   "values": 35,
+   "first": 1991,
+   "latest": 2025
+  },
+  {
+   "code": "SL.TLF.ACTI.1524.ZS",
+   "domain": "youth",
+   "slug": "youth-labor-participation",
+   "name": "مشاركة الشباب في قوة العمل",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SI.POV.DDAY",
+   "domain": "poverty",
+   "slug": "extreme-poverty-215",
+   "name": "الفقر المدقع (أقل من 2.15 دولار يوميا)",
+   "values": 3,
+   "first": 1998,
+   "latest": 2014
+  },
+  {
+   "code": "SI.POV.LMIC",
+   "domain": "poverty",
+   "slug": "poverty-365",
+   "name": "الفقر عند خط 3.65 دولار يوميا",
+   "values": 3,
+   "first": 1998,
+   "latest": 2014
+  },
+  {
+   "code": "SI.POV.UMIC",
+   "domain": "poverty",
+   "slug": "poverty-685",
+   "name": "الفقر عند خط 6.85 دولار يوميا",
+   "values": 3,
+   "first": 1998,
+   "latest": 2014
+  },
+  {
+   "code": "SI.POV.GINI",
+   "domain": "poverty",
+   "slug": "gini-index",
+   "name": "مؤشر جيني لعدم المساواة",
+   "values": 3,
+   "first": 1998,
+   "latest": 2014
+  },
+  {
+   "code": "SI.DST.10TH.10",
+   "domain": "poverty",
+   "slug": "income-share-top-10",
+   "name": "حصة أغنى 10% من الدخل",
+   "values": 3,
+   "first": 1998,
+   "latest": 2014
+  },
+  {
+   "code": "SI.DST.FRST.20",
+   "domain": "poverty",
+   "slug": "income-share-bottom-20",
+   "name": "حصة أفقر 20% من الدخل",
+   "values": 3,
+   "first": 1998,
+   "latest": 2014
+  },
+  {
+   "code": "SI.POV.GAPS",
+   "domain": "poverty",
+   "slug": "poverty-gap-215",
+   "name": "فجوة الفقر عند 2.15 دولار يوميا",
+   "values": 3,
+   "first": 1998,
+   "latest": 2014
+  },
+  {
+   "code": "SH.XPD.GHED.GD.ZS",
+   "domain": "public-finance",
+   "slug": "government-health-expenditure",
+   "name": "الإنفاق الحكومي على الصحة",
+   "values": 24,
+   "first": 2000,
+   "latest": 2023
+  },
+  {
+   "code": "SE.XPD.TOTL.GB.ZS",
+   "domain": "public-finance",
+   "slug": "education-share-government-spending",
+   "name": "التعليم من الإنفاق الحكومي",
+   "values": 3,
+   "first": 2000,
+   "latest": 2008
+  },
+  {
+   "code": "FI.RES.TOTL.CD",
+   "domain": "currency-monetary",
+   "slug": "total-reserves",
+   "name": "الاحتياطيات الكلية مع الذهب",
+   "values": 33,
+   "first": 1990,
+   "latest": 2022
+  },
+  {
+   "code": "FI.RES.TOTL.MO",
+   "domain": "currency-monetary",
+   "slug": "reserves-months-imports",
+   "name": "الاحتياطيات بأشهر الواردات",
+   "values": 12,
+   "first": 2005,
+   "latest": 2016
+  },
+  {
+   "code": "FM.LBL.BMNY.ZG",
+   "domain": "currency-monetary",
+   "slug": "broad-money-growth",
+   "name": "نمو عرض النقد الواسع",
+   "values": 23,
+   "first": 1991,
+   "latest": 2013
+  },
+  {
+   "code": "FR.INR.LEND",
+   "domain": "banking",
+   "slug": "lending-interest-rate",
+   "name": "سعر الفائدة على الإقراض",
+   "values": 18,
+   "first": 1996,
+   "latest": 2013
+  },
+  {
+   "code": "FR.INR.DPST",
+   "domain": "banking",
+   "slug": "deposit-interest-rate",
+   "name": "سعر الفائدة على الودائع",
+   "values": 18,
+   "first": 1996,
+   "latest": 2013
+  },
+  {
+   "code": "FR.INR.RINR",
+   "domain": "banking",
+   "slug": "real-interest-rate",
+   "name": "سعر الفائدة الحقيقي",
+   "values": 18,
+   "first": 1996,
+   "latest": 2013
+  },
+  {
+   "code": "FB.CBK.BRCH.P5",
+   "domain": "banking",
+   "slug": "bank-branches-per-100k",
+   "name": "فروع البنوك التجارية",
+   "values": 12,
+   "first": 2004,
+   "latest": 2015
+  },
+  {
+   "code": "FB.ATM.TOTL.P5",
+   "domain": "banking",
+   "slug": "atms-per-100k",
+   "name": "أجهزة الصراف الآلي",
+   "values": 12,
+   "first": 2004,
+   "latest": 2015
+  },
+  {
+   "code": "FX.OWN.TOTL.ZS",
+   "domain": "banking",
+   "slug": "account-ownership",
+   "name": "امتلاك حساب في مؤسسة مالية",
+   "values": 3,
+   "first": 2011,
+   "latest": 2022
+  },
+  {
+   "code": "NE.EXP.GNFS.ZS",
+   "domain": "foreign-trade",
+   "slug": "exports-share-gdp",
+   "name": "صادرات السلع والخدمات",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NE.IMP.GNFS.ZS",
+   "domain": "foreign-trade",
+   "slug": "imports-share-gdp",
+   "name": "واردات السلع والخدمات",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NE.EXP.GNFS.CD",
+   "domain": "foreign-trade",
+   "slug": "exports-current-usd",
+   "name": "صادرات السلع والخدمات بالقيمة",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NE.IMP.GNFS.CD",
+   "domain": "foreign-trade",
+   "slug": "imports-current-usd",
+   "name": "واردات السلع والخدمات بالقيمة",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "TX.VAL.MRCH.CD.WT",
+   "domain": "foreign-trade",
+   "slug": "merchandise-exports",
+   "name": "صادرات البضائع",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "TM.VAL.MRCH.CD.WT",
+   "domain": "foreign-trade",
+   "slug": "merchandise-imports",
+   "name": "واردات البضائع",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "TX.VAL.FUEL.ZS.UN",
+   "domain": "oil-gas",
+   "slug": "fuel-exports-share",
+   "name": "الوقود من صادرات البضائع",
+   "values": 18,
+   "first": 2001,
+   "latest": 2024
+  },
+  {
+   "code": "TM.VAL.FOOD.ZS.UN",
+   "domain": "food-security",
+   "slug": "food-imports-share",
+   "name": "الغذاء من واردات البضائع",
+   "values": 19,
+   "first": 2001,
+   "latest": 2024
+  },
+  {
+   "code": "TX.VAL.FOOD.ZS.UN",
+   "domain": "foreign-trade",
+   "slug": "food-exports-share",
+   "name": "الغذاء من صادرات البضائع",
+   "values": 19,
+   "first": 2001,
+   "latest": 2024
+  },
+  {
+   "code": "TM.VAL.FUEL.ZS.UN",
+   "domain": "oil-gas",
+   "slug": "fuel-imports-share",
+   "name": "الوقود من واردات البضائع",
+   "values": 19,
+   "first": 2001,
+   "latest": 2024
+  },
+  {
+   "code": "TM.VAL.MANF.ZS.UN",
+   "domain": "manufacturing",
+   "slug": "manufactures-imports-share",
+   "name": "المصنوعات من واردات البضائع",
+   "values": 19,
+   "first": 2001,
+   "latest": 2024
+  },
+  {
+   "code": "TX.VAL.MANF.ZS.UN",
+   "domain": "manufacturing",
+   "slug": "manufactures-exports-share",
+   "name": "المصنوعات من صادرات البضائع",
+   "values": 19,
+   "first": 2001,
+   "latest": 2024
+  },
+  {
+   "code": "BN.CAB.XOKA.GD.ZS",
+   "domain": "foreign-trade",
+   "slug": "current-account-balance",
+   "name": "رصيد الحساب الجاري",
+   "values": 12,
+   "first": 2005,
+   "latest": 2016
+  },
+  {
+   "code": "TG.VAL.TOTL.GD.ZS",
+   "domain": "foreign-trade",
+   "slug": "merchandise-trade-share",
+   "name": "تجارة البضائع من الناتج المحلي",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "BX.KLT.DINV.WD.GD.ZS",
+   "domain": "investment",
+   "slug": "fdi-net-inflows-share",
+   "name": "صافي تدفقات الاستثمار الأجنبي المباشر الواردة",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "BX.KLT.DINV.CD.WD",
+   "domain": "investment",
+   "slug": "fdi-net-inflows-usd",
+   "name": "صافي تدفقات الاستثمار الأجنبي المباشر بالقيمة",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "NE.GDI.TOTL.ZS",
+   "domain": "investment",
+   "slug": "gross-capital-formation",
+   "name": "تكوين رأس المال الإجمالي",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "BX.TRF.PWKR.DT.GD.ZS",
+   "domain": "remittances",
+   "slug": "remittances-share-gdp",
+   "name": "التحويلات الشخصية الواردة من الناتج المحلي",
+   "values": 27,
+   "first": 1990,
+   "latest": 2016
+  },
+  {
+   "code": "BM.TRF.PWKR.CD.DT",
+   "domain": "remittances",
+   "slug": "remittances-paid",
+   "name": "التحويلات الشخصية الصادرة",
+   "values": 27,
+   "first": 1990,
+   "latest": 2016
+  },
+  {
+   "code": "DT.ODA.ODAT.PC.ZS",
+   "domain": "international-aid",
+   "slug": "oda-per-capita",
+   "name": "المساعدات الإنمائية الرسمية للفرد",
+   "values": 34,
+   "first": 1990,
+   "latest": 2023
+  },
+  {
+   "code": "DT.ODA.ODAT.GN.ZS",
+   "domain": "international-aid",
+   "slug": "oda-share-gni",
+   "name": "المساعدات الإنمائية الرسمية من الدخل القومي",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "DT.TDS.DECT.EX.ZS",
+   "domain": "public-debt",
+   "slug": "debt-service-share-exports",
+   "name": "خدمة الدين الخارجي من الصادرات",
+   "values": 27,
+   "first": 1990,
+   "latest": 2016
+  },
+  {
+   "code": "DT.DOD.DLXF.CD",
+   "domain": "public-debt",
+   "slug": "long-term-external-debt",
+   "name": "الدين الخارجي طويل الأجل",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SP.POP.TOTL",
+   "domain": "population",
+   "slug": "population-total",
+   "name": "إجمالي عدد السكان",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.POP.GROW",
+   "domain": "population",
+   "slug": "population-growth",
+   "name": "معدل النمو السكاني",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.URB.TOTL.IN.ZS",
+   "domain": "population",
+   "slug": "urban-population-share",
+   "name": "سكان الحضر",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.URB.GROW",
+   "domain": "population",
+   "slug": "urban-population-growth",
+   "name": "نمو سكان الحضر",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.RUR.TOTL.ZS",
+   "domain": "population",
+   "slug": "rural-population-share",
+   "name": "سكان الريف",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "EN.POP.DNST",
+   "domain": "population",
+   "slug": "population-density",
+   "name": "الكثافة السكانية",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EN.URB.LCTY.UR.ZS",
+   "domain": "population",
+   "slug": "largest-city-share",
+   "name": "سكان أكبر مدينة من سكان الحضر",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "EN.URB.MCTY.TL.ZS",
+   "domain": "population",
+   "slug": "population-in-large-cities",
+   "name": "السكان في المدن التي يزيد سكانها عن مليون",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.POP.TOTL.MA.ZS",
+   "domain": "population",
+   "slug": "male-population-share",
+   "name": "نسبة الذكور من السكان",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.POP.DPND",
+   "domain": "age-structure",
+   "slug": "age-dependency-ratio",
+   "name": "نسبة الإعالة العمرية",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.POP.DPND.YG",
+   "domain": "age-structure",
+   "slug": "young-dependency-ratio",
+   "name": "نسبة إعالة صغار السن",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.POP.DPND.OL",
+   "domain": "age-structure",
+   "slug": "old-dependency-ratio",
+   "name": "نسبة إعالة كبار السن",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "SP.DYN.LE00.FE.IN",
+   "domain": "women",
+   "slug": "female-life-expectancy",
+   "name": "متوسط العمر المتوقع للإناث",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SP.DYN.LE00.MA.IN",
+   "domain": "public-health",
+   "slug": "male-life-expectancy",
+   "name": "متوسط العمر المتوقع للذكور",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SP.ADO.TFRT",
+   "domain": "family-marriage",
+   "slug": "adolescent-fertility-rate",
+   "name": "معدل الخصوبة لدى المراهقات",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SP.M18.2024.FE.ZS",
+   "domain": "family-marriage",
+   "slug": "women-married-by-18",
+   "name": "النساء المتزوجات قبل سن 18",
+   "values": 4,
+   "first": 1992,
+   "latest": 2023
+  },
+  {
+   "code": "SP.M15.2024.FE.ZS",
+   "domain": "family-marriage",
+   "slug": "women-married-by-15",
+   "name": "النساء المتزوجات قبل سن 15",
+   "values": 4,
+   "first": 1992,
+   "latest": 2023
+  },
+  {
+   "code": "SP.DYN.CONU.ZS",
+   "domain": "family-marriage",
+   "slug": "contraceptive-prevalence",
+   "name": "انتشار وسائل تنظيم الأسرة",
+   "values": 5,
+   "first": 1992,
+   "latest": 2013
+  },
+  {
+   "code": "SP.POP.BRTH.MF",
+   "domain": "births-deaths",
+   "slug": "sex-ratio-at-birth",
+   "name": "نسبة الجنس عند الولادة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SP.DYN.IMRT.IN",
+   "domain": "births-deaths",
+   "slug": "infant-mortality-rate",
+   "name": "معدل وفيات الرضع",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SH.DYN.NMRT",
+   "domain": "births-deaths",
+   "slug": "neonatal-mortality-rate",
+   "name": "معدل وفيات حديثي الولادة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SP.REG.BRTH.ZS",
+   "domain": "births-deaths",
+   "slug": "birth-registration",
+   "name": "تسجيل المواليد",
+   "values": 3,
+   "first": 2006,
+   "latest": 2013
+  },
+  {
+   "code": "SM.POP.TOTL",
+   "domain": "migration-diaspora",
+   "slug": "international-migrant-stock",
+   "name": "رصيد المهاجرين الدوليين المقيمين",
+   "values": 8,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SE.PRM.NENR",
+   "domain": "schools",
+   "slug": "primary-net-enrollment",
+   "name": "صافي الالتحاق بالتعليم الابتدائي",
+   "values": 10,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRM.ENRR.FE",
+   "domain": "schools",
+   "slug": "primary-enrollment-girls",
+   "name": "الالتحاق الإجمالي للفتيات بالتعليم الابتدائي",
+   "values": 12,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.SEC.ENRR.FE",
+   "domain": "schools",
+   "slug": "secondary-enrollment-girls",
+   "name": "الالتحاق الإجمالي للفتيات بالتعليم الثانوي",
+   "values": 11,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.ENR.PRSC.FM.ZS",
+   "domain": "schools",
+   "slug": "gender-parity-primary-secondary",
+   "name": "مؤشر التكافؤ بين الجنسين في الابتدائي والثانوي",
+   "values": 11,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRE.ENRR",
+   "domain": "schools",
+   "slug": "preprimary-enrollment",
+   "name": "الالتحاق بالتعليم ما قبل الابتدائي",
+   "values": 14,
+   "first": 1991,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRM.TENR",
+   "domain": "schools",
+   "slug": "primary-adjusted-net-enrollment",
+   "name": "صافي الالتحاق المعدل بالابتدائي",
+   "values": 10,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRM.UNER",
+   "domain": "schools",
+   "slug": "children-out-of-school",
+   "name": "الأطفال خارج المدرسة في سن الابتدائي",
+   "values": 10,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRM.ENRL.TC.ZS",
+   "domain": "schools",
+   "slug": "pupil-teacher-ratio-primary",
+   "name": "عدد التلاميذ لكل معلم في الابتدائي",
+   "values": 5,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRM.TCHR.FE.ZS",
+   "domain": "schools",
+   "slug": "female-primary-teachers",
+   "name": "المعلمات في التعليم الابتدائي",
+   "values": 4,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRM.PRSL.ZS",
+   "domain": "schools",
+   "slug": "primary-persistence-grade-5",
+   "name": "البقاء في الدراسة حتى الصف الخامس",
+   "values": 5,
+   "first": 2001,
+   "latest": 2012
+  },
+  {
+   "code": "SE.SEC.CMPT.LO.ZS",
+   "domain": "schools",
+   "slug": "lower-secondary-completion",
+   "name": "إكمال المرحلة الإعدادية",
+   "values": 7,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.PRM.REPT.ZS",
+   "domain": "schools",
+   "slug": "primary-repeaters",
+   "name": "الراسبون المعيدون في الابتدائي",
+   "values": 11,
+   "first": 1999,
+   "latest": 2016
+  },
+  {
+   "code": "SE.TER.ENRR.FE",
+   "domain": "higher-education",
+   "slug": "tertiary-enrollment-women",
+   "name": "الالتحاق الإجمالي للنساء بالتعليم العالي",
+   "values": 12,
+   "first": 1992,
+   "latest": 2011
+  },
+  {
+   "code": "SE.ENR.TERT.FM.ZS",
+   "domain": "higher-education",
+   "slug": "gender-parity-tertiary",
+   "name": "مؤشر التكافؤ بين الجنسين في التعليم العالي",
+   "values": 12,
+   "first": 1992,
+   "latest": 2011
+  },
+  {
+   "code": "IP.PAT.NRES",
+   "domain": "entrepreneurship-tech",
+   "slug": "nonresident-patent-applications",
+   "name": "طلبات براءات الاختراع لغير المقيمين",
+   "values": 23,
+   "first": 1998,
+   "latest": 2023
+  },
+  {
+   "code": "TX.VAL.ICTG.ZS.UN",
+   "domain": "digital-skills",
+   "slug": "ict-goods-exports",
+   "name": "صادرات سلع تقنية المعلومات والاتصالات",
+   "values": 12,
+   "first": 2004,
+   "latest": 2015
+  },
+  {
+   "code": "TM.VAL.ICTG.ZS.UN",
+   "domain": "digital-skills",
+   "slug": "ict-goods-imports",
+   "name": "واردات سلع تقنية المعلومات والاتصالات",
+   "values": 14,
+   "first": 2004,
+   "latest": 2019
+  },
+  {
+   "code": "BX.GSR.CCIS.ZS",
+   "domain": "digital-skills",
+   "slug": "ict-service-exports",
+   "name": "صادرات خدمات الاتصالات والحاسوب والمعلومات",
+   "values": 12,
+   "first": 2005,
+   "latest": 2016
+  },
+  {
+   "code": "SH.XPD.CHEX.PC.CD",
+   "domain": "hospitals-services",
+   "slug": "health-expenditure-per-capita",
+   "name": "الإنفاق الصحي الجاري للفرد",
+   "values": 24,
+   "first": 2000,
+   "latest": 2023
+  },
+  {
+   "code": "SH.XPD.OOPC.CH.ZS",
+   "domain": "hospitals-services",
+   "slug": "out-of-pocket-health-spending",
+   "name": "الإنفاق الصحي من جيوب الأسر",
+   "values": 24,
+   "first": 2000,
+   "latest": 2023
+  },
+  {
+   "code": "SH.XPD.EHEX.CH.ZS",
+   "domain": "hospitals-services",
+   "slug": "external-health-financing",
+   "name": "التمويل الخارجي للصحة",
+   "values": 24,
+   "first": 2000,
+   "latest": 2023
+  },
+  {
+   "code": "SH.MED.NUMW.P3",
+   "domain": "hospitals-services",
+   "slug": "nurses-midwives-per-thousand",
+   "name": "الممرضون والقابلات",
+   "values": 13,
+   "first": 1997,
+   "latest": 2023
+  },
+  {
+   "code": "SH.STA.BRTC.ZS",
+   "domain": "maternal-child-health",
+   "slug": "births-attended-by-skilled-staff",
+   "name": "الولادات بإشراف كادر صحي مؤهل",
+   "values": 6,
+   "first": 1992,
+   "latest": 2013
+  },
+  {
+   "code": "SH.STA.ANVC.ZS",
+   "domain": "maternal-child-health",
+   "slug": "antenatal-care",
+   "name": "الرعاية الصحية أثناء الحمل",
+   "values": 5,
+   "first": 1992,
+   "latest": 2013
+  },
+  {
+   "code": "SH.STA.BFED.ZS",
+   "domain": "nutrition",
+   "slug": "exclusive-breastfeeding",
+   "name": "الرضاعة الطبيعية الحصرية",
+   "values": 4,
+   "first": 1992,
+   "latest": 2013
+  },
+  {
+   "code": "SH.STA.WAST.ZS",
+   "domain": "nutrition",
+   "slug": "child-wasting",
+   "name": "الهزال بين الأطفال",
+   "values": 9,
+   "first": 1991,
+   "latest": 2022
+  },
+  {
+   "code": "SH.STA.MALN.ZS",
+   "domain": "nutrition",
+   "slug": "child-underweight",
+   "name": "نقص الوزن بين الأطفال",
+   "values": 9,
+   "first": 1991,
+   "latest": 2022
+  },
+  {
+   "code": "SH.STA.OWGH.ZS",
+   "domain": "nutrition",
+   "slug": "child-overweight",
+   "name": "زيادة الوزن بين الأطفال",
+   "values": 8,
+   "first": 1991,
+   "latest": 2022
+  },
+  {
+   "code": "SH.ANM.CHLD.ZS",
+   "domain": "nutrition",
+   "slug": "anemia-children",
+   "name": "فقر الدم بين الأطفال",
+   "values": 20,
+   "first": 2000,
+   "latest": 2019
+  },
+  {
+   "code": "SH.ANM.ALLW.ZS",
+   "domain": "nutrition",
+   "slug": "anemia-women",
+   "name": "فقر الدم بين النساء في سن الإنجاب",
+   "values": 24,
+   "first": 2000,
+   "latest": 2023
+  },
+  {
+   "code": "SN.ITK.MSFI.ZS",
+   "domain": "food-security",
+   "slug": "moderate-severe-food-insecurity",
+   "name": "انعدام الأمن الغذائي المتوسط أو الشديد",
+   "values": 10,
+   "first": 2015,
+   "latest": 2024
+  },
+  {
+   "code": "AG.PRD.FOOD.XD",
+   "domain": "food-security",
+   "slug": "food-production-index",
+   "name": "مؤشر إنتاج الغذاء",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.PRD.CREL.MT",
+   "domain": "food-security",
+   "slug": "cereal-production",
+   "name": "إنتاج الحبوب",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SH.IMM.MEAS",
+   "domain": "public-health",
+   "slug": "measles-immunization",
+   "name": "التحصين ضد الحصبة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SH.IMM.HEPB",
+   "domain": "public-health",
+   "slug": "hepb-immunization",
+   "name": "التحصين ضد التهاب الكبد ب",
+   "values": 26,
+   "first": 1999,
+   "latest": 2024
+  },
+  {
+   "code": "SH.DTH.COMM.ZS",
+   "domain": "diseases-epidemics",
+   "slug": "communicable-disease-deaths",
+   "name": "الوفيات بالأمراض المعدية وأمراض الأم والطفل والتغذية",
+   "values": 6,
+   "first": 2000,
+   "latest": 2021
+  },
+  {
+   "code": "SH.DTH.NCOM.ZS",
+   "domain": "diseases-epidemics",
+   "slug": "noncommunicable-disease-deaths",
+   "name": "الوفيات بالأمراض غير المعدية",
+   "values": 6,
+   "first": 2000,
+   "latest": 2021
+  },
+  {
+   "code": "SH.DTH.INJR.ZS",
+   "domain": "diseases-epidemics",
+   "slug": "injury-deaths",
+   "name": "الوفيات بسبب الإصابات",
+   "values": 6,
+   "first": 2000,
+   "latest": 2021
+  },
+  {
+   "code": "SH.DYN.NCOM.ZS",
+   "domain": "diseases-epidemics",
+   "slug": "ncd-mortality-30-70",
+   "name": "احتمال الوفاة بين 30 و70 بأمراض القلب والسرطان والسكري",
+   "values": 22,
+   "first": 2000,
+   "latest": 2021
+  },
+  {
+   "code": "SH.MLR.INCD.P3",
+   "domain": "diseases-epidemics",
+   "slug": "malaria-incidence",
+   "name": "الإصابة بالملاريا",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.HIV.INCD.ZS",
+   "domain": "diseases-epidemics",
+   "slug": "hiv-incidence",
+   "name": "الإصابات الجديدة بفيروس نقص المناعة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "SH.TBS.DTEC.ZS",
+   "domain": "diseases-epidemics",
+   "slug": "tuberculosis-detection",
+   "name": "نسبة اكتشاف حالات السل",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.STA.SUIC.P5",
+   "domain": "public-health",
+   "slug": "suicide-mortality-rate",
+   "name": "معدل الوفيات بالانتحار",
+   "values": 22,
+   "first": 2000,
+   "latest": 2021
+  },
+  {
+   "code": "SH.STA.HYGN.ZS",
+   "domain": "sanitation",
+   "slug": "basic-handwashing",
+   "name": "مرافق غسل اليدين الأساسية",
+   "values": 18,
+   "first": 2007,
+   "latest": 2024
+  },
+  {
+   "code": "SH.STA.ODFC.ZS",
+   "domain": "sanitation",
+   "slug": "open-defecation",
+   "name": "التبرز في العراء",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.STA.SMSS.ZS",
+   "domain": "sanitation",
+   "slug": "safely-managed-sanitation",
+   "name": "الصرف الصحي المُدار بأمان",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.H2O.BASW.RU.ZS",
+   "domain": "household-water",
+   "slug": "basic-water-rural",
+   "name": "مياه الشرب الأساسية في الريف",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.H2O.BASW.UR.ZS",
+   "domain": "household-water",
+   "slug": "basic-water-urban",
+   "name": "مياه الشرب الأساسية في الحضر",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.STA.BASS.RU.ZS",
+   "domain": "sanitation",
+   "slug": "basic-sanitation-rural",
+   "name": "الصرف الصحي الأساسي في الريف",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.STA.BASS.UR.ZS",
+   "domain": "sanitation",
+   "slug": "basic-sanitation-urban",
+   "name": "الصرف الصحي الأساسي في الحضر",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "SH.STA.POIS.P5",
+   "domain": "public-health",
+   "slug": "unintentional-poisoning-mortality",
+   "name": "الوفيات بالتسمم غير المتعمد",
+   "values": 22,
+   "first": 2000,
+   "latest": 2021
+  },
+  {
+   "code": "EG.ELC.ACCS.RU.ZS",
+   "domain": "electricity",
+   "slug": "electricity-access-rural",
+   "name": "وصول الكهرباء في الريف",
+   "values": 32,
+   "first": 1992,
+   "latest": 2024
+  },
+  {
+   "code": "EG.ELC.ACCS.UR.ZS",
+   "domain": "electricity",
+   "slug": "electricity-access-urban",
+   "name": "وصول الكهرباء في الحضر",
+   "values": 33,
+   "first": 1992,
+   "latest": 2024
+  },
+  {
+   "code": "EG.CFT.ACCS.ZS",
+   "domain": "electricity",
+   "slug": "clean-cooking-access",
+   "name": "الوصول إلى وقود وتقنيات الطهي النظيفة",
+   "values": 25,
+   "first": 2000,
+   "latest": 2024
+  },
+  {
+   "code": "EG.USE.ELEC.KH.PC",
+   "domain": "electricity",
+   "slug": "electric-power-consumption",
+   "name": "استهلاك الكهرباء للفرد",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EG.ELC.RNEW.ZS",
+   "domain": "renewable-energy",
+   "slug": "renewable-electricity-output",
+   "name": "الكهرباء المولدة من مصادر متجددة",
+   "values": 32,
+   "first": 1990,
+   "latest": 2021
+  },
+  {
+   "code": "EG.ELC.FOSL.ZS",
+   "domain": "electricity",
+   "slug": "fossil-electricity-share",
+   "name": "الكهرباء المولدة من الوقود الأحفوري",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EG.ELC.PETR.ZS",
+   "domain": "oil-gas",
+   "slug": "oil-electricity-share",
+   "name": "الكهرباء المولدة من النفط",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EG.ELC.NGAS.ZS",
+   "domain": "oil-gas",
+   "slug": "gas-electricity-share",
+   "name": "الكهرباء المولدة من الغاز الطبيعي",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EG.USE.PCAP.KG.OE",
+   "domain": "renewable-energy",
+   "slug": "energy-use-per-capita",
+   "name": "استخدام الطاقة للفرد",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EG.USE.COMM.FO.ZS",
+   "domain": "oil-gas",
+   "slug": "fossil-fuel-energy-consumption",
+   "name": "استهلاك الطاقة من الوقود الأحفوري",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EG.IMP.CONS.ZS",
+   "domain": "oil-gas",
+   "slug": "energy-imports-net",
+   "name": "صافي واردات الطاقة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EG.EGY.PRIM.PP.KD",
+   "domain": "renewable-energy",
+   "slug": "energy-intensity",
+   "name": "كثافة استخدام الطاقة الأولية",
+   "values": 22,
+   "first": 2000,
+   "latest": 2021
+  },
+  {
+   "code": "NY.GDP.NGAS.RT.ZS",
+   "domain": "oil-gas",
+   "slug": "natural-gas-rents",
+   "name": "ريع الغاز الطبيعي من الناتج المحلي",
+   "values": 27,
+   "first": 1990,
+   "latest": 2016
+  },
+  {
+   "code": "NY.GDP.TOTL.RT.ZS",
+   "domain": "mining",
+   "slug": "total-natural-resources-rents",
+   "name": "إجمالي ريع الموارد الطبيعية",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "TX.VAL.MMTL.ZS.UN",
+   "domain": "mining",
+   "slug": "ores-metals-exports",
+   "name": "الخامات والمعادن من صادرات البضائع",
+   "values": 19,
+   "first": 2001,
+   "latest": 2024
+  },
+  {
+   "code": "IT.NET.BBND.P2",
+   "domain": "internet-telecom",
+   "slug": "fixed-broadband-subscriptions",
+   "name": "اشتراكات الإنترنت الثابت عريض النطاق",
+   "values": 18,
+   "first": 2005,
+   "latest": 2022
+  },
+  {
+   "code": "IT.CEL.SETS",
+   "domain": "internet-telecom",
+   "slug": "mobile-subscriptions-total",
+   "name": "إجمالي اشتراكات الهاتف المحمول",
+   "values": 34,
+   "first": 1990,
+   "latest": 2023
+  },
+  {
+   "code": "IT.MLT.MAIN",
+   "domain": "internet-telecom",
+   "slug": "fixed-telephone-total",
+   "name": "إجمالي خطوط الهاتف الثابت",
+   "values": 32,
+   "first": 1990,
+   "latest": 2022
+  },
+  {
+   "code": "IS.AIR.DPRT",
+   "domain": "ports-airports",
+   "slug": "air-departures",
+   "name": "رحلات الإقلاع الجوية المسجلة",
+   "values": 33,
+   "first": 1990,
+   "latest": 2023
+  },
+  {
+   "code": "LP.LPI.OVRL.XQ",
+   "domain": "ports-airports",
+   "slug": "logistics-performance-index",
+   "name": "مؤشر الأداء اللوجستي",
+   "values": 6,
+   "first": 2007,
+   "latest": 2022
+  },
+  {
+   "code": "AG.LND.AGRI.ZS",
+   "domain": "agriculture",
+   "slug": "agricultural-land-share",
+   "name": "الأراضي الزراعية",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.LND.AGRI.K2",
+   "domain": "agriculture",
+   "slug": "agricultural-land-area",
+   "name": "مساحة الأراضي الزراعية",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.LND.CREL.HA",
+   "domain": "agriculture",
+   "slug": "cereal-land",
+   "name": "المساحة المزروعة بالحبوب",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.LND.CROP.ZS",
+   "domain": "agriculture",
+   "slug": "permanent-cropland",
+   "name": "الأراضي المزروعة بمحاصيل دائمة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.CON.FERT.ZS",
+   "domain": "agriculture",
+   "slug": "fertilizer-consumption",
+   "name": "استهلاك الأسمدة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.LND.ARBL.HA.PC",
+   "domain": "desertification",
+   "slug": "arable-land-per-person",
+   "name": "الأراضي الصالحة للزراعة للفرد",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.LND.TOTL.K2",
+   "domain": "desertification",
+   "slug": "land-area",
+   "name": "مساحة اليابسة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "AG.LND.FRST.K2",
+   "domain": "biodiversity",
+   "slug": "forest-area",
+   "name": "مساحة الغابات",
+   "values": 36,
+   "first": 1990,
+   "latest": 2025
+  },
+  {
+   "code": "ER.FSH.CAPT.MT",
+   "domain": "fisheries",
+   "slug": "capture-fisheries-production",
+   "name": "إنتاج المصايد الطبيعية",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "ER.FSH.AQUA.MT",
+   "domain": "fisheries",
+   "slug": "aquaculture-production",
+   "name": "إنتاج الاستزراع السمكي",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "ER.H2O.FWTL.ZS",
+   "domain": "water-resources",
+   "slug": "freshwater-withdrawal-share",
+   "name": "سحب المياه العذبة من الموارد الداخلية",
+   "values": 33,
+   "first": 1990,
+   "latest": 2022
+  },
+  {
+   "code": "ER.H2O.FWST.ZS",
+   "domain": "water-resources",
+   "slug": "water-stress",
+   "name": "الإجهاد المائي",
+   "values": 33,
+   "first": 1990,
+   "latest": 2022
+  },
+  {
+   "code": "ER.H2O.INTR.K3",
+   "domain": "water-resources",
+   "slug": "renewable-internal-freshwater",
+   "name": "موارد المياه العذبة الداخلية المتجددة",
+   "values": 33,
+   "first": 1990,
+   "latest": 2022
+  },
+  {
+   "code": "ER.H2O.FWDM.ZS",
+   "domain": "water-resources",
+   "slug": "domestic-water-withdrawals",
+   "name": "حصة الاستخدام المنزلي من سحب المياه",
+   "values": 33,
+   "first": 1990,
+   "latest": 2022
+  },
+  {
+   "code": "ER.GDP.FWTL.M3.KD",
+   "domain": "water-resources",
+   "slug": "water-productivity",
+   "name": "إنتاجية المياه",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "EN.GHG.ALL.MT.CE.AR5",
+   "domain": "climate",
+   "slug": "total-ghg-emissions",
+   "name": "إجمالي انبعاثات غازات الدفيئة",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EN.GHG.CO2.PC.CE.AR5",
+   "domain": "climate",
+   "slug": "co2-per-capita",
+   "name": "انبعاثات ثاني أكسيد الكربون للفرد",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EN.GHG.CO2.MT.CE.AR5",
+   "domain": "climate",
+   "slug": "co2-emissions-total",
+   "name": "انبعاثات ثاني أكسيد الكربون",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EN.GHG.CH4.MT.CE.AR5",
+   "domain": "climate",
+   "slug": "methane-emissions",
+   "name": "انبعاثات الميثان",
+   "values": 35,
+   "first": 1990,
+   "latest": 2024
+  },
+  {
+   "code": "EN.ATM.PM25.MC.ZS",
+   "domain": "climate",
+   "slug": "pm25-exposure-above-who",
+   "name": "السكان المعرضون لتلوث يتجاوز إرشادات الصحة العالمية",
+   "values": 12,
+   "first": 1990,
+   "latest": 2017
+  },
+  {
+   "code": "EN.POP.EL5M.ZS",
+   "domain": "climate",
+   "slug": "population-below-5m",
+   "name": "السكان في مناطق ارتفاعها أقل من 5 أمتار",
+   "values": 3,
+   "first": 1990,
+   "latest": 2015
+  },
+  {
+   "code": "ER.PTD.TOTL.ZS",
+   "domain": "biodiversity",
+   "slug": "protected-areas-total",
+   "name": "المناطق المحمية البرية والبحرية",
+   "values": 13,
+   "first": 2013,
+   "latest": 2025
+  },
+  {
+   "code": "NY.ADJ.DFOR.GN.ZS",
+   "domain": "desertification",
+   "slug": "net-forest-depletion",
+   "name": "صافي استنزاف الغابات",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "NY.ADJ.DRES.GN.ZS",
+   "domain": "desertification",
+   "slug": "natural-resource-depletion",
+   "name": "استنزاف الموارد الطبيعية",
+   "values": 29,
+   "first": 1990,
+   "latest": 2018
+  },
+  {
+   "code": "IQ.CPA.TRAN.XQ",
+   "domain": "corruption-transparency",
+   "slug": "cpia-transparency",
+   "name": "تقييم الشفافية والمساءلة والفساد في القطاع العام (CPIA)",
+   "values": 21,
+   "first": 2005,
+   "latest": 2025
+  },
+  {
+   "code": "IQ.CPA.PUBS.XQ",
+   "domain": "governance",
+   "slug": "cpia-public-sector",
+   "name": "تقييم إدارة القطاع العام والمؤسسات (CPIA)",
+   "values": 21,
+   "first": 2005,
+   "latest": 2025
+  },
+  {
+   "code": "IQ.CPA.PROP.XQ",
+   "domain": "governance",
+   "slug": "cpia-property-rights",
+   "name": "تقييم حقوق الملكية والحوكمة القائمة على القواعد (CPIA)",
+   "values": 21,
+   "first": 2005,
+   "latest": 2025
+  },
+  {
+   "code": "ST.INT.XPND.CD",
+   "domain": "tourism-heritage",
+   "slug": "international-tourism-expenditures",
+   "name": "إنفاق السياحة الدولية الصادرة",
+   "values": 19,
+   "first": 1998,
+   "latest": 2016
+  },
+  {
+   "code": "ST.INT.RCPT.XP.ZS",
+   "domain": "tourism-heritage",
+   "slug": "tourism-receipts-share-exports",
+   "name": "إيرادات السياحة من الصادرات",
+   "values": 7,
+   "first": 2010,
+   "latest": 2016
+  },
+  {
+   "code": "SG.GEN.PARL.ZS",
+   "domain": "women",
+   "slug": "women-in-parliament",
+   "name": "مقاعد النساء في البرلمان",
+   "values": 28,
+   "first": 1998,
+   "latest": 2025
+  },
+  {
+   "code": "MS.MIL.TOTL.P1",
+   "domain": "war-impact",
+   "slug": "armed-forces-personnel",
+   "name": "أفراد القوات المسلحة",
+   "values": 31,
+   "first": 1990,
+   "latest": 2020
+  },
+  {
+   "code": "MS.MIL.XPND.ZS",
+   "domain": "war-impact",
+   "slug": "military-expenditure-share-government",
+   "name": "الإنفاق العسكري من الإنفاق الحكومي",
+   "values": 25,
+   "first": 1990,
+   "latest": 2014
+  },
+  {
+   "code": "MS.MIL.MPRT.KD",
+   "domain": "war-impact",
+   "slug": "arms-imports",
+   "name": "واردات الأسلحة",
+   "values": 26,
+   "first": 1990,
+   "latest": 2022
+  }
+ ],
+ "skipped": [
+  {
+   "code": "NV.IND.MANF.ZS",
+   "slug": "manufacturing-value-added-share",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "NV.IND.MANF.CD",
+   "slug": "manufacturing-value-added-usd",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "NV.IND.MANF.KD.ZG",
+   "slug": "manufacturing-growth",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SL.UEM.NEET.ZS",
+   "slug": "youth-neet",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "GC.TAX.TOTL.GD.ZS",
+   "slug": "tax-revenue-share-gdp",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.TAX.IMPT.ZS",
+   "slug": "customs-duties-share",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.TAX.YPKG.ZS",
+   "slug": "income-profit-taxes-share",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.TAX.GSRV.RV.ZS",
+   "slug": "goods-services-taxes-share",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.TAX.INTT.RV.ZS",
+   "slug": "international-trade-taxes-share",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.REV.XGRT.GD.ZS",
+   "slug": "government-revenue-share-gdp",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.XPN.TOTL.GD.ZS",
+   "slug": "government-expense-share-gdp",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.BAL.CASH.GD.ZS",
+   "slug": "cash-surplus-deficit",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "GC.DOD.TOTL.GD.ZS",
+   "slug": "central-government-debt",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "FS.AST.DOMS.GD.ZS",
+   "slug": "domestic-credit-by-banks",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "IC.BUS.NDNS.ZS",
+   "slug": "new-business-density",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SM.POP.REFG",
+   "slug": "refugees-hosted",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SM.POP.REFG.OR",
+   "slug": "refugees-from-yemen",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "VC.IDP.TOCV",
+   "slug": "idps-conflict-total",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SE.SEC.ENRL.TC.ZS",
+   "slug": "pupil-teacher-ratio-secondary",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "SE.ADT.LITR.FE.ZS",
+   "slug": "female-adult-literacy",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "SE.ADT.LITR.MA.ZS",
+   "slug": "male-adult-literacy",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "SE.ADT.1524.LT.ZS",
+   "slug": "youth-literacy",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "SE.XPD.PRIM.PC.ZS",
+   "slug": "spending-per-primary-student",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "GB.XPD.RSDV.GD.ZS",
+   "slug": "rd-expenditure",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SP.POP.SCIE.RD.P6",
+   "slug": "researchers-per-million",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "IP.TMK.TOTL",
+   "slug": "trademark-applications",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SN.ITK.DEFC.ZS",
+   "slug": "undernourishment-prevalence",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SN.ITK.SVFI.ZS",
+   "slug": "severe-food-insecurity",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SH.STA.DIAB.ZS",
+   "slug": "diabetes-prevalence",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "SH.PRV.SMOK",
+   "slug": "tobacco-use-prevalence",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SH.H2O.SMDW.ZS",
+   "slug": "safely-managed-water",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SH.STA.WASH.P5",
+   "slug": "unsafe-wash-mortality",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "SH.STA.AIRP.P5",
+   "slug": "air-pollution-mortality",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "IS.RRS.TOTL.KM",
+   "slug": "rail-lines",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "EN.POP.SLUM.UR.ZS",
+   "slug": "urban-slums",
+   "reason": "already in the catalog"
+  },
+  {
+   "code": "AG.LND.IRIG.AG.ZS",
+   "slug": "irrigated-land-share",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "AG.LND.TRAC.ZS",
+   "slug": "agricultural-machinery",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "EN.CLC.MDAT.ZS",
+   "slug": "disaster-affected-population",
+   "reason": "only 1 yearly values"
+  },
+  {
+   "code": "EN.MAM.THRD.NO",
+   "slug": "threatened-mammals",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "EN.BIR.THRD.NO",
+   "slug": "threatened-birds",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "EN.FSH.THRD.NO",
+   "slug": "threatened-fish",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "EN.HPT.THRD.NO",
+   "slug": "threatened-plants",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "IQ.SCI.OVRL",
+   "slug": "statistical-capacity",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "IC.FRM.BRIB.ZS",
+   "slug": "firms-bribery",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "IC.FRM.CORR.ZS",
+   "slug": "firms-corruption-constraint",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "IC.ELC.OUTG.ZS",
+   "slug": "firms-power-outages",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "IC.FRM.FEMM.ZS",
+   "slug": "firms-female-top-manager",
+   "reason": "only 2 yearly values"
+  },
+  {
+   "code": "IC.TAX.TOTL.CP.ZS",
+   "slug": "total-tax-rate-profit",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "IC.REG.DURS",
+   "slug": "days-to-start-business",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "ST.INT.DPRT",
+   "slug": "international-tourism-departures",
+   "reason": "only 0 yearly values"
+  },
+  {
+   "code": "SG.LAW.INDX",
+   "slug": "women-business-law-index",
+   "reason": "only 0 yearly values"
+  }
+ ],
+ "added_values": 4831
+}

@@ -1,0 +1,3374 @@
+[
+ {
+  "slug": "gdp-constant-2015-usd",
+  "code": "NY.GDP.MKTP.KD",
+  "name": "الناتج المحلي الإجمالي بالأسعار الثابتة (2015)",
+  "unit": "دولار أمريكي بأسعار 2015",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "الناتج المحلي الإجمالي",
+  "has_editorial": false,
+  "values": 29,
+  "first": {
+   "year": 1990,
+   "value": 23918014718.5428
+  },
+  "latest": {
+   "year": 2018,
+   "value": 36789138480.0859
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 23918014718.5428
+   },
+   {
+    "year": 2000,
+    "value": 41498634363.6833
+   },
+   {
+    "year": 2010,
+    "value": 63038676060.5744
+   },
+   {
+    "year": 2014,
+    "value": 58946215687.1767
+   },
+   {
+    "year": 2015,
+    "value": 42444490073.8555
+   },
+   {
+    "year": 2018,
+    "value": 36789138480.0859
+   }
+  ],
+  "en_name": "GDP (constant 2015 US$)",
+  "en_definition": "Gross domestic product is the total income earned through the production of goods and services in an economic territory during an accounting period. It can be measured in three different ways: using either the expenditure approach, the income approach, or the production approach. This indicator is expressed in constant prices, meaning the series has been adjusted to account for price changes over time. The reference year for this adjustment is 2015. This indicator is expressed in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "gni-per-capita-atlas",
+  "code": "NY.GNP.PCAP.CD",
+  "name": "نصيب الفرد من الدخل القومي الإجمالي (أطلس)",
+  "unit": "دولار أمريكي",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "الناتج المحلي الإجمالي",
+  "has_editorial": false,
+  "values": 27,
+  "first": {
+   "year": 1992,
+   "value": 1100
+  },
+  "latest": {
+   "year": 2018,
+   "value": 740
+  },
+  "key_points": [
+   {
+    "year": 1992,
+    "value": 1100
+   },
+   {
+    "year": 2000,
+    "value": 380
+   },
+   {
+    "year": 2010,
+    "value": 1040
+   },
+   {
+    "year": 2014,
+    "value": 1250
+   },
+   {
+    "year": 2015,
+    "value": 1030
+   },
+   {
+    "year": 2018,
+    "value": 740
+   }
+  ],
+  "en_name": "GNI per capita, Atlas method (current US$)",
+  "en_definition": "Gross national income is the total income earned by all residents within an economic territory during an accounting period. It is equal to gross domestic product plus earned income receivable from abroad minus earned income payable abroad. This figure is converted to U.S. dollars using the World Bank Atlas method, and divided by the midyear population. GNI, calculated in national currency, is usually converted to U.S. dollars at official exchange rates for comparisons across economies, although an alternative rate is used when the official exchange rate is judged to diverge by an exceptionally large margin from the rate actually applied in international transactions. To smooth fluctuations in prices and exchange rates, a special Atlas method of conversion is used by the World Bank. This applies a conversion factor that averages the exchange rate for a given year and the two preceding years, adjusted for differences in rates of inflation between the country, and through 2000, the G-5 countries (France, Germany, Japan, the United Kingdom, and the United States). From 2001, these countries include the Euro area, Japan, the United Kingdom, and the United States. This indicator is expressed in current prices, meaning no adjustment has been made to account for price changes over time. This indicator is expressed in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "agriculture-growth",
+  "code": "NV.AGR.TOTL.KD.ZG",
+  "name": "نمو القيمة المضافة للزراعة",
+  "unit": "% سنويا",
+  "direction": "increase",
+  "section": "الإنتاج والموارد",
+  "domain": "الزراعة",
+  "has_editorial": false,
+  "values": 28,
+  "first": {
+   "year": 1991,
+   "value": 1.52070984930339
+  },
+  "latest": {
+   "year": 2018,
+   "value": 7.4194619267508
+  },
+  "key_points": [
+   {
+    "year": 1991,
+    "value": 1.52070984930339
+   },
+   {
+    "year": 2000,
+    "value": -11.9432226040727
+   },
+   {
+    "year": 2010,
+    "value": 6.13971036410916
+   },
+   {
+    "year": 2014,
+    "value": -0.236159818763539
+   },
+   {
+    "year": 2015,
+    "value": -17.6911937723511
+   },
+   {
+    "year": 2018,
+    "value": 7.4194619267508
+   }
+  ],
+  "en_name": "Agriculture, forestry, and fishing, value added (annual % growth)",
+  "en_definition": "Agriculture, forestry, and fishing corresponds to ISIC (Rev. 4) divisions 01-03 and includes the exploitation of vegetal and animal natural resources, comprising the activities of growing of crops, raising and breeding of animals, harvesting of timber and other plants, animals or animal products from a farm or their natural habitats.Value added is the contribution to the economy by a producer or an industry or an institutional sector, which is estimated by the total value of output produced and deducting the total value of intermediate consumption of goods and services used to produce that output. This indicator denotes the percentage change over each previous year of the constant price (base year 2015) series in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "gdp-per-capita-growth",
+  "code": "NY.GDP.PCAP.KD.ZG",
+  "name": "نمو نصيب الفرد من الناتج المحلي",
+  "unit": "% سنويا",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "الناتج المحلي الإجمالي",
+  "has_editorial": false,
+  "values": 28,
+  "first": {
+   "year": 1991,
+   "value": 2.29860098445927
+  },
+  "latest": {
+   "year": 2018,
+   "value": -2.186490192267
+  },
+  "key_points": [
+   {
+    "year": 1991,
+    "value": 2.29860098445927
+   },
+   {
+    "year": 2000,
+    "value": 2.96401092010485
+   },
+   {
+    "year": 2010,
+    "value": 4.3735077841587
+   },
+   {
+    "year": 2014,
+    "value": -3.20471705643189
+   },
+   {
+    "year": 2015,
+    "value": -30.1507550992904
+   },
+   {
+    "year": 2018,
+    "value": -2.186490192267
+   }
+  ],
+  "en_name": "GDP per capita growth (annual %)",
+  "en_definition": "Gross domestic product is the total income earned through the production of goods and services in an economic territory during an accounting period. It can be measured in three different ways: using either the expenditure approach, the income approach, or the production approach. The core indicator has been divided by the general population to achieve a per capita estimate.This indicator denotes the percentage change over each previous year of the constant price (base year 2015) series in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "industry-growth",
+  "code": "NV.IND.TOTL.KD.ZG",
+  "name": "نمو القيمة المضافة للصناعة",
+  "unit": "% سنويا",
+  "direction": "increase",
+  "section": "الإنتاج والموارد",
+  "domain": "الصناعة التحويلية",
+  "has_editorial": false,
+  "values": 28,
+  "first": {
+   "year": 1991,
+   "value": -4.4417541822221
+  },
+  "latest": {
+   "year": 2018,
+   "value": -1.1171017399963
+  },
+  "key_points": [
+   {
+    "year": 1991,
+    "value": -4.4417541822221
+   },
+   {
+    "year": 2000,
+    "value": 20.1777809606453
+   },
+   {
+    "year": 2010,
+    "value": 8.05953853380261
+   },
+   {
+    "year": 2014,
+    "value": 2.09922018769883
+   },
+   {
+    "year": 2015,
+    "value": -38.8655135191283
+   },
+   {
+    "year": 2018,
+    "value": -1.1171017399963
+   }
+  ],
+  "en_name": "Industry (including construction), value added (annual % growth)",
+  "en_definition": "Industry (including construction) corresponds to ISIC (Rev.4) divisions 05-43. It is comprised of mining, manufacturing, construction, electricity, water, and gas industries. Value added is the contribution to the economy by a producer or an industry or an institutional sector, which is estimated by the total value of output produced and deducting the total value of intermediate consumption of goods and services used to produce that output. This indicator denotes the percentage change over each previous year of the constant price (base year 2015) series in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Offices (NSOs);\nNational Accounts data files, Central Banks;\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "female-labor-force-participation",
+  "code": "SL.TLF.CACT.FE.ZS",
+  "name": "مشاركة النساء في قوة العمل",
+  "unit": "% من النساء بعمر 15 فأكثر",
+  "direction": "increase",
+  "section": "السكان والمجتمع",
+  "domain": "المرأة",
+  "has_editorial": false,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": 16.094
+  },
+  "latest": {
+   "year": 2025,
+   "value": 4.663
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 16.094
+   },
+   {
+    "year": 2000,
+    "value": 20.208
+   },
+   {
+    "year": 2010,
+    "value": 9.982
+   },
+   {
+    "year": 2014,
+    "value": 6.011
+   },
+   {
+    "year": 2015,
+    "value": 5.207
+   },
+   {
+    "year": 2020,
+    "value": 4.899
+   },
+   {
+    "year": 2025,
+    "value": 4.663
+   }
+  ],
+  "en_name": "Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)",
+  "en_definition": "The labor force participation rate is the labor force as a percent of the population ages 15 and older. The labor force is the sum of all persons of working age who are employed and those who are unemployed.",
+  "en_source": "ILO Modelled Estimates database (ILOEST), International Labour Organization (ILO), uri: https://ilostat.ilo.org/data/bulk/, publisher: ILOSTAT, type: external database, date accessed: January 17, 2026"
+ },
+ {
+  "slug": "employment-to-population",
+  "code": "SL.EMP.TOTL.SP.ZS",
+  "name": "نسبة العاملين إلى السكان",
+  "unit": "% من السكان بعمر 15 فأكثر",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "سوق العمل والبطالة",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1991,
+   "value": 40.465
+  },
+  "latest": {
+   "year": 2025,
+   "value": 27.369
+  },
+  "key_points": [
+   {
+    "year": 1991,
+    "value": 40.465
+   },
+   {
+    "year": 2000,
+    "value": 39.974
+   },
+   {
+    "year": 2010,
+    "value": 34.644
+   },
+   {
+    "year": 2014,
+    "value": 31.993
+   },
+   {
+    "year": 2015,
+    "value": 26.328
+   },
+   {
+    "year": 2020,
+    "value": 26.651
+   },
+   {
+    "year": 2025,
+    "value": 27.369
+   }
+  ],
+  "en_name": "Employment to population ratio, 15+, total (%) (modeled ILO estimate)",
+  "en_definition": "Employment to population ratio is the proportion of a country's population that is employed.",
+  "en_source": "ILO Modelled Estimates database (ILOEST), International Labour Organization (ILO), uri: https://ilostat.ilo.org/data/bulk/, publisher: ILOSTAT, type: external database, date accessed: January 17, 2026"
+ },
+ {
+  "slug": "poverty-365",
+  "code": "SI.POV.LMIC",
+  "name": "الفقر عند خط 3.65 دولار يوميا",
+  "unit": "% من السكان",
+  "direction": "decrease",
+  "section": "الاقتصاد والمالية",
+  "domain": "الفقر",
+  "has_editorial": false,
+  "values": 3,
+  "first": {
+   "year": 1998,
+   "value": 30
+  },
+  "latest": {
+   "year": 2014,
+   "value": 57.7
+  },
+  "key_points": [
+   {
+    "year": 1998,
+    "value": 30
+   },
+   {
+    "year": 2014,
+    "value": 57.7
+   }
+  ],
+  "en_name": "Poverty headcount ratio at $4.20 a day (2021 PPP) (% of population)",
+  "en_definition": "Poverty headcount ratio at $4.20 a day is the percentage of the population living on less than $4.20 a day at 2021 international prices.",
+  "en_source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank country departments. Data for high-income economies are mostly from the Luxembourg Income Study database. For more information and methodology, please see http://pip.worldbank.org., World Bank (WB), uri: http://pip.worldbank.org, note: Data are based on primary household survey data obtained from government statistical agencies and World Bank country departments. Data for high-income economies are mostly from the Luxembourg Income Study database."
+ },
+ {
+  "slug": "employment-in-agriculture",
+  "code": "SL.AGR.EMPL.ZS",
+  "name": "العاملون في الزراعة",
+  "unit": "% من إجمالي العاملين",
+  "direction": "contextual",
+  "section": "الإنتاج والموارد",
+  "domain": "الزراعة",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1991,
+   "value": 59.756417821694
+  },
+  "latest": {
+   "year": 2025,
+   "value": 31.6169333772096
+  },
+  "key_points": [
+   {
+    "year": 1991,
+    "value": 59.756417821694
+   },
+   {
+    "year": 2000,
+    "value": 54.7693590167617
+   },
+   {
+    "year": 2010,
+    "value": 29.181802291095
+   },
+   {
+    "year": 2014,
+    "value": 29.2437637706599
+   },
+   {
+    "year": 2015,
+    "value": 30.451833050025
+   },
+   {
+    "year": 2020,
+    "value": 32.0632440207449
+   },
+   {
+    "year": 2025,
+    "value": 31.6169333772096
+   }
+  ],
+  "en_name": "Employment in agriculture (% of total employment) (modeled ILO estimate)",
+  "en_definition": "Employment is defined as persons of working age who were engaged in any activity to produce goods or provide services for pay or profit, whether at work during the reference period or not at work due to temporary absence from a job, or to working-time arrangement. The agriculture sector consists of activities in agriculture, hunting, forestry and fishing, in accordance with division 1 (ISIC 2) or categories A-B (ISIC 3) or category A (ISIC 4).",
+  "en_source": "ILO Modelled Estimates database (ILOEST), International Labour Organization (ILO), uri: https://ilostat.ilo.org/data/bulk/, publisher: ILOSTAT, type: external database, date accessed: January 17, 2026"
+ },
+ {
+  "slug": "poverty-685",
+  "code": "SI.POV.UMIC",
+  "name": "الفقر عند خط 6.85 دولار يوميا",
+  "unit": "% من السكان",
+  "direction": "decrease",
+  "section": "الاقتصاد والمالية",
+  "domain": "الفقر",
+  "has_editorial": false,
+  "values": 3,
+  "first": {
+   "year": 1998,
+   "value": 72.1
+  },
+  "latest": {
+   "year": 2014,
+   "value": 88
+  },
+  "key_points": [
+   {
+    "year": 1998,
+    "value": 72.1
+   },
+   {
+    "year": 2014,
+    "value": 88
+   }
+  ],
+  "en_name": "Poverty headcount ratio at $8.30 a day (2021 PPP) (% of population)",
+  "en_definition": "Poverty headcount ratio at $8.30 a day is the percentage of the population living on less than $8.30 a day at 2021 international prices.",
+  "en_source": "World Bank, Poverty and Inequality Platform. Data are based on primary household survey data obtained from government statistical agencies and World Bank country departments. Data for high-income economies are mostly from the Luxembourg Income Study database. For more information and methodology, please see http://pip.worldbank.org., World Bank (WB), uri: http://pip.worldbank.org, note: Data are based on primary household survey data obtained from government statistical agencies and World Bank country departments. Data for high-income economies are mostly from the Luxembourg Income Study database."
+ },
+ {
+  "slug": "reserves-months-imports",
+  "code": "FI.RES.TOTL.MO",
+  "name": "الاحتياطيات بأشهر الواردات",
+  "unit": "شهر من الواردات",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "العملة والسياسة النقدية",
+  "has_editorial": false,
+  "values": 12,
+  "first": {
+   "year": 2005,
+   "value": 9.51486345696468
+  },
+  "latest": {
+   "year": 2016,
+   "value": 1.21909636539694
+  },
+  "key_points": [
+   {
+    "year": 2005,
+    "value": 9.51486345696468
+   },
+   {
+    "year": 2010,
+    "value": 5.69994246463781
+   },
+   {
+    "year": 2014,
+    "value": 3.07503189321235
+   },
+   {
+    "year": 2015,
+    "value": 2.09465052767099
+   },
+   {
+    "year": 2016,
+    "value": 1.21909636539694
+   }
+  ],
+  "en_name": "Total reserves in months of imports",
+  "en_definition": "Reserve assets are external assets, including monetary gold, that are readily available to and controlled by monetary authorities for meeting balance of payments financing needs, for intervention in exchange markets to affect the currency exchange rate, and for other related purposes (such as maintaining confidence in the currency and the economy, and serving as a basis for foreign borrowing). Reserve assets must be denominated and settled in foreign currency. This item is expressed in terms of the number of months of imports of goods and services they could pay for [X/(Imports/12)].",
+  "en_source": "International Financial Statistics database, International Monetary Fund (IMF)"
+ },
+ {
+  "slug": "deposit-interest-rate",
+  "code": "FR.INR.DPST",
+  "name": "سعر الفائدة على الودائع",
+  "unit": "%",
+  "direction": "contextual",
+  "section": "الاقتصاد والمالية",
+  "domain": "القطاع المصرفي",
+  "has_editorial": false,
+  "values": 18,
+  "first": {
+   "year": 1996,
+   "value": 23.75
+  },
+  "latest": {
+   "year": 2013,
+   "value": 15.25
+  },
+  "key_points": [
+   {
+    "year": 1996,
+    "value": 23.75
+   },
+   {
+    "year": 2000,
+    "value": 14
+   },
+   {
+    "year": 2010,
+    "value": 18.6666666666667
+   },
+   {
+    "year": 2013,
+    "value": 15.25
+   }
+  ],
+  "en_name": "Deposit interest rate (%)",
+  "en_definition": "Deposit interest rate is the rate paid by commercial or similar banks for demand, time, or savings deposits. The terms and conditions attached to these rates differ by country, however, limiting their comparability. This indicator is expressed as a percentage (a÷b)*100.",
+  "en_source": "International Financial Statistics database, International Monetary Fund (IMF)"
+ },
+ {
+  "slug": "imports-current-usd",
+  "code": "NE.IMP.GNFS.CD",
+  "name": "واردات السلع والخدمات بالقيمة",
+  "unit": "دولار أمريكي",
+  "direction": "contextual",
+  "section": "الاقتصاد والمالية",
+  "domain": "التجارة الخارجية",
+  "has_editorial": false,
+  "values": 29,
+  "first": {
+   "year": 1990,
+   "value": 2081089266.792
+  },
+  "latest": {
+   "year": 2018,
+   "value": 10224406924.9102
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 2081089266.792
+   },
+   {
+    "year": 2000,
+    "value": 3293865079.50311
+   },
+   {
+    "year": 2010,
+    "value": 10629004000.1822
+   },
+   {
+    "year": 2014,
+    "value": 11567517016.1478
+   },
+   {
+    "year": 2015,
+    "value": 9047502112.88812
+   },
+   {
+    "year": 2018,
+    "value": 10224406924.9102
+   }
+  ],
+  "en_name": "Imports of goods and services (current US$)",
+  "en_definition": "Imports of goods includes change in the economic ownership of goods from non-residents to\n\n\n\n\nresidents of the compiling economy, irrespective of physical movement of goods across national borders. Imports of services includes services provided by non-residents to residents. This indicator is expressed in current prices, meaning no adjustment has been made to account for price changes over time. This indicator is expressed in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Offices (NSOs);\nNational Accounts data files, Central Banks;\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "real-interest-rate",
+  "code": "FR.INR.RINR",
+  "name": "سعر الفائدة الحقيقي",
+  "unit": "%",
+  "direction": "contextual",
+  "section": "الاقتصاد والمالية",
+  "domain": "القطاع المصرفي",
+  "has_editorial": false,
+  "values": 18,
+  "first": {
+   "year": 1996,
+   "value": -3.88980366925062
+  },
+  "latest": {
+   "year": 2013,
+   "value": 11.7887549277275
+  },
+  "key_points": [
+   {
+    "year": 1996,
+    "value": -3.88980366925062
+   },
+   {
+    "year": 2000,
+    "value": -3.08431862863075
+   },
+   {
+    "year": 2010,
+    "value": 0.174627011628769
+   },
+   {
+    "year": 2013,
+    "value": 11.7887549277275
+   }
+  ],
+  "en_name": "Real interest rate (%)",
+  "en_definition": "An interest rate is the amount charged, expressed as a percentage of the principal over a period of time, by the owners of certain kinds of financial assets for putting the financial assets at the disposal of another institutional unit. The real interest rate is the lending interest rate adjusted for inflation as measured by the GDP deflator. The terms and conditions attached to lending rates differ by country, however, limiting their comparability. This indicator is expressed as a percentage (a÷b)*100.",
+  "en_source": "International Financial Statistics database, International Monetary Fund (IMF);\nWorld Development Indicators, World Bank (WB)"
+ },
+ {
+  "slug": "merchandise-exports",
+  "code": "TX.VAL.MRCH.CD.WT",
+  "name": "صادرات البضائع",
+  "unit": "دولار أمريكي",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "التجارة الخارجية",
+  "has_editorial": false,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": 692000000
+  },
+  "latest": {
+   "year": 2025,
+   "value": 196000000
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 692000000
+   },
+   {
+    "year": 2000,
+    "value": 4079000000
+   },
+   {
+    "year": 2010,
+    "value": 6437000000
+   },
+   {
+    "year": 2014,
+    "value": 2417000000
+   },
+   {
+    "year": 2015,
+    "value": 510000000
+   },
+   {
+    "year": 2020,
+    "value": 404000000
+   },
+   {
+    "year": 2025,
+    "value": 196000000
+   }
+  ],
+  "en_name": "Merchandise exports (current US$)",
+  "en_definition": "Merchandise exports includes goods whose economic ownership is changed from a resident to a non-resident and that are not included in the following specific categories: goods under merchanting, non-monetary gold, and parts of travel, construction, and government goods and services n.i.e. This indicator is expressed in current prices, meaning no adjustment has been made to account for price changes over time. This indicator is expressed in United States dollars.",
+  "en_source": "World Trade Organization (WTO)"
+ },
+ {
+  "slug": "current-account-balance",
+  "code": "BN.CAB.XOKA.GD.ZS",
+  "name": "رصيد الحساب الجاري",
+  "unit": "% من الناتج المحلي",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "التجارة الخارجية",
+  "has_editorial": false,
+  "values": 12,
+  "first": {
+   "year": 2005,
+   "value": 3.73034951201846
+  },
+  "latest": {
+   "year": 2016,
+   "value": -7.72391058547812
+  },
+  "key_points": [
+   {
+    "year": 2005,
+    "value": 3.73034951201846
+   },
+   {
+    "year": 2010,
+    "value": -3.41069923528219
+   },
+   {
+    "year": 2014,
+    "value": -3.44275275189167
+   },
+   {
+    "year": 2015,
+    "value": -7.12936953882745
+   },
+   {
+    "year": 2016,
+    "value": -7.72391058547812
+   }
+  ],
+  "en_name": "Current account balance (% of GDP)",
+  "en_definition": "Balance of current transactions (transactions in goods and services, earned income and transfer income) between residents and non-residents. The term current account balance is used in the external accounts and is expressed from the perspective of resident units. The term current external balance is used in the national accounts and is expressed from the perspective of the non-resident units, and therefore with the opposite sign. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period.",
+  "en_source": "Balance of Payments Statistics Yearbook and data files, International Monetary Fund (IMF);\nWorld Development Indicators Database, World Bank (WB);\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD)"
+ },
+ {
+  "slug": "fdi-net-inflows-usd",
+  "code": "BX.KLT.DINV.CD.WD",
+  "name": "صافي تدفقات الاستثمار الأجنبي المباشر بالقيمة",
+  "unit": "دولار أمريكي",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "الاستثمار",
+  "has_editorial": false,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": -130900000
+  },
+  "latest": {
+   "year": 2025,
+   "value": -5000000
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": -130900000
+   },
+   {
+    "year": 2000,
+    "value": 6399510
+   },
+   {
+    "year": 2010,
+    "value": 188641795.777668
+   },
+   {
+    "year": 2014,
+    "value": -233104668.580815
+   },
+   {
+    "year": 2015,
+    "value": -15444808.3545508
+   },
+   {
+    "year": 2020,
+    "value": -19600000
+   },
+   {
+    "year": 2025,
+    "value": -5000000
+   }
+  ],
+  "en_name": "Foreign direct investment, net inflows (BoP, current US$)",
+  "en_definition": "Foreign direct investment refers to direct investment equity flows in the reporting economy. It is the sum of equity capital, reinvestment of earnings, and other capital. Direct investment is a category of cross-border investment associated with a resident in one economy having control or a significant degree of influence on the management of an enterprise that is resident in another economy. Ownership of 10 percent or more of the ordinary shares of voting stock is the criterion for determining the existence of a direct investment relationship. Data are in current U.S. dollars.",
+  "en_source": "Balance of Payments database, International Monetary Fund (IMF), note: International Monetary Fund, Balance of Payments database, supplemented by data from the United Nations Conference on Trade and Development and official national sources.;\nUN Conference on Trade and Development (UNCTAD);\nOfficial national sources"
+ },
+ {
+  "slug": "population-total",
+  "code": "SP.POP.TOTL",
+  "name": "إجمالي عدد السكان",
+  "unit": "نسمة",
+  "direction": "contextual",
+  "section": "السكان والمجتمع",
+  "domain": "السكان",
+  "has_editorial": false,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": 13887862
+  },
+  "latest": {
+   "year": 2025,
+   "value": 41773878
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 13887862
+   },
+   {
+    "year": 2000,
+    "value": 19624141
+   },
+   {
+    "year": 2010,
+    "value": 26754387
+   },
+   {
+    "year": 2014,
+    "value": 30226309
+   },
+   {
+    "year": 2015,
+    "value": 31159379
+   },
+   {
+    "year": 2020,
+    "value": 36134863
+   },
+   {
+    "year": 2025,
+    "value": 41773878
+   }
+  ],
+  "en_name": "Population, total",
+  "en_definition": "Total population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship. The values shown are midyear estimates.",
+  "en_source": "World Population Prospects, United Nations (UN), uri: https://population.un.org/wpp/, publisher: UN Population Division;\nStatistical databases and publications from national statistical offices, National Statistical Offices (NSOs), uri: https://unstats.un.org/home/nso_sites/, publisher: National Statistical Offices;\nEurostat: Demographic Statistics, Eurostat (ESTAT), uri: https://ec.europa.eu/eurostat/data/database?node_code=earn_ses_monthly, publisher: Eurostat;\nPopulation and Vital Statistics Report (various years), United Nations (UN), uri: https://unstats.un.org, publisher: UN Statistics Division"
+ },
+ {
+  "slug": "gross-capital-formation",
+  "code": "NE.GDI.TOTL.ZS",
+  "name": "تكوين رأس المال الإجمالي",
+  "unit": "% من الناتج المحلي",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "الاستثمار",
+  "has_editorial": false,
+  "values": 29,
+  "first": {
+   "year": 1990,
+   "value": 12.4400167615134
+  },
+  "latest": {
+   "year": 2018,
+   "value": 6.17671942043548
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 12.4400167615134
+   },
+   {
+    "year": 2000,
+    "value": 18.9276615951282
+   },
+   {
+    "year": 2010,
+    "value": 11.66108310249
+   },
+   {
+    "year": 2014,
+    "value": 6.69826178718153
+   },
+   {
+    "year": 2015,
+    "value": 1.65634244893033
+   },
+   {
+    "year": 2018,
+    "value": 6.17671942043548
+   }
+  ],
+  "en_name": "Gross capital formation (% of GDP)",
+  "en_definition": "Gross capital formation includes acquisitions less disposals of produced assets for purposes of fixed capital formation, inventories or valuables. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "population-growth",
+  "code": "SP.POP.GROW",
+  "name": "معدل النمو السكاني",
+  "unit": "% سنويا",
+  "direction": "contextual",
+  "section": "السكان والمجتمع",
+  "domain": "السكان",
+  "has_editorial": false,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": 3.8437676769055
+  },
+  "latest": {
+   "year": 2025,
+   "value": 2.8917915150724
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 3.8437676769055
+   },
+   {
+    "year": 2000,
+    "value": 3.07742893586094
+   },
+   {
+    "year": 2010,
+    "value": 3.13856389755931
+   },
+   {
+    "year": 2014,
+    "value": 3.06832379522527
+   },
+   {
+    "year": 2015,
+    "value": 3.04025873247851
+   },
+   {
+    "year": 2020,
+    "value": 2.87320414785733
+   },
+   {
+    "year": 2025,
+    "value": 2.8917915150724
+   }
+  ],
+  "en_name": "Population growth (annual %)",
+  "en_definition": "Annual population growth rate for year t is the exponential rate of growth of midyear population from year t-1 to t, expressed as a percentage. Population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship.",
+  "en_source": "World Population Prospects, United Nations (UN), note: Derived from total population, publisher: UN Population Division;\nStatistical databases and publications from national statistical offices, National Statistical Offices (NSOs), note: Derived from total population;\nDemographic Statistics, Eurostat (ESTAT), note: Derived from total population;\nPopulation and Vital Statistics Report (various years), United Nations (UN), note: Derived from total population, publisher: UN Statistical Division"
+ },
+ {
+  "slug": "age-dependency-ratio",
+  "code": "SP.POP.DPND",
+  "name": "نسبة الإعالة العمرية",
+  "unit": "% من السكان في سن العمل",
+  "direction": "decrease",
+  "section": "السكان والمجتمع",
+  "domain": "التركيب العمري",
+  "has_editorial": false,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": 116.923106960805
+  },
+  "latest": {
+   "year": 2025,
+   "value": 77.1973485559311
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 116.923106960805
+   },
+   {
+    "year": 2000,
+    "value": 107.460544298809
+   },
+   {
+    "year": 2010,
+    "value": 86.1362761650777
+   },
+   {
+    "year": 2014,
+    "value": 81.1275756454274
+   },
+   {
+    "year": 2015,
+    "value": 80.3078546004591
+   },
+   {
+    "year": 2020,
+    "value": 78.2490319341492
+   },
+   {
+    "year": 2025,
+    "value": 77.1973485559311
+   }
+  ],
+  "en_name": "Age dependency ratio (% of working-age population)",
+  "en_definition": "Age dependency ratio is the ratio of dependents--people younger than 15 or older than 64--to the working-age population--those ages 15-64. Data are shown as the proportion of dependents per 100 working-age population.",
+  "en_source": "World Population Prospects, United Nations (UN), publisher: UN Population Division;\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "female-life-expectancy",
+  "code": "SP.DYN.LE00.FE.IN",
+  "name": "متوسط العمر المتوقع للإناث",
+  "unit": "سنة",
+  "direction": "increase",
+  "section": "السكان والمجتمع",
+  "domain": "المرأة",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 60.288
+  },
+  "latest": {
+   "year": 2024,
+   "value": 71.549
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 60.288
+   },
+   {
+    "year": 2000,
+    "value": 64.616
+   },
+   {
+    "year": 2010,
+    "value": 69.143
+   },
+   {
+    "year": 2014,
+    "value": 70.038
+   },
+   {
+    "year": 2015,
+    "value": 69.708
+   },
+   {
+    "year": 2020,
+    "value": 69.805
+   },
+   {
+    "year": 2024,
+    "value": 71.549
+   }
+  ],
+  "en_name": "Life expectancy at birth, female (years)",
+  "en_definition": "Life expectancy at birth indicates the number of years a newborn infant would live if prevailing patterns of mortality at the time of its birth were to stay the same throughout its life.",
+  "en_source": "World Population Prospects, United Nations (UN), publisher: UN Population Division;\nStatistical databases and publications from national statistical offices, National Statistical Offices (NSOs);\nDemographic Statistics, Eurostat (ESTAT)"
+ },
+ {
+  "slug": "neonatal-mortality-rate",
+  "code": "SH.DYN.NMRT",
+  "name": "معدل وفيات حديثي الولادة",
+  "unit": "لكل ألف مولود حي",
+  "direction": "decrease",
+  "section": "السكان والمجتمع",
+  "domain": "المواليد والوفيات",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 43.8
+  },
+  "latest": {
+   "year": 2024,
+   "value": 20.9
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 43.8
+   },
+   {
+    "year": 2000,
+    "value": 36.7
+   },
+   {
+    "year": 2010,
+    "value": 26.7
+   },
+   {
+    "year": 2014,
+    "value": 24.6
+   },
+   {
+    "year": 2015,
+    "value": 24.2
+   },
+   {
+    "year": 2020,
+    "value": 22.5
+   },
+   {
+    "year": 2024,
+    "value": 20.9
+   }
+  ],
+  "en_name": "Mortality rate, neonatal (per 1,000 live births)",
+  "en_definition": "Neonatal mortality rate is the number of neonates dying before reaching 28 days of age, per 1,000 live births in a given year.",
+  "en_source": "UN Inter-agency Group for Child Mortality Estimation, UN Children's Fund (UNICEF), uri: www.childmortality.org;\nWorld Health Organization (WHO), uri: www.childmortality.org, note: UN Inter-agency Group for Child Mortality Estimation;\nWorld Bank (WB), uri: www.childmortality.org, note: UN Inter-agency Group for Child Mortality Estimation;\nUnited Nations (UN), uri: www.childmortality.org, note: UN Inter-agency Group for Child Mortality Estimation, publisher: UN Population Division"
+ },
+ {
+  "slug": "male-life-expectancy",
+  "code": "SP.DYN.LE00.MA.IN",
+  "name": "متوسط العمر المتوقع للذكور",
+  "unit": "سنة",
+  "direction": "increase",
+  "section": "الصحة والغذاء",
+  "domain": "الصحة العامة",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 56.744
+  },
+  "latest": {
+   "year": 2024,
+   "value": 67.366
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 56.744
+   },
+   {
+    "year": 2000,
+    "value": 60.895
+   },
+   {
+    "year": 2010,
+    "value": 65.308
+   },
+   {
+    "year": 2014,
+    "value": 65.996
+   },
+   {
+    "year": 2015,
+    "value": 63.985
+   },
+   {
+    "year": 2020,
+    "value": 63.33
+   },
+   {
+    "year": 2024,
+    "value": 67.366
+   }
+  ],
+  "en_name": "Life expectancy at birth, male (years)",
+  "en_definition": "Life expectancy at birth indicates the number of years a newborn infant would live if prevailing patterns of mortality at the time of its birth were to stay the same throughout its life.",
+  "en_source": "World Population Prospects, United Nations (UN), publisher: UN Population Division;\nStatistical databases and publications from national statistical offices, National Statistical Offices (NSOs);\nDemographic Statistics, Eurostat (ESTAT)"
+ },
+ {
+  "slug": "birth-registration",
+  "code": "SP.REG.BRTH.ZS",
+  "name": "تسجيل المواليد",
+  "unit": "% من الأطفال دون الخامسة",
+  "direction": "increase",
+  "section": "السكان والمجتمع",
+  "domain": "المواليد والوفيات",
+  "has_editorial": false,
+  "values": 3,
+  "first": {
+   "year": 2006,
+   "value": 22
+  },
+  "latest": {
+   "year": 2013,
+   "value": 30.7
+  },
+  "key_points": [
+   {
+    "year": 2006,
+    "value": 22
+   },
+   {
+    "year": 2013,
+    "value": 30.7
+   }
+  ],
+  "en_name": "Completeness of birth registration (%)",
+  "en_definition": "Completeness of birth registration is the percentage of children under age 5 whose births were registered at the time of the survey. The numerator of completeness of birth registration includes children whose birth certificate was seen by the interviewer or whose mother or caretaker says the birth has been registered.",
+  "en_source": "Household surveys, UN Children's Fund (UNICEF), note: Household surveys such as Demographic and Health Surveys and Multiple Indicator Cluster Surveys. Largely compiled by UNICEF."
+ },
+ {
+  "slug": "children-out-of-school",
+  "code": "SE.PRM.UNER",
+  "name": "الأطفال خارج المدرسة في سن الابتدائي",
+  "unit": "طفل",
+  "direction": "decrease",
+  "section": "التعليم والمعرفة",
+  "domain": "التعليم المدرسي",
+  "has_editorial": false,
+  "values": 10,
+  "first": {
+   "year": 1999,
+   "value": 1809511
+  },
+  "latest": {
+   "year": 2016,
+   "value": 1551489
+  },
+  "key_points": [
+   {
+    "year": 1999,
+    "value": 1809511
+   },
+   {
+    "year": 2010,
+    "value": 1314561
+   },
+   {
+    "year": 2016,
+    "value": 1551489
+   }
+  ],
+  "en_name": "Children out of school, primary",
+  "en_definition": "Children out of school are the number of primary-school-age children not enrolled in primary or secondary school.",
+  "en_source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through the UIS API.  Detailed documentation is available at: https://api.uis.unesco.org/api/public/documentation/, publisher: UNESCO Institute for Statistics (UIS), type: Bulk file (csv), date accessed: 2026-03-19, date published: 2026-02"
+ },
+ {
+  "slug": "primary-persistence-grade-5",
+  "code": "SE.PRM.PRSL.ZS",
+  "name": "البقاء في الدراسة حتى الصف الخامس",
+  "unit": "% من الفئة",
+  "direction": "increase",
+  "section": "التعليم والمعرفة",
+  "domain": "التعليم المدرسي",
+  "has_editorial": false,
+  "values": 5,
+  "first": {
+   "year": 2001,
+   "value": 68.7975234985352
+  },
+  "latest": {
+   "year": 2012,
+   "value": 69.4710388183594
+  },
+  "key_points": [
+   {
+    "year": 2001,
+    "value": 68.7975234985352
+   },
+   {
+    "year": 2012,
+    "value": 69.4710388183594
+   }
+  ],
+  "en_name": "Persistence to last grade of primary, total (% of cohort)",
+  "en_definition": "Persistence to last grade of primary is the percentage of children enrolled in the first grade of primary school who eventually reach the last grade of primary education. The estimate is based on the reconstructed cohort method.",
+  "en_source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through the UIS API.  Detailed documentation is available at: https://api.uis.unesco.org/api/public/documentation/, publisher: UNESCO Institute for Statistics (UIS), date accessed: 2026-03-19, date published: 2026-02"
+ },
+ {
+  "slug": "ict-service-exports",
+  "code": "BX.GSR.CCIS.ZS",
+  "name": "صادرات خدمات الاتصالات والحاسوب والمعلومات",
+  "unit": "% من صادرات الخدمات",
+  "direction": "increase",
+  "section": "التعليم والمعرفة",
+  "domain": "المهارات الرقمية",
+  "has_editorial": false,
+  "values": 12,
+  "first": {
+   "year": 2005,
+   "value": 11.1232144593928
+  },
+  "latest": {
+   "year": 2016,
+   "value": 25.363345481351
+  },
+  "key_points": [
+   {
+    "year": 2005,
+    "value": 11.1232144593928
+   },
+   {
+    "year": 2010,
+    "value": 7.14690797909064
+   },
+   {
+    "year": 2014,
+    "value": 12.8320956496731
+   },
+   {
+    "year": 2015,
+    "value": 17.0624454465775
+   },
+   {
+    "year": 2016,
+    "value": 25.363345481351
+   }
+  ],
+  "en_name": "ICT service exports (% of service exports, BoP)",
+  "en_definition": "Information and communication technology service exports include computer and communications services (telecommunications and postal and courier services) and information services (computer data and news-related service transactions).",
+  "en_source": "Balance of Payments Statistics Yearbook and data files, International Monetary Fund (IMF)"
+ },
+ {
+  "slug": "tertiary-enrollment-women",
+  "code": "SE.TER.ENRR.FE",
+  "name": "الالتحاق الإجمالي للنساء بالتعليم العالي",
+  "unit": "%",
+  "direction": "increase",
+  "section": "التعليم والمعرفة",
+  "domain": "التعليم العالي",
+  "has_editorial": false,
+  "values": 12,
+  "first": {
+   "year": 1992,
+   "value": 1.38408994674683
+  },
+  "latest": {
+   "year": 2011,
+   "value": 5.38273000717163
+  },
+  "key_points": [
+   {
+    "year": 1992,
+    "value": 1.38408994674683
+   },
+   {
+    "year": 2010,
+    "value": 5.63077020645142
+   },
+   {
+    "year": 2011,
+    "value": 5.38273000717163
+   }
+  ],
+  "en_name": "School enrollment, tertiary, female (% gross)",
+  "en_definition": "Gross enrollment ratio is the ratio of total enrollment, regardless of age, to the population of the age group that officially corresponds to the level of education shown. Tertiary education, whether or not to an advanced research qualification, normally requires, as a minimum condition of admission, the successful completion of education at the secondary level.",
+  "en_source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through the UIS API.  Detailed documentation is available at: https://api.uis.unesco.org/api/public/documentation/, publisher: UNESCO Institute for Statistics (UIS), type: Bulk file (csv), date accessed: 2026-03-19, date published: 2026-02"
+ },
+ {
+  "slug": "external-health-financing",
+  "code": "SH.XPD.EHEX.CH.ZS",
+  "name": "التمويل الخارجي للصحة",
+  "unit": "% من الإنفاق الصحي الجاري",
+  "direction": "contextual",
+  "section": "الصحة والغذاء",
+  "domain": "المستشفيات والخدمات الصحية",
+  "has_editorial": false,
+  "values": 24,
+  "first": {
+   "year": 2000,
+   "value": 3.17680502
+  },
+  "latest": {
+   "year": 2023,
+   "value": 21.07400894
+  },
+  "key_points": [
+   {
+    "year": 2000,
+    "value": 3.17680502
+   },
+   {
+    "year": 2010,
+    "value": 2.41971827
+   },
+   {
+    "year": 2014,
+    "value": 5.29260969
+   },
+   {
+    "year": 2015,
+    "value": 5.10079432
+   },
+   {
+    "year": 2020,
+    "value": 12.6978693
+   },
+   {
+    "year": 2023,
+    "value": 21.07400894
+   }
+  ],
+  "en_name": "External health expenditure (% of current health expenditure)",
+  "en_definition": "Share of current health expenditures funded from external sources. External sources compose of direct foreign transfers and foreign transfers distributed by government encompassing all financial inflows into the national health system from outside the country. External sources either flow through the government scheme or are channeled through non-governmental organizations or other schemes.",
+  "en_source": "Global Health Expenditure Database, updated December 12th, 2025, World Health Organization (WHO), uri: http://apps.who.int/nha/database"
+ },
+ {
+  "slug": "exclusive-breastfeeding",
+  "code": "SH.STA.BFED.ZS",
+  "name": "الرضاعة الطبيعية الحصرية",
+  "unit": "% من الرضع دون 6 أشهر",
+  "direction": "increase",
+  "section": "الصحة والغذاء",
+  "domain": "التغذية",
+  "has_editorial": false,
+  "values": 4,
+  "first": {
+   "year": 1992,
+   "value": 13.1
+  },
+  "latest": {
+   "year": 2013,
+   "value": 9.699623
+  },
+  "key_points": [
+   {
+    "year": 1992,
+    "value": 13.1
+   },
+   {
+    "year": 2013,
+    "value": 9.699623
+   }
+  ],
+  "en_name": "Exclusive breastfeeding (% of children under 6 months)",
+  "en_definition": "Exclusive breastfeeding refers to the percentage of children less than six months old who are fed breast milk alone (no other liquids) in the past 24 hours.",
+  "en_source": "State of the World's Children, UN Children's Fund (UNICEF);\nChildinfo, UN Children's Fund (UNICEF);\nDemographic and Health Surveys, Demographic and Health Surveys (DHS) Program"
+ },
+ {
+  "slug": "cereal-production",
+  "code": "AG.PRD.CREL.MT",
+  "name": "إنتاج الحبوب",
+  "unit": "طن متري",
+  "direction": "increase",
+  "section": "الصحة والغذاء",
+  "domain": "الأمن الغذائي",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 766873
+  },
+  "latest": {
+   "year": 2024,
+   "value": 421000
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 766873
+   },
+   {
+    "year": 2000,
+    "value": 672237
+   },
+   {
+    "year": 2010,
+    "value": 1012945
+   },
+   {
+    "year": 2014,
+    "value": 699962
+   },
+   {
+    "year": 2015,
+    "value": 459246
+   },
+   {
+    "year": 2020,
+    "value": 452894
+   },
+   {
+    "year": 2024,
+    "value": 421000
+   }
+  ],
+  "en_name": "Cereal production (metric tons)",
+  "en_definition": "Production data on cereals relate to crops harvested for dry grain only. Cereal crops harvested for hay or harvested green for food, feed, or silage and those used for grazing are excluded.",
+  "en_source": "FAO electronic files and web site, Food and Agriculture Organization of the United Nations (FAO), uri: https://www.fao.org/faostat/en/#data/QCL, publisher: Food and Agriculture Organization of the United Nations (FAO)"
+ },
+ {
+  "slug": "hiv-incidence",
+  "code": "SH.HIV.INCD.ZS",
+  "name": "الإصابات الجديدة بفيروس نقص المناعة",
+  "unit": "لكل ألف غير مصاب بعمر 15 إلى 49",
+  "direction": "decrease",
+  "section": "الصحة والغذاء",
+  "domain": "الأمراض والأوبئة",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 0.1
+  },
+  "latest": {
+   "year": 2024,
+   "value": 0.1
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 0.1
+   },
+   {
+    "year": 2000,
+    "value": 0.1
+   },
+   {
+    "year": 2010,
+    "value": 0.1
+   },
+   {
+    "year": 2014,
+    "value": 0.1
+   },
+   {
+    "year": 2015,
+    "value": 0.1
+   },
+   {
+    "year": 2020,
+    "value": 0.1
+   },
+   {
+    "year": 2024,
+    "value": 0.1
+   }
+  ],
+  "en_name": "Incidence of HIV, ages 15-49 (per 1,000 uninfected population ages 15-49)",
+  "en_definition": "Number of new HIV infections among uninfected populations ages 15-49 expressed per 1,000 uninfected population in the year before the period.",
+  "en_source": "UNAIDS estimates, Joint United Nations Programme on HIV/AIDS (UNAIDS), uri: https://aidsinfo.unaids.org/, publisher: UNAIDS, date accessed: 2025-08-27, date published: 2025-07"
+ },
+ {
+  "slug": "anemia-women",
+  "code": "SH.ANM.ALLW.ZS",
+  "name": "فقر الدم بين النساء في سن الإنجاب",
+  "unit": "% من النساء بعمر 15 إلى 49",
+  "direction": "decrease",
+  "section": "الصحة والغذاء",
+  "domain": "التغذية",
+  "has_editorial": false,
+  "values": 24,
+  "first": {
+   "year": 2000,
+   "value": 41
+  },
+  "latest": {
+   "year": 2023,
+   "value": 36.4
+  },
+  "key_points": [
+   {
+    "year": 2000,
+    "value": 41
+   },
+   {
+    "year": 2010,
+    "value": 35.4
+   },
+   {
+    "year": 2014,
+    "value": 34.3
+   },
+   {
+    "year": 2015,
+    "value": 34.3
+   },
+   {
+    "year": 2020,
+    "value": 35.1
+   },
+   {
+    "year": 2023,
+    "value": 36.4
+   }
+  ],
+  "en_name": "Prevalence of anemia among women of reproductive age (% of women ages 15-49)",
+  "en_definition": "Prevalence of anemia among women of reproductive age refers to the combined prevalence of both non-pregnant with haemoglobin levels below 12 g/dL and pregnant women with haemoglobin levels below 11 g/dL.",
+  "en_source": "Global Health Observatory Data Repository/World Health Statistics, World Health Organization (WHO)"
+ },
+ {
+  "slug": "injury-deaths",
+  "code": "SH.DTH.INJR.ZS",
+  "name": "الوفيات بسبب الإصابات",
+  "unit": "% من الوفيات",
+  "direction": "decrease",
+  "section": "الصحة والغذاء",
+  "domain": "الأمراض والأوبئة",
+  "has_editorial": false,
+  "values": 6,
+  "first": {
+   "year": 2000,
+   "value": 8.31974916603637
+  },
+  "latest": {
+   "year": 2021,
+   "value": 20.6272175361755
+  },
+  "key_points": [
+   {
+    "year": 2000,
+    "value": 8.31974916603637
+   },
+   {
+    "year": 2010,
+    "value": 12.1268731033511
+   },
+   {
+    "year": 2015,
+    "value": 17.9936109348735
+   },
+   {
+    "year": 2020,
+    "value": 21.2529673635099
+   },
+   {
+    "year": 2021,
+    "value": 20.6272175361755
+   }
+  ],
+  "en_name": "Cause of death, by injury (% of total)",
+  "en_definition": "Cause of death refers to the share of all deaths for all ages by underlying causes. Injuries include unintentional and intentional injuries.",
+  "en_source": "Global Health Estimates, World Health Organization (WHO), uri: https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates/ghe-leading-causes-of-death, note: Derived based on the data from Global Health Estimates  Deaths by Cause, Age, Sex, by Country and by Region, 2000-2021"
+ },
+ {
+  "slug": "open-defecation",
+  "code": "SH.STA.ODFC.ZS",
+  "name": "التبرز في العراء",
+  "unit": "% من السكان",
+  "direction": "decrease",
+  "section": "البنية التحتية والخدمات",
+  "domain": "الصرف الصحي",
+  "has_editorial": false,
+  "values": 25,
+  "first": {
+   "year": 2000,
+   "value": 32.8639379231277
+  },
+  "latest": {
+   "year": 2024,
+   "value": 4.9023859019749
+  },
+  "key_points": [
+   {
+    "year": 2000,
+    "value": 32.8639379231277
+   },
+   {
+    "year": 2010,
+    "value": 21.5736576187755
+   },
+   {
+    "year": 2014,
+    "value": 16.4780925385347
+   },
+   {
+    "year": 2015,
+    "value": 15.2436590761022
+   },
+   {
+    "year": 2020,
+    "value": 9.32313284274733
+   },
+   {
+    "year": 2024,
+    "value": 4.9023859019749
+   }
+  ],
+  "en_name": "People practicing open defecation (% of population)",
+  "en_definition": "People practicing open defecation refers to the percentage of the population defecating in the open, such as in fields, forest, bushes, open bodies of water, on beaches, in other open spaces or disposed of with solid waste.",
+  "en_source": "WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene, World Health Organization (WHO), uri: washdata.org, publisher: WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene (washdata.org), date accessed: 2025-09-30, date published: 2025-08-25;\nUN Children's Fund (UNICEF), uri: washdata.org, note: WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene"
+ },
+ {
+  "slug": "electricity-access-urban",
+  "code": "EG.ELC.ACCS.UR.ZS",
+  "name": "وصول الكهرباء في الحضر",
+  "unit": "% من سكان الحضر",
+  "direction": "increase",
+  "section": "البنية التحتية والخدمات",
+  "domain": "الكهرباء",
+  "has_editorial": false,
+  "values": 33,
+  "first": {
+   "year": 1992,
+   "value": 91.2
+  },
+  "latest": {
+   "year": 2024,
+   "value": 95
+  },
+  "key_points": [
+   {
+    "year": 1992,
+    "value": 91.2
+   },
+   {
+    "year": 2000,
+    "value": 92
+   },
+   {
+    "year": 2010,
+    "value": 100
+   },
+   {
+    "year": 2014,
+    "value": 95.9
+   },
+   {
+    "year": 2015,
+    "value": 93.2
+   },
+   {
+    "year": 2020,
+    "value": 93.1
+   },
+   {
+    "year": 2024,
+    "value": 95
+   }
+  ],
+  "en_name": "Access to electricity, urban (% of urban population)",
+  "en_definition": "Access to electricity, urban is the percentage of urban population with access to electricity.",
+  "en_source": "SDG 7.1.1 Electrification Dataset, World Bank (WB), uri: https://trackingsdg7.esmap.org/downloads, note: Data is downloaded from ESMAP website. Data is released when a new Tracking SDG7 report is released., publisher: World Bank (WB), date accessed: 2024-05-16, date published: 2023"
+ },
+ {
+  "slug": "fossil-fuel-energy-consumption",
+  "code": "EG.USE.COMM.FO.ZS",
+  "name": "استهلاك الطاقة من الوقود الأحفوري",
+  "unit": "% من إجمالي الطاقة",
+  "direction": "contextual",
+  "section": "الإنتاج والموارد",
+  "domain": "النفط والغاز",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 96.9215971833914
+  },
+  "latest": {
+   "year": 2024,
+   "value": 0
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 96.9215971833914
+   },
+   {
+    "year": 2000,
+    "value": 98.3701656190546
+   },
+   {
+    "year": 2010,
+    "value": 98.5855731780014
+   },
+   {
+    "year": 2014,
+    "value": 94.9836550918577
+   },
+   {
+    "year": 2015,
+    "value": 60.5659573403732
+   },
+   {
+    "year": 2020,
+    "value": 0
+   },
+   {
+    "year": 2024,
+    "value": 0
+   }
+  ],
+  "en_name": "Fossil fuel energy consumption (% of total)",
+  "en_definition": "Fossil fuel comprises coal, oil, petroleum, and natural gas products.",
+  "en_source": "IEA Energy Statistics Data Browser, International Energy Agency (IEA), uri: https://www.iea.org/data-and-statistics/data-tools/energy-statistics-data-browser, publisher: International Energy Agency (IEA), date accessed: 2025-03-25"
+ },
+ {
+  "slug": "basic-sanitation-urban",
+  "code": "SH.STA.BASS.UR.ZS",
+  "name": "الصرف الصحي الأساسي في الحضر",
+  "unit": "% من سكان الحضر",
+  "direction": "increase",
+  "section": "البنية التحتية والخدمات",
+  "domain": "الصرف الصحي",
+  "has_editorial": false,
+  "values": 25,
+  "first": {
+   "year": 2000,
+   "value": 85.6955808515633
+  },
+  "latest": {
+   "year": 2024,
+   "value": 86.2028438692929
+  },
+  "key_points": [
+   {
+    "year": 2000,
+    "value": 85.6955808515633
+   },
+   {
+    "year": 2010,
+    "value": 86.0255723109566
+   },
+   {
+    "year": 2014,
+    "value": 86.0818619740169
+   },
+   {
+    "year": 2015,
+    "value": 86.095229308983
+   },
+   {
+    "year": 2020,
+    "value": 86.1578354990183
+   },
+   {
+    "year": 2024,
+    "value": 86.2028438692929
+   }
+  ],
+  "en_name": "People using at least basic sanitation services, urban (% of urban population)",
+  "en_definition": "The percentage of people using at least basic sanitation services, that is, improved sanitation facilities that are not shared with other households.  This indicator encompasses both people using basic sanitation services as well as those using safely managed sanitation services.   Improved sanitation facilities include flush/pour flush to piped sewer systems, septic tanks or pit latrines; ventilated improved pit latrines, composting toilets or pit latrines with slabs.",
+  "en_source": "WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene, World Health Organization (WHO), uri: washdata.org, publisher: WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene (washdata.org), date accessed: 2025-09-30, date published: 2025-08-25;\nUN Children's Fund (UNICEF), uri: washdata.org, note: WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene"
+ },
+ {
+  "slug": "oil-electricity-share",
+  "code": "EG.ELC.PETR.ZS",
+  "name": "الكهرباء المولدة من النفط",
+  "unit": "% من إنتاج الكهرباء",
+  "direction": "contextual",
+  "section": "الإنتاج والموارد",
+  "domain": "النفط والغاز",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 100
+  },
+  "latest": {
+   "year": 2024,
+   "value": 84.2399135446686
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 100
+   },
+   {
+    "year": 2000,
+    "value": 100
+   },
+   {
+    "year": 2010,
+    "value": 73.4304499162047
+   },
+   {
+    "year": 2014,
+    "value": 61.3636363636364
+   },
+   {
+    "year": 2015,
+    "value": 57.3043790380474
+   },
+   {
+    "year": 2020,
+    "value": 88.6853231326757
+   },
+   {
+    "year": 2024,
+    "value": 84.2399135446686
+   }
+  ],
+  "en_name": "Electricity production from oil sources (% of total)",
+  "en_definition": "The share of electricity production from oil sources of total electricity production. Sources of electricity refer to the inputs used to generate electricity. Oil refers to crude oil and petroleum products.",
+  "en_source": "IEA Energy Statistics Data Browser, International Energy Agency (IEA), uri: https://www.iea.org/data-and-statistics/data-tools/energy-statistics-data-browser, publisher: International Energy Agency (IEA), date accessed: 2025-03-25"
+ },
+ {
+  "slug": "total-natural-resources-rents",
+  "code": "NY.GDP.TOTL.RT.ZS",
+  "name": "إجمالي ريع الموارد الطبيعية",
+  "unit": "% من الناتج المحلي",
+  "direction": "contextual",
+  "section": "الإنتاج والموارد",
+  "domain": "التعدين",
+  "has_editorial": false,
+  "values": 29,
+  "first": {
+   "year": 1990,
+   "value": 28.7239963483386
+  },
+  "latest": {
+   "year": 2018,
+   "value": 4.87867391772049
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 28.7239963483386
+   },
+   {
+    "year": 2000,
+    "value": 41.4063455621789
+   },
+   {
+    "year": 2010,
+    "value": 23.5484181707179
+   },
+   {
+    "year": 2014,
+    "value": 10.9650660396012
+   },
+   {
+    "year": 2015,
+    "value": 2.06582147254408
+   },
+   {
+    "year": 2018,
+    "value": 4.87867391772049
+   }
+  ],
+  "en_name": "Total natural resources rents (% of GDP)",
+  "en_definition": "Total natural resources rents are the sum of oil rents, natural gas rents, coal rents (hard and soft), mineral rents, and forest rents.",
+  "en_source": "The Changing Wealth of Nations, World Bank (WB), uri: https://www.worldbank.org/en/publication/changing-wealth-of-nations/data, note: World Bank staff estimates based on sources and methods described in the World Bank's The Changing Wealth of Nations., publisher: World Bank (WB);\nStaff estimates, World Bank (WB), note: World Bank staff estimates based on sources and methods described in the World Bank's The Changing Wealth of Nations."
+ },
+ {
+  "slug": "agricultural-land-area",
+  "code": "AG.LND.AGRI.K2",
+  "name": "مساحة الأراضي الزراعية",
+  "unit": "كيلومتر مربع",
+  "direction": "contextual",
+  "section": "الإنتاج والموارد",
+  "domain": "الزراعة",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 236260
+  },
+  "latest": {
+   "year": 2024,
+   "value": 234520
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 236260
+   },
+   {
+    "year": 2000,
+    "value": 236690
+   },
+   {
+    "year": 2010,
+    "value": 235790
+   },
+   {
+    "year": 2014,
+    "value": 234516
+   },
+   {
+    "year": 2015,
+    "value": 234326
+   },
+   {
+    "year": 2020,
+    "value": 234520
+   },
+   {
+    "year": 2024,
+    "value": 234520
+   }
+  ],
+  "en_name": "Agricultural land (sq. km)",
+  "en_definition": "Agricultural land refers to the land area that is arable, under permanent crops, and under permanent pastures. Arable land includes land defined by the FAO as land under temporary crops (double-cropped areas are counted once), temporary meadows for mowing or for pasture, land under market or kitchen gardens, and land temporarily fallow. Land abandoned as a result of shifting cultivation is excluded. Land under permanent crops is land cultivated with crops that occupy the land for long periods and need not be replanted after each harvest, such as cocoa, coffee, and rubber. This category includes land under flowering shrubs, fruit trees, nut trees, and vines, but excludes land under trees grown for wood or timber. Permanent pasture is land used for five or more years for forage, including natural and cultivated crops.",
+  "en_source": "FAO electronic files and web site, Food and Agriculture Organization of the United Nations (FAO), publisher: Food and Agriculture Organization of the United Nations (FAO)"
+ },
+ {
+  "slug": "aquaculture-production",
+  "code": "ER.FSH.AQUA.MT",
+  "name": "إنتاج الاستزراع السمكي",
+  "unit": "طن متري",
+  "direction": "increase",
+  "section": "الإنتاج والموارد",
+  "domain": "الثروة السمكية",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 0
+  },
+  "latest": {
+   "year": 2024,
+   "value": 10
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 0
+   },
+   {
+    "year": 2000,
+    "value": 0
+   },
+   {
+    "year": 2010,
+    "value": 150
+   },
+   {
+    "year": 2014,
+    "value": 3
+   },
+   {
+    "year": 2015,
+    "value": 5
+   },
+   {
+    "year": 2020,
+    "value": 10
+   },
+   {
+    "year": 2024,
+    "value": 10
+   }
+  ],
+  "en_name": "Aquaculture production (metric tons)",
+  "en_definition": "Aquaculture is understood to mean the farming of aquatic organisms including fish, molluscs, crustaceans and aquatic plants. Aquaculture production specifically refers to output from aquaculture activities, which are designated for final harvest for consumption.",
+  "en_source": "Food and Agriculture Organization., Food and Agriculture Organization of the United Nations (FAO), publisher: Food and Agriculture Organization of the United Nations (FAO)"
+ },
+ {
+  "slug": "air-departures",
+  "code": "IS.AIR.DPRT",
+  "name": "رحلات الإقلاع الجوية المسجلة",
+  "unit": "رحلة",
+  "direction": "increase",
+  "section": "البنية التحتية والخدمات",
+  "domain": "الموانئ والمطارات",
+  "has_editorial": false,
+  "values": 33,
+  "first": {
+   "year": 1990,
+   "value": 14100
+  },
+  "latest": {
+   "year": 2023,
+   "value": 4979
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 14100
+   },
+   {
+    "year": 2000,
+    "value": 14608
+   },
+   {
+    "year": 2010,
+    "value": 20600
+   },
+   {
+    "year": 2014,
+    "value": 16056
+   },
+   {
+    "year": 2015,
+    "value": 5126
+   },
+   {
+    "year": 2020,
+    "value": 560
+   },
+   {
+    "year": 2023,
+    "value": 4979
+   }
+  ],
+  "en_name": "Air transport, registered carrier departures worldwide",
+  "en_definition": "Registered carrier departures worldwide are domestic takeoffs and takeoffs abroad of air carriers registered in the country.",
+  "en_source": "Civil Aviation Statistics of the World, International Civil Aviation Organization (ICAO), uri: https://data.icao.int/newdataplus/#:~:text=ICAO%20data%20is%20comprised%20of,information%20about%20commercial%20air%20carriers;\nICAO Staff estimates, International Civil Aviation Organization (ICAO), uri: https://data.icao.int/newdataplus/#:~:text=ICAO%20data%20is%20comprised%20of,information%20about%20commercial%20air%20carriers"
+ },
+ {
+  "slug": "land-area",
+  "code": "AG.LND.TOTL.K2",
+  "name": "مساحة اليابسة",
+  "unit": "كيلومتر مربع",
+  "direction": "contextual",
+  "section": "البيئة والمناخ",
+  "domain": "التصحر",
+  "has_editorial": false,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 527970
+  },
+  "latest": {
+   "year": 2024,
+   "value": 527968
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 527970
+   },
+   {
+    "year": 2000,
+    "value": 527970
+   },
+   {
+    "year": 2010,
+    "value": 527970
+   },
+   {
+    "year": 2014,
+    "value": 527970
+   },
+   {
+    "year": 2015,
+    "value": 527970
+   },
+   {
+    "year": 2020,
+    "value": 527970
+   },
+   {
+    "year": 2024,
+    "value": 527968
+   }
+  ],
+  "en_name": "Land area (sq. km)",
+  "en_definition": "Land area is a country's total area, excluding area under inland water bodies, national claims to continental shelf, and exclusive economic zones. In most cases the definition of inland water bodies includes major rivers and lakes.",
+  "en_source": "FAOSTAT, Food and Agriculture Organization of the United Nations (FAO), uri: https://www.fao.org/faostat/en/#data/RL, publisher: Food and Agriculture Organization of the United Nations (FAO)"
+ },
+ {
+  "slug": "domestic-water-withdrawals",
+  "code": "ER.H2O.FWDM.ZS",
+  "name": "حصة الاستخدام المنزلي من سحب المياه",
+  "unit": "% من سحب المياه العذبة",
+  "direction": "contextual",
+  "section": "البيئة والمناخ",
+  "domain": "الموارد المائية",
+  "has_editorial": false,
+  "values": 33,
+  "first": {
+   "year": 1990,
+   "value": 6.855388813
+  },
+  "latest": {
+   "year": 2022,
+   "value": 7.433380084
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 6.855388813
+   },
+   {
+    "year": 2000,
+    "value": 8
+   },
+   {
+    "year": 2010,
+    "value": 7.433380084
+   },
+   {
+    "year": 2014,
+    "value": 7.433380084
+   },
+   {
+    "year": 2015,
+    "value": 7.433380084
+   },
+   {
+    "year": 2020,
+    "value": 7.433380084
+   },
+   {
+    "year": 2022,
+    "value": 7.433380084
+   }
+  ],
+  "en_name": "Annual freshwater withdrawals, domestic (% of total freshwater withdrawal)",
+  "en_definition": "Annual freshwater withdrawals refer to total water withdrawals, not counting evaporation losses from storage basins. Withdrawals also include water from desalination plants in countries where they are a significant source. Withdrawals can exceed 100 percent of total renewable resources where extraction from nonrenewable aquifers or desalination plants is considerable or where there is significant water reuse. Withdrawals for domestic uses include drinking water, municipal use or supply, and use for public services, commercial establishments, and homes. Data are for the most recent year available for 1987-2002.",
+  "en_source": "AQUASTAT - FAO's Global Information System on Water and Agriculture, Food and Agriculture Organization of the United Nations (FAO), uri: https://data.apps.fao.org/aquastat/, publisher: Food and Agriculture Organization of the United Nations (FAO), date accessed: 20240529"
+ },
+ {
+  "slug": "protected-areas-total",
+  "code": "ER.PTD.TOTL.ZS",
+  "name": "المناطق المحمية البرية والبحرية",
+  "unit": "% من المساحة الكلية",
+  "direction": "increase",
+  "section": "البيئة والمناخ",
+  "domain": "التنوع الحيوي",
+  "has_editorial": false,
+  "values": 13,
+  "first": {
+   "year": 2013,
+   "value": 0.6
+  },
+  "latest": {
+   "year": 2025,
+   "value": 0.7
+  },
+  "key_points": [
+   {
+    "year": 2013,
+    "value": 0.6
+   },
+   {
+    "year": 2014,
+    "value": 0.6
+   },
+   {
+    "year": 2015,
+    "value": 0.6
+   },
+   {
+    "year": 2020,
+    "value": 0.6
+   },
+   {
+    "year": 2025,
+    "value": 0.7
+   }
+  ],
+  "en_name": "Terrestrial and marine protected areas (% of total territorial area)",
+  "en_definition": "Terrestrial protected areas are totally or partially protected areas of at least 1,000 hectares that are designated by national authorities as scientific reserves with limited public access, national parks, natural monuments, nature reserves or wildlife sanctuaries, protected landscapes, and areas managed mainly for sustainable use. Marine protected areas are areas of intertidal or subtidal terrain--and overlying water and associated flora and fauna and historical and cultural features--that have been reserved by law or other effective means to protect part or all of the enclosed environment. Sites protected under local or provincial law are excluded.",
+  "en_source": "Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM), UN Environment Programme World Conservation Monitoring Centre (UNEP-WCMC), uri: https://www.protectedplanet.net/en, publisher: Protected Planet, date accessed: 20240516, date published: 202405;\nInternational Union for Conservation of Nature (IUCN), uri: https://www.protectedplanet.net/en, publisher: Protected Planet, date accessed: 20240516"
+ },
+ {
+  "slug": "women-in-parliament",
+  "code": "SG.GEN.PARL.ZS",
+  "name": "مقاعد النساء في البرلمان",
+  "unit": "% من المقاعد",
+  "direction": "increase",
+  "section": "السكان والمجتمع",
+  "domain": "المرأة",
+  "has_editorial": false,
+  "values": 28,
+  "first": {
+   "year": 1998,
+   "value": 0.664451827242525
+  },
+  "latest": {
+   "year": 2025,
+   "value": 0
+  },
+  "key_points": [
+   {
+    "year": 1998,
+    "value": 0.664451827242525
+   },
+   {
+    "year": 2000,
+    "value": 0.664451827242525
+   },
+   {
+    "year": 2010,
+    "value": 0.332225913621262
+   },
+   {
+    "year": 2014,
+    "value": 0.332225913621262
+   },
+   {
+    "year": 2015,
+    "value": 0
+   },
+   {
+    "year": 2020,
+    "value": 0.332225913621262
+   },
+   {
+    "year": 2025,
+    "value": 0
+   }
+  ],
+  "en_name": "Proportion of seats held by women in national parliaments (%)",
+  "en_definition": "Women in parliaments are the percentage of parliamentary seats in a single or lower chamber held by women.",
+  "en_source": "Monthly ranking of women in national parliaments, Inter-Parliamentary Union (IPU), uri: https://data.ipu.org/women-ranking/, note: For the year of 1998, the data is as of August 10, 1998., type: Excel, date accessed: 2026-03-29"
+ },
+ {
+  "slug": "population-below-5m",
+  "code": "EN.POP.EL5M.ZS",
+  "name": "السكان في مناطق ارتفاعها أقل من 5 أمتار",
+  "unit": "% من السكان",
+  "direction": "contextual",
+  "section": "البيئة والمناخ",
+  "domain": "المناخ",
+  "has_editorial": false,
+  "values": 3,
+  "first": {
+   "year": 1990,
+   "value": 1.72490144164004
+  },
+  "latest": {
+   "year": 2015,
+   "value": 1.58086369450412
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 1.72490144164004
+   },
+   {
+    "year": 2000,
+    "value": 1.47184730209951
+   },
+   {
+    "year": 2015,
+    "value": 1.58086369450412
+   }
+  ],
+  "en_name": "Population living in areas where elevation is below 5 meters (% of total population)",
+  "en_definition": "Population below 5m is the percentage of the total population living in areas where the elevation is 5 meters or less.",
+  "en_source": "Low Elevation Coastal Zone (LECZ) Urban-Rural Population and Land Area Estimates, Version 3, Center For International Earth Science Information Network (CIESIN) - Columbia University, uri: https://doi.org/10.7927/d1x1-d702, publisher: NASA Earthdata GIS, date accessed: 202112, date published: 202112;\nCUNY Institute for Demographic Research (CIDR) - City University of New York, uri: https://doi.org/10.7927/d1x1-d702, publisher: NASA Earthdata GIS, date accessed: 202112"
+ },
+ {
+  "slug": "tourism-receipts-share-exports",
+  "code": "ST.INT.RCPT.XP.ZS",
+  "name": "إيرادات السياحة من الصادرات",
+  "unit": "% من إجمالي الصادرات",
+  "direction": "increase",
+  "section": "الثقافة والمجتمع والإبداع",
+  "domain": "السياحة والتراث",
+  "has_editorial": false,
+  "values": 7,
+  "first": {
+   "year": 2010,
+   "value": 13.9258887151486
+  },
+  "latest": {
+   "year": 2016,
+   "value": 12.360562989795
+  },
+  "key_points": [
+   {
+    "year": 2010,
+    "value": 13.9258887151486
+   },
+   {
+    "year": 2014,
+    "value": 12.7142042144875
+   },
+   {
+    "year": 2015,
+    "value": 6.21215883681715
+   },
+   {
+    "year": 2016,
+    "value": 12.360562989795
+   }
+  ],
+  "en_name": "International tourism, receipts (% of total exports)",
+  "en_definition": "International tourism receipts are expenditures by international inbound visitors, including payments to national carriers for international transport. These receipts include any other prepayment made for goods or services received in the destination country. They also may include receipts from same-day visitors, except when these are important enough to justify separate classification. For some countries they do not include receipts for passenger transport items. Their share in exports is calculated as a ratio to exports of goods and services, which comprise all transactions between residents of a country and the rest of the world involving a change of ownership from residents to nonresidents of general merchandise, goods sent for processing and repairs, nonmonetary gold, and services.",
+  "en_source": "Yearbook of Tourism Statistics, Compendium of Tourism Statistics and data files, UN Tourism;\nIMF exports estimates, International Monetary Fund (IMF);\nWorld Bank exports estimates, World Bank (WB)"
+ },
+ {
+  "slug": "primary-school-enrollment-gross",
+  "code": "SE.PRM.ENRR",
+  "name": "نسبة الالتحاق الإجمالية بالتعليم الابتدائي",
+  "unit": "%",
+  "direction": "increase",
+  "section": "التعليم والمعرفة",
+  "domain": "التعليم المدرسي",
+  "has_editorial": true,
+  "values": 12,
+  "first": {
+   "year": 1999,
+   "value": 63.5152206420898
+  },
+  "latest": {
+   "year": 2016,
+   "value": 76.9753799438477
+  },
+  "key_points": [
+   {
+    "year": 1999,
+    "value": 63.5152206420898
+   },
+   {
+    "year": 2010,
+    "value": 77.8557586669922
+   },
+   {
+    "year": 2016,
+    "value": 76.9753799438477
+   }
+  ],
+  "en_name": "School enrollment, primary (% gross)",
+  "en_definition": "Gross enrollment ratio is the ratio of total enrollment, regardless of age, to the population of the age group that officially corresponds to the level of education shown. Primary education provides children with basic reading, writing, and mathematics skills along with an elementary understanding of such subjects as history, geography, natural science, social science, art, and music.",
+  "en_source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through the UIS API.  Detailed documentation is available at: https://api.uis.unesco.org/api/public/documentation/, publisher: UNESCO Institute for Statistics (UIS), type: Bulk file (csv), date accessed: 2026-03-19, date published: 2026-02"
+ },
+ {
+  "slug": "new-conflict-displacements",
+  "code": "VC.IDP.NWCV",
+  "name": "حالات النزوح الجديدة بسبب الصراع والعنف",
+  "unit": "حالة نزوح",
+  "direction": "decrease",
+  "section": "الحرب والوضع الإنساني",
+  "domain": "النزوح واللجوء",
+  "has_editorial": true,
+  "values": 15,
+  "first": {
+   "year": 2009,
+   "value": 150000
+  },
+  "latest": {
+   "year": 2023,
+   "value": 80000
+  },
+  "key_points": [
+   {
+    "year": 2009,
+    "value": 150000
+   },
+   {
+    "year": 2010,
+    "value": 176000
+   },
+   {
+    "year": 2014,
+    "value": 100000
+   },
+   {
+    "year": 2015,
+    "value": 2175000
+   },
+   {
+    "year": 2020,
+    "value": 143000
+   },
+   {
+    "year": 2023,
+    "value": 80000
+   }
+  ],
+  "en_name": "Internally displaced persons, new displacement associated with conflict and violence (number of cases)",
+  "en_definition": "Internally displaced persons are defined according to the 1998 Guiding Principles (http://www.internal-displacement.org/publications/1998/ocha-guiding-principles-on-internal-displacement) as people or groups of people who have been forced or obliged to flee or to leave their homes or places of habitual residence, in particular as a result of armed conflict, or to avoid the effects of armed conflict, situations of generalized violence, violations of human rights, or natural or human-made disasters and who have not crossed an international border. \"New Displacement\" refers to the number of new cases or incidents of displacement recorded over the specified year, rather than the number of people displaced. This is done because people may have been displaced more than once.",
+  "en_source": "Internal Displacement Monitoring Centre (IDMC), uri: http://www.internal-displacement.org/"
+ },
+ {
+  "slug": "gdp-current-usd",
+  "code": "NY.GDP.MKTP.CD",
+  "name": "الناتج المحلي الإجمالي بالأسعار الجارية",
+  "unit": "دولار أمريكي",
+  "direction": "contextual",
+  "section": "الاقتصاد والمالية",
+  "domain": "الناتج المحلي الإجمالي",
+  "has_editorial": true,
+  "values": 29,
+  "first": {
+   "year": 1990,
+   "value": 12643821568.9626
+  },
+  "latest": {
+   "year": 2018,
+   "value": 21606160663.0318
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 12643821568.9626
+   },
+   {
+    "year": 2000,
+    "value": 9679316770.18633
+   },
+   {
+    "year": 2010,
+    "value": 30906749533.221
+   },
+   {
+    "year": 2014,
+    "value": 43228585321.3272
+   },
+   {
+    "year": 2015,
+    "value": 42444490073.8555
+   },
+   {
+    "year": 2018,
+    "value": 21606160663.0318
+   }
+  ],
+  "en_name": "GDP (current US$)",
+  "en_definition": "Gross domestic product is the total income earned through the production of goods and services in an economic territory during an accounting period. It can be measured in three different ways: using either the expenditure approach, the income approach, or the production approach. This indicator is expressed in current prices, meaning no adjustment has been made to account for price changes over time. This indicator is expressed in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "national-poverty-headcount",
+  "code": "SI.POV.NAHC",
+  "name": "نسبة السكان تحت خط الفقر الوطني",
+  "unit": "% من السكان",
+  "direction": "decrease",
+  "section": "الاقتصاد والمالية",
+  "domain": "الفقر",
+  "has_editorial": true,
+  "values": 1,
+  "first": {
+   "year": 2014,
+   "value": 48.6
+  },
+  "latest": {
+   "year": 2014,
+   "value": 48.6
+  },
+  "key_points": [
+   {
+    "year": 2014,
+    "value": 48.6
+   }
+  ],
+  "en_name": "Poverty headcount ratio at national poverty lines (% of population)",
+  "en_definition": "National poverty headcount ratio is the percentage of the population living below the national poverty line(s). National estimates are based on population-weighted subgroup estimates from household surveys. For economies for which the data are from EU-SILC, the reported year is the income reference year, which is the year before the survey year.",
+  "en_source": "World Bank, Poverty and Inequality Platform. Data are compiled from official government sources or are computed by World Bank staff using national (i.e. country–specific) poverty lines., World Bank (WB), note: Data are compiled from official government sources or are computed by World Bank staff using national (i.e. country–specific) poverty lines."
+ },
+ {
+  "slug": "trade-share-gdp",
+  "code": "NE.TRD.GNFS.ZS",
+  "name": "التجارة الخارجية من الناتج المحلي",
+  "unit": "% من الناتج المحلي",
+  "direction": "contextual",
+  "section": "الاقتصاد والمالية",
+  "domain": "التجارة الخارجية",
+  "has_editorial": true,
+  "values": 29,
+  "first": {
+   "year": 1990,
+   "value": 27.6276662296057
+  },
+  "latest": {
+   "year": 2018,
+   "value": 56.0778227215077
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 27.6276662296057
+   },
+   {
+    "year": 2000,
+    "value": 75.4388386390908
+   },
+   {
+    "year": 2010,
+    "value": 64.3856367797178
+   },
+   {
+    "year": 2014,
+    "value": 48.2430405122774
+   },
+   {
+    "year": 2015,
+    "value": 30.3676590844637
+   },
+   {
+    "year": 2018,
+    "value": 56.0778227215077
+   }
+  ],
+  "en_name": "Trade (% of GDP)",
+  "en_definition": "Trade is the sum of exports and imports of goods and services. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "population-age-15-64",
+  "code": "SP.POP.1564.TO.ZS",
+  "name": "السكان بعمر 15 إلى 64 سنة",
+  "unit": "% من السكان",
+  "direction": "contextual",
+  "section": "السكان والمجتمع",
+  "domain": "التركيب العمري",
+  "has_editorial": true,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": 46.0992860563882
+  },
+  "latest": {
+   "year": 2025,
+   "value": 56.4342536792281
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 46.0992860563882
+   },
+   {
+    "year": 2000,
+    "value": 48.2019378122573
+   },
+   {
+    "year": 2010,
+    "value": 53.7240771018226
+   },
+   {
+    "year": 2014,
+    "value": 55.209704896486
+   },
+   {
+    "year": 2015,
+    "value": 55.4607009337381
+   },
+   {
+    "year": 2020,
+    "value": 56.1012870575808
+   },
+   {
+    "year": 2025,
+    "value": 56.4342536792281
+   }
+  ],
+  "en_name": "Population ages 15-64 (% of total population)",
+  "en_definition": "Total population between the ages 15 to 64 as a percentage of the total population. Population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship.",
+  "en_source": "World Population Prospects, United Nations (UN), publisher: UN Population Division"
+ },
+ {
+  "slug": "primary-completion-rate",
+  "code": "SE.PRM.CMPT.ZS",
+  "name": "معدل إكمال المرحلة الابتدائية",
+  "unit": "% من الفئة العمرية",
+  "direction": "increase",
+  "section": "التعليم والمعرفة",
+  "domain": "التعليم المدرسي",
+  "has_editorial": true,
+  "values": 11,
+  "first": {
+   "year": 1999,
+   "value": 48.0339698791504
+  },
+  "latest": {
+   "year": 2016,
+   "value": 60.1439094543457
+  },
+  "key_points": [
+   {
+    "year": 1999,
+    "value": 48.0339698791504
+   },
+   {
+    "year": 2010,
+    "value": 56.5399703979492
+   },
+   {
+    "year": 2016,
+    "value": 60.1439094543457
+   }
+  ],
+  "en_name": "Primary completion rate, total (% of relevant age group)",
+  "en_definition": "Primary completion rate, or gross intake ratio to the last grade of primary education, is the number of new entrants (enrollments minus repeaters) in the last grade of primary education, regardless of age, divided by the population at the entrance age for the last grade of primary education. Data limitations preclude adjusting for students who drop out during the final year of primary education.",
+  "en_source": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through the UIS API.  Detailed documentation is available at: https://api.uis.unesco.org/api/public/documentation/, publisher: UNESCO Institute for Statistics (UIS), type: Bulk file (csv), date accessed: 2026-03-19, date published: 2026-02"
+ },
+ {
+  "slug": "population-age-0-14",
+  "code": "SP.POP.0014.TO.ZS",
+  "name": "السكان بعمر 0 إلى 14 سنة",
+  "unit": "% من السكان",
+  "direction": "contextual",
+  "section": "السكان والمجتمع",
+  "domain": "التركيب العمري",
+  "has_editorial": true,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": 51.0624907945691
+  },
+  "latest": {
+   "year": 2025,
+   "value": 41.0204008473956
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 51.0624907945691
+   },
+   {
+    "year": 2000,
+    "value": 49.0469786434723
+   },
+   {
+    "year": 2010,
+    "value": 43.5241835292283
+   },
+   {
+    "year": 2014,
+    "value": 42.0599551205541
+   },
+   {
+    "year": 2015,
+    "value": 41.8427177255362
+   },
+   {
+    "year": 2020,
+    "value": 41.3521086083527
+   },
+   {
+    "year": 2025,
+    "value": 41.0204008473956
+   }
+  ],
+  "en_name": "Population ages 0-14 (% of total population)",
+  "en_definition": "Population between the ages 0 to 14 as a percentage of the total population. Population is based on the de facto definition of population.",
+  "en_source": "United Nations Population Division. World Population Prospects., United Nations Population Division, uri: https://population.un.org/wpp/, publisher: United Nations Population Division"
+ },
+ {
+  "slug": "net-migration",
+  "code": "SM.POP.NETM",
+  "name": "صافي الهجرة",
+  "unit": "شخص",
+  "direction": "contextual",
+  "section": "السكان والمجتمع",
+  "domain": "الهجرة والاغتراب",
+  "has_editorial": true,
+  "values": 36,
+  "first": {
+   "year": 1990,
+   "value": -15847
+  },
+  "latest": {
+   "year": 2025,
+   "value": -16291
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": -15847
+   },
+   {
+    "year": 2000,
+    "value": -47713
+   },
+   {
+    "year": 2010,
+    "value": 20269
+   },
+   {
+    "year": 2014,
+    "value": 15764
+   },
+   {
+    "year": 2015,
+    "value": -9883
+   },
+   {
+    "year": 2020,
+    "value": -97982
+   },
+   {
+    "year": 2025,
+    "value": -16291
+   }
+  ],
+  "en_name": "Net migration",
+  "en_definition": "Net migration is the net total of migrants during the period, that is, the number of immigrants minus the number of emigrants, including both citizens and noncitizens.",
+  "en_source": "World Population Prospects, United Nations (UN), publisher: UN Population Division"
+ },
+ {
+  "slug": "maternal-mortality-ratio",
+  "code": "SH.STA.MMRT",
+  "name": "نسبة وفيات الأمهات",
+  "unit": "لكل 100 ألف ولادة حية",
+  "direction": "decrease",
+  "section": "الصحة والغذاء",
+  "domain": "صحة الأم والطفل",
+  "has_editorial": true,
+  "values": 34,
+  "first": {
+   "year": 1990,
+   "value": 359
+  },
+  "latest": {
+   "year": 2023,
+   "value": 118
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 359
+   },
+   {
+    "year": 2000,
+    "value": 241
+   },
+   {
+    "year": 2010,
+    "value": 144
+   },
+   {
+    "year": 2014,
+    "value": 134
+   },
+   {
+    "year": 2015,
+    "value": 135
+   },
+   {
+    "year": 2020,
+    "value": 135
+   },
+   {
+    "year": 2023,
+    "value": 118
+   }
+  ],
+  "en_name": "Maternal mortality ratio (modeled estimate, per 100,000 live births)",
+  "en_definition": "Maternal mortality ratio is the number of women who die from pregnancy-related causes while pregnant or within 42 days of pregnancy termination per 100,000 live births. The data are estimated with a regression model using information on the proportion of maternal deaths among non-AIDS deaths in women ages 15-49, fertility, birth attendants, and GDP measured using purchasing power parities (PPPs).",
+  "en_source": "Trends in Maternal Mortality, World Health Organization (WHO), uri: https://www.who.int/news/item/23-02-2023-a-woman-dies-every-two-minutes-due-to-pregnancy-or-childbirth--un-agencies;\nUN Children's Fund (UNICEF), note: Trends in Maternal Mortality;\nUN Population Fund (UNFPA), note: Trends in Maternal Mortality;\nWorld Bank Group (WBG), note: Trends in Maternal Mortality"
+ },
+ {
+  "slug": "fixed-telephone-subscriptions",
+  "code": "IT.MLT.MAIN.P2",
+  "name": "اشتراكات الهاتف الثابت",
+  "unit": "لكل 100 شخص",
+  "direction": "contextual",
+  "section": "البنية التحتية والخدمات",
+  "domain": "الإنترنت والاتصالات",
+  "has_editorial": true,
+  "values": 32,
+  "first": {
+   "year": 1990,
+   "value": 0.897
+  },
+  "latest": {
+   "year": 2022,
+   "value": 1.90415027901093
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 0.897
+   },
+   {
+    "year": 2000,
+    "value": 1.76674739546562
+   },
+   {
+    "year": 2010,
+    "value": 3.91062220935953
+   },
+   {
+    "year": 2014,
+    "value": 3.86616837669462
+   },
+   {
+    "year": 2015,
+    "value": 3.66575662499564
+   },
+   {
+    "year": 2020,
+    "value": 3.43158904462984
+   },
+   {
+    "year": 2022,
+    "value": 1.90415027901093
+   }
+  ],
+  "en_name": "Fixed telephone subscriptions (per 100 people)",
+  "en_definition": "Fixed telephone subscriptions refers to the sum of active number of analogue fixed telephone lines, voice-over-IP (VoIP) subscriptions, fixed wireless local loop (WLL) subscriptions, ISDN voice-channel equivalents and fixed public payphones.",
+  "en_source": "World Telecommunication/ICT Indicators Database, International Telecommunication Union (ITU)"
+ },
+ {
+  "slug": "tuberculosis-incidence",
+  "code": "SH.TBS.INCD",
+  "name": "معدل الإصابة بالسل",
+  "unit": "لكل 100 ألف شخص",
+  "direction": "decrease",
+  "section": "الصحة والغذاء",
+  "domain": "الأمراض والأوبئة",
+  "has_editorial": true,
+  "values": 25,
+  "first": {
+   "year": 2000,
+   "value": 94
+  },
+  "latest": {
+   "year": 2024,
+   "value": 40
+  },
+  "key_points": [
+   {
+    "year": 2000,
+    "value": 94
+   },
+   {
+    "year": 2010,
+    "value": 45
+   },
+   {
+    "year": 2014,
+    "value": 43
+   },
+   {
+    "year": 2015,
+    "value": 33
+   },
+   {
+    "year": 2020,
+    "value": 33
+   },
+   {
+    "year": 2024,
+    "value": 40
+   }
+  ],
+  "en_name": "Incidence of tuberculosis (per 100,000 people)",
+  "en_definition": "Incidence of tuberculosis is the estimated number of new and relapse tuberculosis cases arising in a given year, expressed as the rate per 100,000 population. All forms of TB are included, including cases in people living with HIV. Estimates for all years are recalculated as new information becomes available and techniques are refined, so they may differ from those published previously.",
+  "en_source": "Global Tuberculosis Report, World Health Organization (WHO)"
+ },
+ {
+  "slug": "air-transport-passengers",
+  "code": "IS.AIR.PSGR",
+  "name": "المسافرون عبر النقل الجوي",
+  "unit": "مسافر",
+  "direction": "increase",
+  "section": "البنية التحتية والخدمات",
+  "domain": "الموانئ والمطارات",
+  "has_editorial": true,
+  "values": 33,
+  "first": {
+   "year": 1990,
+   "value": 671100
+  },
+  "latest": {
+   "year": 2023,
+   "value": 618613.038
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 671100
+   },
+   {
+    "year": 2000,
+    "value": 841609
+   },
+   {
+    "year": 2010,
+    "value": 1536556
+   },
+   {
+    "year": 2014,
+    "value": 1665552
+   },
+   {
+    "year": 2015,
+    "value": 443685
+   },
+   {
+    "year": 2020,
+    "value": 52034.893
+   },
+   {
+    "year": 2023,
+    "value": 618613.038
+   }
+  ],
+  "en_name": "Air transport, passengers carried",
+  "en_definition": "Air carrier data per country refers to passengers carried by airlines registered in that country regardless of the origin or destination of the passengers.",
+  "en_source": "Civil Aviation Statistics of the World, International Civil Aviation Organization (ICAO), uri: https://data.icao.int/newdataplus/#:~:text=ICAO%20data%20is%20comprised%20of,information%20about%20commercial%20air%20carriers;\nICAO Staff estimates, International Civil Aviation Organization (ICAO), uri: https://data.icao.int/newdataplus/#:~:text=ICAO%20data%20is%20comprised%20of,information%20about%20commercial%20air%20carriers"
+ },
+ {
+  "slug": "total-fisheries-production",
+  "code": "ER.FSH.PROD.MT",
+  "name": "إجمالي إنتاج الثروة السمكية",
+  "unit": "طن متري",
+  "direction": "increase",
+  "section": "الإنتاج والموارد",
+  "domain": "الثروة السمكية",
+  "has_editorial": true,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 77310
+  },
+  "latest": {
+   "year": 2024,
+   "value": 152440
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 77310
+   },
+   {
+    "year": 2000,
+    "value": 114750
+   },
+   {
+    "year": 2010,
+    "value": 164011
+   },
+   {
+    "year": 2014,
+    "value": 214204.982
+   },
+   {
+    "year": 2015,
+    "value": 177412.997
+   },
+   {
+    "year": 2020,
+    "value": 144526.513
+   },
+   {
+    "year": 2024,
+    "value": 152440
+   }
+  ],
+  "en_name": "Total fisheries production (metric tons)",
+  "en_definition": "Total fisheries production measures the volume of aquatic species caught by a country for all commercial, industrial, recreational and subsistence purposes. The harvest from mariculture, aquaculture and other kinds of fish farming is also included.",
+  "en_source": "Food and Agriculture Organization., Food and Agriculture Organization of the United Nations (FAO), publisher: Food and Agriculture Organization of the United Nations (FAO)"
+ },
+ {
+  "slug": "marine-protected-areas",
+  "code": "ER.MRN.PTMR.ZS",
+  "name": "المناطق البحرية المحمية",
+  "unit": "% من المياه الإقليمية",
+  "direction": "increase",
+  "section": "البيئة والمناخ",
+  "domain": "التنوع الحيوي",
+  "has_editorial": true,
+  "values": 13,
+  "first": {
+   "year": 2013,
+   "value": 0.5
+  },
+  "latest": {
+   "year": 2025,
+   "value": 0.4
+  },
+  "key_points": [
+   {
+    "year": 2013,
+    "value": 0.5
+   },
+   {
+    "year": 2014,
+    "value": 0.5
+   },
+   {
+    "year": 2015,
+    "value": 0.5
+   },
+   {
+    "year": 2020,
+    "value": 0.5
+   },
+   {
+    "year": 2025,
+    "value": 0.4
+   }
+  ],
+  "en_name": "Marine protected areas (% of territorial waters)",
+  "en_definition": "Marine protected areas are areas of intertidal or subtidal terrain--and overlying water and associated flora and fauna and historical and cultural features--that have been reserved by law or other effective means to protect part or all of the enclosed environment.",
+  "en_source": "Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM), UN Environment Programme World Conservation Monitoring Centre (UNEP-WCMC), uri: https://www.protectedplanet.net/en, note: Only the latest data can be retrieved from the Protected Planet website. The time series are provided directly to WDI by Protected Planet., publisher: Protected Planet, date accessed: 20240516, date published: 202405;\nInternational Union for Conservation of Nature (IUCN), uri: https://www.protectedplanet.net/en, publisher: Protected Planet, date accessed: 20240516"
+ },
+ {
+  "slug": "average-annual-precipitation",
+  "code": "AG.LND.PRCP.MM",
+  "name": "متوسط الهطول السنوي",
+  "unit": "ملليمتر سنويا",
+  "direction": "contextual",
+  "section": "البيئة والمناخ",
+  "domain": "المناخ",
+  "has_editorial": true,
+  "values": 33,
+  "first": {
+   "year": 1990,
+   "value": 167
+  },
+  "latest": {
+   "year": 2022,
+   "value": 167
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 167
+   },
+   {
+    "year": 2000,
+    "value": 167
+   },
+   {
+    "year": 2010,
+    "value": 167
+   },
+   {
+    "year": 2014,
+    "value": 167
+   },
+   {
+    "year": 2015,
+    "value": 167
+   },
+   {
+    "year": 2020,
+    "value": 167
+   },
+   {
+    "year": 2022,
+    "value": 167
+   }
+  ],
+  "en_name": "Average precipitation in depth (mm per year)",
+  "en_definition": "Average precipitation is the long-term average in depth (over space and time) of annual precipitation in the country. Precipitation is defined as any kind of water that falls from clouds as a liquid or a solid.",
+  "en_source": "FAOSTAT, Food and Agriculture Organization of the United Nations (FAO), publisher: Food and Agriculture Organization of the United Nations (FAO)"
+ },
+ {
+  "slug": "government-effectiveness-score",
+  "code": "GOV_WGI_GE_SC",
+  "name": "درجة فاعلية الحكومة",
+  "unit": "درجة معيارية",
+  "direction": "increase",
+  "section": "الدولة والمؤسسات",
+  "domain": "الحوكمة",
+  "has_editorial": true,
+  "values": 27,
+  "first": {
+   "year": 1996,
+   "value": 31.6070936
+  },
+  "latest": {
+   "year": 2025,
+   "value": 14.0289199
+  },
+  "key_points": [
+   {
+    "year": 1996,
+    "value": 31.6070936
+   },
+   {
+    "year": 2000,
+    "value": 26.1179677
+   },
+   {
+    "year": 2010,
+    "value": 30.9881573
+   },
+   {
+    "year": 2014,
+    "value": 24.401239
+   },
+   {
+    "year": 2015,
+    "value": 20.9690137
+   },
+   {
+    "year": 2020,
+    "value": 11.7930367
+   },
+   {
+    "year": 2025,
+    "value": 14.0289199
+   }
+  ],
+  "en_name": "Government Effectiveness - Governance score (0-100)",
+  "en_definition": "Government Effectiveness (GE) captures perceptions of the quality of public services, the civil service, policy formulation and implementation, and the credibility of a government’s decisions. \n\nGovernance score is a linear transformation of the governance estimate using hypothetical worst-case and base-case countries. It is an absolute score ranging from 0-100. Larger values correspond to better governance.\n\nThe (country-series-time) metadata include the (a) number of sources, and (b) confidence intervals (lower and upper bound). The number of sources indicates the number of underlying data sources on which the governance score (respectively the underlying governance estimate) is based. The confidence intervals include the lower and upper bound of the 90% confidence interval for the governance score. Confidence intervals are a statistical range of values that likely contain the true value (of what is being estimated).",
+  "en_source": "The Worldwide Governance Indicators: Revised Methodology for Measuring Governance Using Perception Data., World Bank Group (WBG), uri: https://www.worldbank.org/en/publication/worldwide-governance-indicators, note: Detailed documentation of the WGI, interactive tools for exploring the data, and full access to the underlying source data available at www.govindicators.org. Worldwide Governance Indicators, 2025 Revision, World Bank (www.govindicators.org), Accessed on 12/15/2025. And: World Bank (2025). “The Worldwide Governance Indicators: Revised Methodology for Measuring Governance Using Perception Data.” Washington, DC: World Bank Group. The 2025 revision builds upon the original WGI methodology which was introduced in 1999 and summarized by the following paper: Kaufmann, Daniel & Aart C. Kraay. (2024). “The Worldwide Governance Indicators: Methodology and 2024 Update.” Policy Research Working Paper. Washington, DC: World Bank Group., date accessed: 2026-06-03, date published: 2025"
+ },
+ {
+  "slug": "gdp-per-capita-current-usd",
+  "code": "NY.GDP.PCAP.CD",
+  "name": "نصيب الفرد من الناتج المحلي الإجمالي",
+  "unit": "دولار أمريكي للفرد",
+  "direction": "increase",
+  "section": "الاقتصاد والمالية",
+  "domain": "الناتج المحلي الإجمالي",
+  "has_editorial": true,
+  "values": 29,
+  "first": {
+   "year": 1990,
+   "value": 910.422465960748
+  },
+  "latest": {
+   "year": 2018,
+   "value": 633.887202451545
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 910.422465960748
+   },
+   {
+    "year": 2000,
+    "value": 493.235182634814
+   },
+   {
+    "year": 2010,
+    "value": 1155.20305261418
+   },
+   {
+    "year": 2014,
+    "value": 1430.16420964026
+   },
+   {
+    "year": 2015,
+    "value": 1362.1738120601
+   },
+   {
+    "year": 2018,
+    "value": 633.887202451545
+   }
+  ],
+  "en_name": "GDP per capita (current US$)",
+  "en_definition": "Gross domestic product is the total income earned through the production of goods and services in an economic territory during an accounting period. It can be measured in three different ways: using either the expenditure approach, the income approach, or the production approach. The core indicator has been divided by the general population to achieve a per capita estimate.This indicator is expressed in current prices, meaning no adjustment has been made to account for price changes over time. This indicator is expressed in United States dollars.",
+  "en_source": "Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Accounts data files, Organisation for Economic Co-operation and Development (OECD);\nStaff estimates, World Bank (WB)"
+ },
+ {
+  "slug": "rule-of-law-score",
+  "code": "GOV_WGI_RL_SC",
+  "name": "درجة سيادة القانون",
+  "unit": "درجة معيارية",
+  "direction": "increase",
+  "section": "الدولة والمؤسسات",
+  "domain": "الحوكمة",
+  "has_editorial": true,
+  "values": 27,
+  "first": {
+   "year": 1996,
+   "value": 38.1003034
+  },
+  "latest": {
+   "year": 2025,
+   "value": 26.615608
+  },
+  "key_points": [
+   {
+    "year": 1996,
+    "value": 38.1003034
+   },
+   {
+    "year": 2000,
+    "value": 33.2080118
+   },
+   {
+    "year": 2010,
+    "value": 40.3499668
+   },
+   {
+    "year": 2014,
+    "value": 35.716633
+   },
+   {
+    "year": 2015,
+    "value": 33.1872152
+   },
+   {
+    "year": 2020,
+    "value": 28.3760831
+   },
+   {
+    "year": 2025,
+    "value": 26.615608
+   }
+  ],
+  "en_name": "Rule of Law - Governance score (0-100)",
+  "en_definition": "Rule of Law (RL) captures perceptions of the extent to which agents respect and follow the rules of society, including contract enforcement, property rights, the police, courts, and the likelihood of crime and violence. \n\nGovernance score is a linear transformation of the governance estimate using hypothetical worst-case and base-case countries. It is an absolute score ranging from 0-100. Larger values correspond to better governance.\n\nThe (country-series-time) metadata include the (a) number of sources, and (b) confidence intervals (lower and upper bound). The number of sources indicates the number of underlying data sources on which the governance score (respectively the underlying governance estimate) is based. The confidence intervals include the lower and upper bound of the 90% confidence interval for the governance score. Confidence intervals are a statistical range of values that likely contain the true value (of what is being estimated).",
+  "en_source": "The Worldwide Governance Indicators: Revised Methodology for Measuring Governance Using Perception Data., World Bank Group (WBG), uri: https://www.worldbank.org/en/publication/worldwide-governance-indicators, note: Detailed documentation of the WGI, interactive tools for exploring the data, and full access to the underlying source data available at www.govindicators.org. Worldwide Governance Indicators, 2025 Revision, World Bank (www.govindicators.org), Accessed on 12/15/2025. And: World Bank (2025). “The Worldwide Governance Indicators: Revised Methodology for Measuring Governance Using Perception Data.” Washington, DC: World Bank Group. The 2025 revision builds upon the original WGI methodology which was introduced in 1999 and summarized by the following paper: Kaufmann, Daniel & Aart C. Kraay. (2024). “The Worldwide Governance Indicators: Methodology and 2024 Update.” Policy Research Working Paper. Washington, DC: World Bank Group., date accessed: 2026-06-03, date published: 2025"
+ },
+ {
+  "slug": "vocational-secondary-enrollment-share",
+  "code": "SE.SEC.ENRL.VO.ZS",
+  "name": "حصة التعليم المهني من طلاب المرحلة الثانوية",
+  "unit": "% من طلاب الثانوية",
+  "direction": "increase",
+  "section": "التعليم والمعرفة",
+  "domain": "التعليم الفني والمهني",
+  "has_editorial": true,
+  "values": 9,
+  "first": {
+   "year": 1999,
+   "value": 0.90121
+  },
+  "latest": {
+   "year": 2016,
+   "value": 0.25012
+  },
+  "key_points": [
+   {
+    "year": 1999,
+    "value": 0.90121
+   },
+   {
+    "year": 2010,
+    "value": 0.68851
+   },
+   {
+    "year": 2016,
+    "value": 0.25012
+   }
+  ],
+  "en_name": "Share of all students in secondary education enrolled in vocational programmes (%)",
+  "en_definition": "",
+  "en_source": "UNESCO Institute for Statistics (UIS). UIS.Stat Bulk Data Download Service. Accessed April 5, 2025. https://apiportal.uis.unesco.org/bdds."
+ },
+ {
+  "slug": "dpt-immunization-rate",
+  "code": "SH.IMM.IDPT",
+  "name": "التحصين ضد الدفتيريا والسعال الديكي والكزاز",
+  "unit": "% من الأطفال بعمر 12 إلى 23 شهرا",
+  "direction": "increase",
+  "section": "الصحة والغذاء",
+  "domain": "الصحة العامة",
+  "has_editorial": true,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 84
+  },
+  "latest": {
+   "year": 2024,
+   "value": 42
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 84
+   },
+   {
+    "year": 2000,
+    "value": 74
+   },
+   {
+    "year": 2010,
+    "value": 76
+   },
+   {
+    "year": 2014,
+    "value": 70
+   },
+   {
+    "year": 2015,
+    "value": 63
+   },
+   {
+    "year": 2020,
+    "value": 57
+   },
+   {
+    "year": 2024,
+    "value": 42
+   }
+  ],
+  "en_name": "Immunization, DPT (% of children ages 12-23 months)",
+  "en_definition": "Child immunization, DPT, measures the percentage of children ages 12-23 months who received DPT vaccinations before 12 months or at any time before the survey. A child is considered adequately immunized against diphtheria, pertussis (or whooping cough), and tetanus (DPT) after receiving three doses of vaccine.",
+  "en_source": "World Health Organization (WHO), uri: http://www.who.int/immunization/monitoring_surveillance/en/;\nUN Children's Fund (UNICEF)"
+ },
+ {
+  "slug": "arable-land-share",
+  "code": "AG.LND.ARBL.ZS",
+  "name": "الأراضي الصالحة للزراعة",
+  "unit": "% من مساحة الأرض",
+  "direction": "increase",
+  "section": "البيئة والمناخ",
+  "domain": "التصحر",
+  "has_editorial": true,
+  "values": 35,
+  "first": {
+   "year": 1990,
+   "value": 2.88463359660587
+  },
+  "latest": {
+   "year": 2024,
+   "value": 2.16071807382266
+  },
+  "key_points": [
+   {
+    "year": 1990,
+    "value": 2.88463359660587
+   },
+   {
+    "year": 2000,
+    "value": 2.9263026308313
+   },
+   {
+    "year": 2010,
+    "value": 2.44521469022861
+   },
+   {
+    "year": 2014,
+    "value": 2.18923423679376
+   },
+   {
+    "year": 2015,
+    "value": 2.15750894937212
+   },
+   {
+    "year": 2020,
+    "value": 2.16743375570582
+   },
+   {
+    "year": 2024,
+    "value": 2.16071807382266
+   }
+  ],
+  "en_name": "Arable land (% of land area)",
+  "en_definition": "Arable land includes land defined by the FAO as land under temporary crops (double-cropped areas are counted once), temporary meadows for mowing or for pasture, land under market or kitchen gardens, and land temporarily fallow. Land abandoned as a result of shifting cultivation is excluded.",
+  "en_source": "FAO electronic files and website, Food and Agriculture Organization of the United Nations (FAO), publisher: Food and Agriculture Organization of the United Nations (FAO)"
+ }
+]

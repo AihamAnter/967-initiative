@@ -1,0 +1,1043 @@
+[
+ {
+  "domain": "taxes-customs",
+  "slug": "tax-revenue-gdp-share",
+  "name": "الإيرادات الضريبية كنسبة من الناتج المحلي الإجمالي",
+  "unit": "٪ من الناتج المحلي",
+  "direction": "increase",
+  "chart": "line",
+  "source_name": "صندوق النقد الدولي — تقرير مشاورات المادة الرابعة 2014 (التقرير القُطري رقم 14/276)",
+  "source_publisher": "IMF",
+  "source_url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+  "definition": "إجمالي الإيرادات الضريبية للحكومة العامة (ضرائب الدخل، والضرائب على السلع والخدمات، والرسوم الجمركية، وضرائب أخرى) منسوبةً إلى الناتج المحلي الإجمالي الاسمي.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2010,
+    "value": 6.6,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 3 من التقرير"
+   },
+   {
+    "year": 2011,
+    "value": 5.4,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 3 من التقرير"
+   },
+   {
+    "year": 2012,
+    "value": 7,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 3 من التقرير"
+   },
+   {
+    "year": 2013,
+    "value": 7.1,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "بيانات أولية — الجدول 3 من التقرير"
+   }
+  ]
+ },
+ {
+  "domain": "taxes-customs",
+  "slug": "customs-revenue-gdp-share",
+  "name": "الإيرادات الجمركية كنسبة من الناتج المحلي الإجمالي",
+  "unit": "٪ من الناتج المحلي",
+  "direction": "contextual",
+  "chart": "line",
+  "source_name": "صندوق النقد الدولي — تقرير مشاورات المادة الرابعة 2014 (التقرير القُطري رقم 14/276)",
+  "source_publisher": "IMF",
+  "source_url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+  "definition": "حصيلة الرسوم الجمركية في حسابات الحكومة العامة منسوبةً إلى الناتج المحلي الإجمالي الاسمي.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2010,
+    "value": 1,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 3 من التقرير"
+   },
+   {
+    "year": 2011,
+    "value": 0.8,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 3 من التقرير"
+   },
+   {
+    "year": 2012,
+    "value": 1.1,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 3 من التقرير"
+   },
+   {
+    "year": 2013,
+    "value": 1.2,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "بيانات أولية — الجدول 3 من التقرير"
+   }
+  ]
+ },
+ {
+  "domain": "taxes-customs",
+  "slug": "tax-revenue-yer",
+  "name": "الإيرادات الضريبية للحكومة العامة",
+  "unit": "مليار ريال يمني",
+  "direction": "increase",
+  "chart": "bar",
+  "source_name": "صندوق النقد الدولي — تقرير مشاورات المادة الرابعة 2014 (التقرير القُطري رقم 14/276)",
+  "source_publisher": "IMF",
+  "source_url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+  "definition": "إجمالي الإيرادات الضريبية للحكومة العامة بالمليار ريال يمني بالأسعار الجارية.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2010,
+    "value": 450,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 2 من التقرير"
+   },
+   {
+    "year": 2011,
+    "value": 377,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 2 من التقرير"
+   },
+   {
+    "year": 2012,
+    "value": 534,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 2 من التقرير"
+   },
+   {
+    "year": 2013,
+    "value": 613,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "بيانات أولية — الجدول 2 من التقرير"
+   }
+  ]
+ },
+ {
+  "domain": "taxes-customs",
+  "slug": "customs-revenue-yer",
+  "name": "الإيرادات الجمركية",
+  "unit": "مليار ريال يمني",
+  "direction": "contextual",
+  "chart": "bar",
+  "source_name": "صندوق النقد الدولي — تقرير مشاورات المادة الرابعة 2014 (التقرير القُطري رقم 14/276)",
+  "source_publisher": "IMF",
+  "source_url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+  "definition": "حصيلة الرسوم الجمركية للحكومة العامة بالمليار ريال يمني بالأسعار الجارية.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2010,
+    "value": 65,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 2 من التقرير"
+   },
+   {
+    "year": 2011,
+    "value": 55,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 2 من التقرير"
+   },
+   {
+    "year": 2012,
+    "value": 85,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "الجدول 2 من التقرير"
+   },
+   {
+    "year": 2013,
+    "value": 104,
+    "url": "https://www.imf.org/external/pubs/ft/scr/2014/cr14276.pdf",
+    "note": "بيانات أولية — الجدول 2 من التقرير"
+   }
+  ]
+ },
+ {
+  "domain": "taxes-customs",
+  "slug": "government-revenue-gdp-share",
+  "name": "إجمالي الإيرادات الحكومية كنسبة من الناتج المحلي",
+  "unit": "٪ من الناتج المحلي",
+  "direction": "increase",
+  "chart": "line",
+  "source_name": "صندوق النقد الدولي — بيان اختتام مشاورات المادة الرابعة 2025 (البيان الصحفي 26/106)",
+  "source_publisher": "IMF",
+  "source_url": "https://www.imf.org/en/news/articles/2026/04/02/pr-26106-yemen-imf-executive-board-concludes-2025-article-iv-consult",
+  "definition": "إجمالي إيرادات الحكومة (الحكومة المعترف بها دولياً) منسوبةً إلى الناتج المحلي الإجمالي، وفق جدول المؤشرات الاقتصادية المختارة لدى الصندوق.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2020,
+    "value": 11.6,
+    "url": "https://www.imf.org/en/news/articles/2026/04/02/pr-26106-yemen-imf-executive-board-concludes-2025-article-iv-consult"
+   },
+   {
+    "year": 2021,
+    "value": 13.9,
+    "url": "https://www.imf.org/en/news/articles/2026/04/02/pr-26106-yemen-imf-executive-board-concludes-2025-article-iv-consult"
+   },
+   {
+    "year": 2022,
+    "value": 15,
+    "url": "https://www.imf.org/en/news/articles/2026/04/02/pr-26106-yemen-imf-executive-board-concludes-2025-article-iv-consult"
+   },
+   {
+    "year": 2023,
+    "value": 20.4,
+    "url": "https://www.imf.org/en/news/articles/2026/04/02/pr-26106-yemen-imf-executive-board-concludes-2025-article-iv-consult"
+   },
+   {
+    "year": 2024,
+    "value": 14.7,
+    "url": "https://www.imf.org/en/news/articles/2026/04/02/pr-26106-yemen-imf-executive-board-concludes-2025-article-iv-consult"
+   },
+   {
+    "year": 2025,
+    "value": 17.2,
+    "url": "https://www.imf.org/en/news/articles/2026/04/02/pr-26106-yemen-imf-executive-board-concludes-2025-article-iv-consult",
+    "note": "تقدير أولي للصندوق وقت النشر (أبريل 2026)"
+   }
+  ]
+ },
+ {
+  "domain": "disability",
+  "slug": "persons-with-disabilities-estimate",
+  "name": "العدد التقديري للأشخاص ذوي الإعاقة",
+  "unit": "شخص",
+  "direction": "contextual",
+  "chart": "bar",
+  "source_name": "تقديرات مبنية على نسبة منظمة الصحة العالمية (15٪ من السكان) كما نشرتها OCHA ومنظمة العفو الدولية",
+  "source_publisher": "UN OCHA / Amnesty International",
+  "source_url": "https://www.unocha.org/attachments/bd0c5bbc-e74c-41c7-9677-20cddc39bdc5/HNRP_2025_Yemen_EN.pdf",
+  "definition": "عدد تقديري لا إحصاء فعلي: يُحسب بتطبيق النسبة العالمية لمنظمة الصحة العالمية (15٪) على تقدير عدد السكان؛ لا توجد بيانات تعداد حديثة للإعاقة في اليمن.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2019,
+    "value": 4500000,
+    "url": "https://www.amnesty.org/en/latest/news/2019/12/yemen-war-and-exclusion-leave-millions-of-people-with-disabilities-in-the-lurch/",
+    "note": "منظمة العفو الدولية (ديسمبر 2019): 4.5 مليون على الأقل استناداً إلى تقدير الصحة العالمية"
+   },
+   {
+    "year": 2024,
+    "value": 4900000,
+    "url": "https://english.aawsat.com/arab-world/4801596-un-49-mln-persons-disabilities-yemen-facing-severe-challenges",
+    "note": "رقم OCHA اليمن كما نقلته صحيفة الشرق الأوسط (يناير 2024)"
+   },
+   {
+    "year": 2025,
+    "value": 5200000,
+    "url": "https://www.unocha.org/attachments/bd0c5bbc-e74c-41c7-9677-20cddc39bdc5/HNRP_2025_Yemen_EN.pdf",
+    "note": "خطة الاحتياجات والاستجابة الإنسانية 2025"
+   }
+  ]
+ },
+ {
+  "domain": "qat",
+  "slug": "qat-cultivated-area",
+  "name": "المساحة المزروعة بالقات",
+  "unit": "هكتار",
+  "direction": "decrease",
+  "chart": "bar",
+  "source_name": "تجميع من مصادر منشورة (ويكيبيديا نقلاً عن دراسات منشورة، ووكالة فرانس برس عبر Phys.org)",
+  "source_publisher": "Wikipedia / AFP",
+  "source_url": "https://en.wikipedia.org/wiki/Khat",
+  "definition": "إجمالي المساحة المزروعة بشجرة القات في اليمن بالهكتار كما وردت في المصادر؛ الأرقام من مصادر مختلفة وقد تختلف منهجياتها، ويرى بعض المختصين أن الأرقام الرسمية أقل من الواقع.",
+  "confidence": "media",
+  "values": [
+   {
+    "year": 1970,
+    "value": 8000,
+    "url": "https://en.wikipedia.org/wiki/Khat",
+    "note": "تقدير منشور"
+   },
+   {
+    "year": 2000,
+    "value": 103000,
+    "url": "https://en.wikipedia.org/wiki/Khat",
+    "note": "تقدير منشور"
+   },
+   {
+    "year": 2012,
+    "value": 167602,
+    "url": "https://phys.org/news/2014-05-qat-cultivation-yemen-precious-groundwater.html",
+    "note": "نحو 12٪ من الأراضي الصالحة للزراعة بحسب التقرير"
+   }
+  ]
+ },
+ {
+  "domain": "humanitarian-needs",
+  "slug": "people-in-need",
+  "name": "عدد المحتاجين إلى مساعدة إنسانية",
+  "unit": "شخص",
+  "direction": "decrease",
+  "chart": "bar",
+  "source_name": "مكتب الأمم المتحدة لتنسيق الشؤون الإنسانية (OCHA)",
+  "source_publisher": "UN OCHA",
+  "source_url": "https://fts.unocha.org/countries/248/summary/2025",
+  "definition": "عدد الأشخاص المقدَّر احتياجهم إلى المساعدة الإنسانية أو الحماية في السنة، كما ورد في خطة الاستجابة الإنسانية لليمن لتلك السنة (بيانات الخطط على منصة HPC التابعة لـOCHA).",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2018,
+    "value": 22200000,
+    "url": "https://api.hpc.tools/v2/public/plan/657?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2018"
+   },
+   {
+    "year": 2019,
+    "value": 24100000,
+    "url": "https://api.hpc.tools/v2/public/plan/675?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2019"
+   },
+   {
+    "year": 2020,
+    "value": 24300000,
+    "url": "https://api.hpc.tools/v2/public/plan/925?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2020"
+   },
+   {
+    "year": 2021,
+    "value": 20700000,
+    "url": "https://api.hpc.tools/v2/public/plan/1024?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2021"
+   },
+   {
+    "year": 2022,
+    "value": 23458603,
+    "url": "https://api.hpc.tools/v2/public/plan/1077?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2022"
+   },
+   {
+    "year": 2023,
+    "value": 21640000,
+    "url": "https://api.hpc.tools/v2/public/plan/1116?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2023"
+   },
+   {
+    "year": 2024,
+    "value": 18182658,
+    "url": "https://api.hpc.tools/v2/public/plan/1193?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2024"
+   },
+   {
+    "year": 2025,
+    "value": 19540217,
+    "url": "https://api.hpc.tools/v2/public/plan/1262?content=entities&disaggregation=false",
+    "note": "خطة الاحتياجات والاستجابة الإنسانية 2025"
+   },
+   {
+    "year": 2026,
+    "value": 22325198,
+    "url": "https://api.hpc.tools/v2/public/plan/1520?content=entities&disaggregation=false",
+    "note": "خطة الاحتياجات والاستجابة الإنسانية 2026"
+   }
+  ]
+ },
+ {
+  "domain": "humanitarian-needs",
+  "slug": "people-targeted",
+  "name": "عدد المستهدفين بخطة الاستجابة الإنسانية",
+  "unit": "شخص",
+  "direction": "contextual",
+  "chart": "bar",
+  "source_name": "مكتب الأمم المتحدة لتنسيق الشؤون الإنسانية (OCHA)",
+  "source_publisher": "UN OCHA",
+  "source_url": "https://fts.unocha.org/countries/248/summary/2025",
+  "definition": "عدد الأشخاص الذين تستهدف خطة الاستجابة الإنسانية لليمن الوصول إليهم بالمساعدة خلال السنة.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2018,
+    "value": 13100000,
+    "url": "https://api.hpc.tools/v2/public/plan/657?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2018"
+   },
+   {
+    "year": 2019,
+    "value": 21400000,
+    "url": "https://api.hpc.tools/v2/public/plan/675?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2019"
+   },
+   {
+    "year": 2020,
+    "value": 19000000,
+    "url": "https://api.hpc.tools/v2/public/plan/925?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2020"
+   },
+   {
+    "year": 2021,
+    "value": 16000000,
+    "url": "https://api.hpc.tools/v2/public/plan/1024?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2021"
+   },
+   {
+    "year": 2022,
+    "value": 17883668,
+    "url": "https://api.hpc.tools/v2/public/plan/1077?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2022"
+   },
+   {
+    "year": 2023,
+    "value": 17370435,
+    "url": "https://api.hpc.tools/v2/public/plan/1116?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2023"
+   },
+   {
+    "year": 2024,
+    "value": 11233519,
+    "url": "https://api.hpc.tools/v2/public/plan/1193?content=entities&disaggregation=false",
+    "note": "خطة الاستجابة الإنسانية 2024"
+   },
+   {
+    "year": 2025,
+    "value": 10527030,
+    "url": "https://api.hpc.tools/v2/public/plan/1262?content=entities&disaggregation=false",
+    "note": "خطة الاحتياجات والاستجابة الإنسانية 2025"
+   },
+   {
+    "year": 2026,
+    "value": 12004155,
+    "url": "https://api.hpc.tools/v2/public/plan/1520?content=entities&disaggregation=false",
+    "note": "خطة الاحتياجات والاستجابة الإنسانية 2026"
+   }
+  ]
+ },
+ {
+  "domain": "humanitarian-needs",
+  "slug": "hrp-funding-requested",
+  "name": "التمويل المطلوب لخطة الاستجابة الإنسانية",
+  "unit": "دولار أمريكي",
+  "direction": "contextual",
+  "chart": "bar",
+  "source_name": "خدمة التتبع المالي (FTS) — مكتب الأمم المتحدة لتنسيق الشؤون الإنسانية (OCHA)",
+  "source_publisher": "UN OCHA FTS",
+  "source_url": "https://fts.unocha.org/countries/248/summary/2025",
+  "definition": "المتطلبات المالية (بعد المراجعة) لخطة الاستجابة الإنسانية لليمن في السنة بالدولار الأمريكي.",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2015,
+    "value": 1600821448,
+    "url": "https://fts.unocha.org/plans/477/summary",
+    "note": "خطة الاستجابة الاستراتيجية 2015"
+   },
+   {
+    "year": 2016,
+    "value": 1632652363,
+    "url": "https://fts.unocha.org/plans/513/summary",
+    "note": "خطة الاستجابة الإنسانية 2016"
+   },
+   {
+    "year": 2017,
+    "value": 2338796140,
+    "url": "https://fts.unocha.org/plans/542/summary",
+    "note": "خطة الاستجابة الإنسانية 2017"
+   },
+   {
+    "year": 2018,
+    "value": 3108067800,
+    "url": "https://fts.unocha.org/plans/657/summary",
+    "note": "خطة الاستجابة الإنسانية 2018"
+   },
+   {
+    "year": 2019,
+    "value": 4192680354,
+    "url": "https://fts.unocha.org/plans/675/summary",
+    "note": "خطة الاستجابة الإنسانية 2019"
+   },
+   {
+    "year": 2020,
+    "value": 3382681703,
+    "url": "https://fts.unocha.org/plans/925/summary",
+    "note": "خطة الاستجابة الإنسانية 2020"
+   },
+   {
+    "year": 2021,
+    "value": 3853456397,
+    "url": "https://fts.unocha.org/plans/1024/summary",
+    "note": "خطة الاستجابة الإنسانية 2021"
+   },
+   {
+    "year": 2022,
+    "value": 4271938417,
+    "url": "https://fts.unocha.org/plans/1077/summary",
+    "note": "خطة الاستجابة الإنسانية 2022"
+   },
+   {
+    "year": 2023,
+    "value": 4344155316,
+    "url": "https://fts.unocha.org/plans/1116/summary",
+    "note": "خطة الاستجابة الإنسانية 2023"
+   },
+   {
+    "year": 2024,
+    "value": 2705762394,
+    "url": "https://fts.unocha.org/plans/1193/summary",
+    "note": "خطة الاستجابة الإنسانية 2024"
+   },
+   {
+    "year": 2025,
+    "value": 2478772922,
+    "url": "https://fts.unocha.org/plans/1262/summary",
+    "note": "خطة الاحتياجات والاستجابة الإنسانية 2025"
+   },
+   {
+    "year": 2026,
+    "value": 2162563336,
+    "url": "https://fts.unocha.org/plans/1520/summary",
+    "note": "خطة الاحتياجات والاستجابة الإنسانية 2026"
+   }
+  ]
+ },
+ {
+  "domain": "humanitarian-needs",
+  "slug": "hrp-funding-received",
+  "name": "التمويل المستلم لخطة الاستجابة الإنسانية",
+  "unit": "دولار أمريكي",
+  "direction": "increase",
+  "chart": "bar",
+  "source_name": "خدمة التتبع المالي (FTS) — مكتب الأمم المتحدة لتنسيق الشؤون الإنسانية (OCHA)",
+  "source_publisher": "UN OCHA FTS",
+  "source_url": "https://fts.unocha.org/countries/248/summary/2025",
+  "definition": "إجمالي التمويل المُبلَّغ عنه والموجَّه إلى خطة الاستجابة الإنسانية لليمن في السنة بالدولار الأمريكي، وفق خدمة التتبع المالي (إجمالي التدفقات الواردة إلى الخطة).",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2015,
+    "value": 874179946,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=477",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2016,
+    "value": 1026129917,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=513",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2017,
+    "value": 1757041004,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=542",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2018,
+    "value": 2501262511,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=657",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2019,
+    "value": 3642387660,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=675",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2020,
+    "value": 1991625512,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=925",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2021,
+    "value": 2424017859,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=1024",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2022,
+    "value": 2303366028,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=1077",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2023,
+    "value": 1774327599,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=1116",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2024,
+    "value": 1506402417,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=1193",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   },
+   {
+    "year": 2025,
+    "value": 703040223,
+    "url": "https://api.hpc.tools/v1/public/fts/flow?planId=1262",
+    "note": "قيمة FTS عند الجلب في نوفمبر 2026"
+   }
+  ]
+ },
+ {
+  "domain": "mines-erw",
+  "slug": "mine-erw-casualties",
+  "name": "ضحايا الألغام ومخلفات الحرب القابلة للانفجار (قتلى وجرحى)",
+  "unit": "ضحية",
+  "direction": "decrease",
+  "chart": "bar",
+  "source_name": "مرصد الألغام الأرضية والذخائر العنقودية (Landmine & Cluster Munition Monitor)",
+  "source_publisher": "ICBL-CMC Landmine Monitor",
+  "source_url": "https://www.the-monitor.org/country-profile/yemen/impact",
+  "definition": "عدد الضحايا (قتلى وجرحى) من الألغام الأرضية والعبوات المفعّلة من الضحية ومخلفات الحرب القابلة للانفجار الذين سجّلهم المرصد في اليمن خلال السنة.",
+  "confidence": "ngo",
+  "values": [
+   {
+    "year": 2022,
+    "value": 582,
+    "url": "https://www.hi-us.org/en/landmine-monitor-2023-current-conflicts--long-lasting-contamination-cause-high-number-of-mine-casualties",
+    "note": "تقرير مرصد الألغام 2023 كما نشرته منظمة الإنسانية والإدماج"
+   },
+   {
+    "year": 2023,
+    "value": 499,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2024,
+    "value": 265,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact",
+    "note": "78 قتيلاً و187 جريحاً"
+   },
+   {
+    "year": 2025,
+    "value": 164,
+    "url": "https://icblcmc.org/assets/Resource-Hub/2026/Preliminary-Casualty-Data_June-2026_Web.pdf",
+    "note": "بيانات أولية (يونيو 2026) قابلة للمراجعة"
+   }
+  ]
+ },
+ {
+  "domain": "mines-erw",
+  "slug": "cluster-munition-casualties",
+  "name": "ضحايا الذخائر العنقودية",
+  "unit": "ضحية",
+  "direction": "decrease",
+  "chart": "bar",
+  "source_name": "مرصد الألغام الأرضية والذخائر العنقودية (Landmine & Cluster Munition Monitor)",
+  "source_publisher": "ICBL-CMC Cluster Munition Monitor",
+  "source_url": "https://www.the-monitor.org/country-profile/yemen/impact",
+  "definition": "عدد ضحايا الذخائر العنقودية (الهجمات والمخلفات) المسجلين في اليمن خلال السنة بحسب مرصد الذخائر العنقودية.",
+  "confidence": "ngo",
+  "values": [
+   {
+    "year": 2015,
+    "value": 104,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2016,
+    "value": 38,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2017,
+    "value": 54,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2018,
+    "value": 31,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2019,
+    "value": 9,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2020,
+    "value": 11,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2021,
+    "value": 29,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2022,
+    "value": 95,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact"
+   },
+   {
+    "year": 2023,
+    "value": 30,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact",
+    "note": "من مخلفات الذخائر العنقودية"
+   },
+   {
+    "year": 2024,
+    "value": 1,
+    "url": "https://www.the-monitor.org/country-profile/yemen/impact",
+    "note": "من مخلفات الذخائر العنقودية"
+   }
+  ]
+ },
+ {
+  "domain": "sports",
+  "slug": "olympic-athletes",
+  "name": "عدد رياضيي اليمن في الألعاب الأولمبية الصيفية",
+  "unit": "رياضي",
+  "direction": "increase",
+  "chart": "bar",
+  "source_name": "ويكيبيديا — اليمن في الألعاب الأولمبية",
+  "source_publisher": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics",
+  "definition": "عدد الرياضيين الذين مثّلوا الجمهورية اليمنية الموحدة في كل دورة ألعاب أولمبية صيفية منذ 1992؛ لم يحرز اليمن أي ميدالية أولمبية.",
+  "confidence": "media",
+  "values": [
+   {
+    "year": 1992,
+    "value": 8,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   },
+   {
+    "year": 1996,
+    "value": 4,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   },
+   {
+    "year": 2000,
+    "value": 2,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   },
+   {
+    "year": 2004,
+    "value": 3,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   },
+   {
+    "year": 2008,
+    "value": 5,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   },
+   {
+    "year": 2012,
+    "value": 4,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   },
+   {
+    "year": 2016,
+    "value": 3,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   },
+   {
+    "year": 2020,
+    "value": 5,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics",
+    "note": "دورة طوكيو 2020 أُقيمت فعلياً عام 2021"
+   },
+   {
+    "year": 2024,
+    "value": 4,
+    "url": "https://en.wikipedia.org/wiki/Yemen_at_the_Olympics"
+   }
+  ]
+ },
+ {
+  "domain": "sports",
+  "slug": "fifa-ranking-year-end",
+  "name": "ترتيب منتخب اليمن لكرة القدم في تصنيف الفيفا (نهاية العام)",
+  "unit": "مركز",
+  "direction": "decrease",
+  "chart": "line",
+  "source_name": "تصنيف الفيفا العالمي (عبر موقع fifaranking.net)",
+  "source_publisher": "FIFA / fifaranking.net",
+  "source_url": "https://inside.fifa.com/fifa-world-ranking/YEM?gender=men",
+  "definition": "مركز منتخب اليمن الأول للرجال في تصنيف الفيفا العالمي في إصدار ديسمبر من كل عام؛ الرقم الأصغر يعني ترتيباً أفضل.",
+  "confidence": "media",
+  "values": [
+   {
+    "year": 2012,
+    "value": 164,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2013,
+    "value": 179,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2014,
+    "value": 176,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2015,
+    "value": 174,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2016,
+    "value": 148,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2017,
+    "value": 120,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2018,
+    "value": 135,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2019,
+    "value": 144,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2020,
+    "value": 145,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   },
+   {
+    "year": 2021,
+    "value": 151,
+    "url": "https://en.fifaranking.net/nations/yem/",
+    "note": "تصنيف ديسمبر"
+   }
+  ]
+ },
+ {
+  "domain": "culture-media",
+  "slug": "rsf-press-freedom-rank",
+  "name": "ترتيب اليمن في مؤشر حرية الصحافة العالمي",
+  "unit": "مركز من 180",
+  "direction": "decrease",
+  "chart": "line",
+  "source_name": "مؤشر حرية الصحافة العالمي — منظمة مراسلون بلا حدود (RSF)",
+  "source_publisher": "Reporters Without Borders",
+  "source_url": "https://rsf.org/en/country/yemen",
+  "definition": "مركز اليمن بين 180 دولة في مؤشر حرية الصحافة السنوي؛ الرقم الأكبر يعني وضعاً أسوأ. تغيّرت منهجية المؤشر عام 2022.",
+  "confidence": "ngo",
+  "values": [
+   {
+    "year": 2019,
+    "value": 168,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2019"
+   },
+   {
+    "year": 2020,
+    "value": 167,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2020"
+   },
+   {
+    "year": 2021,
+    "value": 169,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2021"
+   },
+   {
+    "year": 2022,
+    "value": 169,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2022"
+   },
+   {
+    "year": 2023,
+    "value": 168,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2023"
+   },
+   {
+    "year": 2024,
+    "value": 154,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2024"
+   },
+   {
+    "year": 2025,
+    "value": 154,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2025"
+   },
+   {
+    "year": 2026,
+    "value": 164,
+    "url": "https://en.wikipedia.org/wiki/World_Press_Freedom_Index",
+    "note": "جدول ويكيبيديا نقلاً عن rsf.org/en/index?year=2026"
+   }
+  ]
+ },
+ {
+  "domain": "culture-media",
+  "slug": "yjs-press-violations",
+  "name": "الانتهاكات ضد الصحفيين ووسائل الإعلام",
+  "unit": "انتهاك",
+  "direction": "decrease",
+  "chart": "bar",
+  "source_name": "نقابة الصحفيين اليمنيين — التقارير السنوية (عبر الاتحاد الدولي للصحفيين ووسائل إعلام)",
+  "source_publisher": "Yemeni Journalists Syndicate / IFJ",
+  "source_url": "https://www.ifj.org/",
+  "definition": "عدد حالات الانتهاك ضد الصحفيين والعاملين في الإعلام والمؤسسات الإعلامية التي وثّقتها نقابة الصحفيين اليمنيين خلال السنة (قتل، اختطاف، احتجاز، محاكمات، تهديد، اعتداءات وغيرها).",
+  "confidence": "ngo",
+  "values": [
+   {
+    "year": 2017,
+    "value": 300,
+    "url": "https://ifj.org/media-centre/news/detail/article/yemen-yjs-report-depicts-grim-situation-of-press-freedom-in-2017"
+   },
+   {
+    "year": 2019,
+    "value": 134,
+    "url": "https://ifj.org/media-centre/news/detail/article/yemen-union-reports-134-rights-violations-in-2019"
+   },
+   {
+    "year": 2023,
+    "value": 82,
+    "url": "https://ifj.org/es/sala-de-prensa/noticias/detalle/category/comunicados-de-prensa/article/yemen-yjs-reports-82-media-violations-in-2023"
+   },
+   {
+    "year": 2024,
+    "value": 101,
+    "url": "https://www.yemenmonitor.com/?p=131176"
+   },
+   {
+    "year": 2025,
+    "value": 127,
+    "url": "https://www.yemenmonitor.com/?p=164348"
+   }
+  ]
+ },
+ {
+  "domain": "culture-media",
+  "slug": "journalists-killed",
+  "name": "الصحفيون والعاملون في الإعلام الذين قُتلوا",
+  "unit": "شخص",
+  "direction": "decrease",
+  "chart": "bar",
+  "source_name": "الاتحاد الدولي للصحفيين (IFJ) ونقابة الصحفيين اليمنيين",
+  "source_publisher": "IFJ / Yemeni Journalists Syndicate",
+  "source_url": "https://www.ifj.org/",
+  "definition": "عدد الصحفيين والعاملين في الإعلام الذين قُتلوا في اليمن خلال السنة بحسب الاتحاد الدولي للصحفيين ونقابة الصحفيين اليمنيين؛ قد تختلف منهجية العدّ بين المصدرين.",
+  "confidence": "ngo",
+  "values": [
+   {
+    "year": 2016,
+    "value": 7,
+    "url": "https://ifj.org/media-centre/news/detail/article/end-impunity-campaign-2018-yemen-country-report",
+    "note": "إحصاء الاتحاد الدولي للصحفيين"
+   },
+   {
+    "year": 2017,
+    "value": 3,
+    "url": "https://ifj.org/media-centre/news/detail/article/end-impunity-campaign-2018-yemen-country-report",
+    "note": "إحصاء الاتحاد الدولي للصحفيين"
+   },
+   {
+    "year": 2018,
+    "value": 8,
+    "url": "https://ifj.org/media-centre/news/detail/article/end-impunity-campaign-2018-yemen-country-report",
+    "note": "حتى نوفمبر 2018 وقت نشر التقرير"
+   },
+   {
+    "year": 2019,
+    "value": 2,
+    "url": "https://ifj.org/media-centre/news/detail/article/yemen-union-reports-134-rights-violations-in-2019",
+    "note": "تقرير نقابة الصحفيين اليمنيين"
+   },
+   {
+    "year": 2025,
+    "value": 16,
+    "url": "https://www.yemenmonitor.com/?p=164348",
+    "note": "تقرير النقابة: 16 حالة قتل بينها 14 في استهداف صحيفة 26 سبتمبر بصنعاء"
+   }
+  ]
+ },
+ {
+  "domain": "culture-media",
+  "slug": "world-heritage-sites",
+  "name": "عدد مواقع اليمن في قائمة التراث العالمي (تراكمي)",
+  "unit": "موقع",
+  "direction": "increase",
+  "chart": "line",
+  "source_name": "قائمة التراث العالمي — اليونسكو (عبر ويكيبيديا)",
+  "source_publisher": "UNESCO / Wikipedia",
+  "source_url": "https://whc.unesco.org/en/statesparties/ye",
+  "definition": "العدد التراكمي لمواقع اليمن المدرجة في قائمة التراث العالمي في سنة كل إدراج جديد (شبام 1982، صنعاء القديمة 1986، زبيد 1993، سقطرى 2008، معالم مملكة سبأ بمأرب 2023).",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 1982,
+    "value": 1,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "مدينة شبام القديمة المسوّرة"
+   },
+   {
+    "year": 1986,
+    "value": 2,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "مدينة صنعاء القديمة"
+   },
+   {
+    "year": 1993,
+    "value": 3,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "مدينة زبيد التاريخية"
+   },
+   {
+    "year": 2008,
+    "value": 4,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "أرخبيل سقطرى"
+   },
+   {
+    "year": 2023,
+    "value": 5,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "معالم مملكة سبأ القديمة، مأرب"
+   }
+  ]
+ },
+ {
+  "domain": "culture-media",
+  "slug": "world-heritage-in-danger",
+  "name": "عدد مواقع اليمن على قائمة التراث العالمي المعرّض للخطر (تراكمي)",
+  "unit": "موقع",
+  "direction": "decrease",
+  "chart": "line",
+  "source_name": "قائمة التراث العالمي — اليونسكو (عبر ويكيبيديا)",
+  "source_publisher": "UNESCO / Wikipedia",
+  "source_url": "https://whc.unesco.org/en/statesparties/ye",
+  "definition": "العدد التراكمي لمواقع اليمن المدرجة على قائمة التراث العالمي المعرّض للخطر في سنة كل إدراج (زبيد 2000، صنعاء القديمة وشبام 2015، مأرب 2023).",
+  "confidence": "international",
+  "values": [
+   {
+    "year": 2000,
+    "value": 1,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "زبيد"
+   },
+   {
+    "year": 2015,
+    "value": 3,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "صنعاء القديمة وشبام"
+   },
+   {
+    "year": 2023,
+    "value": 4,
+    "url": "https://en.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_Yemen",
+    "note": "معالم مملكة سبأ، مأرب (أُدرجت على قائمة الخطر عند تسجيلها)"
+   }
+  ]
+ }
+]
