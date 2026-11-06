@@ -5,14 +5,15 @@ import InlineTarget from './inline/InlineTarget';
 import {ArrowDown, ArrowLeft, ArrowUp, Check, ChevronDown, Download, Globe2, Info, LoaderCircle, MapPin, RotateCcw, Search, Share2, X} from 'lucide-react';
 import {rankingCategories} from '@/lib/rankingCatalog';
 import {buildRanking, getDefaultRankingYear, getRankingYears, getYemenNeighborhood, validateRankingDataset} from '@/lib/rankings';
-import {formatArabicDate, formatNumber, formatYear} from '@/lib/format';
+import {formatArabicDate, formatCompact, formatNumber, formatYear} from '@/lib/format';
 import {matchesSearch} from '@/lib/search';
 import {rankingBarGeometry, rankingHistoryPoints, rankingLocation, rankingSharePath} from '@/lib/rankingUi';
 import {splitRankingDescription} from '@/lib/rankingEditorial';
 import {csvEscape} from '@/lib/yemenNumbers';
 import './YemenRanking.css';
 
-const number = value => formatNumber(value, {maximumFractionDigits: 3});
+// Millions and billions are rounded for reading ("21.6 مليار"); the CSV export keeps raw values.
+const number = value => Math.abs(Number(value)) >= 1e6 ? formatCompact(value) : formatNumber(value, {maximumFractionDigits: 3});
 const scopeName = scope => scope === 'arab' ? 'الدول العربية' : 'العالم';
 const countryName = (countries, code) => countries.find(item => item.code === code)?.name || code;
 

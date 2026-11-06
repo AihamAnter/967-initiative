@@ -73,3 +73,9 @@
 
 /* ---------- Surfaces: cards and panels follow the theme ---------- */
 :root .site-experience :is(.card, .panel) { border-radius: var(--r-2); }
+
+/* ---------- Search: result-type filters scroll in one row on phones ---------- */
+@media (max-width: 760px) {
+  :root .site-experience .search-filters { display: flex !important; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: calc(var(--s-gutter) * -1); padding: 2px var(--s-gutter) 8px; scrollbar-width: none; }
+  :root .site-experience .search-filters > a { flex: 0 0 auto; white-space: nowrap; scroll-snap-align: start; }
+}

@@ -69,16 +69,4 @@
 :global(:root[data-ed-theme="dark"]) .root{
  background:var(--c-bg);color:var(--c-ink);
 }
-:global(:root[data-ed-theme="dark"]) .root :global(.page-intro),
-:global(:root[data-ed-theme="dark"]) .root :global(.interior-page[data-knowledge-intro] .page-intro){
- background:radial-gradient(circle at 84% 10%,rgb(79 209 197 / .22),transparent 34%),linear-gradient(118deg,#0f171b,#0a1114 52%,#0d2423)!important;
- color:#f7fbfa!important;border-color:rgb(79 209 197 / .18)!important;
-}
-:global(:root[data-ed-theme="dark"]) .root :global(.page-intro h1),
-:global(:root[data-ed-theme="dark"]) .root :global(.page-intro .breadcrumbs),
-:global(:root[data-ed-theme="dark"]) .root :global(.page-intro .breadcrumbs a){color:#f7fbfa!important}
-:global(:root[data-ed-theme="dark"]) .root :global(.page-intro > .container > p){color:#c4cecb!important}
-:global(:root[data-ed-theme="dark"]) .root :global(.page-intro .eyebrow),
-:global(:root[data-ed-theme="dark"]) .root :global(.page-intro .directory-summary > a){
- color:#f7fbfa!important;background:rgb(255 255 255 / .07)!important;border-color:rgb(255 255 255 / .2)!important;
-}
+/* Dark page intros follow the shared identity layer (app/foundation/identity.css). */
