@@ -1,0 +1,64 @@
+/* Opinion poll, redesigned: phase steps and status first, the question, then tappable
+   choices; the saved vote and the results read as one clear card. Layout only. */
+.poll-v2.debate-disclosure>summary h2{color:var(--c-ink)}
+.poll-v2.debate-disclosure>summary small{color:var(--c-ink-2)}
+.poll-v2 .debate-disclosure-body{display:grid;gap:12px;padding:14px}
+.poll-v2 .poll-v2-card{display:grid;gap:12px}
+.poll-v2 .poll-v2-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.poll-v2 .poll-v2-phases{display:flex;gap:4px;margin:0;padding:3px;list-style:none;border-radius:999px;background:var(--c-surface-2,rgba(127,127,127,.12))}
+.poll-v2 .poll-v2-phases li{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;font-size:11.5px;color:var(--c-ink-2);line-height:1.5}
+.poll-v2 .poll-v2-phases li>span{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;font-size:10px;background:var(--c-line-2,rgba(127,127,127,.25))}
+.poll-v2 .poll-v2-phases li[aria-current]{background:var(--c-ink);color:var(--c-bg);font-weight:700}
+.poll-v2 .poll-v2-phases li[aria-current]>span{background:var(--c-bg);color:var(--c-ink)}
+.poll-v2 .poll-v2-status{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999px;font-size:11px;font-weight:700;background:var(--c-surface-2,rgba(127,127,127,.12));color:var(--c-ink-2)}
+.poll-v2 .poll-v2-status[data-status="open"]{background:var(--c-accent-soft);color:var(--c-accent-strong,var(--c-accent))}
+.poll-v2 .poll-v2-status[data-status="saved"]{background:var(--c-accent);color:var(--c-bg)}
+.poll-v2 .poll-v2-question{margin:0;padding:10px 12px;border-inline-start:3px solid var(--c-accent);border-radius:4px 10px 10px 4px;background:var(--c-surface-2,rgba(127,127,127,.08));font-size:14px;line-height:1.85;font-weight:600;color:var(--c-ink)}
+.poll-v2 .poll-v2-dates{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;margin:0;font-size:11.5px;color:var(--c-ink-2)}
+.poll-v2 .poll-v2-saved{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0;padding:11px 12px;border:1px solid var(--c-accent);border-radius:12px;background:var(--c-accent-soft)}
+.poll-v2 .poll-v2-saved>svg{flex:none;color:var(--c-accent)}
+.poll-v2 .poll-v2-saved>div{display:grid;flex:1 1 160px;min-width:0;line-height:1.6}
+.poll-v2 .poll-v2-saved small{font-size:11px;color:var(--c-ink-2)}
+.poll-v2 .poll-v2-saved strong{font-size:14px;color:var(--c-ink)}
+.poll-v2 .poll-v2-saved span{font-size:11.5px;color:var(--c-ink-2)}
+.poll-v2 .poll-v2-saved .btn{min-height:36px;padding:0 12px;font-size:12.5px;gap:5px}
+.poll-v2 .poll-v2-note{display:flex;align-items:flex-start;gap:8px;margin:0;padding:10px 12px;border-radius:10px;font-size:12.5px;line-height:1.8;background:var(--c-surface-2,rgba(127,127,127,.1));color:var(--c-ink)}
+.poll-v2 .poll-v2-note>svg{flex:none;margin-top:3px;color:var(--c-ink-2)}
+.poll-v2 .poll-v2-form fieldset{display:grid;gap:10px;margin:0;padding:0;border:0;min-width:0}
+.poll-v2 .poll-v2-form legend{padding:0;margin-bottom:6px;font-size:12px;font-weight:700;color:var(--c-ink-2)}
+.poll-v2 .debate-vote-choices{display:grid;gap:6px}
+.poll-v2 .debate-poll-choice{position:relative;display:flex;align-items:center;gap:10px;min-height:44px;padding:9px 12px;border:1px solid var(--c-line-2,var(--c-line));border-radius:12px;background:var(--c-surface);font-size:13px;line-height:1.7;color:var(--c-ink);cursor:pointer;transition:border-color .15s,background .15s}
+.poll-v2 .debate-poll-choice:hover{border-color:var(--c-accent)}
+.poll-v2 .debate-poll-choice input[type="radio"]{appearance:none;-webkit-appearance:none;flex:none;width:18px;height:18px;margin:0;border:2px solid var(--c-line-2,var(--c-ink-2));border-radius:50%;background:transparent;display:grid;place-items:center}
+.poll-v2 .debate-poll-choice input[type="radio"]:checked{border-color:var(--c-accent);background:radial-gradient(circle,var(--c-accent) 0 4px,transparent 5px)}
+.poll-v2 .debate-poll-choice input[type="radio"]:focus-visible{outline:2px solid var(--c-focus,var(--c-accent));outline-offset:2px}
+.poll-v2 .debate-poll-choice:has(input:checked){border-color:var(--c-accent);background:var(--c-accent-soft);font-weight:700}
+.poll-v2 .debate-watch-confirm{font-size:12px;color:var(--c-ink)}
+.poll-v2 .poll-v2-actions{display:flex;gap:8px;flex-wrap:wrap}
+.poll-v2 .poll-v2-actions .btn{flex:1 1 140px;min-height:44px;gap:6px;justify-content:center}
+.poll-v2 .poll-v2-actions .btn-outline{flex:0 1 auto}
+/* Results */
+.poll-v2 .debate-integrated-results{margin:0;padding:12px;border:1px solid var(--c-line);border-top:1px solid var(--c-line);border-radius:12px;background:var(--c-surface-2,transparent);font-size:12.5px;line-height:1.8}
+.poll-v2 .debate-integrated-results>p{margin:6px 0 0}
+.poll-v2 .debate-integrated-results>p.small-muted:last-child{font-size:11px;color:var(--c-ink-2)}
+.poll-v2 .debate-results-phase h3{margin:0 0 2px;font-size:14px;color:var(--c-ink)}
+.poll-v2 .debate-result-total{margin:0 0 6px;font-size:11.5px;color:var(--c-ink-2)}
+.poll-v2 .debate-result{margin:8px 0}
+.poll-v2 .debate-result>div:first-child{display:flex;justify-content:space-between;gap:10px;margin-bottom:4px;font-size:12.5px;color:var(--c-ink)}
+.poll-v2 .debate-result>div:first-child bdi{flex:none;font-size:11.5px;color:var(--c-ink-2)}
+.poll-v2 .debate-result-track{height:8px;border-radius:999px;background:var(--c-line);overflow:hidden}
+.poll-v2 .debate-result-track>span{display:block;height:100%;border-radius:999px;background:var(--c-accent)}
+.poll-v2 .debate-results-comparison{margin-top:10px;padding:10px;border-radius:10px;border-color:var(--c-line)}
+.poll-v2 .debate-results-comparison>summary{color:var(--c-accent);font-size:13px}
+.poll-v2 .debate-previous-result-summary{padding:8px 10px;border-radius:8px;background:var(--c-surface);font-size:12px}
+@media (min-width:761px){.poll-v2 .debate-disclosure-body{padding:18px}.poll-v2 .debate-vote-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* The hidden #results/#vote-* anchors must not add grid gaps; legacy dark rules force color:inherit on li/span. */
+.poll-v2 .debate-disclosure-body{display:block}
+.poll-v2 .debate-integrated-results{margin-top:12px}
+:root:root .poll-v2 .poll-v2-phases li{color:var(--c-ink-2)!important}
+:root:root .poll-v2 .poll-v2-phases li[aria-current]{color:var(--c-bg)!important}
+:root:root .poll-v2 .poll-v2-phases li[aria-current]>span{color:var(--c-ink)!important}
+:root:root .poll-v2 .poll-v2-status{color:var(--c-ink-2)!important}
+:root:root .poll-v2 .poll-v2-status[data-status="open"]{color:var(--c-accent-strong,var(--c-accent))!important}
+:root:root .poll-v2 .poll-v2-status[data-status="saved"]{color:var(--c-bg)!important}
+:root:root .poll-v2 .poll-v2-saved small,:root:root .poll-v2 .poll-v2-saved span{color:var(--c-ink-2)!important}

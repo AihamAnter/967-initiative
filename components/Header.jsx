@@ -28,6 +28,9 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const messageAudioRef = useRef(null);
   const messageAlertRef = useRef({initialized:false,latest:0});
   const header = useRef(null);
+  // Remembers that the visitor reached this page from another page of the site (used by back buttons).
+  const lastPath = useRef(null);
+  useEffect(() => { if (lastPath.current && lastPath.current !== path) { try { sessionStorage.setItem('967-came-from', lastPath.current); } catch {} } lastPath.current = path; }, [path]);
   const toggle = useRef(null);
   const mobileToggle = useRef(null);
   const menuOpener = useRef(null);

@@ -16,6 +16,8 @@ import styles from './PrivateMessaging.module.css';
 const date=value=>value?new Intl.DateTimeFormat('ar',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(value)):'';
 const defaults={discoverable:true,allow_requests:true,notify_messages:true};
 
+// Back to the page the visitor came from; with no earlier page on this site, go home.
+function goBack(){let sameSite=false;try{sameSite=Boolean(sessionStorage.getItem('967-came-from'))||Boolean(document.referrer)&&new URL(document.referrer).origin===location.origin;}catch{}if(sameSite&&history.length>1)history.back();else location.assign('/');}
 export default function PrivateMessaging(){
  const {user,ready}=useAudience();
  const [tab,setTab]=useState('inbox'),[items,setItems]=useState([]);
@@ -473,7 +475,7 @@ export default function PrivateMessaging(){
  });
 
  return <div className={styles.page} dir="rtl"><div className={styles.wrap}>
-  <header className={styles.heading}><div><span className={styles.kicker}>تواصل الأعضاء</span><h1>الرسائل الخاصة</h1><p>محادثاتك وطلبات التواصل في مكان واحد.</p></div><Link href="/account" className={styles.accountLink}><ArrowRight size={16}/> حسابي</Link></header>
+  <header className={styles.heading}><div><span className={styles.kicker}>تواصل الأعضاء</span><h1>الرسائل الخاصة</h1><p>محادثاتك وطلبات التواصل في مكان واحد.</p></div><div className={styles.headingLinks}><button type="button" className={styles.accountLink} onClick={goBack}><ArrowRight size={16} aria-hidden="true"/> العودة</button><Link href="/account" className={styles.accountLink}><UserRound size={15} aria-hidden="true"/> حسابي</Link></div></header>
   {!ready?<div className={styles.gate}>جارٍ التحقق من الحساب…</div>:!user?
    <div className={styles.gate}><ShieldAlert size={29}/><h2>سجّل الدخول أولًا</h2><p>الرسائل الخاصة متاحة للمستخدمين المسجلين فقط.</p><Link href="/login">تسجيل الدخول</Link></div>:
   <div className={styles.layout} data-view={tab} data-chat-open={tab==='inbox'&&Boolean(selected)}>
