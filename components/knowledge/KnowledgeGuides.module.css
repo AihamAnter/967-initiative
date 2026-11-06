@@ -33,3 +33,15 @@
 @media(max-width:820px){.heritageGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.guideGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.section{padding-block:30px}.heading{align-items:flex-start;gap:12px;flex-direction:column}.counter{flex-direction:row;min-width:0}.counter strong{font-size:22px}.heritageGrid{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:5px;gap:11px;padding:3px 2px 14px;overscroll-behavior-x:contain}.heritageCard{flex:0 0 min(83vw,290px);min-height:315px;padding:16px;scroll-snap-align:start}.guideGrid{grid-template-columns:minmax(0,1fr);gap:10px}.guideCard{min-height:0;padding:19px;gap:8px}.guideCard h3{font-size:18px}.heading h2{font-size:29px}}
 @media(prefers-reduced-motion:reduce){.heritageCard{transition:none}.heritageGrid{scroll-behavior:auto}}
+
+/* Folded reading guide (2026-11 redesign). */
+.fold{padding-block:0!important}
+.foldSummary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:10px 16px;border:1px solid var(--c-line);border-radius:var(--r-2,12px);background:var(--c-surface);cursor:pointer;list-style:none}
+.foldSummary::-webkit-details-marker{display:none}
+.foldLabel{display:flex;align-items:center;gap:10px;color:var(--c-accent)}
+.foldLabel>span{display:grid}
+.foldLabel small{color:var(--c-ink-3);font-size:var(--t-size-meta,13px)}
+.foldLabel strong{color:var(--c-ink);font-size:1rem;font-weight:600;line-height:1.5}
+.foldChevron{flex:none;color:var(--c-ink-3);transition:transform var(--m-fast,160ms)}
+.fold[open] .foldChevron{transform:rotate(180deg)}
+.fold[open]>.foldSummary{margin-bottom:16px}

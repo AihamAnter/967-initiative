@@ -42,7 +42,7 @@ export default async function GamesPage(){
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
     <div className={styles.sectionHeading}>
-     <div><span className={styles.sectionEyebrow}><span/> SELECT YOUR GAME / 967 ARCADE</span>
+     <div><span className={styles.sectionEyebrow}><span/> اختر لعبتك</span>
       <h2 id="games-heading">اختر لعبتك التالية <span className={styles.headingStar} aria-hidden="true">✦</span></h2>
       <p>تسع ألعاب. تسع تجارب مختلفة. جميعها جاهزة للعب في مكان واحد.</p>
      </div>
@@ -69,7 +69,7 @@ export default async function GamesPage(){
         <span className={styles.tileXP}>967 <Zap size={12} fill="currentColor"/></span>
        </div>
        <div className={styles.tileContent}>
-        <div className={styles.tileMeta}><span className={styles.tileCategory}>{game.category}</span><span className={styles.tileEnglish}>{game.subtitle}</span></div>
+        <div className={styles.tileMeta}><span className={styles.tileCategory}>{game.category}</span></div>
         <h3>{game.title}</h3>
         <p>{game.description}</p>
        </div>

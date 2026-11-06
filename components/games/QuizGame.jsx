@@ -166,7 +166,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     </aside>
    </div>}
    {!!round.length&&!result&&<div className={styles.play} ref={playRef}>
-    <div className={styles.playHeader}><span>{mode==='daily'?'DAILY QUEST / تحدي اليوم':'KNOWLEDGE QUEST / اختبر معرفتك'}</span><strong>السؤال {step+1} من {round.length}</strong><span className={styles.playScore}><Zap size={15} fill="currentColor" aria-hidden="true"/>{mode==='daily'?officialRaw:scoreRound(round.slice(0,step),answers.slice(0,step)).total} XP</span></div>
+    <div className={styles.playHeader}><span>{mode==='daily'?'تحدي اليوم':'اختبر معرفتك'}</span><strong>السؤال {step+1} من {round.length}</strong><span className={styles.playScore}><Zap size={15} fill="currentColor" aria-hidden="true"/>{mode==='daily'?officialRaw:scoreRound(round.slice(0,step),answers.slice(0,step)).total} XP</span></div>
     <div className={styles.progress} role="progressbar" aria-label="التقدم في الأسئلة" aria-valuemin={0} aria-valuemax={round.length} aria-valuenow={step+1}><span style={{width:((step+1)/round.length*100)+'%'}}/></div>
     <GameTimer remaining={timer.remaining} duration={duration} paused={picked!==null}/>
     <div className={styles.questionStage} key={current.id}>

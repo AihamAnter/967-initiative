@@ -31,7 +31,7 @@ export default async function YemenInNumbersPage() {
    <dl className="ed-facts">
     <div><dt>مؤشرات منشورة</dt><dd>{formatNumber(indicators.length)}</dd></div>
     <div><dt>لها قيم منشورة</dt><dd>{formatNumber(withValues.length)}</dd></div>
-    <div><dt>دون قيم بعد</dt><dd>{formatNumber(indicators.length - withValues.length)}</dd></div>
+    {indicators.length > withValues.length && <div><dt>دون قيم بعد</dt><dd>{formatNumber(indicators.length - withValues.length)}</dd></div>}
     {indicators.some(x=>x.hasSourceConflict) && <div><dt>بانتظار اعتماد المصدر</dt><dd>{formatNumber(conflicts)}</dd></div>}
    </dl>
    <p className="ed-head-links"><Link href="/yemen-in-numbers/timeline" className="ed-link">قارن المؤشرات عبر الزمن</Link><Link href="/yemen-ranking" className="ed-link">ترتيب اليمن عالميًا</Link></p>

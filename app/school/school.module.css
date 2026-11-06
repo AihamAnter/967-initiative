@@ -548,3 +548,26 @@
 :global(:root[data-ed-theme="dark"]) .root .writingSelectedGlyph{
  color:var(--c-ink);
 }
+
+/* 2026-11 redesign: School joins the shared editorial identity. It keeps a
+   green accent (rule, eyebrow, highlighted word) and its illustrated worlds,
+   but its intro follows the visitor's light or dark theme instead of always
+   being a dark-green band. */
+.root{--school-ink:var(--c-ink);--school-muted:var(--c-ink-2);--school-green:var(--c-leaf);background:var(--c-bg);color:var(--c-ink)}
+.schoolHero,.innerHero{padding:clamp(20px,4vw,40px) 0 clamp(22px,4vw,40px);background:var(--c-bg-2);color:var(--c-ink);box-shadow:inset 0 3px 0 var(--c-leaf);border-bottom:1px solid var(--c-line)}
+.schoolHero:before{display:none}
+.heroGrid{min-height:0;gap:24px}
+.breadcrumb{color:var(--c-ink-3);opacity:1;margin-bottom:12px}
+.eyebrow{color:var(--c-leaf);letter-spacing:0}
+.schoolHero h1,.innerHero h1{font:700 var(--t-size-h1)/1.2 var(--t-display);letter-spacing:0;margin:10px 0 10px;color:var(--c-ink)}
+.schoolHero h1 em,.innerHero h1 em{color:var(--c-leaf)}
+.schoolHero p,.innerHero p{color:var(--c-ink-2);font-size:var(--t-size-ui);line-height:1.8;margin-bottom:18px}
+.schoolHero .primaryLink{background:var(--c-leaf);color:#fff}
+:global(:root[data-ed-theme="dark"]) .schoolHero .primaryLink{color:var(--c-bg)}
+.heroPills span{color:var(--c-ink-2)}
+.artifactRing{border-color:color-mix(in srgb,var(--c-leaf) 35%,transparent);box-shadow:0 0 0 25px color-mix(in srgb,var(--c-leaf) 8%,transparent),0 0 0 52px color-mix(in srgb,var(--c-leaf) 4%,transparent)}
+.artifactGlyph{color:var(--c-leaf);text-shadow:none}
+.heroArtifact{min-height:260px}
+@media(max-width:760px){.heroArtifact{display:none}.schoolHero h1,.innerHero h1{font-size:clamp(2rem,1.6rem + 3vw,2.5rem)}}
+.myLearningLink{border-color:var(--c-line-2);background:var(--c-surface);color:var(--c-ink)}
+.myLearningLink:hover{background:var(--c-surface-3)}

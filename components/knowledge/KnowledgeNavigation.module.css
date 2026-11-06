@@ -54,3 +54,18 @@
 }
 @media(max-width:380px){.link{flex-basis:72vw}}
 @media(prefers-reduced-motion:reduce){.link{transition:none}.links{scroll-behavior:auto}}
+
+/* Phones (2026-11 redesign): a single row of compact chips. The full section
+   index lives in the Explore tab, so this row only offers quick side-steps and
+   no longer pushes the page content a screen down. */
+@media(max-width:760px){
+ .nav{border-block:0;background:transparent}
+ .inner{padding:10px 0 4px}
+ .heading{display:none}
+ .links{gap:8px;padding:2px var(--s-gutter,16px) 8px}
+ .link{display:inline-flex;flex:0 0 auto;align-items:center;gap:6px;min-height:40px;padding:0 14px 0 12px;border-radius:var(--r-pill,999px);box-shadow:none;grid-template-columns:none}
+ .symbol{width:auto;height:auto;background:none;border-radius:0}
+ .symbol svg{width:17px;height:17px}
+ .copy strong{font-size:14px;font-weight:600;white-space:nowrap}
+ .copy small{display:none}
+}

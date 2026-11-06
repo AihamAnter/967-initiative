@@ -1,5 +1,5 @@
 import Link from '@/components/SiteLink';
-import {ArrowUpLeft,BookOpenText,ExternalLink,Globe2,MapPinned,ScrollText} from 'lucide-react';
+import {ArrowUpLeft,BookOpenText,ChevronDown,ExternalLink,Globe2,MapPinned,ScrollText} from 'lucide-react';
 import styles from './KnowledgeGuides.module.css';
 
 const heritage=[
@@ -62,9 +62,12 @@ export function HeritageTrail({context='atlas'}){
 export function KnowledgeReadingGuide({kind}){
  const data=guides[kind];
  if(!data)return null;
- return <section className={styles.section+' '+styles.reading} aria-labelledby={'knowledge-guide-'+kind}>
-   <header className={styles.heading}><div><span className={styles.eyebrow}><ScrollText size={16}/>{data.eyebrow}</span><h2 id={'knowledge-guide-'+kind}>{data.title}</h2><p>{data.description}</p></div></header>
+ // Folded by default: method notes stay one tap away instead of sitting
+ // between the page title and the content.
+ return <details className={styles.section+' '+styles.reading+' '+styles.fold} aria-labelledby={'knowledge-guide-'+kind}>
+   <summary className={styles.foldSummary}><span className={styles.foldLabel}><ScrollText size={18} aria-hidden="true"/><span><small>كيف تقرأ هذا القسم؟</small><strong id={'knowledge-guide-'+kind}>{data.title}</strong></span></span><ChevronDown size={20} className={styles.foldChevron} aria-hidden="true"/></summary>
+   <header className={styles.heading}><div><p>{data.description}</p></div></header>
    <div className={styles.guideGrid}>{data.cards.map(card=><article className={styles.guideCard} key={card.number}><span className={styles.index}>{card.number}</span><h3>{card.title}</h3><p>{card.text}</p>{card.href&&<Link href={card.href}>{card.action}<ArrowUpLeft size={16}/></Link>}</article>)}</div>
    {kind==='statistics'||kind==='ranking'?<p className={styles.footnote}><BookOpenText size={15}/> للمزيد عن اختلاف التعريفات وطرق جمع البيانات: <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906531-methodologies" target="_blank" rel="noopener noreferrer">منهجيات بيانات البنك الدولي <ExternalLink size={13}/></a></p>:null}
- </section>;
+ </details>;
 }
