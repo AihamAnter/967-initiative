@@ -202,3 +202,7 @@
 }
 .ymap-page .ymap-app { gap: 10px !important; }
 .ymap-page .ymap-toolbar { margin-bottom: 0 !important; }
+
+/* ---------- Redesign v2 — batch C: lesson player colours ---------- */
+:root { --lp-on-accent: #fff; --lp-accent: var(--c-leaf, #3a7337); --lp-accent-soft: var(--c-leaf-soft, #e1eedc); --lp-gold: var(--c-sun, #c79a3b); }
+:root[data-ed-theme="dark"] { --lp-on-accent: #10200e; }

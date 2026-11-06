@@ -1,11 +1,15 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,RotateCcw,XCircle} from 'lucide-react';
+import {ArrowLeft,BookOpen,CheckCircle2,Cloud,RotateCcw,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useSchoolDraft from './useSchoolDraft';
 import SchoolGuidedLesson from './SchoolGuidedLesson';
 import styles from '@/app/school/studio/studio.module.css';
+import player from './LessonPlayer.module.css';
+import {ScoreRing,StepKicker,StepSegments,usePlayerTop} from './LessonParts';
+const BADGES=['أ','ب','ج','د','هـ','و'];
+const KIND_LABEL={choice:'اختر الإجابة',order:'رتّب العناصر',type:'اكتب الإجابة'};
 function ready(question,value){
  if(question?.kind==='choice')return Number.isInteger(value);
  if(question?.kind==='order')return Array.isArray(value)&&value.length===question.tokens.length;
@@ -27,6 +31,7 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
   [index,setIndex]=useState(0),[answers,setAnswers]=useState([]),[selection,setSelection]=useState(null),
   [result,setResult]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState('');
  const resultTitle=useRef(null);
+ const top=usePlayerTop(phase+':'+index);
  const draft=useSchoolDraft({attempt,active:phase==='play',answers,selection,
   request:body=>requestGeneric({...body,slug})});
  useEffect(()=>{if(phase==='done')resultTitle.current?.focus();},[phase]);
@@ -55,22 +60,29 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
   }catch(e){setError(e.message);}finally{setBusy(false);}
  }
  const task=attempt?.questions?.[index];
- return <div className={styles.genericLesson}>
-  <Link className={styles.back} href={'/school/courses/'+slug}><ArrowRight size={16}/> العودة إلى المسار</Link>
-  <h1>{stage.title}</h1><p>{stage.subtitle}</p>
+ return <div ref={top} className={styles.genericLesson}>
+  <header className={player.lessonHead}><h1>{stage.title}</h1><p>{stage.subtitle}</p></header>
   {phase==='learn'&&<SchoolGuidedLesson slug={slug} stage={stage} busy={busy}
    hasActiveAttempt={Boolean(attempt)} onStart={start}/>}
   
-  {phase==='play'&&task&&<section className={styles.lessonCard}>
-   <button type="button" className={styles.guidedReview} onClick={async()=>{
-    setBusy(true);setError('');
-    try{await draft.save({answers,selection});setPhase('learn');}catch(e){setError(e.message);}
-    finally{setBusy(false);}
-   }} disabled={busy}><BookOpen size={16}/> العودة إلى شرح الدرس</button>
-   <div className={styles.questionMeta}>السؤال {index+1} من 6 · {draft.status||'حفظ تلقائي'}</div>
-   <h2>{task.prompt}</h2>{task.target&&<p className={styles.target}>{task.target}</p>}
-   {task.kind==='choice'&&<div className={styles.genericChoices}>{task.options.map((o,i)=><button type="button"
-    key={i} aria-pressed={selection===i} disabled={busy} onClick={()=>setSelection(i)}>{o}</button>)}</div>}
+  {phase==='play'&&task&&<section className={player.player} aria-labelledby="generic-question">
+   <div className={player.quizTop}>
+    <button type="button" className={player.backToLesson} onClick={async()=>{
+     setBusy(true);setError('');
+     try{await draft.save({answers,selection});setPhase('learn');}catch(e){setError(e.message);}
+     finally{setBusy(false);}
+    }} disabled={busy}><BookOpen size={16}/> العودة إلى شرح الدرس</button>
+    <span className={player.save} role="status"><Cloud size={14} aria-hidden="true"/> {draft.status||'حفظ تلقائي'}</span>
+   </div>
+   <div className={player.progressRow}>
+    <StepSegments total={6} current={index} valueNow={index} label="تقدم أسئلة المحطة"/>
+    <span className={player.count}>السؤال {index+1} من 6</span>
+   </div>
+   <div className={player.card} key={'q-'+index}>
+   <StepKicker icon={CheckCircle2}>{KIND_LABEL[task.kind]||'سؤال'}</StepKicker>
+   <h2 id="generic-question" className={player.question}>{task.prompt}</h2>{task.target&&<p className={player.target}>{task.target}</p>}
+   {task.kind==='choice'&&<div className={player.choices} role="group" aria-label="اختر إجابة واحدة">{task.options.map((o,i)=><button type="button" className={player.choice}
+    key={i} aria-pressed={selection===i} disabled={busy} onClick={()=>setSelection(i)}><span className={player.badge}>{BADGES[i]||i+1}</span><span>{o}</span></button>)}</div>}
    {task.kind==='order'&&<div className={styles.orderExercise}>
     <p>رتّب العناصر بالضغط عليها حسب التسلسل الصحيح:</p>
     <div className={styles.orderAnswer} aria-label="العناصر التي رتبتها">{(Array.isArray(selection)?selection:[]).map((n,i)=>
@@ -86,19 +98,25 @@ export default function GenericSchoolLesson({slug,stage,hasNext}){
      value={typeof selection==='string'?selection:''} disabled={busy}
      onChange={e=>setSelection(e.target.value)} placeholder="اكتب إجابتك هنا دون أن تُعرض لك الحلول"/>
    </label>}
-   <button type="button" disabled={busy||!ready(task,selection)} onClick={next}>
-    {index===5?'إنهاء وتصحيح':'السؤال التالي'} <ArrowLeft size={17}/></button>
+   </div>
+   <div className={player.bar}><button type="button" disabled={busy||!ready(task,selection)} onClick={next}>
+    {index===5?'إنهاء وتصحيح':'السؤال التالي'} <ArrowLeft size={17}/></button></div>
   </section>}
-  {phase==='done'&&result&&<section className={styles.lessonCard}>
-   <h2 ref={resultTitle} tabIndex={-1}><CheckCircle2 size={25}/>{result.passed?'أحسنت، اجتزت المحطة!':'يمكنك التدريب مجددًا'}</h2>
-   <strong>{result.score} من {result.total}</strong>
-   {result.review.map((r,i)=><div className={styles.answerReview} key={r.id}>
-    <strong>{r.correct?<CheckCircle2 size={16}/>:<XCircle size={16}/>} سؤال {i+1}: {r.correct?'صحيح':'يحتاج إلى مراجعة'}</strong>
+  {phase==='done'&&result&&<section className={player.player} aria-live="polite">
+   <div className={player.result} data-passed={result.passed?'true':'false'}>
+    <ScoreRing score={result.score} total={result.total} passed={result.passed}/>
+    <h2 ref={resultTitle} tabIndex={-1}>{result.passed?'أحسنت، اجتزت المحطة!':'يمكنك التدريب مجددًا'}</h2>
+    <p>{result.score} من {result.total} · {result.passed?'حُفظ تقدّمك في المسار.':'راجع الشرح والتطبيق ثم جرّب أسئلة جديدة.'}</p>
+   </div>
+   <div className={player.reviewList}>{result.review.map((r,i)=><div className={player.reviewItem} data-correct={r.correct?'true':'false'} key={r.id}>
+    {r.correct?<CheckCircle2 size={18} aria-hidden="true"/>:<XCircle size={18} aria-hidden="true"/>}
+    <strong>سؤال {i+1}: {r.correct?'صحيح':'يحتاج إلى مراجعة'}</strong>
     <p>الإجابة: {r.answer}</p><p>{r.explanation}</p>
-   </div>)}
-   <div className={styles.lessonActions}><button type="button" onClick={()=>setPhase('learn')}><BookOpen size={17}/> مراجعة الشرح</button>
+   </div>)}</div>
+   <div className={player.actions}>
+    {result.passed&&hasNext&&<Link className={player.primary} href={'/school/courses/'+slug+'/'+(stage.index+2)}>المحطة التالية <ArrowLeft size={17}/></Link>}
+    <button type="button" onClick={()=>setPhase('learn')}><BookOpen size={17}/> مراجعة الشرح</button>
     <button type="button" onClick={()=>{setAttempt(null);setPhase('learn');}}><RotateCcw size={17}/> مراجعة التطبيق ثم إعادة المحاولة</button>
-    {result.passed&&hasNext&&<Link href={'/school/courses/'+slug+'/'+(stage.index+2)}>المحطة التالية <ArrowLeft size={17}/></Link>}
    </div>
   </section>}
   {error&&<p className={styles.error} role="alert">{error}</p>}

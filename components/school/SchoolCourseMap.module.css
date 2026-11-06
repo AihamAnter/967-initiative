@@ -92,3 +92,31 @@
  border:1px solid var(--c-line-2);
  color:var(--c-ink);
 }
+
+/* Redesign v2 — batch C: the stations read as one list of compact rows
+   (state node, title, subtitle, status), not a zig-zag of tall cards. */
+.courseAuthBox{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 12px;padding:12px 14px;margin:0 0 12px;border-inline-start-width:4px;box-shadow:none}
+.courseAuthBox h3{font-size:15px;margin:0}
+.courseAuthBox p{grid-column:1;font-size:12px;line-height:1.7;margin:0}
+.courseAuthActions{grid-column:2;grid-row:1/span 2;display:grid;gap:6px}
+.courseAuthActions a{min-height:38px !important;padding:0 12px !important;font-size:13px !important}
+.routeHead{align-items:center;padding:8px 0 10px;gap:6px 12px}
+.routeHead h3{font-size:var(--t-size-h2,17px);margin:2px 0 0}
+.routeHead p{font-size:12px}
+.routeHeadBadge{padding:5px 12px}
+.courseTimeline{padding:0;gap:0;border-radius:16px;background:var(--c-surface,#fff);border:1px solid var(--c-line,#cedfd1);overflow:clip}
+.timelineStage{display:block;min-height:0;padding:0;border-block-end:1px solid var(--c-line,#e3e9e3)}
+.timelineStage:last-child{border-block-end:0}
+.timelineStage:before,.timelineStage:after{content:none;display:none}
+.timelineNode{display:none !important}
+.timelineStage>a,.timelineStage>div,.timelineStage:nth-child(even)>a,.timelineStage:nth-child(even)>div,.timelineStage:nth-child(odd)>a,.timelineStage:nth-child(odd)>div{width:auto;margin:0;min-height:60px;padding:10px 14px;gap:12px;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none}
+.timelineStage>a:hover,.timelineStage>a:focus-visible{transform:none;box-shadow:none;background:var(--c-surface-3,#f0f9ee)}
+.timelineStage.timelineDone>a,.timelineStage.timelineOpen>a{background:transparent;border:0}
+.timelineStage.timelineOpen{background:color-mix(in srgb,var(--c-leaf,#3a7337) 7%,transparent)}
+.timelineIndex{width:36px;height:36px;box-shadow:none}
+.timelineBody{gap:0}
+.timelineBody strong{font-size:14px;line-height:1.5}
+.timelineBody small{font-size:12px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.timelineBody em{font-size:11px;line-height:1.5}
+.courseProgress{padding:12px 14px !important;margin-bottom:12px !important}
+@media(max-width:560px){.courseAuthBox{grid-template-columns:minmax(0,1fr)}.courseAuthActions{grid-column:1;grid-row:auto;grid-template-columns:1fr 1fr}}

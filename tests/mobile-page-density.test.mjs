@@ -25,7 +25,8 @@ test('learner can continue before browsing optional stats and long secondary sec
  const courses=page.indexOf('<div className={styles.courses}>');
  const review=page.indexOf("MobileFold title={'مراجعة الأخطاء");
  const competition=page.indexOf('MobileFold title="الإنجازات ولوحة المتصدرين"');
- assert.ok(resume>0&&resume<xp&&xp<stats&&stats<habits&&habits<courses&&courses<review&&review<competition);
+ // Redesign v2: course progress comes before the daily goal and streak cards.
+ assert.ok(resume>0&&resume<xp&&xp<stats&&stats<courses&&courses<habits&&habits<review&&review<competition);
  assert.ok(page.includes('data.courses.find(course=>course.slug===item.course)?.title'));
  assert.ok(page.includes('data.resume.stage?.href'));
  assert.ok(page.includes('<SchoolCompetition achievements={data.achievements}/>'));

@@ -573,3 +573,13 @@
  outline:3px solid var(--c-focus);
  outline-offset:3px;
 }
+
+/* Redesign v2 — batch C: a compact course header and a frameless station list on phones. */
+.hero{padding:clamp(14px,3vw,32px) 0 clamp(16px,3vw,36px)}
+.hero h1{font-size:var(--t-size-h1,24px);margin:4px 0}
+.hero p{font-size:14px;line-height:1.75;margin:2px 0}
+.workspace{padding:12px 0 48px}
+.report>h2{font-size:var(--t-size-h2,17px);margin:0 0 2px}
+.report>p{font-size:12px;margin:0 0 10px}
+.genericLesson{padding:8px 0 40px}
+@media(max-width:600px){.report{padding:0;border:0;background:none}}

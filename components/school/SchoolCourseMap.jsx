@@ -58,7 +58,7 @@ export default function SchoolCourseMap({slug,stages}){
   </section>}
   {state.loading&&<p role="status" className={styles.muted}>جارٍ تحميل المحطات المتاحة من حسابك…</p>}
   {state.error&&<p role="alert" className={styles.error}>تعذر تحميل تقدمك: {state.error} — يُرجى إعادة تحميل الصفحة.</p>}
-  <header className={styles.routeHead}><div><span><Route size={17}/> طريق المحطات</span><h3>تقدّم محطة بعد محطة</h3><p>اتبع المسار المتعرج؛ المحطات الخضراء متاحة للتعلّم، والرمادية تُفتح عند إتقان ما قبلها.</p></div><div className={styles.routeHeadBadge}><Flag size={17}/>{stages.length} محطة</div></header>
+  <header className={styles.routeHead}><div><span><Route size={17}/> طريق المحطات</span><h3>تقدّم محطة بعد محطة</h3><p>المحطات الخضراء متاحة للتعلّم، والرمادية تُفتح عند إتقان ما قبلها.</p></div><div className={styles.routeHeadBadge}><Flag size={17}/>{stages.length} محطة</div></header>
   <ol className={styles.courseTimeline}>
    {stages.map(stage=>{
     const info=summary?.stages.find(s=>s.index===stage.index);

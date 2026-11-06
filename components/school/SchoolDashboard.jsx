@@ -92,6 +92,15 @@ export default function SchoolDashboard(){
     <div className={styles.stat}><span><BookOpenCheck size={17}/> مسارات مكتملة</span><strong dir="ltr">{data.totals.finishedCourses} / {data.totals.courses}</strong></div>
     <div className={styles.stat}><span><Target size={17}/> محاولات مصححة</span><strong dir="ltr">{data.totals.submittedAttempts}</strong></div>
    </div>
+   <div className={styles.titleRow}><div><span>مساراتي</span><h2>تقدّمك في كل مسار</h2></div><p>النجاح في المحطة وحده هو الذي يحسبها مكتملة. الإعادة لا تمحو إنجازك.</p></div>
+   <div className={styles.courses}>{data.courses.map(course=><article key={course.slug} className={styles.course}>
+    <div className={styles.courseTop}><span>{course.category}</span><span>{course.finished?'مكتمل':'قيد التعلّم'}</span></div>
+    <h3>{course.title}</h3><p>{course.description}</p><div className={styles.courseXp}><Zap size={16} aria-hidden="true"/><strong dir="ltr">{course.xp} XP</strong><span>من المحطات المتقنة</span></div>
+    <div className={styles.progressLabel}><strong>{course.completed} من {course.total} محطة</strong><span dir="ltr">{course.percent}%</span></div>
+    <div className={styles.track} role="progressbar" aria-label={'تقدم '+course.title} aria-valuemin={0} aria-valuemax={course.total} aria-valuenow={course.completed}><span style={{width:course.percent+'%'}}/></div>
+    <div className={styles.courseFoot}><span>{course.attempts} محاولات مصححة</span>
+     <Link href={course.nextStage?.href||course.href}>{course.finished?'راجع المسار':'المحطة '+((course.nextStage?.index??0)+1)} <ArrowLeft size={17}/></Link></div>
+   </article>)}</div>
    <div className={styles.habitGrid}>
     <section className={styles.habitCard} aria-labelledby="daily-goal-title">
      <div className={styles.habitHeading}><CalendarCheck size={23}/><h2 id="daily-goal-title">هدفي اليومي</h2></div>
@@ -112,15 +121,6 @@ export default function SchoolDashboard(){
     </section>
    </div>
    {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p><Link className={styles.action} href="/school/studio"><Settings2 size={18}/> إدارة المدرسة</Link></div>}
-   <div className={styles.titleRow}><div><span>مساراتي</span><h2>تقدّمك في كل مسار</h2></div><p>النجاح في المحطة وحده هو الذي يحسبها مكتملة. الإعادة لا تمحو إنجازك.</p></div>
-   <div className={styles.courses}>{data.courses.map(course=><article key={course.slug} className={styles.course}>
-    <div className={styles.courseTop}><span>{course.category}</span><span>{course.finished?'مكتمل':'قيد التعلّم'}</span></div>
-    <h3>{course.title}</h3><p>{course.description}</p><div className={styles.courseXp}><Zap size={16} aria-hidden="true"/><strong dir="ltr">{course.xp} XP</strong><span>من المحطات المتقنة</span></div>
-    <div className={styles.progressLabel}><strong>{course.completed} من {course.total} محطة</strong><span dir="ltr">{course.percent}%</span></div>
-    <div className={styles.track} role="progressbar" aria-label={'تقدم '+course.title} aria-valuemin={0} aria-valuemax={course.total} aria-valuenow={course.completed}><span style={{width:course.percent+'%'}}/></div>
-    <div className={styles.courseFoot}><span>{course.attempts} محاولات مصححة</span>
-     <Link href={course.nextStage?.href||course.href}>{course.finished?'راجع المسار':'المحطة '+((course.nextStage?.index??0)+1)} <ArrowLeft size={17}/></Link></div>
-   </article>)}</div>
    <MobileFold title={'مراجعة الأخطاء ('+data.review.length+')'}>
    <section className={styles.reviewSection} aria-labelledby="review-title">
     <div className={styles.reviewHeading}><Brain size={23}/><div><h2 id="review-title">راجع ما أخطأت فيه</h2><p>أسئلة من محاولات مصححة فقط؛ تختفي من المراجعة إذا أجبت عنها إجابة صحيحة لاحقًا.</p></div></div>

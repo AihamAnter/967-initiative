@@ -1,11 +1,13 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,ChevronLeft,Delete,ExternalLink,LockKeyhole,RefreshCw,RotateCcw,Send,ShieldCheck,XCircle} from 'lucide-react';
+import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,ChevronLeft,Cloud,Delete,ExternalLink,Lightbulb,LockKeyhole,RefreshCw,Rocket,RotateCcw,Send,ShieldCheck,Sparkles,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useSchoolDraft from './useSchoolDraft';
 import {MUSNAD_SOURCE,MUSNAD_STAGES} from '@/lib/schoolMusnad';
 import styles from '@/app/school/school.module.css';
+import player from './LessonPlayer.module.css';
+import {LessonStepper,ScoreRing,StepSegments,usePlayerTop} from './LessonParts';
 
 async function requestSchool(payload){
  const db=browserDb();
@@ -30,6 +32,7 @@ export default function SchoolLesson({stage}){
  const [error,setError]=useState('');
  const [submitFailed,setSubmitFailed]=useState(false);
  const resultTitle=useRef(null);
+ const top=usePlayerTop(phase+':'+step);
  const draft=useSchoolDraft({attempt,active:phase==='play',answers:responses,selection:chosen,request:requestSchool});
  useEffect(()=>{if(phase==='done')resultTitle.current?.focus();},[phase]);
  async function start(){
@@ -64,23 +67,28 @@ export default function SchoolLesson({stage}){
  const task=phase==='play'?attempt?.questions?.[step]:null;
  const desired=task?.kind==='compose'?task.target.split(' ← ').length:task?.kind==='sentence'?80:0;
  const ready=task?.kind==='choice'?Number.isInteger(chosen):task?.kind==='sentence'?Boolean(chosen?.length):task?.kind==='compose'&&Array.isArray(chosen)&&chosen.length===desired;
- return <article className={styles.lessonShell}>
+ return <article ref={top} className={styles.lessonShell}>
   <div className={styles.lessonTop}><div><span className={styles.lessonEyebrow}>مدرسة 967 / المسند / المحطة {String(stage.index+1).padStart(2,'0')}</span><h1>{stage.title}</h1><p>{stage.subtitle}</p></div>
   <Link href="/school/writing/musnad" className={styles.backCourse}>خارطة الرحلة <ArrowRight size={17}/></Link></div>
-  {phase==='intro'&&<section className={styles.introLesson}>
-   <div className={styles.lessonIntroBanner}><span>مقدمة المحطة</span><h2>{stage.title}</h2><p>{stage.intro}</p></div>
-   <div className={styles.lessonLearning}><div><h3><BookOpen size={19}/> قبل أن تبدأ</h3><ul>{stage.tips.map(t=><li key={t}>{t}</li>)}</ul></div>
-    {stage.letters.length>0&&<div><h3>حروف هذه المحطة</h3><div className={styles.letterTable}>{stage.letters.map(({glyph,name,latin})=><div key={glyph}><strong className={styles.glyph} lang="und">{glyph}</strong><span>{name}</span><small dir="ltr">{latin}</small></div>)}</div></div>}
-    {stage.letters.length===0&&stage.index!==11&&<div className={styles.exampleSequence}><span>مثال على ترتيب الحروف</span><strong className={styles.glyph} dir="rtl">𐩣𐩡</strong><small>ميم ← لام</small></div>}
-   </div>
-   <div className={styles.lessonLaunch}><div><strong>اختبار الإتقان</strong><p>6 تمارين؛ 5 إجابات صحيحة للنجاح. إن لم تنجح، يمكنك المحاولة بمجموعة أخرى من الأسئلة.</p></div><button type="button" onClick={start} disabled={busy}>{busy?'جارٍ تجهيز المحطة…':'ابدأ المحطة'} <ArrowLeft size={18}/></button></div>
-   <div className={styles.studyTools}><Link href="/school/writing/musnad/alphabet">دليل الحروف الـ29 <ArrowLeft size={16}/></Link><Link href="/school/writing/musnad/practice">تدرّب على الكتابة <ArrowLeft size={16}/></Link></div>
-   <a href={MUSNAD_SOURCE} target="_blank" rel="noopener noreferrer" className={styles.lessonSource}>المرجع العلمي للخط <ExternalLink size={15}/></a>
-  </section>}
+  {phase==='intro'&&<LessonStepper headingId="musnad-step-title" steps={[
+   {key:'idea',icon:Lightbulb,kicker:'مقدمة المحطة',title:stage.title,nextLabel:stage.letters.length?'تعرّف على الحروف':'التالي',content:<>
+    <p>{stage.intro}</p>
+    <h3 className={player.tipsTitle}><BookOpen size={18}/> قبل أن تبدأ</h3>
+    <ol className={player.checklist}>{stage.tips.map(t=><li key={t}>{t}</li>)}</ol>
+   </>},
+   stage.letters.length>0&&{key:'letters',icon:Sparkles,tone:'gold',kicker:'حروف هذه المحطة',title:'تعرّف على الحروف',content:
+    <div className={styles.letterTable}>{stage.letters.map(({glyph,name,latin})=><div key={glyph}><strong className={styles.glyph} lang="und">{glyph}</strong><span>{name}</span><small dir="ltr">{latin}</small></div>)}</div>},
+   stage.letters.length===0&&stage.index!==11&&{key:'example',icon:Sparkles,tone:'gold',kicker:'مثال',title:'مثال على ترتيب الحروف',content:
+    <div className={styles.exampleSequence}><span>مثال على ترتيب الحروف</span><strong className={styles.glyph} dir="rtl">𐩣𐩡</strong><small>ميم ← لام</small></div>},
+   {key:'ready',icon:Rocket,kicker:'اختبار الإتقان',title:'جاهز للتحدي؟',content:<>
+    <div className={player.ready}><span className={player.readyIcon}><Rocket size={24} aria-hidden="true"/></span><div><strong>اختبار الإتقان</strong><p>6 تمارين؛ 5 إجابات صحيحة للنجاح. إن لم تنجح، يمكنك المحاولة بمجموعة أخرى من الأسئلة.</p></div></div>
+    <div className={styles.studyTools}><Link href="/school/writing/musnad/alphabet">دليل الحروف الـ29 <ArrowLeft size={16}/></Link><Link href="/school/writing/musnad/practice">تدرّب على الكتابة <ArrowLeft size={16}/></Link></div>
+    <a href={MUSNAD_SOURCE} target="_blank" rel="noopener noreferrer" className={styles.lessonSource}>المرجع العلمي للخط <ExternalLink size={15}/></a>
+   </>},
+  ]} finish={<button type="button" onClick={start} disabled={busy}>{busy?'جارٍ تجهيز المحطة…':'ابدأ المحطة'} <ArrowLeft size={18}/></button>}/>}
   {phase==='play'&&attempt&&<>
-   <div className={styles.quizMeta}><span>السؤال {step+1} من {attempt.questions.length}</span><span>محاولة {attempt.attemptNo}</span></div>
-   <div className={styles.quizProgress} role="progressbar" aria-label="تقدم أسئلة المحطة" aria-valuemin={0} aria-valuemax={attempt.questions.length} aria-valuenow={step}><span style={{width:(step/attempt.questions.length*100)+'%'}}/></div>
-   <p role="status" className={styles.draftStatus}>حفظ التقدم: {draft.status||'تلقائي عند الإجابة والمتابعة'}</p>
+   <div className={player.quizTop}><span className={player.count}>السؤال {step+1} من {attempt.questions.length} · محاولة {attempt.attemptNo}</span><span role="status" className={player.save}><Cloud size={14} aria-hidden="true"/> حفظ التقدم: {draft.status||'تلقائي'}</span></div>
+   <div className={player.progressRow}><StepSegments total={attempt.questions.length} current={step} valueNow={step} label="تقدم أسئلة المحطة"/></div>
    <section className={styles.quizCard} aria-labelledby="school-question">
     <span className={styles.questionType}>{task.kind==='compose'?'تمرين تركيب الحروف':'تعرّف على الحرف'}</span>
     <h2 id="school-question">{task.prompt}</h2>
@@ -96,10 +104,9 @@ export default function SchoolLesson({stage}){
   </>}
   {phase==='done'&&result&&<section className={styles.lessonResult} aria-live="polite">
    <div className={result.passed?styles.resultSuccess:styles.resultRetry}>
-    {result.passed?<CheckCircle2 size={38}/>:<RotateCcw size={38}/>}
     <span>نتيجتك في المحطة {stage.index+1}</span>
     <h2 ref={resultTitle} tabIndex={-1}>{result.passed?'أحسنت! أتقنت هذه المحطة.':'قريب جدًا! لنتمرّن مرة أخرى.'}</h2>
-    <strong>{result.score} / {result.total}</strong>
+    <ScoreRing score={result.score} total={result.total} passed={result.passed}/>
     <p>{result.passed?'تم حفظ نجاحك وفتح المحطة التالية، إن وُجدت.':'تحتاج إلى 5 إجابات صحيحة على الأقل. راجع الملاحظات ثم ابدأ محاولة بأسئلة مختلفة.'}</p>
    </div>
    <h3>مراجعة إجاباتك</h3><div className={styles.resultList}>{result.review.map((item,i)=><div key={item.id} className={item.correct?styles.reviewCorrect:styles.reviewWrong}><span>{item.correct?<CheckCircle2 size={19}/>:<XCircle size={19}/>} سؤال {i+1}: {item.correct?'صحيح':'يحتاج مراجعة'}</span><p>{item.explanation}</p></div>)}</div>
