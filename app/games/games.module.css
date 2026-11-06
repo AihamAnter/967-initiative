@@ -322,3 +322,45 @@
 .heroInner{min-height:0;padding:28px 0 36px}
 .heroTitle{letter-spacing:0!important}
 @media(max-width:760px){.hero{min-height:0}.heroInner{padding:18px 0 24px}.arcadeArtwork{display:none}}
+
+/* ---------- Redesign v2 — batch D ---------- */
+/* Slim hub header; today's challenge right after it; a 3×3 icon grid on phones. */
+.heroSlim{min-height:0 !important}
+.heroSlim .heroInner{padding-block:clamp(14px,3vw,36px) clamp(16px,3vw,36px) !important;grid-template-columns:minmax(0,1fr) !important}
+.heroSlim .heroTitle{font-size:var(--t-size-hero,28px) !important;margin:6px 0 !important}
+.heroSlim .heroDescription{margin:0 !important;font-size:14px !important}
+.heroSlim .heroActions{margin-top:12px !important;gap:8px !important}
+.dailyFirst{padding-top:clamp(12px,2vw,24px)}
+.gameSection{padding-top:clamp(18px,3vw,40px) !important}
+.sectionHeading{margin-bottom:10px !important}
+.sectionHeading h2{font-size:var(--t-size-h2,18px) !important;margin:2px 0 !important}
+.sectionHeading p{font-size:13px !important;margin:0 !important}
+@media(max-width:760px){
+ .heroSlim .crumbs{display:none !important}
+ .heroSlim .heroDescription{display:-webkit-box !important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .heroSlim .heroActions{display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important}
+ .heroSlim .heroActions>a{min-height:44px !important;padding:0 10px !important;font-size:14px !important;justify-content:center}
+ .heroSlim .heroActions>a:first-child{grid-column:1/-1}
+ .sectionEyebrow,.sectionHeading p,.arcadeGuide{display:none !important}
+ .selectGrid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:8px !important}
+ .selectTile{display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;gap:6px !important;min-height:0 !important;padding:12px 6px 10px !important;border-radius:16px !important;text-align:center}
+ .tileTop,.tileFooter,.tileContent>p,.tileXP,.tileOrbitOuter,.tileOrbitInner,.tileArtDot{display:none !important}
+ .tileArt{grid-column:auto !important;grid-row:auto !important;width:58px;height:58px;min-height:0 !important;margin:0 !important;border-radius:16px !important}
+ .tileIconFrame{width:auto !important;height:auto !important;border:0 !important;background:none !important;box-shadow:none !important}
+ .tileIconFrame svg{width:30px !important;height:30px !important}
+ .tileContent{display:grid;gap:2px;justify-items:center}
+ .tileMeta{justify-content:center !important;margin:0 !important}
+ .tileCategory{font-size:10px !important;padding:1px 6px !important}
+ .tileContent h3{font-size:13px !important;line-height:1.45 !important;margin:0 !important}
+}
+/* Game pages: a short header so the setup card and the arena come first. */
+.heroCompact{min-height:0 !important}
+.heroCompact .heroInner{padding-block:clamp(12px,2.5vw,32px) clamp(14px,2.5vw,32px) !important}
+.heroCompact .heroTitle{font-size:var(--t-size-h1,24px) !important;margin:4px 0 !important}
+.heroCompact .heroDescription{font-size:13px !important;margin:0 !important}
+.heroCompact .heroActions{margin-top:10px !important;gap:6px !important}
+.heroCompact .heroActions>*{min-height:38px !important;padding:0 12px !important;font-size:13px !important}
+@media(max-width:760px){
+ .heroCompact .crumbs,.heroCompact .overline,.heroCompact .heroTitle em,.heroCompact .arcadeArtwork{display:none !important}
+ .heroCompact .heroDescription{display:-webkit-box !important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+}

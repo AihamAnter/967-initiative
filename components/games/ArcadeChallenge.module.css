@@ -71,3 +71,20 @@
 @keyframes stageIntro{from{opacity:.3;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}@keyframes float{50%{transform:translateY(-6px)}}
 
 .syncError{display:flex;align-items:center;gap:13px;flex-wrap:wrap;color:#ffceca;background:#49242a;border:1px solid #cd8c9d;border-radius:10px;padding:12px 15px;font-size:13px}.syncError button{color:#142c28;background:#b5ffdd;border-radius:8px;padding:8px 11px;font-weight:800}
+
+/* Redesign v2 — batch D: a compact setup card so the start button is near the top. */
+.setup{gap:12px !important}
+.setup h2{font-size:var(--t-size-h2,18px) !important;margin:6px 0 4px !important;letter-spacing:0 !important}
+.setup p{font-size:13px !important;line-height:1.75 !important}
+.modes{margin:12px 0 !important;gap:8px !important}
+.modes button{min-height:46px !important}
+.privacy{font-size:11px !important;line-height:1.7 !important}
+@media(max-width:760px){
+ .setup{grid-template-columns:minmax(0,1fr) !important}
+ .filters{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px !important}
+ .filters select{min-height:44px !important}
+}
+.arena{scroll-margin-top:calc(var(--header-h,54px) + 8px)}
+/* Photos never push the answers and the timer off a phone screen. */
+.placePhoto img{max-height:min(40vh,340px) !important;width:100%;object-fit:contain}
+.arena{overflow:clip !important}

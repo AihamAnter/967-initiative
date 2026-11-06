@@ -41,7 +41,8 @@ test('all nine games share one consistently styled selection grid, with no separ
  assert.ok(!hub.includes('styles.featuredCard'));
  assert.ok(hub.includes('<GamesHomeStatus initialDate={date}/>'));
  assert.ok(hub.includes('href={todayGame}'));
- assert.ok(hub.indexOf('className={styles.selectGrid}')<hub.indexOf('<GamesHomeStatus initialDate={date}/>'));
+ // Redesign v2: today's challenge and the player summary lead the hub, before the grid.
+ assert.ok(hub.indexOf('<GamesHomeStatus initialDate={date}/>')<hub.indexOf('className={styles.selectGrid}'));
  assert.ok(hub.includes('className={styles.secondarySection}'));
  assert.ok(!hub.includes('className={styles.dailyStrip}'));
  assert.ok(hub.includes('href="/games/leaderboard"'));

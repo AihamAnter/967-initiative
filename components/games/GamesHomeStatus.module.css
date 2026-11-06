@@ -26,3 +26,26 @@
 @media(prefers-reduced-motion:reduce){.headLink{transition:none}}
 
 .headActions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+
+/* Redesign v2 — batch D: the player summary as one compact line of stats. */
+.player{padding:12px 14px !important;margin-top:10px !important}
+.heading h3{font-size:15px !important;margin:0 !important}
+.headingIcon{width:36px !important;height:36px !important}
+.stats{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:6px !important;margin-top:10px !important}
+.stat{padding:8px !important;gap:2px !important}
+.stat small{display:none !important}
+.statTitle{font-size:11px !important}
+.stat strong{font-size:18px !important}
+.foot{font-size:11px !important;margin-top:8px !important}
+.guest{padding:10px 0 0 !important;gap:8px !important}
+.guest p{font-size:12px !important;margin:2px 0 0 !important}
+.login{min-height:40px !important}
+@media(max-width:520px){.stats{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}
+@media(max-width:760px){
+ .guest{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:10px !important}
+ .guest strong{font-size:14px !important}
+ .guest p{display:none !important}
+ .guest .login{flex:none !important;width:auto !important}
+ .header{gap:8px !important}
+ .headLink{min-height:34px !important;font-size:12px !important;padding:0 10px !important}
+}

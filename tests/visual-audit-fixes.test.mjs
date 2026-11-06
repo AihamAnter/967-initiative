@@ -35,15 +35,16 @@ test('map game offers zoom and confirmation without revealing governorate names'
  assert.ok(board.includes('zoom>=3.5'));
 });
 
-test('game selection is presented before account, weekly, and achievement sections',()=>{
+test('today\'s challenge leads, then the game grid, weekly missions and achievements',()=>{
  const page=read('app/games/page.jsx');
  const css=read('app/games/games.module.css');
  const grid=page.indexOf('className={styles.selectGrid}');
  const player=page.indexOf('<GamesHomeStatus initialDate={date}/>');
  const weekly=page.indexOf('<WeeklyArcade/>');
  const achievements=page.indexOf('<GameAchievementGallery preview/>');
- assert.ok(grid>0&&grid<player&&player<weekly&&weekly<achievements);
- assert.equal((page.match(/className=\{styles\.secondarySection\}/g)||[]).length,3);
+ // Redesign v2: the daily challenge and player summary come first, out of the folds.
+ assert.ok(player>0&&player<grid&&grid<weekly&&weekly<achievements);
+ assert.equal((page.match(/className=\{styles\.secondarySection\}/g)||[]).length,2);
  assert.ok(page.includes('href={todayGame}'));
  assert.ok(css.includes('.secondarySection>summary'));
  assert.ok(css.includes('.selectTile{display:grid;grid-template-columns:68px'));
