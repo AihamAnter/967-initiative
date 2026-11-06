@@ -134,3 +134,8 @@
  .noticeTop strong{font-size:13px}
  .noticeDescription{font-size:12px;line-height:1.55}
 }
+
+/* Phones: the bell sits near the screen edge, so pin the panel to the viewport instead of the button. */
+@media(max-width:680px){
+ .popover{position:fixed;inset-inline:9px;inset-block-start:calc(var(--header-h, 56px) + 6px);width:auto;max-width:none}
+}

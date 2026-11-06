@@ -269,3 +269,18 @@
 @keyframes ed-loading-sweep{to{transform:translateX(-140%)}}
 @keyframes ed-loading-flow{0%,100%{background-position:0 0;opacity:.6}50%{background-position:100% 0;opacity:1}}
 @media(max-width:520px){.ed-loading-state{grid-template-columns:58px minmax(0,1fr);gap:15px;padding:19px;border-radius:var(--r-3)}.ed-loading-mark{width:58px;height:58px;border-radius:18px}.ed-loading-copy strong{font-size:18px}.ed-loading-copy>span{font-size:12px}}
+
+/* Compact menu sheet on phones: all sections and shortcuts fit without scrolling. */
+@media (max-width: 1179px) {
+  .ed-nav { padding-top: var(--s-3); }
+  .ed-nav-search { margin-bottom: 10px; }
+  .ed-nav-search input { min-height: 42px; font-size: .9rem; }
+  .ed-nav-search button { min-height: 34px; padding: 0 14px; font-size: .85rem; }
+  .ed-nav-list { gap: 6px; }
+  .ed-nav-item { border-radius: 12px; }
+  .ed-nav-group > summary { min-height: 44px; padding: 0 14px; font: 700 1rem/1.2 var(--t-display); }
+  .ed-nav-panel { padding: 0 8px 8px; }
+  .ed-nav-panel a { min-height: 40px; font-size: .9rem; }
+  .ed-nav-utility { gap: 6px; padding-top: 10px; }
+  .ed-nav-utility a { min-height: 38px; padding: 0 14px; font-size: .85rem; }
+}
