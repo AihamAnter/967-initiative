@@ -1,3 +1,6 @@
+-- SUPERSEDED: applied to production on 2026-11-06 by
+-- supabase/migrations/20261106002706_harden_editor_policies_grants_and_buckets.sql.
+-- Kept for history only. Do not run.
 -- Run once in Supabase SQL Editor if yemeni-products.sql was already installed.
 -- Separates anonymous published reads from authenticated editor draft reads.
 

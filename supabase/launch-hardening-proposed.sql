@@ -1,3 +1,6 @@
+-- SUPERSEDED: applied to production on 2026-11-06 by
+-- supabase/migrations/20261106002706_harden_editor_policies_grants_and_buckets.sql.
+-- Kept for history only. Do not run.
 -- PROPOSAL ONLY. This audit did NOT apply this SQL to production.
 -- Review in a disposable/staging Supabase project after schema + admin-roles.sql.
 -- No records are changed; policies / a concurrency guard are updated atomically.
