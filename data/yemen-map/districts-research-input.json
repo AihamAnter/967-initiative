@@ -1,0 +1,5697 @@
+[
+ {
+  "id": "YE1704",
+  "name_ar": "عبس",
+  "name_en": "Abs",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 1443,
+  "population_2025": 235556,
+  "neighbours": [
+   "حيران",
+   "ميدي",
+   "اللحيه (الحديده)",
+   "الزهره (الحديده)",
+   "كعيدنه",
+   "اسلم",
+   "مستباء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3006",
+  "name_ar": "الضالع",
+  "name_en": "Ad Dali'",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 338,
+  "population_2025": 155257,
+  "neighbours": [
+   "الحصين",
+   "قعطبه",
+   "الازارق",
+   "جحاف",
+   "ردفان (لحج)",
+   "حالمين (لحج)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1914",
+  "name_ar": "الديس",
+  "name_en": "Ad Dis",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 1690,
+  "population_2025": 41572,
+  "neighbours": [
+   "الريدة وقصيعر",
+   "السوم",
+   "غيل بن يمين",
+   "الشحر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1809",
+  "name_ar": "الضحى",
+  "name_en": "Ad Dohi",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 259,
+  "population_2025": 99551,
+  "neighbours": [
+   "المغلاف",
+   "الزيديه",
+   "باجل",
+   "ملحان (المحويت)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1922",
+  "name_ar": "الضليعه",
+  "name_en": "Ad Dulay'ah",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2514,
+  "population_2025": 32322,
+  "neighbours": [
+   "عمد",
+   "رخيه",
+   "الطلح (شبوه)",
+   "يبعث",
+   "حجر",
+   "دوعن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1814",
+  "name_ar": "الدريهمي",
+  "name_en": "Ad Durayhimi",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 699,
+  "population_2025": 100812,
+  "neighbours": [
+   "المراوعه",
+   "الحالي",
+   "الحوك",
+   "بيت الفقيه",
+   "السخنه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2207",
+  "name_ar": "الظاهر",
+  "name_en": "Adh Dhahir",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 208,
+  "population_2025": 42617,
+  "neighbours": [
+   "رازح",
+   "شداء",
+   "بكيل المير (حجه)",
+   "حيدان",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1119",
+  "name_ar": "الظهار",
+  "name_en": "Adh Dhihar",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 38,
+  "population_2025": 238600,
+  "neighbours": [
+   "اب",
+   "جبله",
+   "المشنه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1714",
+  "name_ar": "افلح اليمن",
+  "name_en": "Aflah Al Yaman",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 45,
+  "population_2025": 66930,
+  "neighbours": [
+   "افلح الشام",
+   "قفل شمر",
+   "المحابشه",
+   "كحلان الشرف"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1710",
+  "name_ar": "افلح الشام",
+  "name_en": "Aflah Ash Sham",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 40,
+  "population_2025": 91804,
+  "neighbours": [
+   "افلح اليمن",
+   "كشر",
+   "خيران المحرق"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1209",
+  "name_ar": "احور",
+  "name_en": "Ahwar",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 4283,
+  "population_2025": 37494,
+  "neighbours": [
+   "رضوم (شبوه)",
+   "المحفد",
+   "الوضيع",
+   "خنفر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2611",
+  "name_ar": "العبديه",
+  "name_en": "Al Abdiyah",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 592,
+  "population_2025": 21192,
+  "neighbours": [
+   "حريب",
+   "ماهليه",
+   "ردمان (البيضاء)",
+   "السواديه (البيضاء)",
+   "نعمان (البيضاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1906",
+  "name_ar": "العبر",
+  "name_en": "Al Abr",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 7840,
+  "population_2025": 5712,
+  "neighbours": [
+   "جردان (شبوه)",
+   "عرماء (شبوه)",
+   "دهر (شبوه)",
+   "القطن",
+   "حجر الصيعر",
+   "زمخ ومنوخ"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1416",
+  "name_ar": "العرش",
+  "name_en": "Al Arsh",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 226,
+  "population_2025": 69049,
+  "neighbours": [
+   "ميفعة عنس (ذمار)",
+   "ولدربيع",
+   "صباح",
+   "الرياشيه",
+   "رداع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2903",
+  "name_ar": "العشه",
+  "name_en": "Al Ashah",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 624,
+  "population_2025": 56025,
+  "neighbours": [
+   "حرف سفيان",
+   "قفلة عذر",
+   "ظليمة حبور",
+   "بني صريم",
+   "حوث"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3008",
+  "name_ar": "الازارق",
+  "name_en": "Al Azariq",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 365,
+  "population_2025": 72950,
+  "neighbours": [
+   "الضالع",
+   "جحاف",
+   "الحشاء",
+   "المسيمير (لحج)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1410",
+  "name_ar": "البيضاء",
+  "name_en": "Al Bayda",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 478,
+  "population_2025": 60947,
+  "neighbours": [
+   "الطفه",
+   "مسوره",
+   "ذي ناعم",
+   "الزاهر",
+   "لودر (ابين)",
+   "سباح (ابين)",
+   "مكيراس",
+   "الصومعه",
+   "مدينة البيضاء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1409",
+  "name_ar": "مدينة البيضاء",
+  "name_en": "Al Bayda City",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 8,
+  "population_2025": 45216,
+  "neighbours": [
+   "البيضاء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2404",
+  "name_ar": "البريقه",
+  "name_en": "Al Burayqah",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 560,
+  "population_2025": 131289,
+  "neighbours": [
+   "المنصوره",
+   "دار سعد",
+   "تبن (لحج)",
+   "طور الباحه (لحج)",
+   "المضاربة و العاره (لحج)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2804",
+  "name_ar": "الغيظه",
+  "name_en": "Al Ghaydhah",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 7157,
+  "population_2025": 60411,
+  "neighbours": [
+   "منعر",
+   "حصوين",
+   "قشن",
+   "حوف",
+   "شحن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1608",
+  "name_ar": "الغيل",
+  "name_en": "Al Ghayl",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 153,
+  "population_2025": 15397,
+  "neighbours": [
+   "الحزم",
+   "الخلق",
+   "مجزر (مارب)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2501",
+  "name_ar": "الحد",
+  "name_en": "Al Had",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 309,
+  "population_2025": 83007,
+  "neighbours": [
+   "الزاهر (البيضاء)",
+   "الطفه (البيضاء)",
+   "جبن (الضالع)",
+   "يافع",
+   "سباح (ابين)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2001",
+  "name_ar": "الحداء",
+  "name_en": "Al Hada",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 1609,
+  "population_2025": 250544,
+  "neighbours": [
+   "الحصن (صنعاء)",
+   "بلاد الروس (صنعاء)",
+   "جهران",
+   "مدينة ذمار",
+   "ميفعة عنس",
+   "ولدربيع (البيضاء)",
+   "بني ضبيان (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1823",
+  "name_ar": "الحالي",
+  "name_en": "Al Hali",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 73,
+  "population_2025": 304490,
+  "neighbours": [
+   "الدريهمي",
+   "المراوعه",
+   "باجل",
+   "الميناء",
+   "الحوك"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3005",
+  "name_ar": "الحصين",
+  "name_en": "Al Hasayn",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 187,
+  "population_2025": 71943,
+  "neighbours": [
+   "الضالع",
+   "الشعيب",
+   "قعطبه",
+   "حالمين (لحج)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2213",
+  "name_ar": "الحشوه",
+  "name_en": "Al Hashwah",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 404,
+  "population_2025": 28291,
+  "neighbours": [
+   "برط العنان (الجوف)",
+   "كتاف والبقع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1821",
+  "name_ar": "الحوك",
+  "name_en": "Al Hawak",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 32,
+  "population_2025": 275976,
+  "neighbours": [
+   "الدريهمي",
+   "الحالي",
+   "الميناء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2514",
+  "name_ar": "الحوطه",
+  "name_en": "Al Hawtah",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 8,
+  "population_2025": 43036,
+  "neighbours": [
+   "تبن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2308",
+  "name_ar": "الحيمة الداخليه",
+  "name_en": "Al Haymah Ad Dakhiliyah",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 469,
+  "population_2025": 115022,
+  "neighbours": [
+   "الطويله (المحويت)",
+   "الرجم (المحويت)",
+   "مناخه",
+   "الحيمة الخارجيه",
+   "بني مطر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2309",
+  "name_ar": "الحيمة الخارجيه",
+  "name_en": "Al Haymah Al Kharijiyah",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 683,
+  "population_2025": 80897,
+  "neighbours": [
+   "الحيمة الداخليه",
+   "بني مطر",
+   "مناخه",
+   "بلاد الطعام (ريمه)",
+   "السلفيه (ريمه)",
+   "ضوران انس (ذمار)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1605",
+  "name_ar": "الحزم",
+  "name_en": "Al Hazm",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 2072,
+  "population_2025": 45883,
+  "neighbours": [
+   "الغيل",
+   "الخلق",
+   "خب و الشعف",
+   "المتون",
+   "المصلوب",
+   "مارب (مارب)",
+   "رغوان (مارب)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2315",
+  "name_ar": "الحصن",
+  "name_en": "Al Hissn",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 366,
+  "population_2025": 41535,
+  "neighbours": [
+   "الحداء (ذمار)",
+   "جحانه",
+   "بلاد الروس",
+   "سنحان وبني بهلول",
+   "بني ضبيان",
+   "الطيال"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1811",
+  "name_ar": "الحجيله",
+  "name_en": "Al Hujjaylah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 103,
+  "population_2025": 17781,
+  "neighbours": [
+   "باجل",
+   "بني سعد (المحويت)",
+   "برع",
+   "بلاد الطعام (ريمه)",
+   "مناخه (صنعاء)",
+   "صعفان (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1602",
+  "name_ar": "الحميدات",
+  "name_en": "Al Humaydat",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 537,
+  "population_2025": 29828,
+  "neighbours": [
+   "خراب المراشى",
+   "المطمه",
+   "الزاهر",
+   "المتون",
+   "خب و الشعف",
+   "رجوزه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3009",
+  "name_ar": "الحشاء",
+  "name_en": "Al Husha",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 468,
+  "population_2025": 116452,
+  "neighbours": [
+   "الازارق",
+   "السبره (اب)",
+   "ماويه (تعز)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3106",
+  "name_ar": "الجعفريه",
+  "name_en": "Al Ja'fariyyah",
+  "governorate_ar": "ريمه",
+  "governorate_en": "Raymah",
+  "area_km2": 285,
+  "population_2025": 112137,
+  "neighbours": [
+   "الجبين",
+   "بيت الفقيه (الحديده)",
+   "وصاب السافل (ذمار)",
+   "وصاب العالي (ذمار)",
+   "كسمه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3103",
+  "name_ar": "الجبين",
+  "name_en": "Al Jabin",
+  "governorate_ar": "ريمه",
+  "governorate_en": "Raymah",
+  "area_km2": 337,
+  "population_2025": 142796,
+  "neighbours": [
+   "الجعفريه",
+   "بلاد الطعام",
+   "السخنه (الحديده)",
+   "بيت الفقيه (الحديده)",
+   "مزهر",
+   "السلفيه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1708",
+  "name_ar": "الجميمه",
+  "name_en": "Al Jamimah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 152,
+  "population_2025": 71271,
+  "neighbours": [
+   "كشر",
+   "كحلان الشرف",
+   "المفتاح",
+   "صوير (عمران)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1825",
+  "name_ar": "الجراحي",
+  "name_en": "Al Jarrahi",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 628,
+  "population_2025": 162738,
+  "neighbours": [
+   "وصاب السافل (ذمار)",
+   "زبيد",
+   "التحيتا",
+   "الخوخه",
+   "حيس",
+   "جبل راس"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2607",
+  "name_ar": "الجوبه",
+  "name_en": "Al Jubah",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 1179,
+  "population_2025": 34139,
+  "neighbours": [
+   "مارب",
+   "مدينة مارب",
+   "صرواح",
+   "بني ضبيان (صنعاء)",
+   "رحبه",
+   "جبل مراد",
+   "حريب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2704",
+  "name_ar": "الخبت",
+  "name_en": "Al Khabt",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 260,
+  "population_2025": 107888,
+  "neighbours": [
+   "الشغادره (حجه)",
+   "بني قيس الطور (حجه)",
+   "القناوص (الحديده)",
+   "الزيديه (الحديده)",
+   "ملحان",
+   "حفاش",
+   "المحويت"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1609",
+  "name_ar": "الخلق",
+  "name_en": "Al Khalaq",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 99,
+  "population_2025": 19815,
+  "neighbours": [
+   "الغيل",
+   "الحزم",
+   "مجزر (مارب)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1820",
+  "name_ar": "الخوخه",
+  "name_en": "Al Khukhah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 686,
+  "population_2025": 61702,
+  "neighbours": [
+   "الجراحي",
+   "حيس",
+   "المخاء (تعز)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1521",
+  "name_ar": "المعافر",
+  "name_en": "Al Ma'afer",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 349,
+  "population_2025": 167909,
+  "neighbours": [
+   "المسراخ",
+   "جبل حبشي",
+   "مقبنه",
+   "الوازعيه",
+   "الشمايتين",
+   "المواسط",
+   "سامع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2906",
+  "name_ar": "المدان",
+  "name_en": "Al Madan",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 101,
+  "population_2025": 34518,
+  "neighbours": [
+   "قفلة عذر",
+   "صوير",
+   "شهاره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2513",
+  "name_ar": "المضاربة و العاره",
+  "name_en": "Al Madaribah Wa Al Aarah",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 3466,
+  "population_2025": 72746,
+  "neighbours": [
+   "البريقه (عدن)",
+   "الوازعيه (تعز)",
+   "باب المندب (تعز)",
+   "طور الباحه",
+   "المقاطره",
+   "الشمايتين (تعز)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2503",
+  "name_ar": "المفلحي",
+  "name_en": "Al Maflahi",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 112,
+  "population_2025": 60333,
+  "neighbours": [
+   "يافع",
+   "يهر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1717",
+  "name_ar": "المغربه",
+  "name_en": "Al Maghrabah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 302,
+  "population_2025": 108915,
+  "neighbours": [
+   "صوير (عمران)",
+   "المفتاح",
+   "المحابشه",
+   "الشاهل",
+   "كعيدنه",
+   "مبين",
+   "كحلان عفار",
+   "السوده (عمران)",
+   "ظليمة حبور (عمران)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1715",
+  "name_ar": "المحابشه",
+  "name_en": "Al Mahabishah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 91,
+  "population_2025": 88560,
+  "neighbours": [
+   "افلح اليمن",
+   "كحلان الشرف",
+   "المغربه",
+   "الشاهل",
+   "المفتاح",
+   "قفل شمر",
+   "خيران المحرق"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1201",
+  "name_ar": "المحفد",
+  "name_en": "Al Mahfad",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 2153,
+  "population_2025": 39406,
+  "neighbours": [
+   "احور",
+   "الصعيد (شبوه)",
+   "حطيب (شبوه)",
+   "موديه",
+   "رضوم (شبوه)",
+   "حبان (شبوه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2709",
+  "name_ar": "المحويت",
+  "name_en": "Al Mahwit",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 296,
+  "population_2025": 84226,
+  "neighbours": [
+   "الخبت",
+   "حفاش",
+   "بني سعد",
+   "مناخه (صنعاء)",
+   "الرجم",
+   "مدينة المحويت"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2708",
+  "name_ar": "مدينة المحويت",
+  "name_en": "Al Mahwit City",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 15,
+  "population_2025": 33784,
+  "neighbours": [
+   "المحويت"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1505",
+  "name_ar": "المخاء",
+  "name_en": "Al Makha",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 1588,
+  "population_2025": 97303,
+  "neighbours": [
+   "الخوخه (الحديده)",
+   "باب المندب",
+   "موزع",
+   "مقبنه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1107",
+  "name_ar": "المخادر",
+  "name_en": "Al Makhadir",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 211,
+  "population_2025": 173511,
+  "neighbours": [
+   "القفر",
+   "بعدان",
+   "السده",
+   "الشعر",
+   "يريم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2508",
+  "name_ar": "الملاح",
+  "name_en": "Al Malah",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 1026,
+  "population_2025": 44433,
+  "neighbours": [
+   "ردفان",
+   "المسيمير",
+   "تبن",
+   "خنفر (ابين)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1420",
+  "name_ar": "الملاجم",
+  "name_en": "Al Malajim",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 370,
+  "population_2025": 43957,
+  "neighbours": [
+   "ناطع",
+   "السواديه",
+   "ردمان",
+   "الطفه",
+   "مسوره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2012",
+  "name_ar": "المنار",
+  "name_en": "Al Manar",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 365,
+  "population_2025": 86350,
+  "neighbours": [
+   "ضوران انس",
+   "جبل الشرق",
+   "عتمه",
+   "مغرب عنس",
+   "عنس",
+   "جهران"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2403",
+  "name_ar": "المنصوره",
+  "name_en": "Al Mansurah",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 36,
+  "population_2025": 210952,
+  "neighbours": [
+   "البريقه",
+   "الشيخ عثمان",
+   "دار سعد",
+   "خور مكسر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1816",
+  "name_ar": "المنصوريه",
+  "name_en": "Al Mansuriyah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 198,
+  "population_2025": 81679,
+  "neighbours": [
+   "السخنه",
+   "بيت الفقيه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2512",
+  "name_ar": "المقاطره",
+  "name_en": "Al Maqatirah",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 414,
+  "population_2025": 84720,
+  "neighbours": [
+   "المضاربة و العاره",
+   "المواسط (تعز)",
+   "الشمايتين (تعز)",
+   "طور الباحه",
+   "حيفان (تعز)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1813",
+  "name_ar": "المراوعه",
+  "name_en": "Al Marawi'ah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 789,
+  "population_2025": 237137,
+  "neighbours": [
+   "الدريهمي",
+   "السخنه",
+   "الحالي",
+   "باجل",
+   "برع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1118",
+  "name_ar": "المشنه",
+  "name_en": "Al Mashannah",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 24,
+  "population_2025": 157203,
+  "neighbours": [
+   "الظهار",
+   "جبله",
+   "اب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2806",
+  "name_ar": "المسيله",
+  "name_en": "Al Masilah",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 6599,
+  "population_2025": 23818,
+  "neighbours": [
+   "منعر",
+   "السوم (حضرموت)",
+   "الريدة وقصيعر (حضرموت)",
+   "سيحوت"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1607",
+  "name_ar": "المصلوب",
+  "name_en": "Al Maslub",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 360,
+  "population_2025": 15526,
+  "neighbours": [
+   "الحزم",
+   "المطمه",
+   "مجزر (مارب)",
+   "نهم (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1603",
+  "name_ar": "المطمه",
+  "name_en": "Al Matammah",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 733,
+  "population_2025": 44262,
+  "neighbours": [
+   "الحميدات",
+   "المصلوب",
+   "حرف سفيان (عمران)",
+   "ارحب (صنعاء)",
+   "نهم (صنعاء)",
+   "المتون",
+   "الزاهر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1522",
+  "name_ar": "المواسط",
+  "name_en": "Al Mawasit",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 216,
+  "population_2025": 176527,
+  "neighbours": [
+   "المعافر",
+   "سامع",
+   "المقاطره (لحج)",
+   "الشمايتين",
+   "حيفان",
+   "الصلو"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1716",
+  "name_ar": "المفتاح",
+  "name_en": "Al Miftah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 67,
+  "population_2025": 56471,
+  "neighbours": [
+   "الجميمه",
+   "المغربه",
+   "المحابشه",
+   "كحلان الشرف",
+   "صوير (عمران)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1808",
+  "name_ar": "المغلاف",
+  "name_en": "Al Mighlaf",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 172,
+  "population_2025": 72750,
+  "neighbours": [
+   "الضحى",
+   "الزيديه",
+   "ملحان (المحويت)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1822",
+  "name_ar": "الميناء",
+  "name_en": "Al Mina",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 26,
+  "population_2025": 161218,
+  "neighbours": [
+   "الحالي",
+   "الحوك"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1511",
+  "name_ar": "المسراخ",
+  "name_en": "Al Misrakh",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 96,
+  "population_2025": 153504,
+  "neighbours": [
+   "المعافر",
+   "صبر الموادم",
+   "خدير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2406",
+  "name_ar": "المعلا",
+  "name_en": "Al Mu'alla",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 4,
+  "population_2025": 100263,
+  "neighbours": [
+   "التواهي",
+   "صيره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1517",
+  "name_ar": "المظفر",
+  "name_en": "Al Mudhaffar",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 18,
+  "population_2025": 262078,
+  "neighbours": [
+   "التعزيه",
+   "صبر الموادم",
+   "القاهره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1926",
+  "name_ar": "المكلا",
+  "name_en": "Al Mukalla",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2062,
+  "population_2025": 29659,
+  "neighbours": [
+   "غيل باوزير",
+   "دوعن",
+   "بروم ميفع",
+   "مدينة المكلا"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1927",
+  "name_ar": "مدينة المكلا",
+  "name_en": "Al Mukalla City",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 290,
+  "population_2025": 322363,
+  "neighbours": [
+   "المكلا",
+   "غيل باوزير",
+   "بروم ميفع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1805",
+  "name_ar": "المنيره",
+  "name_en": "Al Munirah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 610,
+  "population_2025": 67814,
+  "neighbours": [
+   "القناوص",
+   "اللحيه",
+   "الصليف",
+   "باجل",
+   "الزيديه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2509",
+  "name_ar": "المسيمير",
+  "name_en": "Al Musaymir",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 559,
+  "population_2025": 42410,
+  "neighbours": [
+   "الازارق (الضالع)",
+   "الملاح",
+   "ماويه (تعز)",
+   "القبيطه",
+   "تبن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1606",
+  "name_ar": "المتون",
+  "name_en": "Al Mutun",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 341,
+  "population_2025": 41007,
+  "neighbours": [
+   "الحزم",
+   "الحميدات",
+   "خب و الشعف",
+   "رجوزه",
+   "المطمه",
+   "الزاهر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1111",
+  "name_ar": "العدين",
+  "name_en": "Al Odayn",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 359,
+  "population_2025": 219354,
+  "neighbours": [
+   "حزم العدين",
+   "فرع العدين",
+   "مذيخره",
+   "شرعب السلام (تعز)",
+   "جبله",
+   "اب",
+   "حبيش"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1903",
+  "name_ar": "القف",
+  "name_en": "Al Qaff",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 29950,
+  "population_2025": 3795,
+  "neighbours": [
+   "زمخ ومنوخ",
+   "حجر الصيعر",
+   "القطن",
+   "تريم",
+   "ثمود"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1101",
+  "name_ar": "القفر",
+  "name_en": "Al Qafr",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 662,
+  "population_2025": 159712,
+  "neighbours": [
+   "المخادر",
+   "عتمه (ذمار)",
+   "وصاب العالي (ذمار)",
+   "حزم العدين",
+   "حبيش",
+   "يريم",
+   "مغرب عنس (ذمار)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1518",
+  "name_ar": "القاهره",
+  "name_en": "Al Qahirah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 10,
+  "population_2025": 226509,
+  "neighbours": [
+   "المظفر",
+   "التعزيه",
+   "صاله"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1806",
+  "name_ar": "القناوص",
+  "name_en": "Al Qanawis",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 366,
+  "population_2025": 132457,
+  "neighbours": [
+   "الخبت (المحويت)",
+   "الزيديه",
+   "ملحان (المحويت)",
+   "المنيره",
+   "اللحيه",
+   "بني قيس الطور (حجه)",
+   "الزهره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1907",
+  "name_ar": "القطن",
+  "name_en": "Al Qatn",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2916,
+  "population_2025": 112710,
+  "neighbours": [
+   "العبر",
+   "القف",
+   "حجر الصيعر",
+   "وادي العين",
+   "شبام"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2510",
+  "name_ar": "القبيطه",
+  "name_en": "Al Qubaytah",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 1039,
+  "population_2025": 149876,
+  "neighbours": [
+   "المسيمير",
+   "ماويه (تعز)",
+   "خدير (تعز)",
+   "حيفان (تعز)",
+   "طور الباحه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1414",
+  "name_ar": "القريشيه",
+  "name_en": "Al Quraishyah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 774,
+  "population_2025": 44281,
+  "neighbours": [
+   "ولدربيع",
+   "بني ضبيان (صنعاء)",
+   "رحبه (مارب)",
+   "الشريه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1208",
+  "name_ar": "الوضيع",
+  "name_en": "Al Wadi'",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 957,
+  "population_2025": 34948,
+  "neighbours": [
+   "احور",
+   "لودر",
+   "خنفر",
+   "موديه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1515",
+  "name_ar": "الوازعيه",
+  "name_en": "Al Wazi'yah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 408,
+  "population_2025": 41337,
+  "neighbours": [
+   "المعافر",
+   "الشمايتين",
+   "المضاربة و العاره (لحج)",
+   "موزع",
+   "باب المندب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1306",
+  "name_ar": "الوحده",
+  "name_en": "Al Wehdah",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 8,
+  "population_2025": 243151,
+  "neighbours": [
+   "الصافيه",
+   "السبعين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1802",
+  "name_ar": "اللحيه",
+  "name_en": "Alluhayah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 1266,
+  "population_2025": 193025,
+  "neighbours": [
+   "عبس (حجه)",
+   "الزهره",
+   "المنيره",
+   "القناوص"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1921",
+  "name_ar": "عمد",
+  "name_en": "Amd",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 1084,
+  "population_2025": 34817,
+  "neighbours": [
+   "الضليعه",
+   "حريضه",
+   "رخيه",
+   "دوعن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2915",
+  "name_ar": "عمران",
+  "name_en": "Amran",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 127,
+  "population_2025": 122647,
+  "neighbours": [
+   "جبل عيال يزيد",
+   "عيال سريح",
+   "كحلان عفار (حجه)",
+   "مسور",
+   "ثلاء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1104",
+  "name_ar": "النادره",
+  "name_en": "An Nadirah",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 303,
+  "population_2025": 113809,
+  "neighbours": [
+   "السده",
+   "الشعر",
+   "بعدان",
+   "قعطبه (الضالع)",
+   "دمت (الضالع)",
+   "الرضمه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2010",
+  "name_ar": "عنس",
+  "name_en": "Ans",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 810,
+  "population_2025": 208391,
+  "neighbours": [
+   "المنار",
+   "جهران",
+   "مغرب عنس",
+   "يريم (اب)",
+   "الرضمه (اب)",
+   "صباح (البيضاء)",
+   "ميفعة عنس",
+   "مدينة ذمار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1103",
+  "name_ar": "الرضمه",
+  "name_en": "Ar Radmah",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 298,
+  "population_2025": 116999,
+  "neighbours": [
+   "النادره",
+   "عنس (ذمار)",
+   "صباح (البيضاء)",
+   "يريم",
+   "السده",
+   "دمت (الضالع)",
+   "الرياشيه (البيضاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2115",
+  "name_ar": "الروضه",
+  "name_en": "Ar Rawdah",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 2579,
+  "population_2025": 42944,
+  "neighbours": [
+   "الطلح",
+   "يبعث (حضرموت)",
+   "جردان",
+   "عتق",
+   "حبان",
+   "رضوم",
+   "ميفعه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1913",
+  "name_ar": "الريدة وقصيعر",
+  "name_en": "Ar Raydah wa Qussay'ar",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 3076,
+  "population_2025": 79158,
+  "neighbours": [
+   "الديس",
+   "السوم",
+   "المسيله (المهره)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2703",
+  "name_ar": "الرجم",
+  "name_en": "Ar Rujum",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 349,
+  "population_2025": 125922,
+  "neighbours": [
+   "الحيمة الداخليه (صنعاء)",
+   "المحويت",
+   "الطويله"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1418",
+  "name_ar": "الرياشيه",
+  "name_en": "Ar Ryashyyah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 181,
+  "population_2025": 34126,
+  "neighbours": [
+   "العرش",
+   "صباح",
+   "الرضمه (اب)",
+   "دمت (الضالع)",
+   "رداع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2302",
+  "name_ar": "ارحب",
+  "name_en": "Arhab",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 1249,
+  "population_2025": 123701,
+  "neighbours": [
+   "المطمه (الجوف)",
+   "نهم",
+   "ذيبين (عمران)",
+   "خارف (عمران)",
+   "ريده (عمران)",
+   "همدان",
+   "بني الحارث (امانة العاصمه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2104",
+  "name_ar": "عرماء",
+  "name_en": "Arma'a",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 4727,
+  "population_2025": 15876,
+  "neighbours": [
+   "العبر (حضرموت)",
+   "دهر",
+   "جردان",
+   "الطلح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2112",
+  "name_ar": "الصعيد",
+  "name_en": "As Sa'id",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 820,
+  "population_2025": 55023,
+  "neighbours": [
+   "المحفد (ابين)",
+   "عتق",
+   "حبان",
+   "حطيب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1305",
+  "name_ar": "السبعين",
+  "name_en": "As Sab'in",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 51,
+  "population_2025": 786385,
+  "neighbours": [
+   "الوحده",
+   "سنحان وبني بهلول (صنعاء)",
+   "الصافيه",
+   "بني مطر (صنعاء)",
+   "ضواحي الامانة سنحان وبني بهلول"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1114",
+  "name_ar": "السبره",
+  "name_en": "As Sabrah",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 322,
+  "population_2025": 107010,
+  "neighbours": [
+   "الحشاء (الضالع)",
+   "بعدان",
+   "اب",
+   "السياني",
+   "ماويه (تعز)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1106",
+  "name_ar": "السده",
+  "name_en": "As Saddah",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 258,
+  "population_2025": 125698,
+  "neighbours": [
+   "المخادر",
+   "الشعر",
+   "بعدان",
+   "النادره",
+   "الرضمه",
+   "يريم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1304",
+  "name_ar": "الصافيه",
+  "name_en": "As Safiyah",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 8,
+  "population_2025": 262865,
+  "neighbours": [
+   "الوحده",
+   "السبعين",
+   "ازال"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2212",
+  "name_ar": "الصفراء",
+  "name_en": "As Safra",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 1527,
+  "population_2025": 99322,
+  "neighbours": [
+   "باقم",
+   "مجز",
+   "سحار",
+   "صعده",
+   "حرف سفيان (عمران)",
+   "خراب المراشى (الجوف)",
+   "برط العنان (الجوف)",
+   "كتاف والبقع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1115",
+  "name_ar": "السياني",
+  "name_en": "As Saiyani",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 243,
+  "population_2025": 170371,
+  "neighbours": [
+   "السبره",
+   "ماويه (تعز)",
+   "جبله",
+   "ذي السفال",
+   "التعزيه (تعز)",
+   "اب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3102",
+  "name_ar": "السلفيه",
+  "name_en": "As Salafiyyah",
+  "governorate_ar": "ريمه",
+  "governorate_en": "Raymah",
+  "area_km2": 379,
+  "population_2025": 125567,
+  "neighbours": [
+   "الحيمة الخارجيه (صنعاء)",
+   "الجبين",
+   "بلاد الطعام",
+   "مزهر",
+   "جبل الشرق (ذمار)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1804",
+  "name_ar": "الصليف",
+  "name_en": "As Salif",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 135,
+  "population_2025": 11373,
+  "neighbours": [
+   "المنيره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1411",
+  "name_ar": "السواديه",
+  "name_en": "As Sawadiyah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 477,
+  "population_2025": 39896,
+  "neighbours": [
+   "العبديه (مارب)",
+   "ردمان",
+   "الملاجم",
+   "الطفه",
+   "نعمان",
+   "ماهليه (مارب)",
+   "الشريه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2914",
+  "name_ar": "السود",
+  "name_en": "As Sawd",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 168,
+  "population_2025": 33136,
+  "neighbours": [
+   "جبل عيال يزيد",
+   "السوده",
+   "كحلان عفار (حجه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1912",
+  "name_ar": "السوم",
+  "name_en": "As Sawm",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 12034,
+  "population_2025": 22074,
+  "neighbours": [
+   "الديس",
+   "الريدة وقصيعر",
+   "المسيله (المهره)",
+   "رماه",
+   "ثمود",
+   "تريم",
+   "غيل بن يمين",
+   "منعر (المهره)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1404",
+  "name_ar": "الصومعه",
+  "name_en": "As Sawma'ah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 942,
+  "population_2025": 68485,
+  "neighbours": [
+   "البيضاء",
+   "مسوره",
+   "مرخة العليا (شبوه)",
+   "مرخة السفلى (شبوه)",
+   "مكيراس"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1513",
+  "name_ar": "الصلو",
+  "name_en": "As Silw",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 83,
+  "population_2025": 75501,
+  "neighbours": [
+   "المواسط",
+   "سامع",
+   "حيفان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2913",
+  "name_ar": "السوده",
+  "name_en": "As Sudah",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 167,
+  "population_2025": 40977,
+  "neighbours": [
+   "المغربه (حجه)",
+   "ظليمة حبور",
+   "السود",
+   "عيال سريح",
+   "خمر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1815",
+  "name_ar": "السخنه",
+  "name_en": "As Sukhnah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 388,
+  "population_2025": 108716,
+  "neighbours": [
+   "الدريهمي",
+   "المراوعه",
+   "الجبين (ريمه)",
+   "المنصوريه",
+   "بيت الفقيه",
+   "برع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1105",
+  "name_ar": "الشعر",
+  "name_en": "Ash Sha'ir",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 133,
+  "population_2025": 61040,
+  "neighbours": [
+   "المخادر",
+   "السده",
+   "بعدان",
+   "النادره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1725",
+  "name_ar": "الشغادره",
+  "name_en": "Ash Shaghadirah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 139,
+  "population_2025": 85683,
+  "neighbours": [
+   "الخبت (المحويت)",
+   "حجه",
+   "بني قيس الطور",
+   "بني العوام",
+   "نجره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1721",
+  "name_ar": "الشاهل",
+  "name_en": "Ash Shahil",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 100,
+  "population_2025": 57792,
+  "neighbours": [
+   "المغربه",
+   "المحابشه",
+   "كعيدنه",
+   "مبين",
+   "قفل شمر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1514",
+  "name_ar": "الشمايتين",
+  "name_en": "Ash Shamayatayn",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 638,
+  "population_2025": 232709,
+  "neighbours": [
+   "المعافر",
+   "الوازعيه",
+   "المضاربة و العاره (لحج)",
+   "المقاطره (لحج)",
+   "المواسط"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1419",
+  "name_ar": "الشريه",
+  "name_en": "Ash Sharyah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 919,
+  "population_2025": 50721,
+  "neighbours": [
+   "القريشيه",
+   "السواديه",
+   "ردمان",
+   "ماهليه (مارب)",
+   "رداع",
+   "جبن (الضالع)",
+   "الطفه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2402",
+  "name_ar": "الشيخ عثمان",
+  "name_en": "Ash Shaykh Othman",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 28,
+  "population_2025": 211036,
+  "neighbours": [
+   "المنصوره",
+   "دار سعد",
+   "خور مكسر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1915",
+  "name_ar": "الشحر",
+  "name_en": "Ash Shihr",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2026,
+  "population_2025": 131180,
+  "neighbours": [
+   "الديس",
+   "غيل بن يمين",
+   "غيل باوزير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3004",
+  "name_ar": "الشعيب",
+  "name_en": "Ash Shu'ayb",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 339,
+  "population_2025": 73773,
+  "neighbours": [
+   "الحصين",
+   "قعطبه",
+   "جبن",
+   "حالمين (لحج)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1712",
+  "name_ar": "اسلم",
+  "name_en": "Aslam",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 245,
+  "population_2025": 87491,
+  "neighbours": [
+   "عبس",
+   "مستباء",
+   "كعيدنه",
+   "قفل شمر",
+   "خيران المحرق"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1520",
+  "name_ar": "التعزيه",
+  "name_en": "At Ta'iziyah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 614,
+  "population_2025": 302782,
+  "neighbours": [
+   "المظفر",
+   "القاهره",
+   "السياني (اب)",
+   "ذي السفال (اب)",
+   "مذيخره (اب)",
+   "شرعب السلام",
+   "شرعب الرونه",
+   "مقبنه",
+   "صبر الموادم",
+   "ماويه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1407",
+  "name_ar": "الطفه",
+  "name_en": "At Taffah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 736,
+  "population_2025": 41393,
+  "neighbours": [
+   "البيضاء",
+   "مسوره",
+   "الحد (لحج)",
+   "الزاهر",
+   "الملاجم",
+   "السواديه",
+   "ناطع",
+   "الشريه",
+   "جبن (الضالع)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1307",
+  "name_ar": "التحرير",
+  "name_en": "At Tahrir",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 3,
+  "population_2025": 158039,
+  "neighbours": [
+   "الثوره",
+   "معين",
+   "صنعاء القديمه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2102",
+  "name_ar": "الطلح",
+  "name_en": "At Talh",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 2096,
+  "population_2025": 14707,
+  "neighbours": [
+   "الضليعه (حضرموت)",
+   "الروضه",
+   "يبعث (حضرموت)",
+   "عرماء",
+   "جردان",
+   "دهر",
+   "رخيه (حضرموت)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2405",
+  "name_ar": "التواهي",
+  "name_en": "At Tawahi",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 9,
+  "population_2025": 110341,
+  "neighbours": [
+   "المعلا",
+   "صيره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2702",
+  "name_ar": "الطويله",
+  "name_en": "At Tawilah",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 225,
+  "population_2025": 97976,
+  "neighbours": [
+   "الحيمة الداخليه (صنعاء)",
+   "الرجم",
+   "ثلاء (عمران)",
+   "مسور (عمران)",
+   "شبام كوكبان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1826",
+  "name_ar": "التحيتا",
+  "name_en": "At Tuhayta",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 689,
+  "population_2025": 124501,
+  "neighbours": [
+   "الجراحي",
+   "زبيد",
+   "بيت الفقيه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2313",
+  "name_ar": "الطيال",
+  "name_en": "At Tyal",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 431,
+  "population_2025": 50068,
+  "neighbours": [
+   "الحصن",
+   "بني ضبيان",
+   "جحانه",
+   "بني حشيش",
+   "سنحان وبني بهلول",
+   "خولان",
+   "بدبده (مارب)",
+   "حريب القرامش (مارب)",
+   "نهم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2113",
+  "name_ar": "عتق",
+  "name_en": "Ataq",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 1427,
+  "population_2025": 57466,
+  "neighbours": [
+   "الروضه",
+   "الصعيد",
+   "حبان",
+   "نصاب",
+   "جردان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1309",
+  "name_ar": "الثوره",
+  "name_en": "Ath Thawrah",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 21,
+  "population_2025": 428812,
+  "neighbours": [
+   "التحرير",
+   "معين",
+   "بني الحارث",
+   "شعوب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2106",
+  "name_ar": "عين",
+  "name_en": "Ayn",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 756,
+  "population_2025": 34574,
+  "neighbours": [
+   "بيحان",
+   "ناطع (البيضاء)",
+   "نعمان (البيضاء)",
+   "عسيلان",
+   "مارب (مارب)",
+   "حريب (مارب)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1405",
+  "name_ar": "الزاهر",
+  "name_en": "Az Zahir",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 187,
+  "population_2025": 38446,
+  "neighbours": [
+   "البيضاء",
+   "لودر (ابين)",
+   "سباح (ابين)",
+   "الحد (لحج)",
+   "الطفه",
+   "ذي ناعم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1604",
+  "name_ar": "الزاهر",
+  "name_en": "Az Zahir",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 135,
+  "population_2025": 35825,
+  "neighbours": [
+   "الحميدات",
+   "المطمه",
+   "المتون"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1807",
+  "name_ar": "الزيديه",
+  "name_en": "Az Zaydiah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 527,
+  "population_2025": 173549,
+  "neighbours": [
+   "الضحى",
+   "الخبت (المحويت)",
+   "القناوص",
+   "ملحان (المحويت)",
+   "المغلاف",
+   "المنيره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1801",
+  "name_ar": "الزهره",
+  "name_en": "Az Zuhrah",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 783,
+  "population_2025": 254069,
+  "neighbours": [
+   "عبس (حجه)",
+   "اللحيه",
+   "القناوص",
+   "كعيدنه (حجه)",
+   "بني قيس الطور (حجه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1303",
+  "name_ar": "ازال",
+  "name_en": "Azaal",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 9,
+  "population_2025": 300723,
+  "neighbours": [
+   "الصافيه",
+   "بني حشيش (صنعاء)",
+   "شعوب",
+   "سنحان وبني بهلول (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1113",
+  "name_ar": "بعدان",
+  "name_en": "Ba'dan",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 249,
+  "population_2025": 176184,
+  "neighbours": [
+   "المخادر",
+   "السده",
+   "الشعر",
+   "النادره",
+   "قعطبه (الضالع)",
+   "السبره",
+   "اب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1810",
+  "name_ar": "باجل",
+  "name_en": "Bajil",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 1615,
+  "population_2025": 309340,
+  "neighbours": [
+   "الضحى",
+   "الحالي",
+   "المراوعه",
+   "الحجيله",
+   "بني سعد (المحويت)",
+   "برع",
+   "المنيره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1701",
+  "name_ar": "بكيل المير",
+  "name_en": "Bakil Al Mir",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 620,
+  "population_2025": 37777,
+  "neighbours": [
+   "الظاهر (صعده)",
+   "حرض",
+   "قاره",
+   "وشحه",
+   "حرف سفيان (عمران)",
+   "حيدان (صعده)",
+   "ساقين (صعده)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1727",
+  "name_ar": "بني العوام",
+  "name_en": "Bani Al Awam",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 78,
+  "population_2025": 90374,
+  "neighbours": [
+   "الشغادره",
+   "نجره",
+   "مسور (عمران)",
+   "حجه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1310",
+  "name_ar": "بني الحارث",
+  "name_en": "Bani Al Harith",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 285,
+  "population_2025": 500209,
+  "neighbours": [
+   "ارحب (صنعاء)",
+   "همدان (صنعاء)",
+   "الثوره",
+   "شعوب",
+   "معين",
+   "بني حشيش (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2314",
+  "name_ar": "بني ضبيان",
+  "name_en": "Bani Dabyan",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 1780,
+  "population_2025": 22490,
+  "neighbours": [
+   "الحداء (ذمار)",
+   "الحصن",
+   "الطيال",
+   "جحانه",
+   "الجوبه (مارب)",
+   "صرواح (مارب)",
+   "القريشيه (البيضاء)",
+   "رحبه (مارب)",
+   "ولدربيع (البيضاء)",
+   "خولان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2304",
+  "name_ar": "بني حشيش",
+  "name_en": "Bani Hushaysh",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 351,
+  "population_2025": 102118,
+  "neighbours": [
+   "الطيال",
+   "حريب القرامش (مارب)",
+   "نهم",
+   "ازال (امانة العاصمه)",
+   "بني الحارث (امانة العاصمه)",
+   "سنحان وبني بهلول"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2307",
+  "name_ar": "بني مطر",
+  "name_en": "Bani Matar",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 1108,
+  "population_2025": 137143,
+  "neighbours": [
+   "الحيمة الداخليه",
+   "الحيمة الخارجيه",
+   "السبعين (امانة العاصمه)",
+   "همدان",
+   "شبام كوكبان (المحويت)",
+   "ضوران انس (ذمار)",
+   "بلاد الروس",
+   "سنحان وبني بهلول",
+   "ضواحي الامانة سنحان وبني بهلول (امانة العاصمه)",
+   "معين (امانة العاصمه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1724",
+  "name_ar": "بني قيس الطور",
+  "name_en": "Bani Qays",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 499,
+  "population_2025": 96385,
+  "neighbours": [
+   "الخبت (المحويت)",
+   "القناوص (الحديده)",
+   "الشغادره",
+   "الزهره (الحديده)",
+   "كعيدنه",
+   "حجه",
+   "وضره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2707",
+  "name_ar": "بني سعد",
+  "name_en": "Bani Sa'd",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 556,
+  "population_2025": 99854,
+  "neighbours": [
+   "الحجيله (الحديده)",
+   "باجل (الحديده)",
+   "المحويت",
+   "حفاش",
+   "ملحان",
+   "صعفان (صنعاء)",
+   "مناخه (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2920",
+  "name_ar": "بني صريم",
+  "name_en": "Bani Surim",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 324,
+  "population_2025": 41781,
+  "neighbours": [
+   "العشه",
+   "حوث",
+   "خمر",
+   "ذيبين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2201",
+  "name_ar": "باقم",
+  "name_en": "Baqim",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 866,
+  "population_2025": 45290,
+  "neighbours": [
+   "الصفراء",
+   "قطابر",
+   "مجز"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1610",
+  "name_ar": "برط العنان",
+  "name_en": "Barat Al Anan",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 2017,
+  "population_2025": 90848,
+  "neighbours": [
+   "الحشوه (صعده)",
+   "كتاف والبقع (صعده)",
+   "الصفراء (صعده)",
+   "خراب المراشى",
+   "رجوزه",
+   "خب و الشعف"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2107",
+  "name_ar": "بيحان",
+  "name_en": "Bayhan",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 619,
+  "population_2025": 75770,
+  "neighbours": [
+   "عين",
+   "ناطع (البيضاء)",
+   "نعمان (البيضاء)",
+   "مرخة العليا",
+   "مرخة السفلى",
+   "عسيلان",
+   "مسوره (البيضاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1817",
+  "name_ar": "بيت الفقيه",
+  "name_en": "Bayt Al Faqih",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 1522,
+  "population_2025": 440970,
+  "neighbours": [
+   "الدريهمي",
+   "الجعفريه (ريمه)",
+   "الجبين (ريمه)",
+   "المنصوريه",
+   "السخنه",
+   "التحيتا",
+   "زبيد"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2605",
+  "name_ar": "بدبده",
+  "name_en": "Bidbadah",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 187,
+  "population_2025": 30867,
+  "neighbours": [
+   "الطيال (صنعاء)",
+   "حريب القرامش",
+   "خولان (صنعاء)",
+   "صرواح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2306",
+  "name_ar": "بلاد الروس",
+  "name_en": "Bilad Ar Rus",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 397,
+  "population_2025": 43080,
+  "neighbours": [
+   "الحداء (ذمار)",
+   "الحصن",
+   "سنحان وبني بهلول",
+   "بني مطر",
+   "ضوران انس (ذمار)",
+   "جهران (ذمار)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3101",
+  "name_ar": "بلاد الطعام",
+  "name_en": "Bilad Atta'am",
+  "governorate_ar": "ريمه",
+  "governorate_en": "Raymah",
+  "area_km2": 404,
+  "population_2025": 54343,
+  "neighbours": [
+   "الحيمة الخارجيه (صنعاء)",
+   "الحجيله (الحديده)",
+   "مناخه (صنعاء)",
+   "الجبين",
+   "السلفيه",
+   "برع (الحديده)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1925",
+  "name_ar": "بروم ميفع",
+  "name_en": "Brum Mayf'ah",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2036,
+  "population_2025": 30689,
+  "neighbours": [
+   "المكلا",
+   "مدينة المكلا",
+   "حجر",
+   "رضوم (شبوه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1812",
+  "name_ar": "برع",
+  "name_en": "Bura'",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 264,
+  "population_2025": 82215,
+  "neighbours": [
+   "الحجيله",
+   "باجل",
+   "المراوعه",
+   "السخنه",
+   "بلاد الطعام (ريمه)"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2101",
+  "name_ar": "دهر",
+  "name_en": "Dahr",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 1424,
+  "population_2025": 15258,
+  "neighbours": [
+   "العبر (حضرموت)",
+   "عرماء",
+   "الطلح",
+   "رخيه (حضرموت)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3002",
+  "name_ar": "دمت",
+  "name_en": "Damt",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 372,
+  "population_2025": 114139,
+  "neighbours": [
+   "النادره (اب)",
+   "الرضمه (اب)",
+   "الرياشيه (البيضاء)",
+   "صباح (البيضاء)",
+   "قعطبه",
+   "جبن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2401",
+  "name_ar": "دار سعد",
+  "name_en": "Dar Sa'd",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 90,
+  "population_2025": 164580,
+  "neighbours": [
+   "البريقه",
+   "المنصوره",
+   "الشيخ عثمان",
+   "خور مكسر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1918",
+  "name_ar": "دوعن",
+  "name_en": "Daw'an",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 3446,
+  "population_2025": 77501,
+  "neighbours": [
+   "الضليعه",
+   "المكلا",
+   "عمد",
+   "حريضه",
+   "حجر",
+   "غيل باوزير",
+   "وادي العين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2011",
+  "name_ar": "ضوران انس",
+  "name_en": "Dawran Anis",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 994,
+  "population_2025": 212418,
+  "neighbours": [
+   "الحيمة الخارجيه (صنعاء)",
+   "المنار",
+   "جبل الشرق",
+   "جهران",
+   "بني مطر (صنعاء)",
+   "بلاد الروس (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2008",
+  "name_ar": "مدينة ذمار",
+  "name_en": "Dhamar City",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 239,
+  "population_2025": 304791,
+  "neighbours": [
+   "الحداء",
+   "عنس",
+   "ميفعة عنس",
+   "جهران"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1116",
+  "name_ar": "ذي السفال",
+  "name_en": "Dhi As Sufal",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 191,
+  "population_2025": 252884,
+  "neighbours": [
+   "السياني",
+   "التعزيه (تعز)",
+   "جبله",
+   "مذيخره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1406",
+  "name_ar": "ذي ناعم",
+  "name_en": "Dhi Na'im",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 169,
+  "population_2025": 38758,
+  "neighbours": [
+   "البيضاء",
+   "الزاهر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2909",
+  "name_ar": "ذيبين",
+  "name_en": "Dhibain",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 312,
+  "population_2025": 39695,
+  "neighbours": [
+   "ارحب (صنعاء)",
+   "بني صريم",
+   "خمر",
+   "خارف",
+   "حرف سفيان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1506",
+  "name_ar": "باب المندب",
+  "name_en": "Dhubab",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 1605,
+  "population_2025": 28262,
+  "neighbours": [
+   "المضاربة و العاره (لحج)",
+   "المخاء",
+   "الوازعيه",
+   "موزع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2908",
+  "name_ar": "ظليمة حبور",
+  "name_en": "Dhulaymat Habur",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 192,
+  "population_2025": 50608,
+  "neighbours": [
+   "العشه",
+   "قفلة عذر",
+   "المغربه (حجه)",
+   "السوده",
+   "شهاره",
+   "صوير",
+   "خمر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1512",
+  "name_ar": "خدير",
+  "name_en": "Dimnat Khadir",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 462,
+  "population_2025": 172006,
+  "neighbours": [
+   "المسراخ",
+   "صبر الموادم",
+   "القبيطه (لحج)",
+   "ماويه",
+   "سامع",
+   "حيفان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2918",
+  "name_ar": "عيال سريح",
+  "name_en": "Eyal Surayh",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 234,
+  "population_2025": 68193,
+  "neighbours": [
+   "عمران",
+   "السوده",
+   "خمر",
+   "ريده",
+   "همدان (صنعاء)",
+   "جبل عيال يزيد",
+   "ثلاء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1110",
+  "name_ar": "فرع العدين",
+  "name_en": "Far' Al Odayn",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 364,
+  "population_2025": 136932,
+  "neighbours": [
+   "العدين",
+   "حزم العدين",
+   "جبل راس (الحديده)",
+   "شرعب الرونه (تعز)",
+   "شرعب السلام (تعز)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2204",
+  "name_ar": "غمر",
+  "name_en": "Ghamr",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 135,
+  "population_2025": 38966,
+  "neighbours": [
+   "منبه",
+   "رازح",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1917",
+  "name_ar": "غيل باوزير",
+  "name_en": "Ghayl Bawazir",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2269,
+  "population_2025": 87273,
+  "neighbours": [
+   "المكلا",
+   "مدينة المكلا",
+   "الشحر",
+   "دوعن",
+   "غيل بن يمين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1916",
+  "name_ar": "غيل بن يمين",
+  "name_en": "Ghayl bin Yamin",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 5514,
+  "population_2025": 48609,
+  "neighbours": [
+   "الديس",
+   "السوم",
+   "الشحر",
+   "غيل باوزير",
+   "تريم",
+   "ساه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2114",
+  "name_ar": "حبان",
+  "name_en": "Habban",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 919,
+  "population_2025": 46395,
+  "neighbours": [
+   "المحفد (ابين)",
+   "رضوم",
+   "الروضه",
+   "الصعيد",
+   "عتق"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2505",
+  "name_ar": "حبيل جبر",
+  "name_en": "Habil Jabr",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 528,
+  "population_2025": 66246,
+  "neighbours": [
+   "يهر",
+   "حالمين",
+   "ردفان",
+   "سرار (ابين)",
+   "رصد (ابين)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3201",
+  "name_ar": "حديبو",
+  "name_en": "Hadibu",
+  "governorate_ar": "سقطرى",
+  "governorate_en": "Socotra",
+  "area_km2": 2633,
+  "population_2025": 60581,
+  "neighbours": [
+   "قلنسية وعبد الكوري"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE1924",
+  "name_ar": "حجر",
+  "name_en": "Hajar",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2481,
+  "population_2025": 45038,
+  "neighbours": [
+   "الضليعه",
+   "بروم ميفع",
+   "دوعن",
+   "يبعث",
+   "ميفعه (شبوه)",
+   "رضوم (شبوه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1905",
+  "name_ar": "حجر الصيعر",
+  "name_en": "Hajar As Say'ar",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2879,
+  "population_2025": 4418,
+  "neighbours": [
+   "العبر",
+   "القف",
+   "القطن",
+   "زمخ ومنوخ"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1729",
+  "name_ar": "حجه",
+  "name_en": "Hajjah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 80,
+  "population_2025": 51595,
+  "neighbours": [
+   "الشغادره",
+   "نجره",
+   "بني العوام",
+   "بني قيس الطور",
+   "مدينة حجه",
+   "شرس"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1728",
+  "name_ar": "مدينة حجه",
+  "name_en": "Hajjah City",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 47,
+  "population_2025": 95010,
+  "neighbours": [
+   "حجه",
+   "شرس",
+   "مبين",
+   "نجره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2506",
+  "name_ar": "حالمين",
+  "name_en": "Halmin",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 306,
+  "population_2025": 44164,
+  "neighbours": [
+   "الضالع (الضالع)",
+   "الحصين (الضالع)",
+   "الشعيب (الضالع)",
+   "حبيل جبر",
+   "يهر",
+   "ردفان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2301",
+  "name_ar": "همدان",
+  "name_en": "Hamdan",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 535,
+  "population_2025": 189164,
+  "neighbours": [
+   "ارحب",
+   "ريده (عمران)",
+   "بني الحارث (امانة العاصمه)",
+   "بني مطر",
+   "شبام كوكبان (المحويت)",
+   "عيال سريح (عمران)",
+   "ثلاء (عمران)",
+   "معين (امانة العاصمه)",
+   "ضواحي الامانة همدان (امانة العاصمه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1702",
+  "name_ar": "حرض",
+  "name_en": "Harad",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 958,
+  "population_2025": 160986,
+  "neighbours": [
+   "بكيل المير",
+   "ميدي",
+   "حيران"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2901",
+  "name_ar": "حرف سفيان",
+  "name_en": "Harf Sufyan",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 2708,
+  "population_2025": 54084,
+  "neighbours": [
+   "العشه",
+   "المطمه (الجوف)",
+   "الصفراء (صعده)",
+   "خراب المراشى (الجوف)",
+   "بكيل المير (حجه)",
+   "حيدان (صعده)",
+   "ساقين (صعده)",
+   "ذيبين",
+   "قاره (حجه)",
+   "قفلة عذر",
+   "حوث"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2609",
+  "name_ar": "حريب",
+  "name_en": "Harib",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 808,
+  "population_2025": 55099,
+  "neighbours": [
+   "العبديه",
+   "الجوبه",
+   "عين (شبوه)",
+   "مارب",
+   "رحبه",
+   "ماهليه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2604",
+  "name_ar": "حريب القرامش",
+  "name_en": "Harib Al Qaramish",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 162,
+  "population_2025": 13732,
+  "neighbours": [
+   "الطيال (صنعاء)",
+   "بدبده",
+   "بني حشيش (صنعاء)",
+   "نهم (صنعاء)",
+   "صرواح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1928",
+  "name_ar": "حريضه",
+  "name_en": "Haridah",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 922,
+  "population_2025": 32984,
+  "neighbours": [
+   "عمد",
+   "دوعن",
+   "وادي العين",
+   "رخيه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2809",
+  "name_ar": "حصوين",
+  "name_en": "Haswin",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 1777,
+  "population_2025": 25102,
+  "neighbours": [
+   "الغيظه",
+   "منعر",
+   "قشن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2802",
+  "name_ar": "حات",
+  "name_en": "Hat",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 13643,
+  "population_2025": 6340,
+  "neighbours": [
+   "شحن",
+   "رماه (حضرموت)",
+   "منعر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2111",
+  "name_ar": "حطيب",
+  "name_en": "Hatib",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 831,
+  "population_2025": 20787,
+  "neighbours": [
+   "المحفد (ابين)",
+   "الصعيد",
+   "جيشان (ابين)",
+   "موديه (ابين)",
+   "نصاب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2803",
+  "name_ar": "حوف",
+  "name_en": "Hawf",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 1446,
+  "population_2025": 11289,
+  "neighbours": [
+   "الغيظه",
+   "شحن"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2208",
+  "name_ar": "حيدان",
+  "name_en": "Haydan",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 450,
+  "population_2025": 119146,
+  "neighbours": [
+   "الظاهر",
+   "بكيل المير (حجه)",
+   "حرف سفيان (عمران)",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1516",
+  "name_ar": "حيفان",
+  "name_en": "Hayfan",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 187,
+  "population_2025": 114919,
+  "neighbours": [
+   "المقاطره (لحج)",
+   "المواسط",
+   "القبيطه (لحج)",
+   "الصلو",
+   "خدير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1705",
+  "name_ar": "حيران",
+  "name_en": "Hayran",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 170,
+  "population_2025": 27254,
+  "neighbours": [
+   "عبس",
+   "ميدي",
+   "حرض",
+   "مستباء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1819",
+  "name_ar": "حيس",
+  "name_en": "Hays",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 255,
+  "population_2025": 83191,
+  "neighbours": [
+   "الجراحي",
+   "الخوخه",
+   "جبل راس",
+   "مقبنه (تعز)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1109",
+  "name_ar": "حزم العدين",
+  "name_en": "Hazm Al Odayn",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 501,
+  "population_2025": 121306,
+  "neighbours": [
+   "العدين",
+   "القفر",
+   "وصاب العالي (ذمار)",
+   "فرع العدين",
+   "حبيش",
+   "جبل راس (الحديده)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1108",
+  "name_ar": "حبيش",
+  "name_en": "Hobeish",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 226,
+  "population_2025": 159632,
+  "neighbours": [
+   "العدين",
+   "القفر",
+   "حزم العدين",
+   "اب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2706",
+  "name_ar": "حفاش",
+  "name_en": "Hufash",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 146,
+  "population_2025": 64157,
+  "neighbours": [
+   "الخبت",
+   "المحويت",
+   "بني سعد",
+   "ملحان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2902",
+  "name_ar": "حوث",
+  "name_en": "Huth",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 339,
+  "population_2025": 28610,
+  "neighbours": [
+   "العشه",
+   "بني صريم",
+   "حرف سفيان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1120",
+  "name_ar": "اب",
+  "name_en": "Ibb",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 182,
+  "population_2025": 217120,
+  "neighbours": [
+   "الظهار",
+   "المشنه",
+   "العدين",
+   "السبره",
+   "السياني",
+   "بعدان",
+   "حبيش",
+   "جبله"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2003",
+  "name_ar": "جبل الشرق",
+  "name_en": "Jabal Ash sharq",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 450,
+  "population_2025": 107983,
+  "neighbours": [
+   "المنار",
+   "ضوران انس",
+   "عتمه",
+   "السلفيه (ريمه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2912",
+  "name_ar": "جبل عيال يزيد",
+  "name_en": "Jabal Eyal Yazid",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 461,
+  "population_2025": 107423,
+  "neighbours": [
+   "عمران",
+   "السود",
+   "عيال سريح",
+   "خمر",
+   "ثلاء",
+   "ريده"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1508",
+  "name_ar": "جبل حبشي",
+  "name_en": "Jabal Habashi",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 312,
+  "population_2025": 182426,
+  "neighbours": [
+   "المعافر",
+   "مقبنه",
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2614",
+  "name_ar": "جبل مراد",
+  "name_en": "Jabal Murad",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 143,
+  "population_2025": 16844,
+  "neighbours": [
+   "الجوبه",
+   "رحبه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1818",
+  "name_ar": "جبل راس",
+  "name_en": "Jabal Ras",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 415,
+  "population_2025": 82324,
+  "neighbours": [
+   "الجراحي",
+   "فرع العدين (اب)",
+   "حيس",
+   "حزم العدين (اب)",
+   "وصاب السافل (ذمار)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3007",
+  "name_ar": "جحاف",
+  "name_en": "Jahaf",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 85,
+  "population_2025": 44497,
+  "neighbours": [
+   "الضالع",
+   "الازارق"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2002",
+  "name_ar": "جهران",
+  "name_en": "Jahran",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 364,
+  "population_2025": 151608,
+  "neighbours": [
+   "الحداء",
+   "المنار",
+   "عنس",
+   "ضوران انس",
+   "بلاد الروس (صنعاء)",
+   "مدينة ذمار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2103",
+  "name_ar": "جردان",
+  "name_en": "Jardan",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 5431,
+  "population_2025": 25172,
+  "neighbours": [
+   "العبر (حضرموت)",
+   "الروضه",
+   "عرماء",
+   "الطلح",
+   "عتق",
+   "عسيلان",
+   "مرخة السفلى"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1203",
+  "name_ar": "جيشان",
+  "name_en": "Jayshan",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 699,
+  "population_2025": 21859,
+  "neighbours": [
+   "حطيب (شبوه)",
+   "موديه",
+   "نصاب (شبوه)",
+   "مرخة السفلى (شبوه)",
+   "مكيراس (البيضاء)",
+   "لودر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1112",
+  "name_ar": "جبله",
+  "name_en": "Jiblah",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 122,
+  "population_2025": 173288,
+  "neighbours": [
+   "الظهار",
+   "المشنه",
+   "العدين",
+   "السياني",
+   "ذي السفال",
+   "اب"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2316",
+  "name_ar": "جحانه",
+  "name_en": "Jihanah",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 524,
+  "population_2025": 69667,
+  "neighbours": [
+   "الحصن",
+   "الطيال",
+   "بني ضبيان",
+   "خولان",
+   "سنحان وبني بهلول"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3001",
+  "name_ar": "جبن",
+  "name_en": "Juban",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 1202,
+  "population_2025": 80829,
+  "neighbours": [
+   "الحد (لحج)",
+   "الشريه (البيضاء)",
+   "الشعيب",
+   "الطفه (البيضاء)",
+   "دمت",
+   "قعطبه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1803",
+  "name_ar": "كمران",
+  "name_en": "Kamaran",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 159,
+  "population_2025": 4475,
+  "neighbours": [],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1601",
+  "name_ar": "خب و الشعف",
+  "name_en": "Khab wa Ash Sha'f",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 31702,
+  "population_2025": 122517,
+  "neighbours": [
+   "الحزم",
+   "مارب (مارب)",
+   "رغوان (مارب)",
+   "الحميدات",
+   "المتون",
+   "رجوزه",
+   "برط العنان",
+   "كتاف والبقع (صعده)",
+   "زمخ ومنوخ (حضرموت)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2919",
+  "name_ar": "خمر",
+  "name_en": "Khamir",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 424,
+  "population_2025": 93220,
+  "neighbours": [
+   "السوده",
+   "عيال سريح",
+   "بني صريم",
+   "ذيبين",
+   "ظليمة حبور",
+   "جبل عيال يزيد",
+   "ريده",
+   "خارف"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1211",
+  "name_ar": "خنفر",
+  "name_en": "Khanfar",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 3794,
+  "population_2025": 164791,
+  "neighbours": [
+   "احور",
+   "الملاح (لحج)",
+   "ردفان (لحج)",
+   "الوضيع",
+   "لودر",
+   "سرار",
+   "خور مكسر (عدن)",
+   "تبن (لحج)",
+   "زنجبار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1612",
+  "name_ar": "خراب المراشى",
+  "name_en": "Kharab Al Marashi",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 359,
+  "population_2025": 97119,
+  "neighbours": [
+   "الحميدات",
+   "الصفراء (صعده)",
+   "حرف سفيان (عمران)",
+   "برط العنان",
+   "رجوزه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2910",
+  "name_ar": "خارف",
+  "name_en": "Kharif",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 291,
+  "population_2025": 58393,
+  "neighbours": [
+   "ارحب (صنعاء)",
+   "ذيبين",
+   "خمر",
+   "ريده"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2312",
+  "name_ar": "خولان",
+  "name_en": "Khawlan",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 582,
+  "population_2025": 40003,
+  "neighbours": [
+   "الطيال",
+   "جحانه",
+   "بني ضبيان",
+   "بدبده (مارب)",
+   "صرواح (مارب)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1711",
+  "name_ar": "خيران المحرق",
+  "name_en": "Khayran Al Muharraq",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 161,
+  "population_2025": 120338,
+  "neighbours": [
+   "افلح الشام",
+   "المحابشه",
+   "اسلم",
+   "مستباء",
+   "قفل شمر",
+   "كشر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2408",
+  "name_ar": "خور مكسر",
+  "name_en": "Khur Maksar",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 51,
+  "population_2025": 94482,
+  "neighbours": [
+   "المنصوره",
+   "الشيخ عثمان",
+   "دار سعد",
+   "خنفر (ابين)",
+   "تبن (لحج)",
+   "صيره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2214",
+  "name_ar": "كتاف والبقع",
+  "name_en": "Kitaf wa Al Boqa'",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 5388,
+  "population_2025": 84974,
+  "neighbours": [
+   "الحشوه",
+   "برط العنان (الجوف)",
+   "الصفراء",
+   "خب و الشعف (الجوف)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2407",
+  "name_ar": "صيره",
+  "name_en": "Kritar - Sirah",
+  "governorate_ar": "عدن",
+  "governorate_en": "Aden",
+  "area_km2": 14,
+  "population_2025": 156056,
+  "neighbours": [
+   "المعلا",
+   "التواهي",
+   "خور مكسر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1722",
+  "name_ar": "كعيدنه",
+  "name_en": "Ku'aydinah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 440,
+  "population_2025": 123884,
+  "neighbours": [
+   "عبس",
+   "المغربه",
+   "الشاهل",
+   "مبين",
+   "اسلم",
+   "الزهره (الحديده)",
+   "بني قيس الطور",
+   "وضره",
+   "قفل شمر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1718",
+  "name_ar": "كحلان عفار",
+  "name_en": "Kuhlan Afar",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 133,
+  "population_2025": 70049,
+  "neighbours": [
+   "المغربه",
+   "عمران (عمران)",
+   "السود (عمران)",
+   "شرس",
+   "مسور (عمران)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1709",
+  "name_ar": "كحلان الشرف",
+  "name_en": "Kuhlan Ash Sharaf",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 71,
+  "population_2025": 77168,
+  "neighbours": [
+   "افلح اليمن",
+   "المحابشه",
+   "الجميمه",
+   "المفتاح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1707",
+  "name_ar": "كشر",
+  "name_en": "Kushar",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 320,
+  "population_2025": 129017,
+  "neighbours": [
+   "افلح الشام",
+   "الجميمه",
+   "خيران المحرق",
+   "صوير (عمران)",
+   "قفلة عذر (عمران)",
+   "قاره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3105",
+  "name_ar": "كسمه",
+  "name_en": "Kusmah",
+  "governorate_ar": "ريمه",
+  "governorate_en": "Raymah",
+  "area_km2": 216,
+  "population_2025": 121636,
+  "neighbours": [
+   "الجعفريه",
+   "وصاب العالي (ذمار)",
+   "مزهر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1204",
+  "name_ar": "لودر",
+  "name_en": "Lawdar",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 2114,
+  "population_2025": 130699,
+  "neighbours": [
+   "البيضاء (البيضاء)",
+   "الزاهر (البيضاء)",
+   "سباح",
+   "مكيراس (البيضاء)",
+   "الوضيع",
+   "جيشان",
+   "خنفر",
+   "سرار",
+   "موديه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1308",
+  "name_ar": "معين",
+  "name_en": "Ma'in",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 28,
+  "population_2025": 673624,
+  "neighbours": [
+   "التحرير",
+   "الثوره",
+   "بني الحارث",
+   "بني مطر (صنعاء)",
+   "همدان (صنعاء)",
+   "ضواحي الامانة همدان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2613",
+  "name_ar": "مارب",
+  "name_en": "Ma'rib",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 9070,
+  "population_2025": 64491,
+  "neighbours": [
+   "الحزم (الجوف)",
+   "خب و الشعف (الجوف)",
+   "رغوان",
+   "الجوبه",
+   "مدينة مارب",
+   "صرواح",
+   "عين (شبوه)",
+   "حريب",
+   "مدغل الجدعان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2612",
+  "name_ar": "مدينة مارب",
+  "name_en": "Ma'rib City",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 164,
+  "population_2025": 61984,
+  "neighbours": [
+   "الجوبه",
+   "مارب",
+   "صرواح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1720",
+  "name_ar": "مبين",
+  "name_en": "Mabyan",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 179,
+  "population_2025": 89261,
+  "neighbours": [
+   "المغربه",
+   "الشاهل",
+   "كعيدنه",
+   "مدينة حجه",
+   "شرس",
+   "وضره",
+   "نجره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2603",
+  "name_ar": "مدغل الجدعان",
+  "name_en": "Madghal Al Jid'an",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 534,
+  "population_2025": 16790,
+  "neighbours": [
+   "مارب",
+   "رغوان",
+   "مجزر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2004",
+  "name_ar": "مغرب عنس",
+  "name_en": "Maghrib Ans",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 246,
+  "population_2025": 92843,
+  "neighbours": [
+   "المنار",
+   "عتمه",
+   "القفر (اب)",
+   "يريم (اب)",
+   "عنس"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2610",
+  "name_ar": "ماهليه",
+  "name_en": "Mahliyah",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 598,
+  "population_2025": 14898,
+  "neighbours": [
+   "العبديه",
+   "السواديه (البيضاء)",
+   "ردمان (البيضاء)",
+   "الشريه (البيضاء)",
+   "حريب",
+   "رحبه",
+   "ولدربيع (البيضاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2210",
+  "name_ar": "مجز",
+  "name_en": "Majz",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 1093,
+  "population_2025": 135148,
+  "neighbours": [
+   "الصفراء",
+   "سحار",
+   "باقم",
+   "قطابر",
+   "منبه",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2601",
+  "name_ar": "مجزر",
+  "name_en": "Majzar",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 1320,
+  "population_2025": 17075,
+  "neighbours": [
+   "الغيل (الجوف)",
+   "الخلق (الجوف)",
+   "المصلوب (الجوف)",
+   "نهم (صنعاء)",
+   "مدغل الجدعان",
+   "صرواح",
+   "رغوان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2805",
+  "name_ar": "منعر",
+  "name_en": "Man'ar",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 16858,
+  "population_2025": 11957,
+  "neighbours": [
+   "الغيظه",
+   "حصوين",
+   "قشن",
+   "المسيله",
+   "السوم (حضرموت)",
+   "رماه (حضرموت)",
+   "حات"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2310",
+  "name_ar": "مناخه",
+  "name_en": "Manakhah",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 689,
+  "population_2025": 109280,
+  "neighbours": [
+   "الحيمة الداخليه",
+   "الحيمة الخارجيه",
+   "الحجيله (الحديده)",
+   "بلاد الطعام (ريمه)",
+   "المحويت (المحويت)",
+   "بني سعد (المحويت)",
+   "صعفان"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE1504",
+  "name_ar": "مقبنه",
+  "name_en": "Maqbanah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 1223,
+  "population_2025": 285100,
+  "neighbours": [
+   "المعافر",
+   "المخاء",
+   "التعزيه",
+   "حيس (الحديده)",
+   "جبل حبشي",
+   "موزع",
+   "شرعب الرونه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2108",
+  "name_ar": "مرخة العليا",
+  "name_en": "Markhah Al Olya",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 957,
+  "population_2025": 50063,
+  "neighbours": [
+   "الصومعه (البيضاء)",
+   "مرخة السفلى",
+   "بيحان",
+   "مسوره (البيضاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2109",
+  "name_ar": "مرخة السفلى",
+  "name_en": "Markhah As Sufla",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 3436,
+  "population_2025": 63802,
+  "neighbours": [
+   "الصومعه (البيضاء)",
+   "مرخة العليا",
+   "بيحان",
+   "جردان",
+   "جيشان (ابين)",
+   "نصاب",
+   "عسيلان",
+   "مكيراس (البيضاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1509",
+  "name_ar": "مشرعة وحدنان",
+  "name_en": "Mashr'ah Wa Hadnan",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 14,
+  "population_2025": 38039,
+  "neighbours": [
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2916",
+  "name_ar": "مسور",
+  "name_en": "Maswar",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 136,
+  "population_2025": 48899,
+  "neighbours": [
+   "عمران",
+   "الطويله (المحويت)",
+   "بني العوام (حجه)",
+   "كحلان عفار (حجه)",
+   "ثلاء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1403",
+  "name_ar": "مسوره",
+  "name_en": "Maswarah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 923,
+  "population_2025": 10640,
+  "neighbours": [
+   "البيضاء",
+   "الطفه",
+   "الصومعه",
+   "الملاجم",
+   "ناطع",
+   "بيحان (شبوه)",
+   "مرخة العليا (شبوه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1501",
+  "name_ar": "ماويه",
+  "name_en": "Mawiyah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 710,
+  "population_2025": 199315,
+  "neighbours": [
+   "الحشاء (الضالع)",
+   "المسيمير (لحج)",
+   "القبيطه (لحج)",
+   "السبره (اب)",
+   "السياني (اب)",
+   "التعزيه",
+   "خدير",
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1507",
+  "name_ar": "موزع",
+  "name_en": "Mawza'",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 663,
+  "population_2025": 54779,
+  "neighbours": [
+   "المخاء",
+   "الوازعيه",
+   "باب المندب",
+   "مقبنه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2116",
+  "name_ar": "ميفعه",
+  "name_en": "Mayfa'ah",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 2857,
+  "population_2025": 64938,
+  "neighbours": [
+   "الروضه",
+   "حجر (حضرموت)",
+   "يبعث (حضرموت)",
+   "رضوم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2009",
+  "name_ar": "ميفعة عنس",
+  "name_en": "Mayfa'at Ans",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 630,
+  "population_2025": 106219,
+  "neighbours": [
+   "العرش (البيضاء)",
+   "ولدربيع (البيضاء)",
+   "صباح (البيضاء)",
+   "الحداء",
+   "عنس",
+   "مدينة ذمار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3104",
+  "name_ar": "مزهر",
+  "name_en": "Mazhar",
+  "governorate_ar": "ريمه",
+  "governorate_en": "Raymah",
+  "area_km2": 268,
+  "population_2025": 129520,
+  "neighbours": [
+   "الجبين",
+   "السلفيه",
+   "كسمه",
+   "وصاب العالي (ذمار)",
+   "عتمه (ذمار)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2705",
+  "name_ar": "ملحان",
+  "name_en": "Melhan",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 332,
+  "population_2025": 150652,
+  "neighbours": [
+   "الضحى (الحديده)",
+   "الخبت",
+   "القناوص (الحديده)",
+   "الزيديه (الحديده)",
+   "المغلاف (الحديده)",
+   "بني سعد",
+   "حفاش"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1703",
+  "name_ar": "ميدي",
+  "name_en": "Midi",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 794,
+  "population_2025": 29308,
+  "neighbours": [
+   "عبس",
+   "حيران",
+   "حرض"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2203",
+  "name_ar": "منبه",
+  "name_en": "Monabbih",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 441,
+  "population_2025": 102907,
+  "neighbours": [
+   "غمر",
+   "مجز",
+   "قطابر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1117",
+  "name_ar": "مذيخره",
+  "name_en": "Mudhaykhirah",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 118,
+  "population_2025": 118348,
+  "neighbours": [
+   "العدين",
+   "شرعب السلام (تعز)",
+   "التعزيه (تعز)",
+   "ذي السفال"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1202",
+  "name_ar": "موديه",
+  "name_en": "Mudiyah",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 898,
+  "population_2025": 52336,
+  "neighbours": [
+   "المحفد",
+   "الوضيع",
+   "حطيب (شبوه)",
+   "جيشان",
+   "لودر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1408",
+  "name_ar": "مكيراس",
+  "name_en": "Mukayras",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 771,
+  "population_2025": 63437,
+  "neighbours": [
+   "البيضاء",
+   "لودر (ابين)",
+   "الصومعه",
+   "جيشان (ابين)",
+   "مرخة السفلى (شبوه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1706",
+  "name_ar": "مستباء",
+  "name_en": "Mustaba",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 308,
+  "population_2025": 74112,
+  "neighbours": [
+   "عبس",
+   "اسلم",
+   "حيران",
+   "خيران المحرق",
+   "وشحه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1726",
+  "name_ar": "نجره",
+  "name_en": "Najrah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 38,
+  "population_2025": 62233,
+  "neighbours": [
+   "الشغادره",
+   "حجه",
+   "بني العوام",
+   "مدينة حجه",
+   "مبين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1402",
+  "name_ar": "ناطع",
+  "name_en": "Nati'",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 375,
+  "population_2025": 20468,
+  "neighbours": [
+   "الملاجم",
+   "الطفه",
+   "مسوره",
+   "عين (شبوه)",
+   "بيحان (شبوه)",
+   "نعمان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2303",
+  "name_ar": "نهم",
+  "name_en": "Nihm",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 1891,
+  "population_2025": 57496,
+  "neighbours": [
+   "المصلوب (الجوف)",
+   "مجزر (مارب)",
+   "المطمه (الجوف)",
+   "ارحب",
+   "الطيال",
+   "بني حشيش",
+   "حريب القرامش (مارب)",
+   "صرواح (مارب)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2110",
+  "name_ar": "نصاب",
+  "name_en": "Nisab",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 2251,
+  "population_2025": 65900,
+  "neighbours": [
+   "عتق",
+   "حطيب",
+   "جيشان (ابين)",
+   "مرخة السفلى"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1401",
+  "name_ar": "نعمان",
+  "name_en": "Nu'man",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 234,
+  "population_2025": 14134,
+  "neighbours": [
+   "العبديه (مارب)",
+   "السواديه",
+   "عين (شبوه)",
+   "بيحان (شبوه)",
+   "ناطع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1301",
+  "name_ar": "صنعاء القديمه",
+  "name_en": "Old City",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 2,
+  "population_2025": 155909,
+  "neighbours": [
+   "التحرير",
+   "شعوب"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2105",
+  "name_ar": "عسيلان",
+  "name_en": "Osaylan",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 3404,
+  "population_2025": 48781,
+  "neighbours": [
+   "عين",
+   "بيحان",
+   "جردان",
+   "مرخة السفلى"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2005",
+  "name_ar": "عتمه",
+  "name_en": "Otmah",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 445,
+  "population_2025": 252988,
+  "neighbours": [
+   "المنار",
+   "جبل الشرق",
+   "مغرب عنس",
+   "القفر (اب)",
+   "مزهر (ريمه)",
+   "وصاب العالي"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3003",
+  "name_ar": "قعطبه",
+  "name_en": "Qa'tabah",
+  "governorate_ar": "الضالع",
+  "governorate_en": "Ad Dali'",
+  "area_km2": 654,
+  "population_2025": 175158,
+  "neighbours": [
+   "الضالع",
+   "الحصين",
+   "الشعيب",
+   "النادره (اب)",
+   "بعدان (اب)",
+   "دمت",
+   "جبن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1713",
+  "name_ar": "قفل شمر",
+  "name_en": "Qafl Shammar",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 87,
+  "population_2025": 88960,
+  "neighbours": [
+   "افلح اليمن",
+   "المحابشه",
+   "الشاهل",
+   "اسلم",
+   "خيران المحرق",
+   "كعيدنه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2904",
+  "name_ar": "قفلة عذر",
+  "name_en": "Qaflat Odhar",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 578,
+  "population_2025": 46782,
+  "neighbours": [
+   "العشه",
+   "ظليمة حبور",
+   "المدان",
+   "حرف سفيان",
+   "كشر (حجه)",
+   "شهاره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE3202",
+  "name_ar": "قلنسية وعبد الكوري",
+  "name_en": "Qalansiyah wa Abd Al Kuri",
+  "governorate_ar": "سقطرى",
+  "governorate_en": "Socotra",
+  "area_km2": 1274,
+  "population_2025": 18038,
+  "neighbours": [
+   "حديبو"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE1731",
+  "name_ar": "قاره",
+  "name_en": "Qarah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 193,
+  "population_2025": 54258,
+  "neighbours": [
+   "بكيل المير",
+   "وشحه",
+   "حرف سفيان (عمران)",
+   "كشر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2202",
+  "name_ar": "قطابر",
+  "name_en": "Qatabir",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 202,
+  "population_2025": 46107,
+  "neighbours": [
+   "باقم",
+   "مجز",
+   "منبه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2808",
+  "name_ar": "قشن",
+  "name_en": "Qishn",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 3372,
+  "population_2025": 25842,
+  "neighbours": [
+   "الغيظه",
+   "حصوين",
+   "منعر",
+   "سيحوت"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1413",
+  "name_ar": "رداع",
+  "name_en": "Rada'",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 216,
+  "population_2025": 83842,
+  "neighbours": [
+   "العرش",
+   "الرياشيه",
+   "الشريه",
+   "ولدربيع"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2507",
+  "name_ar": "ردفان",
+  "name_en": "Radfan",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 609,
+  "population_2025": 68824,
+  "neighbours": [
+   "الضالع (الضالع)",
+   "الملاح",
+   "خنفر (ابين)",
+   "حبيل جبر",
+   "حالمين",
+   "سرار (ابين)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1412",
+  "name_ar": "ردمان",
+  "name_en": "Radman",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 274,
+  "population_2025": 30306,
+  "neighbours": [
+   "العبديه (مارب)",
+   "السواديه",
+   "الملاجم",
+   "ماهليه (مارب)",
+   "الشريه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2117",
+  "name_ar": "رضوم",
+  "name_en": "Radum",
+  "governorate_ar": "شبوه",
+  "governorate_en": "Shabwah",
+  "area_km2": 5899,
+  "population_2025": 36545,
+  "neighbours": [
+   "احور (ابين)",
+   "المحفد (ابين)",
+   "حبان",
+   "الروضه",
+   "بروم ميفع (حضرموت)",
+   "حجر (حضرموت)",
+   "ميفعه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2602",
+  "name_ar": "رغوان",
+  "name_en": "Raghwan",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 479,
+  "population_2025": 6920,
+  "neighbours": [
+   "الحزم (الجوف)",
+   "خب و الشعف (الجوف)",
+   "مارب",
+   "مدغل الجدعان",
+   "مجزر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2608",
+  "name_ar": "رحبه",
+  "name_en": "Rahabah",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 721,
+  "population_2025": 12166,
+  "neighbours": [
+   "الجوبه",
+   "القريشيه (البيضاء)",
+   "بني ضبيان (صنعاء)",
+   "ولدربيع (البيضاء)",
+   "حريب",
+   "ماهليه",
+   "جبل مراد"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1611",
+  "name_ar": "رجوزه",
+  "name_en": "Rajuzah",
+  "governorate_ar": "الجوف",
+  "governorate_en": "Al Jawf",
+  "area_km2": 1017,
+  "population_2025": 116972,
+  "neighbours": [
+   "الحميدات",
+   "المتون",
+   "خب و الشعف",
+   "برط العنان",
+   "خراب المراشى"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1920",
+  "name_ar": "رخيه",
+  "name_en": "Rakhyah",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 747,
+  "population_2025": 15017,
+  "neighbours": [
+   "الضليعه",
+   "عمد",
+   "الطلح (شبوه)",
+   "دهر (شبوه)",
+   "حريضه",
+   "وادي العين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1206",
+  "name_ar": "رصد",
+  "name_en": "Rassd",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 207,
+  "population_2025": 79931,
+  "neighbours": [
+   "حبيل جبر (لحج)",
+   "يهر (لحج)",
+   "سرار",
+   "سباح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2911",
+  "name_ar": "ريده",
+  "name_en": "Raydah",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 257,
+  "population_2025": 59329,
+  "neighbours": [
+   "ارحب (صنعاء)",
+   "همدان (صنعاء)",
+   "عيال سريح",
+   "جبل عيال يزيد",
+   "خمر",
+   "خارف"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2205",
+  "name_ar": "رازح",
+  "name_en": "Razih",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 220,
+  "population_2025": 123924,
+  "neighbours": [
+   "الظاهر",
+   "غمر",
+   "شداء",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1901",
+  "name_ar": "رماه",
+  "name_en": "Rumah",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 26098,
+  "population_2025": 11040,
+  "neighbours": [
+   "السوم",
+   "ثمود",
+   "منعر (المهره)",
+   "حات (المهره)",
+   "شحن (المهره)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2215",
+  "name_ar": "صعده",
+  "name_en": "Sa'dah",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 46,
+  "population_2025": 112395,
+  "neighbours": [
+   "الصفراء",
+   "سحار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2311",
+  "name_ar": "صعفان",
+  "name_en": "Sa'fan",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 173,
+  "population_2025": 46819,
+  "neighbours": [
+   "الحجيله (الحديده)",
+   "بني سعد (المحويت)",
+   "مناخه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1417",
+  "name_ar": "صباح",
+  "name_en": "Sabah",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 220,
+  "population_2025": 40814,
+  "neighbours": [
+   "العرش",
+   "ميفعة عنس (ذمار)",
+   "الرياشيه",
+   "عنس (ذمار)",
+   "الرضمه (اب)",
+   "دمت (الضالع)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1510",
+  "name_ar": "صبر الموادم",
+  "name_en": "Sabir Al Mawadim",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 190,
+  "population_2025": 167756,
+  "neighbours": [
+   "المسراخ",
+   "خدير",
+   "المظفر",
+   "التعزيه",
+   "جبل حبشي",
+   "مشرعة وحدنان",
+   "ماويه",
+   "صاله"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1909",
+  "name_ar": "ساه",
+  "name_en": "Sah",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2587,
+  "population_2025": 42115,
+  "neighbours": [
+   "غيل بن يمين",
+   "تريم",
+   "سيئون",
+   "شبام",
+   "وادي العين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2211",
+  "name_ar": "سحار",
+  "name_en": "Sahar",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 926,
+  "population_2025": 262061,
+  "neighbours": [
+   "الصفراء",
+   "مجز",
+   "ساقين",
+   "صعده"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1519",
+  "name_ar": "صاله",
+  "name_en": "Salah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 18,
+  "population_2025": 232988,
+  "neighbours": [
+   "القاهره",
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1523",
+  "name_ar": "سامع",
+  "name_en": "Sami'",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 60,
+  "population_2025": 62963,
+  "neighbours": [
+   "المعافر",
+   "المواسط",
+   "الصلو",
+   "خدير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1319",
+  "name_ar": "ضواحي الامانة همدان",
+  "name_en": "Sana'a City Outskirts - Hamdan",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 22,
+  "population_2025": null,
+  "neighbours": [
+   "همدان (صنعاء)",
+   "معين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1324",
+  "name_ar": "ضواحي الامانة سنحان وبني بهلول",
+  "name_en": "Sana'a City Outskirts -Sanhan wa Bani Bahlul",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 52,
+  "population_2025": null,
+  "neighbours": [
+   "السبعين",
+   "بني مطر (صنعاء)",
+   "سنحان وبني بهلول (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2305",
+  "name_ar": "سنحان وبني بهلول",
+  "name_en": "Sanhan wa Bani Bahlul",
+  "governorate_ar": "صنعاء",
+  "governorate_en": "Sana'a",
+  "area_km2": 561,
+  "population_2025": 435385,
+  "neighbours": [
+   "الحصن",
+   "بلاد الروس",
+   "السبعين (امانة العاصمه)",
+   "الطيال",
+   "ازال (امانة العاصمه)",
+   "بني حشيش",
+   "بني مطر",
+   "جحانه",
+   "ضواحي الامانة سنحان وبني بهلول (امانة العاصمه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2209",
+  "name_ar": "ساقين",
+  "name_en": "Saqin",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 643,
+  "population_2025": 103854,
+  "neighbours": [
+   "الظاهر",
+   "بكيل المير (حجه)",
+   "حرف سفيان (عمران)",
+   "حيدان",
+   "غمر",
+   "مجز",
+   "سحار",
+   "رازح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1207",
+  "name_ar": "سرار",
+  "name_en": "Sarar",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 883,
+  "population_2025": 22185,
+  "neighbours": [
+   "حبيل جبر (لحج)",
+   "خنفر",
+   "ردفان (لحج)",
+   "لودر",
+   "سباح",
+   "رصد"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2807",
+  "name_ar": "سيحوت",
+  "name_en": "Sayhut",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 2705,
+  "population_2025": 26210,
+  "neighbours": [
+   "المسيله",
+   "قشن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1910",
+  "name_ar": "سيئون",
+  "name_en": "Sayun",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 926,
+  "population_2025": 180278,
+  "neighbours": [
+   "ساه",
+   "تريم",
+   "شبام"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2206",
+  "name_ar": "شداء",
+  "name_en": "Shada'a",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 74,
+  "population_2025": 20999,
+  "neighbours": [
+   "الظاهر",
+   "رازح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2905",
+  "name_ar": "شهاره",
+  "name_en": "Shaharah",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 172,
+  "population_2025": 55777,
+  "neighbours": [
+   "المدان",
+   "ظليمة حبور",
+   "قفلة عذر",
+   "صوير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2801",
+  "name_ar": "شحن",
+  "name_en": "Shahin",
+  "governorate_ar": "المهره",
+  "governorate_en": "Al Maharah",
+  "area_km2": 13599,
+  "population_2025": 7031,
+  "neighbours": [
+   "الغيظه",
+   "حات",
+   "حوف",
+   "رماه (حضرموت)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1503",
+  "name_ar": "شرعب الرونه",
+  "name_en": "Shar'ab Ar Rawnah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 424,
+  "population_2025": 223776,
+  "neighbours": [
+   "التعزيه",
+   "فرع العدين (اب)",
+   "مقبنه",
+   "شرعب السلام"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1502",
+  "name_ar": "شرعب السلام",
+  "name_en": "Shar'ab As Salam",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 190,
+  "population_2025": 167511,
+  "neighbours": [
+   "العدين (اب)",
+   "مذيخره (اب)",
+   "التعزيه",
+   "فرع العدين (اب)",
+   "شرعب الرونه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1719",
+  "name_ar": "شرس",
+  "name_en": "Sharas",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 74,
+  "population_2025": 27360,
+  "neighbours": [
+   "حجه",
+   "مدينة حجه",
+   "كحلان عفار",
+   "مبين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1908",
+  "name_ar": "شبام",
+  "name_en": "Shibam",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 1088,
+  "population_2025": 86238,
+  "neighbours": [
+   "القطن",
+   "ساه",
+   "سيئون"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2701",
+  "name_ar": "شبام كوكبان",
+  "name_en": "Shibam Kawkaban",
+  "governorate_ar": "المحويت",
+  "governorate_en": "Al Mahwit",
+  "area_km2": 165,
+  "population_2025": 65542,
+  "neighbours": [
+   "الطويله",
+   "بني مطر (صنعاء)",
+   "همدان (صنعاء)",
+   "ثلاء (عمران)"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE1302",
+  "name_ar": "شعوب",
+  "name_en": "Shu'ub",
+  "governorate_ar": "امانة العاصمه",
+  "governorate_en": "Sana'a City",
+  "area_km2": 17,
+  "population_2025": 548415,
+  "neighbours": [
+   "الثوره",
+   "بني الحارث",
+   "ازال",
+   "صنعاء القديمه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1205",
+  "name_ar": "سباح",
+  "name_en": "Sibah",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 335,
+  "population_2025": 23226,
+  "neighbours": [
+   "البيضاء (البيضاء)",
+   "الزاهر (البيضاء)",
+   "لودر",
+   "الحد (لحج)",
+   "سرار",
+   "رصد",
+   "يافع (لحج)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2606",
+  "name_ar": "صرواح",
+  "name_en": "Sirwah",
+  "governorate_ar": "مارب",
+  "governorate_en": "Ma'rib",
+  "area_km2": 1315,
+  "population_2025": 31429,
+  "neighbours": [
+   "الجوبه",
+   "مارب",
+   "مدينة مارب",
+   "بني ضبيان (صنعاء)",
+   "بدبده",
+   "حريب القرامش",
+   "خولان (صنعاء)",
+   "مجزر",
+   "نهم (صنعاء)"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2907",
+  "name_ar": "صوير",
+  "name_en": "Suwayr",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 160,
+  "population_2025": 26664,
+  "neighbours": [
+   "الجميمه (حجه)",
+   "المدان",
+   "المغربه (حجه)",
+   "المفتاح (حجه)",
+   "ظليمة حبور",
+   "كشر (حجه)",
+   "شهاره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1911",
+  "name_ar": "تريم",
+  "name_en": "Tarim",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 3011,
+  "population_2025": 177610,
+  "neighbours": [
+   "القف",
+   "السوم",
+   "غيل بن يمين",
+   "ساه",
+   "سيئون"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1902",
+  "name_ar": "ثمود",
+  "name_en": "Thamud",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 15306,
+  "population_2025": 7741,
+  "neighbours": [
+   "القف",
+   "السوم",
+   "رماه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2917",
+  "name_ar": "ثلاء",
+  "name_en": "Thula",
+  "governorate_ar": "عمران",
+  "governorate_en": "Amran",
+  "area_km2": 174,
+  "population_2025": 52237,
+  "neighbours": [
+   "عمران",
+   "الطويله (المحويت)",
+   "عيال سريح",
+   "همدان (صنعاء)",
+   "جبل عيال يزيد",
+   "مسور",
+   "شبام كوكبان (المحويت)"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE2515",
+  "name_ar": "تبن",
+  "name_en": "Tuban",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 1626,
+  "population_2025": 138434,
+  "neighbours": [
+   "البريقه (عدن)",
+   "الحوطه",
+   "الملاح",
+   "المسيمير",
+   "خنفر (ابين)",
+   "خور مكسر (عدن)",
+   "طور الباحه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2511",
+  "name_ar": "طور الباحه",
+  "name_en": "Tur Al Bahah",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 1834,
+  "population_2025": 76182,
+  "neighbours": [
+   "البريقه (عدن)",
+   "المضاربة و العاره",
+   "المقاطره",
+   "القبيطه",
+   "تبن"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1919",
+  "name_ar": "وادي العين",
+  "name_en": "Wadi Al Ayn",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 2321,
+  "population_2025": 49578,
+  "neighbours": [
+   "القطن",
+   "دوعن",
+   "حريضه",
+   "رخيه",
+   "ساه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1723",
+  "name_ar": "وضره",
+  "name_en": "Wadrah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 24,
+  "population_2025": 18887,
+  "neighbours": [
+   "بني قيس الطور",
+   "كعيدنه",
+   "مبين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1415",
+  "name_ar": "ولدربيع",
+  "name_en": "Wald Rabi'",
+  "governorate_ar": "البيضاء",
+  "governorate_en": "Al Bayda",
+  "area_km2": 750,
+  "population_2025": 29082,
+  "neighbours": [
+   "العرش",
+   "ميفعة عنس (ذمار)",
+   "الحداء (ذمار)",
+   "القريشيه",
+   "بني ضبيان (صنعاء)",
+   "رحبه (مارب)",
+   "ماهليه (مارب)",
+   "رداع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1730",
+  "name_ar": "وشحه",
+  "name_en": "Washhah",
+  "governorate_ar": "حجه",
+  "governorate_en": "Hajjah",
+  "area_km2": 202,
+  "population_2025": 107310,
+  "neighbours": [
+   "بكيل المير",
+   "قاره",
+   "مستباء"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2006",
+  "name_ar": "وصاب العالي",
+  "name_en": "Wusab Al Aali",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 590,
+  "population_2025": 286138,
+  "neighbours": [
+   "الجعفريه (ريمه)",
+   "القفر (اب)",
+   "حزم العدين (اب)",
+   "كسمه (ريمه)",
+   "مزهر (ريمه)",
+   "عتمه",
+   "وصاب السافل"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2007",
+  "name_ar": "وصاب السافل",
+  "name_en": "Wusab As Safil",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 829,
+  "population_2025": 259728,
+  "neighbours": [
+   "الجعفريه (ريمه)",
+   "الجراحي (الحديده)",
+   "جبل راس (الحديده)",
+   "وصاب العالي"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1923",
+  "name_ar": "يبعث",
+  "name_en": "Yab'uth",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 1455,
+  "population_2025": 17263,
+  "neighbours": [
+   "الضليعه",
+   "الروضه (شبوه)",
+   "الطلح (شبوه)",
+   "حجر",
+   "ميفعه (شبوه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2502",
+  "name_ar": "يافع",
+  "name_en": "Yafi'",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 241,
+  "population_2025": 117525,
+  "neighbours": [
+   "الحد",
+   "المفلحي",
+   "يهر",
+   "سباح (ابين)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2504",
+  "name_ar": "يهر",
+  "name_en": "Yahr",
+  "governorate_ar": "لحج",
+  "governorate_en": "Lahj",
+  "area_km2": 224,
+  "population_2025": 59064,
+  "neighbours": [
+   "المفلحي",
+   "يافع",
+   "حبيل جبر",
+   "حالمين",
+   "رصد (ابين)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1102",
+  "name_ar": "يريم",
+  "name_en": "Yarim",
+  "governorate_ar": "اب",
+  "governorate_en": "Ibb",
+  "area_km2": 557,
+  "population_2025": 269998,
+  "neighbours": [
+   "المخادر",
+   "القفر",
+   "مغرب عنس (ذمار)",
+   "عنس (ذمار)",
+   "الرضمه",
+   "السده"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1824",
+  "name_ar": "زبيد",
+  "name_en": "Zabid",
+  "governorate_ar": "الحديده",
+  "governorate_en": "Al Hodeidah",
+  "area_km2": 591,
+  "population_2025": 285147,
+  "neighbours": [
+   "الجراحي",
+   "التحيتا",
+   "بيت الفقيه"
+  ],
+  "already_reviewed": true
+ },
+ {
+  "id": "YE1904",
+  "name_ar": "زمخ ومنوخ",
+  "name_en": "Zamakh wa Manwokh",
+  "governorate_ar": "حضرموت",
+  "governorate_en": "Hadramawt",
+  "area_km2": 21963,
+  "population_2025": 2626,
+  "neighbours": [
+   "العبر",
+   "القف",
+   "حجر الصيعر",
+   "خب و الشعف (الجوف)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1210",
+  "name_ar": "زنجبار",
+  "name_en": "Zinjibar",
+  "governorate_ar": "ابين",
+  "governorate_en": "Abyan",
+  "area_km2": 127,
+  "population_2025": 39124,
+  "neighbours": [
+   "خنفر"
+  ],
+  "already_reviewed": false
+ }
+]

@@ -1,0 +1,842 @@
+[
+ {
+  "id": "YE1521",
+  "name_ar": "المعافر",
+  "name_en": "Al Ma'afer",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 349,
+  "population_2025": 167909,
+  "neighbours": [
+   "المسراخ",
+   "جبل حبشي",
+   "مقبنه",
+   "الوازعيه",
+   "الشمايتين",
+   "المواسط",
+   "سامع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1505",
+  "name_ar": "المخاء",
+  "name_en": "Al Makha",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 1588,
+  "population_2025": 97303,
+  "neighbours": [
+   "الخوخه (الحديده)",
+   "باب المندب",
+   "موزع",
+   "مقبنه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1522",
+  "name_ar": "المواسط",
+  "name_en": "Al Mawasit",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 216,
+  "population_2025": 176527,
+  "neighbours": [
+   "المعافر",
+   "سامع",
+   "المقاطره (لحج)",
+   "الشمايتين",
+   "حيفان",
+   "الصلو"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1511",
+  "name_ar": "المسراخ",
+  "name_en": "Al Misrakh",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 96,
+  "population_2025": 153504,
+  "neighbours": [
+   "المعافر",
+   "صبر الموادم",
+   "خدير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1517",
+  "name_ar": "المظفر",
+  "name_en": "Al Mudhaffar",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 18,
+  "population_2025": 262078,
+  "neighbours": [
+   "التعزيه",
+   "صبر الموادم",
+   "القاهره"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1518",
+  "name_ar": "القاهره",
+  "name_en": "Al Qahirah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 10,
+  "population_2025": 226509,
+  "neighbours": [
+   "المظفر",
+   "التعزيه",
+   "صاله"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1515",
+  "name_ar": "الوازعيه",
+  "name_en": "Al Wazi'yah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 408,
+  "population_2025": 41337,
+  "neighbours": [
+   "المعافر",
+   "الشمايتين",
+   "المضاربة و العاره (لحج)",
+   "موزع",
+   "باب المندب"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1513",
+  "name_ar": "الصلو",
+  "name_en": "As Silw",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 83,
+  "population_2025": 75501,
+  "neighbours": [
+   "المواسط",
+   "سامع",
+   "حيفان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1514",
+  "name_ar": "الشمايتين",
+  "name_en": "Ash Shamayatayn",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 638,
+  "population_2025": 232709,
+  "neighbours": [
+   "المعافر",
+   "الوازعيه",
+   "المضاربة و العاره (لحج)",
+   "المقاطره (لحج)",
+   "المواسط"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1520",
+  "name_ar": "التعزيه",
+  "name_en": "At Ta'iziyah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 614,
+  "population_2025": 302782,
+  "neighbours": [
+   "المظفر",
+   "القاهره",
+   "السياني (اب)",
+   "ذي السفال (اب)",
+   "مذيخره (اب)",
+   "شرعب السلام",
+   "شرعب الرونه",
+   "مقبنه",
+   "صبر الموادم",
+   "ماويه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1506",
+  "name_ar": "باب المندب",
+  "name_en": "Dhubab",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 1605,
+  "population_2025": 28262,
+  "neighbours": [
+   "المضاربة و العاره (لحج)",
+   "المخاء",
+   "الوازعيه",
+   "موزع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1512",
+  "name_ar": "خدير",
+  "name_en": "Dimnat Khadir",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 462,
+  "population_2025": 172006,
+  "neighbours": [
+   "المسراخ",
+   "صبر الموادم",
+   "القبيطه (لحج)",
+   "ماويه",
+   "سامع",
+   "حيفان"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1516",
+  "name_ar": "حيفان",
+  "name_en": "Hayfan",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 187,
+  "population_2025": 114919,
+  "neighbours": [
+   "المقاطره (لحج)",
+   "المواسط",
+   "القبيطه (لحج)",
+   "الصلو",
+   "خدير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1508",
+  "name_ar": "جبل حبشي",
+  "name_en": "Jabal Habashi",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 312,
+  "population_2025": 182426,
+  "neighbours": [
+   "المعافر",
+   "مقبنه",
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1504",
+  "name_ar": "مقبنه",
+  "name_en": "Maqbanah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 1223,
+  "population_2025": 285100,
+  "neighbours": [
+   "المعافر",
+   "المخاء",
+   "التعزيه",
+   "حيس (الحديده)",
+   "جبل حبشي",
+   "موزع",
+   "شرعب الرونه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1509",
+  "name_ar": "مشرعة وحدنان",
+  "name_en": "Mashr'ah Wa Hadnan",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 14,
+  "population_2025": 38039,
+  "neighbours": [
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1501",
+  "name_ar": "ماويه",
+  "name_en": "Mawiyah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 710,
+  "population_2025": 199315,
+  "neighbours": [
+   "الحشاء (الضالع)",
+   "المسيمير (لحج)",
+   "القبيطه (لحج)",
+   "السبره (اب)",
+   "السياني (اب)",
+   "التعزيه",
+   "خدير",
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1507",
+  "name_ar": "موزع",
+  "name_en": "Mawza'",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 663,
+  "population_2025": 54779,
+  "neighbours": [
+   "المخاء",
+   "الوازعيه",
+   "باب المندب",
+   "مقبنه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1510",
+  "name_ar": "صبر الموادم",
+  "name_en": "Sabir Al Mawadim",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 190,
+  "population_2025": 167756,
+  "neighbours": [
+   "المسراخ",
+   "خدير",
+   "المظفر",
+   "التعزيه",
+   "جبل حبشي",
+   "مشرعة وحدنان",
+   "ماويه",
+   "صاله"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1519",
+  "name_ar": "صاله",
+  "name_en": "Salah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 18,
+  "population_2025": 232988,
+  "neighbours": [
+   "القاهره",
+   "صبر الموادم"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1523",
+  "name_ar": "سامع",
+  "name_en": "Sami'",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 60,
+  "population_2025": 62963,
+  "neighbours": [
+   "المعافر",
+   "المواسط",
+   "الصلو",
+   "خدير"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1503",
+  "name_ar": "شرعب الرونه",
+  "name_en": "Shar'ab Ar Rawnah",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 424,
+  "population_2025": 223776,
+  "neighbours": [
+   "التعزيه",
+   "فرع العدين (اب)",
+   "مقبنه",
+   "شرعب السلام"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE1502",
+  "name_ar": "شرعب السلام",
+  "name_en": "Shar'ab As Salam",
+  "governorate_ar": "تعز",
+  "governorate_en": "Ta'iz",
+  "area_km2": 190,
+  "population_2025": 167511,
+  "neighbours": [
+   "العدين (اب)",
+   "مذيخره (اب)",
+   "التعزيه",
+   "فرع العدين (اب)",
+   "شرعب الرونه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2207",
+  "name_ar": "الظاهر",
+  "name_en": "Adh Dhahir",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 208,
+  "population_2025": 42617,
+  "neighbours": [
+   "رازح",
+   "شداء",
+   "بكيل المير (حجه)",
+   "حيدان",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2213",
+  "name_ar": "الحشوه",
+  "name_en": "Al Hashwah",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 404,
+  "population_2025": 28291,
+  "neighbours": [
+   "برط العنان (الجوف)",
+   "كتاف والبقع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2212",
+  "name_ar": "الصفراء",
+  "name_en": "As Safra",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 1527,
+  "population_2025": 99322,
+  "neighbours": [
+   "باقم",
+   "مجز",
+   "سحار",
+   "صعده",
+   "حرف سفيان (عمران)",
+   "خراب المراشى (الجوف)",
+   "برط العنان (الجوف)",
+   "كتاف والبقع"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2201",
+  "name_ar": "باقم",
+  "name_en": "Baqim",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 866,
+  "population_2025": 45290,
+  "neighbours": [
+   "الصفراء",
+   "قطابر",
+   "مجز"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2204",
+  "name_ar": "غمر",
+  "name_en": "Ghamr",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 135,
+  "population_2025": 38966,
+  "neighbours": [
+   "منبه",
+   "رازح",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2208",
+  "name_ar": "حيدان",
+  "name_en": "Haydan",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 450,
+  "population_2025": 119146,
+  "neighbours": [
+   "الظاهر",
+   "بكيل المير (حجه)",
+   "حرف سفيان (عمران)",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2214",
+  "name_ar": "كتاف والبقع",
+  "name_en": "Kitaf wa Al Boqa'",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 5388,
+  "population_2025": 84974,
+  "neighbours": [
+   "الحشوه",
+   "برط العنان (الجوف)",
+   "الصفراء",
+   "خب و الشعف (الجوف)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2210",
+  "name_ar": "مجز",
+  "name_en": "Majz",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 1093,
+  "population_2025": 135148,
+  "neighbours": [
+   "الصفراء",
+   "سحار",
+   "باقم",
+   "قطابر",
+   "منبه",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2203",
+  "name_ar": "منبه",
+  "name_en": "Monabbih",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 441,
+  "population_2025": 102907,
+  "neighbours": [
+   "غمر",
+   "مجز",
+   "قطابر"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2202",
+  "name_ar": "قطابر",
+  "name_en": "Qatabir",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 202,
+  "population_2025": 46107,
+  "neighbours": [
+   "باقم",
+   "مجز",
+   "منبه"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2205",
+  "name_ar": "رازح",
+  "name_en": "Razih",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 220,
+  "population_2025": 123924,
+  "neighbours": [
+   "الظاهر",
+   "غمر",
+   "شداء",
+   "ساقين"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2215",
+  "name_ar": "صعده",
+  "name_en": "Sa'dah",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 46,
+  "population_2025": 112395,
+  "neighbours": [
+   "الصفراء",
+   "سحار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2211",
+  "name_ar": "سحار",
+  "name_en": "Sahar",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 926,
+  "population_2025": 262061,
+  "neighbours": [
+   "الصفراء",
+   "مجز",
+   "ساقين",
+   "صعده"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2209",
+  "name_ar": "ساقين",
+  "name_en": "Saqin",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 643,
+  "population_2025": 103854,
+  "neighbours": [
+   "الظاهر",
+   "بكيل المير (حجه)",
+   "حرف سفيان (عمران)",
+   "حيدان",
+   "غمر",
+   "مجز",
+   "سحار",
+   "رازح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2206",
+  "name_ar": "شداء",
+  "name_en": "Shada'a",
+  "governorate_ar": "صعده",
+  "governorate_en": "Sa'dah",
+  "area_km2": 74,
+  "population_2025": 20999,
+  "neighbours": [
+   "الظاهر",
+   "رازح"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2001",
+  "name_ar": "الحداء",
+  "name_en": "Al Hada",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 1609,
+  "population_2025": 250544,
+  "neighbours": [
+   "الحصن (صنعاء)",
+   "بلاد الروس (صنعاء)",
+   "جهران",
+   "مدينة ذمار",
+   "ميفعة عنس",
+   "ولدربيع (البيضاء)",
+   "بني ضبيان (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2012",
+  "name_ar": "المنار",
+  "name_en": "Al Manar",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 365,
+  "population_2025": 86350,
+  "neighbours": [
+   "ضوران انس",
+   "جبل الشرق",
+   "عتمه",
+   "مغرب عنس",
+   "عنس",
+   "جهران"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2010",
+  "name_ar": "عنس",
+  "name_en": "Ans",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 810,
+  "population_2025": 208391,
+  "neighbours": [
+   "المنار",
+   "جهران",
+   "مغرب عنس",
+   "يريم (اب)",
+   "الرضمه (اب)",
+   "صباح (البيضاء)",
+   "ميفعة عنس",
+   "مدينة ذمار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2011",
+  "name_ar": "ضوران انس",
+  "name_en": "Dawran Anis",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 994,
+  "population_2025": 212418,
+  "neighbours": [
+   "الحيمة الخارجيه (صنعاء)",
+   "المنار",
+   "جبل الشرق",
+   "جهران",
+   "بني مطر (صنعاء)",
+   "بلاد الروس (صنعاء)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2008",
+  "name_ar": "مدينة ذمار",
+  "name_en": "Dhamar City",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 239,
+  "population_2025": 304791,
+  "neighbours": [
+   "الحداء",
+   "عنس",
+   "ميفعة عنس",
+   "جهران"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2003",
+  "name_ar": "جبل الشرق",
+  "name_en": "Jabal Ash sharq",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 450,
+  "population_2025": 107983,
+  "neighbours": [
+   "المنار",
+   "ضوران انس",
+   "عتمه",
+   "السلفيه (ريمه)"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2002",
+  "name_ar": "جهران",
+  "name_en": "Jahran",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 364,
+  "population_2025": 151608,
+  "neighbours": [
+   "الحداء",
+   "المنار",
+   "عنس",
+   "ضوران انس",
+   "بلاد الروس (صنعاء)",
+   "مدينة ذمار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2004",
+  "name_ar": "مغرب عنس",
+  "name_en": "Maghrib Ans",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 246,
+  "population_2025": 92843,
+  "neighbours": [
+   "المنار",
+   "عتمه",
+   "القفر (اب)",
+   "يريم (اب)",
+   "عنس"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2009",
+  "name_ar": "ميفعة عنس",
+  "name_en": "Mayfa'at Ans",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 630,
+  "population_2025": 106219,
+  "neighbours": [
+   "العرش (البيضاء)",
+   "ولدربيع (البيضاء)",
+   "صباح (البيضاء)",
+   "الحداء",
+   "عنس",
+   "مدينة ذمار"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2005",
+  "name_ar": "عتمه",
+  "name_en": "Otmah",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 445,
+  "population_2025": 252988,
+  "neighbours": [
+   "المنار",
+   "جبل الشرق",
+   "مغرب عنس",
+   "القفر (اب)",
+   "مزهر (ريمه)",
+   "وصاب العالي"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2006",
+  "name_ar": "وصاب العالي",
+  "name_en": "Wusab Al Aali",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 590,
+  "population_2025": 286138,
+  "neighbours": [
+   "الجعفريه (ريمه)",
+   "القفر (اب)",
+   "حزم العدين (اب)",
+   "كسمه (ريمه)",
+   "مزهر (ريمه)",
+   "عتمه",
+   "وصاب السافل"
+  ],
+  "already_reviewed": false
+ },
+ {
+  "id": "YE2007",
+  "name_ar": "وصاب السافل",
+  "name_en": "Wusab As Safil",
+  "governorate_ar": "ذمار",
+  "governorate_en": "Dhamar",
+  "area_km2": 829,
+  "population_2025": 259728,
+  "neighbours": [
+   "الجعفريه (ريمه)",
+   "الجراحي (الحديده)",
+   "جبل راس (الحديده)",
+   "وصاب العالي"
+  ],
+  "already_reviewed": false
+ }
+]
