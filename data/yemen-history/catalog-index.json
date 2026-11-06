@@ -1,0 +1,1301 @@
+{
+ "eras": [
+  {
+   "id": "origins",
+   "title": "ما قبل التاريخ",
+   "period": "قبل قيام الممالك",
+   "summary": "الاستيطان القديم والزراعة ونشأة المجتمعات قبل تبلور الدول المكتوبة.",
+   "start": -12000,
+   "end": -1200
+  },
+  {
+   "id": "ancient",
+   "title": "الممالك القديمة",
+   "period": "نحو 1200 ق.م – 630م",
+   "summary": "الممالك المتزامنة، وشبكات البخور والزراعة والنقوش والعمارة.",
+   "start": -1200,
+   "end": 630
+  },
+  {
+   "id": "islam",
+   "title": "الإسلام والدول الأولى",
+   "period": "القرنان 7–10م",
+   "summary": "التحول الديني والسياسي ونشوء المراكز الحضارية المحلية.",
+   "start": 630,
+   "end": 1000
+  },
+  {
+   "id": "dynasties",
+   "title": "الدول الإسلامية",
+   "period": "القرنان 10–16م",
+   "summary": "السلالات والمراكز المتعددة في الجبال وتهامة وعدن وحضرموت.",
+   "start": 1000,
+   "end": 1550
+  },
+  {
+   "id": "empires",
+   "title": "العثمانيون والبريطانيون",
+   "period": "القرنان 16–20م",
+   "summary": "سلطات متداخلة وتطور الموانئ والعمران والهجرة والتجارة.",
+   "start": 1500,
+   "end": 1967
+  },
+  {
+   "id": "modern",
+   "title": "اليمن المعاصر",
+   "period": "من القرن 20م",
+   "summary": "الثورات والجمهوريتان والاستقلال والوحدة والتحولات اللاحقة.",
+   "start": 1918,
+   "end": 2026
+  }
+ ],
+ "kinds": {
+  "state": "ممالك ودول",
+  "event": "أحداث مفصلية",
+  "society": "الحياة والمجتمع",
+  "heritage": "آثار ووثائق",
+  "place": "مدن ومواقع",
+  "theme": "موضوعات تاريخية"
+ },
+ "entries": [
+  {
+   "slug": "first-settlements",
+   "title": "الإنسان والاستيطان المبكر",
+   "era": "origins",
+   "kind": "society",
+   "year": -7000
+  },
+  {
+   "slug": "early-irrigation",
+   "title": "الزراعة والري قبل الدول",
+   "era": "origins",
+   "kind": "society",
+   "year": -1200
+  },
+  {
+   "slug": "saba",
+   "title": "مملكة سبأ",
+   "era": "ancient",
+   "kind": "state",
+   "year": -800
+  },
+  {
+   "slug": "qataban",
+   "title": "مملكة قتبان",
+   "era": "ancient",
+   "kind": "state",
+   "year": -600
+  },
+  {
+   "slug": "hadramawt-kingdom",
+   "title": "مملكة حضرموت القديمة",
+   "era": "ancient",
+   "kind": "state",
+   "year": -500
+  },
+  {
+   "slug": "main",
+   "title": "مملكة معين",
+   "era": "ancient",
+   "kind": "state",
+   "year": -500
+  },
+  {
+   "slug": "himyar",
+   "title": "مملكة حمير",
+   "era": "ancient",
+   "kind": "state",
+   "year": 100
+  },
+  {
+   "slug": "incense-trade",
+   "title": "طرق البخور والتجارة",
+   "era": "ancient",
+   "kind": "theme",
+   "year": -700
+  },
+  {
+   "slug": "marib-dam",
+   "title": "سد مأرب وأنظمة الري",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -500
+  },
+  {
+   "slug": "ancient-inscriptions",
+   "title": "النقوش العربية الجنوبية",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -500
+  },
+  {
+   "slug": "late-antiquity",
+   "title": "اليمن في أواخر العصور القديمة",
+   "era": "ancient",
+   "kind": "event",
+   "year": 500
+  },
+  {
+   "slug": "arrival-islam",
+   "title": "دخول الإسلام إلى اليمن",
+   "era": "islam",
+   "kind": "event",
+   "year": 630
+  },
+  {
+   "slug": "zabid",
+   "title": "زبيد مركزاً علمياً وحضرياً",
+   "era": "islam",
+   "kind": "place",
+   "year": 820
+  },
+  {
+   "slug": "zaydi-imamate",
+   "title": "نشأة الإمامة الزيدية",
+   "era": "islam",
+   "kind": "state",
+   "year": 897
+  },
+  {
+   "slug": "sulayhids",
+   "title": "الدولة الصليحية",
+   "era": "dynasties",
+   "kind": "state",
+   "year": 1045
+  },
+  {
+   "slug": "arwa",
+   "title": "الملكة أروى بنت أحمد",
+   "era": "dynasties",
+   "kind": "event",
+   "year": 1067
+  },
+  {
+   "slug": "ayyubids",
+   "title": "الأيوبيون في اليمن",
+   "era": "dynasties",
+   "kind": "state",
+   "year": 1173
+  },
+  {
+   "slug": "rasulids",
+   "title": "الدولة الرسولية",
+   "era": "dynasties",
+   "kind": "state",
+   "year": 1229
+  },
+  {
+   "slug": "tahirids",
+   "title": "الدولة الطاهرية",
+   "era": "dynasties",
+   "kind": "state",
+   "year": 1454
+  },
+  {
+   "slug": "ottoman-first",
+   "title": "الحضور العثماني الأول",
+   "era": "empires",
+   "kind": "state",
+   "year": 1538
+  },
+  {
+   "slug": "qasimi-state",
+   "title": "الدولة القاسمية",
+   "era": "empires",
+   "kind": "state",
+   "year": 1636
+  },
+  {
+   "slug": "ottoman-second",
+   "title": "الحضور العثماني الثاني",
+   "era": "empires",
+   "kind": "state",
+   "year": 1849
+  },
+  {
+   "slug": "aden-british",
+   "title": "عدن في العهد البريطاني",
+   "era": "empires",
+   "kind": "state",
+   "year": 1839
+  },
+  {
+   "slug": "shibam-city",
+   "title": "شبام حضرموت: مدينة الطين",
+   "era": "empires",
+   "kind": "place",
+   "year": 1500
+  },
+  {
+   "slug": "hadrami-trade",
+   "title": "تجارة الحضارمة والهجرة",
+   "era": "empires",
+   "kind": "society",
+   "year": 1800
+  },
+  {
+   "slug": "northern-independence",
+   "title": "شمال اليمن بعد الحرب العالمية الأولى",
+   "era": "modern",
+   "kind": "event",
+   "year": 1918
+  },
+  {
+   "slug": "1948-events",
+   "title": "أحداث عام 1948م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1948
+  },
+  {
+   "slug": "revolution-1962",
+   "title": "ثورة 26 سبتمبر",
+   "era": "modern",
+   "kind": "event",
+   "year": 1962
+  },
+  {
+   "slug": "independence-1967",
+   "title": "استقلال جنوب اليمن",
+   "era": "modern",
+   "kind": "event",
+   "year": 1967
+  },
+  {
+   "slug": "unity-1990",
+   "title": "إعلان الوحدة اليمنية",
+   "era": "modern",
+   "kind": "event",
+   "year": 1990
+  },
+  {
+   "slug": "modern-transitions",
+   "title": "التحولات السياسية بعد الوحدة",
+   "era": "modern",
+   "kind": "theme",
+   "year": 2011
+  },
+  {
+   "slug": "whc-shibam-1982",
+   "title": "شبام حضرموت وتسجيلها في التراث العالمي",
+   "era": "modern",
+   "kind": "event",
+   "year": 1982
+  },
+  {
+   "slug": "whc-sanaa-1986",
+   "title": "صنعاء القديمة على قائمة التراث العالمي",
+   "era": "modern",
+   "kind": "event",
+   "year": 1986
+  },
+  {
+   "slug": "whc-zabid-1993",
+   "title": "زبيد: مدينة علم وعمران مسجلة عالميًا",
+   "era": "modern",
+   "kind": "event",
+   "year": 1993
+  },
+  {
+   "slug": "whc-socotra-2008",
+   "title": "أرخبيل سقطرى ضمن التراث الطبيعي العالمي",
+   "era": "modern",
+   "kind": "event",
+   "year": 2008
+  },
+  {
+   "slug": "whc-marib-2023",
+   "title": "معالم مملكة سبأ في مأرب: إدراج عالمي",
+   "era": "modern",
+   "kind": "event",
+   "year": 2023
+  },
+  {
+   "slug": "bab-mandab-prehistory",
+   "title": "باب المندب وما قبل التاريخ",
+   "era": "origins",
+   "kind": "theme",
+   "year": -12000
+  },
+  {
+   "slug": "holocene-sites",
+   "title": "المواقع اليمنية في الهولوسين المبكر",
+   "era": "origins",
+   "kind": "heritage",
+   "year": -9000
+  },
+  {
+   "slug": "stone-implements",
+   "title": "صناعة الأدوات الحجرية القديمة",
+   "era": "origins",
+   "kind": "society",
+   "year": -8500
+  },
+  {
+   "slug": "wadi-sana",
+   "title": "وادي سنا وموقع منايزة",
+   "era": "origins",
+   "kind": "place",
+   "year": -7000
+  },
+  {
+   "slug": "neolithic-points",
+   "title": "رؤوس السهام الحجرية المنحوتة",
+   "era": "origins",
+   "kind": "heritage",
+   "year": -6500
+  },
+  {
+   "slug": "prehistoric-obsidian",
+   "title": "حجر السبج في شبكات التبادل القديمة",
+   "era": "origins",
+   "kind": "theme",
+   "year": -6500
+  },
+  {
+   "slug": "pastoral-hadramawt",
+   "title": "الرعي في حضرموت قبل التدوين",
+   "era": "origins",
+   "kind": "society",
+   "year": -5000
+  },
+  {
+   "slug": "hadramawt-stone-monuments",
+   "title": "المنشآت الحجرية القديمة في حضرموت",
+   "era": "origins",
+   "kind": "heritage",
+   "year": -4500
+  },
+  {
+   "slug": "rawk-statuettes",
+   "title": "تماثيل روك البشرية قبل التاريخ",
+   "era": "origins",
+   "kind": "heritage",
+   "year": -4000
+  },
+  {
+   "slug": "marib-pre-saba",
+   "title": "مأرب قبل ظهور سبأ",
+   "era": "origins",
+   "kind": "heritage",
+   "year": -3600
+  },
+  {
+   "slug": "prehistoric-climate",
+   "title": "المناخ القديم وأودية اليمن",
+   "era": "origins",
+   "kind": "theme",
+   "year": -3500
+  },
+  {
+   "slug": "socotra-rock-art",
+   "title": "الفن الصخري القديم في سقطرى",
+   "era": "origins",
+   "kind": "heritage",
+   "year": -2000
+  },
+  {
+   "slug": "sirwah",
+   "title": "صرواح: المدينة السبئية القديمة",
+   "era": "ancient",
+   "kind": "place",
+   "year": -800
+  },
+  {
+   "slug": "awam-temple",
+   "title": "معبد أوام في مأرب",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -700
+  },
+  {
+   "slug": "baran-temple",
+   "title": "معبد برآن «عرش بلقيس»",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -650
+  },
+  {
+   "slug": "bilqis-traditions",
+   "title": "بلقيس وملكة سبأ بين الرواية والأثر",
+   "era": "ancient",
+   "kind": "theme",
+   "year": -750
+  },
+  {
+   "slug": "south-arabian-alphabet",
+   "title": "الخط المسند والكتابة العربية الجنوبية",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -800
+  },
+  {
+   "slug": "ancient-royal-titles",
+   "title": "الألقاب الملكية ونظام الحكم في الممالك",
+   "era": "ancient",
+   "kind": "theme",
+   "year": -700
+  },
+  {
+   "slug": "ancient-market-routes",
+   "title": "طرق القوافل القديمة",
+   "era": "ancient",
+   "kind": "theme",
+   "year": -650
+  },
+  {
+   "slug": "marib-walls",
+   "title": "أسوار مأرب ومدن سبأ",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -650
+  },
+  {
+   "slug": "marib-canals",
+   "title": "قنوات الري وتوزيع مياه السيول في مأرب",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -600
+  },
+  {
+   "slug": "awssan",
+   "title": "مملكة أوسان",
+   "era": "ancient",
+   "kind": "state",
+   "year": -650
+  },
+  {
+   "slug": "timna",
+   "title": "تمنع: مركز قتبان",
+   "era": "ancient",
+   "kind": "place",
+   "year": -600
+  },
+  {
+   "slug": "hayd-bin-aqil",
+   "title": "حيد بن عقيل وآثار قتبان",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -550
+  },
+  {
+   "slug": "qatabanian-law",
+   "title": "الكتابة والقانون في قتبان",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -500
+  },
+  {
+   "slug": "barqish",
+   "title": "براقش: مدينة الجوف القديمة",
+   "era": "ancient",
+   "kind": "place",
+   "year": -500
+  },
+  {
+   "slug": "main-cities-jawf",
+   "title": "مدن معين في الجوف",
+   "era": "ancient",
+   "kind": "place",
+   "year": -500
+  },
+  {
+   "slug": "shabwa-capital",
+   "title": "شبوة عاصمة حضرموت القديمة",
+   "era": "ancient",
+   "kind": "place",
+   "year": -500
+  },
+  {
+   "slug": "qanah-port",
+   "title": "ميناء قنا القديم على بحر العرب",
+   "era": "ancient",
+   "kind": "place",
+   "year": -300
+  },
+  {
+   "slug": "hadramawt-coronation",
+   "title": "نقوش العقلة وتتويج الملوك",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -200
+  },
+  {
+   "slug": "ancient-camel-caravans",
+   "title": "الإبل والتجارة البرية في اليمن القديم",
+   "era": "ancient",
+   "kind": "society",
+   "year": -300
+  },
+  {
+   "slug": "ancient-incense-culture",
+   "title": "البخور في البيوت والمعابد",
+   "era": "ancient",
+   "kind": "society",
+   "year": -300
+  },
+  {
+   "slug": "south-arabian-sculpture",
+   "title": "النحت والتماثيل الجنائزية في اليمن القديم",
+   "era": "ancient",
+   "kind": "heritage",
+   "year": -200
+  },
+  {
+   "slug": "ancient-temple-economy",
+   "title": "المعابد والاقتصاد في الممالك القديمة",
+   "era": "ancient",
+   "kind": "theme",
+   "year": -150
+  },
+  {
+   "slug": "himyar-zafar",
+   "title": "ظفار الحميرية: موقع الحكم القديم",
+   "era": "ancient",
+   "kind": "place",
+   "year": 100
+  },
+  {
+   "slug": "ancient-himyar-water",
+   "title": "الري والزراعة زمن حمير",
+   "era": "ancient",
+   "kind": "society",
+   "year": 200
+  },
+  {
+   "slug": "ancient-sea-trade",
+   "title": "التجارة البحرية من جنوب الجزيرة",
+   "era": "ancient",
+   "kind": "theme",
+   "year": 200
+  },
+  {
+   "slug": "himyar-religious-change",
+   "title": "التغير الديني في أواخر حمير",
+   "era": "ancient",
+   "kind": "theme",
+   "year": 400
+  },
+  {
+   "slug": "sanaa-before-islam",
+   "title": "صنعاء قبل الإسلام",
+   "era": "ancient",
+   "kind": "place",
+   "year": 200
+  },
+  {
+   "slug": "abyssinian-influence",
+   "title": "الحضور الحبشي في اليمن القديم المتأخر",
+   "era": "ancient",
+   "kind": "event",
+   "year": 525
+  },
+  {
+   "slug": "arabia-felix",
+   "title": "اسم العربية السعيدة في المصادر الكلاسيكية",
+   "era": "ancient",
+   "kind": "theme",
+   "year": 100
+  },
+  {
+   "slug": "islamic-sanaa",
+   "title": "صنعاء في القرنين الأولين للإسلام",
+   "era": "islam",
+   "kind": "place",
+   "year": 650
+  },
+  {
+   "slug": "great-mosque-sanaa",
+   "title": "الجامع الكبير بصنعاء",
+   "era": "islam",
+   "kind": "heritage",
+   "year": 670
+  },
+  {
+   "slug": "early-islamic-routes",
+   "title": "طرق الحج والتجارة في اليمن الإسلامي المبكر",
+   "era": "islam",
+   "kind": "theme",
+   "year": 700
+  },
+  {
+   "slug": "islamic-coastal-towns",
+   "title": "مدن تهامة في القرون الإسلامية الأولى",
+   "era": "islam",
+   "kind": "society",
+   "year": 750
+  },
+  {
+   "slug": "yu-firids",
+   "title": "الدولة اليعفرية في المرتفعات",
+   "era": "islam",
+   "kind": "state",
+   "year": 847
+  },
+  {
+   "slug": "ziyadids",
+   "title": "الدولة الزيادية في زبيد",
+   "era": "islam",
+   "kind": "state",
+   "year": 820
+  },
+  {
+   "slug": "ashair-mosque",
+   "title": "مسجد الأشاعر في زبيد",
+   "era": "islam",
+   "kind": "heritage",
+   "year": 820
+  },
+  {
+   "slug": "zabid-markets",
+   "title": "الأسواق والأحياء في زبيد",
+   "era": "islam",
+   "kind": "society",
+   "year": 900
+  },
+  {
+   "slug": "zaydi-saada",
+   "title": "صعدة مركزاً دينياً وسياسياً",
+   "era": "islam",
+   "kind": "place",
+   "year": 897
+  },
+  {
+   "slug": "al-hadi-legacy",
+   "title": "الهادي إلى الحق ونشأة الإمامة",
+   "era": "islam",
+   "kind": "event",
+   "year": 897
+  },
+  {
+   "slug": "isma-ili-yemen",
+   "title": "البدايات المبكرة للدعوة الإسماعيلية في اليمن",
+   "era": "islam",
+   "kind": "theme",
+   "year": 900
+  },
+  {
+   "slug": "najahids",
+   "title": "الدولة النجاحية في تهامة",
+   "era": "islam",
+   "kind": "state",
+   "year": 1022
+  },
+  {
+   "slug": "islamic-manuscripts",
+   "title": "المخطوطات والتعليم في اليمن الإسلامي",
+   "era": "islam",
+   "kind": "heritage",
+   "year": 950
+  },
+  {
+   "slug": "zabid-scholars",
+   "title": "زبيد مدينة المدارس والعلماء",
+   "era": "islam",
+   "kind": "society",
+   "year": 950
+  },
+  {
+   "slug": "islamic-urban-houses",
+   "title": "البيت اليمني البرجي في العصور الإسلامية",
+   "era": "islam",
+   "kind": "society",
+   "year": 950
+  },
+  {
+   "slug": "isma-ilis-medieval",
+   "title": "الإسماعيلية والحياة الدينية في اليمن الوسيط",
+   "era": "dynasties",
+   "kind": "theme",
+   "year": 1000
+  },
+  {
+   "slug": "hatimids-sanaa",
+   "title": "بنو حاتم في صنعاء",
+   "era": "dynasties",
+   "kind": "state",
+   "year": 1100
+  },
+  {
+   "slug": "zurayids-aden",
+   "title": "بنو زريع في عدن",
+   "era": "dynasties",
+   "kind": "state",
+   "year": 1080
+  },
+  {
+   "slug": "medieval-aden-trade",
+   "title": "عدن مركزاً تجارياً في العصور الوسطى",
+   "era": "dynasties",
+   "kind": "society",
+   "year": 1100
+  },
+  {
+   "slug": "jibla-capital",
+   "title": "جبلة في العصر الصليحي",
+   "era": "dynasties",
+   "kind": "place",
+   "year": 1065
+  },
+  {
+   "slug": "queen-arwa-administration",
+   "title": "الإدارة السياسية في عصر الملكة أروى",
+   "era": "dynasties",
+   "kind": "theme",
+   "year": 1090
+  },
+  {
+   "slug": "sulayhid-urban-projects",
+   "title": "العمران في عصر الصليحيين",
+   "era": "dynasties",
+   "kind": "heritage",
+   "year": 1100
+  },
+  {
+   "slug": "ayyubid-takeover",
+   "title": "دخول الأيوبيين إلى اليمن",
+   "era": "dynasties",
+   "kind": "event",
+   "year": 1174
+  },
+  {
+   "slug": "ayyubid-fortifications",
+   "title": "القلاع والتحصينات في العصر الأيوبي",
+   "era": "dynasties",
+   "kind": "heritage",
+   "year": 1200
+  },
+  {
+   "slug": "rasulid-taiz",
+   "title": "تعز في العصر الرسولي",
+   "era": "dynasties",
+   "kind": "place",
+   "year": 1230
+  },
+  {
+   "slug": "rasulid-madrasas",
+   "title": "المدارس الرسولية في زبيد",
+   "era": "dynasties",
+   "kind": "heritage",
+   "year": 1250
+  },
+  {
+   "slug": "rasulid-learning",
+   "title": "العلوم والتأليف في العصر الرسولي",
+   "era": "dynasties",
+   "kind": "society",
+   "year": 1300
+  },
+  {
+   "slug": "rasulid-economy",
+   "title": "اقتصاد الدولة الرسولية",
+   "era": "dynasties",
+   "kind": "theme",
+   "year": 1300
+  },
+  {
+   "slug": "rasulid-ports",
+   "title": "الموانئ اليمنية زمن الرسوليين",
+   "era": "dynasties",
+   "kind": "society",
+   "year": 1350
+  },
+  {
+   "slug": "medieval-taiz-monuments",
+   "title": "مآثر تعز التاريخية",
+   "era": "dynasties",
+   "kind": "heritage",
+   "year": 1350
+  },
+  {
+   "slug": "medieval-imamate-competition",
+   "title": "تنافس الأئمة والسلطنات في اليمن الوسيط",
+   "era": "dynasties",
+   "kind": "theme",
+   "year": 1350
+  },
+  {
+   "slug": "tahirid-rada",
+   "title": "المدرسة العامرية في رداع",
+   "era": "dynasties",
+   "kind": "heritage",
+   "year": 1500
+  },
+  {
+   "slug": "mamluks-yemen",
+   "title": "المماليك في اليمن قبل العثمانيين",
+   "era": "dynasties",
+   "kind": "state",
+   "year": 1517
+  },
+  {
+   "slug": "medieval-agriculture",
+   "title": "المدرجات الزراعية والقرى في العصور الوسطى",
+   "era": "dynasties",
+   "kind": "society",
+   "year": 1400
+  },
+  {
+   "slug": "medieval-haraz",
+   "title": "جبال حراز ومراكزها التاريخية",
+   "era": "dynasties",
+   "kind": "place",
+   "year": 1200
+  },
+  {
+   "slug": "shibam-kawkaban",
+   "title": "شبام كوكبان: عمران المرتفعات",
+   "era": "dynasties",
+   "kind": "place",
+   "year": 1350
+  },
+  {
+   "slug": "portuguese-red-sea",
+   "title": "التنافس البرتغالي على تجارة البحر الأحمر",
+   "era": "empires",
+   "kind": "event",
+   "year": 1510
+  },
+  {
+   "slug": "ottoman-tihama",
+   "title": "تهامة في الحكم العثماني الأول",
+   "era": "empires",
+   "kind": "place",
+   "year": 1538
+  },
+  {
+   "slug": "ottoman-sanaa",
+   "title": "صنعاء والتحولات العثمانية",
+   "era": "empires",
+   "kind": "event",
+   "year": 1550
+  },
+  {
+   "slug": "ottoman-taxation",
+   "title": "الإدارة والضرائب في اليمن العثماني",
+   "era": "empires",
+   "kind": "theme",
+   "year": 1570
+  },
+  {
+   "slug": "qasimi-rise",
+   "title": "صعود الإمام القاسم بن محمد",
+   "era": "empires",
+   "kind": "event",
+   "year": 1600
+  },
+  {
+   "slug": "ottoman-withdrawal-1635",
+   "title": "نهاية الوجود العثماني الأول",
+   "era": "empires",
+   "kind": "event",
+   "year": 1635
+  },
+  {
+   "slug": "qasimi-mocha-trade",
+   "title": "المخا وتجارة القهوة",
+   "era": "empires",
+   "kind": "place",
+   "year": 1650
+  },
+  {
+   "slug": "coffee-terraces",
+   "title": "زراعة البن في المرتفعات اليمنية",
+   "era": "empires",
+   "kind": "society",
+   "year": 1700
+  },
+  {
+   "slug": "red-sea-merchant-networks",
+   "title": "تجار اليمن والبحر الأحمر في العصر الحديث المبكر",
+   "era": "empires",
+   "kind": "society",
+   "year": 1700
+  },
+  {
+   "slug": "shaharah-bridge",
+   "title": "شهارة وجسرها التاريخي",
+   "era": "empires",
+   "kind": "heritage",
+   "year": 1700
+  },
+  {
+   "slug": "aden-1839",
+   "title": "احتلال بريطانيا لعدن عام 1839م",
+   "era": "empires",
+   "kind": "event",
+   "year": 1839
+  },
+  {
+   "slug": "aden-suez",
+   "title": "قناة السويس وتزايد أهمية عدن",
+   "era": "empires",
+   "kind": "event",
+   "year": 1869
+  },
+  {
+   "slug": "aden-port-life",
+   "title": "الحياة المدنية في عدن الاستعمارية",
+   "era": "empires",
+   "kind": "society",
+   "year": 1880
+  },
+  {
+   "slug": "southern-protectorates",
+   "title": "السلطنات والمشيخات والمحميات الجنوبية",
+   "era": "empires",
+   "kind": "state",
+   "year": 1880
+  },
+  {
+   "slug": "lahj-sultanate",
+   "title": "سلطنة لحج العبدلية",
+   "era": "empires",
+   "kind": "state",
+   "year": 1800
+  },
+  {
+   "slug": "hadramawt-sultanates",
+   "title": "السلطنات القعيطية والكثيرية في حضرموت",
+   "era": "empires",
+   "kind": "state",
+   "year": 1880
+  },
+  {
+   "slug": "tarim-scholarly-networks",
+   "title": "تريم وشبكات التعليم والهجرة",
+   "era": "empires",
+   "kind": "society",
+   "year": 1850
+  },
+  {
+   "slug": "second-ottoman-reforms",
+   "title": "الإصلاحات الإدارية العثمانية المتأخرة",
+   "era": "empires",
+   "kind": "theme",
+   "year": 1870
+  },
+  {
+   "slug": "imamate-ottoman-conflict",
+   "title": "الصراع بين الأئمة والعثمانيين قبل 1918م",
+   "era": "empires",
+   "kind": "event",
+   "year": 1904
+  },
+  {
+   "slug": "ottoman-end-1918",
+   "title": "انسحاب العثمانيين وتحوّل الشمال",
+   "era": "empires",
+   "kind": "event",
+   "year": 1918
+  },
+  {
+   "slug": "hadrami-migration-indonesia",
+   "title": "الهجرة الحضرمية إلى جنوب شرق آسيا",
+   "era": "empires",
+   "kind": "society",
+   "year": 1900
+  },
+  {
+   "slug": "mutawakkilite-kingdom",
+   "title": "المملكة المتوكلية اليمنية",
+   "era": "modern",
+   "kind": "state",
+   "year": 1918
+  },
+  {
+   "slug": "imam-yahya-rule",
+   "title": "حكم الإمام يحيى حميد الدين",
+   "era": "modern",
+   "kind": "theme",
+   "year": 1918
+  },
+  {
+   "slug": "north-south-political-divide",
+   "title": "نشأة المؤسسات السياسية في الشمال والجنوب",
+   "era": "modern",
+   "kind": "theme",
+   "year": 1920
+  },
+  {
+   "slug": "aden-labour-movement",
+   "title": "الحركة العمالية والنقابية في عدن",
+   "era": "modern",
+   "kind": "society",
+   "year": 1950
+  },
+  {
+   "slug": "free-yemenis",
+   "title": "حركة الأحرار اليمنيين والإصلاح",
+   "era": "modern",
+   "kind": "theme",
+   "year": 1940
+  },
+  {
+   "slug": "constitutional-revolution-1948",
+   "title": "ثورة الدستور عام 1948م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1948
+  },
+  {
+   "slug": "imam-ahmad-rule",
+   "title": "حكم الإمام أحمد بن يحيى",
+   "era": "modern",
+   "kind": "theme",
+   "year": 1948
+  },
+  {
+   "slug": "1955-coup",
+   "title": "محاولة الانقلاب عام 1955م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1955
+  },
+  {
+   "slug": "federation-south-arabia",
+   "title": "اتحاد الجنوب العربي",
+   "era": "modern",
+   "kind": "state",
+   "year": 1962
+  },
+  {
+   "slug": "north-1962-republic",
+   "title": "قيام الجمهورية العربية اليمنية",
+   "era": "modern",
+   "kind": "state",
+   "year": 1962
+  },
+  {
+   "slug": "north-civil-war",
+   "title": "الحرب الأهلية في شمال اليمن",
+   "era": "modern",
+   "kind": "event",
+   "year": 1962
+  },
+  {
+   "slug": "egyptian-involvement",
+   "title": "الدور المصري في حرب شمال اليمن",
+   "era": "modern",
+   "kind": "event",
+   "year": 1962
+  },
+  {
+   "slug": "14-october-1963",
+   "title": "بداية الكفاح المسلح في جنوب اليمن",
+   "era": "modern",
+   "kind": "event",
+   "year": 1963
+  },
+  {
+   "slug": "aden-emergency",
+   "title": "سنوات المواجهة في عدن قبل الاستقلال",
+   "era": "modern",
+   "kind": "event",
+   "year": 1963
+  },
+  {
+   "slug": "south-1967-republic",
+   "title": "جمهورية اليمن الجنوبية الشعبية",
+   "era": "modern",
+   "kind": "state",
+   "year": 1967
+  },
+  {
+   "slug": "north-sanaa-siege",
+   "title": "حصار صنعاء في الحرب الأهلية",
+   "era": "modern",
+   "kind": "event",
+   "year": 1967
+  },
+  {
+   "slug": "south-1969-correction",
+   "title": "التحول السياسي في جنوب اليمن عام 1969م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1969
+  },
+  {
+   "slug": "pdry-1970",
+   "title": "جمهورية اليمن الديمقراطية الشعبية",
+   "era": "modern",
+   "kind": "state",
+   "year": 1970
+  },
+  {
+   "slug": "north-1970-settlement",
+   "title": "نهاية مرحلة الحرب الأهلية في شمال اليمن",
+   "era": "modern",
+   "kind": "event",
+   "year": 1970
+  },
+  {
+   "slug": "north-south-war-1972",
+   "title": "المواجهات بين الشمال والجنوب عام 1972م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1972
+  },
+  {
+   "slug": "saleh-1978-presidency",
+   "title": "تولي علي عبد الله صالح حكم شمال اليمن",
+   "era": "modern",
+   "kind": "event",
+   "year": 1978
+  },
+  {
+   "slug": "north-south-war-1979",
+   "title": "تجدد الصراع بين الشمال والجنوب عام 1979م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1979
+  },
+  {
+   "slug": "dhamar-earthquake-1982",
+   "title": "زلزال ذمار عام 1982م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1982
+  },
+  {
+   "slug": "southern-crisis-1986",
+   "title": "أحداث يناير 1986م في جنوب اليمن",
+   "era": "modern",
+   "kind": "event",
+   "year": 1986
+  },
+  {
+   "slug": "constitution-1991",
+   "title": "دستور الجمهورية اليمنية بعد الوحدة",
+   "era": "modern",
+   "kind": "event",
+   "year": 1991
+  },
+  {
+   "slug": "multiparty-elections-1993",
+   "title": "الانتخابات البرلمانية عام 1993م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1993
+  },
+  {
+   "slug": "war-1994",
+   "title": "حرب صيف 1994م",
+   "era": "modern",
+   "kind": "event",
+   "year": 1994
+  },
+  {
+   "slug": "southern-question",
+   "title": "القضية الجنوبية بعد الوحدة",
+   "era": "modern",
+   "kind": "theme",
+   "year": 2007
+  },
+  {
+   "slug": "saada-wars",
+   "title": "حروب صعدة منذ 2004م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2004
+  },
+  {
+   "slug": "2011-protests",
+   "title": "احتجاجات اليمن عام 2011م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2011
+  },
+  {
+   "slug": "gcc-transition",
+   "title": "المبادرة الخليجية وانتقال السلطة",
+   "era": "modern",
+   "kind": "event",
+   "year": 2011
+  },
+  {
+   "slug": "hadi-2012",
+   "title": "انتخاب عبد ربه منصور هادي رئيساً انتقالياً",
+   "era": "modern",
+   "kind": "event",
+   "year": 2012
+  },
+  {
+   "slug": "national-dialogue-2013",
+   "title": "مؤتمر الحوار الوطني الشامل",
+   "era": "modern",
+   "kind": "event",
+   "year": 2013
+  },
+  {
+   "slug": "dialogue-outcomes-2014",
+   "title": "مخرجات الحوار الوطني وخطة الدولة",
+   "era": "modern",
+   "kind": "theme",
+   "year": 2014
+  },
+  {
+   "slug": "sanaa-sept-2014",
+   "title": "السيطرة على صنعاء في سبتمبر 2014م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2014
+  },
+  {
+   "slug": "intervention-2015",
+   "title": "تدخل التحالف بقيادة السعودية عام 2015م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2015
+  },
+  {
+   "slug": "historic-cities-under-threat",
+   "title": "المدن التاريخية تحت تهديد النزاع",
+   "era": "modern",
+   "kind": "heritage",
+   "year": 2015
+  },
+  {
+   "slug": "stockholm-2018",
+   "title": "اتفاق ستوكهولم عام 2018م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2018
+  },
+  {
+   "slug": "riyadh-2019",
+   "title": "اتفاق الرياض عام 2019م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2019
+  },
+  {
+   "slug": "un-truce-2022",
+   "title": "الهدنة الأممية عام 2022م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2022
+  },
+  {
+   "slug": "plc-april-2022",
+   "title": "مجلس القيادة الرئاسي عام 2022م",
+   "era": "modern",
+   "kind": "event",
+   "year": 2022
+  },
+  {
+   "slug": "humanitarian-history-war",
+   "title": "الآثار الإنسانية الممتدة للحرب",
+   "era": "modern",
+   "kind": "theme",
+   "year": 2015
+  },
+  {
+   "slug": "women-in-national-dialogue",
+   "title": "مشاركة النساء والشباب في الحوار الوطني",
+   "era": "modern",
+   "kind": "society",
+   "year": 2013
+  }
+ ]
+}

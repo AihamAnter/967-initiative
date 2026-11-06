@@ -1,0 +1,866 @@
+[
+ {
+  "slug": "first-settlements",
+  "title": "الإنسان والاستيطان المبكر",
+  "kind": "society",
+  "era": "origins",
+  "year": -7000,
+  "period": "عصور ما قبل الكتابة",
+  "summary": "تبدأ معرفة تاريخ اليمن قبل الممالك والنقوش؛ لكن تقدير بدايات الاستيطان يحتاج إلى أدلة أثرية متخصصة.",
+  "paragraphs": [
+   "تدرس آثار الأدوات الحجرية وبقايا السكن والزراعة كيف تكيف الإنسان مع المرتفعات والأودية والصحارى. لا يمكن تحويل الأدلة المحدودة إلى تاريخ واحد مؤكد لبداية الاستيطان في كل اليمن.",
+   "يعرض هذا المدخل خلفية تمهيدية؛ يحتاج إلى إضافة دراسات تنقيب منشورة قبل تحويله إلى ملف أثري متخصص."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   }
+  ],
+  "related": [],
+  "location": "",
+  "governorate": "",
+  "certainty": "تمهيدي"
+ },
+ {
+  "slug": "early-irrigation",
+  "title": "الزراعة والري قبل الدول",
+  "kind": "society",
+  "era": "origins",
+  "year": -1200,
+  "period": "قبل الممالك المكتوبة",
+  "summary": "أسهمت الزراعة والقدرة على استغلال السيول في نشوء تجمعات ومراكز حضرية بجنوب الجزيرة العربية.",
+  "paragraphs": [
+   "هيأت الأودية وطرق تصريف المياه إمكانات للزراعة في بيئة قليلة الأمطار. وأصبحت تقنيات الري لاحقاً من أبرز سمات مراكز الحضارة في مأرب.",
+   "تفاوتت أساليب الري بين المرتفعات والوديان، ولا ينبغي تصور نموذج زراعي واحد لكل المناطق."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   }
+  ],
+  "related": [],
+  "location": "",
+  "governorate": "",
+  "certainty": "تقريبي"
+ },
+ {
+  "slug": "saba",
+  "title": "مملكة سبأ",
+  "kind": "state",
+  "era": "ancient",
+  "year": -800,
+  "period": "الألفية الأولى ق.م – القرون الميلادية الأولى",
+  "summary": "من أشهر ممالك جنوب الجزيرة العربية، وارتبطت بمأرب والتجارة والأنظمة المائية والنقوش.",
+  "paragraphs": [
+   "تشهد معالم مأرب الأثرية على مجتمع ذي مؤسسات سياسية ودينية وعمرانية، وعلى صلات تجارية واسعة ضمن شبكات تجارة البخور.",
+   "لم تظل سبأ الدولة الوحيدة في المنطقة؛ عاصرتها كيانات أخرى وتحولت موازين القوى عبر القرون. تختلف الدراسات في بعض التواريخ وحدود النفوذ."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   }
+  ],
+  "related": [
+   "marib-dam",
+   "incense-trade",
+   "ancient-inscriptions",
+   "himyar",
+   "qataban"
+  ],
+  "location": "مأرب",
+  "governorate": "YE26",
+  "certainty": ""
+ },
+ {
+  "slug": "qataban",
+  "title": "مملكة قتبان",
+  "kind": "state",
+  "era": "ancient",
+  "year": -600,
+  "period": "الألفية الأولى ق.م",
+  "summary": "مملكة قديمة ارتبطت ببيحان في شبوة، حيث تكشف المواقع والنقوش عن مراكزها السياسية.",
+  "paragraphs": [
+   "تشير بيانات اليونسكو الخاصة بمواقع قتبان إلى ظهورها قرب بداية الألفية الأولى قبل الميلاد، معاصرَةً لممالك أخرى.",
+   "تكشف مواقع بيحان عن تنوع العاصمة والمراكز الحضرية، وتبقى تواريخ التوسع والحدود موضع دراسات أثرية."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – مواقع مملكة قتبان في بيحان (القائمة التمهيدية)",
+    "url": "https://whc.unesco.org/en/tentativelists/6856/"
+   }
+  ],
+  "related": [
+   "saba",
+   "hadramawt-kingdom",
+   "incense-trade"
+  ],
+  "location": "بيحان، شبوة",
+  "governorate": "YE21",
+  "certainty": ""
+ },
+ {
+  "slug": "hadramawt-kingdom",
+  "title": "مملكة حضرموت القديمة",
+  "kind": "state",
+  "era": "ancient",
+  "year": -500,
+  "period": "الألفية الأولى ق.م – القرون الميلادية الأولى",
+  "summary": "مركز سياسي وتجاري قديم في شرق جنوب الجزيرة العربية، ضمن شبكة ممالك متزامنة.",
+  "paragraphs": [
+   "تاريخ حضرموت القديمة متصل بطرق القوافل والواحات والمراكز الحضرية في الشرق. ولا يصح إسقاط حدود محافظة حضرموت الحالية على نفوذ المملكة القديمة.",
+   "تختلف طبيعة الأدلة بين النقوش والآثار والتوصيفات التاريخية اللاحقة، لذلك لا نضع خريطة حدود نهائية لها."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – مواقع مملكة قتبان في بيحان (القائمة التمهيدية)",
+    "url": "https://whc.unesco.org/en/tentativelists/6856/"
+   },
+   {
+    "title": "اليونسكو – مدينة شبام القديمة المسوّرة",
+    "url": "https://whc.unesco.org/en/list/192/"
+   }
+  ],
+  "related": [
+   "qataban",
+   "shibam-city"
+  ],
+  "location": "حضرموت",
+  "governorate": "YE19",
+  "certainty": "تواريخ تقريبية"
+ },
+ {
+  "slug": "main",
+  "title": "مملكة معين",
+  "kind": "state",
+  "era": "ancient",
+  "year": -500,
+  "period": "الألفية الأولى ق.م",
+  "summary": "واحدة من ممالك جنوب الجزيرة العربية القديمة، وترتبط بدراسات النقوش والتجارة.",
+  "paragraphs": [
+   "تعكس أخبار معين صورة لتعدد المراكز السياسية والتجارية في الجوف ومحيطها قبل الإسلام.",
+   "تحتاج تفاصيل التسلسل السياسي والعواصم والفترات الدقيقة إلى توثيق مستقل من الدراسات النقشية؛ لذلك نعرضها هنا باعتبارها مدخلاً أولياً."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   },
+   {
+    "title": "اليونسكو – دراسة ترشيح معالم سبأ والمقارنات الأثرية",
+    "url": "https://whc.unesco.org/document/191751"
+   }
+  ],
+  "related": [
+   "saba",
+   "incense-trade"
+  ],
+  "location": "الجوف",
+  "governorate": "YE16",
+  "certainty": "مدخل تمهيدي"
+ },
+ {
+  "slug": "himyar",
+  "title": "مملكة حمير",
+  "kind": "state",
+  "era": "ancient",
+  "year": 100,
+  "period": "القرون الميلادية الأولى – السادس الميلادي تقريباً",
+  "summary": "قوة سياسية صاعدة أعادت تشكيل ميزان الممالك القديمة في جنوب الجزيرة العربية.",
+  "paragraphs": [
+   "شهدت أواخر العصور القديمة انتقال النفوذ بين مراكز جنوب الجزيرة العربية، مع صعود الملوك الحميريين وتغير التحالفات.",
+   "شهدت المرحلة تنوعاً دينياً وتفاعلاً مع القوى المحيطة، ولا يمكن اختزالها في تاريخ واحد لنهاية كل الممالك السابقة."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   },
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   },
+   {
+    "title": "اليونسكو – ملف اليمن التمهيدي لآثار حمير في ظفار (مقترح وطني)",
+    "url": "https://whc.unesco.org/en/tentativelists/6846"
+   },
+   {
+    "title": "اليونسكو – دراسة ترشيح معالم سبأ والمقارنات الأثرية",
+    "url": "https://whc.unesco.org/document/191751"
+   }
+  ],
+  "related": [
+   "saba",
+   "late-antiquity",
+   "ancient-inscriptions"
+  ],
+  "location": "المرتفعات اليمنية",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "incense-trade",
+  "title": "طرق البخور والتجارة",
+  "kind": "theme",
+  "era": "ancient",
+  "year": -700,
+  "period": "الألفية الأولى ق.م – القرون الميلادية",
+  "summary": "شبكات طرق ربطت جنوب الجزيرة العربية بالبحر المتوسط وشرق أفريقيا.",
+  "paragraphs": [
+   "شكّلت تجارة اللبان والمر وغيرها جزءاً من العلاقات الاقتصادية والسياسية الواسعة، ولم تكن طريقاً واحداً ثابتاً.",
+   "أثر موقع المراكز والمدن والتحكم في الطرق والواحات في ازدهار الممالك، مع تغيّر الشبكات التجارية بمرور الزمن."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   },
+   {
+    "title": "اليونسكو – مواقع مملكة قتبان في بيحان (القائمة التمهيدية)",
+    "url": "https://whc.unesco.org/en/tentativelists/6856/"
+   }
+  ],
+  "related": [
+   "saba",
+   "qataban",
+   "hadramawt-kingdom"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "marib-dam",
+  "title": "سد مأرب وأنظمة الري",
+  "kind": "heritage",
+  "era": "ancient",
+  "year": -500,
+  "period": "العصور القديمة",
+  "summary": "شاهد على هندسة المياه والزراعة ودور الواحات في اقتصاد مأرب القديمة.",
+  "paragraphs": [
+   "تُبرز اليونسكو منظومة الري في مأرب بوصفها إنجازاً تقنياً كبيراً ساعد على نشوء واحة صناعية واسعة.",
+   "شهدت المنشآت المائية أعمال بناء وصيانة وتحولات عبر فترات طويلة؛ لذا لا ننسب كل أجزاء السد إلى تاريخ واحد."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   }
+  ],
+  "related": [
+   "saba",
+   "early-irrigation",
+   "ancient-inscriptions"
+  ],
+  "location": "مأرب",
+  "governorate": "YE26",
+  "certainty": ""
+ },
+ {
+  "slug": "ancient-inscriptions",
+  "title": "النقوش العربية الجنوبية",
+  "kind": "heritage",
+  "era": "ancient",
+  "year": -500,
+  "period": "الألفية الأولى ق.م – أواخر العصور القديمة",
+  "summary": "مصدر أولي لمعرفة الحكام والآلهة والتبرعات والمشروعات والأنشطة العامة.",
+  "paragraphs": [
+   "تكشف النقوش تفاصيل لا تصلنا من كتب التاريخ المتأخرة، وتساعد على دراسة مؤسسات الحكم وشبكات التحالف والعمران.",
+   "تحتاج قراءة النقش إلى نص موثق وسياق أثري ومراجعة متخصصين؛ والنقل والترجمة لا يعفيان من الإشارة إلى مواطن الاختلاف."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   },
+   {
+    "title": "اليونسكو – مواقع مملكة قتبان في بيحان (القائمة التمهيدية)",
+    "url": "https://whc.unesco.org/en/tentativelists/6856/"
+   }
+  ],
+  "related": [
+   "saba",
+   "qataban",
+   "himyar"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "late-antiquity",
+  "title": "اليمن في أواخر العصور القديمة",
+  "kind": "event",
+  "era": "ancient",
+  "year": 500,
+  "period": "القرنان 5–6م",
+  "summary": "مرحلة تحولات سياسية ودينية واتصالات إقليمية سبقت دخول الإسلام.",
+  "paragraphs": [
+   "تعرضت المنطقة لتغيرات في ميزان القوى وظهور مراكز نفوذ جديدة، مع أدوار للقوى الواقعة عبر البحر الأحمر وخارجه.",
+   "يفصل الملف بين المرويات الأدبية وما يمكن توثيقه بالنقوش والأبحاث، ويتجنب تفسير التحولات بسبب واحد."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – معالم مملكة سبأ، مأرب",
+    "url": "https://whc.unesco.org/en/list/1700/"
+   },
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "himyar",
+   "arrival-islam"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": "ملف تمهيدي"
+ },
+ {
+  "slug": "arrival-islam",
+  "title": "دخول الإسلام إلى اليمن",
+  "kind": "event",
+  "era": "islam",
+  "year": 630,
+  "period": "القرن 7م",
+  "summary": "ارتبط اليمن مبكراً بتوسع الدولة الإسلامية، مع استمرار تنوع المناطق والمراكز المحلية.",
+  "paragraphs": [
+   "شهد القرن السابع تحولات دينية وإدارية واسعة. تتحدث المصادر عن شخصيات ووفود ومسارات مختلفة لدخول الإسلام إلى أنحاء اليمن.",
+   "لا ينبغي افتراض أن التحول الاجتماعي جرى في جميع المناطق بصورة واحدة أو في سنة واحدة."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "zabid",
+   "zaydi-imamate"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "zabid",
+  "title": "زبيد مركزاً علمياً وحضرياً",
+  "kind": "place",
+  "era": "islam",
+  "year": 820,
+  "period": "من القرن 9م وما بعده",
+  "summary": "تطورت زبيد إلى مركز حضري مهم في تهامة، ارتبط بالعلم والعمران والتجارة.",
+  "paragraphs": [
+   "يُدرَس تاريخ زبيد من خلال المدارس والمساجد والتقاليد العلمية والتبادل بين السهل الساحلي والمرتفعات.",
+   "من المهم التفريق بين تاريخ تأسيس المركز الحضري وبين تاريخ المباني التي وصلت إلينا في مراحل لاحقة."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "arrival-islam",
+   "rasulids"
+  ],
+  "location": "الحديدة",
+  "governorate": "YE18",
+  "certainty": ""
+ },
+ {
+  "slug": "zaydi-imamate",
+  "title": "نشأة الإمامة الزيدية",
+  "kind": "state",
+  "era": "islam",
+  "year": 897,
+  "period": "نهاية القرن 9م",
+  "summary": "نشأت الإمامة الزيدية في شمال المرتفعات وشهدت تاريخاً طويلاً من الانقطاعات والتحولات.",
+  "paragraphs": [
+   "يربط التأريخ الأكاديمي نشأة الإمامة بقدوم يحيى بن الحسين إلى شمال اليمن في نهاية القرن التاسع.",
+   "لا تعني استمرارية فكرة الإمامة وجود سيطرة موحدة ومستقرة على جميع المناطق أو طوال القرون؛ فقد تزامنت معها دول وسلطات أخرى."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   },
+   {
+    "title": "Congressional Research Service – Yemen: Background and U.S. Relations (2010)",
+    "url": "https://www.everycrsreport.com/files/20100113_RL34170_4e65e571a5ebf301fee9ba754eb4a6a1524c641f.pdf"
+   }
+  ],
+  "related": [
+   "sulayhids",
+   "qasimi-state",
+   "revolution-1962"
+  ],
+  "location": "صعدة والمرتفعات",
+  "governorate": "YE22",
+  "certainty": ""
+ },
+ {
+  "slug": "sulayhids",
+  "title": "الدولة الصليحية",
+  "kind": "state",
+  "era": "dynasties",
+  "year": 1045,
+  "period": "القرنان 11–12م تقريباً",
+  "summary": "من أبرز دول اليمن الإسلامية، وارتبطت باسم الملكة أروى وبمراكز سياسية متعددة.",
+  "paragraphs": [
+   "شهد عهد الصليحيين تحولات في الإدارة والروابط الإقليمية والدينية وبرزت فيه شخصية الملكة أروى بنت أحمد.",
+   "تعرض تواريخ قيام الدولة ونهايتها عادة بصيغ تقريبية، وقد تداخل نفوذها مع قوى أخرى داخل اليمن."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "arwa",
+   "ayyubids",
+   "zaydi-imamate"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "arwa",
+  "title": "الملكة أروى بنت أحمد",
+  "kind": "event",
+  "era": "dynasties",
+  "year": 1067,
+  "period": "القرنان 11–12م",
+  "summary": "شخصية سياسية بارزة في تاريخ الدولة الصليحية ومثال على تعدد أدوار القيادة في اليمن الوسيط.",
+  "paragraphs": [
+   "ارتبطت أروى بنت أحمد بإدارة الدولة الصليحية وبمراكز دينية وعمرانية، وترد سيرتها في دراسات تاريخ اليمن الوسيط.",
+   "هذه مادة تمهيدية تربط إلى «شخصيات يمنية» لاستكمال السيرة؛ لا نثبت تواريخ الميلاد والوفاة هنا دون مصدر متخصص."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "sulayhids"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "ayyubids",
+  "title": "الأيوبيون في اليمن",
+  "kind": "state",
+  "era": "dynasties",
+  "year": 1173,
+  "period": "أواخر القرن 12م – أوائل 13م",
+  "summary": "مثّل دخول الأيوبيين مرحلة جديدة من التداخل بين حكم اليمن ومراكز سياسية خارجية.",
+  "paragraphs": [
+   "تذكر المراجع الأكاديمية تدخل الأيوبيين في اليمن أواخر القرن الثاني عشر، ثم انتقال النفوذ إلى أسر محلية لاحقاً.",
+   "لم تتوحد كل الأقاليم تحت سلطة واحدة بالدرجة نفسها، وظلت المراكز المحلية مؤثرة."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "sulayhids",
+   "rasulids"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "rasulids",
+  "title": "الدولة الرسولية",
+  "kind": "state",
+  "era": "dynasties",
+  "year": 1229,
+  "period": "القرنان 13–15م تقريباً",
+  "summary": "من أبرز الدول التي حكمت مناطق واسعة من اليمن الوسيط، مع نشاط حضري وتجاري وعلمي.",
+  "paragraphs": [
+   "ارتبط العصر الرسولي بمراكز مثل تعز وزبيد وبمؤسسات الإدارة والتجارة والعلم.",
+   "تتباين تواريخ السيطرة على المدن، كما أن ازدهار العمران لا يعني بالضرورة استقراراً شاملاً في كل أرجاء البلاد."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   },
+   {
+    "title": "اليونسكو – مدينة زبيد التاريخية",
+    "url": "https://whc.unesco.org/en/list/611/"
+   }
+  ],
+  "related": [
+   "zabid",
+   "tahirids",
+   "ayyubids"
+  ],
+  "location": "تعز وزبيد",
+  "governorate": "YE15",
+  "certainty": ""
+ },
+ {
+  "slug": "tahirids",
+  "title": "الدولة الطاهرية",
+  "kind": "state",
+  "era": "dynasties",
+  "year": 1454,
+  "period": "القرنان 15–16م",
+  "summary": "سلالة حكمت أجزاء من اليمن عقب تراجع الدولة الرسولية.",
+  "paragraphs": [
+   "توضح مرحلة الطاهريين استمرار تغير مراكز النفوذ والعلاقات بين المدن وطرق التجارة قبيل التدخل العثماني.",
+   "الفترات الواردة تعبير تقريبي عن قيام السلطة، ولا تعكس حدوداً ثابتة طوال الحكم."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "rasulids",
+   "ottoman-first"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "ottoman-first",
+  "title": "الحضور العثماني الأول",
+  "kind": "state",
+  "era": "empires",
+  "year": 1538,
+  "period": "القرنان 16–17م",
+  "summary": "شهدت أجزاء من اليمن مواجهة وتفاعلاً مع الحكم العثماني وأطراف محلية.",
+  "paragraphs": [
+   "ارتبط الوجود العثماني بالمدن الساحلية والداخلية وفترات من النزاع والتفاهم مع قوى اليمن المحلية.",
+   "اختلف نطاق السيطرة الفعلية كثيراً، لذلك لا يصح رسم حدود موحدة للحكم العثماني خلال هذه المرحلة."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "tahirids",
+   "qasimi-state",
+   "ottoman-second"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "qasimi-state",
+  "title": "الدولة القاسمية",
+  "kind": "state",
+  "era": "empires",
+  "year": 1636,
+  "period": "القرنان 17–19م تقريباً",
+  "summary": "برزت سلطة الأئمة القاسميين في سياق تراجع الوجود العثماني الأول وتغير موازين القوى.",
+  "paragraphs": [
+   "شهدت مناطق المرتفعات وموانئ البحر الأحمر تحولات سياسية واقتصادية في فترة الإمامة القاسمية.",
+   "اختلفت رقعة السيطرة والنفوذ بحسب الحاكم والمرحلة، ولا ينبغي مساواتها بحدود اليمن الحديثة."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "zaydi-imamate",
+   "ottoman-first",
+   "ottoman-second"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "ottoman-second",
+  "title": "الحضور العثماني الثاني",
+  "kind": "state",
+  "era": "empires",
+  "year": 1849,
+  "period": "القرن 19م – 1918م",
+  "summary": "عاد العثمانيون إلى مناطق من شمال اليمن في القرن التاسع عشر، حتى نهاية الحرب العالمية الأولى.",
+  "paragraphs": [
+   "أعادت الإدارة العثمانية تنظيم بعض المؤسسات في مناطق نفوذها، بينما حافظت قوى محلية على أدوار مختلفة.",
+   "يجب التمييز بين السيادة المعلنة والسيطرة الميدانية، وبين شمال اليمن ومناطقه الشرقية والجنوبية."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   },
+   {
+    "title": "مكتب المؤرخ – وزارة الخارجية الأمريكية: اليمن",
+    "url": "https://history.state.gov/countries/yemen"
+   }
+  ],
+  "related": [
+   "qasimi-state",
+   "aden-british",
+   "northern-independence"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "aden-british",
+  "title": "عدن في العهد البريطاني",
+  "kind": "state",
+  "era": "empires",
+  "year": 1839,
+  "period": "1839م – 1967م",
+  "summary": "استولى البريطانيون على عدن عام 1839م، وارتبط الميناء بشبكات التجارة والسياسة الإقليمية.",
+  "paragraphs": [
+   "تطورت عدن بوصفها مركزاً بحرياً وإدارياً، مع تمايز أوضاع المدينة والمناطق المحيطة بها خلال العقود.",
+   "لم يتخذ النفوذ البريطاني في كل جنوب اليمن شكلاً إدارياً واحداً؛ وتباينت العلاقات مع السلطنات المحلية."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   },
+   {
+    "title": "مكتب المؤرخ – وزارة الخارجية الأمريكية: اليمن",
+    "url": "https://history.state.gov/countries/yemen"
+   }
+  ],
+  "related": [
+   "ottoman-second",
+   "independence-1967"
+  ],
+  "location": "عدن",
+  "governorate": "YE24",
+  "certainty": ""
+ },
+ {
+  "slug": "shibam-city",
+  "title": "شبام حضرموت: مدينة الطين",
+  "kind": "place",
+  "era": "empires",
+  "year": 1500,
+  "period": "طبقات تاريخية؛ العمارة الباقية خصوصاً من القرن 16م",
+  "summary": "مدينة مسوّرة تشتهر بمبانيها الطينية المرتفعة وتنظيمها العمراني.",
+  "paragraphs": [
+   "تعد شبام من الأمثلة المتميزة على البناء الرأسي بالطوب الطيني، كما توثق اليونسكو أثر التجارة والري والبيئة في تخطيطها.",
+   "لا تعني شهرة عمران القرن السادس عشر أن الاستيطان في الموقع بدأ آنذاك؛ فقد عرف المكان مراحل أقدم."
+  ],
+  "sources": [
+   {
+    "title": "اليونسكو – مدينة شبام القديمة المسوّرة",
+    "url": "https://whc.unesco.org/en/list/192/"
+   }
+  ],
+  "related": [
+   "hadramawt-kingdom",
+   "incense-trade"
+  ],
+  "location": "حضرموت",
+  "governorate": "YE19",
+  "certainty": ""
+ },
+ {
+  "slug": "hadrami-trade",
+  "title": "تجارة الحضارمة والهجرة",
+  "kind": "society",
+  "era": "empires",
+  "year": 1800,
+  "period": "القرنان 19–20م",
+  "summary": "ارتبطت حضرموت بطرق التجارة والهجرة عبر المحيط الهندي وجنوب شرق آسيا.",
+  "paragraphs": [
+   "يُظهر تاريخ المنطقة تفاعلاً بين الموانئ والمدن الداخلية وشبكات السكان المهاجرين، مع آثار اقتصادية وثقافية.",
+   "لم تكن أسباب الهجرة أو أنماطها واحدة، ويحتاج كل مسار مكاني إلى مصادر تفصيلية مستقلة."
+  ],
+  "sources": [
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   },
+   {
+    "title": "اليونسكو – مدينة شبام القديمة المسوّرة",
+    "url": "https://whc.unesco.org/en/list/192/"
+   }
+  ],
+  "related": [
+   "shibam-city",
+   "aden-british"
+  ],
+  "location": "حضرموت",
+  "governorate": "YE19",
+  "certainty": ""
+ },
+ {
+  "slug": "northern-independence",
+  "title": "شمال اليمن بعد الحرب العالمية الأولى",
+  "kind": "event",
+  "era": "modern",
+  "year": 1918,
+  "period": "من 1918م",
+  "summary": "انتهى الوجود العثماني في شمال اليمن مع تداعيات الحرب العالمية الأولى.",
+  "paragraphs": [
+   "تشكلت ترتيبات الحكم المستقل في شمال اليمن عقب انسحاب العثمانيين.",
+   "كانت العلاقة مع الجنوب الذي ظل تحت النفوذ البريطاني مساراً تاريخياً مغايراً."
+  ],
+  "sources": [
+   {
+    "title": "مكتب المؤرخ – وزارة الخارجية الأمريكية: اليمن",
+    "url": "https://history.state.gov/countries/yemen"
+   },
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "ottoman-second",
+   "revolution-1962",
+   "aden-british"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "1948-events",
+  "title": "أحداث عام 1948م",
+  "kind": "event",
+  "era": "modern",
+  "year": 1948,
+  "period": "1948م",
+  "summary": "مثّلت أحداث 1948م محطة بارزة في الصراع حول الإمامة والإصلاح السياسي في شمال اليمن.",
+  "paragraphs": [
+   "أُغتيل الإمام يحيى في سياق تحرك سياسي، ثم آلت السلطة إلى الإمام أحمد وسط أحداث دامية.",
+   "تختلف تقييمات الحدث في الأدبيات السياسية، لذا ينبغي الفصل بين التسلسل الموثق والتفسيرات المتنازعة."
+  ],
+  "sources": [
+   {
+    "title": "Congressional Research Service – Yemen: Background and U.S. Relations (2010)",
+    "url": "https://www.everycrsreport.com/files/20100113_RL34170_4e65e571a5ebf301fee9ba754eb4a6a1524c641f.pdf"
+   },
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "northern-independence",
+   "revolution-1962"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "revolution-1962",
+  "title": "ثورة 26 سبتمبر",
+  "kind": "event",
+  "era": "modern",
+  "year": 1962,
+  "period": "26 سبتمبر 1962م",
+  "summary": "أُعلنت الجمهورية العربية اليمنية بعد ثورة سبتمبر، وبدأ صراع طويل حول شكل الحكم.",
+  "paragraphs": [
+   "أعقب إعلان الجمهورية نزاع مسلح امتدت آثاره على شمال اليمن لسنوات، بتدخلات إقليمية مختلفة.",
+   "تحتاج دراسة الثورة إلى عرض الأطراف والسياق الاجتماعي والسياسي وما تلاها دون اختزالها في رواية واحدة."
+  ],
+  "sources": [
+   {
+    "title": "Congressional Research Service – Yemen: Background and U.S. Relations (2010)",
+    "url": "https://www.everycrsreport.com/files/20100113_RL34170_4e65e571a5ebf301fee9ba754eb4a6a1524c641f.pdf"
+   },
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "zaydi-imamate",
+   "1948-events",
+   "independence-1967",
+   "unity-1990"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ },
+ {
+  "slug": "independence-1967",
+  "title": "استقلال جنوب اليمن",
+  "kind": "event",
+  "era": "modern",
+  "year": 1967,
+  "period": "30 نوفمبر 1967م",
+  "summary": "انتهى الوجود البريطاني في عدن عام 1967م وقامت دولة مستقلة في الجنوب.",
+  "paragraphs": [
+   "جاء الاستقلال بعد صراع سياسي ومسلح في عدن والمناطق المحيطة بها، وتبعته تحولات في بنية الدولة الجديدة.",
+   "تختلف التجارب المحلية بين عدن والسلطنات السابقة، ويجب شرحها ضمن سياقاتها."
+  ],
+  "sources": [
+   {
+    "title": "مكتب المؤرخ – وزارة الخارجية الأمريكية: اليمن",
+    "url": "https://history.state.gov/countries/yemen"
+   },
+   {
+    "title": "Oxford Bibliographies – Islam in Yemen",
+    "url": "https://academic.oup.com/reference/62361/reference-article-abstract/571507782"
+   }
+  ],
+  "related": [
+   "aden-british",
+   "revolution-1962",
+   "unity-1990"
+  ],
+  "location": "عدن",
+  "governorate": "YE24",
+  "certainty": ""
+ },
+ {
+  "slug": "unity-1990",
+  "title": "إعلان الوحدة اليمنية",
+  "kind": "event",
+  "era": "modern",
+  "year": 1990,
+  "period": "22 مايو 1990م",
+  "summary": "اتحدت الجمهورية العربية اليمنية وجمهورية اليمن الديمقراطية الشعبية في دولة واحدة.",
+  "paragraphs": [
+   "أُعلنت الجمهورية اليمنية في مايو 1990م بعد وجود دولتين مستقلتين في الشمال والجنوب.",
+   "يرتبط فهم الوحدة بدراسة مؤسسات الدولتين والاتفاقات والتحولات الاقتصادية والسياسية التي سبقتها وتلتها."
+  ],
+  "sources": [
+   {
+    "title": "مكتب المؤرخ – وزارة الخارجية الأمريكية: اليمن",
+    "url": "https://history.state.gov/countries/yemen"
+   },
+   {
+    "title": "Congressional Research Service – Yemen: Background and U.S. Relations (2010)",
+    "url": "https://www.everycrsreport.com/files/20100113_RL34170_4e65e571a5ebf301fee9ba754eb4a6a1524c641f.pdf"
+   }
+  ],
+  "related": [
+   "revolution-1962",
+   "independence-1967",
+   "modern-transitions"
+  ],
+  "location": "",
+  "governorate": "",
+  "certainty": ""
+ }
+]
