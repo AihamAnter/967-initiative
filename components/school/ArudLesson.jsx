@@ -1,11 +1,13 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,Delete,RefreshCw,RotateCcw,ShieldCheck,XCircle} from 'lucide-react';
+import {ArrowLeft,ArrowRight,BookOpen,Check,CheckCircle2,Cloud,Delete,Lightbulb,RefreshCw,Rocket,RotateCcw,ShieldCheck,Sparkles,XCircle} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import useSchoolDraft from './useSchoolDraft';
 import {ARUD_STAGES} from '@/lib/schoolArud';
 import styles from '@/app/school/writing/arud/arud.module.css';
+import player from './LessonPlayer.module.css';
+import {LessonStepper,ScoreRing,StepSegments,usePlayerTop} from './LessonParts';
 
 async function requestArud(body){
  const db=browserDb(),{data,error}=await db?.auth.getSession()||{};
@@ -26,6 +28,7 @@ export default function ArudLesson({stage}){
  const [error,setError]=useState('');
  const [submitFailed,setSubmitFailed]=useState(false);
  const outcomeTitle=useRef(null);
+ const top=usePlayerTop(phase+':'+index);
  const draft=useSchoolDraft({attempt,active:phase==='exercise',answers,selection,request:requestArud});
  useEffect(()=>{if(phase==='result')outcomeTitle.current?.focus();},[phase]);
  async function start(){
@@ -59,18 +62,22 @@ export default function ArudLesson({stage}){
  const isRealVerse=(stage.index===4||stage.index===5||stage.index===6);
  const isFeet=stage.index===4||stage.index===6;
  const sequenceLimit=task?.steps||8;
- return <article className={styles.lessonLayout}>
+ return <article ref={top} className={styles.lessonLayout}>
   <div className={styles.lessonHeading}><div><span>مدرسة 967 · علم العروض · المحطة {String(stage.index+1).padStart(2,'0')}</span><h1>{stage.title}</h1><p>{stage.subtitle}</p></div><Link href="/school/writing/arud">خارطة المحطات <ArrowRight size={17}/></Link></div>
-  {phase==='intro'&&<>
-   <div className={styles.lessonIntro}><span>الفكرة الأساسية</span><h2>{stage.title}</h2><p>{stage.intro}</p></div>
-   <div className={styles.lessonStudy}><section><h3>تذكّر قبل التمرين</h3><ul>{stage.tips.map(x=><li key={x}>{x}</li>)}</ul></section>
-   <section><h3>ثلاثة أمثلة توضّح القاعدة</h3><div className={styles.examples}>{stage.examples.map(x=><div key={x.label}><strong>{x.label}</strong><small>{x.note}</small></div>)}</div></section></div>
-   <div className={styles.lessonStart}><div><strong>اختبار إتقان المهارة</strong><p>6 أسئلة متنوعة؛ تحتاج إلى 5 صحيحة للانتقال، ويمكن إعادة المحاولة بأسئلة مختلفة.</p></div><button type="button" disabled={busy} onClick={start}>{busy?'جارٍ التحضير…':'ابدأ التدريب'} <ArrowLeft size={18}/></button></div>
-  </>}
+  {phase==='intro'&&<LessonStepper headingId="arud-step-title" steps={[
+   {key:'idea',icon:Lightbulb,kicker:'الفكرة الأساسية',title:stage.title,nextLabel:'شاهد الأمثلة',content:<>
+    <p>{stage.intro}</p>
+    <h3 className={player.tipsTitle}><BookOpen size={18}/> تذكّر قبل التمرين</h3>
+    <ol className={player.checklist}>{stage.tips.map(x=><li key={x}>{x}</li>)}</ol>
+   </>},
+   {key:'examples',icon:Sparkles,tone:'gold',kicker:'أمثلة',title:'ثلاثة أمثلة توضّح القاعدة',content:
+    <div className={styles.examples}>{stage.examples.map(x=><div key={x.label}><strong>{x.label}</strong><small>{x.note}</small></div>)}</div>},
+   {key:'ready',icon:Rocket,kicker:'اختبار إتقان المهارة',title:'جاهز للتدريب؟',content:
+    <div className={player.ready}><span className={player.readyIcon}><Rocket size={24} aria-hidden="true"/></span><div><strong>اختبار إتقان المهارة</strong><p>6 أسئلة متنوعة؛ تحتاج إلى 5 صحيحة للانتقال، ويمكن إعادة المحاولة بأسئلة مختلفة.</p></div></div>},
+  ]} finish={<button type="button" disabled={busy} onClick={start}>{busy?'جارٍ التحضير…':'ابدأ التدريب'} <ArrowLeft size={18}/></button>}/>}
   {phase==='exercise'&&attempt&&<>
-   <div className={styles.questionStatus}><span>السؤال {index+1} من {attempt.questions.length}</span><span>المحاولة {attempt.attemptNo}</span></div>
-   <div className={styles.meterProgress} role="progressbar" aria-valuemin={0} aria-valuemax={6} aria-valuenow={index} aria-label="تقدّم التمارين"><span style={{width:(index/6*100)+'%'}}/></div>
-   <p className={styles.draftStatus} role="status">حفظ التقدم: {draft.status||'تلقائي عند الإجابة والمتابعة'}</p>
+   <div className={player.quizTop}><span className={player.count}>السؤال {index+1} من {attempt.questions.length} · المحاولة {attempt.attemptNo}</span><span className={player.save} role="status"><Cloud size={14} aria-hidden="true"/> حفظ التقدم: {draft.status||'تلقائي'}</span></div>
+   <div className={player.progressRow}><StepSegments total={6} current={index} valueNow={index} label="تقدّم التمارين"/></div>
    <section className={styles.question}>
     <span className={styles.questionKind}>{task.kind==='choice'?'تعرّف على القاعدة':'تمرين تقطيع تفاعلي'}</span>
     <h2>{task.prompt}</h2>
@@ -91,9 +98,8 @@ export default function ArudLesson({stage}){
   </>}
   {phase==='result'&&result&&<section className={styles.outcome} aria-live="polite">
    <div className={result.passed?styles.outcomePassed:styles.outcomeRetry}>
-    {result.passed?<CheckCircle2 size={35}/>:<RotateCcw size={35}/>}
     <h2 tabIndex={-1} ref={outcomeTitle}>{result.passed?'أتقنت هذه المحطة!':'أعد التدريب، اقتربت من الإتقان.'}</h2>
-    <strong dir="ltr">{result.score} / {result.total}</strong>
+    <ScoreRing score={result.score} total={result.total} passed={result.passed}/>
     <p>{result.passed?'حُفظ تقدمك، وأصبحت المحطة التالية متاحة إذا لم تكن هذه آخر محطة.':'راجع تفسيرات الأسئلة، ثم جرّب مجموعة جديدة دون عقوبة.'}</p>
    </div>
    <h3>تعلم من إجاباتك</h3>

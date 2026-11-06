@@ -293,3 +293,41 @@
  outline:3px solid var(--c-focus);
  outline-offset:3px;
 }
+
+/* Redesign v2 — batch C: continue first, a compact XP line and stats, course
+   progress as rows, then daily goal and streak side by side. Nothing removed. */
+.hero{padding-block:clamp(14px,3vw,36px) !important}
+.hero h1{font-size:var(--t-size-hero,26px);margin:6px 0 4px}
+.hero p{font-size:13px;line-height:1.8}
+.resume{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 14px;padding:14px 16px;border-radius:18px}
+.resume h2{font-size:17px;margin:2px 0}
+.resume>a{min-height:44px;border-radius:13px}
+.xpPanel{padding:12px 14px;border-radius:16px}
+.xpHeading{gap:10px}
+.xpHeading h2{font-size:15px}
+.xpIcon{width:36px !important;height:36px !important}
+.xpNumbers{margin:6px 0}
+.xpNumbers strong{font-size:26px}
+.xpPanel>p{font-size:11px}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.stat{padding:10px 12px;gap:2px;border-radius:14px}
+.stat>span{font-size:11px}
+.stat strong{font-size:20px}
+.titleRow{margin-top:18px;margin-bottom:8px}
+.titleRow h2{font-size:var(--t-size-h2,17px)}
+.courses{grid-template-columns:minmax(0,1fr);gap:0;border:1px solid var(--c-line,#d6e0d8);border-radius:16px;overflow:clip;background:var(--c-surface,#fff)}
+@media(min-width:900px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}.courses>:nth-child(odd){border-inline-end:1px solid var(--c-line,#e3e9e3)}}
+.course{padding:12px 14px;border:0;border-block-end:1px solid var(--c-line,#e3e9e3);border-radius:0;box-shadow:none}
+.course h3{font-size:15px;margin:4px 0 2px}
+.course>p{display:none}
+.courseXp{margin:2px 0 6px;font-size:12px}
+.progressLabel{font-size:12px;margin-bottom:4px}
+.courseFoot{margin-top:6px;padding-top:0;border:0;font-size:12px}
+.courseFoot a{min-height:36px}
+.habitGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}
+.habitCard{padding:12px 14px;border-radius:16px}
+.habitHeading h2{font-size:15px}
+.habitCard>p{font-size:11px;line-height:1.7;margin:6px 0 8px}
+.goalChoices button{min-height:36px}
+.streakNumber strong{font-size:32px}
+@media(max-width:560px){.resume{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat strong{font-size:18px}.habitGrid{grid-template-columns:minmax(0,1fr)}}

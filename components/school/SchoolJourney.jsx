@@ -33,7 +33,7 @@ export default function SchoolJourney(){
  },[version]);
  const progress=state.progress;
  return <section className={styles.journeySection} aria-labelledby="journey-title"><div className="container">
-  <div className={styles.sectionTitle}><div><span>خارطة الإتقان / 967 SCHOOL</span><h2 id="journey-title">محطات رحلتك</h2></div><p>المرحلة التالية تُفتح بعد إجابة 5 أسئلة صحيحة على الأقل من أصل 6.</p></div>
+  <div className={styles.sectionTitle}><div><span>خارطة الإتقان</span><h2 id="journey-title">محطات رحلتك</h2></div><p>المرحلة التالية تُفتح بعد إجابة 5 أسئلة صحيحة على الأقل من أصل 6.</p></div>
   {state.kind==='guest'&&<div className={styles.schoolNotice}><GraduationCap size={25}/><div><strong>سجّل الدخول لتحفظ تقدّمك</strong><p>يمكنك تصفح المحطات، لكن بدء الاختبارات وفتح المراحل يحتاج حسابًا في 967.</p></div><Link href="/login">تسجيل الدخول <ArrowLeft size={16}/></Link></div>}
   {state.kind==='error'&&<div className={styles.schoolNotice} role="alert"><p>{state.error}</p><button type="button" onClick={()=>setVersion(v=>v+1)}>إعادة المحاولة <RefreshCw size={16}/></button></div>}
   {state.kind==='ready'&&progress?.staffPreview&&<div className={styles.staffPreviewNotice} role="status"><ShieldCheck size={22} aria-hidden="true"/><div><strong>وضع معاينة الإدارة مفعّل</strong><p>يمكنك فتح أي محطة واختبارها مباشرة دون اجتياز المحطات السابقة. سيظل التدرج إلزاميًا للطلاب؛ وفتح محطة للمعاينة لا يعني أنها مكتملة.</p></div></div>}

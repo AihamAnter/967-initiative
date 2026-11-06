@@ -71,3 +71,20 @@
 :global(:root[data-ed-theme="dark"]) .trail .questMeta .isOpen span{
  background:#4fd1c5;
 }
+
+/* Redesign v2 — batch C: each track is a compact card with a small emblem beside the text. */
+.quest{display:grid !important;grid-template-columns:88px minmax(0,1fr);align-items:stretch;min-height:0 !important}
+.illustration{min-height:0 !important;height:auto !important;aspect-ratio:auto !important;border-radius:0 !important}
+.artGlyph{font-size:36px !important}
+.artIcon,.artGround{display:none !important}
+.questBody{padding:12px 14px !important;gap:4px !important}
+.questMeta{font-size:11px !important}
+.questBody h4{font-size:16px !important;margin:2px 0 !important}
+.questBody>p{font-size:13px !important;line-height:1.7 !important;margin:2px 0 !important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.questFacts{gap:6px !important}
+.questFacts span{min-height:28px !important;padding:0 8px !important;font-size:12px !important}
+.questAction{min-height:32px !important;font-size:14px !important}
+.quest,.step:nth-child(even) .quest{display:grid !important;grid-template-columns:clamp(84px,17vw,160px) minmax(0,1fr) !important}
+.illustration,.step:nth-child(even) .illustration{grid-column:1 !important;grid-row:1 !important;min-height:0 !important;max-height:none !important}
+.questBody,.step:nth-child(even) .questBody{grid-column:2 !important;grid-row:1 !important}
+.questFacts{display:flex !important;flex-direction:row !important;flex-wrap:wrap}

@@ -95,3 +95,24 @@
 :global(:root[data-ed-theme="dark"]) .map .mapTag svg{
  color:var(--c-accent);
 }
+
+/* Redesign v2 — batch C: each world is a compact card — a small scene beside
+   the text — instead of a tall picture on top. Links and order unchanged. */
+.world{display:grid !important;grid-template-columns:96px minmax(0,1fr);align-items:stretch;min-height:0 !important}
+.scene{min-height:0 !important;height:auto !important;aspect-ratio:auto !important;border-radius:0 !important}
+.sceneMark{font-size:44px !important}
+.sceneSatellite,.sceneTitle,.sceneFloor{display:none !important}
+.worldInfo{padding:12px 14px !important;gap:4px !important}
+.worldKicker{font-size:11px !important}
+.worldTitle h3{font-size:16px !important;margin:0 !important}
+.worldIcon{width:32px !important;height:32px !important}
+.worldInfo>p{font-size:13px !important;line-height:1.7 !important;margin:2px 0 !important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.routeBadges{gap:6px !important}
+.routeBadges span{min-height:28px !important;padding:0 8px !important;font-size:12px !important}
+.landmarks{font-size:11px !important}
+.worldAction{min-height:32px !important;font-size:14px !important}
+.worldPending{padding:12px 14px !important;gap:10px !important}
+.world,.worldItem:nth-child(even) .world{grid-template-columns:clamp(88px,18vw,170px) minmax(0,1fr) !important}
+.scene,.worldItem:nth-child(even) .scene{grid-column:1 !important;grid-row:1 !important;min-height:0 !important;max-height:none !important}
+.worldInfo,.worldItem:nth-child(even) .worldInfo{grid-column:2 !important;grid-row:1 !important}
+.routeBadges{display:flex !important;flex-direction:row !important;flex-wrap:wrap}

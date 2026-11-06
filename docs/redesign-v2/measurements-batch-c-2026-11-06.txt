@@ -1,0 +1,24 @@
+== https://967ye.com (before)
+
+### 375x812
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/school | 24 | 17 | 14 | 95/24 | 793 | 55% | no | 1
+/school/logic | 24 | 17 | 14 | 85/24/20 | 729 | 42% | no | 1
+/school/writing/musnad | 24 | 17 | 14 | 72/24 | 521 | 42% | no | 1
+/school/writing/arud | 24 | 17 | 15 | 64/24 | null | 71% | no | 0
+/school/courses/logical-thinking | 24 | 17 | 14 | 24 | 862 | 37% | no | 0
+/school/courses/logical-thinking/1 | 24 | 17 | 15 | 24 | 652 | 25% | no | 2
+/school/writing/musnad/1 | 24 | 17 | 14 | 29/24 | 505 | 23% | no | 3
+/school/writing/arud/1 | 24 | 17 | 14 | 24 | 533 | 23% | no | 3
+== http://localhost:3000 (after batch C)
+
+### 375x812
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/school | 24 | 17 | 14 | 44/24 | 640 | 38% | no | 1
+/school/logic | 24 | 17 | 14 | 36/24/20 | 671 | 36% | no | 1
+/school/writing/musnad | 24 | 17 | 14 | 24 | 471 | 36% | no | 1
+/school/writing/arud | 24 | 17 | 15 | 24 | null | 52% | no | 0
+/school/courses/logical-thinking | 24 | 17 | 14 | 24 | 617 | 28% | no | 3
+/school/courses/logical-thinking/1 | 24 | 17 | 15 | 24 | 211 | 17% | no | 4
+/school/writing/musnad/1 | 24 | 17 | 15 | 24 | 207 | 17% | no | 4
+/school/writing/arud/1 | 24 | 17 | 15 | 24 | 207 | 17% | no | 4

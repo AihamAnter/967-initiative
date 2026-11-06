@@ -8,6 +8,7 @@ import {publishedSchoolCatalog,publishedSchoolStages} from '@/lib/schoolContentS
 import GenericSchoolLesson from '@/components/school/GenericSchoolLesson';
 import {pageMetadata} from '@/lib/seo';
 import styles from '../../../studio/studio.module.css';
+import player from '@/components/school/LessonPlayer.module.css';
 export const dynamic='force-dynamic';
 export const metadata=pageMetadata({title:'محطات مدرسة 967',path:'/school/courses'});
 export default async function CourseStagePage({params}){
@@ -18,7 +19,7 @@ export default async function CourseStagePage({params}){
  const stages=await publishedSchoolStages(db,slug),index=Number(raw)-1,stage=stages.find(x=>x.index===index);
  if(!stage)notFound();
  return <div className={styles.root}><section className={styles.workspace}><div className="container">
-  <Link href={'/school/courses/'+slug} className={styles.back}><ArrowRight size={16}/> {course.title}</Link>
+  <Link href={'/school/courses/'+slug} className={player.crumb}><ArrowRight size={14}/> {course.title}</Link>
   <GenericSchoolLesson slug={slug} stage={stage} hasNext={stages.some(x=>x.index===index+1)}/>
  </div></section></div>;
 }
