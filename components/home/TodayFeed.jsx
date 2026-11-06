@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element -- external video thumbnails and covers from several hosts */
 import Link from 'next/link';
+import SafeImage from '@/components/front/SafeImage';
 import {ArrowLeft, BarChart3, BookOpen, MessagesSquare, PlayCircle} from 'lucide-react';
 import {formatArabicDate, formatCompact, formatYear} from '@/lib/format';
 import styles from './TodayFeed.module.css';
@@ -22,7 +22,7 @@ function Lead({item}) {
   const Icon = ICONS[item.kind] || PlayCircle;
   return <Link href={item.href} className={styles.lead} style={{'--hue': HUES[item.kind]}}>
     {item.image
-      ? <span className={styles.leadMedia}><img src={item.image} alt="" loading="eager" decoding="async"/></span>
+      ? <span className={styles.leadMedia}><SafeImage src={item.image} sizes="(max-width: 900px) 100vw, 680px" priority quality={60} placeholder={<span className={styles.fallback} aria-hidden="true"/>}/></span>
       : <span className={styles.leadMedia} data-empty><Icon size={40} aria-hidden="true"/></span>}
     <span className={styles.leadBody}>
       <span className={styles.kicker}><Icon size={15} aria-hidden="true"/>{item.label}{item.live && <b className={styles.live}>مباشر</b>}{item.meta && !item.live && <span className={styles.meta}>· {item.meta}</span>}</span>
@@ -38,7 +38,7 @@ function Row({item}) {
   const Icon = ICONS[item.kind] || PlayCircle;
   return <li><Link href={item.href} className={styles.row} style={{'--hue': HUES[item.kind]}}>
     {item.image
-      ? <span className={styles.thumb}><img src={item.image} alt="" loading="lazy" decoding="async"/></span>
+      ? <span className={styles.thumb}><SafeImage src={item.image} sizes="76px" quality={60} placeholder={<span className={styles.fallback} aria-hidden="true"/>}/></span>
       : <span className={styles.thumb} data-empty><Icon size={22} aria-hidden="true"/></span>}
     <span className={styles.rowBody}>
       <span className={styles.kicker}>{item.label}{item.live && <b className={styles.live}>مباشر</b>}{item.meta && !item.live && <span className={styles.meta}>· {item.meta}</span>}</span>
