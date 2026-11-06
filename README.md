@@ -1,5 +1,7 @@
 # 967 Initiative / مبادرة 967
 
+> **ابدأ من هنا:** [الدليل الشامل للمشروع — كيف يعمل الموقع، والخدمات المرتبطة، وطريقة العمل المفضلة](PROJECT_GUIDE_AR.md). هذا هو المرجع الأول لأي شخص جديد سيعمل على الموقع.
+
 > **تنبيه بتاريخ 26 أكتوبر 2026:** ملفات SQL ذات التواريخ القديمة المذكورة هنا موجودة في أرشيف للرجوع إليها وللاختبارات التاريخية؛ ليست ترحيلات نشطة، ولا تُشغَّل على إنتاج 967. الـBaseline الحالي المرشح هو `supabase/migrations/20261026215718_remote_schema.sql` ولم تُسوَّ حالته في سجل الإنتاج بعد.
 
 الموقع الرسمي لمبادرة 967: مبادرة إعلامية ومجتمعية يمنية.
@@ -40,28 +42,20 @@
 Requirements: Node.js 22.13+ on the 22.x line, or Node.js 24+ and npm. Validation used Node.js 24.18.0. PDF.js and Supabase require the updated runtime. Run:
 
 ```bash
-npm install
+npm ci
 cp .env.example .env.local
 npm run dev
 ```
 
 Browse http://localhost:3000. **Without Supabase configured**, the site works in demonstration mode with an explicitly labeled sample magazine PDF and example media cards; message submission and CMS require credentials. This is intentional, to avoid fabricated published content.
 
-## 2. Activate the database and admin
+## 2. Database and admin access
 
-1. Create a Supabase project at https://supabase.com.
-2. Copy its Project URL, publishable/anon key, and service role key into `.env.local` as specified by `.env.example`.
-3. Run `supabase/schema.sql` in the Supabase SQL Editor **once**. The SQL enables RLS and creates the public `media` storage bucket.
-4. In Supabase Authentication → Users, create one email/password user for your editorial account. To avoid unwanted accounts, disable public signups in Authentication settings if not required.
-5. Copy that user's **UUID** and run this in the SQL Editor:
+The current project uses the ordered files in `supabase/migrations/`. Do not run `supabase/schema.sql`, archived migrations, or top-level SQL files against the existing production project. Follow [the comprehensive Arabic guide](PROJECT_GUIDE_AR.md#11-supabase-قاعدة-البيانات-والمصادقة-والتخزين), inspect the actual migration history, and test every database change in an isolated project first.
 
-```sql
-INSERT INTO public.editors(user_id) VALUES ('USER-UUID-HERE');
-```
+For authorized local development, copy the test project's URL, publishable/anon key, and server-only service-role key into `.env.local` as specified by `.env.example`. Apply the active migrations through the reviewed Supabase migration workflow, configure Auth/SMTP and exact redirect URLs, then use a dedicated test account with an explicit `admin` or `management` record in `editors`. Production roles and migrations require separate approval; the application never creates or promotes an editor automatically.
 
-6. Restart the local server, go to `/admin`, sign in with the same email and password.
-7. Add a real magazine issue, upload PDF and cover, and set `نشر العدد فوراً`. Once real issues exist, public archive switches from demo to published issues.
-8. Add work entries with actual working external video links and topic/platform information. Once real works exist, demo media cards are replaced.
+Restart the local server and use `/admin` after the test account and database are ready. Publish only reviewed, real content; demo material must remain explicitly labelled.
 
 **Security:** Never put `.env.local` in Git. The service role key can bypass database RLS and must remain server-only. Only named users in `editors` can edit content. The public storage bucket is appropriate for **published, non-confidential** PDF files/images; uploaded draft files are still publicly accessible if their URL is known. Don't upload confidential drafts there.
 
@@ -84,18 +78,7 @@ Empty platform links intentionally do not show social links; fill verified platf
 
 ## 5. GitHub + deployment
 
-Create a new empty repository named `967-initiative` under `AihamAnter` (do not initialize README if you're pushing the entire folder), then run:
-
-```bash
-git init
-git add .
-git commit -m "Initial 967 initiative website"
-git branch -M main
-git remote add origin https://github.com/AihamAnter/967-initiative.git
-git push -u origin main
-```
-
-Deploy to Vercel: import this repository, set the production env variables, and add your domain. GitHub is a code host; a separate deployment platform is needed to host a Next.js site with APIs.
+The repository already exists at `https://github.com/AihamAnter/967-initiative`. Work on a focused branch, run the required checks, and open a pull request to `main`. The production site is hosted by Vercel through an external repository integration; review the Vercel deployment and `https://967ye.com` after merging. See [the GitHub, CI, and deployment workflow](PROJECT_GUIDE_AR.md#13-github-وci-والنشر).
 
 ## Editorial responsibility
 
@@ -129,7 +112,7 @@ node scripts/audit-filters.mjs
 
 Set `AUDIT_CHROME_PATH` to an installed Chromium executable and `CHECK_BASE_URL` if using another local port. Install Chromium through the official Playwright CLI if needed. The browser script mocks contact success/failure and never verifies actual message persistence. Signed-in CMS CRUD, role changes, uploads, email delivery and real CAPTCHA must be verified in a separate test environment before launch. Do not run seed scripts or apply SQL to production as part of read-only checks.
 
-Set `NEXT_PUBLIC_SITE_URL=https://967-initiative.vercel.app` for the current production domain. Preview/development deployments stay noindex. Keep loading boundaries at leaf routes: wrapping missing dynamic records in an ancestor streaming fallback sends HTTP 200 before `notFound()` can return 404. PDF/map/chart loading and retry states remain in their client components.
+Production runs on `https://967ye.com`, which is also the canonical default in `lib/seo.js`; set `NEXT_PUBLIC_SITE_URL` only to override it. Preview/development deployments stay noindex. Keep loading boundaries at leaf routes: wrapping missing dynamic records in an ancestor streaming fallback sends HTTP 200 before `notFound()` can return 404. PDF/map/chart loading and retry states remain in their client components.
 
 ### Work detail / embedded video viewer
 
