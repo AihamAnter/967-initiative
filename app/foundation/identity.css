@@ -206,3 +206,7 @@
 /* ---------- Redesign v2 — batch C: lesson player colours ---------- */
 :root { --lp-on-accent: #fff; --lp-accent: var(--c-leaf, #3a7337); --lp-accent-soft: var(--c-leaf-soft, #e1eedc); --lp-gold: var(--c-sun, #c79a3b); }
 :root[data-ed-theme="dark"] { --lp-on-accent: #10200e; }
+
+/* Directory header figures: readable on the light intro (they were white on cream). */
+:root:root:root .site-experience .page-intro .directory-summary > span { color: var(--c-ink-3) !important; }
+:root:root:root .site-experience .page-intro .directory-summary > span strong { color: var(--c-ink) !important; }

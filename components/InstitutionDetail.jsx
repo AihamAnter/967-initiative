@@ -10,7 +10,7 @@ import {operatingLabels,verificationLabels} from '@/lib/institutionDirectories';
 import {safeExternalUrl} from '@/lib/media';
 import {medicalOperatingEvidence} from '@/lib/contentEvidence';
 
-const dateLabel=value=>{if(!value)return null;const text=String(value);if(/^\d{4}$/.test(text)||/^\d{4}[/-]\d{4}$/.test(text))return text;if(/^\d{4}-\d{2}$/.test(text)){const date=new Date(`${text}-01T12:00:00Z`);return Number.isNaN(date.getTime())?text:new Intl.DateTimeFormat('ar-YE',{year:'numeric',month:'long'}).format(date);}const date=new Date(`${text}T12:00:00Z`);return Number.isNaN(date.getTime())?text:new Intl.DateTimeFormat('ar-YE',{dateStyle:'long'}).format(date);};
+const dateLabel=value=>{if(!value)return null;const text=String(value);if(/^\d{4}$/.test(text)||/^\d{4}[/-]\d{4}$/.test(text))return text;if(/^\d{4}-\d{2}$/.test(text)){const date=new Date(`${text}-01T12:00:00Z`);return Number.isNaN(date.getTime())?text:new Intl.DateTimeFormat('ar-YE-u-nu-latn',{year:'numeric',month:'long'}).format(date);}const date=new Date(`${text}T12:00:00Z`);return Number.isNaN(date.getTime())?text:new Intl.DateTimeFormat('ar-YE-u-nu-latn',{dateStyle:'long'}).format(date);};
 const sourceUrl=source=>safeExternalUrl(source.url||source.document_url);
 const nonempty=value=>Array.isArray(value)&&value.length>0;
 const noteEvidence=(note,label)=>String(note||'').split(' — ').find(part=>part.startsWith(`${label}: `))?.slice(label.length+2)||null;

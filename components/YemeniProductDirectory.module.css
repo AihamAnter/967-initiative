@@ -319,3 +319,14 @@
   .directory .tile:global(.saveable-card),.directory .media img,.directory .arrow{transition:none}
   .directory .tile:hover{transform:none}
 }
+
+/* Redesign v2 — batch E: on phones the cards stay vertical but much shorter. */
+@media(max-width:760px){
+ .directory .grid:global(.company-grid){gap:10px}
+ .directory .media{height:132px !important;min-height:0 !important;aspect-ratio:auto !important}
+ .directory .content{padding:10px 12px 12px !important;gap:4px !important}
+ .directory .name{font-size:15px !important;margin:0 !important}
+ .directory .summary{font-size:13px !important;line-height:1.7 !important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0 !important}
+ .directory .products{flex-wrap:nowrap !important;overflow:hidden;gap:4px !important}
+ .directory .productLabel{font-size:11px !important}
+}

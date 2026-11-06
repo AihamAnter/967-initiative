@@ -8,6 +8,7 @@ import './foundation/editorial.css';
 import './foundation/unified.css';
 import './foundation/identity.css';
 import './foundation/knowledge.css';
+import './foundation/sections.css';
 import {site} from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
