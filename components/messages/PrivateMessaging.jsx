@@ -528,7 +528,7 @@ export default function PrivateMessaging(){
    <aside className={styles.sidebar} aria-label="محتوى قسم الرسائل">
     {tab==='inbox'&&<div className={styles.listHeading}><strong>المحادثات <small>{visible.length}</small></strong><button type="button" onClick={()=>selectTab('search')} aria-label="بدء محادثة جديدة"><MailPlus size={17}/><span>جديدة</span></button></div>}
     <div className={styles.list}>
-     {tab==='inbox'&&<>{visible.map(c=><button type="button" className={styles.conversationCard} key={c.id} data-active={selected===c.id} data-menu-open={convMenu?.id===c.id||undefined} onClick={()=>open(c.id)} aria-label={'فتح المحادثة مع '+c.partner_name} aria-haspopup="menu" title="اضغط مرتين لعرض خيارات المحادثة"
+     {tab==='inbox'&&<>{visible.map(c=><button type="button" className={styles.conversationCard} key={c.id} data-active={selected===c.id} onClick={()=>open(c.id)} aria-label={'فتح المحادثة مع '+c.partner_name} data-menu-open={convMenu?.id===c.id||undefined} aria-haspopup="menu" title="اضغط مرتين لعرض خيارات المحادثة"
        onDoubleClick={event=>{event.preventDefault();openConvMenu(c,event.currentTarget);}}
        onContextMenu={event=>{event.preventDefault();openConvMenu(c,event.currentTarget);}}
        onKeyDown={event=>{if(event.key==='ContextMenu'||event.shiftKey&&event.key==='F10'){event.preventDefault();openConvMenu(c,event.currentTarget);}}}
