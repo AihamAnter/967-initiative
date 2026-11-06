@@ -60,7 +60,8 @@ function parseResponse(kind,response,id){
 
 export default function InlineAdvancedEditor({target,onSaved,onDirtyChange,onBusyChange}){
  const {request}=useInlineEditor();
- const fields=forms[target.kind]||[];
+ // Memoised so an unknown kind does not create a new [] (and a reload) each render.
+ const fields=useMemo(()=>forms[target.kind]||[],[target.kind]);
  const [original,setOriginal]=useState(null),[draft,setDraft]=useState({}),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[feedback,setFeedback]=useState(null);
  const alive=useRef(true),version=useRef(0);
  const loaded=Boolean(original);
@@ -78,7 +79,7 @@ export default function InlineAdvancedEditor({target,onSaved,onDirtyChange,onBus
   finally{if(alive.current&&count===version.current)setLoading(false);}
  },[request,target.id,target.kind,fields]);
  // The form schemas above are constants, so the dependency reference is stable.
- useEffect(()=>{alive.current=true;load();return()=>{alive.current=false;version.current++;};},[load]);
+ useEffect(()=>{const guard=version;alive.current=true;load();return()=>{alive.current=false;guard.current++;};},[load]);
  const changes=useMemo(()=>Object.fromEntries(fields.filter(({key})=>String(draft[key]??'')!==String(original?.item?.[key]??'')).map(({key})=>[key,draft[key]??''])),[fields,draft,original]);
  const dirty=Boolean(original&&Object.keys(changes).length);
  useEffect(()=>{onDirtyChange?.(dirty);return()=>onDirtyChange?.(false);},[onDirtyChange,dirty]);

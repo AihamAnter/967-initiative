@@ -34,6 +34,7 @@ export default function MemberReports(){
   try{setError('');const data=await request();if(ownerRef.current===owner)setSaved({owner,data});}
   catch(e){if(ownerRef.current===owner){setError(e.message);setSaved(null);}}
  },[request]);
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  useEffect(()=>{if(!ready||!user){setSaved(null);return;}load();},[ready,user?.id,load]);
  const review=async(id,status,reference)=>{
   if(!window.confirm(reportDecisionPrompt(status,reference)))return;

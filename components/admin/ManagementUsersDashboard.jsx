@@ -67,6 +67,7 @@ export default function ManagementUsersDashboard(){
    }finally{if(live)setLoading(false);}
   },filters.q?300:0);
   return()=>{live=false;clearTimeout(timer);controller.abort();};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh; filters.q only picks the debounce delay and is already part of query
  },[ready,user?.id,query,revision,request]);
 
  const change=patch=>{setFilters(current=>({...current,...patch,page:1}));setNotice('');};

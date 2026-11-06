@@ -50,7 +50,8 @@ export default function AccountWorkspace({initialTab='overview'}){
    setSettingsDraft({notify_replies:extra.preferences?.notify_replies!==false,notify_moderation:extra.preferences?.notify_moderation!==false});
   }catch(e){if(currentUser.current===owner)setError(e.message||'تعذّر تحميل الحساب.');}
   finally{if(currentUser.current===owner)setLoading(false);}
- },[page]);
+ },[page,user?.user_metadata?.display_name,user?.user_metadata?.full_name]);
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  useEffect(()=>{setAccount(null);setWorkspace(emptyWorkspace);setProfileForm(null);if(user)fetchAll();else setLoading(false);},[user?.id,fetchAll]);
  const go=(id)=>{setTab(id);setNotice('');setError('');window.history.replaceState(null,'','/account'+(id==='overview'?'':'?tab='+id));};
  const run=async(action)=>{if(busy)return;setBusy(true);setNotice('');setError('');

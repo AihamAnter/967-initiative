@@ -37,11 +37,12 @@ export default function NotificationCenter(){
   finally{if(version===seq.current)setLoading(false);}
  },[category]);
  useEffect(()=>{
-  seq.current++;setItems([]);setPage(1);setHasMore(false);setCount(0);setMarkableCount(0);
+  const guard=seq;guard.current++;setItems([]);setPage(1);setHasMore(false);setCount(0);setMarkableCount(0);
   if(!user){setPreferences(null);return;}
   if(typeof window!=='undefined'&&window.location.hash==='#notification-settings')setPreferencesOpen(true);
   void load(1,false);
-  return()=>{seq.current++;};
+  return()=>{guard.current++;};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[user?.id,category,load]);
  const mark=async item=>{
   if(busy)return;

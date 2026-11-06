@@ -1,5 +1,5 @@
 'use client';
-import {useCallback,useEffect,useState} from 'react';
+import {useCallback,useEffect,useMemo,useState} from 'react';
 import {BarChart3,BookOpen,CheckCircle2,ClipboardList,History,Plus,RefreshCw,Save,ShieldCheck,Upload} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/studio/studio.module.css';
@@ -46,7 +46,7 @@ export default function SchoolStudio(){
  useEffect(()=>{let active=true;api('GET').then(data=>{if(active)setState({loading:false,data,error:''});})
   .catch(e=>{if(active)setState({loading:false,data:null,error:e.message});});return()=>{active=false;};},[]);
  const data=state.data;
- const courses=data?.courses||[];
+ const courses=useMemo(()=>data?.courses||[],[data]);
  const stages=data?.stages||[];
  const questions=data?.questions||[];
  const course=courses.find(x=>x.slug===slug);

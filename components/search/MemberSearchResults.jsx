@@ -22,6 +22,7 @@ export default function MemberSearchResults({query,mode,exclude,onlyMembers=fals
    if(active)setState({key,users:[],hasMore:false,loading:false,error:error.message});
   });
   return()=>{active=false;};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[ready,user?.id,query,mode,exclude,key]);
  if(!ready)return onlyMembers?<p className={styles.note}>جارٍ التحقق من تسجيل الدخول…</p>:null;
  if(!user){

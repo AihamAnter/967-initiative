@@ -25,6 +25,7 @@ export default function GamesAdminPanel({db,canDelete=false}){
   try{const data=await api();setQuestions(data.questions);setRevision(data.revision);const next=data.questions[0]||newQuestion();setForm(structuredClone(next));editor.markClean(next);setNotice('');}
   catch(error){setNotice('خطأ: '+error.message);}
   finally{setLoading(false);}
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- editor is a new object each render; only the stable editor.markClean is used
  },[api,editor.markClean]);
  useEffect(()=>{load();},[load]);
 

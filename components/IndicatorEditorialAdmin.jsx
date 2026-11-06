@@ -52,6 +52,7 @@ export default function IndicatorEditorialAdmin({db,indicator,onDirtyChange}) {
       const next=formFrom(data);setOriginal(data);setSaved(next);setForm(next);editor.markClean(next);
     }
     setLoading(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- editor is a new object each render; only the stable editor.markClean is used
   },[db,indicator.id,editor.markClean]);
 
   useEffect(()=>{load();},[load]);
