@@ -1,5 +1,6 @@
 'use client';
-import {ArrowUpLeft,ChevronRight,MapPinned,X} from 'lucide-react';
+import {useEffect,useRef,useState} from 'react';
+import {ArrowUpLeft,ChevronDown,ChevronRight,MapPinned,X} from 'lucide-react';
 import {formatNumber} from './mapGeometry';
 import InlineTarget from '../inline/InlineTarget';
 import Image from 'next/image';
@@ -26,12 +27,30 @@ export default function RegionInfoPanel({
 }) {
   const isDistrict = regionType === 'district';
   const isGovernorate = regionType === 'governorate';
+  // Phones: while a chosen place's panel is still below the screen, a small bar
+  // above the tab bar names it and jumps to the details. The panel is unchanged.
+  const panelRef = useRef(null);
+  const [panelBelow, setPanelBelow] = useState(false);
+  useEffect(() => {
+    const panel = panelRef.current;
+    if (!region || !panel || typeof IntersectionObserver === 'undefined') {setPanelBelow(false);return undefined;}
+    const observer = new IntersectionObserver(([entry]) => setPanelBelow(!entry.isIntersecting && entry.boundingClientRect.top > 0));
+    observer.observe(panel);
+    return () => observer.disconnect();
+  }, [region]);
   const profile = region ? profiles[region.id] || {} : {};
   const districtList = isGovernorate ? districts.filter(item => item.governorateId === region.id) : [];
   const title = region?.nameAr || 'خريطة اليمن';
   const descriptiveFields=[['description','نبذة تعريفية'],['history','نبذة تاريخية'],['geography','الطبيعة والتضاريس'],['economy','الاقتصاد وسبل العيش'],['landmarks','المعالم والأنشطة']];
 
-  return <aside className={'ymap-info-panel ' + (region ? 'has-region' : '')} aria-label="لوحة معلومات المنطقة">
+  return <>
+  {region && panelBelow && <div className="ymap-peek" role="group" aria-label={'المكان المختار: ' + (region.nameAr || '')}>
+    <MapPinned size={18} aria-hidden="true"/>
+    <span><strong>{region.nameAr}</strong><small>{isDistrict ? 'مديرية · ' + (region.governorateNameAr || '') : 'محافظة'}</small></span>
+    <button type="button" onClick={() => panelRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'})}>التفاصيل <ChevronDown size={16} aria-hidden="true"/></button>
+    <button type="button" className="ymap-peek-close" onClick={onClose} aria-label="إلغاء اختيار المكان"><X size={16} aria-hidden="true"/></button>
+  </div>}
+  <aside ref={panelRef} className={'ymap-info-panel ' + (region ? 'has-region' : '')} aria-label="لوحة معلومات المنطقة">
     <div className="ymap-info-head">
       <div><span className="eyebrow">{region ? (isDistrict ? 'مديرية' : 'محافظة') : 'خريطة اليمن'}</span><h2>{title}</h2></div>
       {region && <button type="button" onClick={onClose} title="إغلاق اللوحة" aria-label="إغلاق اللوحة"><X size={18}/></button>}
@@ -83,5 +102,6 @@ export default function RegionInfoPanel({
       <span>المصدر: {source.title}</span>
       <span>{source.license}</span>
     </footer>
-  </aside>;
+  </aside>
+  </>;
 }

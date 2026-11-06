@@ -1,5 +1,6 @@
 import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
 import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
+import JumpNav from '@/components/knowledge/JumpNav';
 import Link from '@/components/SiteLink';
 import {notFound} from 'next/navigation';
 import {getSiteSettings,getYemeniFigures} from '@/lib/data';
@@ -72,8 +73,12 @@ export default async function GovernorateProfilePage({params}){
         </div>
       </div>
     </header>
+    <JumpNav label="انتقل داخل ملف المحافظة" items={[
+      ...governorateProfileSections.filter(item=>profile[item.key]).map(item=>({href: '#'+item.key, title: item.title, icon: 'places'})),
+      {href: '#districts', title: 'المديريات', icon: 'contents'},
+      {href: '#province-sources', title: 'المصادر', icon: 'sources'},
+    ]}/>
     <KnowledgeNavigation/>
-    <nav className={'container '+styles.quickNav} aria-label="انتقل داخل ملف المحافظة"><strong>في هذا الملف</strong>{governorateProfileSections.filter(item=>profile[item.key]).slice(0,3).map(item=><a href={'#'+item.key} key={item.key}>{item.title}</a>)}<a href="#districts">المديريات</a><a href="#province-sources">المصادر</a></nav>
     <div className={'container '+styles.layout}>
       <article className={styles.article}>
         <ContentSections profile={profile}/>

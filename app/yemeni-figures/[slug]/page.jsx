@@ -1,6 +1,7 @@
 import KnowledgeTheme from '@/components/knowledge/KnowledgeTheme';
 import KnowledgeNavigation from '@/components/knowledge/KnowledgeNavigation';
 import ContextBackLink from '@/components/ContextBackLink';
+import JumpNav from '@/components/knowledge/JumpNav';
 import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import Image from 'next/image';
 import {toLatinDigits} from '@/lib/format';
@@ -124,6 +125,14 @@ export default async function YemeniFigureProfilePage({params}) {
         </div>
       </div>
     </section>
+    <JumpNav items={[
+      {href: '#figure-profile-content', title: 'السيرة', icon: 'text'},
+      hasDossier && figure.profile.timeline?.length > 0 && {href: '#figure-timeline', title: 'المحطات', icon: 'timeline'},
+      hasDossier && figure.profile.works?.length > 0 && {href: '#figure-works', title: 'الأعمال', icon: 'reading'},
+      hasDossier && figure.profile.gallery?.length > 0 && {href: '#figure-gallery', title: 'الصور', icon: 'gallery'},
+      {href: '#figure-sources', title: 'المصادر', icon: 'sources'},
+      {href: '#figure-quick-facts', title: 'معلومات سريعة', icon: 'card'},
+    ]}/>
     <KnowledgeNavigation/>
 
     <section className="figure-profile-body">
@@ -153,7 +162,7 @@ export default async function YemeniFigureProfilePage({params}) {
           <CrossSectionPaths items={crossLinks} id="figure-cross-paths" title="ضع السيرة في سياق أوسع"/>
         </div>
 
-        <aside className="figure-profile-aside">
+        <aside className="figure-profile-aside" id="figure-quick-facts">
           <div className="figure-profile-facts">
             <h2>معلومات سريعة</h2>
             <dl>

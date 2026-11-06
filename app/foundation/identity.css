@@ -139,3 +139,66 @@
 .ed-footer-groups { padding: 14px 0 !important; gap: 14px !important; }
 .ed-footer-group h3 { font: 600 15px/1.4 var(--t-text) !important; }
 .ed-footer-motto { font-size: 1rem !important; }
+
+/* In-page jumps land below the app bar and the pinned jump chips. */
+:root .site-experience [id] { scroll-margin-top: calc(var(--header-h) + 64px) !important; }
+
+/* ---------- Redesign v2 — batch B: knowledge page headers ---------- */
+/* The eyebrow stays readable even when a section colour is pale. */
+:root:root:root .site-experience.site-experience .page-intro :is(.eyebrow, .page-intro-eyebrow) {
+  color: color-mix(in srgb, var(--intro-accent) 45%, var(--c-ink)) !important;
+}
+/* Header shortcuts become one row of small chips instead of stacked buttons. */
+:root:root:root .site-experience [data-knowledge-intro] .page-intro .directory-summary {
+  display: flex; flex-wrap: nowrap; gap: 6px; margin-top: 10px !important;
+  overflow-x: auto; scrollbar-width: none;
+}
+:root:root:root .site-experience [data-knowledge-intro] .page-intro .directory-summary::-webkit-scrollbar { display: none; }
+:root:root:root .site-experience [data-knowledge-intro] .page-intro .directory-summary > a {
+  flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 34px !important;
+  margin: 0 !important; padding: 0 12px !important; border: 1px solid var(--c-line) !important;
+  border-radius: var(--r-pill) !important; background: var(--c-surface) !important;
+  color: var(--c-accent) !important; font-size: 13px !important; font-weight: 600; white-space: nowrap; box-shadow: none !important;
+}
+@media (max-width: 760px) {
+  :root:root:root .site-experience [data-knowledge-intro] .page-intro > .container > p { -webkit-line-clamp: 2; }
+}
+
+/* Map: a short section head, and on phones a canvas sized to Yemen's shape. */
+.ymap-page .ydiscovery-section-head { margin-block: 12px 8px !important; padding: 0 !important; border: 0 !important; }
+.ymap-page .ydiscovery-section-head h2 { font-size: var(--t-size-h2) !important; margin: 0 !important; }
+.ymap-page .ydiscovery-section-head p { font-size: 13px !important; margin: 2px 0 0 !important; line-height: 1.6 !important; }
+.ymap-page .ymap-section { padding-block: 0 !important; }
+@media (max-width: 700px) {
+  :root:root .ymap-page .ymap-canvas { height: 340px !important; min-height: 300px !important; }
+}
+/* Map info panel before a place is chosen: one short hint and a stats row. */
+:root:root .ymap-page .ymap-info-panel:not(.has-region) .ymap-info-head { padding: 10px 14px !important; }
+:root:root .ymap-page .ymap-info-panel:not(.has-region) .ymap-info-head h2 { font-size: var(--t-size-h3) !important; margin: 0 !important; }
+:root:root .ymap-page .ymap-info-panel:not(.has-region) .ymap-info-head .eyebrow { display: none !important; }
+:root:root .ymap-page .ymap-info-empty { display: grid !important; grid-template-columns: 24px minmax(0,1fr); gap: 8px 10px; align-items: start; padding: 12px 14px !important; text-align: start !important; }
+:root:root .ymap-page .ymap-info-empty > svg { width: 22px; height: 22px; margin: 0 !important; }
+:root:root .ymap-page .ymap-info-empty > p { margin: 0 !important; font-size: 13px !important; line-height: 1.7 !important; }
+:root:root .ymap-page .ymap-info-empty dl { grid-column: 1 / -1; display: grid !important; grid-template-columns: auto auto minmax(0,1fr); gap: 6px !important; margin: 0 !important; }
+:root:root .ymap-page .ymap-info-empty dl > div { display: flex !important; flex-direction: column; gap: 0 !important; min-width: 0; padding: 6px 10px !important; border-radius: 10px !important; }
+:root:root .ymap-page .ymap-info-empty dt { font-size: 11px !important; }
+:root:root .ymap-page .ymap-info-empty dd { font-size: 13px !important; font-weight: 700; margin: 0 !important; overflow-wrap: anywhere; line-height: 1.5 !important; }
+/* Phones: a small bar names the chosen place while its panel is below the screen. */
+.ymap-peek { display: none; }
+.ymap-info-panel { scroll-margin-top: calc(var(--header-h) + 8px); }
+@media (max-width: 700px) {
+  .ymap-peek {
+    position: fixed; z-index: 65; inset-inline: 10px; bottom: calc(66px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 6px 8px 6px 6px; padding-inline-start: 14px;
+    border: 1px solid var(--c-line-2); border-radius: 14px; background: var(--c-surface); color: var(--c-ink);
+    box-shadow: 0 8px 24px rgb(0 0 0 / .16);
+  }
+  .ymap-peek > svg { flex: none; color: var(--c-accent); }
+  .ymap-peek > span { flex: 1; min-width: 0; display: grid; line-height: 1.35; }
+  .ymap-peek strong { font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ymap-peek small { font-size: 11px; color: var(--c-ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ymap-peek button { flex: none; display: inline-flex; align-items: center; gap: 4px; min-height: 40px; padding: 0 12px; border: 0; border-radius: 10px; background: var(--c-accent); color: #fff; font: 600 13px/1 var(--t-text); cursor: pointer; }
+  .ymap-peek .ymap-peek-close { width: 40px; padding: 0; justify-content: center; background: var(--c-surface-2, var(--c-bg-2)); color: var(--c-ink-2); }
+}
+.ymap-page .ymap-app { gap: 10px !important; }
+.ymap-page .ymap-toolbar { margin-bottom: 0 !important; }

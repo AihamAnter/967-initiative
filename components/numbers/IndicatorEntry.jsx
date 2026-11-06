@@ -1,5 +1,5 @@
 import Link from '@/components/SiteLink';
-import {formatNumber, formatYear} from '@/lib/format';
+import {formatCompact, formatNumber, formatYear} from '@/lib/format';
 import {statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
 import {sourceLabel, dataStatusHelp} from '@/lib/indicatorPresentation';
 import {indicatorMeasurementEvidence} from '@/lib/contentEvidence';
@@ -13,7 +13,7 @@ export default function IndicatorEntry({indicator}) {
   const href = '/yemen-in-numbers/indicator/' + indicator.slug;
   const evidence = latest ? indicatorMeasurementEvidence(latest.year) : null;
   const dated = evidence && ['historical', 'older', 'future'].includes(evidence.kind);
-  const valueText = latest ? formatNumber(latest.value, {maximumFractionDigits: 2}) : '';
+  const valueText = !latest ? '' : Math.abs(Number(latest.value)) >= 1e6 ? formatCompact(latest.value) : formatNumber(latest.value, {maximumFractionDigits: 2});
   return <article className="ed-entry">
     <p className="ed-entry-top"><span className="ed-kicker">{indicator.domain?.name || 'مؤشر وطني'}</span><span className="ed-status" data-tone={indicator.data_status === 'complete' ? 'positive' : 'neutral'} title={dataStatusHelp[indicator.data_status]}>البيانات: {statusLabels[indicator.data_status] || indicator.data_status}</span></p>
     <h3 className="ed-entry-title"><Link href={href}>{indicator.name}</Link></h3>

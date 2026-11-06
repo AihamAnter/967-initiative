@@ -11,6 +11,7 @@ import InlineTarget from '@/components/inline/InlineTarget';
 import Resilient from '@/components/front/Resilient';
 import CorrectionLink from '@/components/CorrectionLink';
 import Sparkline from '@/components/numbers/Sparkline';
+import JumpNav from '@/components/knowledge/JumpNav';
 import {getStatIndicator} from '@/lib/data';
 import {formatArabicDate, formatNumber, formatYear} from '@/lib/format';
 import {directionLabels, statusLabels, valueStatusLabels} from '@/lib/yemenNumbers';
@@ -66,6 +67,13 @@ export default async function IndicatorPage({params}) {
       <div className="ed-actions"><IndicatorActions indicator={indicator}/><ContentReadingAction kind="indicator" href={path} title={indicator.name}/></div>
       {indicator.updated_at && <p className="ed-record-date">آخر تحديث للسجل: {formatArabicDate(indicator.updated_at)} · سنة القياس موضحة بجانب القيمة.</p>}
     </div></section>
+    <JumpNav items={[
+      {href: '#series-title', title: 'القيم', icon: 'chart'},
+      {href: '#factsheet-title', title: 'بطاقة المؤشر', icon: 'card'},
+      indicator.editorial?.is_published && {href: '#indicator-reading', title: 'قراءة موسّعة', icon: 'reading'},
+      indicator.values.length > 0 && {href: '#table-title', title: 'الجدول', icon: 'table'},
+      {href: '#sources-title', title: 'المصادر', icon: 'sources'},
+    ]}/>
     <KnowledgeNavigation/>
 
     <section className="ed-wrap ed-block" aria-labelledby="series-title">
@@ -89,7 +97,7 @@ export default async function IndicatorPage({params}) {
       </div>
     </section>
 
-    {indicator.editorial?.is_published&&<div className="ed-wrap"><IndicatorEditorial data={indicator.editorial} indicatorName={indicator.name}/></div>}
+    {indicator.editorial?.is_published&&<div className="ed-wrap" id="indicator-reading"><IndicatorEditorial data={indicator.editorial} indicatorName={indicator.name}/></div>}
 
     {indicator.values.length > 0 && <section className="ed-wrap ed-block" aria-labelledby="table-title">
       <div className="ed-section-head"><h2 id="table-title">البيانات المنشورة للسلسلة المعتمدة</h2><p>{formatNumber(indicator.values.length)} قيمة</p></div>

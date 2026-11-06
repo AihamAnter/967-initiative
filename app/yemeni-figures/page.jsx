@@ -35,7 +35,7 @@ export default async function YemeniFiguresPage({searchParams}){
    </div>
   </KnowledgePageIntro>
   <KnowledgeNavigation/>
-  <KnowledgeReadingGuide kind="figures"/>
   <YemeniFiguresExplorer figures={figures} initialGovernorateId={region}/>
+  <KnowledgeReadingGuide kind="figures"/>
  </div></KnowledgeTheme>;
 }

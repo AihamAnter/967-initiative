@@ -15,7 +15,7 @@ test('homepage keeps every section in an app-style order: today, start, sections
  const blocks=read('components/home/HomeBlocks.jsx');
  assert.ok(homepage.includes("{visible('games')&&<section id=\"home-games\""));
  assert.ok(homepage.includes('<GamesStrip dailyHref={dailyGameUrl(today)}'));
- assert.ok(homepage.includes('<HomeSmartStart initialDate={today}'));
+ assert.ok(homepage.includes('<HomeSmartStart membersOnly initialDate={today}'));
  const order=['id="today-title"','<HomeSmartStart','id="explore-title"','id="home-games"','id="home-school"','id="explore-knowledge"','id="numbers-title"','id="community-title"','id="about"'];
  const at=order.map(x=>homepage.indexOf(x));
  assert.ok(at.every(x=>x>=0),'missing home section');

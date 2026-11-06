@@ -52,10 +52,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,o
 
   return <section className="yfigures-section" id="yemeni-figures">
     <div className="container yfigures-container">
-      <header className="yfigures-head">
-        <div><span className="eyebrow">ذاكرة وأثر</span><h2>شخصيات <span>يمنية</span></h2></div>
-        <p>تعرّف على شخصيات يمنية معاصرة وتاريخية، وابحث بحسب الاسم أو المجال أو المحافظة.</p>
-      </header>
+      <h2 className="sr-only">دليل الشخصيات اليمنية</h2>
 
       {figures.some(figure=>figure.isDemo) && <p className="data-disclosure">يتضمن العرض ملفات من الكتالوج التجريبي للمشروع. هذه الملفات موسومة كتوضيحية وتحتاج مراجعة مصادرها قبل اعتمادها كمحتوى منشور.</p>}
 
@@ -88,12 +85,10 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,o
           return <article className="yfigure-card" key={figure.id}>
             <Link className="yfigure-card-hitarea" href={'/yemeni-figures/'+figure.slug+'?from='+encodeURIComponent(returnTo)} aria-label={`عرض صفحة ${figure.fullName}`}><span className="sr-only">عرض صفحة {figure.fullName}</span></Link>
             <div className="yfigure-image">
-              {hasFigureImageProvenance(figure) ? <Image src={figure.imageUrl} alt={figure.imageKind==='context'?figure.imageCredit:`صورة ${figure.fullName}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
-              <span className="yfigure-era">{figure.era}</span>
-              {figure.imageSourceUrl&&<a className="yfigure-photo-credit" href={figure.imageSourceUrl} target="_blank" rel="noopener noreferrer" title={figure.imageCredit}>{figure.imageCredit||'مصدر الصورة وحقوقها'}</a>}
+              {hasFigureImageProvenance(figure) ? <Image src={figure.imageUrl} alt={figure.imageKind==='context'?figure.imageCredit:`صورة ${figure.fullName}`} fill sizes="88px" unoptimized={figure.imageUrl.startsWith('http')} /> : <span className="yfigure-initials">{figureInitials(figure.fullName)}</span>}
             </div>
             <div className="yfigure-content">
-              <div className="yfigure-meta"><span>{figure.field}</span>{lifeYears(figure) && <span dir="ltr">{lifeYears(figure)}</span>}</div>
+              <div className="yfigure-meta"><span className="yfigure-era">{figure.era}</span><span>{figure.field}</span>{lifeYears(figure) && <span dir="ltr">{lifeYears(figure)}</span>}</div>
               <h3>{figure.fullName}</h3>
               {figure.isDemo && <span className="status-badge">ملف توضيحي — يحتاج مراجعة</span>}
               <strong>{toLatinDigits(figure.knownFor)}</strong>
@@ -103,6 +98,7 @@ export default function YemeniFiguresDirectory({figures, selectedGovernorateId,o
                 {links.length > 0 && <div className="yfigure-socials">{links.map(({url, label, icon: Icon}) => <a href={url} target="_blank" rel="noreferrer" aria-label={`${label} - ${figure.fullName}`} title={label} key={label}><Icon size={17}/></a>)}</div>}
                 {links.length === 0 && <ArrowUpLeft className="yfigure-open-icon" size={20} aria-hidden="true"/>}
               </div>
+              {figure.imageSourceUrl&&<a className="yfigure-photo-credit" href={figure.imageSourceUrl} target="_blank" rel="noopener noreferrer" title={figure.imageCredit}>الصورة: {figure.imageCredit||'مصدر الصورة وحقوقها'}</a>}
             </div>
             <div className="card-save-action">{/* Preserve saved-item identity; old bookmark paths redirect to the new profile. */}<SaveForLater compact item={{kind:'figure',href:'/yemen-map/figures/'+encodeURIComponent(figure.slug),title:figure.fullName}}/></div>
           </article>;

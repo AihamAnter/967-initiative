@@ -142,3 +142,76 @@
 
 /* Domain explanations stay readable in the user-selected night palette. */
 :root[data-ed-theme="dark"] .ed-page .ed-domains details>p{color:#b7c2bf}
+
+/* =====================================================================
+ * Redesign v2 — batch B: the index is a list of compact rows (RTL):
+ * name and evidence on the start side, value + trend on the end side.
+ * ===================================================================== */
+.ed-numbers .ed-pagehead .ed-facts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px !important; }
+.ed-numbers .ed-pagehead .ed-facts div { flex-direction: row !important; align-items: baseline; gap: 6px; padding: 4px 10px !important; border-radius: var(--r-pill); background: var(--c-surface); border: 1px solid var(--c-line); box-shadow: none; }
+.ed-numbers .ed-pagehead .ed-facts dd { order: 1; font-size: 14px !important; font-weight: 700; }
+.ed-numbers .ed-pagehead .ed-facts dt { order: 2; font-size: 12px; }
+.ed-numbers .ed-head-links { margin-top: 10px; gap: 6px; }
+.ed-numbers .ed-head-links .ed-link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border-radius: var(--r-pill); background: var(--c-surface); border: 1px solid var(--c-line); font-size: 13px; text-decoration: none; }
+.ed-numbers .ed-block { margin-top: 18px; }
+.ed-numbers .ed-section-head { margin-bottom: 8px; }
+
+/* Sticky, compact filters */
+.ed-numbers .ed-filters { position: sticky; top: var(--header-h); z-index: 6; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; padding: 10px; border-radius: var(--r-3); background: var(--c-glass); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid var(--c-line); }
+.ed-numbers .ed-filters .ed-field:first-child { grid-column: 1 / -1; }
+.ed-numbers .ed-field span { font-size: 12px; }
+.ed-numbers .ed-field input, .ed-numbers .ed-field select { min-height: 42px; font-size: 14px; }
+@media (min-width: 900px) { .ed-numbers .ed-filters { grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); } .ed-numbers .ed-filters .ed-field:first-child { grid-column: auto; } }
+.ed-numbers .ed-results { margin: 10px 0 6px; font-size: 13px; }
+
+/* Rows */
+.ed-numbers .ed-index { grid-template-columns: minmax(0, 1fr); gap: 0; border: 1px solid var(--c-line); border-radius: var(--r-3); background: var(--c-surface); box-shadow: var(--e-1); overflow: hidden; }
+@media (min-width: 1100px) { .ed-numbers .ed-index { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ed-numbers .ed-index > li:nth-child(odd) { border-inline-end: 1px solid var(--c-line); } }
+.ed-numbers .ed-index > li + li { border-top: 1px solid var(--c-line); }
+@media (min-width: 1100px) { .ed-numbers .ed-index > li:nth-child(2) { border-top: 0; } }
+.ed-numbers .ed-entry {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "top fig" "title fig" "foot foot" "note note";
+  gap: 2px 12px; padding: 12px 14px; border-radius: 0; background: transparent; box-shadow: none; border: 0;
+}
+.ed-numbers .ed-entry:hover { box-shadow: none; transform: none; background: var(--c-surface-3); }
+.ed-numbers .ed-entry-top { grid-area: top; justify-content: flex-start; gap: 6px; }
+.ed-numbers .ed-entry-top .ed-kicker { font-size: 12px; }
+.ed-numbers .ed-entry-top .ed-status { display: none; }
+.ed-numbers .ed-entry-title { grid-area: title; font: 600 15px/1.45 var(--t-text) !important; }
+.ed-numbers .ed-entry-desc { display: none; }
+.ed-numbers .ed-entry-figure { grid-area: fig; align-self: center; display: grid; grid-template-columns: auto; justify-items: end; gap: 2px; margin: 0; padding: 0; background: none; border: 0; }
+.ed-numbers .ed-entry-figure .ed-figure { justify-content: flex-end; gap: 4px; }
+.ed-numbers .ed-entry-figure .ed-figure bdi { font-size: 1.125rem !important; font-weight: 700; letter-spacing: 0; }
+.ed-numbers .ed-entry-figure .ed-figure span { font-size: 12px; }
+.ed-numbers .ed-entry-figure svg { width: 64px; height: 20px; }
+.ed-numbers .ed-entry-missing { grid-area: fig; align-self: center; margin: 0; padding: 0; background: none; font-size: 12px; max-width: 9rem; text-align: end; }
+.ed-numbers .ed-entry-foot { grid-area: foot; gap: 4px 8px; margin-top: 2px; }
+.ed-numbers .ed-entry-foot .ed-chip-data, .ed-numbers .ed-entry-foot .ed-status { min-height: 0; padding: 0; border: 0; background: none; color: var(--c-ink-3); font-size: 12px; }
+.ed-numbers .ed-entry-foot .ed-status[data-tone="caution"] { color: var(--c-caution); }
+.ed-numbers .ed-entry-source { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ed-numbers .ed-entry-save :is(button, a) { min-height: 32px; }
+.ed-numbers .ed-entry-note { grid-area: note; font-size: 12px; }
+/* Tighter on phones: no empty band after the knowledge chips, filter labels
+   kept for screen readers only (selects show their current value). */
+.ed-numbers .ed-page nav[aria-label="التنقل بين أقسام المعرفة"] + .ed-block, .ed-numbers nav[aria-label="التنقل بين أقسام المعرفة"] + .ed-block { margin-top: 12px !important; }
+@media (max-width: 760px) {
+  .ed-numbers .ed-pagehead .ed-dek { -webkit-line-clamp: 2 !important; }
+  .ed-numbers nav[aria-label="التنقل بين أقسام المعرفة"] > div > div { padding: 2px; border: 0; background: transparent; box-shadow: none; }
+  .ed-numbers .ed-section-head { display: none; }
+  .ed-numbers .ed-filters { padding: 8px; }
+  .ed-numbers .ed-field > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .ed-numbers .ed-results span { display: none; }
+}
+/* One evidence line per row: year · kind · source (truncated) · save. */
+.ed-numbers .ed-entry-foot { flex-wrap: nowrap; align-items: center; min-width: 0; }
+.ed-numbers .ed-entry-foot > * { flex: none; }
+.ed-numbers .ed-entry-foot .ed-entry-source { flex: 1 1 auto; min-width: 0; }
+.ed-numbers .ed-entry-save { margin-inline-start: 0; }
+.ed-numbers .ed-entry-save :is(button, a) { min-height: 30px; min-width: 30px; padding: 0 6px; }
+/* Facts as one quiet line of text instead of chips. */
+@media (max-width: 760px) {
+  .ed-numbers .ed-pagehead .ed-facts { gap: 0 12px; margin-top: 6px !important; }
+  .ed-numbers .ed-pagehead .ed-facts div { padding: 0 !important; border: 0; background: none; }
+  .ed-numbers .ed-head-links { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-top: 8px; }
+  .ed-numbers .ed-head-links .ed-link { flex: none; min-height: 34px; }
+}

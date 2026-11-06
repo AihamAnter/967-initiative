@@ -1,7 +1,7 @@
 'use client';
 import {useMemo,useState,useEffect} from 'react';
 import Link from '@/components/SiteLink';
-import {ArrowUpLeft,BookOpen,CalendarDays,MapPinned,Search,ScrollText,SlidersHorizontal,Layers} from 'lucide-react';
+import {ArrowUpLeft,BookOpen,CalendarDays,MapPinned,Search,ScrollText,SlidersHorizontal,ListOrdered} from 'lucide-react';
 import {historyEras,historyKinds,historyEntryPath,historyYear} from '@/lib/yemenHistory';
 import styles from './HistoryExplorer.module.css';
 import HistoryTimeline from './HistoryTimeline';
@@ -39,15 +39,18 @@ export default function HistoryExplorer({entries,initialEra='',initialType=''}) 
   <section className={styles.controls} aria-label="خيارات استكشاف تاريخ اليمن">
    <label className={styles.search}><Search size={19}/><span className="sr-only">بحث في تاريخ اليمن</span><input value={query} onChange={e=>{setQuery(e.target.value);setMore(12);}} placeholder="ابحث عن دولة أو حدث أو موقع..." maxLength={120}/></label>
    <label className={styles.select}><SlidersHorizontal size={17}/><span className="sr-only">نوع المحتوى</span><select value={type} onChange={e=>change(era,e.target.value)}><option value="">جميع الموضوعات</option>{Object.entries(historyKinds).map(([key,label])=><option key={key} value={key}>{label}</option>)}</select></label>
-   <div className={styles.viewModes} role="group" aria-label="طريقة العرض"><button type="button" className={mode==='cards'?styles.active:''} aria-pressed={mode==='cards'} onClick={()=>setMode('cards')}><Layers size={17}/> البطاقات</button><button type="button" className={mode==='timeline'?styles.active:''} aria-pressed={mode==='timeline'} onClick={()=>setMode('timeline')}><CalendarDays size={17}/> الخط الزمني</button></div>
+   <div className={styles.viewModes} role="group" aria-label="طريقة العرض"><button type="button" className={mode==='cards'?styles.active:''} aria-pressed={mode==='cards'} onClick={()=>setMode('cards')}><ListOrdered size={17}/> القائمة</button><button type="button" className={mode==='timeline'?styles.active:''} aria-pressed={mode==='timeline'} onClick={()=>setMode('timeline')}><CalendarDays size={17}/> الخط الزمني</button></div>
   </section>
   <div className={styles.resultCount} role="status">المواد المطابقة: <strong>{selected.length.toLocaleString('ar')}</strong> {era&&<button onClick={()=>change('',type)} type="button">جميع العصور ×</button>}</div>
-  {selected.length===0?<div className={styles.empty}>لا توجد مواد مطابقة. جرّب إزالة الفلاتر أو استخدام عبارة أخرى. <button type="button" onClick={()=>{change('','');setQuery('');}}>إعادة ضبط البحث</button></div>:mode==='timeline'?<HistoryTimeline entries={selected}/>:<div className={styles.cards}>{selected.slice(0,more).map((entry,i)=><article key={entry.slug} data-history-kind={entry.kind} className={styles.card}>
-    <div className={styles.cardTop}><span className={styles.kind}>{historyKinds[entry.kind]}</span><span className={styles.date}>{historyYear(entry.year)}</span></div>
-    <HistoryMedia entry={entry} variant="thumbnail"/>
-    <h3><Link href={historyEntryPath(entry.slug)}>{entry.title}</Link></h3><small className={styles.period}>{entry.period}</small>
-    <p>{entry.summary}</p>
-    <div className={styles.cardBottom}><span><BookOpen size={15}/> {entry.sources?.length||0} مصادر</span>{entry.location&&<span><MapPinned size={15}/>{entry.location}</span>}<Link href={historyEntryPath(entry.slug)} aria-label={'قراءة '+entry.title}>اقرأ الملف <ArrowUpLeft size={16}/></Link></div>
+  {selected.length===0?<div className={styles.empty}>لا توجد مواد مطابقة. جرّب إزالة الفلاتر أو استخدام عبارة أخرى. <button type="button" onClick={()=>{change('','');setQuery('');}}>إعادة ضبط البحث</button></div>:mode==='timeline'?<HistoryTimeline entries={selected}/>:<div className={styles.cards}>{selected.slice(0,more).map(entry=><article key={entry.slug} data-history-kind={entry.kind} className={styles.card}>
+    <span className={styles.date}>{historyYear(entry.year)}</span>
+    <div className={styles.cardBody}>
+     <div className={styles.cardTop}><span className={styles.kind}>{historyKinds[entry.kind]}</span><small className={styles.period}>{entry.period}</small></div>
+     <h3><Link href={historyEntryPath(entry.slug)}>{entry.title}</Link></h3>
+     <p>{entry.summary}</p>
+     <div className={styles.cardBottom}><span><BookOpen size={14}/> {entry.sources?.length||0} مصادر</span>{entry.location&&<span><MapPinned size={14}/>{entry.location}</span>}<Link href={historyEntryPath(entry.slug)} aria-label={'قراءة '+entry.title}>اقرأ الملف <ArrowUpLeft size={15}/></Link></div>
+    </div>
+    <div className={styles.cardThumb}><HistoryMedia entry={entry} variant="thumbnail"/></div>
    </article>)}</div>}
   {mode==='cards'&&selected.length>more&&<button className={styles.more} type="button" onClick={()=>setMore(x=>x+12)}>عرض المزيد ({Math.min(12,selected.length-more).toLocaleString('ar')})</button>}
   <HistoryComparison entries={states}/>

@@ -19,8 +19,9 @@ function Status({value}){
  return null;
 }
 
-// membersOnly: the redesigned home already gives guests clear section doors, so
-// this strip appears only once a signed-in member has something to resume.
+// membersOnly: the home's shortcuts already give guests the same doors (learn,
+// play, explore), so guests get only the one-line sign-in hint here and members
+// get their full "continue" panel.
 export default function HomeSmartStart({initialDate,knowledgeHref='/search',membersOnly=false}){
  const {user,ready,error:authError}=useAudience();
  const {isVisible}=usePageVisibility();
@@ -100,7 +101,9 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search',memb
  const daily=games.status==='ready'&&games.value?.date===day?games.value.daily:null;
  const gameHref=dailyGameUrl(day);
 
- if(membersOnly&&(!ready||!user))return null;
+ const signInHint=<p className={styles.hint}><LogIn size={15} aria-hidden="true"/>{authError?'تعذر التحقق من الجلسة. يمكنك تسجيل الدخول مجددًا.':'سجّل الدخول لتظهر لك متابعة التعلم ومحفوظات حسابك.'}<Link href="/login">تسجيل الدخول <ArrowLeft size={14} aria-hidden="true"/></Link></p>;
+ if(membersOnly&&!ready)return null;
+ if(membersOnly&&!user)return <div className={styles.guestHint}>{signInHint}</div>;
  return <section className={styles.section} aria-labelledby="home-start-title">
   <div className={styles.heading}>
    <div>
@@ -152,7 +155,7 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search',memb
    {showGames?<Link className={styles.guestCard} href="/games"><span className={styles.icon} data-kind="games"><Gamepad2 size={23} aria-hidden="true"/></span><span className={styles.guestCopy}><strong>جرّب ألعاب 967</strong><small>تعلم بطريقة ممتعة، واستكشف التحديات اليومية</small></span><ArrowLeft size={18} aria-hidden="true"/></Link>:isVisible('/contribute')&&<Link className={styles.guestCard} href="/contribute"><span className={styles.icon} data-kind="games"><BookOpen size={23} aria-hidden="true"/></span><span className={styles.guestCopy}><strong>شارك في المبادرة</strong><small>تعرف على فرص التواصل والمساهمة</small></span><ArrowLeft size={18} aria-hidden="true"/></Link>}
   </div>}
 
-  {ready&&!user&&<p className={styles.hint}><LogIn size={15} aria-hidden="true"/>{authError?'تعذر التحقق من الجلسة. يمكنك تسجيل الدخول مجددًا.':'سجّل الدخول لتظهر لك متابعة التعلم ومحفوظات حسابك.'}<Link href="/login">تسجيل الدخول <ArrowLeft size={14} aria-hidden="true"/></Link></p>}
+  {ready&&!user&&signInHint}
   {ready&&user&&[cards.school,cards.reading,cards.games].some(card=>card.status==='error')&&<div className={styles.retry}><span>بعض بيانات حسابك غير متاحة مؤقتًا.</span><button type="button" onClick={()=>setRevision(n=>n+1)}><RefreshCw size={15} aria-hidden="true"/> إعادة المحاولة</button></div>}
  </section>;
 }
