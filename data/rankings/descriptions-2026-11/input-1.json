@@ -1,0 +1,492 @@
+[
+ {
+  "slug": "gdp-ppp-per-capita",
+  "name": "نصيب الفرد من الناتج وفق تعادل القوة الشرائية",
+  "unit": "دولار دولي جاري",
+  "category": "economy",
+  "better": "higher",
+  "code": "NY.GDP.PCAP.PP.CD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "This indicator provides values for gross domestic product (GDP) per person expressed in current international dollars, converted by purchasing power parities (PPPs). PPPs account for the different price levels across countries and thus PPP-based comparisons of economic output are more appropriate for comparing the output of economies and the average material well-being of their inhabitants than exchange-rate based comparisons.  \n\nGross domestic product is the total income earned through the production of goods and services in an economic territory during an accounting period. It can be measured in three different ways: using either the expenditure approach, the income approach, or the production approach. This series has been linked to produce a consistent time series to counteract breaks in series over time due to changes in base years, source data and methodologies. Thus, it may not be comparable with other national accounts series in the database for historical years. The core indicator has been divided by the general population to achieve a per capita estimate. This indicator is expressed in current prices, meaning no adjustment has been made to account for price changes over time. The PPP conversion factor is a currency conversion factor and a spatial price deflator. PPPs convert different currencies to a common currency and, in the process of conversion, equalize their purchasing power by eliminating the differences in price levels between countries, thereby allowing volume or output comparisons of GDP and its expenditure components."
+ },
+ {
+  "slug": "gdp-ppp",
+  "name": "الناتج المحلي وفق تعادل القوة الشرائية",
+  "unit": "دولار دولي جاري",
+  "category": "economy",
+  "better": "contextual",
+  "code": "NY.GDP.MKTP.PP.CD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "This indicator provides values for gross domestic product (GDP) expressed in current international dollars, converted by purchasing power parities (PPPs). PPPs account for the different price levels across countries and thus PPP-based comparisons of economic output are more appropriate for comparing the output of economies and the average material well-being of their inhabitants than exchange-rate based comparisons.  \n\nGross domestic product is the total income earned through the production of goods and services in an economic territory during an accounting period. It can be measured in three different ways: using either the expenditure approach, the income approach, or the production approach. This series has been linked to produce a consistent time series to counteract breaks in series over time due to changes in base years, source data and methodologies. Thus, it may not be comparable with other national accounts series in the database for historical years. This indicator is expressed in current prices, meaning no adjustment has been made to account for price changes over time. The PPP conversion factor is a currency conversion factor and a spatial price deflator. PPPs convert different currencies to a common currency and, in the process of conversion, equalize their purchasing power by eliminating the differences in price levels between countries, thereby allowing volume or output comparisons of GDP and its expenditure components."
+ },
+ {
+  "slug": "gdp-per-capita-growth",
+  "name": "نمو نصيب الفرد من الناتج",
+  "unit": "% سنوياً",
+  "category": "economy",
+  "better": "higher",
+  "code": "NY.GDP.PCAP.KD.ZG",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Gross domestic product is the total income earned through the production of goods and services in an economic territory during an accounting period. It can be measured in three different ways: using either the expenditure approach, the income approach, or the production approach. The core indicator has been divided by the general population to achieve a per capita estimate.This indicator denotes the percentage change over each previous year of the constant price (base year 2015) series in United States dollars."
+ },
+ {
+  "slug": "gross-savings",
+  "name": "الادخار المحلي الإجمالي",
+  "unit": "% من الناتج المحلي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "NY.GDS.TOTL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Gross domestic savings are calculated as GDP less final consumption expenditure (total consumption). This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "household-consumption",
+  "name": "الإنفاق الاستهلاكي للأسر",
+  "unit": "% من الناتج المحلي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "NE.CON.PRVT.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "This field includes expenditure on goods and services by the Household and NPISH sector for the direct satisfaction of human needs or wants, whether individual or collective. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "industry-value",
+  "name": "القيمة المضافة للصناعة",
+  "unit": "% من الناتج المحلي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "NV.IND.TOTL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Industry (including construction) corresponds to ISIC (Rev.4) divisions 05-43. It is comprised of mining, manufacturing, construction, electricity, water, and gas industries. Value added is the contribution to the economy by a producer or an industry or an institutional sector, which is estimated by the total value of output produced and deducting the total value of intermediate consumption of goods and services used to produce that output. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "services-value",
+  "name": "القيمة المضافة للخدمات",
+  "unit": "% من الناتج المحلي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "NV.SRV.TOTL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Services industries correspond to ISIC (Rev. 4) divisions 45-99 and includes wholesale and retail trade, repair of motor vehicles, hotels and restaurants, transport, storage and communication, financial intermediation, real estate, renting and business activities, public administration and defence, compulsory social security, education, health and social work, other community, social and personal service activities, private households with employed persons, and extra-territorial organizations and bodies. Value added is the contribution to the economy by a producer or an industry or an institutional sector, which is estimated by the total value of output produced and deducting the total value of intermediate consumption of goods and services used to produce that output. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "natural-resource-rents",
+  "name": "إجمالي ريع الموارد الطبيعية",
+  "unit": "% من الناتج المحلي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "NY.GDP.TOTL.RT.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Total natural resources rents are the sum of oil rents, natural gas rents, coal rents (hard and soft), mineral rents, and forest rents."
+ },
+ {
+  "slug": "oil-rents",
+  "name": "ريع النفط",
+  "unit": "% من الناتج المحلي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "NY.GDP.PETR.RT.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Oil rents are the difference between the value of crude oil production at regional prices and total costs of production."
+ },
+ {
+  "slug": "poverty-extreme",
+  "name": "الفقر المدقع (3.00 دولار يومياً)",
+  "unit": "% من السكان",
+  "category": "economy",
+  "better": "lower",
+  "code": "SI.POV.DDAY",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Poverty headcount ratio at $3.00 a day is the percentage of the population living on less than $3.00 a day at 2021 purchasing power adjusted prices. As a result of revisions in PPP exchange rates, poverty rates for individual countries cannot be compared with poverty rates reported in earlier editions."
+ },
+ {
+  "slug": "gini",
+  "name": "مؤشر جيني لعدم المساواة",
+  "unit": "درجة من 0 إلى 100",
+  "category": "economy",
+  "better": "lower",
+  "code": "SI.POV.GINI",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Gini index measures the extent to which the distribution of income (or, in some cases, consumption expenditure) among individuals or households within an economy deviates from a perfectly equal distribution. A Lorenz curve plots the cumulative percentages of total income received against the cumulative number of recipients, starting with the poorest individual or household. The Gini index measures the area between the Lorenz curve and a hypothetical line of absolute equality, expressed as a percentage of the maximum area under the line. Thus a Gini index of 0 represents perfect equality, while an index of 100 implies perfect inequality."
+ },
+ {
+  "slug": "external-debt-gni",
+  "name": "الدين الخارجي إلى الدخل القومي",
+  "unit": "% من الدخل القومي",
+  "category": "economy",
+  "better": "lower",
+  "code": "DT.DOD.DECT.GN.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Total external debt stocks to gross national income. Total external debt is debt owed to nonresidents repayable in currency, goods, or services. Total external debt is the sum of public, publicly guaranteed, and private nonguaranteed long-term debt, use of IMF credit, and short-term debt. Short-term debt includes all debt having an original maturity of one year or less and interest in arrears on long-term debt. GNI (formerly GNP) is the sum of value added by all resident producers plus any product taxes (less subsidies) not included in the valuation of output plus net receipts of primary income (compensation of employees and property income) from abroad."
+ },
+ {
+  "slug": "oda-per-capita",
+  "name": "المساعدات الإنمائية الرسمية للفرد",
+  "unit": "دولار أمريكي للفرد",
+  "category": "economy",
+  "better": "contextual",
+  "code": "DT.ODA.ODAT.PC.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Net official development assistance (ODA) per capita consists of disbursements of loans made on concessional terms (net of repayments of principal) and grants by official agencies of the members of the Development Assistance Committee (DAC), by multilateral institutions, and by non-DAC countries to promote economic development and welfare in countries and territories in the DAC list of ODA recipients; and is calculated by dividing net ODA received by the midyear population estimate. It includes loans with a grant element of at least 25 percent (calculated at a rate of discount of 10 percent)."
+ },
+ {
+  "slug": "oda-gni",
+  "name": "المساعدات الإنمائية من الدخل القومي",
+  "unit": "% من الدخل القومي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "DT.ODA.ODAT.GN.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Net official development assistance (ODA) consists of disbursements of loans made on concessional terms (net of repayments of principal) and grants by official agencies of the members of the Development Assistance Committee (DAC), by multilateral institutions, and by non-DAC countries to promote economic development and welfare in countries and territories in the DAC list of ODA recipients. It includes loans with a grant element of at least 25 percent (calculated at a rate of discount of 10 percent)."
+ },
+ {
+  "slug": "military-spending",
+  "name": "الإنفاق العسكري",
+  "unit": "% من الناتج المحلي",
+  "category": "economy",
+  "better": "contextual",
+  "code": "MS.MIL.XPND.GD.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Military expenditure by country as percentage of gross domestic product"
+ },
+ {
+  "slug": "current-account",
+  "name": "رصيد الحساب الجاري",
+  "unit": "% من الناتج المحلي",
+  "category": "trade",
+  "better": "contextual",
+  "code": "BN.CAB.XOKA.GD.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Balance of current transactions (transactions in goods and services, earned income and transfer income) between residents and non-residents. The term current account balance is used in the external accounts and is expressed from the perspective of resident units. The term current external balance is used in the national accounts and is expressed from the perspective of the non-resident units, and therefore with the opposite sign. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "merchandise-trade",
+  "name": "تجارة البضائع",
+  "unit": "% من الناتج المحلي",
+  "category": "trade",
+  "better": "contextual",
+  "code": "TG.VAL.TOTL.GD.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "General merchandise trade includes goods whose economic ownership is changed between a resident and a non-resident and that are not included in the following specific categories: goods under merchanting, non-monetary gold, and parts of travel, construction, and government goods and services n.i.e. It is the total of merchandise exports plus merchandise imports. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "food-imports",
+  "name": "الغذاء من واردات البضائع",
+  "unit": "% من واردات البضائع",
+  "category": "trade",
+  "better": "contextual",
+  "code": "TM.VAL.FOOD.ZS.UN",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Food comprises the commodities in SITC (Rev. 3) sections 0 (food and live animals), 1 (beverages and tobacco), and 4 (animal and vegetable oils and fats) and division 22 (oil seeds, oil nuts, and oil kernels). This indicator is expressed as a percentage of merchandise imports which is comprised of goods whose economic ownership is changed between a non-resident and a resident and that are not included in the following specific categories: goods under merchanting, non-monetary gold, and parts of travel, construction, and government goods and services n.i.e."
+ },
+ {
+  "slug": "fuel-exports",
+  "name": "الوقود من صادرات البضائع",
+  "unit": "% من صادرات البضائع",
+  "category": "trade",
+  "better": "contextual",
+  "code": "TX.VAL.FUEL.ZS.UN",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Fuels comprise the commodities in SITC (Rev. 3) section 3 (mineral fuels, lubricants and related materials). This indicator is expressed as a percentage of merchandise exports which is comprised of goods whose economic ownership is changed between a resident and a non-resident and that are not included in the following specific categories: goods under merchanting, non-monetary gold, and parts of travel, construction, and government goods and services n.i.e."
+ },
+ {
+  "slug": "manufactures-exports",
+  "name": "المصنوعات من صادرات البضائع",
+  "unit": "% من صادرات البضائع",
+  "category": "trade",
+  "better": "contextual",
+  "code": "TX.VAL.MANF.ZS.UN",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Manufactures comprise commodities in SITC (Rev. 3) sections 5 (chemicals), 6 (basic manufactures), 7 (machinery and transport equipment), and 8 (miscellaneous manufactured goods), excluding division 68 (non-ferrous metals). This indicator is expressed as a percentage of merchandise exports which is comprised of goods whose economic ownership is changed between a resident and a non-resident and that are not included in the following specific categories: goods under merchanting, non-monetary gold, and parts of travel, construction, and government goods and services n.i.e."
+ },
+ {
+  "slug": "remittances-usd",
+  "name": "التحويلات الشخصية المستلمة بالدولار",
+  "unit": "دولار أمريكي",
+  "category": "trade",
+  "better": "contextual",
+  "code": "BX.TRF.PWKR.CD.DT",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Personal remittances comprise personal transfers and compensation of employees. Personal transfers consist of all current transfers in cash or in kind made or received by resident households to or from nonresident households. Personal transfers thus include all current transfers between resident and nonresident individuals. Compensation of employees refers to the income of border, seasonal, and other short-term workers who are employed in an economy where they are not resident and of residents employed by nonresident entities. Data are the sum of two items defined in the sixth edition of the IMF's Balance of Payments Manual: personal transfers and compensation of employees. Data are in current U.S. dollars."
+ },
+ {
+  "slug": "tourism-receipts",
+  "name": "إيرادات السياحة الدولية",
+  "unit": "دولار أمريكي",
+  "category": "trade",
+  "better": "contextual",
+  "code": "ST.INT.RCPT.CD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "International tourism receipts are expenditures by international inbound visitors, including payments to national carriers for international transport. These receipts include any other prepayment made for goods or services received in the destination country. They also may include receipts from same-day visitors, except when these are important enough to justify separate classification. For some countries they do not include receipts for passenger transport items. Data are in current U.S. dollars."
+ },
+ {
+  "slug": "container-traffic",
+  "name": "حركة الحاويات في الموانئ",
+  "unit": "حاوية مكافئة لعشرين قدماً",
+  "category": "trade",
+  "better": "contextual",
+  "code": "IS.SHP.GOOD.TU",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Port container traffic measures the flow of containers from land to sea transport modes, and vice versa, in twenty-foot equivalent units (TEUs), a standard-size container. Data refer to coastal shipping as well as international journeys. Transshipment traffic is counted as two lifts at the intermediate port (once to off-load and again as an outbound lift) and includes empty units."
+ },
+ {
+  "slug": "gross-capital-formation",
+  "name": "تكوين رأس المال الإجمالي",
+  "unit": "% من الناتج المحلي",
+  "category": "investment",
+  "better": "contextual",
+  "code": "NE.GDI.TOTL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Gross capital formation includes acquisitions less disposals of produced assets for purposes of fixed capital formation, inventories or valuables. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "private-credit",
+  "name": "الائتمان المحلي للقطاع الخاص",
+  "unit": "% من الناتج المحلي",
+  "category": "investment",
+  "better": "contextual",
+  "code": "FD.AST.PRVT.GD.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Domestic credit to private sector by banks refers to financial resources provided to the private sector by other depository corporations (deposit taking corporations except central banks), such as through loans, purchases of nonequity securities, and trade credits and other accounts receivable, that establish a claim for repayment. For some countries these claims include credit to public enterprises. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "broad-money",
+  "name": "عرض النقد الواسع",
+  "unit": "% من الناتج المحلي",
+  "category": "investment",
+  "better": "contextual",
+  "code": "FM.LBL.BMNY.GD.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Broad money is the sum of all liquid financial instruments held by money-holding sectors that are widely accepted in an economy as a medium of exchange, plus those that can be converted into a medium of exchange at short notice at, or close to, their full nominal value. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period."
+ },
+ {
+  "slug": "lending-rate",
+  "name": "سعر الفائدة على الإقراض",
+  "unit": "%",
+  "category": "investment",
+  "better": "contextual",
+  "code": "FR.INR.LEND",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Lending rate is the bank rate that usually meets the short- and medium-term financing needs of the private sector. This rate is normally differentiated according to creditworthiness of borrowers and objectives of financing. The terms and conditions attached to these rates differ by country, however, limiting their comparability."
+ },
+ {
+  "slug": "reserves-months",
+  "name": "الاحتياطيات بأشهر الواردات",
+  "unit": "شهر من الواردات",
+  "category": "investment",
+  "better": "higher",
+  "code": "FI.RES.TOTL.MO",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Reserve assets are external assets, including monetary gold, that are readily available to and controlled by monetary authorities for meeting balance of payments financing needs, for intervention in exchange markets to affect the currency exchange rate, and for other related purposes (such as maintaining confidence in the currency and the economy, and serving as a basis for foreign borrowing). Reserve assets must be denominated and settled in foreign currency. This item is expressed in terms of the number of months of imports of goods and services they could pay for [X/(Imports/12)]."
+ },
+ {
+  "slug": "bank-branches",
+  "name": "فروع البنوك التجارية",
+  "unit": "لكل 100 ألف بالغ",
+  "category": "investment",
+  "better": "contextual",
+  "code": "FB.CBK.BRCH.P5",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Commercial bank branches are retail locations of resident commercial banks and other resident banks that function as commercial banks that provide financial services to customers and are physically separated from the main office but not organized as legally separated subsidiaries."
+ },
+ {
+  "slug": "gdp-deflator",
+  "name": "التضخم وفق مخفض الناتج",
+  "unit": "% سنوياً",
+  "category": "investment",
+  "better": "contextual",
+  "code": "NY.GDP.DEFL.KD.ZG",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Inflation as measured by the annual growth rate of the GDP implicit deflator shows the rate of price change in the economy as a whole. The GDP implicit deflator is the ratio of GDP in current local currency to GDP in constant local currency."
+ },
+ {
+  "slug": "fertility",
+  "name": "معدل الخصوبة الكلي",
+  "unit": "مولود لكل امرأة",
+  "category": "population",
+  "better": "contextual",
+  "code": "SP.DYN.TFRT.IN",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Total fertility rate represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with age-specific fertility rates of the specified year."
+ },
+ {
+  "slug": "birth-rate",
+  "name": "معدل المواليد الخام",
+  "unit": "لكل ألف شخص",
+  "category": "population",
+  "better": "contextual",
+  "code": "SP.DYN.CBRT.IN",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Crude birth rate indicates the number of live births occurring during the year, per 1,000 population estimated at midyear. Subtracting the crude death rate from the crude birth rate provides the rate of natural increase, which is equal to the rate of population change in the absence of migration."
+ },
+ {
+  "slug": "death-rate",
+  "name": "معدل الوفيات الخام",
+  "unit": "لكل ألف شخص",
+  "category": "population",
+  "better": "contextual",
+  "code": "SP.DYN.CDRT.IN",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Crude death rate indicates the number of deaths occurring during the year, per 1,000 population estimated at midyear. Subtracting the crude death rate from the crude birth rate provides the rate of natural increase, which is equal to the rate of population change in the absence of migration."
+ },
+ {
+  "slug": "population-under-15",
+  "name": "السكان دون 15 عاماً",
+  "unit": "% من السكان",
+  "category": "population",
+  "better": "contextual",
+  "code": "SP.POP.0014.TO.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Population between the ages 0 to 14 as a percentage of the total population. Population is based on the de facto definition of population."
+ },
+ {
+  "slug": "population-65-plus",
+  "name": "السكان بعمر 65 فأكثر",
+  "unit": "% من السكان",
+  "category": "population",
+  "better": "contextual",
+  "code": "SP.POP.65UP.TO.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Population ages 65 and above as a percentage of the total population. Population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship."
+ },
+ {
+  "slug": "population-density",
+  "name": "الكثافة السكانية",
+  "unit": "نسمة لكل كم²",
+  "category": "population",
+  "better": "contextual",
+  "code": "EN.POP.DNST",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Population density is midyear population divided by land area in square kilometers. Population is based on the de facto definition of population, which counts all residents regardless of legal status or citizenship--except for refugees not permanently settled in the country of asylum, who are generally considered part of the population of their country of origin. Land area is a country's total area, excluding area under inland water bodies, national claims to continental shelf, and exclusive economic zones. In most cases the definition of inland water bodies includes major rivers and lakes."
+ },
+ {
+  "slug": "urban-growth",
+  "name": "نمو سكان الحضر",
+  "unit": "% سنوياً",
+  "category": "population",
+  "better": "contextual",
+  "code": "SP.URB.GROW",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Annual urban population growth rate for year t is the exponential rate of growth of midyear urban population from year t-1 to t, expressed as a percentage. Urban population refers to people living in urban areas as defined by national statistical offices. It is calculated using World Bank total population estimates and urban ratios from the United Nations World Urbanization Prospects."
+ },
+ {
+  "slug": "net-migration",
+  "name": "صافي الهجرة",
+  "unit": "شخص",
+  "category": "population",
+  "better": "contextual",
+  "code": "SM.POP.NETM",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Net migration is the net total of migrants during the period, that is, the number of immigrants minus the number of emigrants, including both citizens and noncitizens."
+ },
+ {
+  "slug": "adolescent-fertility",
+  "name": "الخصوبة لدى المراهقات",
+  "unit": "ولادة لكل ألف امرأة بعمر 15 إلى 19",
+  "category": "population",
+  "better": "lower",
+  "code": "SP.ADO.TFRT",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Adolescent fertility rate is the number of births per 1,000 women ages 15-19."
+ },
+ {
+  "slug": "migrant-stock",
+  "name": "المهاجرون الدوليون المقيمون",
+  "unit": "% من السكان",
+  "category": "population",
+  "better": "contextual",
+  "code": "SM.POP.TOTL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "International migrant stock (% of population) is the proportion of people at mid-year born in a country other than that in which they live. It also includes refugees."
+ },
+ {
+  "slug": "neonatal-mortality",
+  "name": "وفيات حديثي الولادة",
+  "unit": "وفاة لكل ألف مولود حي",
+  "category": "health",
+  "better": "lower",
+  "code": "SH.DYN.NMRT",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Neonatal mortality rate is the number of neonates dying before reaching 28 days of age, per 1,000 live births in a given year."
+ },
+ {
+  "slug": "physicians",
+  "name": "الأطباء",
+  "unit": "لكل ألف شخص",
+  "category": "health",
+  "better": "higher",
+  "code": "SH.MED.PHYS.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Physicians include generalist and specialist medical practitioners."
+ },
+ {
+  "slug": "nurses",
+  "name": "الممرضون والقابلات",
+  "unit": "لكل ألف شخص",
+  "category": "health",
+  "better": "higher",
+  "code": "SH.MED.NUMW.P3",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Nurses and midwives include professional nurses, professional midwives, auxiliary nurses, auxiliary midwives, enrolled nurses, enrolled midwives and other associated personnel, such as dental nurses and primary care nurses."
+ },
+ {
+  "slug": "hospital-beds",
+  "name": "أسرّة المستشفيات",
+  "unit": "لكل ألف شخص",
+  "category": "health",
+  "better": "higher",
+  "code": "SH.MED.BEDS.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Hospital beds include inpatient beds available in public, private, general, and specialized hospitals and rehabilitation centers. In most cases beds for both acute and chronic care are included."
+ },
+ {
+  "slug": "health-spending-per-capita",
+  "name": "الإنفاق الصحي للفرد",
+  "unit": "دولار أمريكي للفرد",
+  "category": "health",
+  "better": "contextual",
+  "code": "SH.XPD.CHEX.PC.CD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Current expenditures on health per capita in current US dollars. Estimates of current health expenditures include healthcare goods and services consumed during each year."
+ },
+ {
+  "slug": "out-of-pocket",
+  "name": "الإنفاق الصحي من جيوب الأسر",
+  "unit": "% من الإنفاق الصحي الجاري",
+  "category": "health",
+  "better": "lower",
+  "code": "SH.XPD.OOPC.CH.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Share of out-of-pocket payments of total current health expenditures.  Out-of-pocket payments are spending on health directly out-of-pocket by households."
+ },
+ {
+  "slug": "measles-immunization",
+  "name": "التحصين ضد الحصبة",
+  "unit": "% من الأطفال بعمر 12 إلى 23 شهراً",
+  "category": "health",
+  "better": "higher",
+  "code": "SH.IMM.MEAS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Child immunization, measles, measures the percentage of children ages 12-23 months who received the measles vaccination before 12 months or at any time before the survey. A child is considered adequately immunized against measles after receiving one dose of vaccine."
+ },
+ {
+  "slug": "dpt-immunization",
+  "name": "التحصين الثلاثي (الدفتيريا والسعال الديكي والكزاز)",
+  "unit": "% من الأطفال بعمر 12 إلى 23 شهراً",
+  "category": "health",
+  "better": "higher",
+  "code": "SH.IMM.IDPT",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Child immunization, DPT, measures the percentage of children ages 12-23 months who received DPT vaccinations before 12 months or at any time before the survey. A child is considered adequately immunized against diphtheria, pertussis (or whooping cough), and tetanus (DPT) after receiving three doses of vaccine."
+ },
+ {
+  "slug": "anemia-children",
+  "name": "فقر الدم لدى الأطفال",
+  "unit": "% من الأطفال دون الخامسة",
+  "category": "health",
+  "better": "lower",
+  "code": "SH.ANM.CHLD.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Prevalence of anemia, children ages 6-59 months, is the percentage of children ages 6-59 months whose hemoglobin level is less than 110 grams per liter, adjusted for altitude."
+ }
+]
