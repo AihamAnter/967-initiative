@@ -26,7 +26,7 @@ const nextConfig = {
   // modules from many routes into shared chunks that every page then downloads.
   experimental: {cssChunking: 'strict'},
   async redirects() {
-    return [{source:'/favicon.ico',destination:'/images/967%20logo%20no%20background.png',permanent:true}];
+    return [{source:'/favicon.ico',destination:'/icon-64.png',permanent:true}];
   },
   async headers() {
     return [{source: '/:path*', headers: [

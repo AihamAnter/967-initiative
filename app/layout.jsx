@@ -27,7 +27,7 @@ export const metadata = {
  metadataBase:new URL(getSiteOrigin()),
  title:{default:'مبادرة 967 | صوت ومعرفة ومجتمع',template:'%s | مبادرة 967'},
  description:site.description,
- icons:{icon:'/images/967%20logo%20no%20background.png'},
+ icons:{icon:'/icon-64.png',apple:'/apple-touch-icon.png'},
 };
 export default async function RootLayout({children}){
  const settings=await getSiteSettings();
