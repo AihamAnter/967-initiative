@@ -4,7 +4,9 @@ import SearchForm from '@/components/SearchForm';
 import HomeSmartStart from '@/components/home/HomeSmartStart';
 import MobileFold from '@/components/mobile/MobileFold';
 import Resilient from '@/components/front/Resilient';
-import {LeadTile, IssueTile, DebateTile, NumberTile, Invitation, SchoolBlock, KnowledgeBento, GamesArcade, DiscoverRail, DataCard, CompanyCard, ProfessionalCard} from '@/components/front/FrontSections';
+import TodayFeed from '@/components/home/TodayFeed';
+import {buildTodayFeed} from '@/lib/todayFeed';
+import {SchoolBlock, KnowledgeBento, GamesArcade, DiscoverRail, DataCard, CompanyCard, ProfessionalCard} from '@/components/front/FrontSections';
 import {utcDay, dailyGameUrl, dailyGameForDate, DAILY_GAME_TITLES} from '@/lib/dailyGame';
 import {getLatestWorks, getLatestIssues, getRecentIndicators, getRecentCompanies, getRecentProfessionals, getSiteSettings} from '@/lib/data';
 import {getDebateCatalog} from '@/lib/debateServer';
@@ -26,8 +28,8 @@ const settle = promise => promise.then(data => ({data, failed:false}), () => ({d
 export default async function Home() {
   const settings = await getSiteSettings();
   const [works, issues, indicators, debates, companies, professionals] = await Promise.all([
-    settle(getLatestWorks(homeProjections.works, 4)),
-    settle(getLatestIssues(homeProjections.issues, 1)),
+    settle(getLatestWorks(homeProjections.works, 8)),
+    settle(getLatestIssues(homeProjections.issues, 2)),
     settle(getRecentIndicators(4)),
     getDebateCatalog().then(result => ({data:result.debates, failed:!result.available}), () => ({data:null, failed:true})),
     settle(getRecentCompanies(homeProjections.companies, 6)),
@@ -38,18 +40,17 @@ export default async function Home() {
   const Link = ({href, ...props}) => pageIsVisible(href, settings.pageVisibility, settings.contentPages||[]) ? <NextLink href={href} {...props}/> : null;
   const knowledgeLinks = visibleHomeKnowledge(settings.pageVisibility, settings.contentPages||[]);
   const today = utcDay();
-  // Same lead selection as before: the work when it has a picture, otherwise the debate.
-  const leadIsDebate = content.leadKind === 'debate';
   const highlightList = visible('statistics') ? (indicators.data || []) : [];
-  const [featuredNumber, ...moreNumbers] = highlightList;
+  // The newest indicator may lead "Today"; the numbers band shows the others.
+  const moreNumbers = highlightList.slice(1);
   const hasVisibleDirectories = visible('products') || visible('professionals');
-  const showFeatured = visible('works') || visible('debates') || visible('magazine') || visible('statistics');
+  // "Today": newest and most time-sensitive published items across the platform.
+  const feed = buildTodayFeed({works:works.data||[], issues:issues.data||[], debates:debates.data||[], indicators:highlightList}, {isVisible:visible});
+  const feedFailed = works.failed && debates.failed;
 
   return <div className={`ed-page ${styles.front}`}>
     {/* 1 · Hero */}
     <section className={styles.hero} aria-labelledby="home-title">
-      <div className={styles.heroMesh} aria-hidden="true"><span/><span/><span/></div>
-      <div className={styles.heroMark} aria-hidden="true">967</div>
       <div className={`ed-wrap ${styles.heroInner}`}>
         <p className={styles.heroTop}><span className="ed-pill"><span className={styles.liveDot}/>{settings.heroEyebrow}</span><time className={styles.heroDate} dateTime={today}>{formatArabicDate(new Date(), {weekday:'long', day:'numeric', month:'long', year:'numeric'})}</time></p>
         <h1 id="home-title" className={styles.heroTitle}>{settings.heroTitle}{settings.heroHighlight && <> <span className={styles.heroHighlight}>{settings.heroHighlight}</span></>}</h1>
@@ -59,19 +60,15 @@ export default async function Home() {
       </div>
     </section>
 
-    {/* 2 · من أين تحب أن تبدأ؟ (guest cards + sign-in hint, or the member's resume state) */}
-    <div className={`ed-wrap ${styles.start}`}><HomeSmartStart initialDate={utcDay()} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/></div>
 
-    {/* 3 · من 967، إليك. */}
-    {showFeatured && <section className={`${styles.section} ed-reveal`} aria-labelledby="featured-title"><div className="ed-wrap">
-      <div className="ed-section-head"><div><span className="ed-kicker">مختارات من محتوى المنصة</span><h2 id="featured-title">من 967، إليك.</h2><p>حكاية، قراءة، ورقم يفتح سؤالًا جديدًا.</p></div></div>
-      <div className={styles.bento}>
-        {visible(leadIsDebate ? 'debates' : 'works') && <div className={styles.slotLead}><Resilient name="home-lead" label="تعذّر عرض القصة الرئيسية الآن.">{leadIsDebate ? (content.debate ? <DebateTile item={content.debate}/> : <Invitation kind="debate" failed={debates.failed}/>) : (content.work ? <LeadTile item={content.work}/> : <Invitation kind="video" failed={works.failed}/>)}</Resilient></div>}
-        {visible('magazine') && <div className={styles.slotIssue}><Resilient name="home-issue" quiet>{content.issue ? <IssueTile issue={content.issue}/> : <Invitation kind="issue" failed={issues.failed}/>}</Resilient></div>}
-        {visible('statistics') && <div className={styles.slotNumber}><Resilient name="home-number" quiet>{featuredNumber ? <NumberTile indicator={featuredNumber}/> : <Invitation kind="indicator" failed={indicators.failed}/>}</Resilient></div>}
-        {visible(leadIsDebate ? 'works' : 'debates') && <MobileFold title="عرض مختارات إضافية" className={styles.slotSecond}><Resilient name="home-second" quiet>{leadIsDebate ? (content.work ? <LeadTile item={content.work}/> : <Invitation kind="video" failed={works.failed}/>) : (content.debate ? <DebateTile item={content.debate}/> : <Invitation kind="debate" failed={debates.failed}/>)}</Resilient></MobileFold>}
-      </div>
-    </div></section>}
+    {/* 2 · اليوم في 967: the newest and most important, whatever its type */}
+    <section className={styles.today} aria-labelledby="today-title"><div className="ed-wrap">
+      <div className="ed-section-head"><div><span className="ed-kicker">اليوم في 967</span><h2 id="today-title">الجديد والمهم</h2></div><Link href="/search" className="ed-link">كل المحتوى</Link></div>
+      <Resilient name="home-today" label="تعذّر عرض الجديد الآن."><TodayFeed feed={feed} failed={feedFailed}/></Resilient>
+    </div></section>
+
+    {/* 3 · تابع من حيث توقفت (member) or where to start (guest) */}
+    <div className={`ed-wrap ${styles.start}`}><HomeSmartStart initialDate={utcDay()} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/></div>
 
     {/* 4 · مدرسة 967 */}
     {visible('school')&&<section id="home-school" className={`${styles.section} ed-reveal`} aria-labelledby="home-school-title"><div className="ed-wrap"><SchoolBlock/></div></section>}

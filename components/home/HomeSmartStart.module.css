@@ -73,3 +73,6 @@
 .hint a,.retry button,.accountLink{color:var(--c-accent,#0a6f74)}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.guestCard:hover,.card:hover{transform:translateY(-3px);box-shadow:var(--e-3)}}
 @media(max-width:600px){.section{padding:14px;border-radius:18px}.heading{margin-bottom:9px}.card{min-height:0;padding:12px 13px;gap:5px}.icon{width:40px;height:40px}.guestCard,.skeleton{min-height:84px}.guestCopy strong{font-size:19px}}
+
+/* Whole-card links: the title carries the meaning, no underline on every line. */
+.guestCard,.guestCard *{text-decoration:none!important}

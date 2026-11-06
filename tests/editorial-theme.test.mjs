@@ -8,7 +8,7 @@ test('editorial A has full home and correct route-scoped CSS',()=>{
  const css=read('app/foundation/editorial.css');
  const layout=read('app/layout.jsx');
  const legacy=read('app/legacy-styles.js');
- for(const section of ['HomeSmartStart','SchoolBlock','KnowledgeBento','GamesArcade','DiscoverRail','CompanyCard','DataCard','Invitation'])assert.ok(home.includes(section),section);
+ for(const section of ['HomeSmartStart','TodayFeed','SchoolBlock','KnowledgeBento','GamesArcade','DiscoverRail','CompanyCard','DataCard'])assert.ok(home.includes(section),section);
  assert.ok(home.includes('settings.heroTitle'));
  assert.ok(home.includes("sectionIsVisible(id, settings.pageVisibility)"));
  assert.ok(css.includes('.ed-page'));

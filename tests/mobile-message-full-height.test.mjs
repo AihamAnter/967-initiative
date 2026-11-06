@@ -34,5 +34,5 @@ test('other messaging tabs and desktop layout preserve the footer and scrollable
  assert.match(css,/\.layout\[data-view=search\] \.workspace/);
  assert.match(css,/\.layout\[data-view=settings\] \.workspace/);
  assert.match(css,/\.messages\{flex:1 1 0;min-height:0;overflow-y:auto;/);
- assert.match(shell,/body:has\(\.ed-tabbar\) #content \{ padding-bottom: calc\(96px \+ env\(safe-area-inset-bottom\)\); \}/);
+ assert.match(shell,/body:has\(\.ed-tabbar\) #content \{ padding-bottom: calc\(72px \+ env\(safe-area-inset-bottom\)\); \}/);
 });

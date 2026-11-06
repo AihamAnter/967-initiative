@@ -17,33 +17,21 @@
 .gradText { background: linear-gradient(100deg, #ff7a59, #ff4fa3 45%, #8b6cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 /* ---------- 1. Hero ---------- */
-.hero { position: relative; isolation: isolate; overflow: hidden; padding: calc(var(--header-h) + clamp(28px, 3.5vw, 56px)) 0 clamp(38px, 4.5vw, 68px); margin-top: calc(var(--header-h) * -1); }
-.heroMesh { position: absolute; inset: 0; z-index: -2; }
-.heroMesh span { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; }
-.heroMesh span:nth-child(1) { width: 52vw; height: 52vw; max-width: 760px; max-height: 760px; inset-inline-start: -8vw; top: -18vw; background: radial-gradient(circle, #2ec4b6, transparent 65%); }
-.heroMesh span:nth-child(2) { width: 42vw; height: 42vw; max-width: 620px; max-height: 620px; inset-inline-end: -6vw; top: -6vw; background: radial-gradient(circle, #8b6cff, transparent 65%); opacity: .4; }
-.heroMesh span:nth-child(3) { width: 36vw; height: 36vw; max-width: 520px; max-height: 520px; inset-inline-start: 30%; bottom: -22vw; background: radial-gradient(circle, #ff7a59, transparent 65%); opacity: .32; }
-@media (prefers-reduced-motion: no-preference) {
-  .heroMesh span { animation: drift 18s ease-in-out infinite alternate; }
-  .heroMesh span:nth-child(2) { animation-duration: 22s; animation-delay: -6s; }
-  .heroMesh span:nth-child(3) { animation-duration: 26s; animation-delay: -12s; }
-}
-@keyframes drift { to { transform: translate3d(4vw, 3vw, 0) scale(1.08); } }
-.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(color-mix(in srgb, var(--c-ink) 14%, transparent) 1px, transparent 1.2px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse at 50% 30%, #000 10%, transparent 70%); opacity: .5; }
-.heroMark { position: absolute; z-index: -1; inset-inline-end: -2vw; bottom: -4vw; font: 600 clamp(9rem, 25vw, 24rem)/.8 var(--t-text); letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1.5px color-mix(in srgb, var(--c-ink) 12%, transparent); direction: ltr; user-select: none; }
+.hero { position: relative; padding: clamp(20px, 4vw, 48px) 0 clamp(18px, 3vw, 32px); }
 .heroInner { position: relative; }
 .heroTop { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); }
 .liveDot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-accent-glow); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c-accent-glow) 25%, transparent); }
 @media (prefers-reduced-motion: no-preference) { .liveDot { animation: pulse 2.4s ease-out infinite; } }
 @keyframes pulse { 50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--c-accent-glow) 0%, transparent); } }
 .heroDate { color: var(--c-ink-3); font-size: var(--t-size-meta); }
-.heroTitle { margin-top: var(--s-4) !important; font: 700 clamp(3rem, 1.6rem + 3.2vw, 5.25rem)/1.08 var(--t-display); letter-spacing: -.012em; max-width: 19ch; text-wrap: balance; }
-.heroHighlight { background: linear-gradient(100deg, var(--c-accent) 10%, #2ec4b6 45%, #7c5cff 95%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .08em; }
-.heroText { margin-top: var(--s-3) !important; max-width: 39em; color: var(--c-ink-2); font-size: clamp(1rem, .92rem + .28vw, 1.14rem); line-height: 1.7; white-space: pre-line; }
-.heroSearch { margin-top: var(--s-5); }
+.heroTitle { margin-top: var(--s-3) !important; font: 700 clamp(2.25rem, 1.6rem + 2.6vw, 4rem)/1.15 var(--t-display); max-width: 19ch; text-wrap: balance; }
+.heroHighlight { color: var(--c-accent); }
+.heroText { margin-top: var(--s-2) !important; max-width: 39em; color: var(--c-ink-2); font-size: var(--t-size-ui); line-height: 1.7; white-space: pre-line; }
+.heroSearch { margin-top: var(--s-4); }
 
 /* ---------- 2. Start ---------- */
-.start { position: relative; margin-top: calc(var(--s-5) * -1); }
+.start { position: relative; margin-top: var(--s-section); }
+.today { padding-top: var(--s-4); }
 .start + .section { padding-top: clamp(32px, 4.25vw, 64px); }
 
 /* ---------- 3. Bento picks ---------- */
@@ -279,11 +267,11 @@
 /* ---------- Phone ---------- */
 @media (max-width: 760px) {
   .front { --s-section: 40px; }
-  .hero { padding-top: calc(var(--header-h) + 22px); padding-bottom: 36px; }
-  .heroTitle { max-width: 18ch; font-size: clamp(2.8rem, 2.1rem + 4vw, 3.75rem); line-height: 1.12; margin-top: 16px !important; }
-  .heroText { margin-top: 10px !important; font-size: 15px; line-height: 1.7; }
-  .heroSearch { margin-top: 17px; }
-  .start { margin-top: -8px; }
+  .hero { padding-top: 18px; padding-bottom: 14px; }
+  .heroTitle { max-width: 18ch; font-size: clamp(2.125rem, 1.6rem + 3vw, 2.75rem); line-height: 1.18; margin-top: 10px !important; }
+  .heroText { margin-top: 6px !important; font-size: 15px; line-height: 1.7; }
+  .heroSearch { margin-top: 14px; }
+  .start { margin-top: 32px; }
   .start + .section { padding-top: 30px; }
   .slotIssue, .slotNumber { grid-column: 1 / 13; }
   .issue { grid-template-columns: 120px minmax(0, 1fr); }

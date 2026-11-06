@@ -20,7 +20,7 @@ test('homepage promotes games in a large integrated section without removing edi
  assert.ok(homepage.indexOf('id="home-games"')<homepage.indexOf('id="explore-title"'));
  assert.ok(showcase.includes('aria-labelledby')||homepage.includes('aria-labelledby="home-games-title"'));
  assert.ok(showcase.includes('id="home-games-title"'));
- for(const id of ['featured-title','home-school-title','home-knowledge-title','explore-title','numbers-title','community-title','contact-title','id="about"','id="projects"'])
+ for(const id of ['today-title','home-school-title','home-knowledge-title','explore-title','numbers-title','community-title','contact-title','id="about"','id="projects"'])
   assert.ok(homepage.includes(id),id);
 });
 
