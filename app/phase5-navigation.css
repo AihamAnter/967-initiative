@@ -1,64 +1,12 @@
 /* Stage 5 — navigation usability only. Keep the existing colors, spacing system
    and IBM Plex Sans Arabic font. */
 @media (max-width:900px) {
-  .platform-nav.is-open {
-    overscroll-behavior:contain;
-    scrollbar-gutter:stable;
-    padding-bottom:max(22px,env(safe-area-inset-bottom));
-  }
-  .mobile-navigation-groups {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-  .mobile-navigation-group { min-width:0; border-top:1px solid var(--line); }
-  .mobile-navigation-group>summary {
-    display:flex;align-items:center;justify-content:space-between;gap:8px;
-    min-height:48px;color:var(--text);font-size:14px;font-weight:700;cursor:pointer;list-style:none;
-  }
-  .mobile-navigation-group>summary::-webkit-details-marker { display:none; }
-  .mobile-navigation-group[open]>summary { color:var(--primary); }
-  .mobile-navigation-group[open]>summary svg { transform:rotate(180deg); }
-  .mobile-navigation-group>div { padding-bottom:8px; }
-  .mobile-navigation-groups a {
-    min-width:0;
-    overflow-wrap:anywhere;
-  }
-  .platform-nav>.nav-home,.mobile-search-link { min-height:48px; }
 }
 @media (max-width:390px) {
-  .mobile-navigation-groups {
-    grid-template-columns:minmax(0,1fr);
-    gap:8px;
-  }
-  .mobile-navigation-group { padding-block:2px; }
 }
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }
-  .platform-nav a,.mobile-navigation-groups a,.menu-toggle { transition:none; }
 }
-
-/* Desktop footer links must remain actual focusable links; CSS cannot open <details>.
-   Only the phone version is collapsible. Hidden duplicate markup is display:none. */
-.footer-link-desktop{display:flex;flex-direction:column;gap:0;min-width:0}
-.footer-link-desktop>.footer-group-links{display:flex;flex-direction:column;gap:0}
-.footer-link-desktop>.footer-group-links>a{display:flex;align-items:center;min-height:44px;width:fit-content;font-size:15px;color:#d0dedb}
-.footer-link-group{display:none}
-.footer-link-group>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;color:#d6bd94;font-size:16px;font-weight:700;list-style:none}
-.footer-link-group>summary::-webkit-details-marker{display:none}
-.footer-link-group>summary h3{margin:0;color:inherit;font-size:inherit}
-.footer-link-group>summary svg{display:none}
-.footer-link-group .footer-group-links{display:flex;flex-direction:column;gap:0}
-.footer-link-group .footer-group-links>a{display:flex;align-items:center;min-height:44px;width:fit-content;color:#d0dedb;font-size:15px}
 @media(max-width:600px){
-  .platform-footer{padding-top:32px}
-  .platform-footer-grid{grid-template-columns:minmax(0,1fr);gap:8px;margin-bottom:24px}
-  .platform-footer-grid>div:first-child{grid-column:auto;margin-bottom:12px}
-  .footer-link-desktop{display:none!important}
-  .footer-link-group{display:block;min-width:0;border-top:1px solid #416164}
-  .footer-link-group>summary{min-height:52px;cursor:pointer}
-  .footer-link-group>summary svg{display:block;transition:transform .18s ease}
-  .footer-link-group[open]>summary svg{transform:rotate(180deg)}
-  .footer-link-group:not([open])>.footer-group-links{display:none}
-  .footer-link-group .footer-group-links{padding-bottom:8px}
-  .platform-footer-bottom{gap:7px;padding-top:16px}
 }
-@media(prefers-reduced-motion:reduce){.footer-link-group>summary svg{transition:none}}
+@media(prefers-reduced-motion:reduce){}

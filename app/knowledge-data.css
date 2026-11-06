@@ -1,32 +1,4 @@
-/* Knowledge visual rollout — stage 3: national indicators and international rankings.
-   Tokens are local to each public knowledge root. Data status, numerical values,
-   chart series, comparisons and source semantics retain their original behavior. */
 
-/* National data: separate the source, measurement year and main value. */
-[data-knowledge-area="statistics"] .stats-latest{
- background:linear-gradient(180deg,var(--knowledge-hero),#fff 80%);
- border-block-end:1px solid var(--knowledge-edge);
-}
-[data-knowledge-area="statistics"] .stats-catalog{
- background:linear-gradient(180deg,#fff,var(--knowledge-soft-alt));
- border-block-start:1px solid var(--knowledge-edge);
-}
-[data-knowledge-area="statistics"] .stats-section-heading{
- gap:16px 30px;
- margin-bottom:24px;
-}
-[data-knowledge-area="statistics"] .stats-section-heading h2{
- color:var(--knowledge-strong);
-}
-[data-knowledge-area="statistics"] .stats-section-heading .eyebrow{
- display:inline-flex;
- align-items:center;
- padding:5px 10px;
- border-radius:7px;
- color:var(--knowledge-strong);
- background:var(--knowledge-soft);
- border:1px solid var(--knowledge-edge);
-}
 [data-knowledge-area="statistics"] .stat-indicator-grid{
  gap:16px;
 }
@@ -153,63 +125,10 @@
  outline:3px solid var(--knowledge-accent);
  outline-offset:-3px;
 }
-[data-knowledge-area="statistics"] .stat-toolbar{
- overflow:hidden;
- border:1px solid var(--knowledge-edge);
- border-radius:12px;
- background:#fff;
-}
-[data-knowledge-area="statistics"] .stat-toolbar>label{
- border-color:var(--knowledge-edge);
- background:#fff;
-}
-[data-knowledge-area="statistics"] .stat-toolbar>label svg{
- color:var(--knowledge-accent);
-}
 [data-knowledge-area="statistics"] .stat-toolbar :is(input,select):focus-visible,
 [data-knowledge-area="statistics"] .timeline-controls input:focus-visible{
  outline:3px solid var(--knowledge-accent);
  outline-offset:-3px;
-}
-[data-knowledge-area="statistics"] .stat-results-head{
- border-inline-start:3px solid var(--knowledge-accent);
- padding:9px 13px;
- background:var(--knowledge-soft);
- border-radius:8px;
- margin:17px 0;
-}
-[data-knowledge-area="statistics"] .stat-results-head strong{
- color:var(--knowledge-strong);
-}
-[data-knowledge-area="statistics"] .domain-accordion>details{
- background:#fff;
- border:1px solid var(--knowledge-edge);
- border-block-start:3px solid var(--knowledge-accent);
- border-radius:10px;
- overflow:hidden;
-}
-[data-knowledge-area="statistics"] .domain-accordion>details[open]{
- background:var(--knowledge-soft-alt);
-}
-[data-knowledge-area="statistics"] .domain-accordion>details>summary{
- color:var(--knowledge-strong);
- min-height:52px;
-}
-[data-knowledge-area="statistics"] .stats-domain-links a{
- border-color:var(--knowledge-edge);
- background:#fff;
- border-radius:8px;
- color:var(--knowledge-strong);
- min-height:40px;
-}
-[data-knowledge-area="statistics"] .methodology-note{
- border:1px solid var(--knowledge-edge);
- border-inline-start:4px solid var(--knowledge-accent);
- border-radius:10px;
- background:var(--knowledge-soft-alt);
-}
-[data-knowledge-area="statistics"] .methodology-note h2{
- color:var(--knowledge-strong);
 }
 
 /* Detail pages: keep national scope, value, year and adopted-source status distinct. */
@@ -238,56 +157,6 @@
 }
 [data-knowledge-area="statistics"] .stat-scope-note svg{
  color:var(--knowledge-accent);
-}
-[data-knowledge-area="statistics"] .stat-latest{
- padding:14px 17px;
- border:1px solid var(--knowledge-edge);
- border-inline-start:4px solid var(--knowledge-accent);
- border-radius:11px;
- background:#fff;
- min-width:0;
-}
-[data-knowledge-area="statistics"] .stat-latest strong{
- color:var(--knowledge-strong);
-}
-[data-knowledge-area="statistics"] .stat-detail-layout>*{
- min-width:0;
-}
-[data-knowledge-area="statistics"] :is(.stat-chart-panel,.stat-facts,.stat-sources){
- border-color:var(--knowledge-edge);
- border-radius:12px;
-}
-[data-knowledge-area="statistics"] .stat-facts{
- background:linear-gradient(180deg,var(--knowledge-soft),#fff 35%);
- border-block-start:4px solid var(--knowledge-accent);
-}
-[data-knowledge-area="statistics"] .stat-facts h2,
-[data-knowledge-area="statistics"] .stat-panel-head h2{
- color:var(--knowledge-strong);
-}
-[data-knowledge-area="statistics"] .stat-facts dl>div{
- border-color:var(--knowledge-edge);
-}
-[data-knowledge-area="statistics"] .stat-series-table-scroll{
- border:1px solid var(--knowledge-edge);
- border-radius:10px;
-}
-[data-knowledge-area="statistics"] .stat-series-table-scroll:focus-visible{
- outline:3px solid var(--knowledge-accent);
- outline-offset:3px;
-}
-[data-knowledge-area="statistics"] .stat-series-table thead{
- background:var(--knowledge-soft);
- color:var(--knowledge-strong);
-}
-[data-knowledge-area="statistics"] .stat-series-table tbody tr:nth-child(even){
- background:#f5f8fc;
-}
-[data-knowledge-area="statistics"] :is(.stat-sources,.stat-series-section){
- border-color:var(--knowledge-edge);
-}
-[data-knowledge-area="statistics"] .stat-source-list>article{
- border-color:var(--knowledge-edge);
 }
 [data-knowledge-area="statistics"] .timeline-controls,
 [data-knowledge-area="statistics"] .timeline-stage{
@@ -533,9 +402,6 @@
   display:block;margin:8px 0 11px;padding:7px 11px;
   border-radius:7px;background:var(--knowledge-soft);
   color:var(--knowledge-strong);font-size:12px;line-height:1.75;
- }
- [data-knowledge-area="statistics"] .stats-section-heading{
-  margin-bottom:18px;
  }
  [data-knowledge-area="statistics"] .stat-indicator-card{
   padding:16px;

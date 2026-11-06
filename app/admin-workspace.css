@@ -61,3 +61,25 @@
 @media(max-width:760px){.admin-page{padding-block:24px 50px}.admin-page .admin-heading{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:12px;margin-bottom:16px}.admin-page .admin-heading h1{font-size:28px;margin:0}.admin-page .admin-heading .eyebrow{display:none}.admin-page .admin-heading p{font-size:12px;margin:8px 0 0}.admin-page .admin-heading>.btn{font-size:0;min-width:44px;width:44px;height:44px;padding:10px}.admin-page section[aria-label="ملخص مهام الفريق"]{padding:14px}.admin-page section[aria-label="ملخص مهام الفريق"]>div{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:12px!important}.admin-page section[aria-label="ملخص مهام الفريق"] h2{font-size:17px}.admin-page section[aria-label="ملخص مهام الفريق"] .small-muted{display:none}.admin-page section[aria-label="ملخص مهام الفريق"] .btn{padding:8px 10px;font-size:12px}.task-summary-full{display:none}.task-summary-short{display:inline}.admin-workspace{margin-top:16px}.admin-workspace .debate-required-note{margin:0 0 8px;font-size:12px}.admin-workspace .debate-field-error{font-size:12px}}
 .admin-loading{min-height:calc(100svh - 76px);display:grid;place-items:center;padding:clamp(36px,8vw,80px) var(--s-gutter);text-align:start}
 .admin-loading>.ed-loading-state{width:min(100%,560px)}
+
+/* Redesign v2 — phones: a scrollable strip of sections instead of a drop-down,
+   the team pages as a second chip row, and a shorter heading and action bar. */
+.admin-mobile-tabs{display:none}
+@media(max-width:760px){
+ .admin-page{padding-block:12px 32px}
+ .admin-page .admin-heading{margin-bottom:10px}
+ .admin-page .admin-heading h1{font-size:20px}
+ .admin-page .admin-heading .eyebrow{display:none}
+ .admin-sidebar{padding:0;border:0;background:transparent;display:grid;gap:8px;min-width:0}
+ .admin-sidebar>.admin-mobile-tabs,.admin-mobile-links{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -14px;padding:2px 14px;scroll-padding-inline:14px}
+ .admin-mobile-tabs::-webkit-scrollbar,.admin-mobile-links::-webkit-scrollbar{display:none}
+ .admin-mobile-tabs button,.admin-mobile-links>*{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 12px;border:1px solid var(--c-line-2,var(--line));border-radius:999px;background:var(--c-surface,var(--surface));color:var(--c-ink,var(--text));font:inherit;font-size:13px;font-weight:600;white-space:nowrap;text-decoration:none}
+ .admin-mobile-tabs button.selected{background:var(--c-ink,#1a1612);border-color:var(--c-ink,#1a1612);color:var(--c-bg,#fff)}
+ .admin-mobile-links{margin-top:0;font-size:12px}
+ .admin-mobile-links>*{min-height:32px;padding:0 10px;font-size:12px;color:var(--c-accent-strong,var(--primary))}
+ .admin-workspace{gap:12px}
+ .admin-workspace .admin-panel{padding:14px}
+ .admin-workspace .admin-panel>h2{font-size:17px;margin-bottom:8px}
+ .editor-actions{padding:8px;gap:6px}
+ .editor-actions .btn{min-height:38px;padding:0 10px;font-size:12px}
+}

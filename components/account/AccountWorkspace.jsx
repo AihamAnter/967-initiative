@@ -3,7 +3,7 @@
 import {useCallback,useEffect,useRef,useState} from 'react';
 import Link from '@/components/SiteLink';
 import Image from 'next/image';
-import {Activity,ArrowLeft,ArrowUpLeft,Bell,BookOpen,BookmarkCheck,CheckCircle2,ChevronLeft,Download,FolderPlus,Inbox,LockKeyhole,MessageSquare,Plus,RefreshCw,Settings2,Trophy,Trash2,Upload,UserRound,UsersRound,X} from 'lucide-react';
+import {Activity,ArrowLeft,ArrowUpLeft,Bell,BookOpen,BookmarkCheck,CheckCircle2,ChevronLeft,ChevronRight,Download,FolderPlus,Inbox,LockKeyhole,MessageSquare,Plus,RefreshCw,Settings2,Trophy,Trash2,Upload,UserRound,UsersRound,X} from 'lucide-react';
 import useAudience,{audienceRequest} from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import MyGameRank from '@/components/games/MyGameRank';
@@ -53,7 +53,7 @@ export default function AccountWorkspace({initialTab='overview'}){
  },[page,user?.user_metadata?.display_name,user?.user_metadata?.full_name]);
  // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  useEffect(()=>{setAccount(null);setWorkspace(emptyWorkspace);setProfileForm(null);if(user)fetchAll();else setLoading(false);},[user?.id,fetchAll]);
- const go=(id)=>{setTab(id);setNotice('');setError('');window.history.replaceState(null,'','/account'+(id==='overview'?'':'?tab='+id));};
+ const go=(id)=>{setTab(id);setNotice('');setError('');window.history.replaceState(null,'','/account'+(id==='overview'?'':'?tab='+id));if(window.matchMedia?.('(max-width: 760px)').matches)window.scrollTo({top:0,behavior:'instant'});};
  const run=async(action)=>{if(busy)return;setBusy(true);setNotice('');setError('');
   try{const result=await action();setNotice('تم حفظ التغيير بنجاح.');await fetchAll();return result;}
   catch(e){setError(e.message||'تعذّر إتمام العملية.');return null;}
@@ -97,21 +97,28 @@ export default function AccountWorkspace({initialTab='overview'}){
  if(!auth.ready)return <div className={styles.screenStatus}><LoadingState title="نتأكد من حسابك…" description="نحمي مساحتك الشخصية قبل عرض بياناتها."/></div>;
  if(!user)return <div className={styles.guest}><UserRound size={36}/><h1>مساحتك في 967</h1><p>سجّل الدخول للوصول إلى محفوظاتك ومجموعات القراءة ومساهمات المناظرات والإشعارات.</p><Link className={styles.primaryButton} href="/login?next=%2Faccount">تسجيل الدخول <ArrowLeft size={18}/></Link></div>;
  const headerName=profile?.display_name||user.user_metadata?.display_name||user.user_metadata?.full_name||'عضو في 967';
- return <div className={styles.root} dir="rtl">
+ const stats=[
+  {label:'المواد المحفوظة',n:workspace.saved.length,to:'saved'},
+  {label:'مشاركاتي',n:totalParticipation,to:'contributions'},
+  {label:'الإشعارات الجديدة',n:workspace.unread,to:'notifications'},
+ ];
+ return <div className={styles.root} dir="rtl" data-tab={tab}>
   <header className={styles.hero}>
    <div className={styles.heroInterior}>
     <div className={styles.avatar}>{profile?.avatar_url&&profile?.show_avatar?<Image unoptimized src={profile.avatar_url} width={62} height={62} alt="" onError={e=>{e.currentTarget.style.display='none';}}/>:<UserRound size={30}/>}</div>
     <div className={styles.heroCopy}><span className={styles.eyebrow}>مساحتك الشخصية في مبادرة 967</span><h1>مرحباً، {headerName}</h1><p>محتواك المفضّل، مساهماتك، وما يستحق العودة إليه.</p></div>
-    <button type="button" className={styles.outlineLight} onClick={()=>go('settings')}><Settings2 size={17}/> الإعدادات</button>
+    <button type="button" className={styles.outlineLight} onClick={()=>go('settings')} aria-label="الإعدادات"><Settings2 size={17} aria-hidden="true"/><span>الإعدادات</span></button>
    </div>
+   {account&&<div className={styles.heroStats}>{stats.map(({label,n,to})=><button type="button" className={styles.heroStat} key={label} onClick={()=>go(to)}><strong>{n.toLocaleString('ar')}</strong><span>{label}</span></button>)}</div>}
   </header>
   <div className={styles.shell}>
    <nav className={styles.sidebar} aria-label="أقسام الحساب">
-    {views.map(({id,label,icon:Icon})=><button key={id} type="button" aria-current={tab===id?'page':undefined} className={tab===id?styles.activeNav:styles.navItem} onClick={()=>go(id)}><Icon size={18}/><span>{label}</span>{id==='notifications'&&workspace.unread>0&&<b>{workspace.unread}</b>}</button>)}
-    <Link href="/messages" className={styles.navItem}><MessageSquare size={18}/><span>رسائلي الخاصة</span></Link>
+    {views.map(({id,label,icon:Icon})=><button key={id} type="button" aria-current={tab===id?'page':undefined} className={tab===id?styles.activeNav:styles.navItem} onClick={()=>go(id)}><span className={styles.navIcon} aria-hidden="true"><Icon size={18}/></span><span>{label}</span>{id==='notifications'&&workspace.unread>0&&<b>{workspace.unread}</b>}<ChevronLeft size={16} className={styles.navArrow} aria-hidden="true"/></button>)}
+    <Link href="/messages" className={styles.navItem}><span className={styles.navIcon} aria-hidden="true"><MessageSquare size={18}/></span><span>رسائلي الخاصة</span><ChevronLeft size={16} className={styles.navArrow} aria-hidden="true"/></Link>
     <div className={styles.sidebarFooter}><Link href="/games/leaderboard"><Trophy size={16}/> ترتيبي في ألعاب 967</Link><Link href="/debates"><ArrowUpLeft size={16}/> تصفّح المناظرات</Link><Link href="/help"><ArrowUpLeft size={16}/> مركز المساعدة</Link></div>
    </nav>
    <div className={styles.main}>
+    {tab!=='overview'&&<button type="button" className={styles.backButton} onClick={()=>go('overview')}><ChevronRight size={18} aria-hidden="true"/> حسابي</button>}
     <div className={styles.sectionTop}><div><span className={styles.subtleEyebrow}>حسابي / {tabName(tab)}</span><h2>{tabName(tab)}</h2></div><button className={styles.refreshButton} type="button" disabled={busy||loading} onClick={fetchAll} aria-label="تحديث البيانات"><RefreshCw size={17}/></button></div>
     {notice&&<p className={styles.success} role="status"><CheckCircle2 size={17}/>{notice}<button aria-label="إغلاق" onClick={()=>setNotice('')}><X size={15}/></button></p>}
     {error&&<p className={styles.error} role="alert">{error} <button type="button" onClick={fetchAll}>إعادة المحاولة</button></p>}
@@ -119,12 +126,6 @@ export default function AccountWorkspace({initialTab='overview'}){
      {profile?.deletion_requested_at&&<div className={styles.info}>طلب حذف الحساب قيد المعالجة لدى الإدارة.</div>}
      {profile?.suspended&&<div className={styles.error}>المشاركة موقوفة حالياً. تواصل مع إدارة المبادرة للاستفسار.</div>}
      {tab==='overview'&&<>
-      <div className={styles.welcome}><div><span>مرحباً بعودتك</span><h3>كل ما يخصك في مكان واحد.</h3><p>اختر مادة للقراءة أو تابع مشاركاتك في الحوار.</p></div><Link href="/debates">اكتشف حواراً جديداً <ArrowLeft size={18}/></Link></div>
-      <div className={styles.statGrid}>{[
-       {label:'المواد المحفوظة',n:workspace.saved.length,icon:BookmarkCheck,to:'saved'},
-       {label:'مشاركاتي',n:totalParticipation,icon:MessageSquare,to:'contributions'},
-       {label:'الإشعارات الجديدة',n:workspace.unread,icon:Bell,to:'notifications'},
-      ].map(({label,n,icon:Icon,to})=><button className={styles.stat} key={label} onClick={()=>go(to)}><Icon size={21}/><strong>{n.toLocaleString('ar')}</strong><span>{label}</span><ChevronLeft size={15} className={styles.statArrow}/></button>)}</div>
       <MyGameRank/>
       <section className={styles.panel}><div className={styles.panelTitle}><h3>محفوظات للعودة إليها</h3><button type="button" onClick={()=>go('saved')}>عرض الكل <ArrowLeft size={15}/></button></div>{workspace.saved.length?workspace.saved.slice(0,4).map(x=><Link key={x.id} className={styles.feedItem} href={x.href}><BookOpen size={17}/><span><strong>{x.title}</strong><small>فتح المادة</small></span><ArrowUpLeft size={15}/></Link>):<Empty icon={BookmarkCheck} text="لم تحفظ محتوى بعد. استخدم زر «للقراءة لاحقاً» داخل صفحات الموقع."/>}</section>
      </>}

@@ -75,7 +75,8 @@ try{
  await page.waitForFunction(()=>document.querySelector('.ed-menu-toggle,.menu-toggle').getAttribute('aria-expanded')==='false');
  assert.equal(await page.evaluate(()=>document.body.style.overflow),'','desktop resize should release body scroll');
  assert.equal(await page.evaluate(()=>document.querySelector('.platform-footer,.ed-footer').inert),false);
- assert.equal(await page.locator('button.menu-toggle,button.ed-menu-toggle').isVisible(),false,'desktop shows direct navigation');
+ // The header has a phone and a desktop menu button; neither may show on desktop.
+ assert.equal(await page.locator('button.menu-toggle:visible,button.ed-menu-toggle:visible').count(),0,'desktop shows direct navigation');
  const disclosure=page.locator('.platform-nav>.nav-group>summary,.ed-nav-group>summary').first();
  await disclosure.focus();
  await page.keyboard.press('Enter');
