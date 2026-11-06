@@ -1,0 +1,492 @@
+[
+ {
+  "slug": "tuberculosis",
+  "name": "الإصابة بالسل",
+  "unit": "لكل 100 ألف شخص",
+  "category": "health",
+  "better": "lower",
+  "code": "SH.TBS.INCD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Incidence of tuberculosis is the estimated number of new and relapse tuberculosis cases arising in a given year, expressed as the rate per 100,000 population. All forms of TB are included, including cases in people living with HIV. Estimates for all years are recalculated as new information becomes available and techniques are refined, so they may differ from those published previously."
+ },
+ {
+  "slug": "ncd-mortality",
+  "name": "الوفاة المبكرة بالأمراض غير المعدية",
+  "unit": "% بين 30 و70 عاماً",
+  "category": "health",
+  "better": "lower",
+  "code": "SH.DYN.NCOM.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Mortality from CVD, cancer, diabetes or CRD is the percent of 30-year-old-people who would die before their 70th birthday from any of cardiovascular disease, cancer, diabetes,  or chronic respiratory disease, assuming that s/he would experience current mortality rates at every age and s/he would not die from any other cause of death (e.g., injuries or HIV/AIDS)."
+ },
+ {
+  "slug": "road-deaths",
+  "name": "وفيات حوادث الطرق",
+  "unit": "لكل 100 ألف شخص",
+  "category": "health",
+  "better": "lower",
+  "code": "SH.STA.TRAF.P5",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Mortality caused by road traffic injury is estimated road traffic fatal injury deaths per 100,000 population."
+ },
+ {
+  "slug": "skilled-births",
+  "name": "الولادات بإشراف كادر مؤهل",
+  "unit": "% من الولادات",
+  "category": "health",
+  "better": "higher",
+  "code": "SH.STA.BRTC.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Births attended by skilled health staff are the percentage of deliveries attended by personnel trained to give the necessary supervision, care, and advice to women during pregnancy, labor, and the postpartum period; to conduct deliveries on their own; and to care for newborns."
+ },
+ {
+  "slug": "female-life-expectancy",
+  "name": "العمر المتوقع للإناث",
+  "unit": "سنة",
+  "category": "health",
+  "better": "higher",
+  "code": "SP.DYN.LE00.FE.IN",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Life expectancy at birth indicates the number of years a newborn infant would live if prevailing patterns of mortality at the time of its birth were to stay the same throughout its life."
+ },
+ {
+  "slug": "primary-completion",
+  "name": "إكمال المرحلة الابتدائية",
+  "unit": "% من الفئة العمرية",
+  "category": "education",
+  "better": "higher",
+  "code": "SE.PRM.CMPT.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Primary completion rate, or gross intake ratio to the last grade of primary education, is the number of new entrants (enrollments minus repeaters) in the last grade of primary education, regardless of age, divided by the population at the entrance age for the last grade of primary education. Data limitations preclude adjusting for students who drop out during the final year of primary education."
+ },
+ {
+  "slug": "lower-secondary-completion",
+  "name": "إكمال المرحلة الإعدادية",
+  "unit": "% من الفئة العمرية",
+  "category": "education",
+  "better": "higher",
+  "code": "SE.SEC.CMPT.LO.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Lower secondary education completion rate is measured as the gross intake ratio to the last grade of lower secondary education (general and pre-vocational). It is calculated as the number of new entrants in the last grade of lower secondary education, regardless of age, divided by the population at the entrance age for the last grade of lower secondary education."
+ },
+ {
+  "slug": "pupil-teacher-primary",
+  "name": "التلاميذ لكل معلم في الابتدائي",
+  "unit": "تلميذ لكل معلم",
+  "category": "education",
+  "better": "lower",
+  "code": "SE.PRM.ENRL.TC.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Primary school pupil-teacher ratio is the average number of pupils per teacher in primary school."
+ },
+ {
+  "slug": "gender-parity-schools",
+  "name": "تكافؤ الجنسين في الابتدائي والثانوي",
+  "unit": "نسبة الإناث إلى الذكور",
+  "category": "education",
+  "better": "contextual",
+  "code": "SE.ENR.PRSC.FM.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Gender parity index for gross enrollment ratio in primary and secondary education is the ratio of girls to boys enrolled at primary and secondary levels in public and private schools."
+ },
+ {
+  "slug": "preprimary-enrolment",
+  "name": "الالتحاق بالتعليم ما قبل الابتدائي",
+  "unit": "% إجمالية",
+  "category": "education",
+  "better": "higher",
+  "code": "SE.PRE.ENRR",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Gross enrollment ratio is the ratio of total enrollment, regardless of age, to the population of the age group that officially corresponds to the level of education shown. Preprimary education refers to programs at the initial stage of organized instruction, designed primarily to introduce very young children to a school-type environment and to provide a bridge between home and school."
+ },
+ {
+  "slug": "out-of-school-children",
+  "name": "الأطفال خارج المدرسة في سن الابتدائي",
+  "unit": "طفل",
+  "category": "education",
+  "better": "lower",
+  "code": "SE.PRM.UNER",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Children out of school are the number of primary-school-age children not enrolled in primary or secondary school."
+ },
+ {
+  "slug": "journal-articles",
+  "name": "المقالات العلمية والتقنية",
+  "unit": "مقالة",
+  "category": "education",
+  "better": "higher",
+  "code": "IP.JRN.ARTC.SC",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Article counts refer to publications from a selection of conference proceedings and peer-reviewed journals from Scopus in science and engineering fields, according to the National Center for Science and Engineering Statistics Taxonomy of Disciplines."
+ },
+ {
+  "slug": "fixed-telephone",
+  "name": "اشتراكات الهاتف الثابت",
+  "unit": "اشتراك لكل مئة شخص",
+  "category": "digital",
+  "better": "contextual",
+  "code": "IT.MLT.MAIN.P2",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Fixed telephone subscriptions refers to the sum of active number of analogue fixed telephone lines, voice-over-IP (VoIP) subscriptions, fixed wireless local loop (WLL) subscriptions, ISDN voice-channel equivalents and fixed public payphones."
+ },
+ {
+  "slug": "secure-servers",
+  "name": "خوادم الإنترنت الآمنة",
+  "unit": "لكل مليون شخص",
+  "category": "digital",
+  "better": "higher",
+  "code": "IT.NET.SECR.P6",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "The number of distinct, publicly-trusted TLS/SSL certificates found in the Netcraft Secure Server Survey (by hosting country), per 1 million people."
+ },
+ {
+  "slug": "high-tech-exports",
+  "name": "صادرات المنتجات عالية التقنية",
+  "unit": "دولار أمريكي",
+  "category": "digital",
+  "better": "contextual",
+  "code": "TX.VAL.TECH.CD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "High-technology exports are products with high R&D intensity, such as aerospace, computers, pharmaceuticals, scientific instruments, and electrical machinery."
+ },
+ {
+  "slug": "patent-applications",
+  "name": "طلبات براءات الاختراع للمقيمين",
+  "unit": "طلب",
+  "category": "digital",
+  "better": "higher",
+  "code": "IP.PAT.RESD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Patent applications are worldwide patent applications filed through the Patent Cooperation Treaty procedure or with a national patent office for exclusive rights for an invention--a product or process that provides a new way of doing something or offers a new technical solution to a problem. A patent provides protection for the invention to the owner of the patent for a limited period, generally 20 years."
+ },
+ {
+  "slug": "electricity-rural",
+  "name": "وصول الكهرباء في الريف",
+  "unit": "% من سكان الريف",
+  "category": "infrastructure",
+  "better": "higher",
+  "code": "EG.ELC.ACCS.RU.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Access to electricity, rural is the percentage of rural population with access to electricity."
+ },
+ {
+  "slug": "electric-consumption",
+  "name": "استهلاك الكهرباء للفرد",
+  "unit": "كيلوواط ساعة للفرد",
+  "category": "infrastructure",
+  "better": "contextual",
+  "code": "EG.USE.ELEC.KH.PC",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Electric power consumption measures the production of power plants and combined heat and power plants less transmission, distribution, and transformation losses and own use by heat and power plants."
+ },
+ {
+  "slug": "power-losses",
+  "name": "فاقد نقل وتوزيع الكهرباء",
+  "unit": "% من الإنتاج",
+  "category": "infrastructure",
+  "better": "lower",
+  "code": "EG.ELC.LOSS.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Electric power transmission and distribution losses include losses in transmission between sources of supply and points of distribution and in the distribution to consumers, including pilferage. The losses are expressed as a share of the total output."
+ },
+ {
+  "slug": "handwashing",
+  "name": "مرافق غسل اليدين الأساسية",
+  "unit": "% من السكان",
+  "category": "infrastructure",
+  "better": "higher",
+  "code": "SH.STA.HYGN.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "The percentage of people living in households that have a handwashing facility with soap and water available on the premises. Handwashing facilities may be fixed or mobile and include a sink with tap water, buckets with taps, tippy-taps, and jugs or basins designated for handwashing. Soap includes bar soap, liquid soap, powder detergent, and soapy water but does not include ash, soil, sand or other handwashing agents."
+ },
+ {
+  "slug": "open-defecation",
+  "name": "التبرز في العراء",
+  "unit": "% من السكان",
+  "category": "infrastructure",
+  "better": "lower",
+  "code": "SH.STA.ODFC.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "People practicing open defecation refers to the percentage of the population defecating in the open, such as in fields, forest, bushes, open bodies of water, on beaches, in other open spaces or disposed of with solid waste."
+ },
+ {
+  "slug": "air-passengers",
+  "name": "المسافرون جواً",
+  "unit": "مسافر",
+  "category": "infrastructure",
+  "better": "contextual",
+  "code": "IS.AIR.PSGR",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Air carrier data per country refers to passengers carried by airlines registered in that country regardless of the origin or destination of the passengers."
+ },
+ {
+  "slug": "logistics",
+  "name": "مؤشر الأداء اللوجستي",
+  "unit": "درجة من 1 إلى 5",
+  "category": "infrastructure",
+  "better": "higher",
+  "code": "LP.LPI.OVRL.XQ",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "The Logistics Performance Index overall score reflects perceptions of a country's logistics based on the efficiency of customs clearance process, quality of trade- and transport-related infrastructure, ease of arranging competitively priced shipments, quality of logistics services, ability to track and trace consignments, and frequency with which shipments reach the consignee within the scheduled time. The index ranges from 1 to 5, with a higher score representing better performance. \n\nData are from the Logistics Performance Index survey conducted by the World Bank in partnership with academic and international institutions and private companies and individuals engaged in international logistics. The 2023 LPI survey was conducted from September 6 to November 5, 2022. It provided 4,090 country assessments by 652 logistics professionals in 115 countries in all World Bank regions. Respondents evaluate eight countries on six core dimensions on a scale from 1 (worst) to 5 (best). The eight countries are chosen based on the most important export and import markets of the respondent's country, random selection, and, for landlocked countries, neighboring countries that connect them with international markets. \n\nScores for the six areas are averaged across all respondents and aggregated to a single score using principal components analysis. \n\nDetails of the survey methodology and index construction methodology are included in Appendix 5 of the 2023 LPI report available at: https://lpi.worldbank.org/report."
+ },
+ {
+  "slug": "slums",
+  "name": "سكان الأحياء العشوائية",
+  "unit": "% من سكان الحضر",
+  "category": "infrastructure",
+  "better": "lower",
+  "code": "EN.POP.SLUM.UR.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Population living in slums is the proportion of the urban population living in slum households. A slum household is defined as a group of individuals living under the same roof lacking one or more of the following conditions: access to improved water, access to improved sanitation, sufficient living area, housing durability, and security of tenure, as adopted in the Millennium Development Goal Target 7.D. The successor, the Sustainable Development Goal 11.1.1, considers inadequate housing (housing affordability) to complement the above definition of slums/informal settlements."
+ },
+ {
+  "slug": "co2-per-capita",
+  "name": "انبعاثات ثاني أكسيد الكربون للفرد",
+  "unit": "طن للفرد",
+  "category": "environment",
+  "better": "contextual",
+  "code": "EN.GHG.CO2.PC.CE.AR5",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Total annual emissions of carbon dioxide (CO2), one of the six Kyoto greenhouse gases (GHG), from the agriculture, energy, waste, and industrial sectors, excluding LULUCF, standardized to carbon dioxide equivalent values divided by the economy's population. This measure excludes GHG fluxes caused by Land Use, Land-Use Change and Forestry (LULUCF), as these fluxes have larger uncertainties."
+ },
+ {
+  "slug": "ghg-emissions",
+  "name": "إجمالي انبعاثات غازات الدفيئة",
+  "unit": "مليون طن مكافئ",
+  "category": "environment",
+  "better": "contextual",
+  "code": "EN.GHG.ALL.MT.CE.AR5",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "A measure of annual emissions of the six greenhouse gases (GHG) covered by the Kyoto Protocol (carbon dioxide (CO2), methane (CH4), nitrous oxide (N2O), hydrofluorocarbons (HFCs), perfluorocarbons (PFCs), and sulphurhexafluoride (SF6)) from the energy, industry, waste, and agriculture sectors, standardized to carbon dioxide equivalent values. This measure excludes GHG fluxes caused by Land Use Land Use Change and Forestry (LULUCF), as these fluxes have larger uncertainties. The measure is standardized to carbon dioxide equivalent values using the Global Warming Potential (GWP) factors of IPCC's 5th Assessment Report (AR5)."
+ },
+ {
+  "slug": "pm25",
+  "name": "التعرض للجسيمات الدقيقة PM2.5",
+  "unit": "ميكروغرام لكل م³",
+  "category": "environment",
+  "better": "lower",
+  "code": "EN.ATM.PM25.MC.M3",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Population-weighted exposure to ambient PM2.5 pollution is defined as the average level of exposure of a nation's population to concentrations of suspended particles measuring less than 2.5 microns in aerodynamic diameter, which are capable of penetrating deep into the respiratory tract and causing severe health damage. Exposure is calculated by weighting mean annual concentrations of PM2.5 by population in both urban and rural areas."
+ },
+ {
+  "slug": "freshwater-per-capita",
+  "name": "المياه العذبة المتجددة للفرد",
+  "unit": "متر مكعب للفرد",
+  "category": "environment",
+  "better": "contextual",
+  "code": "ER.H2O.INTR.PC",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Renewable internal freshwater resources flows refer to internal renewable resources (internal river flows and groundwater from rainfall) in the country. Renewable internal freshwater resources per capita are calculated using the World Bank's population estimates."
+ },
+ {
+  "slug": "water-stress",
+  "name": "الإجهاد المائي",
+  "unit": "% من الموارد المتاحة",
+  "category": "environment",
+  "better": "lower",
+  "code": "ER.H2O.FWST.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "The level of water stress: freshwater withdrawal as a proportion of available freshwater resources is the ratio between total freshwater withdrawn by all major sectors and total renewable freshwater resources, after taking into account environmental water requirements. Main sectors, as defined by ISIC standards, include agriculture; forestry and fishing; manufacturing; electricity industry; and services. This indicator is also known as water withdrawal intensity."
+ },
+ {
+  "slug": "protected-land",
+  "name": "المناطق البرية المحمية",
+  "unit": "% من مساحة الأرض",
+  "category": "environment",
+  "better": "higher",
+  "code": "ER.LND.PTLD.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Terrestrial protected areas are totally or partially protected areas of at least 1,000 hectares that are designated by national authorities as scientific reserves with limited public access, national parks, natural monuments, nature reserves or wildlife sanctuaries, protected landscapes, and areas managed mainly for sustainable use. Marine areas, unclassified areas, littoral (intertidal) areas, and sites protected under local or provincial law are excluded."
+ },
+ {
+  "slug": "marine-protected",
+  "name": "المناطق البحرية المحمية",
+  "unit": "% من المياه الإقليمية",
+  "category": "environment",
+  "better": "higher",
+  "code": "ER.MRN.PTMR.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Marine protected areas are areas of intertidal or subtidal terrain--and overlying water and associated flora and fauna and historical and cultural features--that have been reserved by law or other effective means to protect part or all of the enclosed environment."
+ },
+ {
+  "slug": "precipitation",
+  "name": "متوسط الهطول السنوي",
+  "unit": "ملليمتر سنوياً",
+  "category": "environment",
+  "better": "contextual",
+  "code": "AG.LND.PRCP.MM",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Average precipitation is the long-term average in depth (over space and time) of annual precipitation in the country. Precipitation is defined as any kind of water that falls from clouds as a liquid or a solid."
+ },
+ {
+  "slug": "renewable-electricity",
+  "name": "الكهرباء من مصادر متجددة",
+  "unit": "% من إنتاج الكهرباء",
+  "category": "environment",
+  "better": "contextual",
+  "code": "EG.ELC.RNEW.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Renewable electricity is the share of electricity generated by renewable power plants in total electricity generated by all types of plants."
+ },
+ {
+  "slug": "energy-use",
+  "name": "استخدام الطاقة للفرد",
+  "unit": "كغ مكافئ نفط للفرد",
+  "category": "environment",
+  "better": "contextual",
+  "code": "EG.USE.PCAP.KG.OE",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Energy use refers to use of primary energy before transformation to other end-use fuels, which is equal to indigenous production plus imports and stock changes, minus exports and fuels supplied to ships and aircraft engaged in international transport."
+ },
+ {
+  "slug": "arable-land",
+  "name": "الأراضي الصالحة للزراعة",
+  "unit": "% من مساحة الأرض",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "AG.LND.ARBL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Arable land includes land defined by the FAO as land under temporary crops (double-cropped areas are counted once), temporary meadows for mowing or for pasture, land under market or kitchen gardens, and land temporarily fallow. Land abandoned as a result of shifting cultivation is excluded."
+ },
+ {
+  "slug": "arable-land-per-person",
+  "name": "الأراضي الصالحة للزراعة للفرد",
+  "unit": "هكتار للفرد",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "AG.LND.ARBL.HA.PC",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Arable land (hectares per person) includes land defined by the FAO as land under temporary crops (double-cropped areas are counted once), temporary meadows for mowing or for pasture, land under market or kitchen gardens, and land temporarily fallow. Land abandoned as a result of shifting cultivation is excluded."
+ },
+ {
+  "slug": "food-production",
+  "name": "مؤشر إنتاج الغذاء",
+  "unit": "مؤشر 2014-2016 = 100",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "AG.PRD.FOOD.XD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Food production index covers food crops that are considered edible and that contain nutrients. Coffee and tea are excluded because, although edible, they have no nutritive value."
+ },
+ {
+  "slug": "crop-production",
+  "name": "مؤشر إنتاج المحاصيل",
+  "unit": "مؤشر 2014-2016 = 100",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "AG.PRD.CROP.XD",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Crop production index shows agricultural production for each year relative to the base period 2014-2016. It includes all crops except fodder crops. Regional and income group aggregates for the FAO's production indexes are calculated from the underlying values in international dollars, normalized to the base period 2014-2016."
+ },
+ {
+  "slug": "fertilizer",
+  "name": "استهلاك الأسمدة",
+  "unit": "كغ لكل هكتار",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "AG.CON.FERT.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Fertilizer consumption measures the quantity of plant nutrients used per unit of arable land. Fertilizer products cover nitrogenous, potash, and phosphate fertilizers (including ground rock phosphate). Traditional nutrients--animal and plant manures--are not included. For the purpose of data dissemination, FAO has adopted the concept of a calendar year (January to December). Some countries compile fertilizer data on a calendar year basis, while others are on a split-year basis. Arable land includes land defined by the FAO as land under temporary crops (double-cropped areas are counted once), temporary meadows for mowing or for pasture, land under market or kitchen gardens, and land temporarily fallow. Land abandoned as a result of shifting cultivation is excluded."
+ },
+ {
+  "slug": "agriculture-employment",
+  "name": "العاملون في الزراعة",
+  "unit": "% من العاملين",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "SL.AGR.EMPL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Employment is defined as persons of working age who were engaged in any activity to produce goods or provide services for pay or profit, whether at work during the reference period or not at work due to temporary absence from a job, or to working-time arrangement. The agriculture sector consists of activities in agriculture, hunting, forestry and fishing, in accordance with division 1 (ISIC 2) or categories A-B (ISIC 3) or category A (ISIC 4)."
+ },
+ {
+  "slug": "fisheries",
+  "name": "إنتاج الثروة السمكية",
+  "unit": "طن متري",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "ER.FSH.PROD.MT",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Total fisheries production measures the volume of aquatic species caught by a country for all commercial, industrial, recreational and subsistence purposes. The harvest from mariculture, aquaculture and other kinds of fish farming is also included."
+ },
+ {
+  "slug": "agri-water",
+  "name": "حصة الزراعة من سحب المياه",
+  "unit": "% من سحب المياه العذبة",
+  "category": "agriculture",
+  "better": "contextual",
+  "code": "ER.H2O.FWAG.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Annual freshwater withdrawals refer to total water withdrawals, not counting evaporation losses from storage basins. Withdrawals also include water from desalination plants in countries where they are a significant source. Withdrawals can exceed 100 percent of total renewable resources where extraction from nonrenewable aquifers or desalination plants is considerable or where there is significant water reuse. Withdrawals for agriculture are total withdrawals for irrigation and livestock production. Data are for the most recent year available for 1987-2002."
+ },
+ {
+  "slug": "youth-unemployment",
+  "name": "بطالة الشباب",
+  "unit": "% من قوة العمل بعمر 15 إلى 24",
+  "category": "labor",
+  "better": "lower",
+  "code": "SL.UEM.1524.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Youth unemployment refers to the share of the labor force ages 15-24 without work but available for and seeking employment."
+ },
+ {
+  "slug": "female-unemployment",
+  "name": "البطالة بين النساء",
+  "unit": "% من القوى العاملة النسائية",
+  "category": "labor",
+  "better": "lower",
+  "code": "SL.UEM.TOTL.FE.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Unemployment refers to the share of the labor force that is without work but available for and seeking employment."
+ },
+ {
+  "slug": "vulnerable-employment",
+  "name": "العمالة الهشة",
+  "unit": "% من العاملين",
+  "category": "labor",
+  "better": "lower",
+  "code": "SL.EMP.VULN.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Vulnerable employment is contributing family workers and own-account workers as a percentage of total employment."
+ },
+ {
+  "slug": "services-employment",
+  "name": "العاملون في الخدمات",
+  "unit": "% من العاملين",
+  "category": "labor",
+  "better": "contextual",
+  "code": "SL.SRV.EMPL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Employment is defined as persons of working age who were engaged in any activity to produce goods or provide services for pay or profit, whether at work during the reference period or not at work due to temporary absence from a job, or to working-time arrangement. The services sector consists of wholesale and retail trade and restaurants and hotels; transport, storage, and communications; financing, insurance, real estate, and business services; and community, social, and personal services, in accordance with divisions 6-9 (ISIC 2) or categories G-Q (ISIC 3) or categories G-U (ISIC 4)."
+ },
+ {
+  "slug": "industry-employment",
+  "name": "العاملون في الصناعة",
+  "unit": "% من العاملين",
+  "category": "labor",
+  "better": "contextual",
+  "code": "SL.IND.EMPL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Employment is defined as persons of working age who were engaged in any activity to produce goods or provide services for pay or profit, whether at work during the reference period or not at work due to temporary absence from a job, or to working-time arrangement. The industry sector consists of mining and quarrying, manufacturing, construction, and public utilities (electricity, gas, and water), in accordance with divisions 2-5 (ISIC 2) or categories C-F (ISIC 3) or categories B-F (ISIC 4)."
+ },
+ {
+  "slug": "self-employed",
+  "name": "العاملون لحسابهم الخاص",
+  "unit": "% من العاملين",
+  "category": "labor",
+  "better": "contextual",
+  "code": "SL.EMP.SELF.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Self-employed workers are those workers who, working on their own account or with one or a few partners or in cooperative, hold the type of jobs defined as a \"self-employment jobs.\" i.e. jobs where the remuneration is directly dependent upon the profits derived from the goods and services produced. Self-employed workers include sub-categories of employers, own-account workers and members of producers' cooperatives and contributing family workers."
+ },
+ {
+  "slug": "women-parliament",
+  "name": "مقاعد النساء في البرلمان",
+  "unit": "% من المقاعد",
+  "category": "labor",
+  "better": "higher",
+  "code": "SG.GEN.PARL.ZS",
+  "en_name": "البنك الدولي — مؤشرات التنمية العالمية (WDI)",
+  "en_note": "Women in parliaments are the percentage of parliamentary seats in a single or lower chamber held by women."
+ }
+]
