@@ -5,6 +5,11 @@ import {figureSchema, indicatorSchema, issueSchema, serializeJsonLd, siteSchema,
 
 const production = {NODE_ENV: 'production', VERCEL_ENV: 'production'};
 
+test('canonicals default to the production domain, not the vercel.app alias', () => {
+  assert.equal(DEFAULT_SITE_ORIGIN, 'https://967ye.com');
+  assert.equal(getSiteOrigin(production), 'https://967ye.com');
+});
+
 test('canonical origin rejects local, malformed, credentialed and non-root values', () => {
   for (const value of ['', 'bad url', 'http://localhost:3000', 'https://127.0.0.1', 'https://example.com/path', 'https://name:secret@example.com', 'https://example.com?tracking=1']) {
     assert.equal(getSiteOrigin({...production, NEXT_PUBLIC_SITE_URL: value}), DEFAULT_SITE_ORIGIN, value);
