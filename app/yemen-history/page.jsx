@@ -41,8 +41,8 @@ export default async function YemenHistoryPage({searchParams}){
    </div>
   </KnowledgePageIntro>
   <KnowledgeNavigation/>
-  <KnowledgeReadingGuide kind="history"/>
   <div id="eras"><HistoryExplorer entries={catalog.entries} initialEra={typeof params.era==='string'?params.era:''} initialType={typeof params.type==='string'?params.type:''}/></div>
+  <KnowledgeReadingGuide kind="history"/>
   <section className={styles.locations} aria-labelledby="history-location-title"><div className="container"><span className="eyebrow">الأماكن على الخريطة</span><h2 id="history-location-title">أين دارت هذه الحكايات؟</h2><p>استكشف المواقع المرتبطة بالمواد التاريخية على <strong>خريطة المحافظات المعاصرة</strong>. هذه الروابط لا تمثل حدود الممالك القديمة.</p><div className={styles.locationGrid}>{locations.map(x=><Link key={x.governorate} href={'/yemen-map?region='+x.governorate+'#map'}><strong>{x.governorateName}</strong><span>{x.title}</span></Link>)}</div></div></section>
  </div></KnowledgeTheme>;
 }

@@ -74,7 +74,7 @@ test('homepage retains navigation with compact school rows and an app launcher',
  const css=read('components/home/HomeBlocks.module.css');
  const start=read('components/home/HomeSmartStart.module.css');
  for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic'])assert.ok(blocks.includes("href: '"+href+"'"),href);
- assert.ok(home.includes('<HomeSmartStart initialDate={today}'));
+ assert.ok(home.includes('<HomeSmartStart membersOnly initialDate={today}'));
  assert.ok(home.includes('<KnowledgeRail items={knowledgeLinks}/>'));
  assert.ok(home.includes('<GamesStrip'));
  assert.ok(home.includes('<SchoolStrip/>'));

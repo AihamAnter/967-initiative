@@ -114,7 +114,17 @@
 .districtDisclosure ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0}
 .districtDisclosure a{min-height:38px;display:flex;align-items:center;padding:8px;color:var(--c-ink);background:var(--c-surface-2);border-radius:8px;border:1px solid var(--c-line);overflow-wrap:anywhere}
 .districtDisclosure a:hover{color:var(--c-accent);border-color:var(--c-accent)}
-.quickNav{display:none}
-@media(max-width:950px){.layout{grid-template-columns:minmax(0,1fr)}.sidebar{position:static;max-height:none;grid-row:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.figureLink{grid-column:1/-1}.navigation{display:none}.quickNav{display:flex;align-items:center;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;padding-block:13px;border-bottom:1px solid var(--c-line);scroll-snap-type:x proximity}.quickNav strong{flex:0 0 auto;color:var(--c-ink-2);font-size:13px;margin-inline-end:5px}.quickNav a{flex:0 0 auto;min-height:38px;display:inline-flex;align-items:center;padding:7px 12px;border-radius:9px;border:1px solid var(--c-line-2);background:var(--c-surface);color:var(--c-accent);font-size:13px;font-weight:700;scroll-snap-align:start}}
-@media(max-width:660px){.hero{padding-block:30px}.hero h1{font-size:clamp(31px,7vw,42px)}.facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.facts>div{padding:11px}.facts strong{font-size:14px}.layout{padding-block:18px 46px;gap:16px}.section{padding:17px;margin-bottom:12px}.section p{font-size:15px}.sidebar{grid-template-columns:minmax(0,1fr)}.navigation,.districts,.sources{padding:17px}.quickNav{width:calc(100% - 2 * var(--s-gutter,16px))}}
-@media(prefers-reduced-motion:reduce){.quickNav{scroll-behavior:auto}}
+
+@media(max-width:950px){.layout{grid-template-columns:minmax(0,1fr)}.sidebar{position:static;max-height:none;grid-row:auto;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.figureLink{grid-column:1/-1}.navigation{display:none}}
+@media(max-width:660px){.hero{padding-block:30px}.hero h1{font-size:clamp(31px,7vw,42px)}.facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.facts>div{padding:11px}.facts strong{font-size:14px}.layout{padding-block:18px 46px;gap:16px}.section{padding:17px;margin-bottom:12px}.section p{font-size:15px}.sidebar{grid-template-columns:minmax(0,1fr)}.navigation,.districts,.sources{padding:17px}}
+
+/* Redesign v2 — batch B: a compact province header with small fact tiles. */
+.hero{padding-block:clamp(14px,3vw,40px)}
+.back{margin-bottom:8px}
+.hero h1{margin-block:4px}
+.hero p{font-size:15px;line-height:1.8;margin:0}
+.facts{margin-top:12px;gap:6px}
+.facts>div{padding:8px 12px;border-radius:12px;box-shadow:none}
+.facts span{font-size:11px}
+.facts strong{font-size:14px;margin-top:2px}
+@media(max-width:660px){.hero{padding-block:14px}.facts>div{padding:8px 10px}}

@@ -1,0 +1,26 @@
+== https://967ye.com
+
+### 375x812
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/yemen-in-numbers | 24 | 17 | 14 | 24/22 | 643 | 13% | no | 2
+/yemen-in-numbers/indicator/yemen-population | 24 | 17 | 14 | 24 | 2957 | 27% | no | 0
+/yemen-ranking | 24 | 17 | 14 | 30/24 | 406 | 32% | no | 3
+/yemen-map | 24 | 17 | 14 | 24 | 353 | 32% | no | 6
+/yemeni-figures | 24 | 17 | 14 | 24/20 | 473 | 32% | no | 3
+/yemen-history | 24 | 17 | 14 | 25/24 | 527 | 39% | no | 2
+/yemen-history/bab-mandab-prehistory | 24 | 17 | 16 | 24 | 790 | 47% | no | 1
+/yemen-map/governorates/YE12 | 24 | 17 | 16 | 24 | 638 | 60% | no | 1
+/yemeni-figures/arwa-al-sulayhi | 24 | 17 | 15 | 24 | 1645 | 100% | no | 0
+== http://localhost:3000
+
+### 375x812
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/yemen-in-numbers | 24 | 17 | 14 | 24 | 319 | 13% | no | 9
+/yemen-in-numbers/indicator/yemen-population | 24 | 17 | 14 | 24 | 692 | 27% | no | 5
+/yemen-ranking | 24 | 17 | 14 | 26/24 | 386 | 32% | no | 4
+/yemen-map | 24 | 17 | 14 | 24 | 402 | 30% | no | 3
+/yemeni-figures | 24 | 17 | 14 | 24/20 | 415 | 30% | no | 13
+/yemen-history | 24 | 17 | 14 | 24 | 496 | 30% | no | 356
+/yemen-history/bab-mandab-prehistory | 24 | 17 | 15 | 24 | 324 | 38% | no | 5
+/yemen-map/governorates/YE12 | 24 | 17 | 15 | 24 | 410 | 48% | no | 8
+/yemeni-figures/arwa-al-sulayhi | 24 | 17 | 15 | 24 | 1095 | 100% | no | 0

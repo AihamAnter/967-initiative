@@ -91,3 +91,53 @@
 :global(:root[data-ed-theme="dark"]) .stopEra{color:var(--c-accent)}
 :global(:root[data-ed-theme="dark"]) .stopType,:global(:root[data-ed-theme="dark"]) .stopYear{color:var(--c-ink-2)}
 :global(:root[data-ed-theme="dark"]) .spotlightMeta span{background:var(--c-surface-2);border-color:var(--c-line-2);color:var(--c-ink-2)}
+
+
+/* Redesign v2 — batch B: a shorter axis (cards above, years below), compact
+   heading and controls. Keys, scrubber, snapping and the spotlight are unchanged. */
+.timeline{padding:clamp(12px,2vw,22px);border-radius:14px;box-shadow:none}
+.heading{align-items:center;gap:8px 16px}
+.heading .kicker{display:none}
+.heading h3{font-size:var(--t-size-h2,17px);margin:0}
+.heading p{font-size:12px;line-height:1.7}
+.buttons button{min-height:38px;padding:6px 11px;font-size:12px}
+.navigator{padding:8px 12px;margin:12px 0 8px;gap:10px}
+.railHead{padding:0 4px 6px;font-size:11px}
+.track,.stop{height:184px}
+.stop{width:176px;min-width:176px}
+.track:before{top:136px}
+.marker{top:126px}
+.stopCard{inset-inline:6px;min-height:0;height:108px;max-height:108px;padding:10px 12px;gap:4px}
+.top .stopCard,.bottom .stopCard{top:8px;bottom:auto}
+.stopCard strong{font-size:14px;line-height:1.5}
+.top .stopYear,.bottom .stopYear{top:156px}
+.stopYear{font-size:12px}
+.axisFoot{padding-top:4px}
+.spotlight{margin-top:14px;padding-top:14px;gap:14px}
+.spotlight h4{font-size:var(--t-size-h2,17px);margin:8px 0 4px}
+.spotlight p{font-size:13px;line-height:1.8}
+.spotlightFacts{margin-top:8px}
+.readButton{min-height:44px;padding:10px 16px}
+.disclaimer{font-size:11px;margin-top:12px}
+@media(max-width:950px){.navigator{flex-wrap:nowrap}.navigator label{flex-basis:auto}}
+@media(max-width:600px){
+ .timeline{padding:12px 10px}
+ .heading p{display:none}
+ .buttons{width:auto;margin-inline-start:auto}
+ .buttons button{min-height:36px;padding:5px 9px}
+ .navigator{padding:6px 10px;margin:10px 0 8px}
+ .navigator label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ .track,.stop{height:184px}
+ .stop{width:160px;min-width:160px}
+ .track:before{top:136px}
+ .marker{top:126px}
+ .top .stopCard,.bottom .stopCard{top:8px;bottom:auto}
+ .stopCard{inset-inline:5px;min-height:0;max-height:108px;padding:9px 10px}
+ .stopCard strong{font-size:13px}
+ .top .stopYear,.bottom .stopYear{top:156px}
+ .spotlight{padding:14px 2px 0}
+ .spotlight p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .spotlight figure img{height:150px}
+}
+.spotlight figure{flex:0 0 auto}
+@media(max-width:950px){.spotlight figure{width:100%}}

@@ -1,0 +1,145 @@
+/* Redesign v2 — batch B: knowledge sections (figures, ranking).
+   Loaded after identity.css. Legacy section sheets load later per route, so
+   selectors here carry extra weight; layout only — no behaviour lives here. */
+
+/* ---------- Figures: field chips, a compact filter bar, rows ---------- */
+:root:root .yemeni-figures-page .yfigures-section { padding-block: 8px 40px !important; }
+:root:root .yemeni-figures-page .yfigures-discovery { margin: 8px 0 !important; padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+:root:root .yemeni-figures-page .yfigures-discovery > header { display: block !important; margin: 0 0 6px !important; padding: 0 !important; }
+:root:root .yemeni-figures-page .yfigures-discovery > header > div { display: none !important; }
+:root:root .yemeni-figures-page .yfigures-discovery > header > p { margin: 0 !important; font-size: 11px !important; line-height: 1.6 !important; color: var(--c-ink-3) !important; }
+:root:root .yemeni-figures-page .yfigures-field-shortcuts { display: flex !important; flex-wrap: nowrap !important; gap: 6px !important; overflow-x: auto; scrollbar-width: none; margin: 0 !important; padding: 2px 0 !important; }
+:root:root .yemeni-figures-page .yfigures-field-shortcuts::-webkit-scrollbar { display: none; }
+:root:root .yemeni-figures-page .yfigures-field-shortcuts button { flex: none !important; display: inline-flex !important; flex-direction: row !important; align-items: center; gap: 6px !important; min-height: 36px !important; min-width: 0 !important; padding: 0 12px !important; border-radius: var(--r-pill) !important; box-shadow: none !important; white-space: nowrap; }
+:root:root .yemeni-figures-page .yfigures-field-shortcuts button strong { font-size: 13px !important; }
+:root:root .yemeni-figures-page .yfigures-field-shortcuts button span { font-size: 11px !important; color: var(--c-ink-3) !important; }
+:root:root .yemeni-figures-page .yfigures-field-shortcuts button.selected { border-color: var(--c-accent) !important; background: var(--c-accent-soft) !important; }
+
+:root:root .yemeni-figures-page .yfigures-section > .container > .yfigures-filters {
+  display: grid !important; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 8px !important; align-items: end;
+  margin: 8px 0 !important; padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important;
+}
+:root:root .yemeni-figures-page .yfigures-filters label { gap: 2px !important; min-width: 0 !important; }
+:root:root .yemeni-figures-page .yfigures-filters label > span:not(.sr-only) { font-size: 11px !important; color: var(--c-ink-3) !important; }
+:root:root .yemeni-figures-page .yfigures-filters :is(select, input:not([type="checkbox"])) { min-height: 42px !important; height: 42px; border-radius: 10px !important; font-size: 14px !important; }
+:root:root .yemeni-figures-page .yfigures-search { min-height: 44px !important; border-radius: 10px !important; }
+:root:root .yemeni-figures-page .yfigures-extra-filters { margin: 0 0 8px !important; padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+:root:root .yemeni-figures-page .yfigures-extra-filters > summary { min-height: 36px !important; padding: 0 !important; font-size: 13px !important; }
+:root:root .yemeni-figures-page .yfigures-results-bar { margin: 6px 0 4px !important; padding: 0 !important; border: 0 !important; gap: 8px !important; }
+:root:root .yemeni-figures-page .yfigures-sort select { min-height: 38px !important; height: 38px; }
+
+:root:root .yemeni-figures-page .yfigures-grid { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; border: 1px solid var(--c-line); border-radius: var(--r-lg, 16px); background: var(--c-surface); overflow: clip; }
+@media (min-width: 1000px) { :root:root .yemeni-figures-page .yfigures-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; column-gap: 0 !important; } :root:root .yemeni-figures-page .yfigure-card:nth-child(odd) { border-inline-end: 1px solid var(--c-line) !important; } }
+:root:root .yemeni-figures-page .yfigure-card {
+  position: relative; display: grid !important; grid-template-columns: 72px minmax(0, 1fr) 44px; gap: 12px !important; align-items: start;
+  min-height: 0 !important; height: auto !important; padding: 12px 14px !important; margin: 0 !important;
+  border: 0 !important; border-block-end: 1px solid var(--c-line) !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; transform: none !important;
+}
+:root:root .yemeni-figures-page .yfigure-image { position: relative !important; width: 72px !important; height: 72px !important; min-height: 0 !important; aspect-ratio: 1 !important; margin: 0 !important; border-radius: 12px !important; overflow: hidden; }
+:root:root .yemeni-figures-page .yfigure-image img { object-fit: cover; }
+:root:root .yemeni-figures-page .yfigure-initials { font-size: 20px !important; }
+:root:root .yemeni-figures-page .yfigure-content { min-width: 0; padding: 0 !important; gap: 2px !important; display: flex !important; flex-direction: column; }
+:root:root .yemeni-figures-page .yfigure-meta { display: flex !important; flex-wrap: wrap; gap: 4px 6px !important; margin: 0 !important; font-size: 11px !important; }
+:root:root .yemeni-figures-page .yfigure-meta span { padding: 1px 7px !important; font-size: 11px !important; line-height: 1.6 !important; border-radius: var(--r-pill) !important; }
+:root:root .yemeni-figures-page .yfigure-meta .yfigure-era { position: static !important; inset: auto !important; transform: none !important; box-shadow: none !important; backdrop-filter: none !important; }
+:root:root .yemeni-figures-page .yfigure-content h3 { margin: 2px 0 0 !important; font-size: 15px !important; line-height: 1.45 !important; }
+:root:root .yemeni-figures-page .yfigure-content > strong { font-size: 13px !important; line-height: 1.6 !important; font-weight: 600; color: var(--c-ink-2) !important; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+:root:root .yemeni-figures-page .yfigure-content > p { margin: 0 !important; font-size: 13px !important; line-height: 1.7 !important; color: var(--c-ink-3) !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+:root:root .yemeni-figures-page .yfigure-footer { display: flex !important; flex-wrap: wrap; align-items: center; gap: 4px 10px !important; margin: 4px 0 0 !important; padding: 0 !important; border: 0 !important; }
+:root:root .yemeni-figures-page .yfigure-location { display: inline-flex !important; align-items: center; gap: 4px !important; font-size: 12px !important; }
+:root:root .yemeni-figures-page .yfigure-location small { display: none !important; }
+:root:root .yemeni-figures-page .yfigure-location svg { width: 14px; height: 14px; }
+:root:root .yemeni-figures-page .yfigure-socials a { width: 32px !important; height: 32px !important; min-height: 0 !important; }
+:root:root .yemeni-figures-page .yfigure-open-icon { display: none !important; }
+:root:root .yemeni-figures-page .yfigure-photo-credit {
+  position: relative !important; inset: auto !important; z-index: 2; display: block !important; max-width: 100% !important; margin-top: 2px;
+  padding: 0 !important; background: none !important; color: var(--c-ink-3) !important; font-size: 10px !important; line-height: 1.5 !important;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-decoration: underline; text-underline-offset: 2px; backdrop-filter: none !important;
+}
+:root:root .yemeni-figures-page .yfigure-card .card-save-action { position: relative !important; inset: auto !important; z-index: 2; align-self: start; }
+:root:root .yemeni-figures-page .yfigures-more { min-height: 44px !important; margin-top: 12px !important; }
+@media (max-width: 760px) {
+  :root:root .yemeni-figures-page .yfigures-section > .container > .yfigures-filters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  :root:root .yemeni-figures-page .yfigures-section > .container > .yfigures-filters > .yfigures-search { grid-column: 1 / -1; }
+  :root:root .yemeni-figures-page .yfigures-filters :is(select, input:not([type="checkbox"])) { padding-inline: 8px 24px !important; font-size: 13px !important; }
+  :root:root .yemeni-figures-page .yfigure-card { grid-template-columns: 60px minmax(0, 1fr) 44px; gap: 10px !important; padding: 12px !important; }
+  :root:root .yemeni-figures-page .yfigure-image { width: 60px !important; height: 60px !important; }
+}
+:root:root .yemeni-figures-page .yfigures-section > .container > .yfigures-filters > label:not(.yfigures-search) { display: flex !important; flex-direction: column !important; align-items: stretch !important; }
+:root:root .yemeni-figures-page .yfigures-filters label > select { width: 100% !important; min-width: 0 !important; }
+:root:root .yemeni-figures-page .yfigures-section > .container > .yfigures-filters > label:not(.yfigures-search) { border: 0 !important; padding: 0 !important; background: none !important; }
+:root:root .yemeni-figures-page .yfigures-search { display: flex !important; align-items: center; gap: 8px; padding: 0 12px !important; border: 1px solid var(--c-control) !important; background: var(--c-surface) !important; }
+:root:root .yemeni-figures-page .yfigures-search input { flex: 1; min-width: 0; border: 0 !important; background: none !important; box-shadow: none !important; padding: 0 !important; height: 42px; }
+:root:root .yemeni-figures-page .yfigure-card::before, :root:root .yemeni-figures-page .yfigure-card::after,
+:root:root .yemeni-figures-page .yfigure-image::before, :root:root .yemeni-figures-page .yfigure-image::after { content: none !important; display: none !important; }
+:root:root .yemeni-figures-page .yfigures-results-bar { display: flex !important; flex-wrap: wrap; align-items: center !important; justify-content: space-between !important; }
+:root:root .yemeni-figures-page .yfigures-results-bar > small { order: 3; flex-basis: 100%; font-size: 11px !important; }
+:root:root .yemeni-figures-page .yfigures-sort { display: inline-flex !important; align-items: center; gap: 6px !important; width: auto !important; margin: 0 !important; font-size: 12px !important; }
+:root:root .yemeni-figures-page .yfigures-sort select { width: auto !important; min-width: 0 !important; max-width: 52vw; padding-inline: 10px 26px !important; font-size: 13px !important; }
+:root:root .yemeni-figures-page .yfigure-card .card-save-action { margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; min-height: 0 !important; }
+:root:root .yemeni-figures-page .yfigure-card .card-save-action .reading-save-button { width: 40px; height: 40px; min-height: 40px !important; padding: 0 !important; justify-content: center; }
+:root:root .yemeni-figures-page .yfigure-image { display: grid !important; place-items: center; background: var(--c-accent-soft) !important; }
+:root:root .yemeni-figures-page .yfigure-initials { position: static !important; color: var(--c-accent) !important; background: none !important; font-weight: 700; }
+
+/* ---------- Ranking: compact selectors, the rank card first ---------- */
+:root:root .yr-explorer .yr-controls { gap: 8px !important; padding: 12px !important; border-radius: var(--r-lg, 16px) !important; box-shadow: none !important; }
+:root:root .yr-explorer .yr-controls label > span { font-size: 11px !important; }
+:root:root .yr-explorer .yr-controls select { min-height: 44px !important; height: 44px; font-size: 14px !important; }
+:root:root .yr-explorer .yr-scope button { min-height: 40px !important; font-size: 13px !important; }
+:root:root .yr-explorer .yr-result { margin-top: 12px !important; gap: 14px !important; }
+:root:root .yr-explorer .yr-story h2 { font-size: var(--t-size-h2) !important; margin: 4px 0 !important; }
+:root:root .yr-explorer .yr-story > p { font-size: 14px !important; line-height: 1.8 !important; }
+:root:root .yr-explorer .yr-reading { margin-block: 8px !important; padding: 8px 12px !important; font-size: 13px !important; }
+:root:root .yr-explorer .yr-actions { display: flex !important; flex-wrap: nowrap !important; gap: 6px !important; overflow-x: auto; scrollbar-width: none; margin-top: 8px !important; }
+:root:root .yr-explorer .yr-actions button { flex: none !important; min-height: 36px !important; padding: 0 12px !important; border-radius: var(--r-pill) !important; font-size: 13px !important; white-space: nowrap; }
+:root:root .yr-explorer .yr-rank-card { padding: 16px !important; border-radius: var(--r-lg, 16px) !important; gap: 4px !important; }
+:root:root .yr-explorer .yr-rank-card .yr-card-metric { font-size: 15px !important; margin: 2px 0 !important; }
+:root:root .yr-explorer .yr-rank-number { font-size: 64px !important; line-height: 1.1 !important; margin: 4px 0 !important; letter-spacing: 0 !important; }
+:root:root .yr-explorer .yr-rank-card > p { margin: 0 !important; font-size: 13px !important; }
+:root:root .yr-explorer .yr-country-value { margin-top: 10px !important; padding-top: 10px !important; }
+:root:root .yr-explorer .yr-country-value strong { font-size: 26px !important; }
+:root:root .yr-explorer .yr-save-card { min-height: 40px !important; margin-top: 10px !important; }
+:root:root .yr-explorer :is(.yr-neighborhood, .yr-time, .yr-comparison, .yr-full-list, .yr-editorial) { margin-top: clamp(20px, 3vw, 36px) !important; padding-top: 0 !important; }
+:root:root .yr-explorer :is(.yr-neighborhood, .yr-time, .yr-comparison, .yr-full-list, .yr-editorial, .yr-methodology) h2 { font-size: var(--t-size-h2) !important; margin-block: 2px 4px !important; }
+:root:root .yr-explorer .yr-kicker { font-size: 11px !important; }
+@media (max-width: 900px) {
+  /* Phones: the answer (Yemen's rank) comes straight after the selectors. */
+  :root:root .yr-explorer .yr-result { display: flex !important; flex-direction: column; }
+  :root:root .yr-explorer .yr-result > .yr-rank-card { order: -1; }
+}
+@media (max-width: 760px) {
+  :root:root .yr-explorer .yr-controls { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  :root:root .yr-explorer .yr-controls > .yr-metric-select, :root:root .yr-explorer .yr-controls > .yr-scope { grid-column: 1 / -1; }
+  :root:root .yr-explorer .yr-controls > .yr-metric-select { order: -1; }
+}
+:root:root .yr-explorer, :root:root .yr-explorer .yr-result > *, :root:root .yr-explorer .yr-story, :root:root .yr-explorer .yr-controls > * { min-width: 0 !important; }
+:root:root .yr-explorer .yr-actions { max-width: 100%; }
+:root:root .yr-explorer { grid-template-columns: minmax(0, 1fr) !important; }
+:root:root .section:has(> .container > .yr-explorer) { padding-block: 12px 32px !important; }
+@media (max-width: 760px) {
+  :root:root .yr-explorer .yr-rank-card .yr-card-category { display: none !important; }
+  :root:root .yr-explorer .yr-rank-card { padding: 14px 16px !important; }
+}
+:root:root .yemeni-figures-page .yfigures-grid { align-items: stretch !important; grid-auto-rows: auto; }
+
+/* ---------- Figure profile: a compact header ---------- */
+:root:root [data-knowledge-area="figures"] .figure-profile-body { padding-block: 14px 40px !important; }
+:root:root .figure-profile-hero { padding-block: clamp(14px, 3vw, 44px) !important; }
+@media (max-width: 760px) {
+  :root:root .figure-profile-hero h1 { margin-block: 6px 2px !important; }
+  :root:root .figure-profile-hero p { font-size: 14px !important; line-height: 1.85 !important; margin-block: 6px !important; }
+  /* The pinned jump bar now carries "start reading" and "sources"; the count stays. */
+  :root:root .figure-profile-reading-path { margin-top: 6px !important; }
+  :root:root .figure-profile-reading-path > a { display: none !important; }
+  :root:root .figure-profile-portrait { aspect-ratio: auto !important; min-height: 0 !important; height: 220px; max-width: none !important; margin-top: 10px; border-radius: 14px !important; }
+  :root:root .figure-profile-portrait::after { content: none !important; }
+  :root:root .figure-profile-portrait > div { right: 10px !important; left: 10px !important; bottom: 10px !important; padding: 8px 12px !important; }
+  :root:root .figure-profile-portrait > div strong { font-size: 14px !important; }
+}
+:root:root .figure-profile-main { gap: clamp(16px, 3vw, 40px) !important; }
+@media (max-width: 760px) {
+  :root:root .figure-profile-hero-grid { gap: 10px !important; }
+  :root:root .figure-profile-layout { gap: 20px !important; }
+  /* Without a photo the portrait is only initials (decorative) plus the name again. */
+  :root:root .figure-profile-portrait:has(.figure-profile-initials) { display: none !important; }
+}

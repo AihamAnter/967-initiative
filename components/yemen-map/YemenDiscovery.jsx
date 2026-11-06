@@ -7,7 +7,7 @@ import ExplorationProgress, {useExplorationTrail} from '@/components/Exploration
 import {HeritageTrail} from '@/components/knowledge/KnowledgeGuides';
 import {yemenGovernorates} from '@/lib/yemeniFigures';
 import styles from './YemenDiscovery.module.css';
-import {ArrowUpLeft, Compass, Search, X} from 'lucide-react';
+import {ArrowUpLeft, Search, X} from 'lucide-react';
 const YemenMap = dynamic(() => import('./YemenMap'), {ssr:false, loading:()=><div className="ymap-loading" role="status"><Image src="/images/yemen-preview.svg" width={1343} height={760} alt="معاينة خريطة اليمن" sizes="(max-width:760px) 90vw, 65vw"/><p>جارٍ تجهيز الخريطة التفاعلية…</p></div>});
 
 export default function YemenDiscovery({showFigures=true, initialGovernorateId = null, initialDistrictId = null}) {
@@ -33,16 +33,12 @@ export default function YemenDiscovery({showFigures=true, initialGovernorateId =
   }
 
   return <>
-    <nav className={'container '+styles.exploreChoices} aria-label="اختر طريقة اكتشاف اليمن">
-      <a href="#map"><Compass size={25} aria-hidden="true"/><div><strong>استكشف المحافظات والمديريات</strong><span>الخريطة ومعلومات الأماكن</span></div><ArrowUpLeft size={18} aria-hidden="true"/></a>
-    </nav>
     <section className="ymap-section" id="map">
       <div className="container ymap-container">
         <header className="ydiscovery-section-head">
           <div><h2>اختر مكاناً على الخريطة</h2></div>
           <p>ابحث عن محافظة أو مديرية، أو اضغط عليها لاستكشافها.</p>
         </header>
-        <ExplorationProgress items={exploredPlaces} title="اليمن، ثلاث محطات أقرب." description="اختر ثلاث محافظات مختلفة على الخريطة وتعرّف على تفاصيل كل مكان." completeLabel="أكملت جولتك! ما زالت أماكن كثيرة تنتظرك." onRestart={restartTour} persistent={tourSaved}/>
         <YemenMap
           focusedGovernorateId={selectedGovernorateId}
           initialDistrictId={selectedDistrictId}
@@ -50,6 +46,7 @@ export default function YemenDiscovery({showFigures=true, initialGovernorateId =
           onGovernorateExplore={explorePlace}
           showFigures={showFigures}
         />
+        <ExplorationProgress items={exploredPlaces} title="اليمن، ثلاث محطات أقرب." description="اختر ثلاث محافظات مختلفة على الخريطة وتعرّف على تفاصيل كل مكان." completeLabel="أكملت جولتك! ما زالت أماكن كثيرة تنتظرك." onRestart={restartTour} persistent={tourSaved}/>
       </div>
     </section>
     <HeritageTrail/>

@@ -124,3 +124,51 @@
 @media(max-width:850px){.controls{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.search{grid-column:1/-1}.viewModes{grid-column:1/-1}.viewModes button{flex:1;justify-content:center}.intro{flex-direction:column;align-items:flex-start}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.wrap{padding-bottom:46px}.eras{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;gap:9px;scroll-padding-inline:5px;padding-bottom:13px}.era,.eraSelected{flex:0 0 min(61vw,207px);min-height:117px;padding:13px;scroll-snap-align:start}.intro{margin:24px 0 17px}.intro h2{font-size:31px}.stats{width:100%}.stats span{flex:1;min-width:0}.controls{grid-template-columns:minmax(0,1fr)}.search,.select,.viewModes{grid-column:1/-1}.cards{grid-template-columns:minmax(0,1fr)}.card{padding:18px}.compareSelectors,.compareGrid{grid-template-columns:minmax(0,1fr)}.compareGrid>div{padding:17px}}
 @media(prefers-reduced-motion:reduce){.card,.era,.eraSelected{transition:none;transform:none!important}.eras{scroll-behavior:auto}}
+
+
+/* Redesign v2 — batch B: pinned era chips, a one-line summary, a compact
+   toolbar and a vertical chronology for the list mode. Behaviour unchanged. */
+.wrap{padding-block:6px 40px}
+.eras{position:sticky;top:var(--header-h,54px);z-index:6;display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;margin-inline:calc(-1 * var(--s-gutter,16px));padding:8px var(--s-gutter,16px);background:var(--c-glass,var(--c-bg));-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-block-end:1px solid var(--c-line);scrollbar-width:none}
+.eras::-webkit-scrollbar{display:none}
+.era,.eraSelected{flex:0 0 auto;min-width:0;min-height:38px;flex-direction:row;align-items:center;gap:7px;padding:4px 12px 4px 6px;border:1px solid var(--c-line-2);border-block-start-width:1px;border-radius:999px;box-shadow:none;transform:none}
+.era strong,.eraSelected strong{font-size:13px;line-height:1.3;white-space:nowrap}
+.era small,.eraSelected small{font-size:11px;line-height:1.3;white-space:nowrap}
+.eraNumber{min-width:26px;height:26px;border-radius:999px;font-size:11px}
+.eraSelected{box-shadow:none;border-color:var(--c-accent)}
+.intro{display:block;margin:14px 0 10px;padding:0;border:0;background:none;border-radius:0}
+.intro :global(.eyebrow){display:none}
+.intro h2{font-size:var(--t-size-h2,17px);line-height:1.4;margin:0 0 2px}
+.intro p{font-size:13px;line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.stats{display:flex;width:auto;gap:12px;margin-top:6px}
+.stats span{flex:none;display:inline-flex;flex-direction:row;align-items:baseline;gap:4px;min-width:0;padding:0;border:0;background:none;box-shadow:none;font-size:12px}
+.stats strong{font-size:14px}
+.controls{grid-template-columns:minmax(0,2fr) minmax(150px,.8fr) auto;padding:0;border:0;background:none;border-radius:0;gap:8px}
+.search,.select{min-height:44px;border-radius:10px;box-shadow:none}
+.viewModes button{min-height:42px;padding:6px 12px}
+.resultCount{margin-block:10px 8px;font-size:13px}
+.cards{display:grid;grid-template-columns:minmax(0,1fr);gap:0;position:relative;padding-inline-start:18px}
+.cards:before{content:'';position:absolute;inset-block:10px;inset-inline-start:5px;width:2px;border-radius:2px;background:var(--c-line-2)}
+.card{position:relative;display:grid;grid-template-columns:62px minmax(0,1fr) auto;column-gap:12px;align-items:start;min-height:0;padding:12px 0;border:0;border-block-end:1px solid var(--c-line);border-radius:0;background:none;box-shadow:none;transform:none}
+.card:before{content:'';position:absolute;inset-inline-start:-17px;top:17px;width:10px;height:10px;border-radius:50%;background:var(--kind-ink);box-shadow:0 0 0 3px var(--c-bg)}
+.card>.date{padding:0;background:none;border-radius:0;font-size:13px;font-weight:700;line-height:1.5;color:var(--kind-ink);font-variant-numeric:tabular-nums;padding-top:2px}
+.cardBody{min-width:0}
+.cardTop{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;font-size:11px}
+.kind{padding:1px 7px;border-radius:999px;font-size:11px;line-height:1.6}
+.card .period{font-size:11px}
+.card h3{font-size:15px;line-height:1.5;margin:4px 0 2px}
+.card p{font-size:13px;line-height:1.7;margin:0 0 4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cardBottom{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;margin:0;padding:0;border:0;font-size:12px}
+.cardBottom span{display:inline-flex;align-items:center;gap:4px}
+.cardBottom a{min-height:32px;display:inline-flex;align-items:center;gap:4px;font-weight:600;margin-inline-start:auto}
+.cardThumb{width:88px}
+.cardThumb:empty{display:none}
+.cardThumb>div{margin:0;aspect-ratio:1;border-radius:10px}
+.cardThumb>div>span{font-size:9px;padding:2px 5px;bottom:4px;right:4px;border-radius:4px}
+.more{min-height:44px;margin-top:14px}
+.compare{margin-top:clamp(28px,4vw,48px);padding-top:20px}
+.compare h2{font-size:var(--t-size-h2,17px)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.card:hover{transform:none;box-shadow:none;background:var(--c-surface-3,transparent)}}
+@media(max-width:850px){.controls{grid-template-columns:minmax(0,1fr) auto}.search{grid-column:1/-1}.select{grid-column:1}.viewModes{grid-column:2}.viewModes button{flex:none}}
+@media(max-width:650px){.era,.eraSelected{flex:0 0 auto;min-height:38px;padding:4px 12px 4px 6px}.intro{margin:12px 0 8px}.intro h2{font-size:var(--t-size-h2,17px)}.controls{grid-template-columns:minmax(0,1fr) auto}.search{grid-column:1/-1}.select{grid-column:1}.viewModes{grid-column:2}.card{grid-template-columns:52px minmax(0,1fr) auto;padding:12px 0}.cardThumb{width:64px}.viewModes button{padding:6px 10px;font-size:12px}}
+@media(max-width:360px){.cardThumb{display:none}.viewModes button svg{display:none}}

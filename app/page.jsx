@@ -79,8 +79,8 @@ export default async function Home() {
       <Resilient name="home-today" label="تعذّر عرض الجديد الآن."><TodayFeed feed={feed} failed={feedFailed}/></Resilient>
     </div></section>
 
-    {/* 4 · تابع من حيث توقفت (member) or where to start (guest) */}
-    <div className={`ed-wrap ${home.block}`}><HomeSmartStart initialDate={today} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/></div>
+    {/* 4 · تابع من حيث توقفت (members); guests get a one-line sign-in hint, since the shortcuts above are their doors */}
+    <div className={`ed-wrap ${home.block}`}><HomeSmartStart membersOnly initialDate={today} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/></div>
 
     {/* 5 · أقسام 967 as app icons */}
     <section id="home-sections" className={home.block} aria-labelledby="explore-title"><div className="ed-wrap">

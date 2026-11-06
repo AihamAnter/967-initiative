@@ -38,6 +38,11 @@ export default async function YemenInNumbersPage() {
   </div></header>
   <KnowledgeNavigation/>
 
+  <section className="ed-wrap ed-block" id="indicators" aria-labelledby="indicators-title">
+   <div className="ed-section-head"><h2 id="indicators-title">فهرس المؤشرات</h2></div>
+   <StatisticsExplorer indicators={listItems} sections={domainSections}/>
+  </section>
+
   {highlights.length > 0 && <section className="ed-wrap ed-block" aria-labelledby="latest-title">
    <div className="ed-section-head"><h2 id="latest-title">أحدث سنوات القياس</h2><p>القيمة الأحدث في السلسلة المعتمدة، وليست تاريخ تحديث السجل.</p></div>
    <FigureLedger indicators={highlights.map(indicatorListItem)}/>
@@ -45,10 +50,6 @@ export default async function YemenInNumbersPage() {
 
   <KnowledgeReadingGuide kind="statistics"/>
 
-  <section className="ed-wrap ed-block" id="indicators" aria-labelledby="indicators-title">
-   <div className="ed-section-head"><h2 id="indicators-title">فهرس المؤشرات</h2><p>ابحث بالاسم أو الموضوع، أو صفِّ بحسب المجال وسنة القياس.</p></div>
-   <StatisticsExplorer indicators={listItems} sections={domainSections}/>
-  </section>
 
   <section className="ed-wrap ed-block" aria-labelledby="domains-title">
    <div className="ed-section-head"><h2 id="domains-title">المجالات</h2><p>تصفّح المؤشرات بحسب ما يهمك.</p></div>

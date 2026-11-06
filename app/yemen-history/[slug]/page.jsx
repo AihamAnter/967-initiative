@@ -18,6 +18,7 @@ import ContentReadingAction from '@/components/reading/ContentReadingAction';
 import HistoryEditAction from '@/components/history/HistoryEditAction';
 import HistoryMedia from '@/components/history/HistoryMedia';
 import ContextBackLink from '@/components/ContextBackLink';
+import JumpNav from '@/components/knowledge/JumpNav';
 import styles from '../HistoryPage.module.css';
 
 export const dynamic='force-dynamic';
@@ -53,12 +54,17 @@ export default async function YemenHistoryDetail({params}){
    <h1>{item.title}</h1><p>{item.summary}</p>
    <div className={styles.articleMeta}><span><CalendarDays size={17}/>{item.period}</span>{item.location&&<span><MapPinned size={17}/>{item.location}</span>}<span><BookOpenText size={17}/>{(item.sources||[]).length} مصادر</span><span><Clock3 size={17}/>{readingMinutes} دقائق قراءة تقريبًا</span></div>
   </div></header>
+    <JumpNav items={[
+      {href: '#history-reading', title: 'القصة التاريخية', icon: 'history'},
+      {href: '#references-heading', title: 'المصادر والمراجع', icon: 'sources'},
+      {href: '#history-facts', title: 'الملف التاريخي', icon: 'card'},
+      related.length > 0 && {href: '#history-related', title: 'مواد مرتبطة', icon: 'contents'},
+    ]}/>
     <KnowledgeNavigation/>
   <div className={'container '+styles.articleGrid}>
    <article className={styles.articleBody}>
     <ContentReadingAction kind="history" href={historyEntryPath(item.slug)} title={item.title}/>
     <HistoryEditAction slug={item.slug}/>
-    <nav className={styles.articleToc} aria-label="اختصارات داخل الملف التاريخي"><strong>في هذا الملف</strong><a href="#history-reading">المادة التاريخية</a><a href="#references-heading">المصادر والمراجع</a>{related.length>0&&<a href="#history-related">مواد مرتبطة</a>}</nav>
     {item.certainty&&<p className={styles.warning}><ScrollText size={17}/> درجة التوثيق: {item.certainty}. يُرجى مراجعة المصادر قبل نقل التواريخ أو الاستنتاجات.</p>}
     <h2 className={styles.storyHeading} id="history-reading">القصة التاريخية</h2>
     {item.paragraphs.slice(0,1).map((p,i)=><p key={i}>{p}</p>)}
@@ -68,7 +74,7 @@ export default async function YemenHistoryDetail({params}){
     <section className={styles.references} aria-labelledby="references-heading"><h2 id="references-heading">المصادر والمراجع</h2><p>المراجع تساعد على التحقق والاستزادة؛ وقد تتناول فترة تاريخية أوسع من هذا المدخل. التفاصيل المختلف عليها تحتاج إلى مصادر متخصصة.</p><ol>{item.sources.map((source,i)=><li key={i}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}<ExternalLink size={15}/></a></li>)}</ol></section>
     <CorrectionLink title={item.title} path={historyEntryPath(item.slug)} id={item.slug}/>
    </article>
-   <aside className={styles.articleAside}><div className={styles.facts}><h2>الملف التاريخي</h2><dl><dt>التصنيف</dt><dd>{historyKinds[item.kind]}</dd><dt>العصر</dt><dd>{era?.title||'غير محدد'}</dd><dt>مرجع زمني</dt><dd>{historyYear(item.year)}</dd><dt>الفترة</dt><dd>{item.period}</dd><dt>الموقع</dt><dd>{item.location||'مناطق متعددة'}</dd></dl></div><p>تنبيه: الممالك القديمة والدول المتعاقبة قد تزامنت في أجزاء مختلفة من اليمن. لا ينبغي فهم الخط الزمني على أنه قائمة حكام لدولة واحدة.</p></aside>
+   <aside className={styles.articleAside} id="history-facts"><div className={styles.facts}><h2>الملف التاريخي</h2><dl><dt>التصنيف</dt><dd>{historyKinds[item.kind]}</dd><dt>العصر</dt><dd>{era?.title||'غير محدد'}</dd><dt>مرجع زمني</dt><dd>{historyYear(item.year)}</dd><dt>الفترة</dt><dd>{item.period}</dd><dt>الموقع</dt><dd>{item.location||'مناطق متعددة'}</dd></dl></div><p>تنبيه: الممالك القديمة والدول المتعاقبة قد تزامنت في أجزاء مختلفة من اليمن. لا ينبغي فهم الخط الزمني على أنه قائمة حكام لدولة واحدة.</p></aside>
   </div>
   {related.length>0&&<section id="history-related" className={'container '+styles.related}><h2>مواد مرتبطة</h2><div>{related.map(x=><Link key={x.slug} href={historyEntryPath(x.slug)}><small>{historyKinds[x.kind]} · {historyYear(x.year)}</small><strong>{x.title}</strong><ArrowUpLeft size={18}/></Link>)}</div></section>}
  </div></KnowledgeTheme>;
