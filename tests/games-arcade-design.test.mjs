@@ -54,7 +54,7 @@ test('Quiz play still uses scoring, explanation, sharing, persistence and mobile
  const code=read('components/games/QuizGame.jsx');
  const css=read('components/games/QuizGame.module.css');
  const route=read('app/games/quiz/page.jsx');
- for(const codeToken of ['buildQuizRound','dailySeed(date)','scoreRound(round,answers)','localStorage.setItem','setResult(summary)','onClick={()=>choose(index)}','aria-pressed={selected}','current.source.url','navigator.share','questionTitleRef']){
+ for(const codeToken of ['buildQuizRound','daily.reserve()','scoreRound(round,answers)','localStorage.setItem','setResult(summary)','onClick={()=>choose(index)}','aria-pressed={selected}','current.source.url','navigator.share','questionTitleRef']){
   assert.ok(code.includes(codeToken),codeToken);
  }
  assert.ok(route.includes('<QuizGame'));

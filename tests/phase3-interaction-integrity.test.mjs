@@ -50,11 +50,16 @@ test('the same UTC day is required for official answers and midnight closes earl
  assert.equal(dailyAttemptDateOpen('2026-11-01',new Date('2026-11-01T00:00:00.000Z')),true);
  const route=read('app/api/games/daily/route.js');
  const round=read('app/api/games/daily/round/route.js');
- assert.ok(route.indexOf('matchingDailyQuestionIds(body.questionIds,questionBank,body.signatures)')<route.indexOf(".insert({user_id:user.id,challenge_date:date"));
+ // The server draws the round and answers the claim with answerless tasks.
+ assert.ok(route.includes('const tasks=questionBank.map(entry=>friendPublicTask(game,entry.reveal));'));
+ assert.ok(route.indexOf('officialQuestionSnapshot(')>0);
+ assert.ok(route.indexOf('officialQuestionSnapshot(')<route.indexOf(".insert({user_id:user.id,challenge_date:date"));
+ assert.match(route,/startedAt:data\.started_at,tasks\}\)/);
+ assert.match(round,/task:task\.reveal\?\?null/);
  assert.match(round,/dailyAttemptDateOpen\(body\.date\)/);
  assert.match(round,/user\.banned_until/);
  for(const path of ['components/games/QuizGame.jsx','components/games/ArcadeChallenge.jsx','components/games/ExtraArcadeChallenge.jsx'])
-  assert.match(read(path),/daily\.reserve\((list|tasksNow)\)/);
+  assert.match(read(path),/=await daily\.reserve\(\);/);
 });
 test('game result creation respects profile suspension, deletion requests and lookup failures',async()=>{
  const makeDb=(profile,error=null)=>({from:table=>{

@@ -3,7 +3,6 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {browserDb} from '@/lib/supabase';
 import {dailyGameUrl} from '@/lib/dailyGame';
-import {dailyPublicQuestionFingerprint} from '@/lib/dailyAttemptIntegrity';
 import styles from './DailyAttempt.module.css';
 import DailyCountdown from './DailyCountdown';
 
@@ -42,22 +41,24 @@ export default function useDailyAttempt(mode,game,date){
   });
   return()=>{alive=false;clearTimeout(authTimer);subscription.unsubscribe();};
  },[mode,game,date]);
- async function reserve(tasks){
-  if(mode!=='daily')return true;
-  if(pending.current||state.kind!=='ready')return false;
+ // Claims today's single attempt. The server draws the round and returns its
+ // tasks without answers; resolves to that array, or null when not granted.
+ async function reserve(){
+  if(mode!=='daily'||pending.current||state.kind!=='ready')return null;
   pending.current=true;setState(previous=>({...previous,kind:'reserving'}));
   try{
    const db=browserDb(),{data,error}=await db.auth.getSession();
-   if(error||!data?.session){setState({kind:'login',message:''});return false;}
+   if(error||!data?.session){setState({kind:'login',message:''});return null;}
    const res=await fetch('/api/games/daily',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+data.session.access_token},
-    cache:'no-store',body:JSON.stringify({date,game,questionIds:tasks.map(task=>task.id),signatures:tasks.map(task=>dailyPublicQuestionFingerprint(game,task))})});
+    cache:'no-store',body:JSON.stringify({date,game})});
    const json=await res.json();
-   if(res.ok&&json.claimed){setState({kind:'used',nextAt:json.nextAt,message:''});return true;}
-   if(json.used){setState({kind:'used',nextAt:json.nextAt,message:json.error});return false;}
-   if(res.status===409){setState({kind:'outdated',message:json.error||'تغيرت الأسئلة. حدّث الصفحة قبل بدء الجولة.'});return false;}
+   if(res.ok&&json.claimed&&Array.isArray(json.tasks)&&json.tasks.length===10){setState({kind:'used',nextAt:json.nextAt,message:''});return json.tasks;}
+   if(res.ok&&json.claimed){setState({kind:'error',message:'استُخدمت المحاولة لكن تعذر تحميل أسئلتها. أعد تحميل الصفحة.'});return null;}
+   if(json.used){setState({kind:'used',nextAt:json.nextAt,message:json.error});return null;}
+   if(res.status===409){setState({kind:'outdated',message:json.error||'بدأ تحدي يوم جديد. حدّث الصفحة.'});return null;}
    setState({kind:res.status===401?'login':'error',message:json.error||'تعذر بدء التحدي.'});
-   return false;
-  }catch{setState({kind:'error',message:'فشل الاتصال بالخادم؛ لم تتأكد المحاولة. أعد تحميل الصفحة.'});return false;}
+   return null;
+  }catch{setState({kind:'error',message:'فشل الاتصال بالخادم؛ لم تتأكد المحاولة. أعد تحميل الصفحة.'});return null;}
   finally{pending.current=false;}
  }
  async function progress(action,step,questionId,choice){

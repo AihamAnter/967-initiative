@@ -65,7 +65,7 @@ export async function POST(request){
   if(!validateOfficialChoice(attempt.game_type,body.choice))throw new RequestValidationError('خيار إجابة غير صالح.');
   if(step<attempt.answers.length){
    const saved=attempt.answers[step];
-   return respond({ok:true,step,correct:!!saved.correct,points:saved.points||0,finished:attempt.phase==='finished',
+   return respond({ok:true,step,correct:!!saved.correct,points:saved.points||0,task:attempt.question_bank[step]?.reveal??null,finished:attempt.phase==='finished',
     score:attempt.phase==='finished'?attempt.score:null,correctCount:attempt.phase==='finished'?attempt.correct_count:null});
   }
   if(attempt.phase!=='question'||attempt.step_index!==step||attempt.answers.length!==step)throw new RequestValidationError('ترتيب الإجابات غير صالح.',409);
@@ -94,7 +94,9 @@ export async function POST(request){
    try{await syncPlayerAchievements(db,user.id);}
    catch(e){console.error('Achievement awarding deferred until next profile read',e?.name||'unknown');}
   }
-  return respond({ok:true,step,correct,points,finished,score:totals?.score??null,
+  // The answer is committed, so the full task (solution, explanation, source)
+  // can now be shown to this player.
+  return respond({ok:true,step,correct,points,task:task.reveal??null,finished,score:totals?.score??null,
    correctCount:totals?.correctCount??null});
  }catch(error){
   if(error instanceof RequestValidationError)return respond({error:error.message},error.status);

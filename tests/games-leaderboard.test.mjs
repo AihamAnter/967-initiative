@@ -19,7 +19,7 @@ test('verified scoreboard does not accept client scores and locks every question
 test('official daily claim snapshots server-authoritative question keys and one account claim',async()=>{
  const claim=await read('app/api/games/daily/route.js');
  const scoring=await read('lib/dailyVerifiedScore.js');
- assert.match(claim,/officialQuestionSnapshot\(db,game,date\)/);
+ assert.match(claim,/officialQuestionSnapshot\(db,game,date,\{dailyKey:officialDailySeed\(date\)\}\)/);
  assert.match(claim,/game_daily_attempts/);
  assert.match(scoring,/buildQuizRound/);
  assert.match(scoring,/buildPlaceChallenges/);

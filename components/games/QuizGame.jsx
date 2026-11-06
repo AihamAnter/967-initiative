@@ -2,7 +2,7 @@
 import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,Flame,Medal,RotateCcw,Share2,Target,Trophy,Zap,XCircle} from 'lucide-react';
-import {buildQuizRound,dailySeed,scoreRound,gameLevels,quizCategories,difficultyLabels} from '@/lib/gameEngine';
+import {buildQuizRound,scoreRound,gameLevels,quizCategories,difficultyLabels} from '@/lib/gameEngine';
 import styles from './QuizGame.module.css';
 import {roundDuration} from '@/lib/gameClock';
 import useQuestionTimer from './useQuestionTimer';
@@ -37,6 +37,8 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  const filtered=questions.filter(q=>(category==='all'||q.category===category)&&(difficulty==='all'||q.difficulty===Number(difficulty)));
  const canStart=(mode==='daily'?questions.length>=1:filtered.length>=1)&&daily.canStart;
  const current=round[step];
+ // Daily answers are only known after the server has committed the choice.
+ const revealed=picked!==null&&(mode!=='daily'||verified);
  const duration=roundDuration(mode,seconds);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+step,startTime:mode==='daily'?serverStartedAt:null,active:round.length>0&&!result&&picked===null&&!verifying&&(mode!=='daily'||clockReady),onExpire:()=>choose(-1,true)});
  // Align the timer AND question before the first paint after each transition.
@@ -63,15 +65,18 @@ export default function QuizGame({questions,date,initialMode='practice'}){
   finally{setReadyPending(false);}
  }
  async function start(){
-  const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
-  const list=buildQuizRound(questions,{mode,category:mode==='daily'?'all':category,difficulty:mode==='daily'?'all':difficulty,seed,seen:mode==='daily'?[]:readPracticeSeen('quiz')});
-  if(!list.length||starting)return;
-  if(mode==='practice')rememberPracticeTasks('quiz',list.map(task=>task.id));
+  if(starting)return;
+  let list;
   if(mode==='daily'){
+   // The official round comes from the server without answers.
    setStarting(true);
-   const granted=await daily.reserve(list);
+   list=await daily.reserve();
    setStarting(false);
-   if(!granted)return;
+   if(!list)return;
+  }else{
+   list=buildQuizRound(questions,{mode,category,difficulty,seed:'practice-'+Date.now()+'-'+Math.random(),seen:readPracticeSeen('quiz')});
+   if(!list.length)return;
+   rememberPracticeTasks('quiz',list.map(task=>task.id));
   }
   setRunId(id=>id+1);setRound(list);setStep(0);setPicked(null);setAnswers([]);setResult(null);setShareNote('');setVerified(false);setSyncError('');setOfficialResult(null);setOfficialRaw(0);setClockReady(false);setServerStartedAt(null);setOfficialVerdict(null);
  }
@@ -79,6 +84,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
   setVerifying(true);setSyncError('');
   try{
    const response=await daily.progress('answer',atStep,questionId,index===-1?null:index);
+   if(response.task)setRound(previous=>previous.map((q,i)=>i===atStep?{...q,...response.task}:q));
    setOfficialRaw(previous=>previous+response.points);
    setOfficialVerdict(response.correct);
    if(response.finished)setOfficialResult({score:response.score,correct:response.correctCount});
@@ -167,13 +173,13 @@ export default function QuizGame({questions,date,initialMode='practice'}){
     <h2 ref={questionTitleRef} tabIndex={-1}>{current.question}</h2>
     <div className={styles.options} role="group" aria-label="خيارات الإجابة">
      {current.options.map((option,index)=>{
-      const selected=picked===index,right=picked!==null&&current.correct===index,wrong=selected&&picked!==current.correct;
+      const selected=picked===index,right=revealed&&current.correct===index,wrong=selected&&revealed&&picked!==current.correct;
       return <button type="button" key={index} disabled={picked!==null||verifying} aria-pressed={selected} className={[styles.option,right?styles.right:'',wrong?styles.wrong:''].join(' ')} onClick={()=>choose(index)}>
        <span className={styles.optionLetter}>{['أ','ب','ج','د'][index]}</span><span>{option}</span>{right&&<CheckCircle2 size={20}/>} {wrong&&<XCircle size={20}/>}
       </button>;
      })}
     </div>
-    {picked!==null&&<div className={styles.explanation} role="status">
+    {revealed&&<div className={styles.explanation} role="status">
      <strong>{picked===-1?'انتهى الوقت!':picked===current.correct?'إجابة صحيحة!':'إجابة غير صحيحة'}{picked===current.correct?' أحسنت.':''}</strong>
      {picked!==current.correct&&<p>الإجابة الصحيحة: <b>{current.options[current.correct]}</b></p>}
      {mode==='daily'&&verified&&picked===current.correct&&officialVerdict===false&&<p role="alert">إجابتك صحيحة، لكنها وصلت بعد انتهاء المهلة الرسمية، فلم تُحتسب في الترتيب.</p>}
