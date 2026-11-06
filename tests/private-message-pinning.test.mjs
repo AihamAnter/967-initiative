@@ -120,9 +120,11 @@ test('pin controls and responsive banner are wired to the existing jump-to-sourc
  assert.match(ui,/pinned_message:data\.pinned_message\|\|null/);
  assert.match(css,/\.pinnedSummary>span\{[^}]*text-overflow:ellipsis/);
  assert.match(css,/\.pinnedBar\{display:flex;/);
- assert.match(route,/async function pinnedMessage\(db,conversation\)/);
+ assert.match(route,/async function pinnedMessage\(db,conversation,cleared=null\)/);
+ // A pinned message cleared by this member stays hidden for them.
+ assert.match(route,/!afterClear\(message,cleared\)\)return null/);
  assert.match(route,/private_messaging_set_pin/);
- assert.match(route,/pinned_message:await pinnedMessage\(db,c\)/);
+ assert.match(route,/pinned_message:await pinnedMessage\(db,c,cleared\)/);
  assert.match(pins,/m\.conversation_id=p_conversation/);
  assert.match(pins,/m\.deleted_at is null/);
 });

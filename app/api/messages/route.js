@@ -38,14 +38,23 @@ async function conversationForParticipant(db,actor,conversation){
   throw new RequestValidationError('المحادثة غير موجودة.',404);
  return c;
 }
-async function pinnedMessage(db,conversation){
+// Messages up to this moment were cleared by this member and stay hidden for them only.
+async function clearedAt(db,actor,conversation){
+ const {data,error}=await db.from('private_conversation_states')
+  .select('cleared_at').eq('conversation_id',conversation).eq('user_id',actor).maybeSingle();
+ // Before the clear/mute migration is applied the column does not exist yet: nothing is cleared.
+ if(error){if(error.code==='42703'||/cleared_at/.test(error.message||''))return null;throw error;}
+ return data?.cleared_at||null;
+}
+const afterClear=(message,cleared)=>!cleared||Date.parse(message.created_at)>Date.parse(cleared);
+async function pinnedMessage(db,conversation,cleared=null){
  if(!conversation?.pinned_message_id)return null;
  const {data:message,error}=await db.from('private_messages')
   .select('id,sender_id,body,created_at,deleted_at')
   .eq('conversation_id',conversation.id)
   .eq('id',conversation.pinned_message_id).maybeSingle();
  if(error)throw error;
- if(!message||message.deleted_at)return null;
+ if(!message||message.deleted_at||!afterClear(message,cleared))return null;
  return {...message,pinned_by:conversation.pinned_by,pinned_at:conversation.pinned_at};
 }
 async function partnerReadAt(db,conversation,partnerId){
@@ -58,11 +67,13 @@ async function partnerReadAt(db,conversation,partnerId){
 async function readReceipt(db,actor,conversation){
  const c=await conversationForParticipant(db,actor,conversation);
  const partner=c.user_low===actor?c.user_high:c.user_low;
- const [partnerLastReadAt,pin]=await Promise.all([partnerReadAt(db,conversation,partner),pinnedMessage(db,c)]);
+ const cleared=await clearedAt(db,actor,conversation);
+ const [partnerLastReadAt,pin]=await Promise.all([partnerReadAt(db,conversation,partner),pinnedMessage(db,c,cleared)]);
  return {partner_last_read_at:partnerLastReadAt,pinned_message:pin};
 }
 async function searchThread(db,actor,conversation,term,before){
  await conversationForParticipant(db,actor,conversation);
+ const cleared=await clearedAt(db,actor,conversation);
  if(term.length<2)return {matches:[],hasMore:false,nextBefore:null};
  // Search the entire conversation, not only the messages loaded on screen.
  // Deleted messages are tombstones and must never be returned as searchable content.
@@ -73,6 +84,7 @@ async function searchThread(db,actor,conversation,term,before){
   .order('created_at',{ascending:false}).order('id',{ascending:false})
   .limit(MESSAGE_SEARCH_PAGE_SIZE+1);
  if(before)query=query.lt('created_at',before);
+ if(cleared)query=query.gt('created_at',cleared);
  const {data,error}=await query;
  if(error)throw error;
  const hasMore=(data||[]).length>MESSAGE_SEARCH_PAGE_SIZE;
@@ -86,7 +98,8 @@ async function firstUnreadMessage(db,actor,conversation){
   .select('last_read_at').eq('conversation_id',conversation)
   .eq('user_id',actor).maybeSingle();
  if(stateError)throw stateError;
- const lastRead=state?.last_read_at||'1970-01-01T00:00:00.000Z';
+ const cleared=await clearedAt(db,actor,conversation);
+ const lastRead=[state?.last_read_at,cleared].filter(Boolean).sort((a,b)=>Date.parse(b)-Date.parse(a))[0]||'1970-01-01T00:00:00.000Z';
  const {data:message,error}=await db.from('private_messages')
   .select('id,created_at')
   .eq('conversation_id',conversation).neq('sender_id',actor)
@@ -98,13 +111,14 @@ async function firstUnreadMessage(db,actor,conversation){
 }
 async function getThread(db,id,conversation,before,around){
  const c=await conversationForParticipant(db,id,conversation);
+ const cleared=await clearedAt(db,id,conversation);
  let quoteTarget=null;
  if(around){
   const lookup=await db.from('private_messages')
    .select('id,sender_id,body,created_at,edited_at,deleted_at,reply_to_message_id')
    .eq('conversation_id',conversation).eq('id',around).maybeSingle();
   if(lookup.error)throw lookup.error;
-  if(!lookup.data)throw new RequestValidationError('الرسالة الأصلية غير موجودة.',404);
+  if(!lookup.data||!afterClear(lookup.data,cleared))throw new RequestValidationError('الرسالة الأصلية غير موجودة.',404);
   quoteTarget=lookup.data;
  }
  let query=db.from('private_messages')
@@ -114,6 +128,7 @@ async function getThread(db,id,conversation,before,around){
   .limit(MESSAGE_PAGE_SIZE+1);
  if(before)query=query.lt('created_at',before);
  if(quoteTarget)query=query.lt('created_at',quoteTarget.created_at);
+ if(cleared)query=query.gt('created_at',cleared);
  const {data:messages,error:messageError}=await query;
  if(messageError)throw messageError;
  const hasMore=(messages||[]).length>MESSAGE_PAGE_SIZE;
@@ -124,10 +139,10 @@ async function getThread(db,id,conversation,before,around){
  let quotes=new Map();
  if(quoteIds.length){
   const referenced=await db.from('private_messages')
-   .select('id,sender_id,body,deleted_at')
+   .select('id,sender_id,body,deleted_at,created_at')
    .eq('conversation_id',conversation).in('id',quoteIds);
   if(referenced.error)throw referenced.error;
-  quotes=new Map((referenced.data||[]).map(m=>[m.id,m]));
+  quotes=new Map((referenced.data||[]).filter(m=>afterClear(m,cleared)).map(m=>[m.id,m]));
  }
  const detailed=page.map(m=>({...m,reply:m.reply_to_message_id?quotes.get(m.reply_to_message_id)||null:null}));
  const partner=c.user_low===id?c.user_high:c.user_low;
@@ -137,7 +152,7 @@ async function getThread(db,id,conversation,before,around){
  return {conversation:{id:c.id,status:c.status,requested_by:c.requested_by,intro:c.intro,requested_at:c.requested_at,partner_id:partner,partner_name:p?.display_name||'مستخدم 967',avatar_url:p?.show_avatar?p.avatar_url:null},
   messages:detailed,hasMore,nextBefore:hasMore?page[0]?.created_at:null,
   partner_last_read_at:await partnerReadAt(db,conversation,partner),
-  pinned_message:await pinnedMessage(db,c),
+  pinned_message:await pinnedMessage(db,c,cleared),
   first_unread_message:before||around?null:await firstUnreadMessage(db,id,conversation)};
 }
 async function search(db,actor,q){
@@ -196,7 +211,7 @@ export async function GET(request){
   if(mode==='inbox')return json({conversations:await inbox(db,user.id)});
   if(mode==='summary'){
    const rows=await inbox(db,user.id);
-   const unreadRows=rows.filter(c=>c.status==='accepted'&&Number(c.unread)>0);
+   const unreadRows=rows.filter(c=>c.status==='accepted'&&!c.muted&&Number(c.unread)>0);
    const [preferences,recent]=await Promise.all([
     db.from('private_messaging_settings').select('notify_messages').eq('user_id',user.id).maybeSingle(),
     unreadRows.length?db.from('private_messages').select('created_at')
@@ -206,7 +221,7 @@ export async function GET(request){
    ]);
    if(preferences.error||recent.error)throw preferences.error||recent.error;
    return json({requests:rows.filter(c=>c.status==='pending'&&c.requested_by!==user.id).length,
-    unread:rows.reduce((n,c)=>n+Number(c.unread||0),0),
+    unread:rows.reduce((n,c)=>n+(c.muted?0:Number(c.unread||0)),0),
     notify_messages:preferences.data?.notify_messages!==false,
     latest_incoming_unread_at:recent.data?.created_at||null});
   }
@@ -244,6 +259,12 @@ export async function POST(request){
    const result=check(await db.rpc('private_messaging_set_pin',{
     p_actor:user.id,p_conversation:params.p_conversation,
     p_message:params.p_message,p_remove:body.action==='unpin'
+   }));
+   return json(result);
+  }
+  if(['clear','mute','unmute'].includes(body.action)){
+   const result=check(await db.rpc('private_messaging_conversation_state',{
+    p_actor:user.id,p_conversation:params.p_conversation,p_action:body.action
    }));
    return json(result);
   }
