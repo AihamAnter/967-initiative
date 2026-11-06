@@ -110,3 +110,19 @@
   :root:root .debate-card:not(.debate-card-featured) .debate-card-speakers > span { flex: 1 1 0 !important; display: flex; align-items: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   :root:root .debate-card:not(.debate-card-featured) .debate-card-footer { border-top: 0 !important; margin-top: 0 !important; padding-top: 2px !important; }
 }
+
+/* Debate cards: the whole card opens the debate (the title link stretches over it);
+   save and editor tools sit on the meta row above it. */
+:root:root .debate-card { position: relative; cursor: pointer; }
+:root:root .debate-card .debate-card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+:root:root .debate-card .debate-card-link:focus-visible { outline: none; }
+:root:root .debate-card:has(.debate-card-link:focus-visible) { outline: 2px solid var(--c-accent); outline-offset: 2px; }
+:root:root .debate-card .debate-meta { align-items: center; }
+:root:root .debate-card .debate-card-tools { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 4px; margin-inline-start: auto; }
+:root:root .debate-card .debate-card-tools .reading-save { margin: 0; }
+:root:root .debate-card .debate-card-tools .reading-save-button { width: 32px; min-height: 32px; height: 32px; padding: 6px; border-color: transparent; }
+:root:root .debate-card .debate-card-footer .debate-actions a { position: relative; z-index: 2; }
+:root:root .debate-card .debate-card-body > .small-muted a { position: relative; z-index: 2; }
+@media (max-width: 760px) {
+  :root:root .debate-card:not(.debate-card-featured) .debate-meta { display: flex !important; }
+}
