@@ -42,7 +42,8 @@ async function conversationForParticipant(db,actor,conversation){
 async function clearedAt(db,actor,conversation){
  const {data,error}=await db.from('private_conversation_states')
   .select('cleared_at').eq('conversation_id',conversation).eq('user_id',actor).maybeSingle();
- if(error)throw error;
+ // Before the clear/mute migration is applied the column does not exist yet: nothing is cleared.
+ if(error){if(error.code==='42703'||/cleared_at/.test(error.message||''))return null;throw error;}
  return data?.cleared_at||null;
 }
 const afterClear=(message,cleared)=>!cleared||Date.parse(message.created_at)>Date.parse(cleared);
