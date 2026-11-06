@@ -38,6 +38,7 @@ export default function PrivateMessaging(){
  const unreadMarkerRef=useRef({conversation:null,initialized:false,message:null});
  const scrollToLatestRequestedRef=useRef(false);
  const [showLatestJump,setShowLatestJump]=useState(false);
+ const [convMenu,setConvMenu]=useState(null),convMenuRef=useRef(null),convTouchRef=useRef({});
  const messageMenuRef=useRef(null),lastTapRef=useRef(null),touchStartRef=useRef(null);
  const messagesRef=useRef(null),composerRef=useRef(null);
  const resizeComposer=useCallback(()=>{
@@ -461,6 +462,39 @@ export default function PrivateMessaging(){
   if(dialog.message)payload.message=dialog.message;
   await run(payload,async()=>{setDialog(null);setDetail('');setNotice('تم إرسال البلاغ للمراجعة.');});
  };
+ // Conversation options: double click, right click or the menu key on desktop; double tap or press-and-hold on touch.
+ const openConvMenu=(c,el)=>{
+  const r=el.getBoundingClientRect(),below=window.innerHeight-r.bottom>200;
+  setConvMenu({id:c.id,style:{...(below?{top:Math.round(r.bottom-6)}:{bottom:Math.round(window.innerHeight-r.top-6)}),right:Math.max(8,Math.round(window.innerWidth-r.right+12))}});
+ };
+ const onConvTouchStart=(event,c)=>{
+  const t=event.touches[0],state=convTouchRef.current,el=event.currentTarget;
+  clearTimeout(state.hold);
+  if(event.touches.length!==1){state.start=null;return;}
+  state.start={id:c.id,x:t.clientX,y:t.clientY};state.held=false;
+  state.hold=setTimeout(()=>{state.held=true;clearTimeout(state.single);openConvMenu(c,el);},520);
+ };
+ const onConvTouchMove=event=>{const state=convTouchRef.current,t=event.touches[0];if(state.start&&Math.hypot(state.start.x-t.clientX,state.start.y-t.clientY)>12){clearTimeout(state.hold);state.start=null;}};
+ const onConvTouchEnd=(event,c)=>{
+  const state=convTouchRef.current,el=event.currentTarget;clearTimeout(state.hold);
+  if(!state.start||state.start.id!==c.id){state.held=false;return;}
+  state.start=null;event.preventDefault();
+  if(state.held){state.held=false;return;}
+  const now=Date.now();
+  if(state.lastId===c.id&&now-state.lastAt<=320){clearTimeout(state.single);state.lastId=null;openConvMenu(c,el);return;}
+  state.lastId=c.id;state.lastAt=now;clearTimeout(state.single);
+  state.single=setTimeout(()=>{state.lastId=null;open(c.id);},320);
+ };
+ useEffect(()=>{
+  if(!convMenu)return;
+  const away=event=>{if(!convMenuRef.current?.contains(event.target))setConvMenu(null);};
+  const key=event=>{if(event.key==='Escape')setConvMenu(null);};
+  const scroll=()=>setConvMenu(null);
+  document.addEventListener('pointerdown',away);document.addEventListener('keydown',key);window.addEventListener('scroll',scroll,true);
+  requestAnimationFrame(()=>convMenuRef.current?.querySelector('button')?.focus());
+  return()=>{document.removeEventListener('pointerdown',away);document.removeEventListener('keydown',key);window.removeEventListener('scroll',scroll,true);};
+ },[convMenu]);
+ useEffect(()=>()=>{clearTimeout(convTouchRef.current.hold);clearTimeout(convTouchRef.current.single);},[]);
  const block=async(account,unblock=false)=>{
   if(!unblock&&!window.confirm('حظر '+account.name+' ومنعه من التواصل معك؟'))return;
   await run({action:unblock?'unblock':'block',target:account.id},async()=>{
@@ -494,7 +528,11 @@ export default function PrivateMessaging(){
    <aside className={styles.sidebar} aria-label="محتوى قسم الرسائل">
     {tab==='inbox'&&<div className={styles.listHeading}><strong>المحادثات <small>{visible.length}</small></strong><button type="button" onClick={()=>selectTab('search')} aria-label="بدء محادثة جديدة"><MailPlus size={17}/><span>جديدة</span></button></div>}
     <div className={styles.list}>
-     {tab==='inbox'&&<>{visible.map(c=><button type="button" className={styles.conversationCard} key={c.id} data-active={selected===c.id} onClick={()=>open(c.id)} aria-label={'فتح المحادثة مع '+c.partner_name}>
+     {tab==='inbox'&&<>{visible.map(c=><button type="button" className={styles.conversationCard} key={c.id} data-active={selected===c.id} data-menu-open={convMenu?.id===c.id||undefined} onClick={()=>open(c.id)} aria-label={'فتح المحادثة مع '+c.partner_name} aria-haspopup="menu" title="اضغط مرتين لعرض خيارات المحادثة"
+       onDoubleClick={event=>{event.preventDefault();openConvMenu(c,event.currentTarget);}}
+       onContextMenu={event=>{event.preventDefault();openConvMenu(c,event.currentTarget);}}
+       onKeyDown={event=>{if(event.key==='ContextMenu'||event.shiftKey&&event.key==='F10'){event.preventDefault();openConvMenu(c,event.currentTarget);}}}
+       onTouchStart={event=>onConvTouchStart(event,c)} onTouchMove={onConvTouchMove} onTouchEnd={event=>onConvTouchEnd(event,c)}>
       <ProfileAvatar name={c.partner_name} src={c.avatar_url} className={styles.conversationAvatar}/>
       <span className={styles.conversationText}>
        <strong>{c.partner_name}</strong>
@@ -647,6 +685,13 @@ export default function PrivateMessaging(){
     </button>
     {selectedMenuMessage.sender_id===user?.id&&<button type="button" className={styles.deleteAction} onClick={()=>deleteMessage(selectedMenuMessage)}>حذف</button>}
    </div>,document.body)}
+  {convMenu&&(()=>{const c=items.find(item=>item.id===convMenu.id);if(!c||typeof document==='undefined')return null;const close=()=>setConvMenu(null);return createPortal(
+   <div ref={convMenuRef} className={styles.conversationMenu} style={convMenu.style} dir="rtl" role="menu" aria-label={'خيارات المحادثة مع '+c.partner_name}>
+    <strong>{c.partner_name}</strong>
+    {Number(c.unread)>0&&<button type="button" role="menuitem" disabled={busy} onClick={()=>{close();run({action:'read',conversation:c.id});}}><CheckCheck size={16} aria-hidden="true"/> تعليم كمقروءة</button>}
+    <button type="button" role="menuitem" onClick={()=>{close();setDialog({type:'report',conversation:c.id});}}><ShieldAlert size={16} aria-hidden="true"/> الإبلاغ</button>
+    {!c.blocked&&<button type="button" role="menuitem" className={styles.deleteAction} disabled={busy} onClick={()=>{close();block({id:c.partner_id,name:c.partner_name});}}><Ban size={16} aria-hidden="true"/> حظر المستخدم</button>}
+   </div>,document.body);})()}
   {copyToast>0&&<div key={copyToast} className={styles.copyToast} role="status">تم النسخ</div>}
   {dialog&&<div className={styles.modalBackdrop} onMouseDown={e=>{if(e.target===e.currentTarget&&!busy)setDialog(null);}}><section className={styles.modal} role="dialog" aria-modal="true" aria-label={dialog.type==='request'?'طلب محادثة':'الإبلاغ عن إساءة'}>
    <header><h2>{dialog.type==='request'?'طلب محادثة مع '+dialog.person.name:'الإبلاغ عن محتوى'}</h2><button onClick={()=>setDialog(null)} disabled={busy} aria-label="إغلاق"><X size={19}/></button></header>

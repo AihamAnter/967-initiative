@@ -271,3 +271,15 @@
 .headingLinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 button.accountLink{font:inherit;font-size:13px;font-weight:700;cursor:pointer}
 @media(max-width:680px){button.accountLink{font-size:12px}}
+
+/* Conversation options (double tap, press-and-hold, double or right click). */
+.conversationMenu{position:fixed;z-index:140;display:grid;min-width:190px;max-width:calc(100vw - 16px);padding:6px;border:1px solid var(--c-line-2);border-radius:14px;background:var(--c-surface,var(--surface));background-color:var(--c-surface,var(--surface));color:var(--c-ink);box-shadow:var(--e-3,0 12px 32px rgba(0,0,0,.25));animation:convMenuIn .12s ease-out}
+.conversationMenu>strong{padding:6px 10px 8px;font-size:12px;color:var(--c-ink-2);border-bottom:1px solid var(--c-line);margin-bottom:4px}
+.conversationMenu button{display:flex;align-items:center;gap:9px;min-height:42px;padding:0 10px;border:0;border-radius:9px;background:transparent;color:var(--c-ink);font:inherit;font-size:13px;text-align:start;cursor:pointer}
+.conversationMenu button:hover,.conversationMenu button:focus-visible{background:var(--c-accent-soft);color:var(--c-accent);outline:none}
+.conversationMenu button:disabled{opacity:.5;cursor:default}
+.conversationMenu .deleteAction{color:var(--c-danger)}
+.conversationCard{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.conversationCard[data-menu-open]{background:var(--c-accent-soft)}
+@keyframes convMenuIn{from{opacity:0;transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.conversationMenu{animation:none}}
