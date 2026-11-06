@@ -6,8 +6,8 @@ import {browserDb} from '@/lib/supabase';
 import {contributionActions as actions,contributionSections as sections,contributionTypes as types,contributionKeys,contributionEditorHref} from '@/lib/editorialContributions';
 import LoadingState from '@/components/LoadingState';
 import styles from './ContributionsDashboard.module.css';
-const number=v=>Number(v||0).toLocaleString('ar-YE');
-const date=v=>v?new Date(v).toLocaleString('ar-YE',{timeZone:'Asia/Aden',dateStyle:'medium',timeStyle:'short'}):'—';
+const number=v=>Number(v||0).toLocaleString('ar-YE-u-nu-latn');
+const date=v=>v?new Date(v).toLocaleString('ar-YE-u-nu-latn',{timeZone:'Asia/Aden',dateStyle:'medium',timeStyle:'short'}):'—';
 const read=()=>{const p=new URLSearchParams(location.search);return Object.fromEntries(contributionKeys.map(k=>[k,p.get(k)||'']));};
 export default function ContributionsDashboard(){
  const db=useMemo(()=>browserDb(),[]),[session,setSession]=useState(undefined),[filters,setFilters]=useState(null),[data,setData]=useState(null),[loading,setLoading]=useState(false),[error,setError]=useState(''),[refresh,setRefresh]=useState(0);
