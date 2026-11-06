@@ -266,3 +266,8 @@
  .tabs button svg{width:17px;height:17px}
 }
 @media(max-width:355px){.tabs button{font-size:10.5px}}
+
+/* Back to the previous page, next to the account link. */
+.headingLinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+button.accountLink{font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+@media(max-width:680px){button.accountLink{font-size:12px}}
