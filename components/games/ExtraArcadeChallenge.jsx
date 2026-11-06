@@ -1,5 +1,5 @@
 'use client';
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,CheckCircle2,Clock3,Flame,Play,RotateCcw,Share2,Target,Trophy,XCircle,Zap} from 'lucide-react';
 import {extraGameBuilders,extraGameTypes} from '@/lib/extraGames';
@@ -47,7 +47,16 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
  const [answer,setAnswer]=useState(null),[records,setRecords]=useState([]),[finished,setFinished]=useState(false);
  const [mediaReady,setMediaReady]=useState(game!=='object');
  const [stats,setStats]=useState(blank),[shareNote,setShareNote]=useState('');
- const answerLocked=useRef(false),titleRef=useRef(null);
+ const answerLocked=useRef(false),titleRef=useRef(null),arenaRef=useRef(null);
+ // Like the quiz: bring the arena to the top for each task, instantly (the clock is running).
+ useLayoutEffect(()=>{
+  if(!tasks.length||finished||!arenaRef.current)return;
+  const root=document.documentElement,previous=root.style.scrollBehavior;
+  root.style.scrollBehavior='auto';
+  try{arenaRef.current.scrollIntoView({block:'start',behavior:'instant'});}catch{arenaRef.current.scrollIntoView({block:'start'});}
+  root.style.scrollBehavior=previous;
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- scroll only when a round starts or the task changes
+ },[runId,index,tasks.length,finished]);
  useEffect(()=>{setStats(getStored(game));},[game]);
  const task=tasks[index];
  const revealed=answer!==null&&(mode!=='daily'||verified);
@@ -176,7 +185,7 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
    <aside className={styles.playerStats}><span><Trophy size={18}/> أفضل نتيجة محلية: {stats.best||0} XP</span>
     <span>الجولات المكتملة: {stats.plays||0}</span><span>النتائج الرسمية فقط تدخل لوحة المتصدرين</span></aside>
   </div>}
-  {!!tasks.length&&!finished&&<div className={styles.arena}>
+  {!!tasks.length&&!finished&&<div ref={arenaRef} className={styles.arena}>
    <header className={styles.arenaHeader}><span>{meta.english} / {mode==='daily'?'DAILY':'FREE'}</span>
     <strong>المهمة {index+1} / {tasks.length}</strong><span className={styles.xp}><Zap size={15}/>{total} XP</span></header>
    <div className={styles.progress} role="progressbar" aria-label="تقدم الجولة" aria-valuemin={0} aria-valuemax={tasks.length} aria-valuenow={index+1}>

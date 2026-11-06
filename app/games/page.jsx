@@ -34,11 +34,12 @@ export default async function GamesPage(){
  const date=utcDay();
  const todayGame=dailyGameUrl(date);
  return <div className={styles.root}>
-  <ArcadeIntro description="تاريخ وجغرافيا وشخصيات وألغاز، ولكن بروح المنافسة. تسع طرق مختلفة لاكتشاف اليمن — اختر اللعبة التي تشدّك!">
+  <ArcadeIntro slim description="تاريخ وجغرافيا وشخصيات وألغاز، ولكن بروح المنافسة. تسع طرق مختلفة لاكتشاف اليمن — اختر اللعبة التي تشدّك!">
    <Link className={styles.heroPrimary} href="#choose-your-game"><Gamepad2 size={19} aria-hidden="true"/> اختر لعبتك <ArrowLeft size={18} aria-hidden="true"/></Link>
    <Link className={styles.heroSecondary} href={todayGame}><CalendarDays size={19} aria-hidden="true"/> تحدي اليوم</Link>
    <Link className={styles.heroSecondary} href="/games/leaderboard"><Trophy size={19} aria-hidden="true"/> لوحة المتصدرين</Link>
   </ArcadeIntro>
+  <section className={styles.dailyFirst} aria-label="تحدي اليوم وملفي في ألعاب 967"><div className="container"><GamesHomeStatus initialDate={date}/></div></section>
   <section className={styles.gameSection} id="choose-your-game" aria-labelledby="games-heading">
    <div className="container">
     <div className={styles.sectionHeading}>
@@ -81,8 +82,7 @@ export default async function GamesPage(){
      })}
     </div>
 
-    <div className={styles.secondarySections} aria-label="تحدي اليوم وملف اللاعب والمهمات والإنجازات">
-     <details className={styles.secondarySection}><summary><span>تحدي اليوم وملفي في ألعاب 967</span><small>العد التنازلي، النتائج الرسمية، وترتيبك</small></summary><div className={styles.secondaryContent}><GamesHomeStatus initialDate={date}/></div></details>
+    <div className={styles.secondarySections} aria-label="المهمات والإنجازات">
      <details className={styles.secondarySection}><summary><span>المهمات الأسبوعية</span><small>ثلاث مهمات وترتيب أسبوعي متجدد</small></summary><div className={styles.secondaryContent}><WeeklyArcade/></div></details>
      <details className={styles.secondarySection}><summary><span>الشارات والإنجازات</span><small>تابع ما جمعته وما تبقى أمامك</small></summary><div className={styles.secondaryContent}><GameAchievementGallery preview/></div></details>
     </div>

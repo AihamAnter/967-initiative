@@ -1,0 +1,22 @@
+== https://967ye.com
+
+### 375x812
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/games | 24 | 17 | 14 | 24 | 798 | 60% | no | 3
+/games/quiz | 24 | 17 | 13 | 26/24 | 712 | 49% | no | 2
+/games/place | 24 | 17 | 13 | 24 | null | 49% | no | 0
+/games/map | 24 | 17 | 13 | 24 | null | 49% | no | 0
+/games/who | 24 | 17 | 13 | 24 | null | 57% | no | 0
+/games/leaderboard | 24 | 17 | 13 | 24/22 | 776 | 47% | no | 1
+/games/achievements | 24 | 17 | 13 | 24 | 806 | 49% | no | 1
+== http://localhost:3000
+
+### 375x812
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/games | 24 | 17 | 14 | 32/24 | 1029 | 43% | no | 0
+/games/quiz | 24 | 17 | 13 | 26/24 | 485 | 27% | no | 2
+/games/place | 24 | 17 | 13 | 24 | null | 27% | no | 0
+/games/map | 24 | 17 | 13 | 24 | null | 27% | no | 0
+/games/who | 24 | 17 | 13 | 24 | null | 27% | no | 0
+/games/leaderboard | 24 | 17 | 13 | 24/22 | 663 | 33% | no | 1
+/games/achievements | 24 | 17 | 13 | 24 | 627 | 27% | no | 2

@@ -2,9 +2,9 @@ import Link from 'next/link';
 import {ArrowLeft,Gamepad2,Hexagon,Orbit,Play,ScanLine,Sparkles} from 'lucide-react';
 import styles from '@/app/games/games.module.css';
 
-export default function ArcadeIntro({compact=false,title='ألعاب 967',description,children}){
+export default function ArcadeIntro({compact=false,slim=false,title='ألعاب 967',description,children}){
  const actualTitle=compact&&title==='ألعاب 967'?'اختبر معرفتك باليمن':title;
- return <header className={compact?[styles.hero,styles.heroCompact].join(' '):styles.hero}>
+ return <header className={[styles.hero,compact&&styles.heroCompact,slim&&styles.heroSlim].filter(Boolean).join(' ')}>
   <div className={styles.sky} aria-hidden="true"><span/><span/><span/></div>
   <div className={styles.heroInner}>
    <div className={styles.heroCopy}>
@@ -13,16 +13,16 @@ export default function ArcadeIntro({compact=false,title='ألعاب 967',descri
     <h1 className={styles.heroTitle}>{actualTitle}<em>{compact?'العب. اكتشف. وتحدَّ نفسك.':'جاهز للتحدي؟'}</em></h1>
     <p className={styles.heroDescription}>{description}</p>
     {children&&<div className={styles.heroActions}>{children}</div>}
-    {!compact&&<div className={styles.heroFacts}><span><Play size={13} aria-hidden="true"/> اللعب مجاني</span><span><Sparkles size={14} aria-hidden="true"/> معلومات موثقة</span><span><ScanLine size={14} aria-hidden="true"/> تحديات تتجدد</span></div>}
+    {!compact&&!slim&&<div className={styles.heroFacts}><span><Play size={13} aria-hidden="true"/> اللعب مجاني</span><span><Sparkles size={14} aria-hidden="true"/> معلومات موثقة</span><span><ScanLine size={14} aria-hidden="true"/> تحديات تتجدد</span></div>}
    </div>
-   <div className={styles.arcadeArtwork} aria-hidden="true">
+   {!slim&&<div className={styles.arcadeArtwork} aria-hidden="true">
     <div className={styles.artGlow}/>
     <div className={styles.ringOuter}/><div className={styles.ringMiddle}/><div className={styles.ringInner}/>
     <div className={styles.artCore}><Gamepad2 size={compact?66:91} strokeWidth={1.25}/><span>9 6 7</span></div>
     <span className={styles.artChipOne}><Hexagon size={15}/> اليمن</span>
     <span className={styles.artChipTwo}><Orbit size={16}/> XP +100</span>
     <span className={styles.artChipThree}>المستوى 1 <span>◆</span></span>
-   </div>
+   </div>}
   </div>
  </header>;
 }

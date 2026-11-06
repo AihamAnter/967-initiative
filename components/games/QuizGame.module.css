@@ -116,3 +116,16 @@
  .questionMeta span{padding:5px 9px}
  .option{min-height:65px}
 }
+
+/* Redesign v2 — batch D: a compact setup card so the start button is near the top. */
+.setup{gap:12px !important}
+.setup h2{font-size:var(--t-size-h2,18px) !important;margin:6px 0 4px !important;letter-spacing:0 !important}
+.setup p{font-size:13px !important;line-height:1.75 !important}
+.modes{margin:12px 0 !important;gap:8px !important}
+.modes button{min-height:46px !important}
+.privacy{font-size:11px !important;line-height:1.7 !important}
+@media(max-width:760px){
+ .setup{grid-template-columns:minmax(0,1fr) !important}
+ .filters{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px !important}
+ .filters select{min-height:44px !important}
+}

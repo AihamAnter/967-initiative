@@ -50,3 +50,10 @@
 .rowPlayer>a{min-width:0;max-width:100%;font-size:12px;color:#f4f9ff}
 .profileHeader>a{font-size:16px;color:#fff}
 @media(max-width:650px){.rankRow>.playerStatsButton{flex-direction:column;padding:3px 5px;font-size:11px}.rankRow>.playerStatsButton small{font-size:9px}.playerIdentity{font-size:11px}}
+
+/* Redesign v2 — batch D: a short header so the rankings come first. */
+.hero{padding-block:clamp(12px,2.5vw,32px) !important;min-height:0 !important}
+.hero h1{font-size:var(--t-size-h1,24px) !important;margin:4px 0 !important}
+.hero p{font-size:13px !important;line-height:1.75 !important}
+.heroActions{margin-top:10px !important}
+@media(max-width:760px){.breadcrumb{display:none !important}}
