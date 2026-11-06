@@ -46,6 +46,7 @@ export default function AnalyticsDashboard(){
    }
   })();
   return()=>{active=false;controller.abort();};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[user?.id,ready,days,revision]);
  const own=state.owner===user?.id?state:{status:'loading',data:null,error:''};
  const data=own.status==='ready'?own.data:null;

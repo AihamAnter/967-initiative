@@ -37,6 +37,7 @@ export default function MemberProfile({memberId}){
   request().then(data=>{if(active)setState({owner,data,error:'',loading:false});})
    .catch(error=>{if(active)setState({owner,data:null,error:error.message,loading:false});});
   return()=>{active=false;};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[ready,user?.id,memberId,request]);
  const valid=ready&&user&&state.owner===user.id;
  const data=valid?state.data:null;

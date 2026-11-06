@@ -55,9 +55,11 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
  const active=!!task&&!finished&&answer===null&&mediaReady&&!verifying&&(mode!=='daily'||clockReady);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active,
   startTime:mode==='daily'?serverStartedAt:null,onExpire:()=>submit(null,true)});
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on task id; the task object is replaced when its answer is revealed
  useEffect(()=>{if(task&&!finished)titleRef.current?.focus({preventScroll:true});},[index,task?.id,finished]);
  useEffect(()=>{
   if(mode==='daily'&&task&&mediaReady&&!finished&&!answer&&!clockReady&&!readyPending&&!syncError)markReady();
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on task id and round state; re-running on markReady/task identity would restart the official timer
  },[mode,task?.id,index,mediaReady,finished,answer,clockReady,readyPending,syncError]);
  async function markReady(){
   const current=tasks[index];

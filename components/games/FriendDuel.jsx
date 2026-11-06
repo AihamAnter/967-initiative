@@ -102,6 +102,7 @@ export default function FriendDuel({id}){
   img.onload=img.onerror=()=>{if(active)setMediaReady(true);};
   img.src=task.photo.url;
   return()=>{active=false;};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on task id; the task object is replaced on every poll
  },[match?.game,task?.id]);
 
  useEffect(()=>{submitting.current=false;},[questionKey]);

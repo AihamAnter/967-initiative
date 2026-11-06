@@ -71,6 +71,7 @@ export default function HomeSmartStart({initialDate,knowledgeHref='/search',memb
    }
   })();
   return()=>{cancelled=true;controller.abort();};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[ready,user?.id,day,revision,isVisible]);
 
  useEffect(()=>{

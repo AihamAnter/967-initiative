@@ -24,6 +24,7 @@ export default function ReadingList() {
       if(active)setCloud(data.saved||[]);
     }).catch(()=>{if(active)setMessage('تعذّر تحميل محفوظات الحساب حالياً. المحفوظات المحلية ما زالت متاحة.');});
     return()=>{active=false;};
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
   },[auth.user?.id]);
   const indexed=new Map(storedItems.map(item=>[item.href,item]));
   for(const item of cloud)if(!indexed.has(item.href))indexed.set(item.href,item);

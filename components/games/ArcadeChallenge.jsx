@@ -50,6 +50,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
  useEffect(()=>{if(tasks.length&&!finished)titleRef.current?.focus({preventScroll:true});},[index,finished,tasks.length]);
  useEffect(()=>{
   if(mode==='daily'&&task&&ready&&!finished&&!answer&&!clockReady&&!readyPending&&!syncError)markReady();
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on task id and round state; re-running on markReady/task identity would restart the official timer
  },[mode,task?.id,index,ready,finished,answer,clockReady,readyPending,syncError]);
  async function markReady(){
   if(mode!=='daily'||!tasks[index])return;

@@ -47,8 +47,10 @@ export default function MessageReports(){
   }catch(e){
    if(ownerRef.current===account){setResultState(null);setError(e.message);}
   }
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[request,user?.id]);
 
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  useEffect(()=>{if(!ready||!user){setResultState(null);setOpened(null);return;}load();},[ready,user?.id,load]);
 
  const update=async(id,status,reference)=>{

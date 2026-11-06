@@ -19,7 +19,8 @@ export default function DebateReminderAction({debate}){
    .then(data=>{if(alive)setStatus({subscribed:!!data.subscribed,eligible:!!data.eligible,loading:false});})
    .catch(e=>{if(alive){setStatus(current=>({...current,loading:false}));setError(e.message);}});
   return()=>{alive=false;};
- },[user?.id,debate.id]);
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
+ },[user?.id,debate.id,fallbackEligible]);
  if(!ready||(!fallbackEligible&&!status.subscribed))return null;
  const label=isLive?'ذكّرني قبل البث':'أبلغني عند نشر التسجيل';
  const update=async()=>{

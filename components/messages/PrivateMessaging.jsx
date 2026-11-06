@@ -133,6 +133,7 @@ export default function PrivateMessaging(){
    }
   }).catch(e=>{if(live.current.user===user.id)setError(e.message);})
     .finally(()=>{if(live.current.user===user.id)setLoading(false);});
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[ready,user?.id,request,open]);
 
  useEffect(()=>{
@@ -141,6 +142,7 @@ export default function PrivateMessaging(){
   const timer=setInterval(update,45000);
   window.addEventListener('focus',update);
   return()=>{clearInterval(timer);window.removeEventListener('focus',update);};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[ready,user?.id,open,reload]);
 
  // One Realtime subscription ONLY while a thread is open. No costly global sockets.
@@ -152,6 +154,7 @@ export default function PrivateMessaging(){
     ()=>{if(document.visibilityState==='visible'&&!historicalRef.current)open(selected,false);})
    .subscribe();
   return()=>{if(channel)db.removeChannel(channel);};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on the open conversation and its status; thread changes on every poll
  },[selected,thread?.conversation?.status,open]);
 
  const updateLatestJump=()=>{
@@ -218,12 +221,13 @@ export default function PrivateMessaging(){
   const timer=window.setInterval(refresh,15000);
   window.addEventListener('focus',refresh);
   return()=>{cancelled=true;window.clearInterval(timer);window.removeEventListener('focus',refresh);};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[ready,user?.id,tab,selected,thread?.conversation?.status,request]);
 
  // Debounced search uses the server, so older messages not currently
  // loaded by the conversation scroller still appear in the results.
  useEffect(()=>{
-  const sequence=++threadSearchSeq.current;
+  const searchSeq=threadSearchSeq,sequence=++searchSeq.current;
   const term=threadSearchTerm.trim().slice(0,60);
   setThreadSearchHits([]);setThreadSearchHasMore(false);setThreadSearchNextBefore(null);setThreadSearchError('');
   if(!threadSearchOpen||!selected||tab!=='inbox'||thread?.conversation?.status!=='accepted'||term.length<2){
@@ -242,7 +246,7 @@ export default function PrivateMessaging(){
     .catch(error=>{if(threadSearchSeq.current===sequence)setThreadSearchError(error.message);})
     .finally(()=>{if(threadSearchSeq.current===sequence)setThreadSearchLoading(false);});
   },300);
-  return()=>{window.clearTimeout(timer);threadSearchSeq.current++;};
+  return()=>{window.clearTimeout(timer);searchSeq.current++;};
  },[threadSearchOpen,threadSearchTerm,selected,tab,thread?.conversation?.status,request]);
 
  useEffect(()=>{
@@ -254,6 +258,7 @@ export default function PrivateMessaging(){
    }).catch(e=>{if(active)setError(e.message);});
   },300);
   return()=>{active=false;clearTimeout(timer);};
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the signed-in account changes, not on every session token refresh
  },[user?.id,tab,query,request]);
 
  const run=async(payload,callback)=>{

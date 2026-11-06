@@ -30,6 +30,7 @@ export default function HistoryAdminPanel({db,canDelete=false,initialItem=''}){
   try{const data=await api();if(!mounted.current)return;setEntries(data.entries);setRevision(data.revision);const next=data.entries.find(x=>x.slug===initialItem)||data.entries[0]||blank();setForm(structuredClone(next));setSaved(JSON.stringify(next));editor.markClean(next);}
   catch(error){if(mounted.current)setMessage('خطأ: '+error.message);}
   finally{if(mounted.current)setLoading(false);}
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- editor is a new object each render; only the stable editor.markClean is used
  },[api,editor.markClean,initialItem]);
  useEffect(()=>{mounted.current=true;load();return()=>{mounted.current=false;};},[load]);
  const patch=(key,value)=>{setForm(f=>({...f,[key]:value,...(key==='kind'&&value!=='state'?{comparison:undefined}:{})}));setMessage('');};

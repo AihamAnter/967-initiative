@@ -208,6 +208,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
     document.addEventListener('pointerdown', onClick);
     document.addEventListener('focusin', onFocus);
     return () => {document.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onClick); document.removeEventListener('focusin', onFocus);};
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- listeners are attached once; close() only calls state setters and DOM queries
   }, []);
   const active = href => href !== '/' && !href.includes('#') && (path === href || path.startsWith(href + '/'));
   const sectionActive = section => section.links.some(([href]) => active(href));

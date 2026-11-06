@@ -56,6 +56,7 @@ export default function QuizGame({questions,date,initialMode='practice'}){
  },[runId,step,round.length,result]);
  useEffect(()=>{
   if(mode==='daily'&&round.length&&picked===null&&!result&&!clockReady&&!readyPending&&!syncError)markReady();
+ // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on round state; re-running on markReady identity would restart the official timer
  },[mode,round.length,step,picked,result,clockReady,readyPending,syncError]);
  async function markReady(){
   if(!round[step])return;

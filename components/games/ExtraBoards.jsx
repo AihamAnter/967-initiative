@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable @next/next/no-img-element -- remote, licence-credited or canvas-rendered images whose hosts are not all in next.config remotePatterns */
 import {useState} from 'react';
 import {ArrowLeft,RotateCcw,Link2,Lightbulb,CheckCircle2,ImageOff} from 'lucide-react';
 import styles from './ExtraArcade.module.css';
