@@ -1,4 +1,6 @@
-import {Clock3, ShieldCheck} from 'lucide-react';
+'use client';
+import {useRef} from 'react';
+import {Clock3, ShieldCheck, X} from 'lucide-react';
 
 const rules = [
  'حرية التعبير',
@@ -24,19 +26,28 @@ const stages = [
  {title:'اختتام المقدم',minutes:'2',unit:'دقيقتان'},
 ];
 
+// Two buttons; each opens its guide in a floating window that can be closed (Esc, the close button or a tap outside).
+function GuideDialog({id,icon:Icon,title,lead,className,children,dialogRef}){
+ return <dialog ref={dialogRef} id={id} className={'debate-guide-dialog '+className} aria-labelledby={id+'-title'} onClick={event=>{if(event.target===event.currentTarget)event.currentTarget.close();}}>
+  <section className={'debate-guide-panel '+className}>
+   <header><span className="debate-guide-icon"><Icon size={22} aria-hidden="true"/></span><div><h3 id={id+'-title'}>{title}</h3><p>{lead}</p></div>
+    <button type="button" className="debate-guide-close" aria-label="إغلاق" onClick={()=>dialogRef.current?.close()}><X size={18} aria-hidden="true"/></button></header>
+   {children}
+  </section>
+ </dialog>;
+}
+
 export default function DebateGuide() {
- return <section id="debate-guide" className="debate-guide" aria-labelledby="debate-guide-title">
-  <div className="debate-section-heading"><div><span className="eyebrow">حوار منظم، وفرصة متكافئة</span><h2 id="debate-guide-title">قواعد النقاش وسير المناظرة</h2></div></div>
-  <div className="debate-guide-grid">
-   <section className="debate-guide-panel debate-guide-rules" aria-labelledby="debate-rules-title">
-    <header><span className="debate-guide-icon"><ShieldCheck size={24} aria-hidden="true"/></span><div><h3 id="debate-rules-title">قواعد النقاش</h3><p>مساحة للتعبير، ومسؤولية مشتركة في الحوار.</p></div></header>
-    <ol role="list">{rules.map((rule,index)=><li key={rule}><span className="debate-guide-number" aria-hidden="true">{index+1}</span><span>{rule}</span></li>)}</ol>
-   </section>
-   <section className="debate-guide-panel debate-guide-flow" aria-labelledby="debate-flow-title">
-    <header><span className="debate-guide-icon"><Clock3 size={24} aria-hidden="true"/></span><div><h3 id="debate-flow-title">سير المناظرة</h3><p>من الافتتاح إلى الختام، وقت واضح لكل مرحلة.</p></div></header>
-    <ol role="list">{stages.map((stage,index)=><li key={stage.title}><span className="debate-guide-number" aria-hidden="true">{index+1}</span><h4>{stage.title}</h4><div className="debate-guide-duration"><strong>{stage.minutes==='2'?stage.unit:<><bdi>{stage.minutes}</bdi> {stage.unit}</>}</strong>{stage.scope&&<small>{stage.scope}</small>}</div></li>)}</ol>
-    <footer className="debate-guide-total"><span><Clock3 size={19} aria-hidden="true"/>المدة الإجمالية</span><strong><bdi>89–94</bdi> دقيقة</strong></footer>
-   </section>
-  </div>
- </section>;
+ const rulesRef=useRef(null),flowRef=useRef(null);
+ return <div id="debate-guide" className="debate-guide-buttons">
+  <button type="button" className="debate-guide-button" aria-haspopup="dialog" onClick={()=>rulesRef.current?.showModal()}><ShieldCheck size={16} aria-hidden="true"/> قواعد النقاش</button>
+  <button type="button" className="debate-guide-button" aria-haspopup="dialog" onClick={()=>flowRef.current?.showModal()}><Clock3 size={16} aria-hidden="true"/> سير المناظرة</button>
+  <GuideDialog id="debate-rules" icon={ShieldCheck} title="قواعد النقاش" lead="مساحة للتعبير، ومسؤولية مشتركة في الحوار." className="debate-guide-rules" dialogRef={rulesRef}>
+   <ol role="list">{rules.map((rule,index)=><li key={rule}><span className="debate-guide-number" aria-hidden="true">{index+1}</span><span>{rule}</span></li>)}</ol>
+  </GuideDialog>
+  <GuideDialog id="debate-flow" icon={Clock3} title="سير المناظرة" lead="من الافتتاح إلى الختام، وقت واضح لكل مرحلة." className="debate-guide-flow" dialogRef={flowRef}>
+   <ol role="list">{stages.map((stage,index)=><li key={stage.title}><span className="debate-guide-number" aria-hidden="true">{index+1}</span><h4>{stage.title}</h4><div className="debate-guide-duration"><strong>{stage.minutes==='2'?stage.unit:<><bdi>{stage.minutes}</bdi> {stage.unit}</>}</strong>{stage.scope&&<small>{stage.scope}</small>}</div></li>)}</ol>
+   <footer className="debate-guide-total"><span><Clock3 size={19} aria-hidden="true"/>المدة الإجمالية</span><strong><bdi>89–94</bdi> دقيقة</strong></footer>
+  </GuideDialog>
+ </div>;
 }

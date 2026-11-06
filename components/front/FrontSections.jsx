@@ -72,7 +72,7 @@ export function DebateTile({item}) {
       <Resilient name="home-debate-image" quiet><SafeImage src={item.cover_url} sizes="(max-width: 760px) 100vw, 520px" className={styles.cover}/></Resilient>
     </div>
     <div className={styles.debateBody}>
-      <p className={styles.kick}>نختلف لنفهم. · مساحة للحوار</p>
+      <p className={styles.kick}>في الاختلاف رحمة. · مساحة للحوار</p>
       <h3 className={styles.tileTitle}><NextLink href={href} className={styles.stretch}>{item.title}</NextLink></h3>
       {item.participants?.length > 1 && <p className={styles.versus}>{item.participants.slice(0, 2).map(person => person.speaker?.name).filter(Boolean).map((name, index) => <span key={name + index}>{name}</span>)}</p>}
       <div className={styles.tileFoot}>{status && <span className="ed-status" data-tone={publicRecordingAvailable(item) ? 'positive' : 'neutral'}>{status}</span>}<span className={styles.cta}>{verb} <Arrow/></span><span className={styles.save}><SaveForLater compact item={{kind: 'debate', href, title: item.title}}/></span></div>
