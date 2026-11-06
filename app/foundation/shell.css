@@ -149,23 +149,26 @@
   .ed-header .ed-tools .ed-menu-toggle, .ed-header .ed-top-search { display: none; }
   .ed-header .ed-tools { gap: 3px; }
   .ed-header .ed-brand { min-width: 0; }
+  /* Docked flush to the bottom edge (not a floating card over content). */
   .ed-tabbar {
-    position: fixed; inset-inline: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 70;
-    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; padding: 6px;
-    border-radius: 22px; background: var(--c-glass); border: 1px solid var(--c-glass-edge);
-    -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: var(--e-3);
+    position: fixed; inset-inline: 0; bottom: 0; z-index: 70;
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+    padding: 0 4px env(safe-area-inset-bottom);
+    background: var(--c-glass); border-top: 1px solid var(--c-line);
+    -webkit-backdrop-filter: saturate(160%) blur(16px); backdrop-filter: saturate(160%) blur(16px);
   }
   .ed-tabbar a, .ed-tabbar button {
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 52px;
-    border: 0; border-radius: 16px; background: none; color: var(--c-ink-2); text-decoration: none; cursor: pointer;
-    font: var(--t-w-strong) .72rem/1.2 var(--t-text); transition: background var(--m-fast) var(--m-ease), transform var(--m-fast) var(--m-ease);
+    position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 58px;
+    border: 0; background: none; color: var(--c-ink-3); text-decoration: none; cursor: pointer;
+    font: var(--t-w-strong) .75rem/1.2 var(--t-text); transition: color var(--m-fast) var(--m-ease), transform var(--m-fast) var(--m-ease);
   }
   .ed-tabbar a:active, .ed-tabbar button:active { transform: scale(.94); }
-  .ed-tabbar [aria-current="page"], .ed-tabbar button[aria-expanded="true"], .ed-tabbar button[data-current] { background: var(--c-ink); color: var(--c-bg); }
-  body:has(.ed-tabbar) { scroll-padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
-  body:has(.ed-tabbar) #content { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
-  body:has(.ed-tabbar) .ed-footer { padding-bottom: 96px; }
+  .ed-tabbar [aria-current="page"], .ed-tabbar button[aria-expanded="true"], .ed-tabbar button[data-current] { color: var(--c-accent); }
+  .ed-tabbar [aria-current="page"]::before { content: ""; position: absolute; top: 0; inset-inline: 30%; height: 3px; border-radius: 0 0 3px 3px; background: var(--c-accent); }
+  .ed-tab-badge { position: absolute; top: 6px; inset-inline-start: calc(50% + 6px); min-width: 18px; height: 18px; padding: 0 5px; border-radius: var(--r-pill); background: var(--c-clay); color: #fff; font: 600 11px/18px var(--t-text); text-align: center; }
+  body:has(.ed-tabbar) { scroll-padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  body:has(.ed-tabbar) #content { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  body:has(.ed-tabbar) .ed-footer { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
 }
 
 /* Mobile open chats occupy the space above the unchanged bottom tabbar.

@@ -4,16 +4,19 @@ import {readFileSync} from 'node:fs';
 
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 
-test('mobile bottom navigation follows requested five-link order and removes the menu',()=>{
+test('mobile bottom navigation is five jobs in order: today, explore, learn, play, you',()=>{
  const header=read('components/Header.jsx');
  const bar=header.slice(header.indexOf('{!immersive && <nav className="ed-tabbar"'));
- const ordered=['href="/"','href="/search"','href="/works"','href="/yemen-in-numbers"','href="/games"'];
+ const ordered=['href="/"','href="/explore"','href="/school"','href="/games"','href={youHref}'];
  const locations=ordered.map(x=>bar.indexOf(x));
  assert.ok(locations.every(x=>x>=0),'missing expected mobile destination');
  assert.deepEqual([...locations].sort((a,b)=>a-b),locations,'mobile links must remain in the requested order');
  assert.doesNotMatch(bar,/<button[^>]*onClick=\{toggleMenu\}/);
  assert.match(bar,/<Gamepad2 size=\{21\}/);
  assert.match(bar,/isVisible\('\/games'\)/);
+ assert.match(bar,/isVisible\('\/school'\)/);
+ assert.match(header,/const youHref = signedIn \? '\/account' : '\/login';/);
+ for(const label of ['اليوم','استكشف','تعلّم','العب','أنت'])assert.ok(bar.includes('<span>'+label+'</span>'),label);
 });
 
 test('mobile menu is before the logo and accessible without a tabbar',()=>{

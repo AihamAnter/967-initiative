@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect, useMemo, useRef, useState} from 'react';
-import {Bookmark, ChevronDown, Compass, Gamepad2, House, Menu, PlayCircle, Search, MessageCircle, X} from 'lucide-react';
+import {Bookmark, ChevronDown, Compass, Gamepad2, GraduationCap, House, Menu, Search, MessageCircle, UserRound, X} from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import ThemeToggle from './ThemeToggle';
 import useSessionDb from './useSessionDb';
@@ -221,6 +221,10 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const savedVisible = isVisible(utilityLinks.saved[0]);
   // Timed games, lesson stages, the PDF reader and admin keep the whole screen.
   const immersive = /^\/(games\/.+|school\/.+\/.+|magazine\/.+|admin)/.test(path || '');
+  // Phone tabs are jobs, not content types: today, explore, learn, play, you.
+  const exploreActive = path === '/explore' || path === '/search' || ['media', 'knowledge', 'directories', 'initiative'].some(id => mobileSectionActive(id));
+  const youHref = signedIn ? '/account' : '/login';
+  const youActive = /^\/(account|messages|notifications|read-later|login|register)(\/|$)/.test(path || '');
 
   return <header className="ed-header" ref={header} data-open={open || undefined} data-tabbar={!immersive || undefined}>
     <div className="ed-header-inner">
@@ -256,7 +260,7 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
       <div className="ed-tools">
         <ThemeToggle/>
         {signedIn&&<NotificationBell userId={sessionUserId} onNavigate={close}/>}
-        <Link href="/messages" className="ed-tool ed-tool-icon ed-message-link" aria-label={messageLinkLabel} title={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/>{signedIn&&newMessageCount>0&&<span className="ed-message-count" aria-hidden="true">{messageCountText}</span>}</Link>
+        {signedIn&&<Link href="/messages" className="ed-tool ed-tool-icon ed-message-link" aria-label={messageLinkLabel} title={messageLinkLabel} aria-current={path==='/messages'?'page':undefined} onClick={close}><MessageCircle size={20}/>{newMessageCount>0&&<span className="ed-message-count" aria-hidden="true">{messageCountText}</span>}</Link>}
         <Link href="/search" className="ed-tool ed-tool-icon ed-top-search" aria-label="البحث في المنصة" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={20} aria-hidden="true"/></Link>
         {savedVisible && <Link href={utilityLinks.saved[0]} className="ed-tool ed-tool-icon ed-wide-only" aria-label={utilityLinks.saved[1]} title={utilityLinks.saved[1]} aria-current={path === utilityLinks.saved[0] ? 'page' : undefined} onClick={close}><Bookmark size={19} aria-hidden="true"/></Link>}
         {account && <Link href={account[0]} className="ed-tool ed-tool-text ed-wide-only" aria-current={path === account[0] ? 'page' : undefined} onClick={close}>{account[1]}</Link>}
@@ -264,13 +268,13 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
         <button ref={toggle} type="button" className="ed-tool ed-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}<span className="ed-menu-word" aria-hidden="true">{open ? 'إغلاق' : 'القائمة'}</span></button>
       </div>
     </div>
-    {/* Phones: five primary destinations; the menu sits beside the brand above. */}
-    {!immersive && <nav className="ed-tabbar" aria-label="اختصارات سريعة">
-      <Link href="/" aria-current={path === '/' ? 'page' : undefined} onClick={close}><House size={21} aria-hidden="true"/><span>الرئيسية</span></Link>
-      <Link href="/search" aria-current={path === '/search' ? 'page' : undefined} onClick={close}><Search size={21} aria-hidden="true"/><span>البحث</span></Link>
-      {isVisible('/works') && <Link href="/works" aria-current={mobileSectionActive('media') ? 'page' : undefined} onClick={close}><PlayCircle size={21} aria-hidden="true"/><span>الإعلام</span></Link>}
-      {isVisible('/yemen-in-numbers') && <Link href="/yemen-in-numbers" aria-current={mobileSectionActive('knowledge') ? 'page' : undefined} onClick={close}><Compass size={21} aria-hidden="true"/><span>المعرفة</span></Link>}
-      {isVisible('/games') && <Link href="/games" aria-current={active('/games') ? 'page' : undefined} onClick={close}><Gamepad2 size={21} aria-hidden="true"/><span>الألعاب</span></Link>}
+    {/* Phones: five jobs — today, explore everything, learn, play, and you. */}
+    {!immersive && <nav className="ed-tabbar" aria-label="التنقل السريع">
+      <Link href="/" aria-current={path === '/' ? 'page' : undefined} onClick={close}><House size={21} aria-hidden="true"/><span>اليوم</span></Link>
+      <Link href="/explore" aria-current={exploreActive ? 'page' : undefined} onClick={close}><Compass size={21} aria-hidden="true"/><span>استكشف</span></Link>
+      {isVisible('/school') && <Link href="/school" aria-current={active('/school') ? 'page' : undefined} onClick={close}><GraduationCap size={21} aria-hidden="true"/><span>تعلّم</span></Link>}
+      {isVisible('/games') && <Link href="/games" aria-current={active('/games') ? 'page' : undefined} onClick={close}><Gamepad2 size={21} aria-hidden="true"/><span>العب</span></Link>}
+      <Link href={youHref} aria-current={youActive ? 'page' : undefined} aria-label={signedIn && newMessageCount > 0 ? 'أنت، '+messageLinkLabel : 'أنت: حسابك ومحفوظاتك ورسائلك'} onClick={close}><UserRound size={21} aria-hidden="true"/><span>أنت</span>{signedIn && newMessageCount > 0 && <span className="ed-tab-badge" aria-hidden="true">{messageCountText}</span>}</Link>
     </nav>}
   </header>;
 }
