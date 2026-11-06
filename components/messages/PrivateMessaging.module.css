@@ -283,3 +283,5 @@ button.accountLink{font:inherit;font-size:13px;font-weight:700;cursor:pointer}
 .conversationCard[data-menu-open]{background:var(--c-accent-soft)}
 @keyframes convMenuIn{from{opacity:0;transform:translateY(-4px)}}
 @media(prefers-reduced-motion:reduce){.conversationMenu{animation:none}}
+.mutedIcon{flex:none;color:var(--muted,var(--c-ink-2))}
+.mutedIcon+.unread{background:var(--c-line-2,#999);color:var(--c-ink)}

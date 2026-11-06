@@ -2,7 +2,7 @@
 import {useCallback,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal} from 'react-dom';
 import Link from 'next/link';
-import {ArrowRight,Ban,Bell,Check,CheckCheck,ChevronLeft,Inbox,MailPlus,MessageCircle,RefreshCcw,Search,Send,Settings2,ShieldAlert,UserRound,Pin,PinOff,X} from 'lucide-react';
+import {ArrowRight,Ban,Bell,BellOff,Check,CheckCheck,ChevronLeft,Inbox,MailPlus,MessageCircle,RefreshCcw,Search,Send,Settings2,ShieldAlert,UserRound,Pin,PinOff,Trash2,X} from 'lucide-react';
 import useAudience from '@/components/debates/useAudience';
 import {browserDb} from '@/lib/supabase';
 import {REPORT_REASONS,isMessageRead} from '@/lib/privateMessaging';
@@ -495,6 +495,17 @@ export default function PrivateMessaging(){
   return()=>{document.removeEventListener('pointerdown',away);document.removeEventListener('keydown',key);window.removeEventListener('scroll',scroll,true);};
  },[convMenu]);
  useEffect(()=>()=>{clearTimeout(convTouchRef.current.hold);clearTimeout(convTouchRef.current.single);},[]);
+ // Clearing hides the messages for this member only; the other member keeps the history.
+ const clearConversation=c=>{
+  if(!window.confirm('مسح المحادثة مع '+c.partner_name+'؟ تختفي الرسائل من عندك فقط، ويحتفظ الطرف الآخر بنسخته.'))return;
+  run({action:'clear',conversation:c.id},async()=>{
+   if(selected===c.id)backToList();
+   setNotice('تم مسح المحادثة.');await reload();
+  });
+ };
+ const toggleMute=c=>run({action:c.muted?'unmute':'mute',conversation:c.id},async()=>{
+  setNotice(c.muted?'عادت تنبيهات هذه المحادثة.':'لن تصلك تنبيهات هذه المحادثة.');await reload();
+ });
  const block=async(account,unblock=false)=>{
   if(!unblock&&!window.confirm('حظر '+account.name+' ومنعه من التواصل معك؟'))return;
   await run({action:unblock?'unblock':'block',target:account.id},async()=>{
@@ -538,6 +549,7 @@ export default function PrivateMessaging(){
        <strong>{c.partner_name}</strong>
        <span>{c.status==='pending'?'في انتظار قبول الطلب':c.last_excerpt||'فتح المحادثة'}</span>
       </span>
+      {c.muted&&<BellOff size={15} className={styles.mutedIcon} role="img" aria-label="التنبيهات معطلة"/>}
       {Number(c.unread)>0&&<b className={styles.unread}>{c.unread}</b>}
       <ChevronLeft size={17} aria-hidden="true"/>
      </button>)}
@@ -689,7 +701,9 @@ export default function PrivateMessaging(){
    <div ref={convMenuRef} className={styles.conversationMenu} style={convMenu.style} dir="rtl" role="menu" aria-label={'خيارات المحادثة مع '+c.partner_name}>
     <strong>{c.partner_name}</strong>
     {Number(c.unread)>0&&<button type="button" role="menuitem" disabled={busy} onClick={()=>{close();run({action:'read',conversation:c.id});}}><CheckCheck size={16} aria-hidden="true"/> تعليم كمقروءة</button>}
+    <button type="button" role="menuitem" disabled={busy} onClick={()=>{close();toggleMute(c);}}>{c.muted?<><Bell size={16} aria-hidden="true"/> تشغيل التنبيهات</>:<><BellOff size={16} aria-hidden="true"/> تعطيل التنبيهات</>}</button>
     <button type="button" role="menuitem" onClick={()=>{close();setDialog({type:'report',conversation:c.id});}}><ShieldAlert size={16} aria-hidden="true"/> الإبلاغ</button>
+    {c.status==='accepted'&&<button type="button" role="menuitem" className={styles.deleteAction} disabled={busy} onClick={()=>{close();clearConversation(c);}}><Trash2 size={16} aria-hidden="true"/> مسح المحادثة</button>}
     {!c.blocked&&<button type="button" role="menuitem" className={styles.deleteAction} disabled={busy} onClick={()=>{close();block({id:c.partner_id,name:c.partner_name});}}><Ban size={16} aria-hidden="true"/> حظر المستخدم</button>}
    </div>,document.body);})()}
   {copyToast>0&&<div key={copyToast} className={styles.copyToast} role="status">تم النسخ</div>}
