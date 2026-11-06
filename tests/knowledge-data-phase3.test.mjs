@@ -36,7 +36,7 @@ test('the national indicator catalogue retains its published values, status and 
 });
 
 test('indicator cards have distinct metric, year, domain and source but status colors remain semantic',()=>{
- for(const sel of ['.stat-indicator-grid .saveable-card','.stat-card-top>span:first-child','.stat-card-value','.stat-value-context','.stat-card-meta','.stat-card-empty','.stat-results-head','.stat-toolbar','.domain-accordion>details'])assert.ok(css.includes('[data-knowledge-area="statistics"] '+sel),sel);
+ for(const sel of ['.stat-indicator-grid .saveable-card','.stat-card-top>span:first-child','.stat-card-value','.stat-value-context','.stat-card-meta','.stat-card-empty','.stat-toolbar'])assert.ok(css.includes('[data-knowledge-area="statistics"] '+sel),sel);
  assert.ok(css.includes('.stat-value-kind{'));
  assert.ok(css.includes('/* Never infer quality from a value.'));
  assert.ok(!css.includes('.stat-status-complete{'));
@@ -85,7 +85,7 @@ test('mobile refinements and readable keyboard controls do not hide the real tab
  assert.ok(css.includes('@media(max-width:760px)'));
  assert.ok(css.includes('@media(max-width:380px)'));
  assert.ok(css.includes('@media(prefers-reduced-motion:reduce)'));
- assert.ok(css.includes('.stat-series-table-scroll:focus-visible'));
+ // Redesign v2 removed the old results head, domain accordion and series table markup; their dead rules went with it.
  assert.ok(read('components/YemenRankingExplorer.jsx').includes('className="yr-table-hint"'));
  assert.ok(read('app/yemen-in-numbers/indicator/[slug]/page.jsx').includes('className="knowledge-table-hint"'));
  assert.ok(css.includes(':focus-visible'));

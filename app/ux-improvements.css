@@ -1,16 +1,10 @@
-/* Shorter visitor journeys and a browser-local reading list. */
-.home-page .home-discovery { padding-block:30px 38px;border-bottom:1px solid var(--line); }
-.home-discovery .section-head { margin-bottom:20px; }
-.home-discovery .section-head h2 { font-size:clamp(25px,2.5vw,34px); }
-.home-discovery .quick-link { min-height:165px;padding-block:18px; }
-.home-discovery .quick-link h2 { margin-top:10px; }
+
 .active-filters { display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:16px 0;min-width:0; }
 .active-filters>span { color:var(--muted);font-size:13px;margin-inline-end:4px; }
 .active-filter-chip { display:inline-flex;align-items:center;gap:9px;min-height:44px;max-width:100%;padding:7px 12px;background:var(--soft-primary);color:var(--primary);border:1px solid var(--control-line);border-radius:24px;font-size:14px;text-align:start; }
 .active-filter-chip>span { min-width:0;overflow-wrap:anywhere; }
 .active-filter-chip:hover { border-color:var(--primary);background:var(--surface); }
 .active-filters-clear { min-height:44px;padding:7px 10px;background:transparent;color:var(--primary);font-size:14px;text-decoration:underline;text-underline-offset:4px; }
-.stat-explorer .stat-toolbar { grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(120px,.6fr); }
 .stat-value-context { display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-top:8px;color:var(--muted);font-size:14px; }
 .stat-value-context>span:first-child { display:inline-flex;align-items:center;gap:7px;font-size:14px; }
 .stat-value-context .stat-value-kind { padding:3px 10px;border:1px solid var(--line);border-radius:20px;font-size:12px;color:var(--primary);background:var(--soft-primary); }
@@ -45,7 +39,6 @@
 .work-card,.issue-card { display:flex;flex-direction:column; }
 .work-card-click,.work-card-static { height:auto;flex:1; }
 .issue-card-open { display:block;flex:1; }
-.home-issue .spotlight-actions { gap:10px; }
 .reading-list { max-width:1000px;margin-inline:auto; }
 .reading-list-section { padding-block:32px 48px; }
 .reading-list-intro { display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:var(--soft-plum);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:26px;color:var(--plum); }
@@ -67,7 +60,6 @@
 .reading-remove:hover { color:var(--danger);background:var(--soft-danger);border-color:var(--danger); }
 .reading-empty-actions { display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:24px; }
 @media(max-width:760px) {
-  .home-page .home-discovery { padding-block:24px 30px; }
   .home-debates .debate-card-featured .debate-card-speakers { display:none; }
   .home-debates .debate-card-featured .debate-card-body>p { display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden; }
   .home-debates .debate-card-featured .debate-card-body { padding:20px; }
@@ -75,8 +67,6 @@
   .home-debates .debate-card-featured .debate-actions>a:not(.btn) { display:none; }
   .home-debates .debate-card-featured .debate-actions { margin-bottom:0; }
   .home-debates .debate-card-featured .debate-actions .btn { width:100%; }
-  .stat-explorer .stat-toolbar { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .stat-explorer .stat-toolbar .stat-search { grid-column:1/-1; }
   .contribution-body .contribute-layout { grid-template-columns:minmax(0,1fr);gap:24px; }
   .contribution-guide { padding:22px; }
   .reading-items>li { gap:12px;padding:18px 14px; }

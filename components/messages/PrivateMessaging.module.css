@@ -254,3 +254,15 @@
 }
 @media(max-width:355px){.tabs button{font-size:10px}.tabs{padding:5px}.threadHeader>div:first-of-type small{display:none}.backToList span{display:none}}
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition:none!important}}
+
+/* Redesign v2 — phones: a smaller title and the four sections as small, shorter buttons.
+   Conversation, thread and composer behaviour are unchanged. */
+@media(max-width:680px){
+ .heading{margin-bottom:10px}
+ .heading h1{font-size:20px;line-height:1.4}
+ .accountLink{min-height:36px;padding:0 10px;border-radius:999px}
+ .tabs{gap:4px;padding:6px}
+ .tabs button{min-height:46px;padding:4px 2px;gap:2px;font-size:11px;border-radius:12px}
+ .tabs button svg{width:17px;height:17px}
+}
+@media(max-width:355px){.tabs button{font-size:10.5px}}

@@ -1,0 +1,19 @@
+Redesign v2 — batch F (account, messages, notifications, admin, legacy CSS) — 2026-11-06
+Phone 375x812, light, signed in. Page heights in CSS px (before -> after).
+
+/account?tab=settings   2348 -> 2010
+/notifications          3309 -> 2958   (rows instead of a card per notice)
+/admin?tab=works        3179 -> 2935   (section strip instead of drop-down + wrapped links)
+/messages               1667 -> 1662   (tabs 58px -> 46px tall; all four in view at 320)
+
+Account home on a phone: header with avatar, name and the three numbers, then
+10 list rows (7 sections + messages + leaderboard, debates, help).
+Before: a dark hero, a horizontal tab strip and a welcome card above the numbers;
+the leaderboard, debates and help links were hidden on phones.
+
+Legacy CSS: 1,252 rules whose classes no longer exist anywhere in the code were removed
+from the legacy bundle (93,837 of 291,361 bytes, 32%). Pixel diff of 39 pages x 2 widths
+against a baseline: no change beyond the noise between two baseline runs
+(a lazily loaded logo and two pages with live/loading content).
+Dropping the whole bundle from any route is not yet possible: every route still uses
+its base rules (links, .container, forms); 15-70% of pixels changed when it was removed.

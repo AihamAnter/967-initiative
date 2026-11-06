@@ -127,7 +127,6 @@
   color: var(--color-coral);
   opacity: .2;
 }
-.visual-foundation .content-surface .work-card-placeholder > .lucide { color: var(--content-accent); opacity: 1; }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .visual-foundation .content-surface { transition: box-shadow var(--motion-normal), border-color var(--motion-fast); }

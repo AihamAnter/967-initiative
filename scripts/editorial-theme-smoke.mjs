@@ -14,7 +14,14 @@ const results=[];
 
 try{
  for(const width of sizes){
-  const context=await browser.newContext({viewport:{width,height:860},colorScheme:'dark'});
+  // Owner decision (2026-11): the site follows the device until the visitor picks a mode.
+  const osDark=await browser.newContext({viewport:{width,height:860},colorScheme:'dark'});
+  const osPage=await osDark.newPage();
+  await osPage.goto(base+'/',{waitUntil:'domcontentloaded',timeout:60000});
+  await osPage.locator('.ed-page').waitFor({timeout:30000});
+  assert.equal(await osPage.evaluate(()=>document.documentElement.dataset.edTheme),'dark',width+' should follow a dark device');
+  await osDark.close();
+  const context=await browser.newContext({viewport:{width,height:860},colorScheme:'light'});
   const page=await context.newPage();
   await page.goto(base+'/',{waitUntil:'domcontentloaded',timeout:60000});
   await page.locator('.ed-page').waitFor({timeout:30000});
@@ -25,8 +32,8 @@ try{
    return {mode:r.dataset.edTheme,scheme:s.colorScheme,background:s.getPropertyValue('--c-bg').trim(),overflow:document.documentElement.scrollWidth-window.innerWidth};
   });
   const light=await readTheme();
-  assert.equal(light.mode,'light',width+' should default to light even with dark OS');
-  assert.equal(light.background.toLowerCase(),'#f5f3ef');
+  assert.equal(light.mode,'light',width+' should default to light on a light device');
+  assert.equal(light.background.toLowerCase(),'#f3efe8');
   assert.ok(light.overflow<=2,'home horizontal overflow at '+width+': '+light.overflow);
   await page.screenshot({path:output+'light-'+width+'.png',fullPage:true});
   await switcher.click();
@@ -34,7 +41,7 @@ try{
   const dark=await readTheme();
   assert.equal(dark.mode,'dark');
   assert.equal(dark.scheme,'dark');
-  assert.equal(dark.background.toLowerCase(),'#0b0f10');
+  assert.equal(dark.background.toLowerCase(),'#13110f');
   await page.screenshot({path:output+'dark-'+width+'.png',fullPage:true});
   await page.reload({waitUntil:'domcontentloaded'});
   await page.getByRole('button',{name:'تفعيل الوضع الفاتح'}).waitFor();
@@ -42,7 +49,7 @@ try{
   await page.goto(base+'/yemen-history',{waitUntil:'domcontentloaded'});
   await page.locator('[data-knowledge-area="history"]').waitFor({timeout:30000});
   const legacy=await readTheme();
-  assert.equal(legacy.background.toLowerCase(),'#0b0f10','legacy pages now use the shared dark palette');
+  assert.equal(legacy.background.toLowerCase(),'#13110f','legacy pages now use the shared dark palette');
   assert.equal(legacy.scheme,'dark','legacy route must retain dark system controls');
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
   await page.getByRole('button',{name:'تفعيل الوضع الفاتح'}).click();

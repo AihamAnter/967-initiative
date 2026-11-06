@@ -109,3 +109,28 @@
  .markRead{flex-basis:29px;width:29px;height:29px}
 }
 @media(prefers-reduced-motion:reduce){.popover *{scroll-behavior:auto!important}}
+
+/* Redesign v2 — the centre reads as one list of rows; filters and actions are small buttons.
+   The bell popover keeps its compact cards. */
+.centerShell{background:var(--c-surface)}
+.centerShell>.list{gap:0;padding:0}
+.centerShell .notification{gap:10px;padding:10px 14px;border:0;border-bottom:1px solid var(--c-line);border-radius:0;background:transparent}
+.centerShell .notification:last-child{border-bottom:0}
+.centerShell .notification[data-unread=true]{background:color-mix(in srgb,var(--c-accent-soft) 45%,var(--c-surface))}
+.centerShell .noticeIcon{width:34px;height:34px;flex-basis:34px;border-radius:50%}
+.centerHeader{padding:12px 14px 6px}
+.centerHeader strong{font-size:14px}
+.filters{gap:6px;padding:4px 14px 10px}
+.filters button{min-height:32px;padding:4px 12px}
+@media(max-width:760px){
+ .page{padding:12px 0 32px;gap:12px;width:calc(100% - 24px)}
+ .pageHeading{gap:10px}
+ .pageHeading h1{font-size:20px;margin:2px 0}
+ .pageHeading h1 svg{width:20px;height:20px}
+ .pageHeading p{display:none}
+ .pageActions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%}
+ .pageActions button{flex-direction:column;gap:2px;min-height:52px;padding:6px 4px;font-size:11px;line-height:1.35;text-align:center}
+ .centerShell{border-radius:16px}
+ .noticeTop strong{font-size:13px}
+ .noticeDescription{font-size:12px;line-height:1.55}
+}
