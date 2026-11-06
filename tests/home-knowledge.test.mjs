@@ -27,19 +27,18 @@ test('each knowledge card respects individual publication and visibility control
 });
 
 // Iteration 2: the knowledge hub is KnowledgeBento in components/front/FrontSections.jsx.
-test('homepage renders the knowledge hub before generic shortcuts and retains existing sections',()=>{
+test('homepage renders the knowledge rail from visible destinations and keeps its anchors',()=>{
  const page=read('app/page.jsx');
- const hub=read('components/front/FrontSections.jsx');
+ const hub=read('components/home/HomeBlocks.jsx');
  assert.ok(page.includes("import {visibleHomeKnowledge} from '@/lib/homeKnowledge'"));
  assert.ok(page.includes('visibleHomeKnowledge(settings.pageVisibility,settings.contentPages||[])')||page.includes('visibleHomeKnowledge(settings.pageVisibility, settings.contentPages||[])'));
- assert.ok(page.indexOf('<KnowledgeBento items={knowledgeLinks}/>')<page.indexOf('<DiscoverRail'));
+ assert.ok(page.includes('<KnowledgeRail items={knowledgeLinks}/>'));
  assert.ok(page.includes('id="explore-knowledge"'));
  assert.ok(page.includes('id="home-knowledge-title"'));
  assert.ok(page.includes('aria-labelledby="home-knowledge-title"'));
- assert.ok(hub.includes("items.find(item => item.id === 'history') || items[0]"));
  assert.ok(page.includes('knowledgeLinks.length > 0 &&'));
  assert.ok(hub.includes('data-knowledge-id={item.id}'));
- assert.ok(hub.includes('href={featured.href}'));
+ assert.ok(hub.includes('href={item.href}'));
 });
 
 test('homepage knowledge hub supports responsive phones and reduced-motion visitors',()=>{

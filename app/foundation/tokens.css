@@ -7,20 +7,20 @@
 :root {
   color-scheme: light;
   /* Surfaces: Sana'a plaster and paper */
-  --c-bg: #f7f4ee;            /* page */
-  --c-bg-2: #efeae1;          /* sunken bands, page intros */
+  --c-bg: #f3efe8;            /* page */
+  --c-bg-2: #ebe5da;          /* sunken bands, page intros */
   --c-surface: #ffffff;       /* cards */
   --c-surface-2: #fbf9f5;     /* raised-on-card, inputs */
-  --c-surface-3: #f3efe7;     /* hover / pressed */
+  --c-surface-3: #f1ece3;     /* hover / pressed */
   --c-glass: rgb(247 244 238 / .86);
   --c-glass-edge: rgb(255 255 255 / .7);
-  --c-line: #e6e0d6;
-  --c-line-2: #d5cdc0;
+  --c-line: #dcd3c5;          /* card edges: visible on white and on the page */
+  --c-line-2: #c6bba9;
   --c-control: #857b6d;       /* input/chip borders — 4.0:1 (WCAG 1.4.11) */
   /* Text: basalt ink */
   --c-ink: #1a1612;           /* 16.6:1 on bg */
   --c-ink-2: #4a4239;         /* 9.0:1 */
-  --c-ink-3: #6b6256;         /* 5.6:1 */
+  --c-ink-3: #655c50;         /* 6.0:1 */
   --c-on-dark: #f6f1e8;
   /* Brand: 967 teal, plus one warm clay accent */
   --c-accent: #0b6b6e;        /* 6.2:1 */
@@ -48,19 +48,19 @@
   /* Type: Markazi for display, IBM Plex Sans Arabic for reading and UI */
   --t-display: 'Markazi Text', 'IBM Plex Sans Arabic', serif;
   --t-text: 'IBM Plex Sans Arabic', system-ui, 'Segoe UI', Tahoma, sans-serif;
-  --t-size-hero: clamp(2.75rem, 1.9rem + 4.2vw, 4.75rem);    /* 44 → 76px */
-  --t-size-display: clamp(2.25rem, 1.7rem + 2.8vw, 3.5rem);  /* 36 → 56px */
-  --t-size-h1: clamp(2.125rem, 1.7rem + 2vw, 3.25rem);       /* 34 → 52px */
-  --t-size-h2: clamp(1.625rem, 1.35rem + 1.3vw, 2.375rem);   /* 26 → 38px */
-  --t-size-h3: clamp(1.1875rem, 1.1rem + .4vw, 1.5rem);      /* 19 → 24px */
-  --t-size-lead: clamp(1.0625rem, 1.02rem + .25vw, 1.25rem); /* 17 → 20px */
-  --t-size-body: 1.0625rem;   /* 17px */
-  --t-size-ui: .9375rem;      /* 15px */
-  --t-size-meta: .8125rem;    /* 13px — the floor */
-  --t-size-figure: clamp(2.25rem, 1.7rem + 2.4vw, 3.75rem);
-  --t-lh-display: 1.15;
-  --t-lh-heading: 1.3;
-  --t-lh-body: 1.85;
+  --t-size-hero: clamp(1.625rem, 1.4rem + 1vw, 2.25rem);     /* 26 → 36px */
+  --t-size-display: clamp(1.5rem, 1.35rem + .7vw, 2rem);     /* 24 → 32px */
+  --t-size-h1: clamp(1.5rem, 1.4rem + .45vw, 1.875rem);      /* 24 → 30px */
+  --t-size-h2: clamp(1.0625rem, 1.02rem + .2vw, 1.25rem);    /* 17 → 20px */
+  --t-size-h3: clamp(.9375rem, .92rem + .1vw, 1rem);         /* 15 → 16px */
+  --t-size-lead: clamp(.9375rem, .92rem + .1vw, 1.0625rem);  /* 15 → 17px */
+  --t-size-body: clamp(.9375rem, .92rem + .1vw, 1rem);       /* 15 → 16px */
+  --t-size-ui: .875rem;       /* 14px */
+  --t-size-meta: .75rem;      /* 12px — the floor */
+  --t-size-figure: clamp(1.5rem, 1.35rem + .7vw, 1.875rem);  /* 24 → 30px */
+  --t-lh-display: 1.25;
+  --t-lh-heading: 1.35;
+  --t-lh-body: 1.75;
   --t-lh-ui: 1.5;
   --t-w-regular: 400;
   --t-w-strong: 600;
@@ -70,14 +70,14 @@
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
   --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
   --s-gutter: clamp(16px, 4vw, 40px);
-  --s-section: clamp(40px, 6vw, 88px);
+  --s-section: clamp(24px, 4vw, 56px);
   --s-gap: clamp(12px, 1.6vw, 20px);
 
   /* Shape: inputs/chips 6 · cards 12 · media/sheets 20 · pill */
-  --r-1: 6px; --r-2: 12px; --r-3: 20px; --r-4: 24px; --r-pill: 999px;
+  --r-1: 8px; --r-2: 12px; --r-3: 16px; --r-4: 20px; --r-pill: 999px;
 
   /* Elevation: two soft shadows on light */
-  --e-1: 0 1px 2px rgb(40 30 20 / .06);
+  --e-1: 0 1px 2px rgb(40 30 20 / .07), 0 1px 3px -1px rgb(40 30 20 / .05);
   --e-2: 0 1px 2px rgb(40 30 20 / .05), 0 8px 24px -10px rgb(40 30 20 / .16);
   --e-3: 0 2px 4px rgb(40 30 20 / .05), 0 24px 48px -20px rgb(40 30 20 / .26);
   --e-glow: 0 0 0 1px rgb(255 255 255 / .5) inset;
@@ -91,7 +91,7 @@
   --w-page: 1240px;
   --w-text: 44rem;
   --target: 44px;
-  --header-h: 60px;
+  --header-h: 54px;
 }
 
 /* Dark: warm basalt, not an inverted cold black. Depth comes from lighter

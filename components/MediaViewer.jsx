@@ -21,7 +21,7 @@ export default function MediaViewer({work}) {
   return <div className="media-frame-outer">
     <div className={'media-frame media-frame-' + (canEmbed ? media.ratio : 'landscape')}>
       {!activated || !canEmbed || failed ? <>
-        {thumbnail && <WorkThumbnail className="media-cover" src={thumbnail} priority quality={50} sizes="(max-width:700px) 100vw, 720px"/>}
+        {thumbnail && <WorkThumbnail className="media-cover" src={thumbnail} priority quality={60} sizes="(max-width:700px) 100vw, 720px"/>}
         <div className="media-cover-shade" />
         <div className="media-cover-brand">967 <span>/</span> MEDIA</div>
         {canEmbed && !failed ? <button type="button" className="media-play" onClick={() => {setLoading(true);setActivated(true);}} aria-label={(providerMayBlock?'محاولة تشغيل العمل هنا: ':'تشغيل العمل هنا: ') + work.title + '، المصدر: ' + mediaLabel(media.kind)}>

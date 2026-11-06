@@ -1,12 +1,12 @@
 import NextLink from 'next/link';
-import {ChevronDown, Compass, Handshake, MapPin, MessagesSquare, Search} from 'lucide-react';
+import {BarChart3, ChevronDown, Compass, Flame, GraduationCap, Handshake, LayoutGrid, MapPin, MapPinned, MessagesSquare, Newspaper, Sparkles, UsersRound} from 'lucide-react';
 import SearchForm from '@/components/SearchForm';
 import HomeSmartStart from '@/components/home/HomeSmartStart';
-import MobileFold from '@/components/mobile/MobileFold';
 import Resilient from '@/components/front/Resilient';
 import TodayFeed from '@/components/home/TodayFeed';
 import {buildTodayFeed} from '@/lib/todayFeed';
-import {SchoolBlock, KnowledgeBento, GamesArcade, DiscoverRail, DataCard, CompanyCard, ProfessionalCard} from '@/components/front/FrontSections';
+import {Shortcuts, SectionLauncher, BlockHead, GamesStrip, SchoolStrip, KnowledgeRail, NumbersRail, CommunityRows, InviteBanner} from '@/components/home/HomeBlocks';
+import {formatCompact} from '@/lib/format';
 import {utcDay, dailyGameUrl, dailyGameForDate, DAILY_GAME_TITLES} from '@/lib/dailyGame';
 import {getLatestWorks, getLatestIssues, getRecentIndicators, getRecentCompanies, getRecentProfessionals, getSiteSettings} from '@/lib/data';
 import {getDebateCatalog} from '@/lib/debateServer';
@@ -17,6 +17,7 @@ import {formatArabicDate} from '@/lib/format';
 import {pageMetadata} from '@/lib/seo';
 import '@/app/foundation/editorial.css';
 import styles from './front.module.css';
+import home from './home.module.css';
 
 export const dynamic = 'force-dynamic';
 export const metadata = pageMetadata({title:'967 | اليمن، أقرب إليك', description:'مساحة يمنية مفتوحة للمعرفة والإعلام والثقافة والبيانات والمشاركة المجتمعية.', path:'/'});
@@ -43,84 +44,87 @@ export default async function Home() {
   const highlightList = visible('statistics') ? (indicators.data || []) : [];
   // The newest indicator may lead "Today"; the numbers band shows the others.
   const moreNumbers = highlightList.slice(1);
-  const hasVisibleDirectories = visible('products') || visible('professionals');
   // "Today": newest and most time-sensitive published items across the platform.
   const feed = buildTodayFeed({works:works.data||[], issues:issues.data||[], debates:debates.data||[], indicators:highlightList}, {isVisible:visible});
   const feedFailed = works.failed && debates.failed;
 
-  return <div className={`ed-page ${styles.front}`}>
-    {/* 1 · Hero */}
-    <section className={styles.hero} aria-labelledby="home-title">
-      <div className={`ed-wrap ${styles.heroInner}`}>
-        <p className={styles.heroTop}><span className="ed-pill"><span className={styles.liveDot}/>{settings.heroEyebrow}</span><time className={styles.heroDate} dateTime={today}>{formatArabicDate(new Date(), {weekday:'long', day:'numeric', month:'long', year:'numeric'})}</time></p>
-        <h1 id="home-title" className={styles.heroTitle}>{settings.heroTitle}{settings.heroHighlight && <> <span className={styles.heroHighlight}>{settings.heroHighlight}</span></>}</h1>
-        <p className={styles.heroText}>{settings.heroDescription}</p>
-        <div className={styles.heroSearch}><SearchForm placeholder={settings.searchPlaceholder}/></div>
-        {settings.pageVisibilityUnavailable && <p className="ed-unavailable" role="status">تعذر تحميل أقسام المنصة مؤقتًا. أعد تحديث الصفحة للمحاولة.</p>}
-      </div>
-    </section>
+  const dailyGame = dailyGameForDate(today);
+  const leadNumber = highlightList[0];
+  const debate = content.debate;
+  // "الآن": the few things worth one tap today. Each respects section visibility.
+  const shortcuts = [
+    visible('games') && {href: dailyGameUrl(today), label: 'تحدي اليوم', sub: DAILY_GAME_TITLES[dailyGame], icon: Flame, hue: 'var(--c-violet)'},
+    visible('school') && {href: '/school', label: 'تعلّم اليوم', sub: '15 مسارًا تفاعليًا', icon: GraduationCap, hue: 'var(--c-leaf)'},
+    visible('debates') && debate && {href: '/debates/' + encodeURIComponent(debate.slug), label: debate.stage === 'live' ? 'مناظرة مباشرة' : 'مناظرة', sub: debate.title, icon: MessagesSquare, hue: 'var(--c-plum)', live: debate.stage === 'live'},
+    leadNumber && {href: '/yemen-in-numbers/indicator/' + encodeURIComponent(leadNumber.slug), label: 'رقم اليوم', sub: leadNumber.name + ': ' + formatCompact(leadNumber.latestValue.value), icon: BarChart3, hue: 'var(--c-indigo)'},
+    visible('atlas') && {href: '/yemen-map', label: 'خريطة اليمن', sub: '22 محافظة ومديرياتها', icon: MapPinned, hue: 'var(--c-teal)'},
+  ];
 
+  return <div className={`ed-page ${home.home}`}>
+    {/* 1 · Greeting: date, the editable title and description, search */}
+    <section className={home.greet} aria-labelledby="home-title"><div className="ed-wrap">
+      <p className={home.greetTop}><span className={home.pill}><span className={home.dot}/>{settings.heroEyebrow}</span><time dateTime={today}>{formatArabicDate(new Date(), {weekday:'long', day:'numeric', month:'long'})}</time></p>
+      <h1 id="home-title" className={home.title}>{settings.heroTitle}{settings.heroHighlight && <> <span className={home.highlight}>{settings.heroHighlight}</span></>}</h1>
+      <p className={home.lead}>{settings.heroDescription}</p>
+      <div className={home.search}><SearchForm compact placeholder={settings.searchPlaceholder}/></div>
+      {settings.pageVisibilityUnavailable && <p className="ed-unavailable" role="status">تعذر تحميل أقسام المنصة مؤقتًا. أعد تحديث الصفحة للمحاولة.</p>}
+    </div></section>
 
-    {/* 2 · اليوم في 967: the newest and most important, whatever its type */}
-    <section className={styles.today} aria-labelledby="today-title"><div className="ed-wrap">
-      <div className="ed-section-head"><div><span className="ed-kicker">اليوم في 967</span><h2 id="today-title">الجديد والمهم</h2></div><Link href="/search" className="ed-link">كل المحتوى</Link></div>
+    {/* 2 · الآن: one-tap shortcuts */}
+    <div className={`ed-wrap ${home.block}`}><Shortcuts items={shortcuts}/></div>
+
+    {/* 3 · اليوم في 967: the newest and most important, whatever its type */}
+    <section className={home.block} aria-labelledby="today-title"><div className="ed-wrap">
+      <BlockHead id="today-title" icon={Newspaper} title="الجديد في 967" href="/search" linkLabel="كل المحتوى" Link={Link}/>
       <Resilient name="home-today" label="تعذّر عرض الجديد الآن."><TodayFeed feed={feed} failed={feedFailed}/></Resilient>
     </div></section>
 
-    {/* 3 · تابع من حيث توقفت (member) or where to start (guest) */}
-    <div className={`ed-wrap ${styles.start}`}><HomeSmartStart initialDate={utcDay()} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/></div>
+    {/* 4 · تابع من حيث توقفت (member) or where to start (guest) */}
+    <div className={`ed-wrap ${home.block}`}><HomeSmartStart initialDate={today} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/></div>
 
-    {/* 4 · مدرسة 967 */}
-    {visible('school')&&<section id="home-school" className={`${styles.section} ed-reveal`} aria-labelledby="home-school-title"><div className="ed-wrap"><SchoolBlock/></div></section>}
-
-    {/* 5 · استكشف المعرفة */}
-    {knowledgeLinks.length > 0 && <section id="explore-knowledge" className={`${styles.section} ed-reveal`} aria-labelledby="home-knowledge-title"><div className="ed-wrap">
-      <div className="ed-section-head"><div><span className="ed-kicker">المعرفة / موسوعة 967</span><h2 id="home-knowledge-title">استكشف المعرفة</h2><p>تاريخٌ نفهمه، وأماكن نكتشفها، وشخصيات نتعرّف إليها، وأرقام تضع اليمن في سياقه.</p></div><Link href="/search" className="ed-link">ابحث في المعرفة</Link></div>
-      <KnowledgeBento items={knowledgeLinks}/>
-    </div></section>}
-
-    {/* 6 · ألعاب 967 */}
-    {visible('games')&&<section id="home-games" className={`${styles.section} ed-reveal`} aria-labelledby="home-games-title"><div className="ed-wrap"><GamesArcade dailyHref={dailyGameUrl(today)} dailyTitle={DAILY_GAME_TITLES[dailyGameForDate(today)]}/></div></section>}
-
-    <MobileFold title="المزيد من طرق الاستكشاف" className={styles.homeExtras}>
-    {/* 7 · فضولك، يحدد البداية. */}
-    <section className={`${styles.section} ed-reveal`} aria-labelledby="explore-title"><div className="ed-wrap">
-      <div className="ed-section-head"><div><span className="ed-kicker">ابدأ من فضولك</span><h2 id="explore-title">فضولك، يحدد البداية.</h2></div><Link href="/search" className="ed-link"><Search size={16} aria-hidden="true"/> ابحث في كل المنصة</Link></div>
-      <DiscoverRail Link={Link}/>
+    {/* 5 · أقسام 967 as app icons */}
+    <section id="home-sections" className={home.block} aria-labelledby="explore-title"><div className="ed-wrap">
+      <BlockHead id="explore-title" icon={LayoutGrid} title="أقسام 967" href="/explore" linkLabel="استكشف"/>
+      <SectionLauncher isVisible={href => pageIsVisible(href, settings.pageVisibility, settings.contentPages||[])}/>
     </div></section>
 
-    {/* 8 · لنفهم الواقع، نقترب من أرقامه. */}
-    {visible('statistics')&&<section className={`${styles.section} ed-reveal`} aria-labelledby="numbers-title"><div className="ed-wrap"><div className={styles.data}>
-      <div className={styles.dataIntro}>
-        <p className={styles.dataKicker}>اليمن بالأرقام</p>
-        <h2 id="numbers-title" className={styles.blockTitle}>لنفهم الواقع،<br/>نقترب من أرقامه.</h2>
-        <p className={styles.dataText}>مؤشرات وطنية، مع سنة القياس والمصدر. وراء كل رقم، مساحة للفهم.</p>
-        <div className={styles.dataLinks}><Link href="/yemen-in-numbers" className={styles.dataPrimary}>استكشف المؤشرات <span aria-hidden="true">←</span></Link><Link href="/yemen-ranking" className={styles.dataGhost}>أين يقف اليمن عالميًا؟ <span aria-hidden="true">←</span></Link></div>
-      </div>
-      <div className={styles.dataCards}>{moreNumbers.length ? moreNumbers.map(indicator => <Resilient key={indicator.id} name="home-data" quiet><DataCard indicator={indicator}/></Resilient>) : <Link href="/yemen-in-numbers" className={styles.dataEmpty}><Compass size={32} aria-hidden="true"/><strong>{indicators.failed ? 'تعذّر تحميل المؤشرات الآن.' : 'ابدأ بسؤال، واكتشف المؤشرات.'}</strong><span>المجالات والمصادر وسنوات القياس</span></Link>}</div>
-    </div></div></section>}
-
-    {/* 9 · أشياء تُصنع. ومهارات تُنجز. */}
-    {(visible('products')||visible('professionals')||visible('atlas'))&&<section className={`${styles.section} ed-reveal`} aria-labelledby="community-title"><div className="ed-wrap">
-      <div className="ed-section-head"><div><span className="ed-kicker">من الناس، ومن البلد</span><h2 id="community-title">{hasVisibleDirectories?'أشياء تُصنع. ومهارات تُنجز.':'كل مكان في اليمن، له حكاية.'}</h2><p>{hasVisibleDirectories?'اكتشف الأدلة، واقترب ممن حولك.':'تعرّف على المحافظات والأماكن والشخصيات.'}</p></div></div>
-      <div className={styles.community}>
-        {visible('products')&&<Resilient name="home-company" quiet><CompanyCard item={content.company}/></Resilient>}
-        {visible('professionals')&&<Resilient name="home-professional" quiet><ProfessionalCard item={content.professional}/></Resilient>}
-        {visible('atlas')&&<Link href="/yemen-map" className={styles.atlas}><span className={styles.atlasMap} aria-hidden="true"><MapPin size={22}/></span><span className={styles.atlasText}>وكل مكان، له حكاية.<strong>استكشف محافظات اليمن وأماكنه وشخصياته.</strong></span><span aria-hidden="true">←</span></Link>}
-      </div>
+    {/* 6 · ألعاب 967 */}
+    {visible('games')&&<section id="home-games" className={home.block} aria-labelledby="home-games-title"><div className="ed-wrap">
+      <BlockHead id="home-games-title" icon={Sparkles} title="ألعاب 967" href="/games" linkLabel="كل الألعاب" hue="var(--c-violet)"/>
+      <GamesStrip dailyHref={dailyGameUrl(today)} dailyTitle={DAILY_GAME_TITLES[dailyGame]}/>
     </div></section>}
-    </MobileFold>
 
-    {/* 10 · لديك حكاية، معلومة، أو فكرة؟ نسمعك. */}
-    {visible('contribute')&&<section className={`${styles.section} ed-reveal`} id="contact" aria-labelledby="contact-title"><div className="ed-wrap"><div className={styles.invite}>
-      <div className={styles.inviteMark} aria-hidden="true">967</div>
-      <p className={styles.inviteKick}>{settings.participationEyebrow}</p>
-      <h2 id="contact-title" className={styles.inviteTitle}>{settings.participationTitle}</h2>
-      <Link href="/contribute" className="ed-button" data-variant="light">{settings.participationButtonLabel} <span aria-hidden="true">←</span></Link>
-    </div></div></section>}
+    {/* 7 · مدرسة 967 */}
+    {visible('school')&&<section id="home-school" className={home.block} aria-labelledby="home-school-title"><div className="ed-wrap">
+      <BlockHead id="home-school-title" icon={GraduationCap} title="مدرسة 967" href="/school" linkLabel="كل المسارات" hue="var(--c-leaf)"/>
+      <SchoolStrip/>
+    </div></section>}
 
-    {/* 11 · عن المبادرة ومشاريعها */}
-    <section className={`${styles.section} ed-reveal`} aria-label="عن المبادرة ومشاريعها"><div className={`ed-wrap ${styles.about}`}>
+    {/* 8 · من المعرفة */}
+    {knowledgeLinks.length > 0 && <section id="explore-knowledge" className={home.block} aria-labelledby="home-knowledge-title"><div className="ed-wrap">
+      <BlockHead id="home-knowledge-title" icon={Compass} title="اعرف اليمن" href="/explore" linkLabel="المعرفة" hue="var(--c-teal)"/>
+      <KnowledgeRail items={knowledgeLinks}/>
+    </div></section>}
+
+    {/* 9 · أرقام */}
+    {visible('statistics') && moreNumbers.length > 0 && <section className={home.block} aria-labelledby="numbers-title"><div className="ed-wrap">
+      <BlockHead id="numbers-title" icon={BarChart3} title="أرقام تهمّك" href="/yemen-in-numbers" linkLabel="اليمن بالأرقام" hue="var(--c-indigo)" Link={Link}/>
+      <Resilient name="home-data" quiet><NumbersRail indicators={moreNumbers}/></Resilient>
+    </div></section>}
+
+    {/* 10 · من الناس ومن البلد */}
+    {(visible('products')||visible('professionals')||visible('atlas'))&&<section className={home.block} aria-labelledby="community-title"><div className="ed-wrap">
+      <BlockHead id="community-title" icon={UsersRound} title="من الناس ومن البلد" hue="var(--c-amber)"/>
+      <Resilient name="home-community" quiet><CommunityRows company={content.company} professional={content.professional} showCompany={visible('products')} showProfessional={visible('professionals')} showAtlas={visible('atlas')}/></Resilient>
+    </div></section>}
+
+    {/* 11 · ساهم معنا */}
+    {visible('contribute')&&<section className={home.block} id="contact" aria-labelledby="contact-title"><div className="ed-wrap">
+      <InviteBanner eyebrow={settings.participationEyebrow} title={settings.participationTitle} label={settings.participationButtonLabel}/>
+    </div></section>}
+
+    {/* 12 · عن المبادرة ومشاريعها */}
+    <section className={home.block} aria-label="عن المبادرة ومشاريعها"><div className={`ed-wrap ${styles.about}`}>
       <details id="about" className={styles.fold}><summary><span><span className="ed-kicker">تعرّف على 967</span><h2>مساحة تتسع لنا جميعًا.</h2></span><ChevronDown size={22} aria-hidden="true"/></summary><div className={styles.foldBody}>
         <h3>{settings.aboutTitle}</h3><p>{settings.aboutDescription}</p>
         {settings.aboutTags?.length > 0 && <ul className={styles.tags}>{settings.aboutTags.map((tag, index) => <li key={index}>{tag}</li>)}</ul>}

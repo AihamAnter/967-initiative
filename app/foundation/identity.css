@@ -79,3 +79,63 @@
   :root .site-experience .search-filters { display: flex !important; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: calc(var(--s-gutter) * -1); padding: 2px var(--s-gutter) 8px; scrollbar-width: none; }
   :root .site-experience .search-filters > a { flex: 0 0 auto; white-space: nowrap; scroll-snap-align: start; }
 }
+
+/* =====================================================================
+ * Redesign v2 — batch A foundation (docs/redesign-v2/02-concept.md §2)
+ * One type scale everywhere: content starts in the first third of a phone.
+ * ===================================================================== */
+
+/* ---------- Type scale: page titles 24→30px, section titles 17→20px ---------- */
+:root .site-experience h1 { font-size: var(--t-size-h1) !important; line-height: 1.3 !important; letter-spacing: 0 !important; }
+:root .site-experience h2 { font-size: var(--t-size-h2) !important; line-height: 1.4 !important; letter-spacing: 0 !important; }
+:root .site-experience h3 { font-size: var(--t-size-h3) !important; line-height: 1.5 !important; }
+
+/* ---------- Page intros: a compact header, not a banner ---------- */
+:root:root:root .site-experience.site-experience .page-intro { padding-block: 14px 16px !important; }
+:root:root:root .site-experience.site-experience .page-intro h1 { margin-block: 4px !important; font-size: var(--t-size-h1) !important; }
+:root:root:root .site-experience.site-experience .page-intro p { font-size: var(--t-size-ui) !important; line-height: 1.65 !important; }
+:root:root:root .site-experience.site-experience .page-intro :is(.btn, .button, a.btn) { min-height: 38px !important; padding: 0 14px !important; font-size: 13px !important; }
+.ed-pagehead { padding: 18px 0 14px !important; }
+.ed-pagehead h1 { max-width: none !important; }
+.ed-crumbs { margin-bottom: 8px !important; }
+.ed-dek { margin-top: 6px !important; font-size: var(--t-size-ui) !important; line-height: 1.65 !important; }
+.ed-facts { margin-top: 12px !important; }
+.ed-facts div { min-width: 0 !important; padding: 8px 12px !important; }
+.ed-facts dd { font-size: 1.375rem !important; letter-spacing: 0 !important; }
+@media (max-width: 760px) {
+  /* The app bar already names the place and links back, so phones skip the
+     breadcrumb trail and keep the intro to title + up to 3 lines. */
+  :root:root:root .site-experience.site-experience .page-intro :is(.breadcrumbs, .breadcrumb), .ed-crumbs { display: none !important; }
+  :root:root:root .site-experience.site-experience .page-intro > .container > p,
+  .ed-dek { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+}
+
+/* ---------- Light mode: every card and control has a visible edge ---------- */
+:root:not([data-ed-theme="dark"]) .site-experience :is(.card, .panel, [class*="card"], [class*="Card"]):not([class*="cardIcon"], [class*="cardHead"], [class*="cards"], [class*="Cards"]) { border-color: var(--c-line); }
+:root:not([data-ed-theme="dark"]) .site-experience :is(input, select, textarea):not([type="checkbox"], [type="radio"], [type="range"]) { border-color: var(--c-control); }
+
+/* ---------- App bar (phones and tablets): logo + where you are ---------- */
+.ed-appbar-place { display: none; }
+@media (max-width: 1179px) {
+  .ed-header-inner { gap: 6px; }
+  .ed-header .ed-brand .brand-logo.ed-brand-mark { width: 30px !important; }
+  .ed-appbar-place {
+    display: inline-flex; align-items: center; gap: 2px; min-width: 0; max-width: 46vw; min-height: 40px;
+    padding-inline: 8px 4px; border-inline-start: 1px solid var(--c-line);
+    color: var(--c-ink); font: 600 15px/1.2 var(--t-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-decoration: none;
+  }
+  .ed-appbar-back { color: var(--c-accent); }
+  .ed-appbar-back svg { flex: none; margin-inline-start: -4px; }
+}
+
+/* ---------- Footer: a compact colophon (v2 batch A) ---------- */
+.ed-footer-inner { padding: 28px var(--s-gutter) 20px !important; }
+.ed-footer .brand-logo.ed-footer-mark { width: 40px !important; }
+.ed-footer-about { padding-bottom: 18px !important; }
+.ed-footer-about h2 { margin: 10px 0 4px !important; font-size: 1.125rem !important; line-height: 1.4 !important; }
+.ed-footer-about p { font-size: 13px !important; line-height: 1.7 !important; }
+.ed-footer-socials { margin-top: 12px !important; }
+.ed-footer-socials a { min-height: 36px !important; padding: 0 12px !important; font-size: 13px; }
+.ed-footer-groups { padding: 14px 0 !important; gap: 14px !important; }
+.ed-footer-group h3 { font: 600 15px/1.4 var(--t-text) !important; }
+.ed-footer-motto { font-size: 1rem !important; }

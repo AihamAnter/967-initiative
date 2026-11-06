@@ -76,3 +76,10 @@
 
 /* Whole-card links: the title carries the meaning, no underline on every line. */
 .guestCard,.guestCard *{text-decoration:none!important}
+
+/* Redesign v2 (batch A): a compact panel of rows, consistent with the home blocks. */
+.section{padding:0!important;border-top:0!important}
+.card,.guestCard{background:var(--c-surface)!important;border-color:var(--c-line)!important;border-radius:var(--r-3)!important;box-shadow:var(--e-1)}
+.card{min-height:0!important;padding:12px 14px!important}
+.guestCard{min-height:60px!important;padding:10px 14px!important;gap:12px}
+.grid{gap:8px!important}

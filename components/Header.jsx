@@ -2,12 +2,13 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect, useMemo, useRef, useState} from 'react';
-import {Bookmark, ChevronDown, Compass, Gamepad2, GraduationCap, House, Menu, Search, MessageCircle, UserRound, X} from 'lucide-react';
+import {Bookmark, ChevronDown, ChevronRight, Compass, Gamepad2, GraduationCap, House, Menu, Search, MessageCircle, UserRound, X} from 'lucide-react';
 import BrandLogo from './BrandLogo';
 import ThemeToggle from './ThemeToggle';
 import useSessionDb from './useSessionDb';
 import {usePageVisibility} from './PageVisibilityProvider';
 import {resolveNavSections, utilityLinks} from '@/lib/navigation';
+import {appBarPlace} from '@/lib/appBar';
 import {messageBadgeCount,messageBadgeLabel} from '@/lib/messageBadge';
 import NotificationBell from './notifications/NotificationBell';
 import {advanceMessageAlert,playMessageChime} from '@/lib/messageSound';
@@ -221,6 +222,8 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
   const savedVisible = isVisible(utilityLinks.saved[0]);
   // Timed games, lesson stages, the PDF reader and admin keep the whole screen.
   const immersive = /^\/(games\/.+|school\/.+\/.+|magazine\/.+|admin)/.test(path || '');
+  // App bar (phones): where you are, and on detail pages a tap back to the list.
+  const place = appBarPlace(path);
   // Phone tabs are jobs, not content types: today, explore, learn, play, you.
   const exploreActive = path === '/explore' || path === '/search' || ['media', 'knowledge', 'directories', 'initiative'].some(id => mobileSectionActive(id));
   const youHref = signedIn ? '/account' : '/login';
@@ -230,6 +233,9 @@ export default function Header({actionLabel = 'ساهم معنا', contentLinks 
     <div className="ed-header-inner">
       <button ref={mobileToggle} type="button" className="ed-tool ed-menu-toggle ed-mobile-menu-toggle" aria-controls="main-navigation" aria-label={open ? 'إغلاق القائمة' : mobileMenuSection ? 'فتح القائمة، القسم الحالي: '+mobileMenuSection.label : 'فتح القائمة'} aria-expanded={open} onClick={toggleMenu}>{open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}</button>
       <Link href="/" className="ed-brand" onClick={close} aria-label="مبادرة 967 — الرئيسية"><BrandLogo priority className="ed-brand-mark"/></Link>
+      {place && (place.isRoot
+        ? <span className="ed-appbar-place" aria-hidden="true">{place.label}</span>
+        : <Link href={place.href} className="ed-appbar-place ed-appbar-back" onClick={close} aria-label={'رجوع إلى '+place.label}><ChevronRight size={18} aria-hidden="true"/>{place.label}</Link>)}
       <nav id="main-navigation" className="ed-nav" aria-label="التنقل الرئيسي">
         <form action="/search" role="search" className="ed-nav-search">
           <label htmlFor="menu-search" className="sr-only">ابحث في منصة 967</label>
