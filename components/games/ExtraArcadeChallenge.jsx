@@ -3,7 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowLeft,ArrowRight,CheckCircle2,Clock3,Flame,Play,RotateCcw,Share2,Target,Trophy,XCircle,Zap} from 'lucide-react';
 import {extraGameBuilders,extraGameTypes} from '@/lib/extraGames';
-import {dailySeed,questionPoints} from '@/lib/gameEngine';
+import {questionPoints} from '@/lib/gameEngine';
 import {roundDuration} from '@/lib/gameClock';
 import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
@@ -50,6 +50,7 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
  const answerLocked=useRef(false),titleRef=useRef(null);
  useEffect(()=>{setStats(getStored(game));},[game]);
  const task=tasks[index];
+ const revealed=answer!==null&&(mode!=='daily'||verified);
  const duration=roundDuration(mode,seconds);
  const active=!!task&&!finished&&answer===null&&mediaReady&&!verifying&&(mode!=='daily'||clockReady);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active,
@@ -71,15 +72,17 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
  }
  async function start(){
   if(starting)return;
-  const seed=mode==='daily'?dailySeed(date):'practice-'+Date.now()+'-'+Math.random();
-  const list=extraGameBuilders[game]({mode,date,seed,seen:mode==='daily'?[]:readPracticeSeen(game)});
-  if(list.length!==10)return;
-  if(mode==='practice')rememberPracticeTasks(game,list.map(task=>task.id));
+  let list;
   if(mode==='daily'){
+   // The official round comes from the server without answers.
    setStarting(true);
-   const granted=await daily.reserve(list);
+   list=await daily.reserve();
    setStarting(false);
-   if(!granted)return;
+   if(!list)return;
+  }else{
+   list=extraGameBuilders[game]({mode,date,seed:'practice-'+Date.now()+'-'+Math.random(),seen:readPracticeSeen(game)});
+   if(list.length!==10)return;
+   rememberPracticeTasks(game,list.map(task=>task.id));
   }
   answerLocked.current=false;
   setTasks(list);setRunId(i=>i+1);setIndex(0);setAnswer(null);setRecords([]);setFinished(false);
@@ -90,6 +93,7 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
   setVerifying(true);setSyncError('');
   try{
    const response=await daily.progress('answer',step,taskId,value);
+   if(response.task)setTasks(previous=>previous.map((item,i)=>i===step?{...item,...response.task}:item));
    setAnswer(prev=>prev?{...prev,correct:response.correct,points:response.points}:prev);
    setRecords(prev=>prev.map((item,i)=>i===step?{...item,correct:response.correct,points:response.points}:item));
    if(response.finished)setOfficialResult({score:response.score,correct:response.correctCount});
@@ -101,7 +105,8 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
   if(answerLocked.current||!task||finished)return;
   if(!timedOut&&!timer.claim())return;
   answerLocked.current=true;
-  const correct=!timedOut&&correctChoice(game,task,value);
+  // Daily tasks carry no answer until the server reveals it with its verdict.
+  const correct=!timedOut&&mode!=='daily'&&correctChoice(game,task,value);
   const lastBreak=records.slice().reverse().findIndex(r=>!r.correct);
   const streak=lastBreak===-1?records.length:lastBreak;
   const points=questionPoints(task,correct,streak);
@@ -176,12 +181,12 @@ export default function ExtraArcadeChallenge({game,date,initialMode='practice'})
     <span style={{width:((index+1)/tasks.length*100)+'%'}}/></div>
    <h2 className={styles.taskTitle} ref={titleRef} tabIndex={-1}>{game==='bigger'?task.question:questionTitles[game]}</h2>
    <div key={task.id} className={styles.taskBody}>
-    <ExtraBoard game={game} task={task} locked={answer!==null} onAnswer={submit}
+    <ExtraBoard game={game} task={task} locked={revealed} onAnswer={submit}
      remaining={timer.remaining} duration={duration} onReady={setMediaReady}/>
    </div>
    {!mediaReady&&<p className={styles.loading} role="status">جارٍ تجهيز الصورة، لن يبدأ المؤقت قبل ظهورها…</p>}
    <GameTimer remaining={timer.remaining} duration={duration} paused={!active}/>
-   {answer&&<div className={[styles.feedback,answer.correct?styles.good:styles.bad].join(' ')} role="status">
+   {revealed&&<div className={[styles.feedback,answer.correct?styles.good:styles.bad].join(' ')} role="status">
     <strong>{answer.timedOut?<><Clock3 size={18}/> انتهى الوقت!</>:answer.correct?<><CheckCircle2 size={18}/> إجابة صحيحة!</>:<><XCircle size={18}/> إجابة غير صحيحة</>}</strong>
     <p>{game==='bigger'?task.options.map(o=>o.name+' '+o.value.toLocaleString('ar')+' '+task.unit).join(' · '):
      game==='connect'?'تم عرض الوصلات الصحيحة أعلى الصفحة.':

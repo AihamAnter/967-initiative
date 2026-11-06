@@ -52,7 +52,7 @@ test('daily attempt API requires verified authenticated player and never uses un
 
 test('all game clients claim the attempt only once before starting daily rounds',()=>{
  const lock=read('components/games/useDailyAttempt.js');
- assert.ok(lock.includes("if(pending.current||state.kind!=='ready')return false"));
+ assert.ok(lock.includes("if(mode!=='daily'||pending.current||state.kind!=='ready')return null"));
  assert.ok(lock.includes("method:'POST'"));
  assert.ok(lock.includes("kind:'used'"));
  assert.ok(lock.includes("href=\"/login\""));
@@ -61,8 +61,9 @@ test('all game clients claim the attempt only once before starting daily rounds'
   const code=read(path);
   assert.ok(code.includes('useDailyAttempt('),path);
   assert.ok(code.includes('<DailyAttemptNotice'),path);
-  assert.ok(/await daily\.reserve\((list|tasksNow)\)/.test(code),path);
-  assert.ok(code.includes('if(!granted)return'),path);
+  assert.ok(/=await daily\.reserve\(\);/.test(code),path);
+  // No round starts unless the server granted the attempt and returned its tasks.
+  assert.ok(/if\(!(list|tasksNow)\)return;/.test(code),path);
  }
  for(const [route,game] of [['app/games/quiz/page.jsx','quiz'],['app/games/place/page.jsx','place'],['app/games/timeline/page.jsx','timeline'],['app/games/map/page.jsx','map'],...['who','bigger','connect','yemenword','object'].map(id=>['app/games/'+id+'/page.jsx',id])]){
   const code=read(route);

@@ -6,6 +6,8 @@ import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {serverDb} from '@/lib/supabase-server';
 import {readGameCatalog} from '@/lib/gameRepository';
+import {officialQuizIdsToday} from '@/lib/dailyOfficialSeed';
+import {recordOperationalEvent} from '@/lib/operationalEvents';
 import {pageMetadata} from '@/lib/seo';
 import QuizGame from '@/components/games/QuizGame';
 import styles from '../games.module.css';
@@ -28,11 +30,15 @@ export default async function QuizPage({searchParams}){
   </div>;
  }
 
+ // Today's official questions are not sent to the browser with their answers.
+ let practice=catalog.questions.filter(q=>q.isPublished);
+ try{const official=new Set(await officialQuizIdsToday(null,date,catalog.questions));practice=practice.filter(q=>!official.has(q.id));}
+ catch{recordOperationalEvent('source_unavailable',{source:'games',area:'quiz-daily'});}
  return <div className={styles.root}>
   <ArcadeIntro compact description="أربع اختيارات. إجابة واحدة صحيحة. عشر محطات تفصلك عن نتيجة تستحق أن تفتخر بها.">
    <Link href="/games" className={styles.heroSecondary}><ArrowRight size={17}/> جميع الألعاب</Link>
    <span className={styles.roundChip}>10 أسئلة <span aria-hidden="true">·</span> نقاط وتحديات</span>
   </ArcadeIntro>
-  <QuizGame key={mode} questions={catalog.questions.filter(q=>q.isPublished)} date={date} initialMode={mode}/>
+  <QuizGame key={mode} questions={practice} date={date} initialMode={mode}/>
  </div>;
 }

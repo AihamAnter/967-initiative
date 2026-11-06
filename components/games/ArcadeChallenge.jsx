@@ -4,7 +4,6 @@ import Link from 'next/link';
 import {ArrowLeft,ArrowRight,CheckCircle2,Clock3,Flame,Play,RotateCcw,Share2,Target,Trophy,XCircle,Zap} from 'lucide-react';
 import {buildPlaceChallenges,buildTimelineChallenges,buildMapChallenges,gameTypes,isTimelineCorrect} from '@/lib/arcadeChallenges';
 import {questionPoints} from '@/lib/gameEngine';
-import {dailySeed} from '@/lib/gameEngine';
 import {roundDuration} from '@/lib/gameClock';
 import useQuestionTimer from './useQuestionTimer';
 import {TimeControls,GameTimer} from './TimeControls';
@@ -44,6 +43,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   return ()=>{mounted=false;};
  },[game,mapAttempt]);
  const task=tasks[index];
+ const revealed=answer!==null&&(mode!=='daily'||verified);
  const duration=roundDuration(mode,seconds);
  const isActive=tasks.length>0&&!finished&&answer===null&&ready&&!verifying&&(mode!=='daily'||clockReady);
  const timer=useQuestionTimer({seconds:duration,token:runId+':'+index,active:isActive,startTime:mode==='daily'?serverStartedAt:null,onExpire:()=>submitAnswer(null,true)});
@@ -59,15 +59,18 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   finally{setReadyPending(false);}
  }
  async function start(){
-  const seed=mode==='daily'?dailySeed(date):'free-'+Date.now()+'-'+Math.random();
-  const tasksNow=builders[game]({mode,date,seed,seen:mode==='daily'?[]:readPracticeSeen(game)});
-  if(!tasksNow.length||starting)return;
-  if(mode==='practice')rememberPracticeTasks(game,tasksNow.map(task=>task.id));
+  if(starting)return;
+  let tasksNow;
   if(mode==='daily'){
+   // The official round comes from the server without answers.
    setStarting(true);
-   const granted=await daily.reserve(tasksNow);
+   tasksNow=await daily.reserve();
    setStarting(false);
-   if(!granted)return;
+   if(!tasksNow)return;
+  }else{
+   tasksNow=builders[game]({mode,date,seed:'free-'+Date.now()+'-'+Math.random(),seen:readPracticeSeen(game)});
+   if(!tasksNow.length)return;
+   rememberPracticeTasks(game,tasksNow.map(task=>task.id));
   }
   answerLocked.current=false;
   setRunId(x=>x+1);setTasks(tasksNow);setIndex(0);setRecords([]);setAnswer(null);
@@ -78,6 +81,7 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   setVerifying(true);setSyncError('');
   try{
    const response=await daily.progress('answer',step,taskId,value);
+   if(response.task)setTasks(previous=>previous.map((item,i)=>i===step?{...item,...response.task}:item));
    setAnswer(previous=>previous?{...previous,correct:response.correct,points:response.points}:previous);
    setRecords(previous=>previous.map((record,i)=>i===step?{...record,correct:response.correct,points:response.points}:record));
    if(response.finished)setOfficialResult({score:response.score,correct:response.correctCount});
@@ -90,7 +94,8 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
   if(!timedOut&&!timer.claim())return;
   answerLocked.current=true;
   const taskNow=tasks[index];
-  const correct=timedOut?false:game==='place'?value===taskNow.correct:game==='map'?value===taskNow.regionId:isTimelineCorrect(taskNow.events,value);
+  // Daily tasks carry no answer until the server reveals it with its verdict.
+  const correct=timedOut||mode==='daily'?false:game==='place'?value===taskNow.correct:game==='map'?value===taskNow.regionId:isTimelineCorrect(taskNow.events,value);
   const streak=records.slice().reverse().findIndex(r=>!r.correct);
   const points=questionPoints(taskNow,correct,streak===-1?records.length:streak);
   const record={correct,points,choice:value,timedOut};
@@ -153,13 +158,13 @@ export default function ArcadeChallenge({game,date,initialMode='practice'}){
    <div className={styles.progress} role="progressbar" aria-label="تقدم الجولة" aria-valuemin={0} aria-valuemax={tasks.length} aria-valuenow={index+1}><span style={{width:((index+1)/tasks.length*100)+'%'}}/></div>
    <h2 ref={titleRef} tabIndex={-1} className={styles.taskTitle}>{game==='place'?'ما اسم المكان في الصورة؟':game==='timeline'?'رتّب الأحداث من الأقدم إلى الأحدث':'أين تقع محافظة '+task.name+'؟'}</h2>
    <div className={styles.taskBody} key={task.id}>
-    {game==='place'&&<PlaceBoard task={task} locked={answer!==null} onAnswer={submitAnswer} onReady={setReady}/>}
-    {game==='timeline'&&<TimelineBoard task={task} locked={answer!==null} onAnswer={submitAnswer}/>}
-    {game==='map'&&<MapBoard task={task} locked={answer!==null} onAnswer={submitAnswer} data={mapData} selectedId={answer?.choice}/>}
+    {game==='place'&&<PlaceBoard task={task} locked={revealed} onAnswer={submitAnswer} onReady={setReady}/>}
+    {game==='timeline'&&<TimelineBoard task={task} locked={revealed} onAnswer={submitAnswer}/>}
+    {game==='map'&&<MapBoard task={task} locked={revealed} onAnswer={submitAnswer} data={mapData} selectedId={answer?.choice}/>}
    </div>
    {!ready&&<p className={styles.loading} role="status">{game==='place'?'جاري تجهيز الصورة… يبدأ الوقت عند ظهورها.':'جاري تجهيز الخريطة…'}</p>}
    <GameTimer remaining={timer.remaining} duration={duration} paused={!isActive}/>
-   {answer&&<div className={[styles.feedback,answer.correct?styles.good:styles.bad].join(' ')} role="status">
+   {revealed&&<div className={[styles.feedback,answer.correct?styles.good:styles.bad].join(' ')} role="status">
     <strong>{answer.timedOut?<><Clock3 size={18}/> انتهى الوقت!</>:answer.correct?<><CheckCircle2 size={18}/> إجابة صحيحة!</>:<><XCircle size={18}/> إجابة غير صحيحة</>}</strong>
     {game==='place'&&<p>المكان هو <b>{task.answer}</b>. {task.hint}</p>}
     {game==='timeline'&&<p>تم عرض الترتيب الصحيح للأحداث مع السنوات أسفلها.</p>}

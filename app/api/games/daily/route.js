@@ -3,7 +3,8 @@ import {serverDb} from '@/lib/supabase-server';
 import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
 import {utcDay,dailyGameForDate,nextUtcMidnight} from '@/lib/dailyGame';
 import {officialQuestionSnapshot} from '@/lib/dailyVerifiedScore';
-import {matchingDailyQuestionIds} from '@/lib/dailyAttemptIntegrity';
+import {officialDailySeed} from '@/lib/dailyOfficialSeed';
+import {friendPublicTask} from '@/lib/friendChallenge';
 import {requireEligibleGameProfile} from '@/lib/gamePlayerEligibility';
 
 export const runtime='nodejs';
@@ -35,17 +36,16 @@ async function handle(request,claim){
   if(claim){
    const body=await readJsonObject(request,2500);
    if(body.date!==date||body.game!==game)throw new RequestValidationError('بدأ تحدي يوم جديد. حدّث الصفحة لتجربة تحدي اليوم الصحيح.',409);
-   const questionBank=await officialQuestionSnapshot(db,game,date);
-   // If editorial questions or a cached browser bundle differ, fail BEFORE the
-   // unique daily attempt is reserved. The user can refresh without losing it.
-   if(!matchingDailyQuestionIds(body.questionIds,questionBank,body.signatures))
-    throw new RequestValidationError('تغيّر ترتيب أسئلة تحدي اليوم منذ فتح الصفحة. حدّث الصفحة قبل بدء المحاولة حتى لا تضيع محاولتك.',409);
+   // The server alone draws the round (with a secret seed) and returns it
+   // without answers; each solution is revealed only after its answer is saved.
+   const questionBank=await officialQuestionSnapshot(db,game,date,{dailyKey:officialDailySeed(date)});
+   const tasks=questionBank.map(entry=>friendPublicTask(game,entry.reveal));
    const {data,error}=await db.from('game_daily_attempts')
     .insert({user_id:user.id,challenge_date:date,game_type:game,question_bank:questionBank,phase:'question',step_index:0,question_started_at:null})
     .select('challenge_date,game_type,started_at').single();
    if(error?.code==='23505')return respond({error:'استخدمت محاولتك اليوم. يعود التحدي غداً عند 00:00 UTC.',used:true,date,game,nextAt},409);
    if(error){console.error('Daily game claim failure',error.code||'unknown');throw new RequestValidationError('تعذر حجز المحاولة بأمان. لم يبدأ التحدي.',503);}
-   return respond({used:true,claimed:true,date,game,nextAt,startedAt:data.started_at});
+   return respond({used:true,claimed:true,date,game,nextAt,startedAt:data.started_at,tasks});
   }
   const {data,error}=await db.from('game_daily_attempts')
    .select('challenge_date,game_type,started_at').eq('user_id',user.id).eq('challenge_date',date).maybeSingle();

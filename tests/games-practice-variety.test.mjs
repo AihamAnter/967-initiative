@@ -88,7 +88,9 @@ test('practice history is persisted per game without changing official daily att
   assert.ok(code.includes('readPracticeSeen'),path);
   assert.ok(code.includes('rememberPracticeTasks'),path);
   assert.ok(code.includes("mode==='practice'"),path);
-  assert.ok(code.includes("mode==='daily'?[]:readPracticeSeen"),path);
+  // Daily rounds come from the server; only practice reads local history.
+  assert.ok(code.includes('seen:readPracticeSeen('),path);
+  assert.ok(code.includes('await daily.reserve()'),path);
  }
  const claim=read('app/api/games/daily/route.js');
  assert.ok(claim.includes('dailyGameForDate(date)'));
