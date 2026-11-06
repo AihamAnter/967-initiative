@@ -38,7 +38,7 @@ function Row({item}) {
   const Icon = ICONS[item.kind] || PlayCircle;
   return <li><Link href={item.href} className={styles.row} style={{'--hue': HUES[item.kind]}}>
     {item.image
-      ? <span className={styles.thumb}><SafeImage src={item.image} sizes="76px" quality={60} placeholder={<span className={styles.fallback} aria-hidden="true"/>}/></span>
+      ? <span className={styles.thumb}><SafeImage src={item.image} sizes="64px" quality={60} placeholder={<span className={styles.fallback} aria-hidden="true"/>}/></span>
       : <span className={styles.thumb} data-empty><Icon size={22} aria-hidden="true"/></span>}
     <span className={styles.rowBody}>
       <span className={styles.kicker}>{item.label}{item.live && <b className={styles.live}>مباشر</b>}{item.meta && !item.live && <span className={styles.meta}>· {item.meta}</span>}</span>

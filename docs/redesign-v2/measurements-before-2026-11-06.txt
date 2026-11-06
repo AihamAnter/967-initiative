@@ -1,0 +1,88 @@
+
+### 375x812
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/ | 37 | 26 | 17 | 37/26/25 | 928 | 38% | no | 0
+/explore | 35 | 22 | 15 | 35/22 | 179 | 15% | no | 12
+/works | 38 | 26 | 17 | 38/26 | 362 | 27% | no | 6
+/yemen-in-numbers | 38 | 26 | 17 | 38/26 | 881 | 27% | no | 0
+/yemen-in-numbers/indicator/population | 38 | null | 17 | 38 | null | 35% | no | 0
+/yemen-ranking | 35 | 30 | 15 | 35/30/24/22 | 477 | 41% | no | 3
+/yemen-map | 35 | 24 | 15 | 35/25/24 | 425 | 41% | no | 6
+/yemeni-figures | 35 | 43 | 15 | 43/35/23/20 | 546 | 41% | no | 2
+/yemen-history | 35 | 31 | 15 | 35/31/25/23 | 600 | 48% | no | 2
+/debates | 35 | 28 | 15 | 35/28/23/21 | 601 | 55% | no | 2
+/school | 37 | 28 | 15 | 95/37/28/25 | 859 | 61% | no | 0
+/school/writing/musnad | 37 | 28 | 15 | 72/37/28/23/20 | 562 | 45% | no | 1
+/games | 42 | 30 | 14 | 42/30 | 854 | 65% | no | 0
+/games/quiz | 33 | 31 | 13 | 33/31/27/26 | 788 | 56% | no | 1
+/yemeni-products | 35 | 23 | 15 | 35/23/20 | 424 | 47% | no | 6
+/universities | 35 | 19 | 15 | 35/20 | 564 | 51% | no | 9
+/search?q=عدن | 35 | 20 | 15 | 35/20 | null | 50% | no | 0
+/about | 35 | 21 | 15 | 35/21 | 388 | 29% | no | 1
+/login | 27 | null | 14 | 27 | 379 | 24% | no | 2
+
+### 320x568
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/ | 35 | 26 | 17 | 35/26 | 893 | 54% | no | 0
+/explore | 34 | 22 | 15 | 34/22 | 206 | 21% | no | 7
+/works | 36 | 26 | 17 | 36/26 | 391 | 38% | no | 4
+/yemen-in-numbers | 36 | 26 | 17 | 36/26 | 910 | 38% | no | 0
+/yemen-in-numbers/indicator/population | 36 | null | 17 | 36 | null | 49% | no | 0
+/yemen-ranking | 34 | 30 | 15 | 34/30 | 503 | 63% | no | 1
+/yemen-map | 34 | 24 | 15 | 34/24 | 424 | 59% | no | 1
+/yemeni-figures | 34 | 43 | 15 | 43/34/23 | 626 | 73% | no | 0
+/yemen-history | 34 | 31 | 15 | 34/31/25 | 654 | 73% | no | 0
+/debates | 34 | 28 | 15 | 34/28/23/21 | 604 | 79% | no | 0
+/school | 35 | 28 | 15 | 95/35/28/25 | 888 | 92% | no | 0
+/school/writing/musnad | 35 | 28 | 15 | 35/28/20 | 640 | 74% | no | 0
+/games | 42 | 30 | 14 | 42/30 | 906 | 98% | no | 0
+/games/quiz | 33 | 31 | 13 | 33/31 | 875 | 91% | no | 0
+/yemeni-products | 34 | 21 | 15 | 34/21/20 | 473 | 76% | no | 2
+/universities | 34 | 19 | 15 | 34/20 | 663 | 86% | no | 0
+/search?q=عدن | 34 | 20 | 15 | 34/20 | null | 72% | no | 0
+/about | 34 | 21 | 15 | 34/21 | 387 | 42% | no | 1
+/login | 27 | null | 14 | 27 | 406 | 35% | no | 2
+
+### 768x1024
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/ | 46 | 32 | 17 | 46/32/25/22 | 1128 | 34% | no | 0
+/explore | 43 | 22 | 15 | 43/22 | 198 | 14% | no | 25
+/works | 49 | 43 | 18 | 49/43 | 347 | 22% | no | 7
+/yemen-in-numbers | 49 | 32 | 18 | 49/34/32/21/20 | 967 | 22% | no | 6
+/yemen-in-numbers/indicator/population | 49 | null | 18 | 49 | null | 29% | no | 0
+/yemen-ranking | 43 | 30 | 15 | 43/32/30/24/22 | 710 | 36% | no | 5
+/yemen-map | 43 | 24 | 15 | 43/25/24 | 647 | 33% | no | 6
+/yemeni-figures | 43 | 45 | 15 | 58/45/43/23/21/20 | 745 | 36% | no | 3
+/yemen-history | 43 | 29 | 15 | 43/29/26/25/20 | 745 | 36% | no | 3
+/debates | 43 | 28 | 15 | 43/28/23/21 | 557 | 39% | no | 11
+/school | 43 | 28 | 15 | 155/100/83/43/29/28 | 772 | 42% | no | 3
+/school/writing/musnad | 43 | 28 | 15 | 105/43/28/23 | 533 | 36% | no | 1
+/games | 61 | 31 | 15 | 61/31/20 | 838 | 57% | no | 18
+/games/quiz | 37 | 32 | 15 | 37/32/27/26 | 752 | 41% | no | 2
+/yemeni-products | 43 | 21 | 15 | 43/22/21 | 413 | 36% | no | 9
+/universities | 43 | 18 | 15 | 43/22 | 504 | 36% | no | 23
+/search?q=عدن | 43 | 22 | 15 | 43/22 | null | 41% | no | 0
+/about | 43 | 23 | 15 | 43/23/21 | 337 | 24% | no | 3
+/login | 31 | null | 14 | 31 | 409 | 22% | no | 3
+
+### 1440x900
+page | h1px | h2px | p px | fontSizes≥20 | content@y | %fold used by intro | overflowX | visible items in fold
+/ | 63 | 38 | 17 | 63/38/33/24/22 | 524 | 44% | no | 10
+/explore | 52 | 22 | 15 | 52/22 | 227 | 19% | no | 32
+/works | 56 | 52 | 20 | 56/52/20 | 361 | 26% | no | 6
+/yemen-in-numbers | 56 | 38 | 20 | 56/38/34/23/20 | 896 | 26% | no | 6
+/yemen-in-numbers/indicator/population | 56 | null | 20 | 56/20 | null | 34% | no | 0
+/yemen-ranking | 52 | 38 | 15 | 52/38/32/30/24/22 | 670 | 44% | no | 5
+/yemen-map | 52 | 34 | 15 | 52/44/34/25 | 586 | 42% | no | 1
+/yemeni-figures | 52 | 68 | 15 | 68/58/52/32/24/20 | 685 | 44% | no | 3
+/yemen-history | 52 | 48 | 15 | 52/48/35/25/20 | 685 | 44% | no | 3
+/debates | 52 | 28 | 15 | 52/28/23/21 | 591 | 48% | no | 11
+/school | 52 | 40 | 15 | 220/173/130/52/40/39 | 836 | 55% | no | 1
+/school/writing/musnad | 52 | 40 | 15 | 105/52/40/23 | 606 | 44% | no | 1
+/games | 84 | 44 | 18 | 84/44/28/25 | 955 | 72% | no | 0
+/games/quiz | 61 | 47 | 15 | 61/47/27/26 | 610 | 54% | no | 3
+/yemeni-products | 52 | 24 | 15 | 52/24/22 | 470 | 44% | no | 12
+/universities | 52 | 21 | 15 | 52/22/21 | 554 | 44% | no | 30
+/search?q=عدن | 52 | 22 | 15 | 52/22 | null | 50% | no | 0
+/about | 52 | 23 | 15 | 52/23/21 | 371 | 31% | no | 4
+/login | 36 | null | 14 | 36 | 417 | 26% | no | 3

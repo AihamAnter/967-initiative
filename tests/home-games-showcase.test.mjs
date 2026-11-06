@@ -10,18 +10,19 @@ const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 // home page as GamesArcade (components/front/FrontSections.jsx), keeping every
 // link and stat of the original HomeGames component.
 
-test('homepage promotes games in a large integrated section without removing editorial sections',()=>{
+test('homepage keeps every section in an app-style order: today, start, sections, games, school, knowledge',()=>{
  const homepage=read('app/page.jsx');
- const showcase=read('components/front/FrontSections.jsx');
+ const blocks=read('components/home/HomeBlocks.jsx');
  assert.ok(homepage.includes("{visible('games')&&<section id=\"home-games\""));
- assert.ok(homepage.includes('<GamesArcade dailyHref={dailyGameUrl(today)}'));
- assert.ok(homepage.includes('<HomeSmartStart initialDate={utcDay()}'));
- assert.ok(homepage.indexOf('id="explore-knowledge"')<homepage.indexOf('id="home-games"'));
- assert.ok(homepage.indexOf('id="home-games"')<homepage.indexOf('id="explore-title"'));
- assert.ok(showcase.includes('aria-labelledby')||homepage.includes('aria-labelledby="home-games-title"'));
- assert.ok(showcase.includes('id="home-games-title"'));
- for(const id of ['today-title','home-school-title','home-knowledge-title','explore-title','numbers-title','community-title','contact-title','id="about"','id="projects"'])
+ assert.ok(homepage.includes('<GamesStrip dailyHref={dailyGameUrl(today)}'));
+ assert.ok(homepage.includes('<HomeSmartStart initialDate={today}'));
+ const order=['id="today-title"','<HomeSmartStart','id="explore-title"','id="home-games"','id="home-school"','id="explore-knowledge"','id="numbers-title"','id="community-title"','id="about"'];
+ const at=order.map(x=>homepage.indexOf(x));
+ assert.ok(at.every(x=>x>=0),'missing home section');
+ assert.deepEqual([...at].sort((a,b)=>a-b),at,'home sections out of order');
+ for(const id of ['today-title','home-school-title','home-knowledge-title','explore-title','numbers-title','community-title','id="about"','id="projects"'])
   assert.ok(homepage.includes(id),id);
+ assert.ok(blocks.includes('id="contact-title"'));
 });
 
 test('games hidden by site visibility settings also hide homepage feature and personalized game tile',()=>{
@@ -39,9 +40,9 @@ test('games hidden by site visibility settings also hide homepage feature and pe
 
 test('showcase links to the official UTC daily challenge and the real games instead of obsolete friend creation',()=>{
  const homepage=read('app/page.jsx');
- const showcase=read('components/front/FrontSections.jsx');
+ const showcase=read('components/home/HomeBlocks.jsx');
  assert.ok(homepage.includes('dailyGameUrl(today)'));
- assert.ok(homepage.includes('DAILY_GAME_TITLES[dailyGameForDate(today)]'));
+ assert.ok(homepage.includes('DAILY_GAME_TITLES[dailyGame]'));
  assert.ok(showcase.includes('href={dailyHref}'));
  assert.ok(showcase.includes('href="/games/leaderboard"'));
  assert.ok(showcase.includes('href="/games"'));

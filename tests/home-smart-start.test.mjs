@@ -12,12 +12,11 @@ test('Today comes first, then smart start, and the full home sections remain',()
  const page=read('app/page.jsx');
  const smart=read('components/home/HomeSmartStart.jsx');
  assert.ok(page.includes("import HomeSmartStart from '@/components/home/HomeSmartStart'"));
- assert.ok(page.includes("<HomeSmartStart initialDate={utcDay()} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/>"));
+ assert.ok(page.includes("<HomeSmartStart initialDate={today} knowledgeHref={knowledgeLinks[0]?.href||'/search'}/>"));
  // Newest content leads the page; the member resume / guest start follows it.
  assert.ok(page.indexOf('<TodayFeed feed={feed}')<page.indexOf('<HomeSmartStart initialDate='));
  assert.ok(page.indexOf('<HomeSmartStart initialDate=')<page.indexOf('id="home-school"'));
- assert.ok(page.indexOf('<KnowledgeBento items={knowledgeLinks}/>')<page.indexOf('<GamesArcade'));
- for(const token of ['styles.today','<DiscoverRail','styles.data','styles.community','styles.invite','styles.about'])
+ for(const token of ['<Shortcuts items={shortcuts}/>','<SectionLauncher','<NumbersRail','<CommunityRows','<InviteBanner','styles.about'])
   assert.ok(page.includes(token),token);
  assert.ok(smart.includes('aria-labelledby="home-start-title"'));
 });

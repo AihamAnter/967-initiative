@@ -33,12 +33,12 @@ test('reported accessibility violations have explicit fixes',()=>{
 });
 
 test('mobile discovery is compact without hiding desktop content or horizontal filters',()=>{
- const home=read('app/page.jsx');
- const front=read('app/front.module.css');
+ const blocks=read('components/home/HomeBlocks.module.css');
  const knowledge=read('components/knowledge/KnowledgeNavigation.module.css');
  const search=read('app/platform-refinements.css');
- assert.ok(home.includes('<MobileFold title="المزيد من طرق الاستكشاف"'));
- assert.ok(front.includes('.front { --s-section: 40px; }'));
+ // Home rails and shortcuts swipe horizontally instead of stacking long sections.
+ assert.ok(blocks.includes('.rail { display: flex;'));
+ assert.ok(blocks.includes('scroll-snap-type: x proximity'));
  assert.ok(knowledge.includes('scroll-snap-type:x proximity'));
  assert.ok(search.includes('.search-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'));
 });

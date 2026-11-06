@@ -68,17 +68,18 @@ test('debate participant links stay available and nested debate interaction is u
 });
 
 // Iteration 2: school tracks and the games rail are back on home (components/front/FrontSections.jsx).
-test('homepage retains navigation with compact school grid and shorter secondary sections',()=>{
+test('homepage retains navigation with compact school rows and an app launcher',()=>{
  const home=read('app/page.jsx');
- const blocks=read('components/front/FrontSections.jsx');
- const css=read('app/front.module.css');
+ const blocks=read('components/home/HomeBlocks.jsx');
+ const css=read('components/home/HomeBlocks.module.css');
  const start=read('components/home/HomeSmartStart.module.css');
  for(const href of ['/school/writing','/school/nature','/school/logic','/school/civic'])assert.ok(blocks.includes("href: '"+href+"'"),href);
- assert.ok(home.includes('<HomeSmartStart initialDate={utcDay()}'));
- assert.ok(home.includes('<KnowledgeBento items={knowledgeLinks}/>'));
- assert.ok(home.includes('<GamesArcade'));
- assert.ok(css.includes('.schoolTracks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))'));
- assert.ok(css.includes('.schoolTracks { grid-template-columns: minmax(0, 1fr); }'));
+ assert.ok(home.includes('<HomeSmartStart initialDate={today}'));
+ assert.ok(home.includes('<KnowledgeRail items={knowledgeLinks}/>'));
+ assert.ok(home.includes('<GamesStrip'));
+ assert.ok(home.includes('<SchoolStrip/>'));
+ assert.ok(css.includes('.launcher { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));'));
+ assert.ok(css.includes('.row { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto auto;'));
  assert.ok(start.includes('.card{display:grid;grid-template-columns:38px minmax(0,1fr)'));
 });
 

@@ -53,11 +53,10 @@ test('footer has a separate Games 967 heading with working destination routes',(
 
 test('homepage games showcase has its own name, today\'s UTC challenge and visibility control',()=>{
  const home=read('app/page.jsx');
- const games=read('components/front/FrontSections.jsx');
+ const blocks=read('components/home/HomeBlocks.jsx');
  assert.ok(home.includes("{visible('games')&&<section id=\"home-games\""));
- assert.ok(home.indexOf('id="explore-knowledge"')<home.indexOf('id="home-games"'));
- assert.ok(home.includes('dailyGameUrl(today)'));
- assert.ok(home.includes('DAILY_GAME_TITLES[dailyGameForDate(today)]'));
- assert.ok(games.includes('id="home-games-title"'));
- assert.ok(!/[\u0660-\u0669\u06F0-\u06F9]/u.test(home+games));
+ assert.ok(home.includes('const dailyGame = dailyGameForDate(today);'));
+ assert.ok(home.includes('<GamesStrip dailyHref={dailyGameUrl(today)} dailyTitle={DAILY_GAME_TITLES[dailyGame]}/>'));
+ assert.ok(home.includes('id="home-games-title"'));
+ assert.ok(!/[٠-٩۰-۹]/u.test(home+blocks));
 });
