@@ -1,0 +1,75 @@
+/*
+ * 967 identity layer (iteration 3, 2026-11-06): "Yemeni editorial".
+ *
+ * Loaded last from the root layout. It gives every route the same calm,
+ * theme-aware shell while the legacy route sheets are retired one by one:
+ *  - page intros are light in light mode, short on phones and never a black band;
+ *  - a section keeps its identity as an accent (rule, eyebrow, icon), not a backdrop;
+ *  - Latin "eyebrow" labels are not used in the Arabic interface.
+ * The tripled :root raises specificity above the legacy bridge in unified.css,
+ * which itself uses doubled classes and !important.
+ */
+
+/* ---------- Page intro (PageIntro, KnowledgePageIntro, legacy .page-hero) ---------- */
+:root:root:root .site-experience.site-experience .page-intro {
+  --intro-accent: var(--section-fill, var(--c-accent));
+  padding-block: clamp(20px, 4vw, 44px) clamp(22px, 4vw, 40px) !important;
+  background: var(--c-bg-2) !important;
+  color: var(--c-ink) !important;
+  border: 0 !important;
+  border-block-end: 1px solid var(--c-line) !important;
+  box-shadow: inset 0 3px 0 var(--intro-accent);
+}
+:root:root:root .site-experience.site-experience .page-intro::before,
+:root:root:root .site-experience.site-experience .page-intro::after { content: none !important; display: none !important; }
+:root:root:root .site-experience.site-experience .page-intro :is(.page-intro-motif, .page-intro-art) { display: none !important; }
+:root:root:root .site-experience.site-experience .page-intro > .container { padding-inline-end: 0 !important; }
+:root:root:root .site-experience.site-experience .page-intro h1 {
+  max-width: 22ch;
+  margin-block: var(--s-2) var(--s-2) !important;
+  color: var(--c-ink) !important;
+  font: 700 var(--t-size-h1)/var(--t-lh-display) var(--t-display) !important;
+}
+:root:root:root .site-experience.site-experience .page-intro :is(h1, h2, strong) { color: var(--c-ink) !important; }
+:root:root:root .site-experience.site-experience .page-intro > .container > p,
+:root:root:root .site-experience.site-experience .page-intro p {
+  max-width: var(--t-measure);
+  color: var(--c-ink-2) !important;
+  font-size: var(--t-size-ui) !important;
+  line-height: 1.75 !important;
+}
+:root:root:root .site-experience.site-experience .page-intro :is(.breadcrumbs, .breadcrumbs a, .breadcrumb, .breadcrumb a) {
+  color: var(--c-ink-3) !important;
+  font-size: var(--t-size-meta) !important;
+}
+:root:root:root .site-experience.site-experience .page-intro :is(.eyebrow, .page-intro-eyebrow) {
+  display: inline-flex; align-items: center; gap: 6px; width: max-content;
+  padding: 2px 10px !important;
+  border: 0 !important;
+  border-radius: var(--r-pill) !important;
+  background: color-mix(in srgb, var(--intro-accent) 12%, transparent) !important;
+  color: var(--intro-accent) !important;
+  font-size: var(--t-size-meta) !important;
+  font-weight: 600;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+/* Actions inside an intro: one filled primary, the rest quiet. */
+:root:root:root .site-experience.site-experience .page-intro :is(a, button):is(.btn, .button):not(.btn-primary, .primary) {
+  background: var(--c-surface) !important;
+  border: 1px solid var(--c-line-2) !important;
+  color: var(--c-ink) !important;
+}
+:root:root:root .site-experience.site-experience .page-intro :is(a, button):is(.btn-primary, .primary) {
+  background: var(--c-accent) !important;
+  border-color: var(--c-accent) !important;
+  color: var(--c-on-dark) !important;
+}
+:root:root:root[data-ed-theme="dark"] .site-experience.site-experience .page-intro :is(a, button):is(.btn-primary, .primary) {
+  color: var(--c-bg) !important;
+}
+
+/* ---------- Footer: basalt in both themes, warm not blue-black ---------- */
+:root .ed-footer { background: var(--c-night); }
+
+/* ---------- Surfaces: cards and panels follow the theme ---------- */
+:root .site-experience :is(.card, .panel) { border-radius: var(--r-2); }

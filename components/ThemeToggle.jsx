@@ -5,8 +5,8 @@ import {Moon,Sun} from 'lucide-react';
 const KEY='967-editorial-theme';
 const current=()=>document.documentElement.dataset.edTheme==='dark'?'dark':'light';
 
-// Default light. Saved visitor preference is read by a tiny script in <head>
-// before paint, then synchronized with this accessible switch.
+// Follows the device setting until the visitor picks a mode. The saved choice
+// (or the system mode) is applied by a tiny script in <head> before paint.
 export default function ThemeToggle(){
  const [theme,setTheme]=useState('light');
 
@@ -20,7 +20,17 @@ export default function ThemeToggle(){
    setTheme(next);
   };
   window.addEventListener('storage',onStorage);
-  return()=>window.removeEventListener('storage',onStorage);
+  // Without a saved choice, follow the device when it switches light/dark.
+  const media=window.matchMedia?.('(prefers-color-scheme: dark)');
+  const onSystem=event=>{
+   let saved=null;try{saved=window.localStorage.getItem(KEY);}catch{/* storage blocked */}
+   if(saved)return;
+   const next=event.matches?'dark':'light';
+   document.documentElement.dataset.edTheme=next;
+   setTheme(next);
+  };
+  media?.addEventListener?.('change',onSystem);
+  return()=>{window.removeEventListener('storage',onStorage);media?.removeEventListener?.('change',onSystem);};
  },[]);
 
  const toggle=()=>{

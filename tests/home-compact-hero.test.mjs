@@ -15,7 +15,7 @@ test('home title becomes compact without changing the site-wide hero token',()=>
  assert.ok(title.includes('clamp(3rem, 1.6rem + 3.2vw, 5.25rem)'));
  assert.ok(title.includes('max-width: 19ch'));
  assert.ok(title.includes('text-wrap: balance'));
- assert.ok(read('app/foundation/tokens.css').includes('--t-size-hero: clamp(3.4rem, 1.6rem + 7.6vw, 8.5rem)'));
+ assert.ok(read('app/foundation/tokens.css').includes('--t-size-hero: clamp(2.75rem, 1.9rem + 4.2vw, 4.75rem)'));
 });
 test('reduced top spacing preserves editable copy, search and homepage sections',()=>{
  assert.ok(line('.hero').includes('calc(var(--header-h) + clamp(28px, 3.5vw, 56px))'));
