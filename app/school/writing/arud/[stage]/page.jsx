@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {notFound} from 'next/navigation';
+import {notFound,redirect} from 'next/navigation';
 import {ChevronLeft} from 'lucide-react';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
@@ -21,6 +21,8 @@ export default async function ArudStagePage({params}){
  if(!original)notFound();
  const db=serverDb();
  const overlay=db?await publishedSchoolStage(db,'arud',original.index):null;
+ // درس بطاقات منشور لهذه المحطة: يُفتح في مشغّل البطاقات بدل الدرس القديم.
+ if(overlay?.format===2)redirect('/school/courses/arud/'+raw);
  const stage=overlay?{...original,...overlay}:original;
  return <div className={school.root}><section className={styles.lessonBackground}><div className="container">
   <div className={styles.lessonBreadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing/arud">علم العروض</Link><ChevronLeft size={14}/>المحطة {raw}</div>
