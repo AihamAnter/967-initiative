@@ -1,0 +1,907 @@
+[
+ {
+  "slug": "health-1302003",
+  "name_ar": "المستشفى التخصصي للأمومة الآمنة",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-2708008",
+  "name_ar": "المستشفى الجمهوري العام بالمحويت",
+  "governorate": "المحويت"
+ },
+ {
+  "slug": "health-1801014",
+  "name_ar": "المستشفى الريفي الزهرة",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-1807004",
+  "name_ar": "المستشفى الريفي الزيدية",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-1815013",
+  "name_ar": "المستشفى الريفي السخنه",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-1805002",
+  "name_ar": "المستشفى الريفي المنيرة",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-2201004",
+  "name_ar": "المستشفى الريفي باقم",
+  "governorate": "صعدة"
+ },
+ {
+  "slug": "health-1406005",
+  "name_ar": "المستشفى الريفي بذي ناعم (مستشفى الوحدة الريفي حاليًا)",
+  "governorate": "البيضاء"
+ },
+ {
+  "slug": "health-2212004",
+  "name_ar": "المستشفى الريفي دماج",
+  "governorate": "صعدة"
+ },
+ {
+  "slug": "health-2209014",
+  "name_ar": "المستشفى الريفي ساقين",
+  "governorate": "صعدة"
+ },
+ {
+  "slug": "health-3003013",
+  "name_ar": "المستشفى الريفي غول الديمة",
+  "governorate": "الضالع"
+ },
+ {
+  "slug": "health-1709003",
+  "name_ar": "المستشفى الريفي كحالن الشرف",
+  "governorate": "حجة"
+ },
+ {
+  "slug": "health-1813018",
+  "name_ar": "المستشفى الريفي كمران الخيري",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-2203002",
+  "name_ar": "المستشفى الريفي منبه",
+  "governorate": "صعدة"
+ },
+ {
+  "slug": "health-1703002",
+  "name_ar": "المستشفى الريفي ميدي بالمدينة",
+  "governorate": "حجة"
+ },
+ {
+  "slug": "saudi-german-hospital-sanaa",
+  "name_ar": "المستشفى السعودي الألماني — صنعاء",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-1720005",
+  "name_ar": "المستشفى الشهيد شرف الكحالني",
+  "governorate": "حجة"
+ },
+ {
+  "slug": "aden-central-oncology-hospital",
+  "name_ar": "المستشفى المركزي لعلاج الأورام — عدن",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "yemen-german-hospital-sanaa",
+  "name_ar": "المستشفى اليمني الألماني — صنعاء",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "yemeni-health-international-hospital-sanaa",
+  "name_ar": "المستشفى اليمني هلث الدولي — صنعاء",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-2506013",
+  "name_ar": "مركز الأمومة والطفولة — حالمين",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "health-2403003",
+  "name_ar": "مستشفى 22 مايو الجراحي العام",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "health-2301016",
+  "name_ar": "مستشفى 22 مايو ضالع همدان",
+  "governorate": "صنعاء"
+ },
+ {
+  "slug": "health-2005004",
+  "name_ar": "مستشفى 26 سبتمبر الريفي",
+  "governorate": "ذمار"
+ },
+ {
+  "slug": "health-2601006",
+  "name_ar": "مستشفى 7 يوليو الجفرة",
+  "governorate": "مأرب"
+ },
+ {
+  "slug": "health-1209008",
+  "name_ar": "مستشفى احور الريفي",
+  "governorate": "أبين"
+ },
+ {
+  "slug": "health-2502001",
+  "name_ar": "مستشفى اكتوبر العام",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "health-1308028",
+  "name_ar": "مستشفى الأم والطفل (داخل جامعة صنعاء، مديرية معين)",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-2402001",
+  "name_ar": "مستشفى الأمراض النفسية والعصبية",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "alamal-oncology-hospital-sanaa",
+  "name_ar": "مستشفى الأمل للأورام — صنعاء",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-1806030",
+  "name_ar": "مستشفى الأمومة والطفولة",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-2301009",
+  "name_ar": "مستشفى الأمومة والطفولة — قاع الرقة",
+  "governorate": "صنعاء"
+ },
+ {
+  "slug": "health-2708003",
+  "name_ar": "مستشفى الأمومة والطفولة — مدينة المحويت",
+  "governorate": "المحويت"
+ },
+ {
+  "slug": "health-1504015",
+  "name_ar": "مستشفى البرح الريفي",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-2001015",
+  "name_ar": "مستشفى البردون الريفي",
+  "governorate": "ذمار"
+ },
+ {
+  "slug": "health-3103014",
+  "name_ar": "مستشفى الثاليا العام",
+  "governorate": "ريمة"
+ },
+ {
+  "slug": "health-1409007",
+  "name_ar": "مستشفى الثورة العام",
+  "governorate": "البيضاء"
+ },
+ {
+  "slug": "health-1503018",
+  "name_ar": "مستشفى الحرية الريفي",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-1109019",
+  "name_ar": "مستشفى الحزم الريفي",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-2704021",
+  "name_ar": "مستشفى الخبت الريفي",
+  "governorate": "المحويت"
+ },
+ {
+  "slug": "health-1211033",
+  "name_ar": "مستشفى الخبر",
+  "governorate": "أبين"
+ },
+ {
+  "slug": "al-khawkhah-field-hospital-hodeidah",
+  "name_ar": "مستشفى الخوخة الميداني",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-2703016",
+  "name_ar": "مستشفى الرجم الريفي",
+  "governorate": "المحويت"
+ },
+ {
+  "slug": "health-1103009",
+  "name_ar": "مستشفى الرضمة الريفي",
+  "governorate": "إب"
+ },
+ {
+  "slug": "alrawdhah-hospital-taiz",
+  "name_ar": "مستشفى الروضة — تعز",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-1913018",
+  "name_ar": "مستشفى الريدة الشرقيه",
+  "governorate": "حضرموت"
+ },
+ {
+  "slug": "health-1401002",
+  "name_ar": "مستشفى الساحة الريفي",
+  "governorate": "البيضاء"
+ },
+ {
+  "slug": "health-3003003",
+  "name_ar": "مستشفى السالم",
+  "governorate": "الضالع"
+ },
+ {
+  "slug": "health-2502021",
+  "name_ar": "مستشفى السالم الريفي",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "health-1305010",
+  "name_ar": "مستشفى السبعين",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "saudi-field-hospital-mokha",
+  "name_ar": "مستشفى السعودي الميداني — المخا",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-2913021",
+  "name_ar": "مستشفى السودة الريفي",
+  "governorate": "عمران"
+ },
+ {
+  "slug": "health-1915003",
+  "name_ar": "مستشفى الشحر العام",
+  "governorate": "حضرموت"
+ },
+ {
+  "slug": "health-3004002",
+  "name_ar": "مستشفى الشهداء الثالثة",
+  "governorate": "الضالع"
+ },
+ {
+  "slug": "health-2107001",
+  "name_ar": "مستشفى الشهيد الدفيعه بيحان",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-1711011",
+  "name_ar": "مستشفى الشهيد د / ياسر وثاب ( مستشفى خيران المحرق سابقا )",
+  "governorate": "حجة"
+ },
+ {
+  "slug": "health-1405003",
+  "name_ar": "مستشفى الشهيد صالح عثمان بالناصفة",
+  "governorate": "البيضاء"
+ },
+ {
+  "slug": "health-1201004",
+  "name_ar": "مستشفى الشهيد صالح ناصرمحمد",
+  "governorate": "أبين"
+ },
+ {
+  "slug": "health-1106004",
+  "name_ar": "مستشفى الشهيد علي عبدالمغني",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-1202009",
+  "name_ar": "مستشفى الشهيد عوض احمد عوض",
+  "governorate": "أبين"
+ },
+ {
+  "slug": "health-2612003",
+  "name_ar": "مستشفى الشهيد محمد هايل للأمومة والطفولة",
+  "governorate": "مأرب"
+ },
+ {
+  "slug": "health-1204014",
+  "name_ar": "مستشفى الشهيد محنف العام لودر",
+  "governorate": "أبين"
+ },
+ {
+  "slug": "health-1308024",
+  "name_ar": "مستشفى الشهيد هاني طومر ( مستشفى 22 مايوسابقا",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "al-khawkhah-mohammed-bin-zayed-hospital",
+  "name_ar": "مستشفى الشيخ محمد بن زايد — الخوخة",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-2102002",
+  "name_ar": "مستشفى الطلح",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-2702021",
+  "name_ar": "مستشفى الطويلة الريفي",
+  "governorate": "المحويت"
+ },
+ {
+  "slug": "health-1111011",
+  "name_ar": "مستشفى العدين العام",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-1416004",
+  "name_ar": "مستشفى العرش الريفي",
+  "governorate": "البيضاء"
+ },
+ {
+  "slug": "health-2804009",
+  "name_ar": "مستشفى الغيضة",
+  "governorate": "المهرة"
+ },
+ {
+  "slug": "health-1116007",
+  "name_ar": "مستشفى القاعدة العام",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-1907018",
+  "name_ar": "مستشفى القطن العام",
+  "governorate": "حضرموت"
+ },
+ {
+  "slug": "health-2904006",
+  "name_ar": "مستشفى القفلة المحوري",
+  "governorate": "عمران"
+ },
+ {
+  "slug": "health-1802030",
+  "name_ar": "مستشفى اللحية الريفي",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-2508010",
+  "name_ar": "مستشفى المالح الريفي",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "health-1715001",
+  "name_ar": "مستشفى المحابشة المحوري",
+  "governorate": "حجة"
+ },
+ {
+  "slug": "health-2606005",
+  "name_ar": "مستشفى المحجزة",
+  "governorate": "مأرب"
+ },
+ {
+  "slug": "health-1505008",
+  "name_ar": "مستشفى المخاء",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-3102011",
+  "name_ar": "مستشفى المسجدين المحوري ( السلفية )",
+  "governorate": "ريمة"
+ },
+ {
+  "slug": "health-1511009",
+  "name_ar": "مستشفى المسراخ المحوري",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-2503002",
+  "name_ar": "مستشفى المفلحي الريفي",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "health-3101009",
+  "name_ar": "مستشفى الميثاق",
+  "governorate": "ريمة"
+ },
+ {
+  "slug": "health-3006017",
+  "name_ar": "مستشفى النصر الضالع",
+  "governorate": "الضالع"
+ },
+ {
+  "slug": "health-1504024",
+  "name_ar": "مستشفى النصرشمير",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-2002001",
+  "name_ar": "مستشفى الوحدة التعليمي الجامعي",
+  "governorate": "ذمار"
+ },
+ {
+  "slug": "health-1519003",
+  "name_ar": "مستشفى الوحدة الريفي للأمومة والطفولة",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-2609013",
+  "name_ar": "مستشفى الوطن",
+  "governorate": "مأرب"
+ },
+ {
+  "slug": "yemen-international-hospital-taiz",
+  "name_ar": "مستشفى اليمن الدولي — تعز",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-1610001",
+  "name_ar": "مستشفى برط العنان العـــام",
+  "governorate": "الجوف"
+ },
+ {
+  "slug": "health-1421002",
+  "name_ar": "مستشفى بني وهب",
+  "governorate": "البيضاء"
+ },
+ {
+  "slug": "health-1911016",
+  "name_ar": "مستشفى تريم",
+  "governorate": "حضرموت"
+ },
+ {
+  "slug": "ust-university-hospital-sanaa",
+  "name_ar": "مستشفى جامعة العلوم والتكنولوجيا",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-1112005",
+  "name_ar": "مستشفى جبلة الجامعي",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-2506004",
+  "name_ar": "مستشفى حالمين الريفي",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "haban-hospital-shabwa",
+  "name_ar": "مستشفى حبان — شبوة",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-2908002",
+  "name_ar": "مستشفى حبور الريفي",
+  "governorate": "عمران"
+ },
+ {
+  "slug": "health-2901009",
+  "name_ar": "مستشفى حرف سفيان المحوري",
+  "governorate": "عمران"
+ },
+ {
+  "slug": "health-2609011",
+  "name_ar": "مستشفى حريب العام",
+  "governorate": "مأرب"
+ },
+ {
+  "slug": "health-2809008",
+  "name_ar": "مستشفى حصوين الريفي",
+  "governorate": "المهرة"
+ },
+ {
+  "slug": "health-2706015",
+  "name_ar": "مستشفى حفاش الريفي",
+  "governorate": "المحويت"
+ },
+ {
+  "slug": "health-2803001",
+  "name_ar": "مستشفى حوف الريفي",
+  "governorate": "المهرة"
+ },
+ {
+  "slug": "health-1516007",
+  "name_ar": "مستشفى حيفان الريفي",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-1514036",
+  "name_ar": "مستشفى خليفة العام بالتربة",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-3201004",
+  "name_ar": "مستشفى خليفة بن زايد",
+  "governorate": "سقطرى"
+ },
+ {
+  "slug": "health-2008006",
+  "name_ar": "مستشفى ذمار للأمومة والطفولة",
+  "governorate": "ذمار"
+ },
+ {
+  "slug": "health-2909001",
+  "name_ar": "مستشفى ذيبين الريفي",
+  "governorate": "عمران"
+ },
+ {
+  "slug": "ras-alara-hospital-lahj",
+  "name_ar": "مستشفى رأس العارة — لحج",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "health-2205002",
+  "name_ar": "مستشفى رازح الريفي",
+  "governorate": "صعدة"
+ },
+ {
+  "slug": "health-1101024",
+  "name_ar": "مستشفى رحاب الريفي",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-2608003",
+  "name_ar": "مستشفى رحبة الريفي",
+  "governorate": "مأرب"
+ },
+ {
+  "slug": "health-1413005",
+  "name_ar": "مستشفى رداع المركزي",
+  "governorate": "البيضاء"
+ },
+ {
+  "slug": "health-2507002",
+  "name_ar": "مستشفى ردفان العام",
+  "governorate": "لحج"
+ },
+ {
+  "slug": "health-1206015",
+  "name_ar": "مستشفى رصد - يافع",
+  "governorate": "أبين"
+ },
+ {
+  "slug": "health-2911001",
+  "name_ar": "مستشفى ريدة الريفي",
+  "governorate": "عمران"
+ },
+ {
+  "slug": "health-2001026",
+  "name_ar": "مستشفى زراجه الريفي",
+  "governorate": "ذمار"
+ },
+ {
+  "slug": "health-1210005",
+  "name_ar": "مستشفى زنجبار",
+  "governorate": "أبين"
+ },
+ {
+  "slug": "health-2807007",
+  "name_ar": "مستشفى سيحوت",
+  "governorate": "المهرة"
+ },
+ {
+  "slug": "health-1908003",
+  "name_ar": "مستشفى شبام",
+  "governorate": "حضرموت"
+ },
+ {
+  "slug": "health-2404002",
+  "name_ar": "مستشفى صالح الدين",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "health-1704009",
+  "name_ar": "مستشفى عبس",
+  "governorate": "حجة"
+ },
+ {
+  "slug": "aden-german-international-hospital",
+  "name_ar": "مستشفى عدن الألماني الدولي",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "health-2407001",
+  "name_ar": "مستشفى عدن العام",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "health-2104001",
+  "name_ar": "مستشفى عرماء",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-2105004",
+  "name_ar": "مستشفى عسيالن",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-2302017",
+  "name_ar": "مستشفى عومرة الريفي",
+  "governorate": "صنعاء"
+ },
+ {
+  "slug": "health-2304025",
+  "name_ar": "مستشفى غضران",
+  "governorate": "صنعاء"
+ },
+ {
+  "slug": "health-1310012",
+  "name_ar": "مستشفى فلسطين للأمومة والطفولة (مستشفى زايد سابقًا)",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "qaboul-charity-hospital-taiz",
+  "name_ar": "مستشفى قبول الخيري — الشمايتين",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-2808002",
+  "name_ar": "مستشفى قشن العام",
+  "governorate": "المهرة"
+ },
+ {
+  "slug": "health-1713004",
+  "name_ar": "مستشفى قفل شمر",
+  "governorate": "حجة"
+ },
+ {
+  "slug": "health-3202003",
+  "name_ar": "مستشفى قلنسية",
+  "governorate": "سقطرى"
+ },
+ {
+  "slug": "health-3004015",
+  "name_ar": "مستشفى لصبور الريفي",
+  "governorate": "الضالع"
+ },
+ {
+  "slug": "health-2610002",
+  "name_ar": "مستشفى ماهلية",
+  "governorate": "مأرب"
+ },
+ {
+  "slug": "health-3006033",
+  "name_ar": "مستشفى محمد بن زايد العام",
+  "governorate": "الضالع"
+ },
+ {
+  "slug": "health-1914006",
+  "name_ar": "مستشفى مديرية الديس الشرقية",
+  "governorate": "حضرموت"
+ },
+ {
+  "slug": "health-2003001",
+  "name_ar": "مستشفى مدينة الشرق الريفي",
+  "governorate": "ذمار"
+ },
+ {
+  "slug": "health-3104008",
+  "name_ar": "مستشفى مسور الريفي - مركز العارضة سابقا )",
+  "governorate": "ريمة"
+ },
+ {
+  "slug": "health-2404009",
+  "name_ar": "مستشفى مصافي عدن",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "health-1118002",
+  "name_ar": "مستشفى ناصر العام",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-2110022",
+  "name_ar": "مستشفى نصاب العام",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-3008017",
+  "name_ar": "مستشفى نورصة الريفي",
+  "governorate": "الضالع"
+ },
+ {
+  "slug": "health-1504013",
+  "name_ar": "مستشفى هجدة الريفي",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-2301004",
+  "name_ar": "مستشفى همدان",
+  "governorate": "صنعاء"
+ },
+ {
+  "slug": "health-2109006",
+  "name_ar": "مستشفى واسط",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-1102001",
+  "name_ar": "مستشفى يريم",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-2305002",
+  "name_ar": "مسشتفى سيان الريفي",
+  "governorate": "صنعاء"
+ },
+ {
+  "slug": "health-2211012",
+  "name_ar": "ممستشفى الطلح العام",
+  "governorate": "صعدة"
+ },
+ {
+  "slug": "health-1307002",
+  "name_ar": "هيئة المستشفى الجمهوري التعليمي — أمانة العاصمة",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-2215001",
+  "name_ar": "هيئة المستشفى الجمهوري العام",
+  "governorate": "صعدة"
+ },
+ {
+  "slug": "health-2307014",
+  "name_ar": "هيئة مستشفى 26 سبتمبر - متنة بني مطر صنعاء",
+  "governorate": "صنعاء"
+ },
+ {
+  "slug": "health-1927005",
+  "name_ar": "هيئة مستشفى ابن سيناء",
+  "governorate": "حضرموت"
+ },
+ {
+  "slug": "health-1119017",
+  "name_ar": "هيئة مستشفى الثورة - الظهار اب",
+  "governorate": "إب"
+ },
+ {
+  "slug": "health-1519011",
+  "name_ar": "هيئة مستشفى الثورة العام — تعز",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "health-thawra-hodeidah",
+  "name_ar": "هيئة مستشفى الثورة العام بالحديدة",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "health-2408011",
+  "name_ar": "هيئة مستشفى الجمهورية النموذجي",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "health-1605005",
+  "name_ar": "هيئة مستشفى الحزم م / الجوف",
+  "governorate": "الجوف"
+ },
+ {
+  "slug": "health-2915024",
+  "name_ar": "هيئة مستشفى الرئيس صالح الصماد ( مستشفى 22 مايو المركزي التعليمي سابقا )",
+  "governorate": "عمران"
+ },
+ {
+  "slug": "health-2008017",
+  "name_ar": "هيئة مستشفى ذمار العام",
+  "governorate": "ذمار"
+ },
+ {
+  "slug": "health-21130010",
+  "name_ar": "هيئة مستشفى شبوة العام",
+  "governorate": "شبوة"
+ },
+ {
+  "slug": "health-3101004",
+  "name_ar": "المركز الصحي 22 مايو الربوع بني خولي",
+  "governorate": "ريمة"
+ },
+ {
+  "slug": "health-1601009",
+  "name_ar": "المركز الصحي الأبرق",
+  "governorate": "الجوف"
+ },
+ {
+  "slug": "health-2701006",
+  "name_ar": "المركز الصحي الأهجر",
+  "governorate": "المحويت"
+ },
+ {
+  "slug": "health-1301001",
+  "name_ar": "المركز الصحي الرئيسي",
+  "governorate": "أمانة العاصمة"
+ },
+ {
+  "slug": "health-1604003",
+  "name_ar": "المركز الصحي الزاهر",
+  "governorate": "الجوف"
+ },
+ {
+  "slug": "health-2401004",
+  "name_ar": "المركز الصحي العماد",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "health-2804020",
+  "name_ar": "المركز الصحي الفيدمي",
+  "governorate": "المهرة"
+ },
+ {
+  "slug": "health-1601015",
+  "name_ar": "المركز الصحي اليتمة",
+  "governorate": "الجوف"
+ },
+ {
+  "slug": "health-3101001",
+  "name_ar": "المركز الصحي حجام",
+  "governorate": "ريمة"
+ },
+ {
+  "slug": "health-3201009",
+  "name_ar": "المركز الصحي دكسم",
+  "governorate": "سقطرى"
+ },
+ {
+  "slug": "health-3101006",
+  "name_ar": "المركز الصحي رواس",
+  "governorate": "ريمة"
+ },
+ {
+  "slug": "health-1604005",
+  "name_ar": "المركز الصحي سوق دعام",
+  "governorate": "الجوف"
+ },
+ {
+  "slug": "health-1601020",
+  "name_ar": "المركز الصحي عضيل",
+  "governorate": "الجوف"
+ },
+ {
+  "slug": "health-3201005",
+  "name_ar": "المركز الصحي قاضب",
+  "governorate": "سقطرى"
+ },
+ {
+  "slug": "health-3201010",
+  "name_ar": "المركز الصحي قرية",
+  "governorate": "سقطرى"
+ },
+ {
+  "slug": "health-3201002",
+  "name_ar": "المركز الصحي نوجد",
+  "governorate": "سقطرى"
+ },
+ {
+  "slug": "health-2802002",
+  "name_ar": "المركزالصحي حات",
+  "governorate": "المهرة"
+ },
+ {
+  "slug": "health-3201007",
+  "name_ar": "الوحدة الصحية سلمهو",
+  "governorate": "سقطرى"
+ },
+ {
+  "slug": "albasateen-health-center-aden",
+  "name_ar": "مركز البساتين الصحي — عدن",
+  "governorate": "عدن"
+ },
+ {
+  "slug": "december-second-physiotherapy-mokha",
+  "name_ar": "مركز الثاني من ديسمبر للعلاج الطبيعي",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "al-khawkhah-fever-center",
+  "name_ar": "مركز الحميات — الخوخة",
+  "governorate": "الحديدة"
+ },
+ {
+  "slug": "taiz-cardiovascular-kidney-center",
+  "name_ar": "مركز القلب والأوعية الدموية وزراعة الكلى — تعز",
+  "governorate": "تعز"
+ },
+ {
+  "slug": "abdulaziz-abdulghani-medical-center-yakhtul",
+  "name_ar": "مركز عبدالعزيز عبدالغني الطبي — يختل",
+  "governorate": "تعز"
+ }
+]

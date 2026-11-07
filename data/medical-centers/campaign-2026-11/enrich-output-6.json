@@ -1,0 +1,1271 @@
+[
+ {
+  "slug": "health-1805002",
+  "summary": "المستشفى الريفي في المنيرة منشأة صحية حكومية في مديرية المنيرة بمحافظة الحديدة، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية، أي مرفق يقدم خدمات الرقود والرعاية الأساسية لسكان المديرية في سهل تهامة ويحيل الحالات المعقدة إلى مستشفيات مدينة الحديدة. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Al-Munirah Rural Hospital"
+ },
+ {
+  "slug": "health-1709003",
+  "summary": "المستشفى الريفي في كحلان الشرف منشأة صحية حكومية في مديرية كحلان الشرف بمحافظة حجة، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية يخدم سكان هذه المديرية الجبلية، وتُحال الحالات التي تتطلب رعاية تخصصية عادة إلى المستشفيات المرجعية في المحافظة. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Kuhlan Al-Sharaf Rural Hospital"
+ },
+ {
+  "slug": "aden-central-oncology-hospital",
+  "summary": "مستشفى حكومي تخصصي لعلاج الأورام في عدن، دشّنت وزارة الصحة العامة والسكان تشغيله الرسمي في 12 يوليو 2026م بطاقة معلنة تبلغ 170 سريراً. يضم بحسب بيان التدشين أقسام رقود للرجال والنساء والأطفال، وعيادات خارجية تخصصية، ووحدات لأمراض الدم والأورام الصلبة، وتحضير العلاج الكيماوي، وقسماً للطوارئ، ووحدة للمناظير، إضافة إلى الأشعة والمختبر والصيدلية ومحطة لتحلية المياه ومحرقة طبية. وأشار البيان نفسه إلى خطة منفصلة لإنشاء مستشفى لسرطان الأطفال في منطقة العريش. تبقى هذه المعلومات مؤرخة بتاريخ التدشين، ولا تؤكد توافر سرير أو علاج بعينه اليوم، لذا يُنصح بالتواصل مع المستشفى أو مكتب الصحة في عدن قبل الزيارة.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [
+   {
+    "name": "الأورام الصلبة",
+    "source_url": "https://moh-ye.org/?p=13590"
+   }
+  ],
+  "services": [
+   {
+    "name": "الطوارئ",
+    "details": "قسم طوارئ ضمن أقسام المستشفى المعلنة عند التدشين",
+    "source_url": "https://moh-ye.org/?p=13590"
+   },
+   {
+    "name": "وحدة المناظير",
+    "details": "",
+    "source_url": "https://moh-ye.org/?p=13590"
+   },
+   {
+    "name": "وحدة أمراض الدم",
+    "details": "",
+    "source_url": "https://moh-ye.org/?p=13590"
+   },
+   {
+    "name": "رقود الرجال والنساء والأطفال",
+    "details": "طاقة معلنة 170 سريراً",
+    "source_url": "https://moh-ye.org/?p=13590"
+   }
+  ],
+  "hours": [],
+  "sources": [
+   {
+    "title": "تدشين التشغيل الرسمي للمستشفى المركزي لعلاج الأورام في عدن",
+    "url": "https://moh-ye.org/?p=13590",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Central Oncology Hospital, Aden"
+ },
+ {
+  "slug": "health-2005004",
+  "summary": "مستشفى 26 سبتمبر الريفي منشأة صحية حكومية في مديرية عتمة بمحافظة ذمار، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية في عتمة، المديرية الجبلية الواقعة غرب مدينة ذمار، ويقدم خدمات الرقود والرعاية العامة لسكانها. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "26 September Rural Hospital, Utmah"
+ },
+ {
+  "slug": "alamal-oncology-hospital-sanaa",
+  "summary": "مستشفى تخصصي لجراحة الأورام وعلاجها تابع للمؤسسة الوطنية لمكافحة السرطان في صنعاء، ويقع بحسب الدليل التعريفي للمؤسسة ضمن مقرها الرئيسي في حي الأنسى بشارع الستين أمام وزارة الخارجية. دُشنت المرحلة الأولى للمختبر والأشعة والصيدلية عام 2022، ثم المرحلة الثانية التي شملت العمليات والعناية المركزة والرقود عام 2024. يقدم المستشفى كذلك الكشف المبكر عن السرطان والعيادات الاستشارية. تنشر المؤسسة أرقاماً منفصلة لمختبرات المستشفى وصيدليته وتدعو إلى التواصل خلال أوقات الدوام الرسمي، ويُنصح بالاتصال لتأكيد المواعيد وتوافر الخدمة قبل الزيارة.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "https://nccfyemen.org/",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "المؤسسة الوطنية لمكافحة السرطان",
+  "specialties": [],
+  "services": [
+   {
+    "name": "المختبر",
+    "details": "هاتف مختبرات مستشفى الأمل: 775080110 (خلال أوقات الدوام الرسمي)",
+    "source_url": "https://nccfyemen.org/contact-us"
+   },
+   {
+    "name": "الصيدلية",
+    "details": "هاتف صيدلية مستشفى الأمل: 775080066 (خلال أوقات الدوام الرسمي)",
+    "source_url": "https://nccfyemen.org/contact-us"
+   }
+  ],
+  "hours": [],
+  "sources": [
+   {
+    "title": "الدليل التعريفي للمؤسسة الوطنية لمكافحة السرطان",
+    "url": "https://nccfyemen.org/content/uploads/2025/05/Complete-introductory-guide.pdf",
+    "publisher": "المؤسسة الوطنية لمكافحة السرطان",
+    "source_type": "official_site"
+   },
+   {
+    "title": "تواصل معنا",
+    "url": "https://nccfyemen.org/contact-us",
+    "publisher": "المؤسسة الوطنية لمكافحة السرطان",
+    "source_type": "official_site"
+   },
+   {
+    "title": "Ministry of Public Health and Population news",
+    "url": "https://moh.gov.ye/en/news/3535",
+    "publisher": "وزارة الصحة العامة والسكان (صنعاء)",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Al-Amal Oncology Hospital"
+ },
+ {
+  "slug": "health-3103014",
+  "summary": "مستشفى الثلايا العام منشأة صحية حكومية في مديرية الجبين بمحافظة ريمة، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى محافظة أو مستشفى عام في الجبين، مركز محافظة ريمة الجبلية، ويُفترض بهذا المستوى أن يستقبل الحالات المحالة من مستشفيات المديريات والمراكز الصحية في المحافظة. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثالثية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Al-Thulaya General Hospital"
+ },
+ {
+  "slug": "al-khawkhah-field-hospital-hodeidah",
+  "summary": "مستشفى ميداني خدمي في مديرية الخوخة جنوب محافظة الحديدة، تديره دائرة الخدمات الطبية في المقاومة الوطنية، ويذكر موقعها أنه افتُتح في 1 يناير 2023م ويقدم خدماته مجاناً للمدنيين والعسكريين على مدار الساعة. يضم سبعة أقسام هي الطوارئ، والعمليات الجراحية، والعناية المركزة والرقود، والمختبر، والصيدلية، وعيادة العظام، وعيادة الجراحة العامة والأوعية الدموية. وتنشر الدائرة إحصاءات تفيد بمعالجة أكثر من 140,690 حالة بين يناير 2023 ويناير 2026، منها 74,860 حالة طوارئ و2,992 عملية جراحية و42,853 فحصاً مخبرياً. لا تؤكد هذه البيانات القدرة الاستيعابية في يوم الزيارة، ويُنصح بالتواصل مع الجهة المشغلة.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "info@ynrmedicalservices.org",
+  "website": "https://ynrmedicalservices.org/hospitals/6",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "دائرة الخدمات الطبية في المقاومة الوطنية",
+  "specialties": [
+   {
+    "name": "الجراحة العامة",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "جراحة العظام",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "جراحة الأوعية الدموية",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   }
+  ],
+  "services": [
+   {
+    "name": "الطوارئ",
+    "details": "74,860 حالة طوارئ بين يناير 2023 ويناير 2026 وفق إحصاءات الجهة المشغلة",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "العمليات الجراحية",
+    "details": "",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "العناية المركزة والرقود",
+    "details": "",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "المختبر",
+    "details": "",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "الصيدلية",
+    "details": "",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "عيادة العظام",
+    "details": "",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   },
+   {
+    "name": "عيادة الجراحة العامة والأوعية الدموية",
+    "details": "",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   }
+  ],
+  "hours": [
+   {
+    "label": "ساعات العمل المعلنة",
+    "hours_text": "على مدار الساعة",
+    "source_url": "https://ynrmedicalservices.org/hospitals/6"
+   }
+  ],
+  "sources": [
+   {
+    "title": "مستشفى الخوخة الميداني",
+    "url": "https://ynrmedicalservices.org/hospitals/6",
+    "publisher": "دائرة الخدمات الطبية في المقاومة الوطنية",
+    "source_type": "official_site"
+   },
+   {
+    "title": "دائرة الخدمات الطبية",
+    "url": "https://ynrmedicalservices.org/",
+    "publisher": "دائرة الخدمات الطبية في المقاومة الوطنية",
+    "source_type": "official_site"
+   }
+  ],
+  "name_en": "Al-Khawkhah Field Hospital"
+ },
+ {
+  "slug": "health-3003003",
+  "summary": "مستشفى السلام منشأة صحية حكومية في مديرية قعطبة بمحافظة الضالع، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية يخدم سكان قعطبة، إحدى مديريات شمال محافظة الضالع. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Al-Salam Hospital, Qa'tabah"
+ },
+ {
+  "slug": "health-3004002",
+  "summary": "مستشفى الشهداء الثلاثة منشأة صحية حكومية في مديرية الشعيب بمحافظة الضالع، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية يخدم سكان مديرية الشعيب، ويقدم الرعاية العامة والرقود مع إحالة الحالات التخصصية إلى مستشفيات مدينة الضالع. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Three Martyrs Hospital, Al-Shu'ayb"
+ },
+ {
+  "slug": "health-1202009",
+  "summary": "مستشفى الشهيد عوض أحمد عوض منشأة صحية حكومية في مديرية مودية بمحافظة أبين، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية يخدم سكان مودية في شرق محافظة أبين. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Martyr Awad Ahmed Awad Hospital, Mudiyah"
+ },
+ {
+  "slug": "health-2702021",
+  "summary": "مستشفى الطويلة الريفي منشأة صحية حكومية في مديرية الطويلة بمحافظة المحويت، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية في الطويلة، إحدى المديريات الجبلية في محافظة المحويت. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Al-Tawilah Rural Hospital"
+ },
+ {
+  "slug": "health-2904006",
+  "summary": "مستشفى القفلة المحوري منشأة صحية حكومية في مديرية قفلة عذر بمحافظة عمران، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى محوري يخدم أكثر من مديرية في شمال محافظة عمران، أي أنه يستقبل الحالات المحالة من المراكز والوحدات الصحية في المديريات المجاورة. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثالثية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Al-Qaflah Inter-District Hospital"
+ },
+ {
+  "slug": "health-3102011",
+  "summary": "مستشفى المسجدين المحوري (السلفية) منشأة صحية حكومية في مديرية السلفية بمحافظة ريمة، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى محوري يخدم أكثر من مديرية في محافظة ريمة الجبلية، ويستقبل الحالات المحالة من المرافق الصحية الأصغر في محيطه. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثالثية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Al-Masjidain Inter-District Hospital (Al-Salafiyah)"
+ },
+ {
+  "slug": "health-2002001",
+  "summary": "مستشفى جامعي تعليمي في مدينة معبر بمديرية جهران في محافظة ذمار، يتبع جامعة ذمار ويُعد موقع التدريب السريري لطلبة كلية الطب والعلوم الطبية فيها، وتصنفه وزارة الصحة مستشفى يخدم أكثر من مديرية. تذكر صفحته على موقع الجامعة أن طوارئه تعمل على مدار الساعة حتى في العطل الرسمية، وتستقبل حوادث السير والإصابات وطوارئ النساء والولادة والأطفال والحميات والأوبئة، كما يضم مركزاً لطوارئ التوليد ومركزاً لعلاج الحصبة يقدم خدماته مجاناً. وفي يناير 2024 اطلع رئيس الجامعة على مبنى عزل جديد بتمويل من مكتب الأمم المتحدة لخدمات المشاريع (UNOPS) يضم 21 سريراً للعناية المركزة، وطرحت الجامعة لاحقاً مناقصة لتوريد جهاز أشعة مقطعية حديث للمستشفى.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "https://www.tu.edu.ye/en/site/id/Hospital",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "جامعة ذمار",
+  "specialties": [
+   {
+    "name": "النساء والولادة",
+    "source_url": "https://www.tu.edu.ye/en/site/id/Hospital"
+   },
+   {
+    "name": "طب الأطفال",
+    "source_url": "https://www.tu.edu.ye/en/site/id/Hospital"
+   }
+  ],
+  "services": [
+   {
+    "name": "الطوارئ على مدار الساعة",
+    "details": "بما في ذلك العطل الرسمية؛ حوادث السير والإصابات والحميات والأوبئة",
+    "source_url": "https://www.tu.edu.ye/en/site/id/Hospital"
+   },
+   {
+    "name": "مركز طوارئ التوليد",
+    "details": "تستقبل العيادة الاستشارية فيه حالات النساء والولادة",
+    "source_url": "https://www.tu.edu.ye/en/site/id/Hospital"
+   },
+   {
+    "name": "مركز علاج الحصبة",
+    "details": "استقبال الحالات وعلاجها مجاناً (إعلان 2025)",
+    "source_url": "https://www.tu.edu.ye/en/site/views/Hospital/3010/3209"
+   },
+   {
+    "name": "العناية المركزة",
+    "details": "مبنى عزل يضم 21 سريراً للعناية المركزة بتمويل UNOPS",
+    "source_url": "https://www.tu.edu.ye/en/site/views/Hospital/3010/2580"
+   },
+   {
+    "name": "العمليات الجراحية",
+    "details": "",
+    "source_url": "https://www.tu.edu.ye/en/site/id/Hospital"
+   }
+  ],
+  "hours": [
+   {
+    "label": "الطوارئ",
+    "hours_text": "على مدار الساعة، بما في ذلك العطل الرسمية",
+    "source_url": "https://www.tu.edu.ye/en/site/id/Hospital"
+   }
+  ],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   },
+   {
+    "title": "University Hospital",
+    "url": "https://www.tu.edu.ye/en/site/id/Hospital",
+    "publisher": "جامعة ذمار",
+    "source_type": "official_site"
+   },
+   {
+    "title": "The Rector of Thamar University inspects Alwihdah University Teaching Hospital in Maabar",
+    "url": "https://www.tu.edu.ye/en/site/views/Hospital/3010/2580",
+    "publisher": "جامعة ذمار",
+    "source_type": "official_site"
+   },
+   {
+    "title": "The Director of Al-Wihdah University Hospital inspects the Measles Control Center at the Hospital in Ma'bar",
+    "url": "https://www.tu.edu.ye/en/site/views/Hospital/3010/3209",
+    "publisher": "جامعة ذمار",
+    "source_type": "official_site"
+   },
+   {
+    "title": "Thamar University Opens Bids for a Modern CT Scanner for Al-Wihda University Hospital in Ma'abar",
+    "url": "https://www.tu.edu.ye/en/site/views/Hospital/3010/3649",
+    "publisher": "جامعة ذمار",
+    "source_type": "official_site"
+   }
+  ],
+  "name_en": "Al-Wahdah University Teaching Hospital, Ma'bar"
+ },
+ {
+  "slug": "health-1911016",
+  "summary": "مستشفى تريم منشأة صحية حكومية في مدينة تريم بوادي حضرموت بمحافظة حضرموت، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية، كما يرد اسمه في صفحة البرنامج الوطني لمكافحة الإيدز ضمن المرافق المدرجة لخدمات المشورة والفحص الطوعي لفيروس نقص المناعة البشرية. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [
+   {
+    "name": "المشورة والفحص لفيروس نقص المناعة البشرية",
+    "details": "مدرج في قائمة مرافق البرنامج الوطني لمكافحة الإيدز",
+    "source_url": "https://www.moh-ye.org/?page_id=5954"
+   }
+  ],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   },
+   {
+    "title": "خدمات المشورة والفحص لفيروس نقص المناعة البشرية",
+    "url": "https://www.moh-ye.org/?page_id=5954",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Tarim Hospital"
+ },
+ {
+  "slug": "health-2901009",
+  "summary": "مستشفى حرف سفيان المحوري منشأة صحية حكومية في مديرية حرف سفيان بمحافظة عمران، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى محوري يخدم أكثر من مديرية في شمال محافظة عمران، على الطريق الرابط بين صنعاء وصعدة، ويستقبل الحالات المحالة من المرافق الصحية في المديريات المحيطة. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثالثية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Harf Sufyan Inter-District Hospital"
+ },
+ {
+  "slug": "health-1514036",
+  "summary": "أكبر مستشفى حكومي في مدينة التربة بمديرية الشمايتين جنوب محافظة تعز، وتصنفه وزارة الصحة مستشفى عاماً على مستوى المحافظة. تذكر منظمة الصحة العالمية أنه أُنشئ عام 1989م بطاقة 220 سريراً، ويخدم منطقة يقطنها نحو مليون نسمة، ويستقبل سنوياً قرابة 55 ألف زيارة للعيادات الخارجية و17 ألف حالة طوارئ و5 آلاف حالة رقود. وفي عام 2023 شكّل المستشفى فريقاً للجودة، ونال في 2024 إشادة المنظمة ووزارة الصحة لتطبيقه بروتوكولات سلامة المرضى أثناء الجراحة والولادة. وكان المستشفى قد فقد مصدر المياه النظيفة منذ 2011، فأعادت منظمة Solidarités International خلال 2018–2019 تأهيل شبكات المياه والصرف ومعالجة النفايات فيه.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [
+   {
+    "name": "الجراحة العامة",
+    "source_url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html"
+   },
+   {
+    "name": "النساء والولادة",
+    "source_url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html"
+   }
+  ],
+  "services": [
+   {
+    "name": "الطوارئ",
+    "details": "نحو 17 ألف حالة سنوياً وفق منظمة الصحة العالمية (2024)",
+    "source_url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html"
+   },
+   {
+    "name": "العيادات الخارجية",
+    "details": "نحو 55 ألف زيارة سنوياً",
+    "source_url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html"
+   },
+   {
+    "name": "الرقود",
+    "details": "220 سريراً؛ نحو 5 آلاف حالة سنوياً",
+    "source_url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html"
+   },
+   {
+    "name": "العمليات الجراحية",
+    "details": "",
+    "source_url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html"
+   },
+   {
+    "name": "الولادة",
+    "details": "",
+    "source_url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html"
+   }
+  ],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   },
+   {
+    "title": "Khalifa Hospital applies protocols to enhance patient safety during surgery and childbirth",
+    "url": "https://www.emro.who.int/yemen/news/khalifa-hospital-applies-protocols-to-enhance-patient-safety-during-surgery-and-childbirth.html",
+    "publisher": "منظمة الصحة العالمية",
+    "source_type": "institutional"
+   },
+   {
+    "title": "يعمل مستشفى خليفة على تطبيق بروتوكولات تعزيز سلامة المرضى أثناء الجراحة والولادة",
+    "url": "https://www.emro.who.int/press-releases/2024-arabic/y-ml-mstshfy-khlyft-ly-ttbyq-brwtwkwlat-t-zyz-slamt-almrdy-athna-aljraht-walwladt.html",
+    "publisher": "منظمة الصحة العالمية",
+    "source_type": "institutional"
+   },
+   {
+    "title": "مشروع المياه والصرف الصحي في مستشفى التربة",
+    "url": "https://www.solidarites.org/en/?p=9889",
+    "publisher": "Solidarités International",
+    "source_type": "institutional"
+   }
+  ],
+  "name_en": "Khalifa General Hospital, Al-Turbah"
+ },
+ {
+  "slug": "health-1101024",
+  "summary": "مستشفى رحاب الريفي منشأة صحية حكومية في مديرية القفر بمحافظة إب، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية يخدم سكان القفر، إحدى المديريات الشمالية الغربية في محافظة إب. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Rehab Rural Hospital, Al-Qafr"
+ },
+ {
+  "slug": "health-2001026",
+  "summary": "مستشفى زراجة الريفي منشأة صحية حكومية في مديرية الحداء بمحافظة ذمار، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية يخدم سكان الحداء شمال شرق محافظة ذمار. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Zarajah Rural Hospital, Al-Hada"
+ },
+ {
+  "slug": "aden-german-international-hospital",
+  "summary": "مستشفى خاص متعدد التخصصات في حي السنافر بمديرية المنصورة في عدن. يذكر موقعه الرسمي أنه يضم 200 سرير موزعة على أقسام الباطنية والجراحة والنساء والأطفال، و17 عيادة تخصصية، إلى جانب الطوارئ والعناية المركزة ووحدة القسطرة القلبية والأشعة التشخيصية والمختبر وجراحة المناظير والعلاج الطبيعي وقسم الأطفال وحديثي الولادة، كما تتوفر في عيادة النساء أجهزة تصوير رباعي الأبعاد للأجنة. تعمل الطوارئ على مدار الساعة طوال الأسبوع، والعيادات صباحاً من السبت إلى الخميس ومساءً من السبت إلى الأربعاء. يتيح الموقع طلب المواعيد إلكترونياً، أما أرقام صفحة التواصل فبدت تجريبية ولم ننقلها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "https://adengih.com/",
+  "booking_url": "https://adengih.com/contact/",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "",
+  "specialties": [
+   {
+    "name": "أمراض القلب والقسطرة القلبية",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "جراحة المناظير",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "العلاج الطبيعي",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "طب حديثي الولادة",
+    "source_url": "https://adengih.com/"
+   }
+  ],
+  "services": [
+   {
+    "name": "الطوارئ على مدار الساعة",
+    "details": "24 ساعة، 7 أيام في الأسبوع",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "القسطرة القلبية",
+    "details": "",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "الأشعة التشخيصية",
+    "details": "",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "المختبر التشخيصي",
+    "details": "",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "العلاج الطبيعي",
+    "details": "",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "التصوير رباعي الأبعاد للأجنة",
+    "details": "في عيادة النساء والولادة",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "الرقود",
+    "details": "200 سرير",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "name": "طلب المواعيد إلكترونياً",
+    "details": "",
+    "source_url": "https://adengih.com/contact/"
+   }
+  ],
+  "hours": [
+   {
+    "label": "الطوارئ",
+    "hours_text": "على مدار الساعة طوال أيام الأسبوع",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "label": "العيادات الصباحية: السبت–الخميس",
+    "hours_text": "9:00–13:00",
+    "source_url": "https://adengih.com/"
+   },
+   {
+    "label": "العيادات المسائية: السبت–الأربعاء",
+    "hours_text": "17:00–20:00",
+    "source_url": "https://adengih.com/"
+   }
+  ],
+  "sources": [
+   {
+    "title": "مستشفى عدن الألماني الدولي",
+    "url": "https://adengih.com/",
+    "publisher": "مستشفى عدن الألماني الدولي",
+    "source_type": "official_site"
+   },
+   {
+    "title": "خدماتنا",
+    "url": "https://adengih.com/our-services/",
+    "publisher": "مستشفى عدن الألماني الدولي",
+    "source_type": "official_site"
+   }
+  ],
+  "name_en": "Aden German International Hospital"
+ },
+ {
+  "slug": "health-1310012",
+  "summary": "مستشفى حكومي تخصصي للأمومة والطفولة في منطقة الروضة بمديرية بني الحارث شمال أمانة العاصمة صنعاء، عُرف سابقاً باسم مستشفى الشيخ زايد بن سلطان آل نهيان للأمومة والطفولة. أُنشئ بتمويل من مؤسسة زايد بن سلطان آل نهيان للأعمال الخيرية والإنسانية بتكلفة بناء قدرها 5 ملايين دولار ونحو مليوني دولار للتأثيث والتجهيز، وذكرت صحيفة الاتحاد في أكتوبر 2010 أنه يتكون من ستة طوابق بطاقة 175 سريراً، ويضم عيادات خارجية وخمس غرف للطوارئ ومختبرات، ويُتوقع أن يخدم أكثر من 500 ألف نسمة. تدرجه وزارة الصحة في قائمتها لعام 2023 مستشفى تخصصياً كان يعمل بالكامل في 31 ديسمبر 2023، ولا تثبت هذه البيانات توافر خدمة بعينها اليوم.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [
+   {
+    "name": "النساء والولادة",
+    "source_url": "https://www.aletihad.ae/article/69012/2010/استعدادات-لافتتاح-مستشفى-الشيخ-زايد-بن-سلطان-آل-نهيان-في-صنعاء"
+   },
+   {
+    "name": "طب الأطفال",
+    "source_url": "https://www.aletihad.ae/article/69012/2010/استعدادات-لافتتاح-مستشفى-الشيخ-زايد-بن-سلطان-آل-نهيان-في-صنعاء"
+   }
+  ],
+  "services": [
+   {
+    "name": "الطوارئ",
+    "details": "خمس غرف طوارئ وفق خطة التجهيز المعلنة عام 2010",
+    "source_url": "https://www.aletihad.ae/article/69012/2010/استعدادات-لافتتاح-مستشفى-الشيخ-زايد-بن-سلطان-آل-نهيان-في-صنعاء"
+   },
+   {
+    "name": "العيادات الخارجية",
+    "details": "",
+    "source_url": "https://www.aletihad.ae/article/69012/2010/استعدادات-لافتتاح-مستشفى-الشيخ-زايد-بن-سلطان-آل-نهيان-في-صنعاء"
+   },
+   {
+    "name": "المختبر",
+    "details": "",
+    "source_url": "https://www.aletihad.ae/article/69012/2010/استعدادات-لافتتاح-مستشفى-الشيخ-زايد-بن-سلطان-آل-نهيان-في-صنعاء"
+   },
+   {
+    "name": "الرقود",
+    "details": "175 سريراً وفق الطاقة المعلنة عام 2010",
+    "source_url": "https://www.aletihad.ae/article/69012/2010/استعدادات-لافتتاح-مستشفى-الشيخ-زايد-بن-سلطان-آل-نهيان-في-صنعاء"
+   }
+  ],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   },
+   {
+    "title": "استعدادات لافتتاح مستشفى الشيخ زايد بن سلطان آل نهيان في صنعاء",
+    "url": "https://www.aletihad.ae/article/69012/2010/استعدادات-لافتتاح-مستشفى-الشيخ-زايد-بن-سلطان-آل-نهيان-في-صنعاء",
+    "publisher": "صحيفة الاتحاد",
+    "source_type": "independent"
+   }
+  ],
+  "name_en": "Palestine Maternity and Childhood Hospital (formerly Sheikh Zayed Hospital)"
+ },
+ {
+  "slug": "health-2610002",
+  "summary": "مستشفى ماهلية منشأة صحية حكومية في مديرية ماهلية بمحافظة مأرب، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى ريفي أو مستشفى مديرية يخدم سكان ماهلية في الجزء الجنوبي الغربي من محافظة مأرب. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثانوية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Mahliyah Hospital"
+ },
+ {
+  "slug": "health-1118002",
+  "summary": "مستشفى ناصر العام منشأة صحية حكومية في مديرية المشنة بمدينة إب بمحافظة إب، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى محافظة أو مستشفى عام، أي أنه من مستشفيات الإحالة في مدينة إب التي تستقبل الحالات من المديريات المحيطة. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثالثية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Nasser General Hospital, Ibb"
+ },
+ {
+  "slug": "health-1102001",
+  "summary": "مستشفى يريم منشأة صحية حكومية في مدينة يريم بمحافظة إب، تدرجها وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. وتصفها القائمة بأنها مستشفى محافظة أو مستشفى عام في يريم، المدينة الواقعة على الطريق الرئيسي بين صنعاء وإب في أقصى شمال المحافظة، ويستقبل الحالات من مديرية يريم والمديريات المجاورة. وتصنّف القائمة المنشأة ضمن مستوى الرعاية الصحية الثالثية. لم نعثر في المصادر العامة المتاحة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام وساعات العمل، لذا يُنصح بالتحقق من حالة التشغيل والخدمات المتاحة عبر مكتب الصحة في المحافظة قبل التوجه إليها.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Yarim General Hospital"
+ },
+ {
+  "slug": "health-1927005",
+  "summary": "هيئة مستشفى ابن سيناء العام في المكلا منشأة حكومية مرجعية في محافظة حضرموت، تقدم خدمات طبية وعلاجية تخصصية وتستقبل مرضى من محافظات عدة. في نوفمبر 2024 أعلنت إدارة المستشفى أن إضراب الموظفين المتعاقدين أوقف العمل مؤقتاً في أقسام منها الطوارئ والعناية المركزة، وذكرت أنها أجرت 1,789 عملية كبرى خلال الأشهر السابقة وتشغّل عيادات تخصصية صباحية ومسائية، ثم أُعلن لاحقاً استئناف خدمات الأقسام. وفي مارس 2026 وُقعت في عدن اتفاقية بتمويل من الصندوق الكويتي للتنمية الاقتصادية العربية بقيمة 474,700 دولار لإعداد التصاميم الهندسية لمشروع تطوير الهيئة وتوسعتها، وفي مايو 2026 أُعلن الاستلام الرسمي لمشروع لإعادة التأهيل والتحديث. يُنصح بالاتصال بالمستشفى للتحقق من عمل كل قسم.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [
+   {
+    "name": "العيادات التخصصية الصباحية والمسائية",
+    "details": "وفق بيان إدارة المستشفى في نوفمبر 2024",
+    "source_url": "https://www.tarebhtoday.online/2024/11/10/103186/"
+   },
+   {
+    "name": "العمليات الكبرى",
+    "details": "1,789 عملية خلال الأشهر السابقة لنوفمبر 2024",
+    "source_url": "https://www.tarebhtoday.online/2024/11/10/103186/"
+   }
+  ],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   },
+   {
+    "title": "خبر عن هيئة مستشفى ابن سيناء (مايو 2026)",
+    "url": "https://www.hadhramaut.info/View/144255.aspx",
+    "publisher": "موقع حضرموت",
+    "source_type": "independent"
+   },
+   {
+    "title": "بيان إدارة هيئة مستشفى ابن سيناء بشأن الإضراب",
+    "url": "https://www.tarebhtoday.online/2024/11/10/103186/",
+    "publisher": "تريم اليوم",
+    "source_type": "independent"
+   },
+   {
+    "title": "توقيع اتفاقية التصاميم الهندسية لمشروع تطوير هيئة مستشفى ابن سيناء",
+    "url": "https://pmo-ye.net/post/11371",
+    "publisher": "رئاسة مجلس الوزراء",
+    "source_type": "government"
+   },
+   {
+    "title": "خبر عن هيئة مستشفى ابن سيناء",
+    "url": "https://www.aden-tm.net/news/282660",
+    "publisher": "عدن تايم",
+    "source_type": "independent"
+   }
+  ],
+  "name_en": "Ibn Sina General Hospital Authority, Mukalla"
+ },
+ {
+  "slug": "health-2915024",
+  "summary": "هيئة مستشفى الرئيس صالح الصماد، المعروفة سابقاً بمستشفى 22 مايو المركزي التعليمي، مستشفى حكومي مرجعي في محافظة عمران شمال صنعاء، ويحمل اسمه الحالي اسم صالح الصماد، رئيس المجلس السياسي الأعلى في صنعاء الذي قُتل في أبريل 2018. تدرجه وزارة الصحة العامة والسكان في قائمتها الأساسية للمرافق الصحية الصادرة في ديسمبر 2023 مستشفى مرجعياً، أي من أعلى مستويات الرعاية في المحافظة، تُحال إليه الحالات من مستشفيات المديريات، وكان يعمل بالكامل وفق تصنيف 31 ديسمبر 2023م. لم نعثر في المصادر العامة على أرقام تواصل رسمية أو قائمة معلنة بالأقسام، لذا يُنصح بالتحقق من الخدمات المتاحة عبر مكتب الصحة في عمران قبل الزيارة.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   },
+   {
+    "title": "Saleh Ali al-Sammad",
+    "url": "https://en.wikipedia.org/wiki/Saleh_Ali_al-Sammad",
+    "publisher": "Wikipedia",
+    "source_type": "independent"
+   }
+  ],
+  "name_en": "President Saleh Al-Sammad Hospital Authority (formerly 22 May Central Teaching Hospital)"
+ },
+ {
+  "slug": "health-1301001",
+  "summary": "المركز الصحي الرئيسي مرفق للرعاية الصحية الأولية في مديرية صنعاء القديمة بأمانة العاصمة، تدرجه وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م بوصفه مركزاً صحياً بدون أسرّة، أي أنه يقدم الخدمات الخارجية كالكشف العام ورعاية الأمومة والطفولة والتحصين دون رقود، ويحيل الحالات التي تحتاج تنويماً إلى المستشفيات. وكان يعمل بالكامل وفق تصنيف القائمة في 31 ديسمبر 2023م. لم نعثر على أرقام تواصل أو ساعات عمل منشورة، لذا يُنصح بالتحقق عبر مكتب الصحة في أمانة العاصمة.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Main Health Center, Old Sana'a"
+ },
+ {
+  "slug": "health-3201009",
+  "summary": "مركز صحي حكومي في منطقة دكسم على الهضبة الوسطى لجزيرة سقطرى، ضمن مديرية حديبو في محافظة أرخبيل سقطرى. تدرجه وزارة الصحة العامة والسكان في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م بوصفه مركزاً صحياً بدون أسرّة، أي مرفقاً للرعاية الصحية الأولية يقدم الخدمات الخارجية لسكان الهضبة ويحيل الحالات التي تحتاج رقوداً إلى مستشفيات حديبو. وكان يعمل بالكامل وفق تصنيف القائمة في 31 ديسمبر 2023م. لم نعثر على أرقام تواصل أو ساعات عمل منشورة، لذا يُنصح بالتحقق عبر مكتب الصحة في سقطرى.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": null,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [],
+  "hours": [],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   }
+  ],
+  "name_en": "Diksam Health Center"
+ },
+ {
+  "slug": "health-3201002",
+  "summary": "مركز صحي حكومي بأسرّة في منطقة نوجد على الساحل الجنوبي لجزيرة سقطرى، ضمن مديرية حديبو. أُغلق المركز فترة طويلة لقلة التمويل، فكان سكان المنطقة يقطعون نحو 75 كيلومتراً إلى حديبو في رحلة تستغرق قرابة ست ساعات ذهاباً وإياباً. وفي 14 أكتوبر 2020 أنجز البرنامج السعودي لتنمية وإعمار اليمن إعادة تأهيله وتجهيزه وزوّده بسيارة إسعاف وغرفة ولادة، ورُفعت قدرته الاستيعابية من 7 آلاف إلى 14 ألف نسمة لخدمة نحو 18 ألف نسمة من سكان نوجد، وذُكر حينها أنه يعمل على مدار الساعة. تدرجه وزارة الصحة في قائمتها لعام 2023 مركزاً يعمل بالكامل، ويُنصح بالتحقق من الخدمات عبر مكتب الصحة في سقطرى.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "",
+  "social_links": [],
+  "emergency_available": true,
+  "operator_name": "وزارة الصحة العامة والسكان",
+  "specialties": [],
+  "services": [
+   {
+    "name": "غرفة الولادة",
+    "details": "جُهزت ضمن مشروع إعادة التأهيل عام 2020",
+    "source_url": "https://ajel.sa/local/ggdfhk"
+   },
+   {
+    "name": "الإسعاف",
+    "details": "سيارة إسعاف مجهزة قدمها البرنامج السعودي لتنمية وإعمار اليمن",
+    "source_url": "https://www.alwatan.com.sa/ampArticle/1062060"
+   },
+   {
+    "name": "خدمات الصحة الإنجابية",
+    "details": "",
+    "source_url": "https://www.alwatan.com.sa/ampArticle/1062060"
+   },
+   {
+    "name": "العيادات",
+    "details": "",
+    "source_url": "https://ajel.sa/local/ggdfhk"
+   }
+  ],
+  "hours": [
+   {
+    "label": "ساعات العمل المعلنة (2020)",
+    "hours_text": "على مدار الساعة",
+    "source_url": "https://ajel.sa/local/ggdfhk"
+   }
+  ],
+  "sources": [
+   {
+    "title": "القائمة الأساسية للمرافق الصحية العامة (ديسمبر 2023)",
+    "url": "https://moh-ye.org/?page_id=7297",
+    "publisher": "وزارة الصحة العامة والسكان",
+    "source_type": "government"
+   },
+   {
+    "title": "إعادة تأهيل مركز نوجد الصحي في سقطرى",
+    "url": "https://ajel.sa/local/ggdfhk",
+    "publisher": "صحيفة عاجل",
+    "source_type": "independent"
+   },
+   {
+    "title": "البرنامج السعودي يعيد تأهيل مركز نوجد الصحي",
+    "url": "https://www.alwatan.com.sa/ampArticle/1062060",
+    "publisher": "صحيفة الوطن",
+    "source_type": "independent"
+   }
+  ],
+  "name_en": "Nojed Health Center"
+ },
+ {
+  "slug": "taiz-cardiovascular-kidney-center",
+  "summary": "مركز تخصصي في مدينة تعز لأمراض القلب والأوعية الدموية وزراعة الكلى، يعرض عبر موقعه خدمات جراحة القلب المفتوح وقسطرة القلب وأمراض المسالك البولية وزراعة الكلى. أجرى المركز عمليات زراعة كلى بدعم من مؤسسات إنسانية، منها سبع عمليات أعلنت عنها مؤسسة توكل كرمان في مايو 2025 لمرضى من تعز والحديدة وإب وأبين وحجة. وفي 11 فبراير 2026 أصدر رئيس مجلس القيادة الرئاسي قراراً بإنشاء المركز وتحديد إدارته وموارده ونظامه المالي. تتيح منصة الحجز الإلكتروني التابعة له مواعيد في عيادات باطنية القلب والإيكو والأوعية الدموية والمسالك البولية وزراعة الكبد، وتذكر وجود طوارئ قلبية على مدار الساعة للحالات الحرجة. المعلومات وصف مؤسسي ولا تضمن توافر موعد أو سرير.",
+  "address": "",
+  "phone": "",
+  "emergency_phone": "",
+  "email": "",
+  "website": "",
+  "booking_url": "https://cvcclinic.org/",
+  "social_links": [
+   {
+    "label": "واتساب",
+    "url": "https://api.whatsapp.com/send?phone=967771153707"
+   }
+  ],
+  "emergency_available": true,
+  "operator_name": "",
+  "specialties": [
+   {
+    "name": "جراحة الأوعية الدموية",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "زراعة الكبد",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "تخطيط صدى القلب (الإيكو)",
+    "source_url": "https://cvcclinic.org/"
+   }
+  ],
+  "services": [
+   {
+    "name": "طوارئ القلب على مدار الساعة",
+    "details": "للحالات الحرجة",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "عيادة باطنية القلب",
+    "details": "",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "عيادة الإيكو",
+    "details": "",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "عيادة الأوعية الدموية",
+    "details": "",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "عيادة المسالك البولية",
+    "details": "",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "عيادة زراعة الكبد",
+    "details": "",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "name": "الحجز الإلكتروني للمواعيد",
+    "details": "مع إمكانية رفع نتائج إيكو أو أشعة سابقة",
+    "source_url": "https://cvcclinic.org/"
+   }
+  ],
+  "hours": [
+   {
+    "label": "طوارئ القلب",
+    "hours_text": "على مدار الساعة",
+    "source_url": "https://cvcclinic.org/"
+   },
+   {
+    "label": "مواعيد العيادات",
+    "hours_text": "الحضور قبل الساعة 9:00 صباحاً لتأكيد الحجز",
+    "source_url": "https://cvcclinic.org/"
+   }
+  ],
+  "sources": [
+   {
+    "title": "مركز القلب والأوعية الدموية وزراعة الكلى | تعز",
+    "url": "https://cvktc.org/ar",
+    "publisher": "مركز القلب والأوعية الدموية وزراعة الكلى",
+    "source_type": "official_site"
+   },
+   {
+    "title": "حجز موعد",
+    "url": "https://cvcclinic.org/",
+    "publisher": "مركز القلب والأوعية الدموية وزراعة الكلى",
+    "source_type": "official_site"
+   },
+   {
+    "title": "قرار جمهوري بإنشاء مركز القلب والأوعية الدموية وزراعة الكلى في تعز",
+    "url": "https://www.okaz.com.sa/politics/na/2235397",
+    "publisher": "صحيفة عكاظ",
+    "source_type": "independent"
+   },
+   {
+    "title": "Seven successful kidney transplants performed in Taiz with support from Tawakkol Karman Foundation",
+    "url": "https://tkif.org/en/news/2970-seven-successful-kidney-transplants-performed-in-taiz-with-support-from-tawakkol-karman-foundation",
+    "publisher": "مؤسسة توكل كرمان",
+    "source_type": "institutional"
+   }
+  ],
+  "name_en": "Cardiovascular and Kidney Transplant Center, Taiz"
+ }
+]

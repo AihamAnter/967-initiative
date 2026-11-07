@@ -1,0 +1,721 @@
+[
+ {
+  "slug": "health-1805002",
+  "name_ar": "المستشفى الريفي المنيرة",
+  "name_en": "Almuneera H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "الحديدة",
+  "city": "المنيرة",
+  "district": "الحديده المنيره",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1709003",
+  "name_ar": "المستشفى الريفي كحالن الشرف",
+  "name_en": "Kuhlan Al Sharaf H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "حجة",
+  "city": "كحالن الشرف",
+  "district": "حجه كحالن الشرف",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "aden-central-oncology-hospital",
+  "name_ar": "المستشفى المركزي لعلاج الأورام — عدن",
+  "name_en": null,
+  "institution_type": "specialized_hospital",
+  "ownership": "government",
+  "operator_name": "",
+  "governorate": "عدن",
+  "city": "عدن",
+  "district": null,
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "",
+  "summary": "افتتحت وزارة الصحة في عدن المستشفى المركزي لعلاج الأورام بتاريخ 12 يوليو 2026م بطاقة معلنة تبلغ 170 سريراً، ويضم بحسب بيان التدشين أقسام الرقود للرجال والنساء والأطفال، وعيادات للأورام وأمراض الدم، وتحضير العلاج الكيماوي، والأشعة والمختبر والصيدلية. تظل الطاقة المعلنة وتفاصيل التدشين معلومات مؤرخة، ولا تؤكد سريراً شاغراً أو تقديم أي علاج اليوم.",
+  "specialties": [
+   "طب الأورام",
+   "أمراض الدم"
+  ],
+  "services": [
+   "تحضير العلاج الكيماوي",
+   "عيادات الأورام الخارجية",
+   "التصوير الطبي",
+   "التحاليل المخبرية",
+   "الصيدلية",
+   "أقسام الرقود"
+  ],
+  "source_urls": [
+   "https://moh-ye.org/?p=13590"
+  ]
+ },
+ {
+  "slug": "health-2005004",
+  "name_ar": "مستشفى 26 سبتمبر الريفي",
+  "name_en": "26 September Rural H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "ذمار",
+  "city": "عتمه",
+  "district": "عتمه",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "alamal-oncology-hospital-sanaa",
+  "name_ar": "مستشفى الأمل للأورام — صنعاء",
+  "name_en": null,
+  "institution_type": "specialized_hospital",
+  "ownership": "civil",
+  "operator_name": "المؤسسة الوطنية لمكافحة السرطان",
+  "governorate": "أمانة العاصمة",
+  "city": "صنعاء",
+  "district": null,
+  "address": "صنعاء، شارع الستين، حي الأنسى، أمام وزارة الخارجية",
+  "phone": null,
+  "website": "https://nccfyemen.org/",
+  "care_level": "",
+  "summary": "مستشفى تخصصي لجراحة وعلاج الأورام يتبع المؤسسة الوطنية لمكافحة السرطان في صنعاء. يذكر الدليل التعريفي للمؤسسة أن المستشفى يقع ضمن مقرها الرئيسي في حي الأنسى بشارع الستين، أمام وزارة الخارجية. دُشنت المرحلة الأولى للمختبر والأشعة والصيدلية عام 2022، والمرحلة الثانية للعمليات والعناية المركزة والرقود في 2024. تنشر المؤسسة أرقامًا منفصلة لبعض الأقسام، ويجب الاتصال بها لتأكيد المواعيد وتوافر الخدمة قبل الزيارة.",
+  "specialties": [
+   "جراحة الأورام"
+  ],
+  "services": [
+   "الرقود",
+   "العمليات الجراحية",
+   "الأشعة",
+   "المختبر",
+   "الصيدلية",
+   "العناية المركزة",
+   "الكشف المبكر عن السرطان",
+   "الأشعة التشخيصية",
+   "العيادات الاستشارية",
+   "مختبرات مستشفى الأمل"
+  ],
+  "source_urls": [
+   "https://nccfyemen.org/content/uploads/2025/05/Complete-introductory-guide.pdf",
+   "https://nccfyemen.org/contact-us",
+   "https://moh.gov.ye/en/news/3535"
+  ]
+ },
+ {
+  "slug": "health-3103014",
+  "name_ar": "مستشفى الثاليا العام",
+  "name_en": "Althulaia H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "ريمة",
+  "city": "الجبين",
+  "district": "ريمه الجبين",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى محافظة / مستشفى عام.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "al-khawkhah-field-hospital-hodeidah",
+  "name_ar": "مستشفى الخوخة الميداني",
+  "name_en": null,
+  "institution_type": "hospital",
+  "ownership": "civil",
+  "operator_name": "",
+  "governorate": "الحديدة",
+  "city": "الخوخة",
+  "district": null,
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "",
+  "summary": "مستشفى ميداني في الخوخة بمحافظة الحديدة، تدرجه دائرة الخدمات الطبية في المقاومة الوطنية ضمن المؤسسات التي تديرها، وتذكر افتتاحه في يناير 2023م وتقديم رعاية طبية للمدنيين والعسكريين. لا تؤكد هذه البيانات حالة العمل أو القدرة الاستيعابية في تاريخ زيارة المريض، ويجب الرجوع إلى الجهة المشغلة مباشرة.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://ynrmedicalservices.org/"
+  ]
+ },
+ {
+  "slug": "health-3003003",
+  "name_ar": "مستشفى السالم",
+  "name_en": "Alslam H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "الضالع",
+  "city": "قعطبه",
+  "district": "قعطبه",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-3004002",
+  "name_ar": "مستشفى الشهداء الثالثة",
+  "name_en": "three martyrs hospital",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "الضالع",
+  "city": "الشعيب",
+  "district": "الشعيب",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1202009",
+  "name_ar": "مستشفى الشهيد عوض احمد عوض",
+  "name_en": null,
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "أبين",
+  "city": "مودية",
+  "district": "ابين موديه",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-2702021",
+  "name_ar": "مستشفى الطويلة الريفي",
+  "name_en": "H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "المحويت",
+  "city": "الطويله",
+  "district": "الطويله",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-2904006",
+  "name_ar": "مستشفى القفلة المحوري",
+  "name_en": "H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "عمران",
+  "city": "قفلة عذر",
+  "district": "قفلة عذر",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى يخدم أكثر من من مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-3102011",
+  "name_ar": "مستشفى المسجدين المحوري ( السلفية )",
+  "name_en": "Almasjidin Almihwari H (Alsalafih)",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "ريمة",
+  "city": "السلفية",
+  "district": "ريمه السلفيه",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى يخدم أكثر من من مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-2002001",
+  "name_ar": "مستشفى الوحدة التعليمي الجامعي",
+  "name_en": "Alwahda University Teaching H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "ذمار",
+  "city": "جهران",
+  "district": "جهران",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى يخدم أكثر من من مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1911016",
+  "name_ar": "مستشفى تريم",
+  "name_en": "Tarim H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "حضرموت",
+  "city": "تريم",
+  "district": "تريم",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [
+   "المشورة والفحص لفيروس نقص المناعة (PITC)"
+  ],
+  "source_urls": [
+   "https://www.moh-ye.org/?page_id=5954",
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-2901009",
+  "name_ar": "مستشفى حرف سفيان المحوري",
+  "name_en": "Harf Sufyan Inter-Distric H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "عمران",
+  "city": "حرف سفيان",
+  "district": "حرف سفيان",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى يخدم أكثر من من مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1514036",
+  "name_ar": "مستشفى خليفة العام بالتربة",
+  "name_en": "Khalefa General Hospital",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "تعز",
+  "city": "الشمايتين",
+  "district": "الشمايتين",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى محافظة / مستشفى عام.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1101024",
+  "name_ar": "مستشفى رحاب الريفي",
+  "name_en": "Rehap Rural H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "إب",
+  "city": "القفر",
+  "district": "اب القفر",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-2001026",
+  "name_ar": "مستشفى زراجه الريفي",
+  "name_en": null,
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "ذمار",
+  "city": "الحداء",
+  "district": "الحداء",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "aden-german-international-hospital",
+  "name_ar": "مستشفى عدن الألماني الدولي",
+  "name_en": null,
+  "institution_type": "hospital",
+  "ownership": "private",
+  "operator_name": "",
+  "governorate": "عدن",
+  "city": "المنصورة",
+  "district": null,
+  "address": "عدن، المنصورة، حي السنافر",
+  "phone": null,
+  "website": "https://adengih.com/",
+  "care_level": "",
+  "summary": "مستشفى خاص في حي السنافر بمديرية المنصورة في عدن. يعرّف موقعه نفسه بمستشفى متعدد التخصصات، ويعرض أقسام الباطنية والجراحة والنساء والأطفال والأسنان والعظام والأمراض الجلدية والمختبر والأشعة والعناية المركزة. يوجد في صفحة التواصل نص تجريبي وأرقام أجنبية، ولذلك لم ننقل أرقامها إلى الدليل.",
+  "specialties": [
+   "أمراض الباطنة",
+   "الجراحة العامة",
+   "النساء والولادة",
+   "طب الأطفال",
+   "طب الأسنان",
+   "جراحة العظام",
+   "جراحة التجميل",
+   "أمراض المسالك البولية",
+   "التغذية العلاجية",
+   "أمراض القلب",
+   "الأمراض الجلدية والتجميل",
+   "جراحة المخ والأعصاب",
+   "أمراض الجهاز الهضمي",
+   "طب وجراحة الأنف والأذن والحنجرة"
+  ],
+  "services": [
+   "المختبر",
+   "الأشعة",
+   "العناية المركزة",
+   "عيادة طب الأسنان",
+   "عيادة المسالك البولية",
+   "عيادة العظام",
+   "عيادة أمراض القلب",
+   "عيادة الأنف والأذن والحنجرة",
+   "عيادة مناظير الجهاز الهضمي",
+   "عيادة جراحة التجميل",
+   "عيادة جراحة المخ والأعصاب",
+   "عيادة أمراض الجهاز الهضمي",
+   "عيادة الأمراض الجلدية والتجميل",
+   "عيادة التغذية",
+   "عيادة الباطنية",
+   "عيادة الأطفال وحديثي الولادة",
+   "عيادة النساء والولادة"
+  ],
+  "source_urls": [
+   "https://adengih.com/our-services/",
+   "https://adengih.com/"
+  ]
+ },
+ {
+  "slug": "health-1310012",
+  "name_ar": "مستشفى فلسطين للأمومة والطفولة (مستشفى زايد سابقًا)",
+  "name_en": "Palestine H (zayed ben sultan H)",
+  "institution_type": "specialized_hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "أمانة العاصمة",
+  "city": "بني الحارث",
+  "district": "امانة العاصمه بني الحارث",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "تُدرج وزارة الصحة العامة والسكان منشأة «مستشفي فلسطين لالمومة والطفولة ( مستشفى زايد سابقا )» في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. المحافظة: أمانة العاصمة. المديرية أو المدينة كما وردت في القائمة: امانة العاصمه بني الحارث. الوصف الوزاري: مستشفى تخصصي. حالة التشغيل المذكورة في البيانات بتاريخ 31 ديسمبر 2023م: كانت تعمل بالكامل وفق التصنيف التاريخي. لا تثبت هذه البيانات أن المنشأة تعمل حالياً، أو أن أياً من الخدمات والطوارئ متاح اليوم. يُرجى التحقق من الجهات الصحية قبل الزيارة.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-2610002",
+  "name_ar": "مستشفى ماهلية",
+  "name_en": null,
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "مأرب",
+  "city": "ماهلية",
+  "district": "مارب ماهليه",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Secondary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى ريفي / مستشفى مديرية.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1118002",
+  "name_ar": "مستشفى ناصر العام",
+  "name_en": "naser H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "إب",
+  "city": "المشنة",
+  "district": "اب المشنه",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى محافظة / مستشفى عام.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1102001",
+  "name_ar": "مستشفى يريم",
+  "name_en": "Yarim H",
+  "institution_type": "hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "إب",
+  "city": "يريم",
+  "district": "اب يريم",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "منشأة صحية مدرجة في القائمة الأساسية للمرافق الصحية العامة بوزارة الصحة. نوع المنشأة المسجل: مستشفى محافظة / مستشفى عام.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1927005",
+  "name_ar": "هيئة مستشفى ابن سيناء",
+  "name_en": "Ibn Sena'a General هيئة Hospital Authority",
+  "institution_type": "referral_hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "حضرموت",
+  "city": "مدينة المكال",
+  "district": "مدينة المكال",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "هيئة مستشفى ابن سيناء العام في المكلا منشأة حكومية مرجعية بحضرموت. أعلنت السلطة المحلية استئناف خدمات أقسامها في نوفمبر 2024، ومنها الطوارئ والعمليات والأشعة، وأعلنت في مايو 2026 الاستلام الرسمي لمشروع لإعادة التأهيل والتحديث. المعلومات تاريخية ولا تضمن استقبال الحالات في كل قسم الآن؛ اتصل بالمرفق للتحقق.",
+  "specialties": [
+   "العناية المركزة",
+   "الأشعة",
+   "جراحة العظام",
+   "أمراض العيون",
+   "الجراحة العامة",
+   "أمراض القلب"
+  ],
+  "services": [
+   "الطوارئ",
+   "المختبر",
+   "العمليات الصغرى",
+   "العناية المركزة",
+   "العمليات الجراحية",
+   "الأشعة التشخيصية"
+  ],
+  "source_urls": [
+   "https://www.hadhramaut.info/View/144255.aspx",
+   "https://www.tarebhtoday.online/2024/11/10/103186/",
+   "https://pmo-ye.net/post/11371",
+   "https://www.aden-tm.net/news/282660",
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-2915024",
+  "name_ar": "هيئة مستشفى الرئيس صالح الصماد ( مستشفى 22 مايو المركزي التعليمي سابقا )",
+  "name_en": "President Saleh Al- Sammad Hospital هيئة Authority (22 May Central Teaching",
+  "institution_type": "referral_hospital",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "عمران",
+  "city": null,
+  "district": null,
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Tertiary Health Care",
+  "summary": "تُدرج وزارة الصحة العامة والسكان منشأة «هيئة مستشفى الرئيس صالح الصماد ( مستشفى 22 مايو المركزي التعليمي سابقا )» في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. المحافظة: عمران. الوصف الوزاري: مستشفى مرجعي /. حالة التشغيل المذكورة في البيانات بتاريخ 31 ديسمبر 2023م: كانت تعمل بالكامل وفق التصنيف التاريخي. لا تثبت هذه البيانات أن المنشأة تعمل حالياً، أو أن أياً من الخدمات والطوارئ متاح اليوم. يُرجى التحقق من الجهات الصحية قبل الزيارة.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-1301001",
+  "name_ar": "المركز الصحي الرئيسي",
+  "name_en": "Alraisi HC",
+  "institution_type": "health_center",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "أمانة العاصمة",
+  "city": "صنعاء القديمة",
+  "district": "امانة العاصمه صنعاء القديمه",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Primary Health Care",
+  "summary": "تُدرج وزارة الصحة العامة والسكان منشأة «المركز الصحي الرئيسي» في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. المحافظة: أمانة العاصمة. المديرية أو المدينة كما وردت في القائمة: امانة العاصمه صنعاء القديمه. الوصف الوزاري: مركز صحي بدون أسرّة. حالة التشغيل المذكورة في البيانات بتاريخ 31 ديسمبر 2023م: كانت تعمل بالكامل وفق التصنيف التاريخي. لا تثبت هذه البيانات أن المنشأة تعمل حالياً، أو أن أياً من الخدمات والطوارئ متاح اليوم. يُرجى التحقق من الجهات الصحية قبل الزيارة.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-3201009",
+  "name_ar": "المركز الصحي دكسم",
+  "name_en": "Duksum HC",
+  "institution_type": "health_center",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "سقطرى",
+  "city": "حديبو",
+  "district": "حديبو",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Primary Health Care",
+  "summary": "تُدرج وزارة الصحة العامة والسكان منشأة «المركز الصحي دكسم» في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. المحافظة: سقطرى. المديرية أو المدينة كما وردت في القائمة: حديبو. الوصف الوزاري: مركز صحي بدون أسرّة. حالة التشغيل المذكورة في البيانات بتاريخ 31 ديسمبر 2023م: كانت تعمل بالكامل وفق التصنيف التاريخي. لا تثبت هذه البيانات أن المنشأة تعمل حالياً، أو أن أياً من الخدمات والطوارئ متاح اليوم. يُرجى التحقق من الجهات الصحية قبل الزيارة.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "health-3201002",
+  "name_ar": "المركز الصحي نوجد",
+  "name_en": "Nawjad HC",
+  "institution_type": "health_center",
+  "ownership": "government",
+  "operator_name": "حكومي",
+  "governorate": "سقطرى",
+  "city": "حديبو",
+  "district": "حديبو",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "care_level": "Primary Health Care",
+  "summary": "تُدرج وزارة الصحة العامة والسكان منشأة «المركز الصحي نوجد» في القائمة الأساسية للمرافق الصحية العامة الصادرة في ديسمبر 2023م. المحافظة: سقطرى. المديرية أو المدينة كما وردت في القائمة: حديبو. الوصف الوزاري: مركز صحي بأسرّة. حالة التشغيل المذكورة في البيانات بتاريخ 31 ديسمبر 2023م: كانت تعمل بالكامل وفق التصنيف التاريخي. لا تثبت هذه البيانات أن المنشأة تعمل حالياً، أو أن أياً من الخدمات والطوارئ متاح اليوم. يُرجى التحقق من الجهات الصحية قبل الزيارة.",
+  "specialties": [],
+  "services": [],
+  "source_urls": [
+   "https://moh-ye.org/?page_id=7297"
+  ]
+ },
+ {
+  "slug": "taiz-cardiovascular-kidney-center",
+  "name_ar": "مركز القلب والأوعية الدموية وزراعة الكلى — تعز",
+  "name_en": null,
+  "institution_type": "medical_center",
+  "ownership": "government",
+  "operator_name": "",
+  "governorate": "تعز",
+  "city": "تعز",
+  "district": null,
+  "address": null,
+  "phone": null,
+  "website": "https://cvktc.org/ar",
+  "care_level": "",
+  "summary": "مركز تخصصي في تعز يعرض عبر موقعه خدمات جراحة القلب المفتوح وقسطرة القلب وأمراض المسالك البولية وزراعة الكلى. صدر قرار جمهوري عام 2026م لتنظيم إنشاء المركز وأهدافه، فيما ينشر الموقع معلومات عن العمليات والمؤتمرات الطبية. قوائم الخدمات هنا وصف مؤسسي وليست ضماناً لوجود موعد أو سرير متاح حالياً.",
+  "specialties": [
+   "جراحة القلب",
+   "أمراض القلب",
+   "أمراض الكلى والمسالك البولية"
+  ],
+  "services": [
+   "جراحة القلب المفتوح",
+   "القسطرة القلبية",
+   "زراعة الكلى"
+  ],
+  "source_urls": [
+   "https://cvktc.org/ar",
+   "https://cvcclinic.org/"
+  ]
+ }
+]
