@@ -72,7 +72,7 @@
    "visual": {"kind": "chart", "type": "supply-demand", "demandShift": 15, "alt": "منحنى الطلب كله ينتقل إلى اليمين بعد زيادة دخل الناس، فيرتفع سعر التوازن"}},
 
   {"id": "dates", "role": "practice",
-   "visual": {"kind": "scene", "scene": "city", "alt": "سوق تمر في شارع من شوارع صنعاء"},
+   "visual": {"kind": "scene", "scene": "street", "alt": "سوق تمر في شارع من شوارع صنعاء"},
    "task": {"kind": "buckets",
     "prompt": "ماذا يحدث للطلب على التمر في كل حالة؟",
     "buckets": ["الطلب يزيد", "الطلب يقل", "حركة على المنحنى نفسه"],
