@@ -26,7 +26,8 @@ async function api(body) {
   return json;
 }
 
-function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext}) {
+// preview: معاينة المحرر — تصحيح محلي بلا خادم ولا حفظ، والإغلاق يعود إلى المحرر (onClose).
+function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext, preview = false, onClose}) {
   const cards = lesson.cards;
   const mapHref = '/school/courses/' + slug;
   const [mode, setMode] = useState('loading'); // loading | playing | done | login | error
@@ -51,6 +52,7 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
     let alive = true;
     (async () => {
       try {
+        if (preview) { setProgress({}); setIndex(0); setMode('playing'); return; }
         const started = await api({action: 'start', slug, stage: stageIndex});
         if (!alive) return;
         if (started.guest) {
@@ -63,7 +65,7 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
       } catch (e) { if (alive) { setError(e.message); setMode('error'); } }
     })();
     return () => { alive = false; };
-  }, [slug, stageIndex, guestSnapshot, firstOpen]);
+  }, [slug, stageIndex, guestSnapshot, firstOpen, preview]);
 
   // وضع التركيز: إخفاء تمرير الصفحة خلف المشغّل.
   useEffect(() => { const prev = document.body.style.overflow; document.body.style.overflow = 'hidden'; return () => { document.body.style.overflow = prev; }; }, []);
@@ -76,7 +78,7 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
       if (guest) {
         const local = applyCardCheck(guestSnapshot, {cards: progress}, card.id, values[card.id]);
         if (local.error) throw Error(local.error);
-        writeLocal(guestKey(slug, stageIndex), {cards: local.draft.cards});
+        if (!preview) writeLocal(guestKey(slug, stageIndex), {cards: local.draft.cards});
         setProgress(local.draft.cards); outcome = local.result;
       } else {
         outcome = await api({action: 'check', slug, attemptId: attempt.id, cardId: card.id, answer: values[card.id]});
@@ -86,7 +88,7 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
       if (!outcome.correct && !outcome.done) setHint(true);
     } catch (e) { setError(e.message); }
     finally { setBusy(false); }
-  }, [card, busy, values, guest, guestSnapshot, progress, slug, stageIndex, attempt]);
+  }, [card, busy, values, guest, guestSnapshot, progress, slug, stageIndex, attempt, preview]);
 
   const finish = useCallback(async () => {
     setBusy(true); setError('');
@@ -94,12 +96,12 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
       if (guest) {
         const r = finishCards(guestSnapshot, {cards: progress});
         if (r.error) throw Error(r.error);
-        setResult({...r, guest: true});
+        setResult({...r, guest: !preview, preview});
       } else setResult(await api({action: 'submit', slug, attemptId: attempt.id}));
       setMode('done');
     } catch (e) { setError(e.message); }
     finally { setBusy(false); }
-  }, [guest, guestSnapshot, progress, slug, attempt]);
+  }, [guest, guestSnapshot, progress, slug, attempt, preview]);
 
   const next = useCallback(() => {
     setHint(false);
@@ -150,7 +152,8 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
       </div>
       <h1 className={styles.doneTitle}>أنهيت درس «{lesson.title}»</h1>
       <p>{result.firstTry} من {result.total} إجابات صحيحة من أول محاولة</p>
-      {!result.guest && !result.alreadySubmitted && <span className={styles.badge}>أُضيف إلى تقدمك</span>}
+      {!result.guest && !result.preview && !result.alreadySubmitted && <span className={styles.badge}>أُضيف إلى تقدمك</span>}
+      {result.preview && <span className={styles.badge}>معاينة: لم يُحفظ شيء</span>}
     </section>
     <section className={styles.summary} aria-label="ما تعلمته">
       <h2>ما تعلمته</h2>
@@ -161,14 +164,17 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
       <Link className={styles.primary} href={'/register?next=' + encodeURIComponent(mapHref)}>أنشئ حسابًا مجانًا</Link>
     </section>}
     <footer className={styles.doneActions}>
-      {hasNext && !result.guest && <Link className={styles.primary} href={'/school/courses/' + slug + '/' + (stageIndex + 2)}>الدرس التالي <ArrowLeft size={18} aria-hidden="true"/></Link>}
-      <Link className={styles.secondary} href={mapHref}>العودة إلى خريطة المسار</Link>
+      {preview && <button type="button" className={styles.primary} onClick={onClose}>العودة إلى المحرر</button>}
+      {!preview && hasNext && !result.guest && <Link className={styles.primary} href={'/school/courses/' + slug + '/' + (stageIndex + 2)}>الدرس التالي <ArrowLeft size={18} aria-hidden="true"/></Link>}
+      {!preview && <Link className={styles.secondary} href={mapHref}>العودة إلى خريطة المسار</Link>}
     </footer>
   </div>;
 
   return <div className={styles.shell} dir="rtl" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
     <header className={styles.top}>
-      <Link href={mapHref} className={styles.iconButton} aria-label={'إغلاق الدرس والعودة إلى ' + courseTitle}><X size={22} aria-hidden="true"/></Link>
+      {preview
+        ? <button type="button" className={styles.iconButton} style={{border: 0, background: 'transparent', cursor: 'pointer'}} aria-label="إغلاق المعاينة" onClick={onClose}><X size={22} aria-hidden="true"/></button>
+        : <Link href={mapHref} className={styles.iconButton} aria-label={'إغلاق الدرس والعودة إلى ' + courseTitle}><X size={22} aria-hidden="true"/></Link>}
       <div className={styles.segments} role="progressbar" aria-label="تقدم الدرس" aria-valuemin={0} aria-valuemax={cards.length} aria-valuenow={index + 1}>
         {cards.map((c, i) => <span key={c.id} data-state={i < index || progress[c.id]?.done ? 'done' : i === index ? 'current' : undefined}/>)}
       </div>

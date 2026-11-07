@@ -8,6 +8,9 @@ import {GATE_TYPES} from '@/lib/schoolThinkingLabs';
 import {SCIENCE_MODEL_IDS,SCIENCE_LABS} from '@/lib/schoolScienceModels';
 import {CIVIC_LABS} from '@/lib/schoolCivicModels';
 import {getCivicActivity} from '@/lib/schoolCivicActivities';
+import CardLessonEditor from '@/components/school/v2/editor/CardLessonEditor';
+import CourseUnitsEditor from '@/components/school/v2/editor/CourseUnitsEditor';
+import {starterLesson} from '@/lib/schoolCardStarters';
 const defaultDoc={
  course:()=>({title:'',description:'',category:'الكتابة والأدب'}),
  stage:()=>({title:'',subtitle:'',intro:'',tips:[]}),
@@ -128,8 +131,13 @@ export default function SchoolStudio(){
       <label>اسم المسار<input value={form.title||''} maxLength={90} onChange={e=>setForm(v=>({...v,title:e.target.value}))}/></label>
       <label>القسم<input value={form.category||''} maxLength={60} onChange={e=>setForm(v=>({...v,category:e.target.value}))}/></label>
       <label>وصف المسار<textarea value={form.description||''} rows={3} maxLength={700} onChange={e=>setForm(v=>({...v,description:e.target.value}))}/></label>
+      {!['musnad','arud'].includes(slug)&&<CourseUnitsEditor key={slug} value={form} onChange={setForm}/>}
      </>}
-     {kind==='stage'&&<>
+     {kind==='stage'&&form.format===2&&<CardLessonEditor key={slug+':'+stage} value={form} onChange={setForm} slug={slug||'preview'}/>}
+     {kind==='stage'&&form.format!==2&&!['musnad','arud'].includes(slug)&&<button type="button" className={styles.secondary}
+      onClick={()=>{if(window.confirm('سيُستبدل محتوى هذه المحطة بدرس بطاقات جديد (لن يتغير المنشور حتى تنشر). هل تتابع؟'))setForm(starterLesson(form.title&&form.title.length>=3?form.title:'عنوان الدرس'));}}>
+      تحويل إلى درس بطاقات (الإصدار الثاني)</button>}
+     {kind==='stage'&&form.format!==2&&<>
       <label>اسم المحطة<input value={form.title||''} maxLength={90} onChange={e=>setForm(v=>({...v,title:e.target.value}))}/></label>
       {course?.draft?.category==='الكتابة والأدب'&&<label>الخط الذي سيظهر في أمثلة المحطة
        <select value={form.script||schoolScriptForStage(slug,stage)}
