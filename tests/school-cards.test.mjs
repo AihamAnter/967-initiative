@@ -61,7 +61,8 @@ test('every interaction kind grades correctly', () => {
   g({kind: 'fix', answer: {index: 2, replacement: 1}}, {index: 2, replacement: 1}, {index: 1, replacement: 1});
   g({kind: 'gap', answer: ['التكلفه']}, ['التَّكلفة'], ['الربح']);
   g({kind: 'type', answer: ['صنعاء']}, ' صَنعاء ', 'عدن');
-  g({kind: 'lab'}, true, false);
+  g({kind: 'lab', lab: {kind: 'gates', gate: 'AND'}}, {kind: 'gates', visited: ['0:0', '0:1', '1:0', '1:1']}, true);
+  assert.equal(gradeCard({kind: 'lab'}, true), false, 'lab without a known lab never passes');
   assert.equal(TASK_KINDS.length, 12);
 });
 
