@@ -3,7 +3,7 @@ import {useCallback,useEffect,useState} from 'react';
 import {Award,BookOpenCheck,CalendarCheck,Flame,GraduationCap,LockKeyhole,Medal,PenLine,Route,ShieldCheck,Sparkles,Target,Trophy,Waves} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from '@/app/school/dashboard/dashboard.module.css';
-const icons={sparkles:Sparkles,route:Route,target:Target,'graduation-cap':GraduationCap,'book-open-check':BookOpenCheck,'pen-line':PenLine,award:Award,waves:Waves,medal:Medal,flame:Flame,'calendar-check':CalendarCheck};
+const icons={sparkles:Sparkles,route:Route,target:Target,'graduation-cap':GraduationCap,'book-open-check':BookOpenCheck,'pen-line':PenLine,award:Award,waves:Waves,medal:Medal,flame:Flame,'calendar-check':CalendarCheck,trophy:Trophy};
 async function schoolBoardRequest(method,period,body){
  const db=browserDb(),{data,error}=await db?.auth.getSession()||{};
  if(error||!data?.session?.access_token)throw Error('يرجى تسجيل الدخول مجددًا.');
