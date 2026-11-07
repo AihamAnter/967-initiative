@@ -6,7 +6,9 @@ import {validateCardLesson} from '../lib/schoolCards.js';
 import {journeyUnits} from '../lib/schoolJourney.js';
 
 const read = p => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
-const COURSES = ['economics-basics', 'arud'];
+// كل مجلد فيه course.json مسارُ بطاقات في المستودع (التجربة ثم بقية المسارات في المرحلة 8).
+const COURSES = readdirSync(new URL('../data/school-v2/pilot/', import.meta.url), {withFileTypes: true})
+  .filter(d => d.isDirectory() && readdirSync(new URL(`../data/school-v2/pilot/${d.name}/`, import.meta.url)).includes('course.json')).map(d => d.name).sort();
 const lessons = slug => readdirSync(new URL(`../data/school-v2/pilot/${slug}/`, import.meta.url)).filter(f => /^\d\d\.json$/.test(f)).sort().map(f => ({file: f, json: JSON.parse(read(`data/school-v2/pilot/${slug}/${f}`))}));
 // أنماط التفعيلات المعتمدة (الكتابة العروضية / و0).
 const FOOT = {'فعولن': '//0/0', 'فعولُ': '//0/', 'فعول': '//0/', 'مفاعيلن': '//0/0/0', 'مفاعلن': '//0//0', 'فاعلن': '/0//0', 'فعِلن': '///0', 'فعلن': '///0',
