@@ -179,7 +179,7 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
       {card.role === 'hook' && <span className={styles.tag}>تحدٍّ</span>}
       {card.title && <h1 className={styles.cardTitle}>{card.title}</h1>}
       {card.text && <p className={styles.cardText}>{card.text}</p>}
-      <CardVisual visual={card.visual}/>
+      <CardVisual visual={card.visual} task={card.task} value={values[card.id]}/>
       <CardTask task={card.task} value={values[card.id]} onChange={v => setValues(s => ({...s, [card.id]: v}))} locked={Boolean(cardDone || (fb && !fb.correct && !fb.done) || busy)} feedback={fb}/>
       {hint && card.task?.hint && !cardDone && <p className={styles.hint} role="note"><Lightbulb size={16} aria-hidden="true"/> {card.task.hint}</p>}
       {error && <p className={styles.error} role="alert">{error}</p>}

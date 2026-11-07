@@ -9,6 +9,7 @@ import GenericSchoolLesson from '@/components/school/GenericSchoolLesson';
 import CardLessonPlayer from '@/components/school/v2/CardLessonPlayer';
 import {validateCardLesson} from '@/lib/schoolCards';
 import {cardSnapshot} from '@/lib/schoolCardProgress';
+import {resolveCardVisuals} from '@/lib/schoolCardVisualsServer';
 import {readFile} from 'node:fs/promises';
 import path from 'node:path';
 import {pageMetadata} from '@/lib/seo';
@@ -33,6 +34,7 @@ export default async function CourseStagePage({params,searchParams}){
  // except for the first lesson, which guests may try without an account (graded in the browser, no points).
  if(stage.format===2){
   let lesson;try{lesson=validateCardLesson(stage).lesson;}catch{notFound();}
+  lesson=await resolveCardVisuals(lesson);
   return <CardLessonPlayer slug={slug} stageIndex={index} lesson={lesson} guestSnapshot={index===0?cardSnapshot(stage):null}
    courseTitle={course.title} hasNext={stages.some(x=>x.index===index+1)}/>;
  }

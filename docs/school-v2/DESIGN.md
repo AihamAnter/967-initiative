@@ -141,3 +141,14 @@ capstone: 11                                             // آخر محطة مش
 - `hotspot`: مواضع النقاط نسب مئوية من إطار بنسبة 16:10؛ أسماء النقاط تظهر بعد انتهاء البطاقة فقط.
 - `lab`: الإجابة هي دليل التجربة نفسه (مورس، بوابات، علوم، مدني) ويتحقق منه الخادم بدوال الإصدار الأول؛ `true` وحدها لا تكفي.
 - الكشف بعد محاولتين يعرض الإجابة بصيغتها الأصلية (`display`) لا بالصيغة المطبَّعة.
+
+## تنفيذ العناصر المرئية (المرحلة 3)
+
+- `components/school/v2/CardVisual.jsx` يوزّع على مكتبة `visuals/`: منحنيات (`Charts.jsx`)، خريطة (`YemenMapVisual.jsx`)، مشاهد (`Scenes.jsx`)، والأنواع النصية داخله. الحسابات بلا واجهة في `lib/schoolCardVisuals.js`.
+- **chart**: `type` = `line` (`series[{label, points[[x,y]]}]`) أو `bar` (`bars[{label,value}]`, `highlight`) أو `supply-demand` (`demandShift`/`supplyShift` بين −25 و25، و`bind: 'demand'|'supply'` ليتحرك المنحنى مع مؤشر البطاقة). التوازن في (50%، 49%) من الإطار لتسهيل نقاط الضغط.
+- **stat**: `indicator` (معرّف من «اليمن بالأرقام») و`years` اختياري. الخادم يملأ `data` من القيم المنشورة ومصدرها قبل إرسال الدرس (`lib/schoolCardVisualsServer.js`)؛ لا يُقبل `data` من المحرر.
+- **map**: `highlight` (رموز YE11–YE32) أو `values` لخريطة درجات، و`labels:false` لإخفاء الأسماء. الملف `public/data/school-v2/yemen-governorates.json` (18KB) يُبنى بـ `node scripts/build-school-v2-map.mjs` من حدود OCHA، بأسماء المحافظات بإملائها الصحيح.
+- **scene**: `city|home|shop|market|school|parliament|farm|port|weather-station|lab|mountains|desert`، و`labels[{text,x,y}]` بنسب مئوية.
+- **timeline** `events[{year,label}]` و`highlight`؛ **layers** `layers[{label,detail}]`؛ **compare** `before/after` و`beforeLabel/afterLabel`؛ **formula** `parts` و`ops` (`plus|minus|times|divide|equals|arrow`)؛ **verse** `sadr/ajuz/meter/feet[{text,pattern,name}]`؛ **glyphs** `letters` (معرّفات `MUSNAD_ALPHABET`)؛ **image** من `upload.wikimedia.org/wikipedia/commons/` فقط مع `credit` و`license`.
+- الرسوم (`chart/stat/map/scene/image`) تُقرأ لقارئ الشاشة بوصفها `alt`؛ العناصر النصية تُقرأ كما هي. `caption` تعليق مرئي اختياري.
+- لا تضع رسمًا يكشف إجابة التفاعل في البطاقة نفسها (مثل خط زمني فوق سؤال ترتيب).
