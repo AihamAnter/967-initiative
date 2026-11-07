@@ -1,0 +1,29 @@
+/* مدرسة 967 — محرر دروس البطاقات داخل الاستوديو. */
+.editor{display:flex;flex-direction:column;gap:12px}
+.status{position:sticky;top:8px;z-index:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 12px;border-radius:14px;background:#fde7e0;color:#5a2516;font-size:13.5px;font-weight:600;line-height:1.7}
+.status[data-ok]{background:#e3f3ec;color:#123d2b}
+.status button{margin-inline-start:auto;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:12px;border:0;background:var(--c-accent,#11695f);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.status button:disabled{opacity:.5;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700;color:var(--c-ink-2,#5c554c)}
+.field input,.field select,.field textarea,.box>select{font:inherit;font-weight:400;font-size:14.5px;color:var(--c-ink,#1d1a16);background:var(--c-surface,#fff);border:1.5px solid var(--c-line,#e4ddd2);border-radius:10px;padding:8px 10px;min-height:42px;box-sizing:border-box;width:100%}
+.field textarea[dir="ltr"]{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;line-height:1.55}
+.field [aria-invalid="true"]{border-color:#c0472b}
+.bad{color:#b4462a;font-weight:600}
+.cards{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.card{border:1.5px solid var(--c-line,#e4ddd2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px;background:var(--c-surface,#fff)}
+.cardHead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cardHead span{font-size:12.5px;color:var(--c-ink-2,#5c554c)}
+.tools{margin-inline-start:auto;display:flex;gap:4px}
+.tools button{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--c-line,#e4ddd2);background:var(--c-surface-2,#f6f2ea);color:inherit;cursor:pointer}
+.tools button:disabled{opacity:.35;cursor:not-allowed}
+.box{border:1px dashed var(--c-line,#e4ddd2);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;margin:0}
+.box legend{font-size:12.5px;font-weight:800;color:var(--c-accent,#11695f);padding:0 6px}
+.addRow{display:flex;gap:8px;flex-wrap:wrap}
+.addRow button{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 14px;border-radius:12px;border:1.5px dashed var(--c-accent,#11695f);background:transparent;color:var(--c-accent,#11695f);font:inherit;font-weight:700;cursor:pointer}
+.addRow button:disabled{opacity:.4;cursor:not-allowed}
+.note{margin:0;font-size:12.5px;line-height:1.8;color:var(--c-ink-2,#5c554c)}
+:global(:root[data-ed-theme="dark"]) .status{background:#46231a;color:#f6d4c9}
+:global(:root[data-ed-theme="dark"]) .status[data-ok]{background:#173a2c;color:#d4f0e2}
+:global(:root[data-ed-theme="dark"]) .status button{color:#0f1c1a}
