@@ -121,7 +121,8 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext})
     return () => window.removeEventListener('keydown', onKey);
   }, [primary, mode]);
 
-  const onTouchStart = e => { touch.current = e.touches[0]?.clientX ?? null; };
+  // لا سحب بين البطاقات من داخل مؤشر أو مختبر: السحب هناك جزء من التفاعل.
+  const onTouchStart = e => { touch.current = e.target.closest?.('[data-noswipe],input,textarea') ? null : e.touches[0]?.clientX ?? null; };
   const onTouchEnd = e => {
     const start = touch.current; touch.current = null;
     const end = e.changedTouches[0]?.clientX; if (start == null || end == null) return;

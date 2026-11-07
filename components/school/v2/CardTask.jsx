@@ -1,7 +1,8 @@
 'use client';
-// عرض التفاعل داخل البطاقة. المرحلة 1: اختيار، توقّع، صح/خطأ، كتابة. بقية الأنواع تصل في المرحلة 2.
+// عرض التفاعل داخل البطاقة: اختيار، توقّع، صح/خطأ، كتابة هنا؛ بقية الأنواع في CardInteractions.
 import {useState} from 'react';
 import {Check, X, HelpCircle} from 'lucide-react';
+import {INTERACTIONS, HOW_MORE, interactionReady} from './CardInteractions';
 import styles from './CardLessonPlayer.module.css';
 
 // مثال «كيف أجيب؟» لكل نوع.
@@ -10,6 +11,7 @@ const HOW = {
   predict: 'اختر ما تتوقع أن يحدث. لا بأس إن أخطأت؛ سترى ما يحدث فعلًا بعد «تحقق».',
   truefalse: 'لكل عبارة اضغط «صح» أو «خطأ»، ثم اضغط «تحقق».',
   type: 'اكتب الكلمة أو الرقم في المربع، ثم اضغط «تحقق». لا تقلق من التشكيل أو الهمزات.',
+  ...HOW_MORE,
 };
 
 export function taskReady(task, value) {
@@ -17,7 +19,7 @@ export function taskReady(task, value) {
   if (task.kind === 'choice' || task.kind === 'predict') return Number.isInteger(value);
   if (task.kind === 'truefalse') return Array.isArray(value) && value.length === task.statements.length && value.every(v => typeof v === 'boolean');
   if (task.kind === 'type') return typeof value === 'string' && value.trim().length > 0;
-  return false;
+  return interactionReady(task, value);
 }
 
 export default function CardTask({task, value, onChange, locked, feedback}) {
@@ -67,7 +69,7 @@ export default function CardTask({task, value, onChange, locked, feedback}) {
       {feedback?.done && Array.isArray(reveal) && <small className={styles.revealNote}>الصواب: {reveal[0]}</small>}
     </label>}
 
-    {!['choice', 'predict', 'truefalse', 'type'].includes(task.kind) && <p className={styles.how}>هذا النوع من التفاعل قيد الإعداد.</p>}
+    {INTERACTIONS[task.kind] && (() => { const Interaction = INTERACTIONS[task.kind]; return <Interaction task={task} value={value} onChange={onChange} locked={locked} feedback={feedback}/>; })()}
 
     {task.kind === 'predict' && feedback?.done && task.reveal && <div className={styles.reveal}><strong>ما يحدث فعلًا</strong><p>{task.reveal.text}</p></div>}
   </div>;
