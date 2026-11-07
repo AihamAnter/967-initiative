@@ -1,4 +1,17 @@
 // مولَّد تلقائيًا بـ scripts/build-school-v2-pilot-index.mjs — لا تعدّله يدويًا.
+import arabic_calligraphy_course from './arabic-calligraphy/course.json';
+import arabic_calligraphy_01 from './arabic-calligraphy/01.json';
+import arabic_calligraphy_02 from './arabic-calligraphy/02.json';
+import arabic_calligraphy_03 from './arabic-calligraphy/03.json';
+import arabic_calligraphy_04 from './arabic-calligraphy/04.json';
+import arabic_calligraphy_05 from './arabic-calligraphy/05.json';
+import arabic_calligraphy_06 from './arabic-calligraphy/06.json';
+import arabic_calligraphy_07 from './arabic-calligraphy/07.json';
+import arabic_calligraphy_08 from './arabic-calligraphy/08.json';
+import arabic_calligraphy_09 from './arabic-calligraphy/09.json';
+import arabic_calligraphy_10 from './arabic-calligraphy/10.json';
+import arabic_calligraphy_11 from './arabic-calligraphy/11.json';
+import arabic_calligraphy_12 from './arabic-calligraphy/12.json';
 import arud_course from './arud/course.json';
 import arud_01 from './arud/01.json';
 import arud_02 from './arud/02.json';
@@ -38,6 +51,32 @@ import how_state_works_09 from './how-state-works/09.json';
 import how_state_works_10 from './how-state-works/10.json';
 import how_state_works_11 from './how-state-works/11.json';
 import how_state_works_12 from './how-state-works/12.json';
+import logical_fallacies_course from './logical-fallacies/course.json';
+import logical_fallacies_01 from './logical-fallacies/01.json';
+import logical_fallacies_02 from './logical-fallacies/02.json';
+import logical_fallacies_03 from './logical-fallacies/03.json';
+import logical_fallacies_04 from './logical-fallacies/04.json';
+import logical_fallacies_05 from './logical-fallacies/05.json';
+import logical_fallacies_06 from './logical-fallacies/06.json';
+import logical_fallacies_07 from './logical-fallacies/07.json';
+import logical_fallacies_08 from './logical-fallacies/08.json';
+import logical_fallacies_09 from './logical-fallacies/09.json';
+import logical_fallacies_10 from './logical-fallacies/10.json';
+import logical_fallacies_11 from './logical-fallacies/11.json';
+import logical_fallacies_12 from './logical-fallacies/12.json';
+import logical_thinking_course from './logical-thinking/course.json';
+import logical_thinking_01 from './logical-thinking/01.json';
+import logical_thinking_02 from './logical-thinking/02.json';
+import logical_thinking_03 from './logical-thinking/03.json';
+import logical_thinking_04 from './logical-thinking/04.json';
+import logical_thinking_05 from './logical-thinking/05.json';
+import logical_thinking_06 from './logical-thinking/06.json';
+import logical_thinking_07 from './logical-thinking/07.json';
+import logical_thinking_08 from './logical-thinking/08.json';
+import logical_thinking_09 from './logical-thinking/09.json';
+import logical_thinking_10 from './logical-thinking/10.json';
+import logical_thinking_11 from './logical-thinking/11.json';
+import logical_thinking_12 from './logical-thinking/12.json';
 import money_banks_inflation_course from './money-banks-inflation/course.json';
 import money_banks_inflation_01 from './money-banks-inflation/01.json';
 import money_banks_inflation_02 from './money-banks-inflation/02.json';
@@ -66,9 +105,12 @@ import political_systems_11 from './political-systems/11.json';
 import political_systems_12 from './political-systems/12.json';
 
 export const PILOT_COURSES = [
+  {course: arabic_calligraphy_course, lessons: [arabic_calligraphy_01, arabic_calligraphy_02, arabic_calligraphy_03, arabic_calligraphy_04, arabic_calligraphy_05, arabic_calligraphy_06, arabic_calligraphy_07, arabic_calligraphy_08, arabic_calligraphy_09, arabic_calligraphy_10, arabic_calligraphy_11, arabic_calligraphy_12]},
   {course: arud_course, lessons: [arud_01, arud_02, arud_03, arud_04, arud_05, arud_06, arud_07, arud_08, arud_09, arud_10, arud_11, arud_12]},
   {course: economics_basics_course, lessons: [economics_basics_01, economics_basics_02, economics_basics_03, economics_basics_04, economics_basics_05, economics_basics_06, economics_basics_07, economics_basics_08, economics_basics_09, economics_basics_10, economics_basics_11, economics_basics_12]},
   {course: how_state_works_course, lessons: [how_state_works_01, how_state_works_02, how_state_works_03, how_state_works_04, how_state_works_05, how_state_works_06, how_state_works_07, how_state_works_08, how_state_works_09, how_state_works_10, how_state_works_11, how_state_works_12]},
+  {course: logical_fallacies_course, lessons: [logical_fallacies_01, logical_fallacies_02, logical_fallacies_03, logical_fallacies_04, logical_fallacies_05, logical_fallacies_06, logical_fallacies_07, logical_fallacies_08, logical_fallacies_09, logical_fallacies_10, logical_fallacies_11, logical_fallacies_12]},
+  {course: logical_thinking_course, lessons: [logical_thinking_01, logical_thinking_02, logical_thinking_03, logical_thinking_04, logical_thinking_05, logical_thinking_06, logical_thinking_07, logical_thinking_08, logical_thinking_09, logical_thinking_10, logical_thinking_11, logical_thinking_12]},
   {course: money_banks_inflation_course, lessons: [money_banks_inflation_01, money_banks_inflation_02, money_banks_inflation_03, money_banks_inflation_04, money_banks_inflation_05, money_banks_inflation_06, money_banks_inflation_07, money_banks_inflation_08, money_banks_inflation_09, money_banks_inflation_10, money_banks_inflation_11, money_banks_inflation_12]},
   {course: political_systems_course, lessons: [political_systems_01, political_systems_02, political_systems_03, political_systems_04, political_systems_05, political_systems_06, political_systems_07, political_systems_08, political_systems_09, political_systems_10, political_systems_11, political_systems_12]}
 ];
