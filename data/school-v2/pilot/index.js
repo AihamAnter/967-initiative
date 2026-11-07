@@ -25,6 +25,19 @@ import arud_09 from './arud/09.json';
 import arud_10 from './arud/10.json';
 import arud_11 from './arud/11.json';
 import arud_12 from './arud/12.json';
+import earth_interior_course from './earth-interior/course.json';
+import earth_interior_01 from './earth-interior/01.json';
+import earth_interior_02 from './earth-interior/02.json';
+import earth_interior_03 from './earth-interior/03.json';
+import earth_interior_04 from './earth-interior/04.json';
+import earth_interior_05 from './earth-interior/05.json';
+import earth_interior_06 from './earth-interior/06.json';
+import earth_interior_07 from './earth-interior/07.json';
+import earth_interior_08 from './earth-interior/08.json';
+import earth_interior_09 from './earth-interior/09.json';
+import earth_interior_10 from './earth-interior/10.json';
+import earth_interior_11 from './earth-interior/11.json';
+import earth_interior_12 from './earth-interior/12.json';
 import economics_basics_course from './economics-basics/course.json';
 import economics_basics_01 from './economics-basics/01.json';
 import economics_basics_02 from './economics-basics/02.json';
@@ -142,10 +155,37 @@ import solar_system_09 from './solar-system/09.json';
 import solar_system_10 from './solar-system/10.json';
 import solar_system_11 from './solar-system/11.json';
 import solar_system_12 from './solar-system/12.json';
+import universe_mysteries_course from './universe-mysteries/course.json';
+import universe_mysteries_01 from './universe-mysteries/01.json';
+import universe_mysteries_02 from './universe-mysteries/02.json';
+import universe_mysteries_03 from './universe-mysteries/03.json';
+import universe_mysteries_04 from './universe-mysteries/04.json';
+import universe_mysteries_05 from './universe-mysteries/05.json';
+import universe_mysteries_06 from './universe-mysteries/06.json';
+import universe_mysteries_07 from './universe-mysteries/07.json';
+import universe_mysteries_08 from './universe-mysteries/08.json';
+import universe_mysteries_09 from './universe-mysteries/09.json';
+import universe_mysteries_10 from './universe-mysteries/10.json';
+import universe_mysteries_11 from './universe-mysteries/11.json';
+import universe_mysteries_12 from './universe-mysteries/12.json';
+import weather_climate_course from './weather-climate/course.json';
+import weather_climate_01 from './weather-climate/01.json';
+import weather_climate_02 from './weather-climate/02.json';
+import weather_climate_03 from './weather-climate/03.json';
+import weather_climate_04 from './weather-climate/04.json';
+import weather_climate_05 from './weather-climate/05.json';
+import weather_climate_06 from './weather-climate/06.json';
+import weather_climate_07 from './weather-climate/07.json';
+import weather_climate_08 from './weather-climate/08.json';
+import weather_climate_09 from './weather-climate/09.json';
+import weather_climate_10 from './weather-climate/10.json';
+import weather_climate_11 from './weather-climate/11.json';
+import weather_climate_12 from './weather-climate/12.json';
 
 export const PILOT_COURSES = [
   {course: arabic_calligraphy_course, lessons: [arabic_calligraphy_01, arabic_calligraphy_02, arabic_calligraphy_03, arabic_calligraphy_04, arabic_calligraphy_05, arabic_calligraphy_06, arabic_calligraphy_07, arabic_calligraphy_08, arabic_calligraphy_09, arabic_calligraphy_10, arabic_calligraphy_11, arabic_calligraphy_12]},
   {course: arud_course, lessons: [arud_01, arud_02, arud_03, arud_04, arud_05, arud_06, arud_07, arud_08, arud_09, arud_10, arud_11, arud_12]},
+  {course: earth_interior_course, lessons: [earth_interior_01, earth_interior_02, earth_interior_03, earth_interior_04, earth_interior_05, earth_interior_06, earth_interior_07, earth_interior_08, earth_interior_09, earth_interior_10, earth_interior_11, earth_interior_12]},
   {course: economics_basics_course, lessons: [economics_basics_01, economics_basics_02, economics_basics_03, economics_basics_04, economics_basics_05, economics_basics_06, economics_basics_07, economics_basics_08, economics_basics_09, economics_basics_10, economics_basics_11, economics_basics_12]},
   {course: how_state_works_course, lessons: [how_state_works_01, how_state_works_02, how_state_works_03, how_state_works_04, how_state_works_05, how_state_works_06, how_state_works_07, how_state_works_08, how_state_works_09, how_state_works_10, how_state_works_11, how_state_works_12]},
   {course: logic_gates_course, lessons: [logic_gates_01, logic_gates_02, logic_gates_03, logic_gates_04, logic_gates_05, logic_gates_06, logic_gates_07, logic_gates_08, logic_gates_09, logic_gates_10, logic_gates_11, logic_gates_12]},
@@ -154,5 +194,7 @@ export const PILOT_COURSES = [
   {course: money_banks_inflation_course, lessons: [money_banks_inflation_01, money_banks_inflation_02, money_banks_inflation_03, money_banks_inflation_04, money_banks_inflation_05, money_banks_inflation_06, money_banks_inflation_07, money_banks_inflation_08, money_banks_inflation_09, money_banks_inflation_10, money_banks_inflation_11, money_banks_inflation_12]},
   {course: morse_code_course, lessons: [morse_code_01, morse_code_02, morse_code_03, morse_code_04, morse_code_05, morse_code_06, morse_code_07, morse_code_08, morse_code_09, morse_code_10, morse_code_11, morse_code_12]},
   {course: political_systems_course, lessons: [political_systems_01, political_systems_02, political_systems_03, political_systems_04, political_systems_05, political_systems_06, political_systems_07, political_systems_08, political_systems_09, political_systems_10, political_systems_11, political_systems_12]},
-  {course: solar_system_course, lessons: [solar_system_01, solar_system_02, solar_system_03, solar_system_04, solar_system_05, solar_system_06, solar_system_07, solar_system_08, solar_system_09, solar_system_10, solar_system_11, solar_system_12]}
+  {course: solar_system_course, lessons: [solar_system_01, solar_system_02, solar_system_03, solar_system_04, solar_system_05, solar_system_06, solar_system_07, solar_system_08, solar_system_09, solar_system_10, solar_system_11, solar_system_12]},
+  {course: universe_mysteries_course, lessons: [universe_mysteries_01, universe_mysteries_02, universe_mysteries_03, universe_mysteries_04, universe_mysteries_05, universe_mysteries_06, universe_mysteries_07, universe_mysteries_08, universe_mysteries_09, universe_mysteries_10, universe_mysteries_11, universe_mysteries_12]},
+  {course: weather_climate_course, lessons: [weather_climate_01, weather_climate_02, weather_climate_03, weather_climate_04, weather_climate_05, weather_climate_06, weather_climate_07, weather_climate_08, weather_climate_09, weather_climate_10, weather_climate_11, weather_climate_12]}
 ];

@@ -78,3 +78,8 @@ test('stage page resolves indicator data on the server before rendering', () => 
   const page = read('app/school/courses/[slug]/[stage]/page.jsx');
   assert.match(page, /lesson=await resolveCardVisuals\(lesson\)/);
 });
+
+test('negative chart numbers stay readable inside right-to-left text', () => {
+  assert.equal(compactNumber(-35), '⁦−35⁩');
+  assert.equal(compactNumber(-2500000), '⁦−2.5 مليون⁩');
+});
