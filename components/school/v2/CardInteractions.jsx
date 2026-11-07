@@ -3,7 +3,7 @@
 // كل التفاعلات تعمل بالنقر (تناسب اللمس ولوحة المفاتيح وقارئ الشاشة)، وتعرض الصواب بعد انتهاء المحاولتين.
 import {useState} from 'react';
 import dynamic from 'next/dynamic';
-import {Check, FlaskConical} from 'lucide-react';
+import {Check, FlaskConical, ArrowDown} from 'lucide-react';
 import CardVisual from './CardVisual';
 import styles from './CardInteractions.module.css';
 
@@ -74,12 +74,14 @@ export function MatchTask({task, value, onChange, locked, feedback}) {
 }
 
 // تصنيف: اختر عنصرًا ثم اضغط المجموعة المناسبة. اضغط عنصرًا داخل مجموعة لإعادته.
+// بعد اختيار عنصر تبرز أسماء المجموعات (لون ونبض وعبارة «ضعه هنا») حتى تتضح الخطوة التالية.
 export function BucketsTask({task, value, onChange, locked, feedback}) {
   const places = Array.isArray(value) ? value : Array(task.items.length).fill(null);
   const [active, setActive] = useState(null);
   const reveal = revealOf(feedback);
   const unsorted = task.items.map((_, i) => i).filter(i => places[i] === null || places[i] === undefined);
-  const selected = active ?? unsorted[0] ?? null;
+  const selected = active !== null && unsorted.includes(active) ? active : null;
+  const armed = !locked && selected !== null;
   const place = b => {
     if (selected === null) return;
     const next = [...places]; next[selected] = b; onChange(next);
@@ -87,12 +89,15 @@ export function BucketsTask({task, value, onChange, locked, feedback}) {
   };
   return <div className={styles.block}>
     {unsorted.length > 0 && <div className={styles.pool} aria-label="عناصر لم تُصنَّف بعد">
-      {unsorted.map(i => <button type="button" key={i} className={styles.chip} aria-pressed={selected === i} disabled={locked} onClick={() => setActive(i)}>{task.items[i]}</button>)}
+      {unsorted.map(i => <button type="button" key={i} className={styles.chip} aria-pressed={selected === i} disabled={locked} onClick={() => setActive(selected === i ? null : i)}>{task.items[i]}</button>)}
     </div>}
+    {!locked && unsorted.length > 0 && <p className={styles.helper} data-step={armed ? 2 : 1} aria-live="polite">
+      {armed ? <>الخطوة 2: اضغط اسم المجموعة المناسبة <ArrowDown size={14} aria-hidden="true"/></> : 'الخطوة 1: اضغط عنصرًا من القائمة.'}</p>}
     <div className={styles.buckets} data-count={task.buckets.length}>
-      {task.buckets.map((name, b) => <div key={b} className={styles.bucket}>
-        <button type="button" className={styles.bucketHead} disabled={locked || selected === null} onClick={() => place(b)}
-          aria-label={selected !== null ? `ضع «${task.items[selected]}» في ${name}` : name}>{name}</button>
+      {task.buckets.map((name, b) => <div key={b} className={styles.bucket} data-armed={armed || undefined}>
+        <button type="button" className={styles.bucketHead} disabled={!armed} onClick={() => place(b)}
+          aria-label={armed ? `ضع «${task.items[selected]}» في ${name}` : name}>
+          <span>{name}</span>{armed && <small className={styles.dropHint}><ArrowDown size={12} aria-hidden="true"/> ضعه هنا</small>}</button>
         <div className={styles.bucketBody}>
           {task.items.map((item, i) => places[i] === b && <button type="button" key={i} className={styles.chip} disabled={locked}
             data-wrong={Array.isArray(reveal) && reveal[i] !== b || undefined}
