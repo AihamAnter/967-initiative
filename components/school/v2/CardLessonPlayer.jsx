@@ -27,7 +27,7 @@ async function api(body) {
 }
 
 // preview: معاينة المحرر — تصحيح محلي بلا خادم ولا حفظ، والإغلاق يعود إلى المحرر (onClose).
-function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext, preview = false, onClose}) {
+function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext, preview = false, onClose, closeLabel = 'العودة إلى المحرر'}) {
   const cards = lesson.cards;
   const mapHref = '/school/courses/' + slug;
   const [mode, setMode] = useState('loading'); // loading | playing | done | login | error
@@ -164,7 +164,7 @@ function Player({slug, stageIndex, lesson, guestSnapshot, courseTitle, hasNext, 
       <Link className={styles.primary} href={'/register?next=' + encodeURIComponent(mapHref)}>أنشئ حسابًا مجانًا</Link>
     </section>}
     <footer className={styles.doneActions}>
-      {preview && <button type="button" className={styles.primary} onClick={onClose}>العودة إلى المحرر</button>}
+      {preview && <button type="button" className={styles.primary} onClick={onClose}>{closeLabel}</button>}
       {!preview && hasNext && !result.guest && <Link className={styles.primary} href={'/school/courses/' + slug + '/' + (stageIndex + 2)}>الدرس التالي <ArrowLeft size={18} aria-hidden="true"/></Link>}
       {!preview && <Link className={styles.secondary} href={mapHref}>العودة إلى خريطة المسار</Link>}
     </footer>
