@@ -1,0 +1,10 @@
+{
+ "units": [
+  {"title": "السوق والاختيار", "stages": [0, 1, 2]},
+  {"title": "الأسعار والريال", "stages": [3, 4, 5]},
+  {"title": "الإنتاج والعمل", "stages": [6, 7, 8]},
+  {"title": "مشروعك: أدِر دكانًا", "stages": [9, 10, 11]}
+ ],
+ "capstone": 11,
+ "lessons": {"0": "economics-basics-1", "1": "economics-basics-2", "2": "visual-gallery"}
+}

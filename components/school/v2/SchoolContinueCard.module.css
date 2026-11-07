@@ -1,0 +1,11 @@
+.card{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-block:18px 0;padding:14px 16px;border-radius:20px;background:var(--c-surface,#fff);border:1px solid var(--c-line,#e4ddd2);box-shadow:0 1px 0 var(--c-line,#e4ddd2)}
+.icon{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--c-accent-soft,#dcefe9);color:var(--c-accent,#11695f)}
+.text{flex:1;min-width:180px;display:flex;flex-direction:column;gap:2px}
+.text span{font-size:12.5px;font-weight:700;color:var(--c-accent,#11695f)}
+.text strong{font-size:17px;line-height:1.5}
+.text small{font-size:13px;color:var(--c-ink-2,#5c554c);line-height:1.6}
+.go{display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 18px;border-radius:14px;background:var(--c-accent,#11695f);color:#fff;font-weight:700}
+.go:hover{background:var(--c-accent-strong,#0b4f47)}
+.go:focus-visible{outline:2px solid var(--c-focus,#11695f);outline-offset:3px}
+:global(:root[data-ed-theme="dark"]) .go{color:#0f1c1a}
+@media (max-width:520px){.go{width:100%;justify-content:center}}
