@@ -1,0 +1,37 @@
+'use client';
+// مدرسة 967 — بطاقة «تابع من حيث توقفت» في الصفحة الرئيسية للمدرسة (للمسجّلين فقط؛ لا تظهر للزائر).
+import {useEffect, useState} from 'react';
+import Link from 'next/link';
+import {ArrowLeft, PlayCircle} from 'lucide-react';
+import {browserDb} from '@/lib/supabase';
+import styles from './SchoolContinueCard.module.css';
+
+export default function SchoolContinueCard() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const db = browserDb(), {data: auth} = await db?.auth.getSession() || {};
+        const token = auth?.session?.access_token;
+        if (!token) return;
+        const res = await fetch('/api/school/dashboard', {cache: 'no-store', headers: {Authorization: 'Bearer ' + token}});
+        if (!res.ok) return;
+        const json = await res.json();
+        if (alive && json?.resume?.stage?.href) setData(json);
+      } catch { /* البطاقة اختيارية: لا تعطل الصفحة */ }
+    })();
+    return () => { alive = false; };
+  }, []);
+  if (!data) return null;
+  const {resume, xp} = data;
+  return <section className={styles.card} aria-label="تابع من حيث توقفت">
+    <span className={styles.icon} aria-hidden="true"><PlayCircle size={30}/></span>
+    <div className={styles.text}>
+      <span>تابع من حيث توقفت</span>
+      <strong>{resume.course}</strong>
+      <small>الدرس {resume.stage.index + 1}: {resume.stage.title}{xp?.level ? ` · المستوى ${xp.level}` : ''}</small>
+    </div>
+    <Link className={styles.go} href={resume.stage.href}>تابع <ArrowLeft size={18} aria-hidden="true"/></Link>
+  </section>;
+}

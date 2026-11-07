@@ -1,0 +1,56 @@
+/* مدرسة 967 — خريطة رحلة المسار (الإصدار الثاني). */
+.journey{display:flex;flex-direction:column;gap:18px;max-width:720px;margin-inline:auto;padding:8px 0 40px}
+.back{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:40px;font-size:14px;font-weight:700;color:var(--c-accent,#11695f)}
+.back:hover{text-decoration:underline}
+.head{display:flex;flex-direction:column;gap:12px;background:var(--c-surface,#fff);border:1px solid var(--c-line,#e4ddd2);border-radius:24px;padding:20px}
+.headText h1{margin:0;font-size:clamp(24px,4vw,30px);line-height:1.4}
+.headText p{margin:6px 0 0;font-size:14.5px;line-height:1.8;color:var(--c-ink-2,#5c554c)}
+.stats{font-weight:700;color:var(--c-ink,#1d1a16)!important}
+.bar{margin-top:10px;height:10px;border-radius:999px;background:var(--c-line,#e4ddd2);overflow:hidden}
+.bar span{display:block;height:100%;border-radius:inherit;background:var(--c-accent,#11695f);transition:width .4s ease}
+.continue{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:10px 18px;border-radius:16px;background:var(--c-accent,#11695f);color:#fff;font-weight:700;font-size:15.5px;text-align:center;line-height:1.5}
+.continue:hover{background:var(--c-accent-strong,#0b4f47)}
+.finished{margin:0;display:flex;align-items:center;gap:8px;font-weight:700;color:var(--c-accent,#11695f)}
+.guest{display:flex;flex-direction:column;gap:10px;background:var(--c-accent-soft,#dcefe9);border-radius:16px;padding:14px}
+.guest p{margin:0;font-size:14px;line-height:1.7}
+.guest div{display:flex;flex-wrap:wrap;gap:8px}
+.guest a{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:12px;background:var(--c-surface,#fff);font-weight:700;font-size:14px;color:var(--c-accent-strong,#0b4f47)}
+.muted{margin:0;font-size:13.5px;color:var(--c-ink-2,#5c554c)}
+.error{margin:0;font-size:13.5px;color:#b4462a}
+
+.unit{background:var(--c-surface,#fff);border:1px solid var(--c-line,#e4ddd2);border-radius:24px;padding:16px 18px}
+.unit[data-locked]{background:var(--c-surface-2,#f6f2ea)}
+.unitHead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;list-style:none;cursor:default}
+.unitDetails summary{cursor:pointer}
+.unitDetails summary::-webkit-details-marker{display:none}
+.unitDetails summary::after{content:'عرض الدروس';margin-inline-start:auto;font-size:12.5px;color:var(--c-accent,#11695f);text-decoration:underline}
+.unitDetails[open] summary::after{content:'إخفاء'}
+.unitNo{font-size:12px;font-weight:800;color:var(--c-accent,#11695f);background:var(--c-accent-soft,#dcefe9);border-radius:999px;padding:3px 10px}
+.unitHead h2{margin:0;font-size:18px;line-height:1.5}
+.unitState{margin-inline-start:auto;font-size:12.5px;font-weight:700;color:var(--c-ink-2,#5c554c)}
+.unitDetails .unitState{margin-inline-start:0}
+
+.nodes{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;position:relative}
+.item{position:relative;padding-inline-start:calc(var(--zig,0) * 22px)}
+.item[data-zig="1"]{--zig:1}.item[data-zig="2"]{--zig:2}
+@media (max-width:520px){.item{padding-inline-start:calc(var(--zig,0) * 10px)}}
+.link{display:flex;align-items:center;gap:14px;padding:8px;border-radius:18px;color:inherit;text-decoration:none}
+a.link:hover{background:var(--c-surface-2,#f6f2ea)}
+a.link:focus-visible{outline:2px solid var(--c-focus,#11695f);outline-offset:2px}
+.node{flex:none;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--c-surface-2,#f1ebe1);color:var(--c-ink-3,#8b8378);border:3px solid var(--c-line,#e4ddd2)}
+.item[data-status="done"] .node{background:var(--c-accent,#11695f);border-color:var(--c-accent,#11695f);color:#fff}
+.item[data-status="current"] .node{background:var(--c-surface,#fff);border-color:var(--c-accent,#11695f);color:var(--c-accent,#11695f);box-shadow:0 0 0 6px color-mix(in srgb,var(--c-accent,#11695f) 18%,transparent);animation:here 2.2s ease-in-out infinite}
+.item[data-status="open"] .node{background:var(--c-surface,#fff);border-color:var(--c-accent,#11695f);color:var(--c-accent,#11695f)}
+@keyframes here{50%{box-shadow:0 0 0 11px color-mix(in srgb,var(--c-accent,#11695f) 8%,transparent)}}
+.nodeText{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nodeText strong{font-size:15.5px;line-height:1.5}
+.nodeText small{font-size:12.5px;color:var(--c-ink-2,#5c554c)}
+.item[data-status="locked"] .nodeText strong{color:var(--c-ink-2,#5c554c)}
+.lockNote{color:var(--c-ink-3,#8b8378)!important}
+.here{align-self:flex-start;display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:800;color:#fff;background:var(--c-accent,#11695f);border-radius:999px;padding:2px 9px}
+.stars{display:inline-flex;gap:2px;color:var(--c-line,#d8cfc1)}
+.stars [data-on]{color:#e0a02e}
+
+:global(:root[data-ed-theme="dark"]) .continue,:global(:root[data-ed-theme="dark"]) .here,:global(:root[data-ed-theme="dark"]) .item[data-status="done"] .node{color:#0f1c1a}
+:global(:root[data-ed-theme="dark"]) .error{color:#f0a48c}
+@media (prefers-reduced-motion:reduce){.item[data-status="current"] .node{animation:none}.bar span{transition:none}}
