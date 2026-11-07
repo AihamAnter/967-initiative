@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {validateCardLesson, gradeCard, lessonResult, TASK_KINDS} from '../lib/schoolCards.js';
+import {validateCardLesson, gradeCard, lessonResult, TASK_KINDS, TASK_INSTRUCTIONS} from '../lib/schoolCards.js';
 
 const scene = {kind: 'scene', scene: 'shop', alt: 'دكان صغير في سوق الملح بصنعاء'};
 const lesson = () => ({
@@ -37,6 +37,15 @@ test('lesson rules: hook first, no long explanation runs, 4–8 graded cards, 70
   bad(l => { l.cards[0].text = 'معك ١٠٠٠٠ ريال'; }, /الغربية/);
   bad(l => { l.cards[1].id = 'hook'; }, /مكرر/);
   bad(l => { l.cards[0].task.answer = 7; }, /answer/);
+});
+
+test('questions are understandable: one short question, the scenario apart, and a clear instruction for every kind', () => {
+  const {lesson: pub} = validateCardLesson(lesson());
+  for (const c of pub.cards.filter(c => c.task)) assert.match(c.task.instruction, /^المطلوب: /);
+  assert.equal(TASK_KINDS.filter(k => !TASK_INSTRUCTIONS[k]).length, 0);
+  const l = lesson(); l.cards[0].task.prompt = 'ماذا تشتري؟ ولماذا؟'; assert.throws(() => validateCardLesson(l), /سؤال واحد/);
+  const long = lesson(); long.cards[0].task.prompt = 'س'.repeat(150); assert.throws(() => validateCardLesson(long), /prompt/);
+  const ctx = lesson(); ctx.cards[0].task.context = 'معك 10,000 ريال فقط لهذا الأسبوع.'; assert.equal(validateCardLesson(ctx).lesson.cards[0].task.context, 'معك 10,000 ريال فقط لهذا الأسبوع.');
 });
 
 test('every interaction kind grades correctly', () => {
