@@ -61,5 +61,17 @@ test('publishing a card lesson skips the six-question bank; preview never calls 
   assert.match(player, /if \(preview\) \{ setProgress\(\{\}\); setIndex\(0\); setMode\('playing'\); return; \}/);
   assert.match(player, /if \(!preview\) writeLocal\(/);
   assert.match(studio, /form\.format===2&&<CardLessonEditor/);
-  assert.match(studio, /!\['musnad','arud'\]\.includes\(slug\)&&<CourseUnitsEditor/);
+  // العروض صار مسار بطاقات عاديًا؛ المسند وحده مبني في الكود.
+  assert.match(studio, /slug!=='musnad'&&<CourseUnitsEditor/);
+});
+
+test('phase 8: arud is a regular card course; stale attempts of the other format are closed', () => {
+  const content = read('lib/schoolContent.js'), generic = read('lib/schoolGenericServer.js');
+  const arud = read('app/school/writing/arud/page.jsx'), arudStage = read('app/school/writing/arud/[stage]/page.jsx');
+  assert.match(content, /SCHOOL_FIXED_SLUGS=\['musnad'\]/);
+  assert.match(generic, /const sameFormat=isCardSnapshot\(current\.questions\)===\(activeStage\.format===2\);/);
+  assert.match(generic, /if\(sameFormat&&Date\.now\(\)-Date\.parse\(current\.created_at\)<3600000\)return publicAttempt\(current\);/);
+  assert.match(arud, /\.some\(s=>s\.format===2\)\)redirect\('\/school\/courses\/arud'\)/);
+  assert.match(arudStage, /if\(overlay\?\.format===2\)redirect\('\/school\/courses\/arud\/'\+raw\);/);
+  for (const page of ['app/school/courses/[slug]/page.jsx', 'app/school/courses/[slug]/[stage]/page.jsx']) assert.match(read(page), /slug==='musnad'/);
 });

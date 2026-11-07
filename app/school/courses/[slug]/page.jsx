@@ -23,7 +23,7 @@ async function fixtureCourse(name){
 const stageMeta=s=>({index:s.index,title:s.title,subtitle:s.subtitle||'',format:s.format===2?2:1,template:s.template||null,minutes:Number.isInteger(s.minutes)?s.minutes:null});
 export default async function CoursePage({params,searchParams}){
  const {slug}=await params,settings=await getSiteSettings(),db=serverDb();
- if(!sectionIsVisible('school',settings.pageVisibility)||!db||['musnad','arud'].includes(slug))notFound();
+ if(!sectionIsVisible('school',settings.pageVisibility)||!db||slug==='musnad')notFound();
  const course=(await publishedSchoolCatalog(db)).find(x=>x.slug===slug);
  if(!course)notFound();
  const stages=await publishedSchoolStages(db,slug);

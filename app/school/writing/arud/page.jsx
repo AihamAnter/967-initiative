@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import {notFound} from 'next/navigation';
+import {notFound,redirect} from 'next/navigation';
 import {ChevronLeft,ExternalLink,Feather} from 'lucide-react';
 import {getSiteSettings} from '@/lib/data';
 import {sectionIsVisible} from '@/lib/pageVisibility';
 import {pageMetadata} from '@/lib/seo';
+import {serverDb} from '@/lib/supabase-server';
+import {publishedSchoolStages} from '@/lib/schoolContentServer';
 import {ARUD_STAGES,ARUD_SOURCE,ARUD_METER_SOURCE,ARUD_VERSE_SOURCE} from '@/lib/schoolArud';
 import ArudJourney from '@/components/school/ArudJourney';
 import school from '../../school.module.css';
@@ -13,6 +15,9 @@ export const metadata=pageMetadata({title:'علم العروض | مدرسة 967'
 export default async function ArudPage(){
  const settings=await getSiteSettings();
  if(!sectionIsVisible('school',settings.pageVisibility))notFound();
+ // بعد نشر دروس البطاقات للعروض ينتقل المسار إلى صفحة المسارات العامة (خريطة الرحلة الجديدة).
+ const db=serverDb();
+ if(db&&(await publishedSchoolStages(db,'arud')).some(s=>s.format===2))redirect('/school/courses/arud');
  return <div className={school.root}>
   <header className={styles.hero}><div className="container">
    <div className={school.breadcrumb}><Link href="/school">مدرسة 967</Link><ChevronLeft size={14}/><Link href="/school/writing">الكتابة والأدب</Link><ChevronLeft size={14}/>علم العروض</div>
