@@ -74,3 +74,11 @@ test('typed answers accept Eastern Arabic digits the same as Western ones', asyn
   assert.equal(normalizeArabicAnswer('٢'), normalizeArabicAnswer('2'));
   assert.equal(normalizeArabicAnswer('۱۹۹۰'), '1990');
 });
+
+test('science lab evidence accepts an axis left at its off-grid initial value (cosmos-stars temperature 5800)', async () => {
+  const {checkScienceLabEvidence} = await import('../lib/schoolLabEvidence.js');
+  const {calculateScienceLab} = await import('../lib/schoolScienceModels.js');
+  const after = calculateScienceLab('cosmos-stars', {x: 10, y: 5800});
+  assert.equal(checkScienceLabEvidence('cosmos-stars', {kind: 'science', x: 10, y: 5800, metricIndex: 0, observed: after.metrics[0].num}), true);
+  assert.equal(checkScienceLabEvidence('cosmos-stars', {kind: 'science', x: 10, y: 5850, metricIndex: 0, observed: after.metrics[0].num}), false);
+});
