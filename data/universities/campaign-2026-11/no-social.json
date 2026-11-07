@@ -1,0 +1,212 @@
+[
+ {
+  "slug": "edu-2b008ca0ad1a",
+  "name_ar": "الجامعة العربية للعلوم و التقنية",
+  "city": "فج عطان",
+  "website": null
+ },
+ {
+  "slug": "edu-8f60653a5ef4",
+  "name_ar": "الجامعة اللبنانية الدولية العامة",
+  "city": "صنعاء",
+  "website": "https://ye.liu.edu.lb"
+ },
+ {
+  "slug": "edu-d95795a59ed0",
+  "name_ar": "الكلية التخصصية الحديثه للعلوم الطبية والتقنيه",
+  "city": "أمانة العاصمة",
+  "website": null
+ },
+ {
+  "slug": "edu-f5069e0274b9",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا",
+  "city": "عمران",
+  "website": null
+ },
+ {
+  "slug": "edu-3bc9e3127fb6",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا - الحديدة",
+  "city": "الحديدة",
+  "website": null
+ },
+ {
+  "slug": "edu-04ea29253973",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا- باجل",
+  "city": "الحديدة",
+  "website": null
+ },
+ {
+  "slug": "edu-9fa647e33f29",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا- ذمار",
+  "city": "ذمار",
+  "website": null
+ },
+ {
+  "slug": "edu-23df694fefcc",
+  "name_ar": "جامعة آزال للعلوم والتكنولوجيا",
+  "city": "صنعاء",
+  "website": null
+ },
+ {
+  "slug": "socotra-archipelago-university",
+  "name_ar": "جامعة أرخبيل سقطرى",
+  "city": null,
+  "website": "https://sa-university.com/"
+ },
+ {
+  "slug": "ahl-al-hadith-university",
+  "name_ar": "جامعة أهل الحديث",
+  "city": null,
+  "website": "https://ahl-alhadith.org/"
+ },
+ {
+  "slug": "ibn-khaldun-university",
+  "name_ar": "جامعة ابن خلدون",
+  "city": "عدن",
+  "website": "http://www.ik-univ.net/"
+ },
+ {
+  "slug": "edu-8d1d0d64fdc2",
+  "name_ar": "جامعة الأحقاف",
+  "city": "المكلا",
+  "website": "https://www.ahgaff.edu/"
+ },
+ {
+  "slug": "al-awael-modern-university",
+  "name_ar": "جامعة الأوائل الحديثة",
+  "city": "المكلا",
+  "website": "https://www.amu-ye.com/"
+ },
+ {
+  "slug": "edu-76a9be1ec050",
+  "name_ar": "جامعة الاتحاد للعلوم والتكنولوجيا",
+  "city": "صنعاء",
+  "website": null
+ },
+ {
+  "slug": "edu-64adfa7979ed",
+  "name_ar": "جامعة الجزيرة",
+  "city": "إب",
+  "website": "https://aljazeeraibb.edu.ye/ar"
+ },
+ {
+  "slug": "edu-7b3ace9c99ae",
+  "name_ar": "جامعة الحضارة",
+  "city": "صنعاء",
+  "website": "https://civilizationuniv.edu.ye/"
+ },
+ {
+  "slug": "arab-gulf-university-lahj",
+  "name_ar": "جامعة الخليج العربي",
+  "city": null,
+  "website": "https://agust-ye.net/"
+ },
+ {
+  "slug": "al-rowad-university",
+  "name_ar": "جامعة الرواد",
+  "city": null,
+  "website": "http://alrowaduni.edu.ye/"
+ },
+ {
+  "slug": "edu-373370a203b1",
+  "name_ar": "جامعة السعيدة",
+  "city": "ذمار",
+  "website": "https://su-edu.net/"
+ },
+ {
+  "slug": "edu-6726760c12ff",
+  "name_ar": "جامعة القرآن الكريم والعلوم الأكاديمية",
+  "city": null,
+  "website": null
+ },
+ {
+  "slug": "mahra-university",
+  "name_ar": "جامعة المهرة",
+  "city": "الغيضة",
+  "website": "https://mhru.edu.ye/"
+ },
+ {
+  "slug": "edu-2e3cd2705b4f",
+  "name_ar": "جامعة الوحدة للعلوم والتكنولوجيا",
+  "city": null,
+  "website": null
+ },
+ {
+  "slug": "edu-a64bab085728",
+  "name_ar": "جامعة اليمن والخليج للعلوم والتكنولوجيا",
+  "city": "صنعاء",
+  "website": "https://ygu.edu.ye/"
+ },
+ {
+  "slug": "tarim-islamic-university",
+  "name_ar": "جامعة تريم الإسلامية",
+  "city": "تريم",
+  "website": "https://www.tarim-uni.com/"
+ },
+ {
+  "slug": "edu-e01e5c820d0a",
+  "name_ar": "جامعة صعدة",
+  "city": "صعدة",
+  "website": "https://saada-uni.edu.ye/"
+ },
+ {
+  "slug": "edu-295befc774b7",
+  "name_ar": "كلية اكاديمية الجزيرة العربية للعلوم الطبية والتقنية",
+  "city": "صنعاء",
+  "website": null
+ },
+ {
+  "slug": "edu-9b70232b5f2a",
+  "name_ar": "كلية الرزان للعلوم الصحية والتقنية",
+  "city": "الحديدة",
+  "website": null
+ },
+ {
+  "slug": "edu-2e8d87b06d93",
+  "name_ar": "كلية الشفاء للعلوم الطبية",
+  "city": "الحديدة",
+  "website": null
+ },
+ {
+  "slug": "edu-3d74aff13e22",
+  "name_ar": "كلية اليمن الدولية للعلوم الطبية والتقنية",
+  "city": "الحديدة",
+  "website": null
+ },
+ {
+  "slug": "edu-eda807c43037",
+  "name_ar": "كلية شرعب السلام",
+  "city": "تعز",
+  "website": null
+ },
+ {
+  "slug": "edu-61176a8e93ec",
+  "name_ar": "كلية صرح المستقبل للعلوم الطبيه والتقنيه",
+  "city": "حجة",
+  "website": null
+ },
+ {
+  "slug": "edu-27230b6b2d33",
+  "name_ar": "كلية عالمية إنجل الحديثة للعلوم الطبية والتقنية والإدارية",
+  "city": "أمانة العاصمة",
+  "website": null
+ },
+ {
+  "slug": "edu-41e13725e176",
+  "name_ar": "كلية مجتمع الجزيرة للعلوم الطبية",
+  "city": "أمانة العاصمة",
+  "website": null
+ },
+ {
+  "slug": "edu-998a5ca985cb",
+  "name_ar": "كلية مجتمع الرواد للعلوم الطبية والتقنية",
+  "city": "أمانة العاصمة",
+  "website": null
+ },
+ {
+  "slug": "edu-586706a4d5e2",
+  "name_ar": "كلية مجتمع الصداره للعلوم الطبيه والتقنيه",
+  "city": "أمانة العاصمة",
+  "website": null
+ }
+]

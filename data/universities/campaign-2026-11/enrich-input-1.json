@@ -1,0 +1,650 @@
+[
+ {
+  "slug": "edu-131782f8a3d2",
+  "name_ar": "كلية المجتمع ابن الهيثم",
+  "institution_type": "community_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع ابن الهيثم ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في حجة. تورد البوابة رقم التواصل 777890157. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "حجة",
+  "city": "حجة",
+  "address": "حجة - المحابشة - حارة المستشفى",
+  "website": null,
+  "phone": "777890157",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php"
+  ]
+ },
+ {
+  "slug": "edu-c96185e81a36",
+  "name_ar": "كلية المجتمع الألمانية",
+  "institution_type": "community_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع الألمانية ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في أمانة العاصمة. تورد البوابة رقم التواصل 772547779. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "أمانة العاصمة",
+  "city": "أمانة العاصمة",
+  "address": "الامانة - شارع الخمسين الجنوبي",
+  "website": null,
+  "phone": "772547779",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php"
+  ]
+ },
+ {
+  "slug": "edu-e84c7aee8872",
+  "name_ar": "كلية المجتمع الدرب",
+  "institution_type": "community_college",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "كلية مجتمع حكومية في محافظة ذمار، تعنى بالتعليم التقني والتطبيقي. يعرض موقعها تخصص «مساحة وطرقات» لتأهيل فنيي المساحة والطرق، إلى جانب شروط القبول العامة التي تتضمن شهادة الثانوية واجتياز المفاضلة أو الاختبارات عند اشتراطها. للكلية قناة تواصل رسمية، وتُراجع مواعيد التسجيل في بوابة التنسيق الحكومي.",
+  "governorate": "ذمار",
+  "city": "ذمار",
+  "address": "ذمار , الدرب - شارع المنزل",
+  "website": "https://dcc.edu.ye/",
+  "phone": "772126677",
+  "email": "dcc@dcc.edu.ye",
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 1,
+  "branches": 0,
+  "source_urls": [
+   "https://dcc.edu.ye/Deprtmant/SurveyingAndRoads",
+   "https://tanseek.net/gatecg.php"
+  ]
+ },
+ {
+  "slug": "edu-090969920b09",
+  "name_ar": "كلية المجتمع الزيدية",
+  "institution_type": "community_college",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع الزيدية ضمن كليات المجتمع الحكومية في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في الحديدة. تورد البوابة رقم التواصل 771417807. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "الحديدة",
+  "city": "الحديدة",
+  "address": "الحديدة , الزيدية-",
+  "website": null,
+  "phone": "771417807",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gatecg.php"
+  ]
+ },
+ {
+  "slug": "edu-8352d63aa271",
+  "name_ar": "كلية المجتمع الغد الدولية للعلوم الصحية والتقنية",
+  "institution_type": "community_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع الغد الدولية للعلوم الصحية والتقنية ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في أمانة العاصمة. تورد البوابة رقم التواصل 777650125. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "أمانة العاصمة",
+  "city": "أمانة العاصمة",
+  "address": "امانة العاصمه- بني الحارث",
+  "website": null,
+  "phone": "777650125",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php",
+   "https://yemen-edu.com/university/68"
+  ]
+ },
+ {
+  "slug": "edu-98d4e9d9e3ca",
+  "name_ar": "كلية المجتمع بونا التخصصية",
+  "institution_type": "community_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع بونا التخصصية ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في أمانة العاصمة. تورد البوابة رقم التواصل 782459595. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "أمانة العاصمة",
+  "city": "أمانة العاصمة",
+  "address": "حي الاصبحي - شارع بيحان",
+  "website": null,
+  "phone": "782459595",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php"
+  ]
+ },
+ {
+  "slug": "edu-e4916291746c",
+  "name_ar": "كلية المجتمع سماء العطاء للعلوم الطبية والتقنية",
+  "institution_type": "community_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع سماء العطاء للعلوم الطبية والتقنية ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في البيضاء. تورد البوابة رقم التواصل 770866246. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "البيضاء",
+  "city": "البيضاء",
+  "address": "البيضاء - رداع - شارع السلام عمارة المجربي مقابل مدارس الرواد الاهلية - خلف مطعم حرض",
+  "website": null,
+  "phone": "770866246",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php"
+  ]
+ },
+ {
+  "slug": "edu-812324d290fe",
+  "name_ar": "كلية المجتمع ظفار للعلوم الصحية والتقنية",
+  "institution_type": "community_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع ظفار للعلوم الصحية والتقنية ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في إب. تورد البوابة رقم التواصل 770917228. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "إب",
+  "city": "إب",
+  "address": "اب - مديرية السدة - الشارع العام جوار جسر السدة",
+  "website": null,
+  "phone": "770917228",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php"
+  ]
+ },
+ {
+  "slug": "edu-ef4fe653af6d",
+  "name_ar": "كلية المجتمع يريم",
+  "institution_type": "community_college",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "ترد كلية المجتمع يريم ضمن كليات المجتمع الحكومية في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في إب. تورد البوابة رقم التواصل 777904045. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "إب",
+  "city": "إب",
+  "address": "اب - يريم - الدائري",
+  "website": null,
+  "phone": "777904045",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gatecg.php"
+  ]
+ },
+ {
+  "slug": "edu-295befc774b7",
+  "name_ar": "كلية اكاديمية الجزيرة العربية للعلوم الطبية والتقنية",
+  "institution_type": "independent_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية اكاديمية الجزيرة العربية للعلوم الطبية والتقنية ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في صنعاء. تورد البوابة رقم التواصل 772100021. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "صنعاء",
+  "city": "صنعاء",
+  "address": "صنعاء - الحتارش",
+  "website": null,
+  "phone": "772100021",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php"
+  ]
+ },
+ {
+  "slug": "edu-27230b6b2d33",
+  "name_ar": "كلية عالمية إنجل الحديثة للعلوم الطبية والتقنية والإدارية",
+  "institution_type": "independent_college",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "ترد كلية عالمية إنجل الحديثة للعلوم الطبية والتقنية والإدارية ضمن الكليات الأهلية والخاصة في بوابة التنسيق الإلكتروني التابعة للوزارة، وتُسجَّل في أمانة العاصمة. تورد البوابة رقم التواصل 776808925. تتوفر خدمة التنسيق والرجوع إلى بيانات القبول عبر البوابة؛ ولا تُذكر هنا تخصصات أو رسوم أو شهادات اعتماد لم تؤكدها مصادر مستقلة. يُرجى التأكد من مواعيد التسجيل وبيانات الاتصال مباشرة من الكلية.",
+  "governorate": "أمانة العاصمة",
+  "city": "أمانة العاصمة",
+  "address": "الامانه - سعوان شارع الاربعين امام بريد الاربعين",
+  "website": null,
+  "phone": "776808925",
+  "email": null,
+  "admission_info": "تُراجع شروط ومواعيد القبول الحالية في بوابة التنسيق الرسمية.",
+  "education_levels": [
+   "دبلوم"
+  ],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://www.tanseek.net/gatecs.php"
+  ]
+ },
+ {
+  "slug": "gov-tech-7eb83922",
+  "name_ar": "المعهد التقني التجاري المعلوماتي",
+  "institution_type": "technical_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «المعهد التقني التجاري المعلوماتي» ضمن المعاهد المهنية والتقنية الحكومية في البيضاء ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "البيضاء",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ },
+ {
+  "slug": "gov-tech-ab48dd57",
+  "name_ar": "المعهد التقني الصناعي - بني مطر",
+  "institution_type": "technical_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «المعهد التقني الصناعي - بني مطر» ضمن المعاهد المهنية والتقنية الحكومية في صنعاء ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "صنعاء",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ },
+ {
+  "slug": "gov-tech-485c5941",
+  "name_ar": "المعهد التقني الصناعي الأيتام",
+  "institution_type": "technical_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «المعهد التقني الصناعي الأيتام» ضمن المعاهد المهنية والتقنية الحكومية في أمانة العاصمة ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "أمانة العاصمة",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ },
+ {
+  "slug": "gov-tech-53450309",
+  "name_ar": "المعهد التقني الصناعي عمران",
+  "institution_type": "technical_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «المعهد التقني الصناعي عمران» ضمن المعاهد المهنية والتقنية الحكومية في عمران ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "عمران",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ },
+ {
+  "slug": "gov-tech-4599700b",
+  "name_ar": "المعهد اليمني الصيني للعلوم التقنية والتطبيقية",
+  "institution_type": "technical_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «المعهد اليمني الصيني للعلوم التقنية والتطبيقية» ضمن المعاهد المهنية والتقنية الحكومية في أمانة العاصمة ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "أمانة العاصمة",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ },
+ {
+  "slug": "gov-tech-d2d599bc",
+  "name_ar": "معهد الثورة التقني التجاري/الحديدة",
+  "institution_type": "technical_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «معهد الثورة التقني التجاري/الحديدة» ضمن المعاهد المهنية والتقنية الحكومية في الحديدة ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "الحديدة",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ },
+ {
+  "slug": "gov-tech-f573875d",
+  "name_ar": "معهد بلقيس التجاري للبنات الميناء",
+  "institution_type": "technical_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «معهد بلقيس التجاري للبنات الميناء» ضمن المعاهد المهنية والتقنية الحكومية في الحديدة ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "الحديدة",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ },
+ {
+  "slug": "edu-31a508f6e10d",
+  "name_ar": "الجامعة الماليزية الدولية - إب",
+  "institution_type": "university",
+  "ownership": "other",
+  "founded_year": null,
+  "summary": "الجامعة الماليزية الدولية في محافظة إب مدرجة ضمن المؤسسات التعليمية لدى مجلس الاعتماد الأكاديمي. تنشر قناة إعلامية تحمل اسم الجامعة جداول لطلبة الصيدلة وإعلانات أكاديمية تخص إب؛ هذه المعلومات تثبت وجود نشاط إعلامي باسمها، لكنها لا تكفي لاستنتاج جميع التخصصات أو رسومها أو حالة الاعتماد الراهنة.",
+  "governorate": null,
+  "city": "إب",
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://t.me/s/U_Malaysia_IN/3292",
+   "https://caqa.gov.ye/"
+  ]
+ },
+ {
+  "slug": "edu-415fdd8bb589",
+  "name_ar": "جامعة آزال للتنمية البشرية",
+  "institution_type": "university",
+  "ownership": "private",
+  "founded_year": 2008,
+  "summary": "جامعة أهلية تأسست في صنعاء عام 2008م، وتقدم برامج البكالوريوس والدراسات العليا في العلوم الطبية والهندسة وتكنولوجيا المعلومات والعلوم الإدارية والإنسانية والتربية الخاصة. تضم مراكز للتدريب وضمان الجودة؛ وتقع في شارع الستين الغربي.",
+  "governorate": "أمانة العاصمة",
+  "city": "صنعاء",
+  "address": "صنعاء، شارع الستين الغربي، بجوار المستشفى الأوروبي الحديث",
+  "website": "https://www.auhd.edu.ye/",
+  "phone": "+967 1 201710",
+  "email": "info@auhd.edu.ye",
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 3,
+  "branches": 0,
+  "source_urls": [
+   "https://www.auhd.edu.ye/",
+   "https://caqa.gov.ye/",
+   "https://yemen-edu.com/university/55",
+   "https://x.com/azaluni"
+  ]
+ },
+ {
+  "slug": "edu-2d9cd8625a1f",
+  "name_ar": "جامعة الأكاديميين العرب للعلوم والتكنولوجيا",
+  "institution_type": "university",
+  "ownership": "other",
+  "founded_year": 2020,
+  "summary": "جامعة الأكاديميين العرب للعلوم والتكنولوجيا جامعة أهلية بمدينة صنعاء، أُنشئت بقرار وزاري رقم (18) في 2 مارس 2020م. تركز على التعليم الهندسي والتقني من خلال كلية الهندسة وتكنولوجيا المعلومات وكلية الهندسة التقنية؛ وتشمل المجالات الميكاترونكس والتحكم والكهرباء والميكانيكا وهندسة المعدات الطبية والحاسوب والاتصالات.",
+  "governorate": null,
+  "city": "صنعاء",
+  "address": "صنعاء، فج عطان، شارع علوي السلامي، مقابل محطة أسعد الكامل",
+  "website": "https://www.aau-edu.com/",
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 6,
+  "branches": 0,
+  "source_urls": [
+   "https://www.aau-edu.com/aboutus",
+   "https://caqa.gov.ye/"
+  ]
+ },
+ {
+  "slug": "edu-6d11dec07dba",
+  "name_ar": "جامعة الحديدة",
+  "institution_type": "university",
+  "ownership": "government",
+  "founded_year": 1996,
+  "summary": "جامعة حكومية بمدينة الحديدة، تذكر قاعدة البيانات الدولية للتعليم العالي التابعة لاتحاد الجامعات العالمي أنها تأسست عام 1996م امتداداً لكلية التربية التي بدأت منذ 1986م. وتشمل مجالاتها الفنون والتجارة والاقتصاد والتربية وغيرها من التخصصات. الرابط الإلكتروني تاريخي وقد لا يكون متاحاً حالياً.",
+  "governorate": "الحديدة",
+  "city": "الحديدة",
+  "address": null,
+  "website": "http://www.hoduniv.edu.ye",
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 3,
+  "branches": 0,
+  "source_urls": [
+   "https://yemenacademic.net/archives/68551",
+   "https://whed.net/detail_institution.php?Jzo2MF0uMzxVLVBgYApgCg=%3D",
+   "https://caqa.gov.ye/",
+   "https://yemen-edu.com/university/5"
+  ]
+ },
+ {
+  "slug": "edu-e5d018a5465c",
+  "name_ar": "جامعة العلوم الحديثة",
+  "institution_type": "university",
+  "ownership": "private",
+  "founded_year": null,
+  "summary": "جامعة أهلية مقرها صنعاء، تعرض تخصصات الصيدلة والحاسوب وتقنية المعلومات والأمن السيبراني والتصميم الجرافيكي والمحاسبة والتسويق والإدارة والعلوم المالية والمصرفية والإعلام. يوجد عنوان تواصل رسمي في شارع بغداد أمام برج القباطي.",
+  "governorate": "أمانة العاصمة",
+  "city": "صنعاء",
+  "address": "صنعاء، شارع بغداد، أمام برج القباطي",
+  "website": "https://ums-edu.com/",
+  "phone": "+967 1 211211",
+  "email": "info@ums-edu.com",
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 5,
+  "branches": 0,
+  "source_urls": [
+   "https://caqa.gov.ye/",
+   "https://yemen-edu.com/university/43",
+   "https://ums-edu.com/برامج-وتخصصات-الجامعة/",
+   "https://ums.edu.ye/en/"
+  ]
+ },
+ {
+  "slug": "edu-f4dcca47e6e7",
+  "name_ar": "جامعة الملكة أروى",
+  "institution_type": "university",
+  "ownership": "private",
+  "founded_year": 1996,
+  "summary": "جامعة يمنية أهلية تأسست بقرار رقم (1) لعام 1996م، وبدأت الدراسة في العام 1995–1996م. تشمل كلياتها الآداب والعلوم الإنسانية والحقوق والاقتصاد والإدارة والهندسة وعلوم الحاسوب والعلوم الطبية والدراسات العليا، ومقرها في فج عطان بصنعاء.",
+  "governorate": "أمانة العاصمة",
+  "city": "صنعاء",
+  "address": "صنعاء، فج عطان، شارع الستين",
+  "website": "https://qau.edu.ye/",
+  "phone": null,
+  "email": "info@qau.edu.ye",
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 5,
+  "branches": 0,
+  "source_urls": [
+   "https://qau.edu.ye/site/public/about/25",
+   "https://caqa.gov.ye/",
+   "https://yemen-edu.com/university/50",
+   "https://www.uniranks.com/ranking/yemen"
+  ]
+ },
+ {
+  "slug": "edu-bcb0f8f59948",
+  "name_ar": "جامعة تعز",
+  "institution_type": "university",
+  "ownership": "government",
+  "founded_year": 1993,
+  "summary": "جامعة حكومية تأسست بموجب القرار الجمهوري رقم 44 لسنة 1993م، وافتُتحت في 11 أكتوبر 1995م. سبق تأسيسها وجود فرع لكلية التربية في تعز منذ العام الجامعي 1985/1986م. تقدم كلياتها تخصصات علمية وإنسانية وإدارية وتعمل من مدينة تعز.",
+  "governorate": "تعز",
+  "city": "تعز",
+  "address": null,
+  "website": "https://taiz.edu.ye/",
+  "phone": null,
+  "email": null,
+  "admission_info": "تتوفر وثيقة رسمية لتخصصات العام الجامعي 2026/2027؛ شروط القبول والنسب تُراجع من الوثيقة الأصلية.",
+  "education_levels": [
+   "بكالوريوس",
+   "دراسات عليا"
+  ],
+  "programs": 19,
+  "branches": 0,
+  "source_urls": [
+   "https://caqa.gov.ye/",
+   "https://yemen-edu.com/university/3",
+   "https://studentaffairs.taiz.edu.ye/control/uploads/2027TaizUniversityTaksos.pdf",
+   "https://studentaffairs.taiz.edu.ye/DEFAULTDET.ASPX?pnc=3",
+   "https://www.moheye.net/taiz-uninversity/",
+   "https://taiz.edu.ye/CONTROLS/DefaultDET.aspx?SUB_ID=30358",
+   "https://xuanxiao.org/en/universities/taiz-university"
+  ]
+ },
+ {
+  "slug": "edu-944b9b436a31",
+  "name_ar": "جامعة دار السلام الدولية للعلوم والتكنولوجيا",
+  "institution_type": "university",
+  "ownership": "other",
+  "founded_year": 2009,
+  "summary": "جامعة أهلية تأسست في صنعاء عام 2009م، ويذكر موقعها الرسمي أنها تضم تسع كليات وتقدم برامج البكالوريوس والماجستير. وتعرض خدمات المكتبة والبحث العلمي والتعليم الإلكتروني إلى جانب أنشطة كلية الطب البشري وطب الأسنان والدراسات العليا.",
+  "governorate": null,
+  "city": "صنعاء",
+  "address": "صنعاء، الجراف، شرق ملعب الثورة الرياضي",
+  "website": "https://www.dsuye.education/",
+  "phone": "+967 776186656",
+  "email": "info@dsuye.education",
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 3,
+  "branches": 0,
+  "source_urls": [
+   "https://caqa.gov.ye/",
+   "https://www.dsuye.education/",
+   "https://daleelcom.net/en/business_directory/get_data/440/1/20"
+  ]
+ },
+ {
+  "slug": "edu-6620fcddf773",
+  "name_ar": "جامعة صنعاء",
+  "institution_type": "university",
+  "ownership": "government",
+  "founded_year": 1970,
+  "summary": "جامعة حكومية تعود نشأتها إلى عام 1970م، مع بدء دراسة التربية والعلوم الإنسانية. توسعت لاحقاً في التخصصات العلمية والإنسانية؛ تأسست كلية الآداب كمؤسسة مستقلة داخل الجامعة عام 1973م، وتشمل تخصصاتها اللغة العربية والإنجليزية والتاريخ والجغرافيا والعلوم الاجتماعية.",
+  "governorate": "أمانة العاصمة",
+  "city": "صنعاء",
+  "address": null,
+  "website": "https://su.edu.ye/",
+  "phone": null,
+  "email": null,
+  "admission_info": "نشرت الجامعة إعلانات قبول للعام 2025/2026 لبعض الكليات؛ يجب الرجوع إلى إعلان الكلية الأحدث قبل التقديم.",
+  "education_levels": [
+   "بكالوريوس",
+   "ماجستير",
+   "دكتوراه"
+  ],
+  "programs": 14,
+  "branches": 0,
+  "source_urls": [
+   "https://yemen-edu.com/university/1",
+   "https://su.edu.ye/fcit/ar/",
+   "https://su.edu.ye/chm/ar/index.php",
+   "https://su.edu.ye/ce/ar/",
+   "https://su.edu.ye/34983/",
+   "https://su.edu.ye/fah/ar/index.php",
+   "https://caqa.gov.ye/",
+   "https://x.com/khawlan_edu"
+  ]
+ },
+ {
+  "slug": "gov-tech-74a6b7d1",
+  "name_ar": "معهد التدريب المهني النادرة",
+  "institution_type": "vocational_institute",
+  "ownership": "government",
+  "founded_year": null,
+  "summary": "يُدرج المعهد «معهد التدريب المهني النادرة» ضمن المعاهد المهنية والتقنية الحكومية في إب ببوابة التنسيق الإلكتروني التابعة لوزارة التربية والتعليم والبحث العلمي. تتيح البوابة طلب التنسيق والاستعلام وفق الدورة المعلنة؛ ولا يثبت هذا الإدراج توفر تخصصات بعينها أو قيمة رسوم الدراسة أو الاعتماد البرامجي، ولذلك تُترك التفاصيل غير المنشورة دون تخمين.",
+  "governorate": "إب",
+  "city": null,
+  "address": null,
+  "website": null,
+  "phone": null,
+  "email": null,
+  "admission_info": "",
+  "education_levels": [],
+  "programs": 0,
+  "branches": 0,
+  "source_urls": [
+   "https://tanseek.net/gateig.php"
+  ]
+ }
+]

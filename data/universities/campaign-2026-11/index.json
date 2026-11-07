@@ -1,0 +1,980 @@
+[
+ {
+  "slug": "edu-131782f8a3d2",
+  "name_ar": "كلية المجتمع ابن الهيثم",
+  "type": "community_college",
+  "city": "حجة"
+ },
+ {
+  "slug": "edu-4bafda8a915d",
+  "name_ar": "كلية المجتمع ابن سيرين للعلوم الطبية والتقنية",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-ea9d8e13bbab",
+  "name_ar": "كلية المجتمع ارض سبا",
+  "type": "community_college",
+  "city": "عمران"
+ },
+ {
+  "slug": "edu-1f341176bf84",
+  "name_ar": "كلية المجتمع اقرأ للعلوم الطبية والتقنية /القاعدة",
+  "type": "community_college",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-153f380773b5",
+  "name_ar": "كلية المجتمع الأفاق",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-dff36c373f93",
+  "name_ar": "كلية المجتمع الأكاديمية الحديثة",
+  "type": "community_college",
+  "city": "البيضاء"
+ },
+ {
+  "slug": "edu-c96185e81a36",
+  "name_ar": "كلية المجتمع الألمانية",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-81b4465747cf",
+  "name_ar": "كلية المجتمع الاتحاد الدولية",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-ff61f0e0eff3",
+  "name_ar": "كلية المجتمع التكنولوجيا الحديثة",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-bf3aa315275c",
+  "name_ar": "كلية المجتمع التميز للعلوم الطبية والتقنية",
+  "type": "community_college",
+  "city": "المحويت"
+ },
+ {
+  "slug": "edu-2490eadc4874",
+  "name_ar": "كلية المجتمع الخبت",
+  "type": "community_college",
+  "city": "المحويت"
+ },
+ {
+  "slug": "edu-541aba374f57",
+  "name_ar": "كلية المجتمع الخوارزمي للعلوم والتكنولوجيا",
+  "type": "community_college",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-e84c7aee8872",
+  "name_ar": "كلية المجتمع الدرب",
+  "type": "community_college",
+  "city": "ذمار"
+ },
+ {
+  "slug": "edu-2f366387a7e8",
+  "name_ar": "كلية المجتمع الدولية",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-61d7a8e630ad",
+  "name_ar": "كلية المجتمع الرائدة للعلوم الطبية والتكنولوجيا م/ الحديدة ( كلية المجتمع للعلوم الطبية والتكنولوجيا / سابقا )",
+  "type": "community_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-712c346a9ebd",
+  "name_ar": "كلية المجتمع الرازي للعلوم الطبية والتقنية",
+  "type": "community_college",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-1ce24256b356",
+  "name_ar": "كلية المجتمع الرسالة",
+  "type": "community_college",
+  "city": "عمران"
+ },
+ {
+  "slug": "edu-6a72192be2c2",
+  "name_ar": "كلية المجتمع الريادة",
+  "type": "community_college",
+  "city": "المحويت"
+ },
+ {
+  "slug": "edu-090969920b09",
+  "name_ar": "كلية المجتمع الزيدية",
+  "type": "community_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-2535eacd84d8",
+  "name_ar": "كلية المجتمع السلام",
+  "type": "community_college",
+  "city": "عمران"
+ },
+ {
+  "slug": "edu-8e5236707dcd",
+  "name_ar": "كلية المجتمع الطوارئ/ الامانة",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-f3d327ec70d0",
+  "name_ar": "كلية المجتمع العالمية",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-45ea6765644b",
+  "name_ar": "كلية المجتمع العامرية الحديثة للعلوم الطبية والتقنية",
+  "type": "community_college",
+  "city": "الضالع"
+ },
+ {
+  "slug": "edu-4439c11899a1",
+  "name_ar": "كلية المجتمع العصريه للعلوم الطبيه والتقنيه",
+  "type": "community_college",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-8352d63aa271",
+  "name_ar": "كلية المجتمع الغد الدولية للعلوم الصحية والتقنية",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-d87b51b7d927",
+  "name_ar": "كلية المجتمع النبراس الدولية للعلوم التكنولوجيه والطبيه",
+  "type": "community_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-0983b2964a1f",
+  "name_ar": "كلية المجتمع الوطنية",
+  "type": "community_college",
+  "city": "عمران"
+ },
+ {
+  "slug": "edu-f1c47aad7626",
+  "name_ar": "كلية المجتمع الوطنية - باجل",
+  "type": "community_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-8b93fddf36d6",
+  "name_ar": "كلية المجتمع ايلول",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-ed3fa6bb0945",
+  "name_ar": "كلية المجتمع بلقيس اليمن للعلوم الصحية والتكنولوجيا",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-98d4e9d9e3ca",
+  "name_ar": "كلية المجتمع بونا التخصصية",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-2209402a7fa6",
+  "name_ar": "كلية المجتمع تشرين",
+  "type": "community_college",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-503d7666eac2",
+  "name_ar": "كلية المجتمع تهامة",
+  "type": "community_college",
+  "city": "حجة"
+ },
+ {
+  "slug": "edu-1c7932221a18",
+  "name_ar": "كلية المجتمع جابر ابن حيان",
+  "type": "community_college",
+  "city": "حجة"
+ },
+ {
+  "slug": "edu-bbd23c6f299d",
+  "name_ar": "كلية المجتمع رواد النجاح للعلوم الطبية والتقنية",
+  "type": "community_college",
+  "city": "المحويت"
+ },
+ {
+  "slug": "edu-3c8ceaf09091",
+  "name_ar": "كلية المجتمع رواد النهضة للعلوم الطبيه والتقنيه",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-e4916291746c",
+  "name_ar": "كلية المجتمع سماء العطاء للعلوم الطبية والتقنية",
+  "type": "community_college",
+  "city": "البيضاء"
+ },
+ {
+  "slug": "edu-dd20a6c74363",
+  "name_ar": "كلية المجتمع سماء المتميزين للعلوم الصحية والتكنولوجيا",
+  "type": "community_college",
+  "city": "تعز"
+ },
+ {
+  "slug": "edu-c3d16d435e33",
+  "name_ar": "كلية المجتمع سنحان",
+  "type": "community_college",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "seiyun-community-college",
+  "name_ar": "كلية المجتمع سيئون",
+  "type": "community_college",
+  "city": "سيئون"
+ },
+ {
+  "slug": "shabwa-community-college",
+  "name_ar": "كلية المجتمع شبوة",
+  "type": "community_college",
+  "city": "عتق"
+ },
+ {
+  "slug": "edu-09e9b1cae27d",
+  "name_ar": "كلية المجتمع صنعاء",
+  "type": "community_college",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-812324d290fe",
+  "name_ar": "كلية المجتمع ظفار للعلوم الصحية والتقنية",
+  "type": "community_college",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-a8acc0a189a5",
+  "name_ar": "كلية المجتمع عبس",
+  "type": "community_college",
+  "city": "حجة"
+ },
+ {
+  "slug": "edu-894735307b73",
+  "name_ar": "كلية المجتمع علوم الطوارئ / الحديدة",
+  "type": "community_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-350809999c27",
+  "name_ar": "كلية المجتمع عمران",
+  "type": "community_college",
+  "city": "عمران"
+ },
+ {
+  "slug": "edu-35d14439c3f7",
+  "name_ar": "كلية المجتمع فلسطين",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-34dddab676af",
+  "name_ar": "كلية المجتمع معين للعلوم الصحيه والتقنيه",
+  "type": "community_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-ef4fe653af6d",
+  "name_ar": "كلية المجتمع يريم",
+  "type": "community_college",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-d95795a59ed0",
+  "name_ar": "الكلية التخصصية الحديثه للعلوم الطبية والتقنيه",
+  "type": "independent_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-f5069e0274b9",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا",
+  "type": "independent_college",
+  "city": "عمران"
+ },
+ {
+  "slug": "edu-3bc9e3127fb6",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا - الحديدة",
+  "type": "independent_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-04ea29253973",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا- باجل",
+  "type": "independent_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-9fa647e33f29",
+  "name_ar": "الكلية التطبيقية للعلوم والتكنولوجيا- ذمار",
+  "type": "independent_college",
+  "city": "ذمار"
+ },
+ {
+  "slug": "edu-295befc774b7",
+  "name_ar": "كلية اكاديمية الجزيرة العربية للعلوم الطبية والتقنية",
+  "type": "independent_college",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-9b70232b5f2a",
+  "name_ar": "كلية الرزان للعلوم الصحية والتقنية",
+  "type": "independent_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-2e8d87b06d93",
+  "name_ar": "كلية الشفاء للعلوم الطبية",
+  "type": "independent_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-3d74aff13e22",
+  "name_ar": "كلية اليمن الدولية للعلوم الطبية والتقنية",
+  "type": "independent_college",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-eda807c43037",
+  "name_ar": "كلية شرعب السلام",
+  "type": "independent_college",
+  "city": "تعز"
+ },
+ {
+  "slug": "edu-61176a8e93ec",
+  "name_ar": "كلية صرح المستقبل للعلوم الطبيه والتقنيه",
+  "type": "independent_college",
+  "city": "حجة"
+ },
+ {
+  "slug": "edu-27230b6b2d33",
+  "name_ar": "كلية عالمية إنجل الحديثة للعلوم الطبية والتقنية والإدارية",
+  "type": "independent_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-41e13725e176",
+  "name_ar": "كلية مجتمع الجزيرة للعلوم الطبية",
+  "type": "independent_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-998a5ca985cb",
+  "name_ar": "كلية مجتمع الرواد للعلوم الطبية والتقنية",
+  "type": "independent_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "edu-586706a4d5e2",
+  "name_ar": "كلية مجتمع الصداره للعلوم الطبيه والتقنيه",
+  "type": "independent_college",
+  "city": "أمانة العاصمة"
+ },
+ {
+  "slug": "yemen-veterinary-agricultural-technical-institute",
+  "name_ar": "المعهد التقني البيطري الزراعي",
+  "type": "technical_institute",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "gov-tech-f90ae7f1",
+  "name_ar": "المعهد التقني التجاري / صعده",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-7eb83922",
+  "name_ar": "المعهد التقني التجاري المعلوماتي",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-2a466fed",
+  "name_ar": "المعهد التقني التجاري/ذمار",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-3282e7cd",
+  "name_ar": "المعهد التقني الزراعي - سردود",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-e72f7aec",
+  "name_ar": "المعهد التقني الصناعي - الحالي",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-49aa1f2e",
+  "name_ar": "المعهد التقني الصناعي - الحوك",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-c8ec7afb",
+  "name_ar": "المعهد التقني الصناعي - بغداد",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-ab48dd57",
+  "name_ar": "المعهد التقني الصناعي - بني مطر",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-9c3e9c04",
+  "name_ar": "المعهد التقني الصناعي - ذمار",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-6879a8c6",
+  "name_ar": "المعهد التقني الصناعي - ذهبان",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-e3a51226",
+  "name_ar": "المعهد التقني الصناعي - عبس",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "taiz-hawban-industrial-technical-institute",
+  "name_ar": "المعهد التقني الصناعي — الحوبان تعز",
+  "type": "technical_institute",
+  "city": "الحوبان"
+ },
+ {
+  "slug": "aden-mualla-industrial-technical-institute",
+  "name_ar": "المعهد التقني الصناعي — المعلا عدن",
+  "type": "technical_institute",
+  "city": "المعلا"
+ },
+ {
+  "slug": "gov-tech-485c5941",
+  "name_ar": "المعهد التقني الصناعي الأيتام",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-55f1eb82",
+  "name_ar": "المعهد التقني الصناعي السدة",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-f6e9646b",
+  "name_ar": "المعهد التقني الصناعي القفر",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-1d1f1a0b",
+  "name_ar": "المعهد التقني الصناعي بعدان",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-89047889",
+  "name_ar": "المعهد التقني الصناعي ثلا",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-4a5ce3d9",
+  "name_ar": "المعهد التقني الصناعي خمر",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-53450309",
+  "name_ar": "المعهد التقني الصناعي عمران",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-4cf3f141",
+  "name_ar": "المعهد التقني الصناعي للآليات والمعدات الثقيلة",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-ef09b844",
+  "name_ar": "المعهد التقني الصناعي يريم",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-5798c1be",
+  "name_ar": "المعهد التقني اليمني التركي الحرفي",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-e316b9d3",
+  "name_ar": "المعهد التقني بني عون السلام - تعز",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-a318ac1d",
+  "name_ar": "المعهد التقني لتدريب وتاهيل المرأة نقم",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-4599700b",
+  "name_ar": "المعهد اليمني الصيني للعلوم التقنية والتطبيقية",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-513d495f",
+  "name_ar": "معهد 21 سبتمبر التقني الشغادره",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-cf3b8bc1",
+  "name_ar": "معهد أروى لبناء القدرات التقني للبنات/حجه",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-dbada502",
+  "name_ar": "معهد اب التقني التطبيقي",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-5dc89e21",
+  "name_ar": "معهد اروى التقني التجاري للبنات/ الامانة",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-d0479dbe",
+  "name_ar": "معهد التقني الاليات وعلوم البحار",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-d2d599bc",
+  "name_ar": "معهد الثورة التقني التجاري/الحديدة",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-8f94fb50",
+  "name_ar": "معهد الثورة التقني التجاري/حجه",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-6008d366",
+  "name_ar": "معهد الصماد التقني الصناعي محافظة إب",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-3cf18671",
+  "name_ar": "معهد العدين للعلوم التقنية والصحية",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-5efe72e9",
+  "name_ar": "معهد العلوم الطبية والتقنية بمديرية الخبت",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-609a0dea",
+  "name_ar": "معهد العلوم المالية والاقتصادية",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-f573875d",
+  "name_ar": "معهد بلقيس التجاري للبنات الميناء",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-cdb445b1",
+  "name_ar": "معهد عبد الناصر التقني التجاري",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-61e99321",
+  "name_ar": "معهد وصابين للعلوم الطبية والتقنية",
+  "type": "technical_institute",
+  "city": null
+ },
+ {
+  "slug": "edu-6073181a7997",
+  "name_ar": "الجامعة الإماراتية الدولية",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-2b008ca0ad1a",
+  "name_ar": "الجامعة العربية للعلوم و التقنية",
+  "type": "university",
+  "city": "فج عطان"
+ },
+ {
+  "slug": "edu-8f60653a5ef4",
+  "name_ar": "الجامعة اللبنانية الدولية العامة",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-31a508f6e10d",
+  "name_ar": "الجامعة الماليزية الدولية - إب",
+  "type": "university",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-01f91d87a48b",
+  "name_ar": "الجامعة الوسطية الشرعية للعلوم الإسلامية والإنسانية",
+  "type": "university",
+  "city": null
+ },
+ {
+  "slug": "edu-16f4c6312287",
+  "name_ar": "الجامعة الوطنية",
+  "type": "university",
+  "city": "تعز"
+ },
+ {
+  "slug": "edu-2d749fbceeaa",
+  "name_ar": "الجامعة اليمنية",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-f91750b013af",
+  "name_ar": "الجامعة اليمنية الأردنية",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-9ab5dc02d1d3",
+  "name_ar": "جامعة 21 سبتمبر",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-415fdd8bb589",
+  "name_ar": "جامعة آزال للتنمية البشرية",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-23df694fefcc",
+  "name_ar": "جامعة آزال للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-c99a2f7b454b",
+  "name_ar": "جامعة إب",
+  "type": "university",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-62afe85833d3",
+  "name_ar": "جامعة ابن النفيس",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-d18b96449605",
+  "name_ar": "جامعة اقرأ للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-8d1d0d64fdc2",
+  "name_ar": "جامعة الأحقاف",
+  "type": "university",
+  "city": "المكلا"
+ },
+ {
+  "slug": "edu-2d9cd8625a1f",
+  "name_ar": "جامعة الأكاديميين العرب للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-1adbe6d799ce",
+  "name_ar": "جامعة الأندلس للعلوم والتقنية",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-76a9be1ec050",
+  "name_ar": "جامعة الاتحاد للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-e652aa426b0c",
+  "name_ar": "جامعة الامام الشافعي",
+  "type": "university",
+  "city": "المكلا"
+ },
+ {
+  "slug": "edu-fdf6984d86ba",
+  "name_ar": "جامعة البيضاء",
+  "type": "university",
+  "city": "البيضاء"
+ },
+ {
+  "slug": "edu-64adfa7979ed",
+  "name_ar": "جامعة الجزيرة",
+  "type": "university",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-6d11dec07dba",
+  "name_ar": "جامعة الحديدة",
+  "type": "university",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-7b3ace9c99ae",
+  "name_ar": "جامعة الحضارة",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-2a2ceb73ff6d",
+  "name_ar": "جامعة الحكمة",
+  "type": "university",
+  "city": "ذمار"
+ },
+ {
+  "slug": "edu-2d31fe10c665",
+  "name_ar": "جامعة الرازي",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-4099e719261c",
+  "name_ar": "جامعة الرشيد الذكية",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-373370a203b1",
+  "name_ar": "جامعة السعيدة",
+  "type": "university",
+  "city": "ذمار"
+ },
+ {
+  "slug": "edu-e5d018a5465c",
+  "name_ar": "جامعة العلوم الحديثة",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-c863e98750b0",
+  "name_ar": "جامعة العلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-6726760c12ff",
+  "name_ar": "جامعة القرآن الكريم والعلوم الأكاديمية",
+  "type": "university",
+  "city": null
+ },
+ {
+  "slug": "edu-1f25518fb0ba",
+  "name_ar": "جامعة القلم للعلوم الإنسانية والتطبيقية",
+  "type": "university",
+  "city": "إب"
+ },
+ {
+  "slug": "edu-8a1c763ce022",
+  "name_ar": "جامعة المستقبل",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-b97bd3c94e43",
+  "name_ar": "جامعة المعرفة والعلوم الحديثة",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-f4dcca47e6e7",
+  "name_ar": "جامعة الملكة أروى",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-d0cdefd1cc9f",
+  "name_ar": "جامعة الناصر",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-7fa7802c5962",
+  "name_ar": "جامعة النخبة الدولية للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-2e3cd2705b4f",
+  "name_ar": "جامعة الوحدة للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": null
+ },
+ {
+  "slug": "edu-e5509e68bb66",
+  "name_ar": "جامعة اليمن",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-a64bab085728",
+  "name_ar": "جامعة اليمن والخليج للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-bcb0f8f59948",
+  "name_ar": "جامعة تعز",
+  "type": "university",
+  "city": "تعز"
+ },
+ {
+  "slug": "edu-655133ba94aa",
+  "name_ar": "جامعة تونتك الدولية للتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-db1f34625085",
+  "name_ar": "جامعة جبلة للعلوم الطبية والصحية",
+  "type": "university",
+  "city": "جبلة"
+ },
+ {
+  "slug": "edu-b09f34f964f5",
+  "name_ar": "جامعة جينيس للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "ذمار"
+ },
+ {
+  "slug": "edu-b7d15a02116a",
+  "name_ar": "جامعة حجة",
+  "type": "university",
+  "city": "حجة"
+ },
+ {
+  "slug": "edu-2a3128acccdc",
+  "name_ar": "جامعة حضرموت",
+  "type": "university",
+  "city": "المكلا"
+ },
+ {
+  "slug": "edu-944b9b436a31",
+  "name_ar": "جامعة دار السلام الدولية للعلوم والتكنولوجيا",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-26052343dcfc",
+  "name_ar": "جامعة دار العلوم الشرعية-الحديدة",
+  "type": "university",
+  "city": "الحديدة"
+ },
+ {
+  "slug": "edu-317b3333511e",
+  "name_ar": "جامعة ذمار",
+  "type": "university",
+  "city": "ذمار"
+ },
+ {
+  "slug": "edu-4a7be4568510",
+  "name_ar": "جامعة سبأ",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "seiyun-university",
+  "name_ar": "جامعة سيئون",
+  "type": "university",
+  "city": "سيئون"
+ },
+ {
+  "slug": "edu-e01e5c820d0a",
+  "name_ar": "جامعة صعدة",
+  "type": "university",
+  "city": "صعدة"
+ },
+ {
+  "slug": "edu-6620fcddf773",
+  "name_ar": "جامعة صنعاء",
+  "type": "university",
+  "city": "صنعاء"
+ },
+ {
+  "slug": "edu-c7e79dcec26f",
+  "name_ar": "جامعة عدن",
+  "type": "university",
+  "city": "عدن"
+ },
+ {
+  "slug": "edu-f03569e447b3",
+  "name_ar": "جامعة عمران",
+  "type": "university",
+  "city": "عمران"
+ },
+ {
+  "slug": "gov-tech-aff6e105",
+  "name_ar": "المعهد المهني الصناعي - جبن",
+  "type": "vocational_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-5acc559f",
+  "name_ar": "المعهد المهني الصناعي - وصاب السافل",
+  "type": "vocational_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-bd95cc9d",
+  "name_ar": "المعهد المهني الصناعي القاعدة",
+  "type": "vocational_institute",
+  "city": null
+ },
+ {
+  "slug": "gov-tech-74a6b7d1",
+  "name_ar": "معهد التدريب المهني النادرة",
+  "type": "vocational_institute",
+  "city": null
+ }
+]

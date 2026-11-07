@@ -1,0 +1,6079 @@
+[
+ {
+  "slug": "edu-4bafda8a915d",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية للعلوم الطبية والتقنية في أمانة العاصمة، يقع مقرها في منطقة شملان عند جولة المنعي، ورقم التواصل المعلن لها 775990585. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 21 تخصصاً متاحة فيها هي: الأمن السيبراني، القبالة والتوليد، الصيدلة، الرعاية التنفسية، طب الطوارئ، التمريض، فني أسنان، مساعد طبيب أسنان، نظم المعلومات الإدارية، الإدارة والتسويق، الذكاء الاصطناعي، الطاقة المتجددة، هندسة السيارات، التصميم الداخلي، إدارة المشاريع الصغيرة، المحاسبة، الميكاترونكس، تصميم الأزياء، الجرافيكس، الهندسة الكهربائية، الكيمياء الصناعية.",
+  "website": "",
+  "phone": "775990585",
+  "email": "",
+  "address": "أمانة العاصمة، شملان، جولة المنعي",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/252.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الأمن السيبراني",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الرعاية التنفسية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "طب الطوارئ",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "فني أسنان",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "مساعد طبيب أسنان",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "نظم المعلومات الإدارية",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الإدارة والتسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الذكاء الاصطناعي",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الطاقة المتجددة",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "هندسة السيارات",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التصميم الداخلي",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة المشاريع الصغيرة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الميكاترونكس",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تصميم الأزياء",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الجرافيكس",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الهندسة الكهربائية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الكيمياء الصناعية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=252",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-81b4465747cf",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية في أمانة العاصمة، يقع مقرها في شارع هائل جوار الروني، ورقم التواصل المعلن لها 777261078. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 24 تخصصاً متاحة فيها هي: الصيدلة، إدارة الأعمال، هندسة المعدات الطبية، القبالة والتوليد، برمجة الحاسوب، المحاسبة، التخدير، فني عمليات، الرعاية التنفسية، الميكاترونكس، الجرافيكس، التمريض، تصميم الأزياء، التصميم الداخلي والديكور، الأمن السيبراني، الإدارة الصحية، تكنولوجيا الجرافيكس، الهندسة التقنية للمعدات الطبية، تقنية برمجيات الحاسوب، تكنولوجيا هندسة الميكاترونكس، هندسة الديكور والتصميم الداخلي، المحاسبة التطبيقية، تكنولوجيا إدارة الأعمال، تكنولوجيا الكيمياء الصناعية.",
+  "website": "",
+  "phone": "777261078",
+  "email": "",
+  "address": "أمانة العاصمة، شارع هائل، جوار الروني",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/139.jpeg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "هندسة المعدات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "برمجة الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التخدير",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "فني عمليات",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الرعاية التنفسية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الميكاترونكس",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الجرافيكس",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تصميم الأزياء",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التصميم الداخلي والديكور",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الأمن السيبراني",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الإدارة الصحية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تكنولوجيا الجرافيكس",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الهندسة التقنية للمعدات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تقنية برمجيات الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تكنولوجيا هندسة الميكاترونكس",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "هندسة الديكور والتصميم الداخلي",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة التطبيقية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تكنولوجيا إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تكنولوجيا الكيمياء الصناعية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=139",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-2f366387a7e8",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية في أمانة العاصمة، يقع مقرها في حي الحصبة، ورقم التواصل المعلن لها 773756663، وتتركز تخصصاتها في المجال الصحي. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 9 تخصصات متاحة فيها هي: مساعد طبيب، التمريض، الصيدلة، مساعد طبيب أسنان، المختبرات الطبية، القبالة والتوليد، الإدارة الصحية، برمجة الحاسوب، العلاج الطبيعي.",
+  "website": "",
+  "phone": "773756663",
+  "email": "",
+  "address": "أمانة العاصمة، حي الحصبة",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/141.jpeg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "مساعد طبيب",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "مساعد طبيب أسنان",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الإدارة الصحية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "برمجة الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "العلاج الطبيعي",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=141",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-2535eacd84d8",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية في مدينة خمر بمحافظة عمران، يقع مقرها في حي المصلى، ورقم التواصل المعلن لها 771444159، وتقتصر تخصصاتها المدرجة على المجال الصحي. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 5 تخصصات متاحة فيها هي: الصيدلة، التمريض، القبالة والتوليد، التغذية العلاجية، صحة المجتمع.",
+  "website": "",
+  "phone": "771444159",
+  "email": "",
+  "address": "عمران، خمر، حي المصلى",
+  "city": "خمر",
+  "governorate": "عمران",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/150.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التغذية العلاجية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "صحة المجتمع",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=150",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-d87b51b7d927",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية للعلوم التكنولوجية والطبية في مدينة زبيد بمحافظة الحديدة، يقع مقرها على الشارع العام، ورقم التواصل المعلن لها 776539153. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 5 تخصصات متاحة فيها هي: الصيدلة، المختبرات الطبية، القبالة والتوليد، المحاسبة، التمريض.",
+  "website": "",
+  "phone": "776539153",
+  "email": "",
+  "address": "الحديدة، زبيد، الشارع العام",
+  "city": "زبيد",
+  "governorate": "الحديدة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/215.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=215",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-2209402a7fa6",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية في مديرية المخادر بمحافظة إب، يقع مقرها على الشارع العام عند مفرق حبيش جوار مركز الرأفة الطبي، ورقم التواصل المعلن لها 772786801. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 7 تخصصات متاحة فيها هي: الصيدلة، المختبرات الطبية، مساعد طبيب، إدارة الأعمال، المحاسبة، القبالة والتوليد، التمريض.",
+  "website": "",
+  "phone": "772786801",
+  "email": "",
+  "address": "إب، المخادر، مفرق حبيش، الشارع العام، جوار مركز الرأفة الطبي",
+  "city": "المخادر",
+  "governorate": "إب",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/239.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "مساعد طبيب",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=239",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-dd20a6c74363",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية للعلوم الصحية والتكنولوجيا في مديرية دمنة خدير بمحافظة تعز، يقع مقرها في شارع شمعة، ورقم التواصل المعلن لها 770821112. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 8 تخصصات متاحة فيها هي: القبالة والتوليد، الصيدلة، المختبرات الطبية، إدارة الأعمال، المحاسبة، الهندسة المعمارية، تقنية المعلومات، التمريض.",
+  "website": "",
+  "phone": "770821112",
+  "email": "",
+  "address": "تعز، مديرية دمنة خدير، شارع شمعة",
+  "city": "دمنة خدير",
+  "governorate": "تعز",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/228.jpeg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الهندسة المعمارية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تقنية المعلومات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=228",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-a8acc0a189a5",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع حكومية في مديرية عبس بمحافظة حجة، يقع مقرها على طريق المحابشة، وتُدرج ضمن الكليات الحكومية في بوابة التنسيق، ورقم التواصل المعلن لها 777784390. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 9 تخصصات متاحة فيها هي: التمريض، المختبرات الطبية، برمجة الحاسوب، تكنولوجيا الإنترنت، المحاسبة، إدارة الأعمال، إدارة المستشفيات، القبالة والتوليد، طب الطوارئ.",
+  "website": "",
+  "phone": "777784390",
+  "email": "",
+  "address": "حجة، عبس، طريق المحابشة",
+  "city": "عبس",
+  "governorate": "حجة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/95.png",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "برمجة الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تكنولوجيا الإنترنت",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة المستشفيات",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "طب الطوارئ",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=95",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-d95795a59ed0",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية أهلية للعلوم الطبية والتقنية في أمانة العاصمة، يقع مقرها في شارع المطار بمنطقة الجراف، ورقم التواصل المعلن لها 773332772، وتتركز تخصصاتها في المهن الصحية. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 8 تخصصات متاحة فيها هي: الصيدلة، المختبرات الطبية، مساعد طبيب أسنان، القبالة والتوليد، التخدير، التمريض، فني عمليات، البصريات.",
+  "website": "",
+  "phone": "773332772",
+  "email": "",
+  "address": "أمانة العاصمة، شارع المطار، الجراف",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/147.jpeg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "مساعد طبيب أسنان",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التخدير",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "فني عمليات",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "البصريات",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=147",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-9b70232b5f2a",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية أهلية للعلوم الصحية والتقنية في مدينة بيت الفقيه بمحافظة الحديدة، يقع مقرها في شارع المرور، ورقم التواصل المعلن لها 774621950. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 4 تخصصات متاحة فيها هي: الصيدلة، القبالة والتوليد، المختبرات الطبية، التمريض.",
+  "website": "",
+  "phone": "774621950",
+  "email": "",
+  "address": "الحديدة، بيت الفقيه، شارع المرور",
+  "city": "بيت الفقيه",
+  "governorate": "الحديدة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/229.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=229",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-41e13725e176",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "كلية مجتمع أهلية للعلوم الطبية في أمانة العاصمة، يقع مقرها في شارع الرباط، ورقم التواصل المعلن لها 770202444. تُدرَج الكلية في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 10 تخصصات متاحة فيها هي: مساعد طبيب أسنان، الصيدلة، مساعد طبيب، المختبرات الطبية، فني أسنان، الحاسوب، المحاسبة، الإدارة والتسويق، القبالة والتوليد، التمريض.",
+  "website": "",
+  "phone": "770202444",
+  "email": "",
+  "address": "أمانة العاصمة، شارع الرباط",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/137.png",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "مساعد طبيب أسنان",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "مساعد طبيب",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "فني أسنان",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الإدارة والتسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "القبالة والتوليد",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=137",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "gov-tech-2a466fed",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "معهد تقني حكومي متخصص في التعليم التجاري والإداري والحاسوبي بمدينة ذمار، يقع في شارع المنزل، ورقم التواصل المعلن له 773962390. يُدرَج المعهد في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 10 تخصصات متاحة فيه هي: إدارة أنظمة الشبكات، البرمجيات، إدارة المكاتب، التسويق، المحاسبة، الأمن السيبراني، الخياطة والتفصيل، تقنية المعلومات، الحاسوب العام، المحاسبة المحوسبة.",
+  "website": "",
+  "phone": "773962390",
+  "email": "",
+  "address": "ذمار، شارع المنزل",
+  "city": "ذمار",
+  "governorate": "ذمار",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/128.jpeg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة أنظمة الشبكات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "البرمجيات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة المكاتب",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الأمن السيبراني",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الخياطة والتفصيل",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "تقنية المعلومات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الحاسوب العام",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة المحوسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=128",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "gov-tech-9c3e9c04",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "معهد تقني صناعي حكومي في مدينة ذمار، يقع في شارع المنزل، ورقم التواصل المعلن له 777548653، ويقدم برامج في الكهرباء والميكانيكا والبناء والمساحة. يُدرَج المعهد في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 16 تخصصاً متاحة فيه هي: التحكم الإلكتروني الصناعي، التصميم الداخلي (ديكور)، فني أبنية، الكهرباء العامة، ميكانيك المركبات، التمديدات الكهربائية، لف الآلات الكهربائية، كهرباء المركبات، التمديدات الصحية، الخراطة، اللحام، ميكانيكا المركبات الخفيفة، نجارة الأثاث، كهرباء السيارات، المساحة والطرق، صيانة الحاسوب.",
+  "website": "",
+  "phone": "777548653",
+  "email": "",
+  "address": "ذمار، شارع المنزل",
+  "city": "ذمار",
+  "governorate": "ذمار",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/129.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التحكم الإلكتروني الصناعي",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التصميم الداخلي (ديكور)",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "فني أبنية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الكهرباء العامة",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "ميكانيك المركبات",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمديدات الكهربائية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "لف الآلات الكهربائية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "كهرباء المركبات",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمديدات الصحية",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الخراطة",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "اللحام",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "ميكانيكا المركبات الخفيفة",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "نجارة الأثاث",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "كهرباء السيارات",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المساحة والطرق",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "صيانة الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=129",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "gov-tech-55f1eb82",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "معهد تقني صناعي حكومي في منطقة السدة بمحافظة إب، ورقم التواصل المعلن له 777591909. يُدرَج المعهد في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 5 تخصصات متاحة فيه هي: البرمجيات، المساحة والطرق، اللحام، التمديدات الكهربائية، الحاسوب العام.",
+  "website": "",
+  "phone": "777591909",
+  "email": "",
+  "address": "إب، السدة",
+  "city": "السدة",
+  "governorate": "إب",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/100.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "البرمجيات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المساحة والطرق",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "اللحام",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التمديدات الكهربائية",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الحاسوب العام",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=100",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "gov-tech-4cf3f141",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "معهد تقني صناعي حكومي في محافظة الحديدة متخصص في الآليات والمعدات الثقيلة، ورقم التواصل المعلن له 711148154. يُدرَج المعهد في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 6 تخصصات متاحة فيه هي: التحكم الإلكتروني الصناعي، التكييف والتبريد، الكهرباء العامة، المساحة والطرق، ميكانيك المركبات، كهرباء الطاقة المتجددة.",
+  "website": "",
+  "phone": "711148154",
+  "email": "",
+  "address": "الحديدة",
+  "city": "الحديدة",
+  "governorate": "الحديدة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/109.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التحكم الإلكتروني الصناعي",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التكييف والتبريد",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الكهرباء العامة",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المساحة والطرق",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "ميكانيك المركبات",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "كهرباء الطاقة المتجددة",
+    "field": "الهندسة والتقنية الصناعية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=109",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "gov-tech-513d495f",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "معهد تقني حكومي يحمل اسم 21 سبتمبر في مديرية الشغادرة بمحافظة حجة، ورقم التواصل المعلن له 771924574. يُدرَج المعهد في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 5 تخصصات متاحة فيه هي: المحاسبة، إدارة المكاتب، البرمجيات، إدارة المستشفيات، الخياطة والتفصيل.",
+  "website": "",
+  "phone": "771924574",
+  "email": "",
+  "address": "حجة، مديرية الشغادرة",
+  "city": "الشغادرة",
+  "governorate": "حجة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/222.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة المكاتب",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "البرمجيات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة المستشفيات",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "الخياطة والتفصيل",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=222",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "gov-tech-8f94fb50",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "معهد تقني تجاري حكومي في مدينة حجة، يقع جوار مؤسسة المياه والصرف الصحي في شارع مدرسة الثورة بالمعينة، ورقم التواصل المعلن له 777220346. يُدرَج المعهد في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 6 تخصصات متاحة فيه هي: البرمجيات، المحاسبة، التسويق، إدارة المكاتب، التصميم الجرافيكي والملتيميديا، إدارة المستشفيات.",
+  "website": "",
+  "phone": "777220346",
+  "email": "",
+  "address": "حجة، شارع مدرسة الثورة بالمعينة، جوار مؤسسة المياه والصرف الصحي",
+  "city": "حجة",
+  "governorate": "حجة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/171.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "البرمجيات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة المكاتب",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التصميم الجرافيكي والملتيميديا",
+    "field": "التصميم والفنون",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "إدارة المستشفيات",
+    "field": "العلوم الصحية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=171",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "gov-tech-cdb445b1",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "معهد تقني تجاري حكومي في أمانة العاصمة، يقع عند تقاطع شارع حدة مع شارع صخر، ورقم التواصل المعلن له 777792806. يُدرَج المعهد في بوابة التنسيق الإلكتروني للكليات والمعاهد التابعة لوزارة التربية والتعليم والبحث العلمي، التي يجري عبرها التسجيل والمفاضلة وسداد رسوم التنسيق. وتعرض البوابة 3 تخصصات متاحة فيه هي: التسويق، المحاسبة، المحاسبة المحوسبة.",
+  "website": "",
+  "phone": "777792806",
+  "email": "",
+  "address": "أمانة العاصمة، تقاطع شارع حدة مع شارع صخر",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.tanseek.net/logos/122.jpg",
+  "social_links": [],
+  "admission_info": "يتم التقديم عبر بوابة التنسيق الإلكتروني بإدخال رقم الجلوس وعام التخرج واختيار التخصص، ثم سداد رسوم التنسيق عبر فروع كاك بنك أو محفظة «موبايل موني» للحصول على رقم دخول اختبار القبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "دبلوم"
+  ],
+  "operating_status": "listed_for_admission",
+  "programs": [
+   {
+    "faculty": "",
+    "department": "",
+    "name": "التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   },
+   {
+    "faculty": "",
+    "department": "",
+    "name": "المحاسبة المحوسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دبلوم",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.tanseek.net/cgcriteria.php"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "معايير التنسيق والتخصصات المتاحة للكليات والمعاهد",
+    "url": "https://www.tanseek.net/cgcriteria.php",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   },
+   {
+    "title": "صفحة التنسيق الخاصة بالمؤسسة",
+    "url": "https://www.tanseek.net/crgate.php?cg=122",
+    "publisher": "بوابة التنسيق الإلكتروني - وزارة التربية والتعليم والبحث العلمي",
+    "source_type": "government"
+   }
+  ]
+ },
+ {
+  "slug": "edu-01f91d87a48b",
+  "name_en": "",
+  "founded_year": null,
+  "summary": "جامعة أهلية يمنية متخصصة في العلوم الشرعية والإنسانية، أسسها العلامة الحبيب أبوبكر العدني بن علي المشهور المولود في أحور عام 1945 (رحمه الله)، الذي أسس قبلها أربطة ومدارس لتحفيظ القرآن ودوراً لتعليم المرأة ومركز الإبداع الثقافي للدراسات وخدمة التراث. تضم ست كليات هي أصول الدين، والعلوم الشرعية والقانونية، والقرآن الكريم، والبنات، والتعليم عن بعد، والدراسات العليا، إضافة إلى مراكز الإبداع الثقافي والتدريب والتأهيل والمرصد النبوي واللغة العربية. تشمل برامجها الفقه وأصوله وفقه التحولات والدعوة والعقيدة والحديث وعلومه والتفسير وعلوم القرآن والقراءات والشريعة والقانون، وتعلن عن برامج للماجستير والدكتوراه. حصلت على درع التميز في تقييم أسبوع الجودة على مستوى الجامعات اليمنية، وتصدر مجلة «أبحاث الوسطية الشرعية».",
+  "website": "",
+  "phone": "+967 736 509 123",
+  "email": "",
+  "address": "",
+  "city": "",
+  "governorate": "",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "",
+  "social_links": [
+   {
+    "label": "فيسبوك",
+    "url": "https://fb.com/wasatiauniversity"
+   },
+   {
+    "label": "إنستغرام",
+    "url": "https://instagram.com/wasatiauniversity"
+   },
+   {
+    "label": "يوتيوب",
+    "url": "https://youtube.com/@WasatiaUniversity"
+   },
+   {
+    "label": "واتساب",
+    "url": "https://whatsapp.com/channel/0029VafBQAxDp2QBnerpvl1W"
+   }
+  ],
+  "admission_info": "يشترط لقبول الطلاب اليمنيين ألا يقل معدل الثانوية العامة عن 65%، مع تقديم نسختين من شهادة الثانوية وصورة البطاقة أو الجواز وثماني صور شخصية. ويُطلب من غير اليمنيين شهادة ثانوية مترجمة ومعمّدة من وزارتي التربية والخارجية في بلد الإصدار والسفارة اليمنية ووزارة الخارجية اليمنية، وتُستعلم الرسوم من شؤون الوافدين على الرقم 00967-733323079.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام",
+   "تعليم عن بعد"
+  ],
+  "education_levels": [
+   "بكالوريوس",
+   "ماجستير",
+   "دكتوراه",
+   "دراسات عليا"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية أصول الدين",
+    "department": "",
+    "name": "فقه التحولات والدعوة",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/191"
+   },
+   {
+    "faculty": "كلية أصول الدين",
+    "department": "",
+    "name": "العقيدة",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/191"
+   },
+   {
+    "faculty": "كلية أصول الدين",
+    "department": "",
+    "name": "الحديث وعلومه",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/191"
+   },
+   {
+    "faculty": "كلية العلوم الشرعية والقانونية",
+    "department": "",
+    "name": "الفقه وأصوله",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/260"
+   },
+   {
+    "faculty": "كلية العلوم الشرعية والقانونية",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/260"
+   },
+   {
+    "faculty": "كلية القرآن الكريم",
+    "department": "",
+    "name": "التفسير وعلوم القرآن",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/147"
+   },
+   {
+    "faculty": "كلية القرآن الكريم",
+    "department": "",
+    "name": "القراءات",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/147"
+   },
+   {
+    "faculty": "كلية البنات",
+    "department": "",
+    "name": "الفقه وأصوله",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية البنات",
+    "department": "",
+    "name": "فقه التحولات والدعوة",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية البنات",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية البنات",
+    "department": "",
+    "name": "العقيدة",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية البنات",
+    "department": "",
+    "name": "الحديث وعلومه",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية البنات",
+    "department": "",
+    "name": "التفسير وعلوم القرآن",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية البنات",
+    "department": "",
+    "name": "القراءات",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية التعليم عن بعد",
+    "department": "",
+    "name": "الفقه وأصوله",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية التعليم عن بعد",
+    "department": "",
+    "name": "فقه التحولات والدعوة",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية التعليم عن بعد",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية التعليم عن بعد",
+    "department": "",
+    "name": "العقيدة",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية التعليم عن بعد",
+    "department": "",
+    "name": "الحديث وعلومه",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية التعليم عن بعد",
+    "department": "",
+    "name": "التفسير وعلوم القرآن",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية التعليم عن بعد",
+    "department": "",
+    "name": "القراءات",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://yemen-edu.com/university/19"
+   },
+   {
+    "faculty": "كلية الدراسات العليا",
+    "department": "",
+    "name": "ماجستير الفقه وأصوله",
+    "field": "العلوم الشرعية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/295"
+   },
+   {
+    "faculty": "كلية الدراسات العليا",
+    "department": "",
+    "name": "ماجستير فقه التحولات والدعوة",
+    "field": "العلوم الشرعية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://portal.wasatia.edu.ye/Home/College/295"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "متطلبات القبول بالجامعة",
+    "url": "https://portal.wasatia.edu.ye/Home/blog/121",
+    "publisher": "جامعة الوسطية الشرعية",
+    "source_type": "official_site"
+   },
+   {
+    "title": "المؤسس",
+    "url": "https://portal.wasatia.edu.ye/Home/blog/24",
+    "publisher": "جامعة الوسطية الشرعية",
+    "source_type": "official_site"
+   },
+   {
+    "title": "الرسوم الدراسية",
+    "url": "https://portal.wasatia.edu.ye/Home/blog/123",
+    "publisher": "جامعة الوسطية الشرعية",
+    "source_type": "official_site"
+   },
+   {
+    "title": "اتصل بنا",
+    "url": "https://portal.wasatia.edu.ye/Home/ContactUs",
+    "publisher": "جامعة الوسطية الشرعية",
+    "source_type": "official_site"
+   }
+  ]
+ },
+ {
+  "slug": "edu-23df694fefcc",
+  "name_en": "Azal University of Science and Technology",
+  "founded_year": 2007,
+  "summary": "جامعة آزال للعلوم والتكنولوجيا مؤسسة تعليم عالٍ أهلية غير ربحية في صنعاء، تأسست عام 2007 بحسب دليل uniRank الدولي، وهي معترف بها من وزارة التعليم العالي والبحث العلمي وتعتمد التعليم المختلط. تذكر منصة «تخصص» الجامعية أن مقرها في شارع الرباط خلف بنك اليمن والكويت، وأنها تضم كلية لتكنولوجيا المعلومات وأخرى للعلوم الإدارية. ومن برامجها المدرجة في الدليل علوم الحاسوب ونظم المعلومات الحاسوبية والمحاسبة والتسويق وإدارة الأعمال. وتُستكمل بيانات القبول والرسوم مباشرة من الجامعة، إذ لم يكن موقعها الإلكتروني متاحاً عند التحقق في نوفمبر 2026.",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "address": "صنعاء، شارع الرباط، خلف بنك اليمن والكويت",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "",
+  "social_links": [],
+  "admission_info": "",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "بكالوريوس"
+  ],
+  "operating_status": "unknown",
+  "programs": [],
+  "branches": [],
+  "sources": [
+   {
+    "title": "Azal University of Science and Technology",
+    "url": "https://www.unirank.org/ye/uni/azal-university-of-science-and-technology/",
+    "publisher": "uniRank",
+    "source_type": "independent_directory"
+   }
+  ]
+ },
+ {
+  "slug": "edu-1adbe6d799ce",
+  "name_en": "Al-Andalus University for Science and Technology",
+  "founded_year": 1994,
+  "summary": "جامعة الأندلس للعلوم والتقنية جامعة أهلية في صنعاء تأسست بموجب القرار الوزاري رقم 55 لسنة 1994، وبدأت نشاطها التعليمي في العام الجامعي 2003. يقع مقرها عند تقاطع شارع الخمسين مع شارع تعز قرب بداية جسر دار سلم. تضم كليات الهندسة وتقنية المعلومات والعلوم الإدارية والآداب والعلوم الإنسانية والتعليم عن بعد، وتقدم 14 تخصصاً في البكالوريوس إلى جانب برامج ماجستير في تقنية المعلومات والمحاسبة وإدارة الأعمال والدراسات الإسلامية واللغة الإنجليزية وبرنامج دكتوراه في إدارة الأعمال. تصدر مجلات علمية في العلوم الإنسانية والاجتماعية والعلوم التطبيقية، وتنظم مؤتمرات علمية في تقنية المعلومات والعلوم الإدارية والإنسانية.",
+  "website": "https://aust.uni.ye/",
+  "phone": "774343344",
+  "email": "info@andalusuniv.net",
+  "address": "صنعاء، تقاطع شارع الخمسين مع شارع تعز، بداية جسر دار سلم",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://aust.uni.ye/logo.png",
+  "social_links": [
+   {
+    "label": "فيسبوك",
+    "url": "https://www.facebook.com/andalusuniv.net"
+   },
+   {
+    "label": "X",
+    "url": "https://x.com/andalusuniv"
+   },
+   {
+    "label": "يوتيوب",
+    "url": "https://www.youtube.com/channel/UCJdaF267hJbEm767R_ZN-2g"
+   },
+   {
+    "label": "واتساب",
+    "url": "https://wa.me/967774343344"
+   }
+  ],
+  "admission_info": "أعلنت الجامعة فتح القبول والتسجيل للعام الجامعي 2026/2027. تتراوح نسب القبول المعلنة بين 53% لتخصصات الدراسات الإسلامية واللغة العربية وعلوم القرآن و71% لهندسة وتكنولوجيا الاتصالات، ويُقبل في تخصصات الحاسوب حملة الثانوية العلمية أو المهنية في الحاسوب، وفي العلوم الإدارية حملة الثانوية العلمية والأدبية والمهنية التجارية.",
+  "tuition_info": "تنشر الجامعة رسوماً بالدولار مع خصم 30%: من 578 دولاراً (144,550 ريالاً) للدراسات الإسلامية واللغة العربية وعلوم القرآن، و777 دولاراً (194,250 ريالاً) لإدارة الأعمال والمحاسبة والتسويق، و1,050–1,232 دولاراً (262,500–308,000 ريال) لتخصصات الهندسة وتقنية المعلومات، إضافة إلى رسوم تسجيل قدرها 25,000 ريال يمني.",
+  "tuition_as_of": "2026-11-07",
+  "languages": [
+   "العربية",
+   "الإنجليزية"
+  ],
+  "study_modes": [
+   "انتظام",
+   "تعليم عن بعد"
+  ],
+  "education_levels": [
+   "بكالوريوس",
+   "ماجستير",
+   "دكتوراه",
+   "دراسات عليا"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية الهندسة وتقنية المعلومات",
+    "department": "",
+    "name": "شبكات الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الهندسة وتقنية المعلومات",
+    "department": "",
+    "name": "تقنية معلومات الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الهندسة وتقنية المعلومات",
+    "department": "",
+    "name": "هندسة وتكنولوجيا الاتصالات",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الهندسة وتقنية المعلومات",
+    "department": "",
+    "name": "الجرافيك والتصميم الإعلاني",
+    "field": "التصميم والفنون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "",
+    "name": "التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "",
+    "name": "نظم المعلومات الإدارية",
+    "field": "نظم المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الآداب والعلوم الإنسانية",
+    "department": "",
+    "name": "اللغة الإنجليزية والترجمة",
+    "field": "اللغات والترجمة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الآداب والعلوم الإنسانية",
+    "department": "",
+    "name": "الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الآداب والعلوم الإنسانية",
+    "department": "",
+    "name": "اللغة العربية",
+    "field": "اللغات والآداب",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الآداب والعلوم الإنسانية",
+    "department": "",
+    "name": "علوم القرآن",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الآداب والعلوم الإنسانية",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "كلية الآداب والعلوم الإنسانية",
+    "department": "",
+    "name": "الإعلام (إذاعة وتلفزيون / علاقات عامة)",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/STUD/content.php?pid=625"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير تقنية المعلومات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير اللغة الإنجليزية",
+    "field": "اللغات والترجمة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "دكتوراه إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دكتوراه",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://aust.uni.ye/news_details.php?nid=266"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "الرسوم الدراسية",
+    "url": "https://aust.uni.ye/STUD/content.php?pid=625",
+    "publisher": "جامعة الأندلس للعلوم والتقنية",
+    "source_type": "official_site"
+   },
+   {
+    "title": "فتح باب القبول والتسجيل 2026–2027",
+    "url": "https://aust.uni.ye/news/262",
+    "publisher": "جامعة الأندلس للعلوم والتقنية",
+    "source_type": "official_site"
+   },
+   {
+    "title": "اتصل بنا",
+    "url": "https://aust.uni.ye/page/263",
+    "publisher": "جامعة الأندلس للعلوم والتقنية",
+    "source_type": "official_site"
+   },
+   {
+    "title": "الخطط الدراسية لجميع التخصصات",
+    "url": "https://aust.uni.ye/palnsAll.php?pid=575",
+    "publisher": "جامعة الأندلس للعلوم والتقنية",
+    "source_type": "official_site"
+   }
+  ]
+ },
+ {
+  "slug": "edu-7b3ace9c99ae",
+  "name_en": "Civilization University",
+  "founded_year": 2012,
+  "summary": "جامعة الحضارة جامعة أهلية يمنية أسسها الدكتور عبدالحميد عبدالهادي السعدون، وأُنشئت عام 2012 بموجب القرار الوزاري رقم 104 لسنة 2012 الصادر عن وزارة التعليم العالي والبحث العلمي، وبدأت الدراسة في عدن في العام الدراسي 2012/2013. تعمل عبر فرعين: فرع عدن الذي يضم كليات العلوم الطبية والهندسة والتجارة واللغات، وفرع صنعاء الذي يذكر الموقع الرسمي عنوانه في حدة عند جولة المدينة ويضم كليات العلوم الطبية والهندسة والتجارة والعلوم الإنسانية. تشمل تخصصاتها الطب البشري وطب الأسنان والصيدلة والطب المخبري والتخدير، والهندسة المعمارية وهندسة الحاسوب والاتصالات والنفط والغاز، وتقنية المعلومات والأمن السيبراني والذكاء الاصطناعي، وإدارة الأعمال والمحاسبة، والشريعة والقانون والعلوم السياسية واللغة الإنجليزية. وتصدر مجلة جامعة الحضارة العلمية.",
+  "website": "https://civilizationuniv.edu.ye/",
+  "phone": "01 414808 / 01 418294 / 780199211",
+  "email": "info@civilizationuniv.edu.ye",
+  "address": "صنعاء، حدة، جولة المدينة",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://civilizationuniv.edu.ye/wp-content/uploads/2025/06/logoforloader.png",
+  "social_links": [],
+  "admission_info": "",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية",
+   "الإنجليزية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "بكالوريوس"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية الطب البشري",
+    "department": "",
+    "name": "الطب البشري",
+    "field": "العلوم الطبية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-human-medicine"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "قسم طب الأسنان",
+    "name": "طب وجراحة الفم والأسنان",
+    "field": "طب الأسنان",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-medical-sciences"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "قسم الصيدلة",
+    "name": "الصيدلة",
+    "field": "الصيدلة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-medical-sciences"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "قسم الطب المخبري",
+    "name": "الطب المخبري",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-medical-sciences"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "قسم التخدير",
+    "name": "التخدير",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-medical-sciences"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم هندسة النفط والغاز",
+    "name": "هندسة النفط والغاز",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الذكاء الاصطناعي",
+    "name": "الذكاء الاصطناعي",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم تقنية المعلومات",
+    "name": "تقنية المعلومات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الأمن السيبراني",
+    "name": "الأمن السيبراني",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم هندسة الحاسوب",
+    "name": "هندسة الحاسوب",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم علوم الحاسوب",
+    "name": "علوم الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم هندسة الاتصالات",
+    "name": "هندسة الاتصالات",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المعمارية",
+    "name": "الهندسة المعمارية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering"
+   },
+   {
+    "faculty": "كلية التجارة والاقتصاد",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/about"
+   },
+   {
+    "faculty": "كلية التجارة والاقتصاد",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/about"
+   },
+   {
+    "faculty": "كلية التجارة والاقتصاد",
+    "department": "",
+    "name": "نظم المعلومات",
+    "field": "نظم المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/about"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/about"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "العلوم السياسية",
+    "field": "العلوم السياسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/about"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "اللغة الإنجليزية وترجمتها",
+    "field": "اللغات والترجمة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://civilizationuniv.edu.ye/about"
+   }
+  ],
+  "branches": [
+   {
+    "name": "فرع عدن",
+    "governorate": "عدن",
+    "city": "عدن",
+    "address": "",
+    "phone": "",
+    "source_url": "https://civilizationuniv.edu.ye/about"
+   },
+   {
+    "name": "فرع صنعاء",
+    "governorate": "أمانة العاصمة",
+    "city": "صنعاء",
+    "address": "حدة، جولة المدينة",
+    "phone": "01 414808",
+    "source_url": "https://civilizationuniv.edu.ye/"
+   }
+  ],
+  "sources": [
+   {
+    "title": "نبذة عن الجامعة",
+    "url": "https://civilizationuniv.edu.ye/about",
+    "publisher": "جامعة الحضارة",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كلية العلوم الطبية",
+    "url": "https://civilizationuniv.edu.ye/faculties/faculty-of-medical-sciences",
+    "publisher": "جامعة الحضارة",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كلية الهندسة",
+    "url": "https://civilizationuniv.edu.ye/faculties/faculty-of-engineering",
+    "publisher": "جامعة الحضارة",
+    "source_type": "official_site"
+   }
+  ]
+ },
+ {
+  "slug": "edu-c863e98750b0",
+  "name_en": "University of Science and Technology",
+  "founded_year": 1994,
+  "summary": "جامعة أهلية يمنية تعود نشأتها إلى الكلية الوطنية للعلوم والتكنولوجيا المرخّصة عام 1992 بوصفها أول كلية أهلية تقنية في اليمن، ثم افتُتحت جامعةً بقرار وزاري في 12 يناير 1994، وتصف نفسها بأنها أول جامعة أهلية يمنية. يقع مركزها الرئيسي في شارع الستين بجولة مذبح في صنعاء، ولها فرع للطالبات وفروع في تعز والحديدة وإب، وكليات ومعاهد تطبيقية في ذمار والحديدة وباجل وعمران وأمانة العاصمة وإب. تضم كليات الطب والعلوم الصحية وطب الأسنان والصيدلة والهندسة والحاسبات وتكنولوجيا المعلومات والعلوم الإدارية والعلوم الإنسانية والاجتماعية، إلى جانب عمادتي الدراسات العليا والتعليم الإلكتروني. حصلت في أكتوبر 2023 على الاعتماد البرامجي الكامل لبرنامج الطب والجراحة، ثم في مايو 2024 لبرامج الصيدلة والهندسة المدنية وطب الأسنان وإدارة الأعمال.",
+  "website": "https://ust.edu.ye/ar/",
+  "phone": "777761641 / 716000700",
+  "email": "info@ust.edu.ye",
+  "address": "شارع الستين، جولة مذبح، صنعاء",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://ust.edu.ye/wp-content/uploads/2020/06/ustlogo2.png",
+  "social_links": [
+   {
+    "label": "فيسبوك",
+    "url": "https://www.facebook.com/USTeduY"
+   },
+   {
+    "label": "X",
+    "url": "https://twitter.com/usteduy"
+   },
+   {
+    "label": "إنستغرام",
+    "url": "https://www.instagram.com/usteduy"
+   },
+   {
+    "label": "يوتيوب",
+    "url": "https://www.youtube.com/channel/UCtu38MILl6O0lvYP27zVt_Q"
+   }
+  ],
+  "admission_info": "يُقبل حملة الثانوية العامة أو ما يعادلها وفق المعدلات التي تعتمدها وزارة التعليم العالي سنوياً، مع تقديم أصل الثانوية وصورة الهوية أو الجواز وعشر صور شخصية. يشترط برنامج الطب والجراحة اختبار مفاضلة في الأحياء والكيمياء واللغة الإنجليزية، وتُعمَّد شهادات الثانوية الصادرة خارج اليمن وتُعادَل لدى وزارة التربية والتعليم. تتيح الجامعة برامج تجسير لحملة الدبلوم في تخصصات منها الصيدلة والتمريض والتخدير وتقنية المعلومات والمحاسبة وإدارة الأعمال.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية",
+   "الإنجليزية"
+  ],
+  "study_modes": [
+   "انتظام",
+   "تعليم عن بعد"
+  ],
+  "education_levels": [
+   "بكالوريوس",
+   "ماجستير",
+   "دكتوراه",
+   "دراسات عليا"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "",
+    "name": "الطب والجراحة",
+    "field": "العلوم الطبية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/med/medicine-and-surgery-ar/"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/med/medical-laboratories-ar/"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "",
+    "name": "تكنولوجيا الأشعة والتصوير الطبي",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/med/radiology-ar/"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "",
+    "name": "التغذية العلاجية والحميات",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/med/nutrition-ar/"
+   },
+   {
+    "faculty": "كلية طب الأسنان",
+    "department": "",
+    "name": "طب وجراحة الفم والأسنان",
+    "field": "طب الأسنان",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/dent/bachelor-of-oral-and-dental-medicine-and-surgery-ar/"
+   },
+   {
+    "faculty": "كلية الصيدلة",
+    "department": "قسم العلوم الصيدلانية",
+    "name": "بكالوريوس الصيدلة",
+    "field": "الصيدلة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pharm/home/department-of-pharmaceutical-sciences-ar/bachelor-of-pharmacy-program-ar/"
+   },
+   {
+    "faculty": "كلية الصيدلة",
+    "department": "قسم الصيدلة السريرية والممارسة الصيدلانية",
+    "name": "دكتور صيدلة (Pharm.D)",
+    "field": "الصيدلة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pharm/home/department-of-clinical-pharmacy-and-pharmaceutical-practice-ar/doctor-of-pharmacy-program-ar/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المدنية",
+    "name": "الهندسة المدنية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/civil-engineering_ar/civil-engineering-program-ar/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المعمارية",
+    "name": "الهندسة المعمارية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/department-of-architecture-ar/architecture-program-ar/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المعمارية",
+    "name": "هندسة التصميم الداخلي",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/department-of-architecture-ar/interior-design-engineering-program/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الطبية الحيوية",
+    "name": "الهندسة الطبية الحيوية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/home/biomedical-engineering-department/omedical-engineering-program-ar/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الإلكترونية",
+    "name": "هندسة الميكاترونكس",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/department-of-electronic-engineering-ar/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الإلكترونية",
+    "name": "هندسة الحاسوب والأنظمة الذكية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/department-of-electronic-engineering-ar/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الإلكترونية",
+    "name": "هندسة الاتصالات والمعلوماتية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/department-of-electronic-engineering-ar/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الإلكترونية",
+    "name": "هندسة الطاقة المتجددة والتحكم الآلي",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/eng/department-of-electronic-engineering-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم علوم الحاسوب",
+    "name": "علوم الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/computer-science-department-ar/bsc-in-computer-science-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم علوم الحاسوب",
+    "name": "هندسة البرمجيات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/computer-science-department-ar/bsc-in-software-engineering-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم علوم الحاسوب",
+    "name": "الأمن السيبراني والشبكات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/computer-science-department-ar/bsc-of-cybersecurity-and-networks-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم علوم الحاسوب",
+    "name": "الذكاء الاصطناعي",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/computer-science-department-ar/bsc-in-artificial-intelligence-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم تقنية المعلومات",
+    "name": "تقنية المعلومات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/home-9-one-instructor/information-technology-department-ar/bachelor-of-information-technology/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم تقنية المعلومات",
+    "name": "تقنية المعلومات (باللغة الإنجليزية)",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/home-9-one-instructor/information-technology-department-ar/bachelor-of-information-technology-en-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم تقنية المعلومات",
+    "name": "التصميم الجرافيكي والوسائط المتعددة",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/home-9-one-instructor/information-technology-department-ar/graphic-design-and-multimedia-program-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم نظم المعلومات",
+    "name": "الأعمال الإلكترونية",
+    "field": "نظم المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/home-9-one-instructor/information-systems-department-ar/e-business-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم نظم المعلومات",
+    "name": "ذكاء الأعمال",
+    "field": "نظم المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/home-9-one-instructor/information-systems-department-ar/business-intelligence-ar/"
+   },
+   {
+    "faculty": "كلية الحاسبات وتكنولوجيا المعلومات",
+    "department": "قسم نظم المعلومات",
+    "name": "نظم المعلومات الإدارية",
+    "field": "نظم المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/cit/home-9-one-instructor/information-systems-department-ar/management-information-systems-ar/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم المحاسبة والتمويل",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/has/accounting-finance-ar/accounting/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم المحاسبة والتمويل",
+    "name": "العلوم المالية والمصرفية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/has/accounting-finance-ar/finance/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم إدارة الأعمال",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/has/business-administration-ar/bba/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم إدارة الأعمال",
+    "name": "إدارة الأعمال الدولية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/has/business-administration-ar/biba/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم إدارة الأعمال",
+    "name": "إدارة الأعمال الدولية (باللغة الإنجليزية)",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/has/business-administration-ar/iba-ar/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم إدارة الأعمال",
+    "name": "التسويق الرقمي",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/has/business-administration-ar/digital-marketing/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم الشريعة والقانون",
+    "name": "الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/islamic-arabic-ar/islamic-studies/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم الشريعة والقانون",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/islamic-arabic-ar/sharia-law-ar/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم العلوم الاجتماعية",
+    "name": "العلاقات العامة والإعلان",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/social-sciences-ar/public-relations-ar/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم العلوم الاجتماعية",
+    "name": "الإذاعة والتلفزيون",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/social-sciences-ar/radio-tv-ar/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم العلوم الاجتماعية",
+    "name": "رياض الأطفال",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/social-sciences-ar/kindergarten-ar/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم العلوم الاجتماعية",
+    "name": "علم النفس والإرشاد",
+    "field": "العلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/social-sciences-ar/psychology-ar/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم اللغة الإنجليزية",
+    "name": "الترجمة",
+    "field": "اللغات والترجمة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/english-department-ar/translation/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية والاجتماعية",
+    "department": "قسم اللغة الإنجليزية",
+    "name": "اللغويات التطبيقية",
+    "field": "اللغات والترجمة",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/hss/english-department-ar/linguistics-ar/"
+   },
+   {
+    "faculty": "عمادة التعليم الإلكتروني",
+    "department": "",
+    "name": "إدارة الأعمال الدولية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://ust.edu.ye/el/iba-ar/"
+   },
+   {
+    "faculty": "عمادة التعليم الإلكتروني",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://ust.edu.ye/el/bba-ar/"
+   },
+   {
+    "faculty": "عمادة التعليم الإلكتروني",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://ust.edu.ye/el/accounting-ar/"
+   },
+   {
+    "faculty": "عمادة التعليم الإلكتروني",
+    "department": "",
+    "name": "العلاقات العامة والإعلان",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://ust.edu.ye/el/public-relations-ar/"
+   },
+   {
+    "faculty": "عمادة التعليم الإلكتروني",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://ust.edu.ye/el/sharia-law-ar/"
+   },
+   {
+    "faculty": "عمادة التعليم الإلكتروني",
+    "department": "",
+    "name": "اللغة العربية",
+    "field": "اللغات والآداب",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://ust.edu.ye/el/arabic-ar/"
+   },
+   {
+    "faculty": "عمادة التعليم الإلكتروني",
+    "department": "",
+    "name": "الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://ust.edu.ye/el/islamic-studies-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الصيدلانيات",
+    "field": "الصيدلة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-medicine-programs-ar/master-of-pharmacy-program-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير علم الأدوية",
+    "field": "الصيدلة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-medicine-programs-ar/masters-program-in-pharmacology-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير التغذية العلاجية",
+    "field": "العلوم الصحية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-medicine-programs-ar/masters-program-in-clinical-nutrition-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير تقويم الأسنان",
+    "field": "طب الأسنان",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-medicine-programs-ar/masters-program-in-orthodontics-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير جراحة الفم والوجه والفكين",
+    "field": "طب الأسنان",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-medicine-programs-ar/masters-program-in-oral-surgery-and-dental-implants-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الهندسة الإنشائية",
+    "field": "الهندسة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-engineering-programs-ar/masters-program-in-structural-engineering-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الهندسة المعمارية",
+    "field": "الهندسة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-engineering-programs-ar/masters-program-in-architecture-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الهندسة الإلكترونية (حاسبات)",
+    "field": "الهندسة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-engineering-programs-ar/masters-program-in-electronic-engineering-computers-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الهندسة الإلكترونية (اتصالات)",
+    "field": "الهندسة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-engineering-programs-ar/masters-program-in-electronic-engineering-communications-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الحوسبة",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/masters-program-in-computing-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "دكتوراه الفلسفة في الحوسبة",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "دكتوراه",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/cit/phd-in-computing/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-science-in-management-programs-ar/master-of-accounting-program-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير إدارة الأعمال (بالعربية)",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-science-in-management-programs-ar/master-of-business-administration-mba-program-arabic-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير إدارة الأعمال (بالإنجليزية)",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-science-in-management-programs-ar/master-of-business-administration-english-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "دكتوراه إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دكتوراه",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-master-of-science-in-management-programs-ar/phd-program-in-business-administration-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير علم النفس الإكلينيكي",
+    "field": "العلوم الإنسانية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-masters-programs-in-the-humanities-ar/clinical-psychology/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الترجمة الإنجليزية",
+    "field": "اللغات والترجمة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-masters-programs-in-the-humanities-ar/masters-program-in-english-translation-ar/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://ust.edu.ye/pgs/home/academic-programs-for-masters-programs-in-the-humanities-ar/masters-program-in-islamic-studies-ar/"
+   }
+  ],
+  "branches": [
+   {
+    "name": "فرع الطالبات",
+    "governorate": "أمانة العاصمة",
+    "city": "صنعاء",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/girls/"
+   },
+   {
+    "name": "فرع تعز",
+    "governorate": "تعز",
+    "city": "تعز",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/taiz/"
+   },
+   {
+    "name": "فرع الحديدة",
+    "governorate": "الحديدة",
+    "city": "الحديدة",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/hoda/"
+   },
+   {
+    "name": "فرع إب",
+    "governorate": "إب",
+    "city": "إب",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/ibb/"
+   },
+   {
+    "name": "الكلية التطبيقية - ذمار",
+    "governorate": "ذمار",
+    "city": "ذمار",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/acst-thamar/"
+   },
+   {
+    "name": "الكلية التطبيقية - الحديدة",
+    "governorate": "الحديدة",
+    "city": "الحديدة",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/acst-hoda/"
+   },
+   {
+    "name": "الكلية التطبيقية - باجل",
+    "governorate": "الحديدة",
+    "city": "باجل",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/acst-bagel"
+   },
+   {
+    "name": "الكلية التطبيقية - عمران",
+    "governorate": "عمران",
+    "city": "عمران",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/acst-emran/"
+   },
+   {
+    "name": "معهد العلوم والتكنولوجيا التطبيقي - الأمانة",
+    "governorate": "أمانة العاصمة",
+    "city": "صنعاء",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/aist-al-amanah/"
+   },
+   {
+    "name": "معهد العلوم والتكنولوجيا التطبيقي - إب",
+    "governorate": "إب",
+    "city": "إب",
+    "address": "",
+    "phone": "",
+    "source_url": "https://ust.edu.ye/aist-ibb/"
+   }
+  ],
+  "sources": [
+   {
+    "title": "عن جامعة العلوم والتكنولوجيا",
+    "url": "https://ust.edu.ye/ar/about-university/",
+    "publisher": "جامعة العلوم والتكنولوجيا",
+    "source_type": "official_site"
+   },
+   {
+    "title": "شروط القبول والتسجيل",
+    "url": "https://ust.edu.ye/admission/",
+    "publisher": "جامعة العلوم والتكنولوجيا",
+    "source_type": "official_site"
+   },
+   {
+    "title": "برامج الدراسات العليا",
+    "url": "https://ust.edu.ye/ar/post-graduate/",
+    "publisher": "جامعة العلوم والتكنولوجيا",
+    "source_type": "official_site"
+   },
+   {
+    "title": "برامج كلية الهندسة",
+    "url": "https://ust.edu.ye/ar/engineering-program/",
+    "publisher": "جامعة العلوم والتكنولوجيا",
+    "source_type": "official_site"
+   },
+   {
+    "title": "برامج التعليم الإلكتروني",
+    "url": "https://ust.edu.ye/ar/e-learning-and-distance-education/",
+    "publisher": "جامعة العلوم والتكنولوجيا",
+    "source_type": "official_site"
+   }
+  ]
+ },
+ {
+  "slug": "edu-d0cdefd1cc9f",
+  "name_en": "Al-Nasser University",
+  "founded_year": null,
+  "summary": "جامعة الناصر جامعة أهلية يمنية مقرها صنعاء، يقع مركزها الرئيسي في شارع الستين الغربي بمنطقة السنينة، وتتوزع كلياتها على عدة مبانٍ؛ إذ تقع كلية العلوم الطبية عند مدخل السنينة وكلية الهندسة وعلوم الحاسوب في شارع حدة جوار حديقة السبعين. تضم خمس كليات: طب الأسنان، والعلوم الطبية، والهندسة وعلوم الحاسوب، والعلوم الإدارية والمالية، والعلوم الإنسانية، وتقدم 24 برنامج بكالوريوس إلى جانب برامج ماجستير في الصيدلانيات والرقابة الدوائية وصحة المجتمع. تذكر الجامعة أنها خصصت فرعاً للطالبات وفتحت فروعاً في عدد من المحافظات، ولديها شراكة مع مركز أبتك الدولي في تقنية المعلومات، وتصدر مجلة جامعة الناصر ومجلة البيئة والتنمية المستدامة.",
+  "website": "https://www.nu.edu.ye/",
+  "phone": "01 210103 / 01 210104",
+  "email": "info@nu.edu.ye",
+  "address": "صنعاء، شارع الستين الغربي، السنينة",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://nu.edu.ye/new/wp-content/uploads/2013/07/cropped-Al-Nasser-Logo211-e1740291481258.png",
+  "social_links": [
+   {
+    "label": "فيسبوك",
+    "url": "https://www.facebook.com/Alnasser.Yemen"
+   },
+   {
+    "label": "X",
+    "url": "https://x.com/alnasseru"
+   },
+   {
+    "label": "يوتيوب",
+    "url": "https://www.youtube.com/user/AlnasserUniversity"
+   },
+   {
+    "label": "واتساب",
+    "url": "https://wa.me/967777947536"
+   }
+  ],
+  "admission_info": "تُقبل في برامج البكالوريوس شهادة الثانوية بحد أدنى يتراوح بين 50% لتخصصات العلوم الإدارية والإنسانية و75% لطب وجراحة الفم والأسنان، وتقتصر التخصصات الطبية والهندسية والحاسوبية على القسم العلمي. يُطلب للتسجيل أصل استمارة الثانوية مع صورتين طبق الأصل وصورة البطاقة أو الجواز وعشر صور شخصية، وتُعمَّد الشهادات الصادرة خارج اليمن وتُعادَل لدى وزارة التربية والتعليم.",
+  "tuition_info": "وفق جدول رسوم 2025–2026: طب وجراحة الفم والأسنان 2,750 دولاراً سنوياً بعد خصم 50% (687,500 ريال)، والصيدلة 1,575 دولاراً (393,750 ريالاً)، وتخصصات الحاسوب من 925 إلى 1,309 دولارات، والهندسة المدنية والمعمارية 1,190 دولاراً، والعلوم الإدارية من 490 إلى 630 دولاراً، والعلوم الإنسانية 420 دولاراً (105,000 ريال)، بسعر صرف معتمد 250 ريالاً للدولار، مع رسوم تسجيل 80 دولاراً تُدفع مرة واحدة.",
+  "tuition_as_of": "2025-09-01",
+  "languages": [
+   "العربية",
+   "الإنجليزية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "بكالوريوس",
+   "ماجستير",
+   "دراسات عليا"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية طب الأسنان",
+    "department": "",
+    "name": "طب وجراحة الفم والأسنان",
+    "field": "طب الأسنان",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-dentistry/oral-and-dental-surgery/oral-and-dental-surgery/"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "الصيدلة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-medical-sciences/pharmacy/pharmacy/"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "",
+    "name": "المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-medical-sciences/laboratory/laboratory/"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-medical-sciences/nursing/nursing/"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "",
+    "name": "صحة المجتمع",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-medical-sciences/community-health/com-health/"
+   },
+   {
+    "faculty": "كلية العلوم الطبية",
+    "department": "",
+    "name": "التغذية العلاجية",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-medical-sciences/clinical-nutrition/clinical/"
+   },
+   {
+    "faculty": "كلية الهندسة وعلوم الحاسوب",
+    "department": "",
+    "name": "الهندسة المدنية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-engineering-and-computer-science/civil-engineering/civil/"
+   },
+   {
+    "faculty": "كلية الهندسة وعلوم الحاسوب",
+    "department": "",
+    "name": "الهندسة المعمارية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-engineering-and-computer-science/architectural-engineering/architectural/"
+   },
+   {
+    "faculty": "كلية الهندسة وعلوم الحاسوب",
+    "department": "",
+    "name": "تقنية المعلومات (إدارة النظم والشبكات)",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-engineering-and-computer-science/computing-and-it/it/"
+   },
+   {
+    "faculty": "كلية الهندسة وعلوم الحاسوب",
+    "department": "",
+    "name": "تقنية المعلومات (تكنولوجيا الويب والموبايل)",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-engineering-and-computer-science/computing-and-it/it/"
+   },
+   {
+    "faculty": "كلية الهندسة وعلوم الحاسوب",
+    "department": "",
+    "name": "الأمن السيبراني والتحري الرقمي",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-engineering-and-computer-science/computing-and-it/cybersecurity/"
+   },
+   {
+    "faculty": "كلية الهندسة وعلوم الحاسوب",
+    "department": "",
+    "name": "الذكاء الاصطناعي",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-engineering-and-computer-science/computing-and-it/ai/"
+   },
+   {
+    "faculty": "كلية الهندسة وعلوم الحاسوب",
+    "department": "",
+    "name": "علوم البيانات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-engineering-and-computer-science/computing-and-it/ds/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية والمالية",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-administrative-and-financial-sciences/accounting/accounting/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية والمالية",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-administrative-and-financial-sciences/business-management/management/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية والمالية",
+    "department": "",
+    "name": "نظم المعلومات الإدارية",
+    "field": "نظم المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-administrative-and-financial-sciences/management-is/mis/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية والمالية",
+    "department": "",
+    "name": "العلوم المالية والمصرفية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-administrative-and-financial-sciences/financial-and-banking/fbs/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية والمالية",
+    "department": "",
+    "name": "التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-administrative-and-financial-sciences/marketing/market/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية والمالية",
+    "department": "",
+    "name": "إدارة المستشفيات",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-administrative-and-financial-sciences/hospital-management/hospital_mang/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "اللغة الإنجليزية والترجمة",
+    "field": "اللغات والترجمة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-humanities/english-language-and-translation/translation/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "العلاقات العامة والإعلان",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-humanities/relations-and-advertising/advertising/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-humanities/slamic-studies/islamic/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-humanities/sharia-and-law/law/"
+   },
+   {
+    "faculty": "كلية العلوم الإنسانية",
+    "department": "",
+    "name": "اللغة العربية",
+    "field": "اللغات والآداب",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/faculty-of-humanities/arabic-language/arabic/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الصيدلانيات",
+    "field": "الصيدلة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/deanship-of-graduate-studies/msc-in-pharmaceutics/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير الرقابة الدوائية",
+    "field": "الصيدلة",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/deanship-of-graduate-studies/msc-in-pharmaceutical-control/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا والبحث العلمي",
+    "department": "",
+    "name": "ماجستير صحة المجتمع",
+    "field": "العلوم الصحية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://nu.edu.ye/deanship-of-graduate-studies/master-of-community-health/"
+   }
+  ],
+  "branches": [
+   {
+    "name": "كلية العلوم الطبية",
+    "governorate": "أمانة العاصمة",
+    "city": "صنعاء",
+    "address": "صنعاء، شارع الستين الغربي، مدخل السنينة",
+    "phone": "01 536307 / 01 536308",
+    "source_url": "https://nu.edu.ye/wp-content/uploads/2025/04/%D8%A8%D8%B1%D8%B4%D9%88%D8%B1-%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9-%D9%83%D8%A7%D9%85%D9%84.pdf"
+   },
+   {
+    "name": "كلية الهندسة وعلوم الحاسوب",
+    "governorate": "أمانة العاصمة",
+    "city": "صنعاء",
+    "address": "صنعاء، شارع حدة، جوار حديقة السبعين",
+    "phone": "01 510995",
+    "source_url": "https://nu.edu.ye/wp-content/uploads/2025/04/%D8%A8%D8%B1%D8%B4%D9%88%D8%B1-%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9-%D9%83%D8%A7%D9%85%D9%84.pdf"
+   }
+  ],
+  "sources": [
+   {
+    "title": "القبول والتسجيل",
+    "url": "https://www.nu.edu.ye/admissions-and-registration/",
+    "publisher": "جامعة الناصر",
+    "source_type": "official_site"
+   },
+   {
+    "title": "البرشور العام والرسوم الدراسية 2025–2026",
+    "url": "https://nu.edu.ye/wp-content/uploads/2025/04/%D8%A8%D8%B1%D8%B4%D9%88%D8%B1-%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9-%D9%83%D8%A7%D9%85%D9%84.pdf",
+    "publisher": "جامعة الناصر",
+    "source_type": "official_site"
+   },
+   {
+    "title": "نبذة عن الجامعة",
+    "url": "https://www.nu.edu.ye/about-the-university/",
+    "publisher": "جامعة الناصر",
+    "source_type": "official_site"
+   },
+   {
+    "title": "موقعنا الجغرافي",
+    "url": "https://www.nu.edu.ye/geographical-location/",
+    "publisher": "جامعة الناصر",
+    "source_type": "official_site"
+   }
+  ]
+ },
+ {
+  "slug": "edu-655133ba94aa",
+  "name_en": "International University of Technology Twintech (IUTT)",
+  "founded_year": 2009,
+  "summary": "جامعة تونتك الدولية للتكنولوجيا جامعة أهلية تأسست في صنعاء عام 2009 بمبادرة مشتركة بين اليمن وماليزيا حظيت بدعم وزارتي التعليم العالي في البلدين، وتقدّم نفسها بوصفها أول نظام أكاديمي ماليزي في اليمن يعتمد الإنجليزية لغةً للتدريس. يقع حرمها في منطقة العشاش خلف أبراج الكريمي بصنعاء. تضم كليات المال والأعمال، وعلوم الحاسب الآلي وتكنولوجيا المعلومات، والهندسة، والملتيميديا والإبداع التقني، وتقدم 13 برنامج بكالوريوس منها الأمن السيبراني والذكاء الاصطناعي وعلوم البيانات وهندسة النفط والغاز والتصميم الداخلي، إلى جانب برامج ماجستير في إدارة الأعمال بالإنجليزية والعربية وتقنية المعلومات. وتضم مراكز لضمان الجودة والتدريب والاستشارات والابتكار وريادة الأعمال.",
+  "website": "https://iutt.edu.ye/ar/",
+  "phone": "+967 1 427570 / 427571",
+  "email": "",
+  "address": "صنعاء، العشاش، خلف أبراج الكريمي",
+  "city": "صنعاء",
+  "governorate": "أمانة العاصمة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://iutt.edu.ye/wp-content/uploads/2026/02/main-logo.png",
+  "social_links": [
+   {
+    "label": "فيسبوك",
+    "url": "https://www.facebook.com/TWINTECH.UNIVERSITY"
+   },
+   {
+    "label": "يوتيوب",
+    "url": "https://www.youtube.com/@iuttUniversity"
+   },
+   {
+    "label": "إنستغرام",
+    "url": "https://www.instagram.com/iutt_yemen"
+   }
+  ],
+  "admission_info": "يُقبل حملة الثانوية العامة وفق الحد الأدنى للمعدلات المعتمدة واجتياز امتحانات القبول والمقابلة مع لجنة القبول في التخصص، ويبدأ التقديم بنموذج إلكتروني ثم زيارة الحرم لاستكمال الوثائق ودفع القسط الأول. تتراوح معدلات القبول المعلنة بين 50% لتخصصات الأعمال (علمي أو أدبي) و65% للهندسة المدنية والمعمارية وهندسة النفط والغاز (علمي)، وتُطلب الثانوية الأصلية مع نسختها الإنجليزية وأربع صور وصورة الهوية.",
+  "tuition_info": "تنشر الجامعة رسوماً سنوية بالدولار تُطبق عليها منح بنسب 45–60%: الأعمال الدولية بالعربية 1,000 دولار سنوياً بعد المنحة (250,000 ريال)، والمحاسبة والأعمال الدولية بالإنجليزية 1,250 دولاراً، وتخصصات الحاسوب والملتيميديا 1,250–1,375 دولاراً، والهندسة المدنية وهندسة النفط والغاز 1,350 دولاراً، والهندسة المعمارية 1,650 دولاراً، والتصميم الداخلي 1,500 دولار.",
+  "tuition_as_of": "2026-11-07",
+  "languages": [
+   "الإنجليزية",
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "بكالوريوس",
+   "ماجستير",
+   "دراسات عليا"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية المال والأعمال",
+    "department": "قسم إدارة الأعمال الدولية",
+    "name": "الأعمال الدولية (بالإنجليزية)",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/%d8%a7%d9%84%d8%b1%d8%b3%d9%88%d9%85-%d8%a7%d9%84%d8%af%d8%b1%d8%a7%d8%b3%d9%8a%d8%a9/"
+   },
+   {
+    "faculty": "كلية المال والأعمال",
+    "department": "قسم إدارة الأعمال الدولية",
+    "name": "الأعمال الدولية (بالعربية)",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/%d8%a7%d9%84%d8%b1%d8%b3%d9%88%d9%85-%d8%a7%d9%84%d8%af%d8%b1%d8%a7%d8%b3%d9%8a%d8%a9/"
+   },
+   {
+    "faculty": "كلية المال والأعمال",
+    "department": "قسم المحاسبة",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية المال والأعمال",
+    "department": "",
+    "name": "التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية المال والأعمال",
+    "department": "",
+    "name": "العلوم المالية والمصرفية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية المال والأعمال",
+    "department": "",
+    "name": "إدارة النفط والغاز",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/%d8%a7%d9%84%d8%b1%d8%b3%d9%88%d9%85-%d8%a7%d9%84%d8%af%d8%b1%d8%a7%d8%b3%d9%8a%d8%a9/"
+   },
+   {
+    "faculty": "كلية علوم الحاسب الآلي وتكنولوجيا المعلومات",
+    "department": "قسم علوم الحاسب الآلي",
+    "name": "علوم الحاسوب",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية علوم الحاسب الآلي وتكنولوجيا المعلومات",
+    "department": "قسم علوم الحاسب الآلي",
+    "name": "الذكاء الاصطناعي وعلوم البيانات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية علوم الحاسب الآلي وتكنولوجيا المعلومات",
+    "department": "قسم علوم الحاسب الآلي",
+    "name": "الأمن السيبراني",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية علوم الحاسب الآلي وتكنولوجيا المعلومات",
+    "department": "قسم تقنية معلومات الأعمال",
+    "name": "تكنولوجيا معلومات الأعمال",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المدنية",
+    "name": "الهندسة المدنية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم هندسة النفط والغاز",
+    "name": "هندسة النفط والغاز",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المعمارية",
+    "name": "الهندسة المعمارية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم التصميم الداخلي",
+    "name": "التصميم الداخلي",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "كلية الملتيميديا والإبداع التقني",
+    "department": "قسم الملتيميديا",
+    "name": "الوسائط المتعددة (الملتيميديا)",
+    "field": "التصميم والفنون",
+    "qualification": "بكالوريوس",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/undergraduate/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير إدارة الأعمال (MBA)",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/graduate/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير إدارة الأعمال (بالعربية)",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/graduate/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير تقنية المعلومات (MIT)",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "ماجستير",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/graduate/"
+   },
+   {
+    "faculty": "الدراسات العليا",
+    "department": "",
+    "name": "ماجستير الملتيميديا",
+    "field": "التصميم والفنون",
+    "qualification": "ماجستير",
+    "language": "الإنجليزية",
+    "study_mode": "انتظام",
+    "source_url": "https://iutt.edu.ye/ar/iutt-master-multimedia-start-of-classes-november-2026/"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "برامج البكالوريوس",
+    "url": "https://iutt.edu.ye/ar/undergraduate/",
+    "publisher": "جامعة تونتك الدولية للتكنولوجيا",
+    "source_type": "official_site"
+   },
+   {
+    "title": "الرسوم الدراسية",
+    "url": "https://iutt.edu.ye/ar/%d8%a7%d9%84%d8%b1%d8%b3%d9%88%d9%85-%d8%a7%d9%84%d8%af%d8%b1%d8%a7%d8%b3%d9%8a%d8%a9/",
+    "publisher": "جامعة تونتك الدولية للتكنولوجيا",
+    "source_type": "official_site"
+   },
+   {
+    "title": "برامج الدراسات العليا",
+    "url": "https://iutt.edu.ye/ar/graduate/",
+    "publisher": "جامعة تونتك الدولية للتكنولوجيا",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كيفية التقديم",
+    "url": "https://iutt.edu.ye/ar/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a7%d9%84%d8%aa%d9%82%d8%af%d9%8a%d9%85/",
+    "publisher": "جامعة تونتك الدولية للتكنولوجيا",
+    "source_type": "official_site"
+   }
+  ]
+ },
+ {
+  "slug": "edu-26052343dcfc",
+  "name_en": "Dar Al-Uloom Al-Shar'iyyah University",
+  "founded_year": null,
+  "summary": "جامعة دار العلوم الشرعية جامعة متخصصة في العلوم الشرعية والقانونية مقرها مدينة الحديدة، في منطقة غليل بشارع التنمية الحضرية، وتصف نفسها بأنها أول جامعة إسلامية في اليمن متخصصة بتدريس العلوم الشرعية. تضم أربع كليات هي القرآن الكريم وعلومه، والدراسات الإسلامية، والشريعة والقانون، واللغة العربية وآدابها، إضافة إلى عمادة للدراسات العليا تقدم برامج ماجستير في القرآن الكريم وعلومه والدراسات الإسلامية واللغة العربية وآدابها والقانون الخاص والقانون العام. وتتبعها ثانوية العلوم الشرعية التي تؤهل الطلاب للالتحاق بها، وتذكر من أهدافها تدريس الطلاب دون أعباء مالية على أولياء الأمور.",
+  "website": "https://dusu.edu.ye/",
+  "phone": "+967 3 236418 / 777666608",
+  "email": "daralulomalsharia@gmail.com",
+  "address": "الحديدة، غليل، شارع التنمية الحضرية",
+  "city": "الحديدة",
+  "governorate": "الحديدة",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "",
+  "social_links": [
+   {
+    "label": "فيسبوك",
+    "url": "https://www.facebook.com/daralulumalshariyyah"
+   },
+   {
+    "label": "إنستغرام",
+    "url": "https://www.instagram.com/daralulumalshariyyah/"
+   }
+  ],
+  "admission_info": "يشترط للقبول حصول الطالب على ثانوية العلوم الشرعية بالتقدير المناسب للكلية، واجتياز اختبار القبول والمقابلة الشخصية.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية"
+  ],
+  "study_modes": [
+   "انتظام"
+  ],
+  "education_levels": [
+   "بكالوريوس",
+   "ماجستير",
+   "دراسات عليا"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية القرآن الكريم وعلومه",
+    "department": "",
+    "name": "القرآن الكريم وعلومه",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/"
+   },
+   {
+    "faculty": "كلية الدراسات الإسلامية",
+    "department": "",
+    "name": "الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/"
+   },
+   {
+    "faculty": "كلية الشريعة والقانون",
+    "department": "",
+    "name": "الشريعة والقانون",
+    "field": "الشريعة والقانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/"
+   },
+   {
+    "faculty": "كلية اللغة العربية وآدابها",
+    "department": "",
+    "name": "اللغة العربية وآدابها",
+    "field": "اللغات والآداب",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا",
+    "department": "قسم القرآن الكريم وعلومه",
+    "name": "ماجستير القرآن الكريم وعلومه",
+    "field": "العلوم الشرعية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/highedu/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا",
+    "department": "قسم الدراسات الإسلامية",
+    "name": "ماجستير الدراسات الإسلامية",
+    "field": "العلوم الشرعية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/highedu/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا",
+    "department": "قسم اللغة العربية وآدابها",
+    "name": "ماجستير اللغة العربية وآدابها",
+    "field": "اللغات والآداب",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/highedu/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا",
+    "department": "قسم القانون الخاص",
+    "name": "ماجستير القانون الخاص",
+    "field": "القانون",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/highedu/"
+   },
+   {
+    "faculty": "عمادة الدراسات العليا",
+    "department": "قسم القانون العام",
+    "name": "ماجستير القانون العام",
+    "field": "القانون",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dusu.edu.ye/highedu/"
+   }
+  ],
+  "branches": [],
+  "sources": [
+   {
+    "title": "عمادة الدراسات العليا",
+    "url": "https://dusu.edu.ye/highedu/",
+    "publisher": "جامعة دار العلوم الشرعية",
+    "source_type": "official_site"
+   }
+  ]
+ },
+ {
+  "slug": "edu-c7e79dcec26f",
+  "name_en": "University of Aden",
+  "founded_year": 1975,
+  "summary": "جامعة عدن جامعة حكومية يمنية تعدّ إلى جانب جامعة صنعاء أقدم مؤسسات التعليم العالي في البلاد، وتعود نواتها إلى كلية التربية العليا التي أُسست في عدن عام 1970 بإسهام من اليونسكو، ثم كلية ناصر للعلوم الزراعية عام 1972 وكلية الاقتصاد عام 1973. صدر قانون إنشاء الجامعة رقم 22 في 10 سبتمبر 1975، وتوسعت لاحقاً بكليات الحقوق والهندسة عام 1978 وكليات تربية في المحافظات. تضم اليوم كليات التربية والطب والعلوم الصحية وطب الأسنان والصيدلة والتمريض والهندسة والحاسوب وتكنولوجيا المعلومات والعلوم والعلوم الإدارية والاقتصاد والعلوم السياسية والحقوق والآداب واللغات والترجمة والإعلام والتربية الرياضية والتغذية العلاجية، إضافة إلى كلية الضالع الجامعية وكلية للتعليم عن بعد. وتصدر عنها مجلات علمية محكمة متعددة وتضم مراكز بحثية واستشارية.",
+  "website": "https://www.aden-univ.net/",
+  "phone": "+967 2 234428",
+  "email": "",
+  "address": "خور مكسر، عدن",
+  "city": "عدن",
+  "governorate": "عدن",
+  "latitude": null,
+  "longitude": null,
+  "map_url": "",
+  "logo_url": "https://www.aden-univ.net/assets/images/logo2.png",
+  "social_links": [
+   {
+    "label": "فيسبوك",
+    "url": "https://www.facebook.com/aden.univ"
+   },
+   {
+    "label": "تيليجرام",
+    "url": "https://t.me/aden_university"
+   }
+  ],
+  "admission_info": "يجري التقديم للعام الجامعي 2026–2027 عبر «بوابة التنسيق الإلكتروني» أو مراكز التنسيق المعتمدة بتقديم شهادة الثانوية وإثبات الهوية والصورة الشخصية وسند رسوم التنسيق. يُرشَّح المقبولون في السنة التحضيرية للكليات التي تشترطها، ويتوقف القبول النهائي على نتائجهم فيها وفق الطاقة الاستيعابية لكل كلية، ويمكن لغير المقبولين الالتحاق بنظام النفقة الخاصة أو الموازي. تشترط كلية العلوم مثلاً ثانوية علمية بمعدل لا يقل عن 85% واجتياز امتحان قبول.",
+  "tuition_info": "",
+  "tuition_as_of": "",
+  "languages": [
+   "العربية",
+   "الإنجليزية"
+  ],
+  "study_modes": [
+   "انتظام",
+   "موازي",
+   "تعليم عن بعد"
+  ],
+  "education_levels": [
+   "دبلوم",
+   "بكالوريوس",
+   "ماجستير",
+   "دكتوراه",
+   "دراسات عليا"
+  ],
+  "operating_status": "operating",
+  "programs": [
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم اللغة العربية",
+    "name": "اللغة العربية",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الدراسات الإسلامية",
+    "name": "الدراسات الإسلامية",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم اللغة الإنجليزية",
+    "name": "اللغة الإنجليزية",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الأصول والإدارة التربوية",
+    "name": "الأصول والإدارة التربوية",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم المناهج وطرائق التدريس",
+    "name": "المناهج وطرائق التدريس",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم التاريخ",
+    "name": "التاريخ",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الجغرافيا",
+    "name": "الجغرافيا",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم علم الاجتماع والإرشاد التربوي",
+    "name": "علم الاجتماع والإرشاد التربوي",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم علم النفس",
+    "name": "علم النفس",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الكيمياء",
+    "name": "الكيمياء",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الأحياء",
+    "name": "الأحياء",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الفيزياء",
+    "name": "الفيزياء",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الرياضيات",
+    "name": "الرياضيات",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم الحاسوب",
+    "name": "الحاسوب",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم معلم علوم",
+    "name": "معلم مجال علوم",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "قسم معلم اجتماعيات",
+    "name": "معلم مجال اجتماعيات",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "",
+    "name": "القرآن الكريم وعلومه",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "",
+    "name": "رياض الأطفال",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية التربية - عدن",
+    "department": "",
+    "name": "التربية الخاصة",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/eduaden.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المدنية",
+    "name": "الهندسة المدنية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الميكانيكية",
+    "name": "الهندسة الميكانيكية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الكهربائية",
+    "name": "الهندسة الكهربائية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة المعمارية",
+    "name": "الهندسة المعمارية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم علوم وهندسة الحاسوب",
+    "name": "علوم وهندسة الحاسوب",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة الإلكترونية والاتصالات",
+    "name": "الهندسة الإلكترونية والاتصالات",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم تكنولوجيا المعلومات",
+    "name": "تكنولوجيا المعلومات",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الهندسة",
+    "department": "قسم الهندسة البحرية",
+    "name": "الهندسة البحرية",
+    "field": "الهندسة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/engineering.aspx"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "",
+    "name": "الطب والجراحة",
+    "field": "العلوم الطبية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fmhs.aden-univ.net/about.aspx?pageid=3"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "",
+    "name": "علوم المختبرات الطبية",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fmhs.aden-univ.net/about.aspx?pageid=3"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "قسم طب المجتمع والصحة العامة",
+    "name": "ماجستير طب المجتمع والصحة العامة",
+    "field": "العلوم الطبية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fmhs.aden-univ.net/about.aspx?pageid=3"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "قسم أمراض الأطفال",
+    "name": "ماجستير أمراض الأطفال",
+    "field": "العلوم الطبية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fmhs.aden-univ.net/about.aspx?pageid=3"
+   },
+   {
+    "faculty": "كلية الطب والعلوم الصحية",
+    "department": "قسم أمراض النساء والتوليد",
+    "name": "ماجستير أمراض النساء والتوليد",
+    "field": "العلوم الطبية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fmhs.aden-univ.net/about.aspx?pageid=3"
+   },
+   {
+    "faculty": "كلية طب الأسنان",
+    "department": "",
+    "name": "طب وجراحة الفم والأسنان",
+    "field": "طب الأسنان",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dent.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية طب الأسنان",
+    "department": "",
+    "name": "ماجستير طب الأسنان",
+    "field": "طب الأسنان",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://dent.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الصيدلة",
+    "department": "",
+    "name": "الصيدلة",
+    "field": "الصيدلة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pharmacy.aspx"
+   },
+   {
+    "faculty": "كلية التمريض",
+    "department": "",
+    "name": "التمريض",
+    "field": "العلوم الصحية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/nurs.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم إدارة الأعمال",
+    "name": "إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم المحاسبة",
+    "name": "المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم الإحصاء والمعلوماتية",
+    "name": "الإحصاء والمعلوماتية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم الإدارة الصحية",
+    "name": "الإدارة الصحية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم التسويق",
+    "name": "التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم إدارة الأعمال",
+    "name": "ماجستير إدارة الأعمال",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم المحاسبة",
+    "name": "ماجستير المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم الإحصاء والمعلوماتية",
+    "name": "ماجستير الإحصاء والمعلوماتية",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم التسويق",
+    "name": "ماجستير التسويق",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية العلوم الإدارية",
+    "department": "قسم المحاسبة",
+    "name": "دكتوراه المحاسبة",
+    "field": "العلوم الإدارية والمالية",
+    "qualification": "دكتوراه",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://fas.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الاقتصاد والعلوم السياسية",
+    "department": "قسم العلوم السياسية",
+    "name": "العلوم السياسية",
+    "field": "الاقتصاد والعلوم السياسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://feps.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الاقتصاد والعلوم السياسية",
+    "department": "قسم الاقتصاد والتنمية",
+    "name": "الاقتصاد والتنمية",
+    "field": "الاقتصاد والعلوم السياسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://feps.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الاقتصاد والعلوم السياسية",
+    "department": "قسم الاقتصاد الدولي",
+    "name": "الاقتصاد الدولي",
+    "field": "الاقتصاد والعلوم السياسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://feps.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الاقتصاد والعلوم السياسية",
+    "department": "قسم العلوم المالية والمصرفية",
+    "name": "العلوم المالية والمصرفية",
+    "field": "الاقتصاد والعلوم السياسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://feps.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الاقتصاد والعلوم السياسية",
+    "department": "قسم اقتصاد الأعمال",
+    "name": "اقتصاد الأعمال",
+    "field": "الاقتصاد والعلوم السياسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://feps.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الاقتصاد والعلوم السياسية",
+    "department": "قسم الاقتصاد السياحي",
+    "name": "الاقتصاد السياحي",
+    "field": "الاقتصاد والعلوم السياسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://feps.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الحقوق",
+    "department": "",
+    "name": "الحقوق (القانون)",
+    "field": "القانون",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://law.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الحقوق",
+    "department": "قسم القانون الخاص",
+    "name": "ماجستير القانون الخاص",
+    "field": "القانون",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://law.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم التاريخ",
+    "name": "التاريخ",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم الصحافة والإعلام",
+    "name": "الصحافة والإعلام",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم الآثار",
+    "name": "الآثار",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم الجغرافيا",
+    "name": "الجغرافيا",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم علم النفس",
+    "name": "علم النفس",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم علم الاجتماع",
+    "name": "علم الاجتماع",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم الخدمة الاجتماعية",
+    "name": "الخدمة الاجتماعية",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم اللغة والدراسات الألمانية",
+    "name": "اللغة والدراسات الألمانية",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم اللغة الفرنسية",
+    "name": "اللغة الفرنسية",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم اللغة العربية",
+    "name": "اللغة العربية",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم الفنون الجميلة",
+    "name": "الفنون الجميلة",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية الآداب",
+    "department": "قسم الفلسفة",
+    "name": "الفلسفة",
+    "field": "الآداب والعلوم الإنسانية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://arts.aden-univ.net/"
+   },
+   {
+    "faculty": "كلية اللغات والترجمة",
+    "department": "",
+    "name": "اللغة الإنجليزية التجارية",
+    "field": "اللغات والترجمة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/il.aspx"
+   },
+   {
+    "faculty": "كلية اللغات والترجمة",
+    "department": "",
+    "name": "الترجمة",
+    "field": "اللغات والترجمة",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/il.aspx"
+   },
+   {
+    "faculty": "كلية العلوم",
+    "department": "قسم علوم الحياة",
+    "name": "علوم الحياة",
+    "field": "العلوم الأساسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/science.aspx"
+   },
+   {
+    "faculty": "كلية العلوم",
+    "department": "قسم الرياضيات",
+    "name": "الرياضيات",
+    "field": "العلوم الأساسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/science.aspx"
+   },
+   {
+    "faculty": "كلية العلوم",
+    "department": "قسم الكيمياء",
+    "name": "الكيمياء",
+    "field": "العلوم الأساسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/science.aspx"
+   },
+   {
+    "faculty": "كلية العلوم",
+    "department": "قسم الفيزياء",
+    "name": "الفيزياء",
+    "field": "العلوم الأساسية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/science.aspx"
+   },
+   {
+    "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+    "department": "قسم هندسة الشبكات",
+    "name": "هندسة الشبكات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/cs.aspx"
+   },
+   {
+    "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+    "department": "قسم البرمجة",
+    "name": "البرمجة",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/cs.aspx"
+   },
+   {
+    "faculty": "كلية الحاسوب وتكنولوجيا المعلومات",
+    "department": "قسم نظم المعلومات",
+    "name": "نظم المعلومات",
+    "field": "الحاسوب وتقنية المعلومات",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/cs.aspx"
+   },
+   {
+    "faculty": "كلية التربية الرياضية والتغذية العلاجية",
+    "department": "قسم الإدارة وعلوم الرياضة",
+    "name": "الإدارة الرياضية",
+    "field": "التربية البدنية والتغذية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/153"
+   },
+   {
+    "faculty": "كلية التربية الرياضية والتغذية العلاجية",
+    "department": "قسم التدريب والألعاب الفردية",
+    "name": "كرة القدم",
+    "field": "التربية البدنية والتغذية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/153"
+   },
+   {
+    "faculty": "كلية التربية الرياضية والتغذية العلاجية",
+    "department": "قسم التغذية العلاجية",
+    "name": "التغذية العلاجية",
+    "field": "التربية البدنية والتغذية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/153"
+   },
+   {
+    "faculty": "كلية التربية الرياضية والتغذية العلاجية",
+    "department": "قسم التغذية العلاجية",
+    "name": "التغذية والعلاج الطبيعي",
+    "field": "التربية البدنية والتغذية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/153"
+   },
+   {
+    "faculty": "كلية الإعلام",
+    "department": "قسم الصحافة",
+    "name": "الصحافة والنشر الإلكتروني",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/154"
+   },
+   {
+    "faculty": "كلية الإعلام",
+    "department": "قسم الإذاعة والتلفزيون",
+    "name": "الإذاعة والتلفزيون",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/154"
+   },
+   {
+    "faculty": "كلية الإعلام",
+    "department": "قسم العلاقات العامة والإعلان",
+    "name": "العلاقات العامة والإعلان",
+    "field": "الإعلام",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/154"
+   },
+   {
+    "faculty": "كلية الإعلام",
+    "department": "قسم الصحافة",
+    "name": "ماجستير الصحافة والنشر الإلكتروني",
+    "field": "الإعلام",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/154"
+   },
+   {
+    "faculty": "كلية الإعلام",
+    "department": "قسم الإذاعة والتلفزيون",
+    "name": "ماجستير الإذاعة والتلفزيون",
+    "field": "الإعلام",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/154"
+   },
+   {
+    "faculty": "كلية الإعلام",
+    "department": "قسم العلاقات العامة والإعلان",
+    "name": "ماجستير العلاقات العامة والإعلان",
+    "field": "الإعلام",
+    "qualification": "ماجستير",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/pag/154"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم الدراسات الإسلامية",
+    "name": "الدراسات الإسلامية",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم اللغة العربية",
+    "name": "اللغة العربية",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم الرياضيات",
+    "name": "الرياضيات",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم الفيزياء",
+    "name": "الفيزياء",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم الأحياء",
+    "name": "الأحياء",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم الكيمياء",
+    "name": "الكيمياء",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم اللغة الإنجليزية",
+    "name": "اللغة الإنجليزية",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية الضالع الجامعية",
+    "department": "قسم الحاسوب",
+    "name": "الحاسوب",
+    "field": "التربية",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "انتظام",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "العلوم القانونية",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "الإدارة التربوية",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "اللغة العربية والدراسات الإسلامية",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "إدارة الأعمال",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "المحاسبة",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "الإعلام والصحافة",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "علم النفس",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "علم الاجتماع",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "الخدمة الاجتماعية",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "الجغرافيا",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   },
+   {
+    "faculty": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "department": "",
+    "name": "التاريخ",
+    "field": "متعدد",
+    "qualification": "بكالوريوس",
+    "language": "العربية",
+    "study_mode": "عن بعد",
+    "source_url": "https://www.aden-univ.net/socialsci.aspx"
+   }
+  ],
+  "branches": [
+   {
+    "name": "كلية الضالع الجامعية",
+    "governorate": "الضالع",
+    "city": "الضالع",
+    "address": "",
+    "phone": "",
+    "source_url": "https://www.aden-univ.net/edudhale.aspx"
+   }
+  ],
+  "sources": [
+   {
+    "title": "نبذة تاريخية عن جامعة عدن",
+    "url": "https://www.aden-univ.net/history.aspx",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كليات الجامعة",
+    "url": "https://www.aden-univ.net/colleges.aspx",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   },
+   {
+    "title": "القبول في البرامج الدراسية للكليات",
+    "url": "https://www.aden-univ.net/pag/139",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كلية التربية - عدن",
+    "url": "https://www.aden-univ.net/eduaden.aspx",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كلية الهندسة",
+    "url": "https://www.aden-univ.net/engineering.aspx",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كلية العلوم الاجتماعية والإنسانية - التعليم عن بعد",
+    "url": "https://www.aden-univ.net/socialsci.aspx",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كلية العلوم الإدارية",
+    "url": "https://fas.aden-univ.net/",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   },
+   {
+    "title": "كلية الاقتصاد والعلوم السياسية",
+    "url": "https://feps.aden-univ.net/",
+    "publisher": "جامعة عدن",
+    "source_type": "official_site"
+   }
+  ]
+ }
+]
