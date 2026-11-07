@@ -10,13 +10,14 @@ const gallery = JSON.parse(read('data/school-v2/fixtures/visual-gallery.json'));
 const withVisual = (id, visual) => ({...gallery, cards: gallery.cards.map(c => c.id === id ? {...c, visual} : c)});
 
 test('the gallery fixture is valid and shows every visual kind', () => {
-  const {lesson} = validateCardLesson(gallery);
-  const kinds = new Set(lessonVisuals(lesson).map(v => v.kind));
+  // المعرض في درسين لأن الدرس الواحد لا يتجاوز 12 بطاقة.
+  const {lesson} = validateCardLesson(gallery), second = validateCardLesson(JSON.parse(read('data/school-v2/fixtures/visual-gallery-2.json'))).lesson;
+  const kinds = new Set([...lessonVisuals(lesson), ...lessonVisuals(second)].map(v => v.kind));
   for (const k of VISUAL_KINDS) assert.ok(kinds.has(k), k);
 });
 
 test('every fixture lesson stays valid', () => {
-  for (const f of ['economics-basics-1', 'economics-basics-2', 'visual-gallery']) assert.doesNotThrow(() => validateCardLesson(JSON.parse(read(`data/school-v2/fixtures/${f}.json`))), f);
+  for (const f of ['economics-basics-1', 'economics-basics-2', 'visual-gallery', 'visual-gallery-2']) assert.doesNotThrow(() => validateCardLesson(JSON.parse(read(`data/school-v2/fixtures/${f}.json`))), f);
 });
 
 test('visual validation rejects broken or unsafe data', () => {

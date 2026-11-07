@@ -7,6 +7,9 @@
   --v-accent:var(--c-accent,#11695f);--v-line:var(--c-line,#e4ddd2);--v-panel:var(--c-surface-2,#f6f2ea);--v-paper:var(--c-surface,#fff);
   margin:0;flex:none;border-radius:18px;background:var(--v-panel);overflow:hidden;color:var(--v-ink)
 }
+:global(:root[data-ed-theme="dark"]) .space{fill:#0c1426}
+:global(:root[data-ed-theme="dark"]) .board{fill:#163a30}
+:global(:root[data-ed-theme="dark"]) .paperFixed{fill:#e9e1d0}
 :global(:root[data-ed-theme="dark"]) .visual{
   --v-sky:#1d2b2f;--v-sky-2:#2a241c;--v-ground:#3a3226;--v-ground-2:#4a3f2e;
   --v-wall:#8a6a4c;--v-wall-2:#6f5238;--v-trim:#e9e1d3;--v-wood:#5a3a20;--v-plant:#5f9a5a;--v-plant-2:#7fb36a;
@@ -120,12 +123,17 @@
 /* صورة */
 .image{display:block;width:100%;height:auto;max-height:340px;object-fit:cover;background:var(--v-line)}
 
+.scriptBox{padding:12px;background:var(--v-paper)}
+
 /* مشاهد */
 .sky{fill:var(--v-sky)}.sky2{fill:var(--v-sky-2)}.ground{fill:var(--v-ground)}.ground2{fill:var(--v-ground-2)}
 .wall{fill:var(--v-wall)}.wall2{fill:var(--v-wall-2)}.trim{fill:var(--v-trim)}.trimLine{fill:none;stroke:var(--v-trim);stroke-width:1.4}
 .wood{fill:var(--v-wood)}.plant{fill:var(--v-plant)}.plant2{fill:var(--v-plant-2)}.sun{fill:var(--v-sun)}
 .red{fill:var(--v-red)}.blue{fill:var(--v-blue)}.sea{fill:var(--v-sea)}.accent{fill:var(--v-accent)}.ink{fill:var(--v-ink)}.paper{fill:var(--v-paper)}
 .concrete{fill:var(--v-concrete)}.concrete2{fill:var(--v-concrete-2)}.glass{fill:var(--v-glass)}.road{fill:var(--v-road)}.plaster{fill:var(--v-plaster)}.bus{fill:var(--v-bus)}.hole{fill:var(--v-hole)}
+.space{fill:#172340}.star{fill:#fff6da}.orbit{fill:none;stroke:#fff6da;stroke-width:.5;opacity:.28}.orbitFront{fill:none;stroke:var(--v-wall);stroke-width:1.4;opacity:.9}
+.board{fill:#1f5a48}.trace{fill:none;stroke:#d2a85a;stroke-width:1.6;stroke-linejoin:round;opacity:.85}
+.paperFixed{fill:#fbf6ea}.inkStroke{fill:none;stroke:#2b241d;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .shade{fill:#000;opacity:.12}.wire{fill:none;stroke:var(--v-ink);stroke-width:.35;opacity:.45}.dash{fill:none;stroke:var(--v-trim);stroke-width:.9;stroke-dasharray:5 4;opacity:.75}
 .stroke{fill:none;stroke:var(--v-ink);stroke-width:1;stroke-linecap:round}
 .sceneLabel{position:absolute;transform:translate(-50%,-50%);padding:3px 9px;border-radius:999px;background:var(--v-paper);color:var(--v-ink);font-size:12px;font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.15);white-space:nowrap}
