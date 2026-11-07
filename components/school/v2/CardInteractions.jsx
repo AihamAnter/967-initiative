@@ -126,7 +126,7 @@ export function HotspotTask({task, value, onChange, locked, feedback}) {
   const toggle = id => onChange(picked.includes(id) ? picked.filter(x => x !== id) : [...picked, id]);
   return <div className={styles.block}>
     <div className={styles.hotspot}>
-      <CardVisual visual={task.visual}/>
+      <CardVisual visual={task.visual} bare/>
       {task.spots.map((s, i) => {
         const right = Array.isArray(reveal) && reveal.includes(s.id);
         return <button type="button" key={s.id} className={styles.spot} style={{left: s.x + '%', top: s.y + '%'}} disabled={locked}

@@ -3,6 +3,7 @@
 import {useState} from 'react';
 import {Check, X, HelpCircle} from 'lucide-react';
 import {INTERACTIONS, HOW_MORE, interactionReady} from './CardInteractions';
+import CardVisual from './CardVisual';
 import styles from './CardLessonPlayer.module.css';
 
 // مثال «كيف أجيب؟» لكل نوع.
@@ -71,6 +72,6 @@ export default function CardTask({task, value, onChange, locked, feedback}) {
 
     {INTERACTIONS[task.kind] && (() => { const Interaction = INTERACTIONS[task.kind]; return <Interaction task={task} value={value} onChange={onChange} locked={locked} feedback={feedback}/>; })()}
 
-    {task.kind === 'predict' && feedback?.done && task.reveal && <div className={styles.reveal}><strong>ما يحدث فعلًا</strong><p>{task.reveal.text}</p></div>}
+    {task.kind === 'predict' && feedback?.done && task.reveal && <div className={styles.reveal}><strong>ما يحدث فعلًا</strong><p>{task.reveal.text}</p>{task.reveal.visual && <CardVisual visual={task.reveal.visual}/>}</div>}
   </div>;
 }

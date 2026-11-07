@@ -20,8 +20,6 @@
 .cardTitle{margin:0;font-size:22px;line-height:1.45}
 .cardText{margin:0;font-size:16px;line-height:1.85;color:var(--c-ink,#1d1a16)}
 
-.visual{margin:0;min-height:150px;border-radius:18px;background:var(--c-surface-2,#f6f2ea);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;color:var(--c-accent,#11695f)}
-.visual figcaption{font-size:13px;line-height:1.7;color:var(--c-ink-2,#5c554c);max-width:34ch}
 
 .task{display:flex;flex-direction:column;gap:12px}
 .context{margin:0;font-size:15px;line-height:1.75;color:var(--c-ink-2,#5c554c)}
