@@ -2,7 +2,7 @@
 // مدرسة 967 — بطاقة «تابع من حيث توقفت» في الصفحة الرئيسية للمدرسة (للمسجّلين فقط؛ لا تظهر للزائر).
 import {useEffect, useState} from 'react';
 import Link from 'next/link';
-import {ArrowLeft, PlayCircle} from 'lucide-react';
+import {ArrowLeft, PlayCircle, CalendarCheck2} from 'lucide-react';
 import {browserDb} from '@/lib/supabase';
 import styles from './SchoolContinueCard.module.css';
 
@@ -32,6 +32,9 @@ export default function SchoolContinueCard() {
       <strong>{resume.course}</strong>
       <small>الدرس {resume.stage.index + 1}: {resume.stage.title}{xp?.level ? ` · المستوى ${xp.level}` : ''}</small>
     </div>
-    <Link className={styles.go} href={resume.stage.href}>تابع <ArrowLeft size={18} aria-hidden="true"/></Link>
+    <div className={styles.actions}>
+      <Link className={styles.go} href={resume.stage.href}>تابع <ArrowLeft size={18} aria-hidden="true"/></Link>
+      <Link className={styles.review} href="/school/review"><CalendarCheck2 size={17} aria-hidden="true"/> مراجعة اليوم</Link>
+    </div>
   </section>;
 }

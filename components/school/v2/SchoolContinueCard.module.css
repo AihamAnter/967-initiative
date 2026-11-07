@@ -4,8 +4,11 @@
 .text span{font-size:12.5px;font-weight:700;color:var(--c-accent,#11695f)}
 .text strong{font-size:17px;line-height:1.5}
 .text small{font-size:13px;color:var(--c-ink-2,#5c554c);line-height:1.6}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.review{display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 14px;border-radius:14px;border:1.5px solid color-mix(in srgb,var(--c-accent,#11695f) 35%,transparent);color:var(--c-accent,#11695f);font-weight:700}
+.review:focus-visible{outline:2px solid var(--c-focus,#11695f);outline-offset:3px}
 .go{display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 18px;border-radius:14px;background:var(--c-accent,#11695f);color:#fff;font-weight:700}
 .go:hover{background:var(--c-accent-strong,#0b4f47)}
 .go:focus-visible{outline:2px solid var(--c-focus,#11695f);outline-offset:3px}
 :global(:root[data-ed-theme="dark"]) .go{color:#0f1c1a}
-@media (max-width:520px){.go{width:100%;justify-content:center}}
+@media (max-width:520px){.actions{width:100%}.go,.review{flex:1;justify-content:center}}

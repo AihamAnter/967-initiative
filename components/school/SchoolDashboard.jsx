@@ -123,7 +123,7 @@ export default function SchoolDashboard(){
    {data.staffPreview&&<div className={styles.staffNotice}><ShieldCheck size={21} aria-hidden="true"/><p>يمكن للإدارة معاينة المحطات بحرية. تظل الإحصاءات أدناه مبنية على نتائج حسابك الفعلية، ولا تُحتسب المعاينة تقدّمًا.</p><Link className={styles.action} href="/school/studio"><Settings2 size={18}/> إدارة المدرسة</Link></div>}
    <MobileFold title={'مراجعة الأخطاء ('+data.review.length+')'}>
    <section className={styles.reviewSection} aria-labelledby="review-title">
-    <div className={styles.reviewHeading}><Brain size={23}/><div><h2 id="review-title">راجع ما أخطأت فيه</h2><p>أسئلة من محاولات مصححة فقط؛ تختفي من المراجعة إذا أجبت عنها إجابة صحيحة لاحقًا.</p></div></div>
+    <div className={styles.reviewHeading}><Brain size={23}/><div><h2 id="review-title">راجع ما أخطأت فيه</h2><p>أسئلة من محاولات مصححة فقط؛ تختفي من المراجعة إذا أجبت عنها إجابة صحيحة لاحقًا.</p><Link className={styles.action} href="/school/review">مراجعة اليوم: 5 بطاقات</Link></div></div>
     {data.review.length?<div className={styles.reviewGrid}>{data.review.map(item=><article className={styles.reviewItem} key={item.id}>
      <span>{data.courses.find(course=>course.slug===item.course)?.title||item.course} · المحطة {item.stage+1}</span>
      <h3>{item.prompt}</h3>{item.context&&<p className={styles.reviewContext}>{item.context}</p>}
