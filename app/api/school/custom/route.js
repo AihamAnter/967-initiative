@@ -1,7 +1,7 @@
 import {NextResponse} from 'next/server';
 import {serverDb} from '@/lib/supabase-server';
 import {schoolUser} from '@/lib/schoolServer';
-import {startGenericSchoolStage,finishGenericSchoolStage,genericSchoolCourseOverview} from '@/lib/schoolGenericServer';
+import {startGenericSchoolStage,finishGenericSchoolStage,genericSchoolCourseOverview,checkGenericCard} from '@/lib/schoolGenericServer';
 import {saveSchoolDraft} from '@/lib/schoolDraftServer';
 import {isSameOrigin,readJsonObject,RequestValidationError} from '@/lib/requestSecurity';
 export const runtime='nodejs';
@@ -24,6 +24,7 @@ export async function POST(request){
   const db=serverDb(),user=await schoolUser(request,db),body=await readJsonObject(request,8500);
   if(body.action==='start')return respond({attempt:await startGenericSchoolStage(db,user,body.slug,body.stage,body.labProof)});
   if(body.action==='submit')return respond(await finishGenericSchoolStage(db,user,body.slug,body.attemptId,body.answers));
+  if(body.action==='check')return respond(await checkGenericCard(db,user,body.slug,body.attemptId,body.cardId,body.answer));
   if(body.action==='save')return respond(await saveSchoolDraft(db,user,body.slug,body.attemptId,body.revision,body.draft));
   throw new RequestValidationError('إجراء غير معروف.');
  }catch(e){
