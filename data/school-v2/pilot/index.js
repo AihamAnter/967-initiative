@@ -51,6 +51,19 @@ import how_state_works_09 from './how-state-works/09.json';
 import how_state_works_10 from './how-state-works/10.json';
 import how_state_works_11 from './how-state-works/11.json';
 import how_state_works_12 from './how-state-works/12.json';
+import logic_gates_course from './logic-gates/course.json';
+import logic_gates_01 from './logic-gates/01.json';
+import logic_gates_02 from './logic-gates/02.json';
+import logic_gates_03 from './logic-gates/03.json';
+import logic_gates_04 from './logic-gates/04.json';
+import logic_gates_05 from './logic-gates/05.json';
+import logic_gates_06 from './logic-gates/06.json';
+import logic_gates_07 from './logic-gates/07.json';
+import logic_gates_08 from './logic-gates/08.json';
+import logic_gates_09 from './logic-gates/09.json';
+import logic_gates_10 from './logic-gates/10.json';
+import logic_gates_11 from './logic-gates/11.json';
+import logic_gates_12 from './logic-gates/12.json';
 import logical_fallacies_course from './logical-fallacies/course.json';
 import logical_fallacies_01 from './logical-fallacies/01.json';
 import logical_fallacies_02 from './logical-fallacies/02.json';
@@ -90,6 +103,19 @@ import money_banks_inflation_09 from './money-banks-inflation/09.json';
 import money_banks_inflation_10 from './money-banks-inflation/10.json';
 import money_banks_inflation_11 from './money-banks-inflation/11.json';
 import money_banks_inflation_12 from './money-banks-inflation/12.json';
+import morse_code_course from './morse-code/course.json';
+import morse_code_01 from './morse-code/01.json';
+import morse_code_02 from './morse-code/02.json';
+import morse_code_03 from './morse-code/03.json';
+import morse_code_04 from './morse-code/04.json';
+import morse_code_05 from './morse-code/05.json';
+import morse_code_06 from './morse-code/06.json';
+import morse_code_07 from './morse-code/07.json';
+import morse_code_08 from './morse-code/08.json';
+import morse_code_09 from './morse-code/09.json';
+import morse_code_10 from './morse-code/10.json';
+import morse_code_11 from './morse-code/11.json';
+import morse_code_12 from './morse-code/12.json';
 import political_systems_course from './political-systems/course.json';
 import political_systems_01 from './political-systems/01.json';
 import political_systems_02 from './political-systems/02.json';
@@ -103,14 +129,30 @@ import political_systems_09 from './political-systems/09.json';
 import political_systems_10 from './political-systems/10.json';
 import political_systems_11 from './political-systems/11.json';
 import political_systems_12 from './political-systems/12.json';
+import solar_system_course from './solar-system/course.json';
+import solar_system_01 from './solar-system/01.json';
+import solar_system_02 from './solar-system/02.json';
+import solar_system_03 from './solar-system/03.json';
+import solar_system_04 from './solar-system/04.json';
+import solar_system_05 from './solar-system/05.json';
+import solar_system_06 from './solar-system/06.json';
+import solar_system_07 from './solar-system/07.json';
+import solar_system_08 from './solar-system/08.json';
+import solar_system_09 from './solar-system/09.json';
+import solar_system_10 from './solar-system/10.json';
+import solar_system_11 from './solar-system/11.json';
+import solar_system_12 from './solar-system/12.json';
 
 export const PILOT_COURSES = [
   {course: arabic_calligraphy_course, lessons: [arabic_calligraphy_01, arabic_calligraphy_02, arabic_calligraphy_03, arabic_calligraphy_04, arabic_calligraphy_05, arabic_calligraphy_06, arabic_calligraphy_07, arabic_calligraphy_08, arabic_calligraphy_09, arabic_calligraphy_10, arabic_calligraphy_11, arabic_calligraphy_12]},
   {course: arud_course, lessons: [arud_01, arud_02, arud_03, arud_04, arud_05, arud_06, arud_07, arud_08, arud_09, arud_10, arud_11, arud_12]},
   {course: economics_basics_course, lessons: [economics_basics_01, economics_basics_02, economics_basics_03, economics_basics_04, economics_basics_05, economics_basics_06, economics_basics_07, economics_basics_08, economics_basics_09, economics_basics_10, economics_basics_11, economics_basics_12]},
   {course: how_state_works_course, lessons: [how_state_works_01, how_state_works_02, how_state_works_03, how_state_works_04, how_state_works_05, how_state_works_06, how_state_works_07, how_state_works_08, how_state_works_09, how_state_works_10, how_state_works_11, how_state_works_12]},
+  {course: logic_gates_course, lessons: [logic_gates_01, logic_gates_02, logic_gates_03, logic_gates_04, logic_gates_05, logic_gates_06, logic_gates_07, logic_gates_08, logic_gates_09, logic_gates_10, logic_gates_11, logic_gates_12]},
   {course: logical_fallacies_course, lessons: [logical_fallacies_01, logical_fallacies_02, logical_fallacies_03, logical_fallacies_04, logical_fallacies_05, logical_fallacies_06, logical_fallacies_07, logical_fallacies_08, logical_fallacies_09, logical_fallacies_10, logical_fallacies_11, logical_fallacies_12]},
   {course: logical_thinking_course, lessons: [logical_thinking_01, logical_thinking_02, logical_thinking_03, logical_thinking_04, logical_thinking_05, logical_thinking_06, logical_thinking_07, logical_thinking_08, logical_thinking_09, logical_thinking_10, logical_thinking_11, logical_thinking_12]},
   {course: money_banks_inflation_course, lessons: [money_banks_inflation_01, money_banks_inflation_02, money_banks_inflation_03, money_banks_inflation_04, money_banks_inflation_05, money_banks_inflation_06, money_banks_inflation_07, money_banks_inflation_08, money_banks_inflation_09, money_banks_inflation_10, money_banks_inflation_11, money_banks_inflation_12]},
-  {course: political_systems_course, lessons: [political_systems_01, political_systems_02, political_systems_03, political_systems_04, political_systems_05, political_systems_06, political_systems_07, political_systems_08, political_systems_09, political_systems_10, political_systems_11, political_systems_12]}
+  {course: morse_code_course, lessons: [morse_code_01, morse_code_02, morse_code_03, morse_code_04, morse_code_05, morse_code_06, morse_code_07, morse_code_08, morse_code_09, morse_code_10, morse_code_11, morse_code_12]},
+  {course: political_systems_course, lessons: [political_systems_01, political_systems_02, political_systems_03, political_systems_04, political_systems_05, political_systems_06, political_systems_07, political_systems_08, political_systems_09, political_systems_10, political_systems_11, political_systems_12]},
+  {course: solar_system_course, lessons: [solar_system_01, solar_system_02, solar_system_03, solar_system_04, solar_system_05, solar_system_06, solar_system_07, solar_system_08, solar_system_09, solar_system_10, solar_system_11, solar_system_12]}
 ];
