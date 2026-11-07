@@ -17,7 +17,8 @@
     "kind": "script",
     "text": "العلم نور",
     "script": "thuluth",
-    "alt": "نموذج بخط الثلث وعبارة «العلم نور»"
+    "alt": "نموذج خطي يطلب منك التعرف على نوعه",
+    "blind": true
    },
    "task": {
     "kind": "choice",

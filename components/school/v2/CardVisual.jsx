@@ -59,7 +59,7 @@ function Body({visual, task, value}) {
     case 'glyphs': return <div className={styles.glyphs}>
       {visual.letters.map((id, i) => <span key={i} className={styles.glyph}><span lang="und">{musnad[id]?.glyph}</span><small>{musnad[id]?.name}</small></span>)}
     </div>;
-    case 'script': return <div className={styles.scriptBox + ' ' + studio.cardScript}><CalligraphyExample text={visual.text} script={visual.script} label="نموذج الخط"/></div>;
+    case 'script': return <div className={styles.scriptBox + ' ' + studio.cardScript}><CalligraphyExample text={visual.text} script={visual.script} label="نموذج الخط" hideName={visual.blind === true}/></div>;
     // لوح التدريب للكتابة الحرة: لا يُصحَّح ولا يُحفظ، ولا يقلب البطاقة عند السحب عليه.
     case 'pad': return <div className={styles.scriptBox + ' ' + studio.cardScript} data-noswipe><CalligraphyPracticePad practice={{model: visual.model, focus: visual.focus, instructions: visual.instructions, script: visual.script}} script={visual.script} stageKey={'card-' + visual.script}/></div>;
     // eslint-disable-next-line @next/next/no-img-element -- صور كومنز خارجية بحجمها الأصلي؛ لا حاجة لمحسّن الصور هنا.

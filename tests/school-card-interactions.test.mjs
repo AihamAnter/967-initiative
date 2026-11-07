@@ -68,3 +68,9 @@ test('player wiring: every kind has a component, a how-to line and a swipe guard
   }
   assert.match(player, /data-noswipe/);
 });
+
+test('typed answers accept Eastern Arabic digits the same as Western ones', async () => {
+  const {normalizeArabicAnswer} = await import('../lib/schoolCards.js');
+  assert.equal(normalizeArabicAnswer('٢'), normalizeArabicAnswer('2'));
+  assert.equal(normalizeArabicAnswer('۱۹۹۰'), '1990');
+});
