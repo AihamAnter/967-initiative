@@ -7,3 +7,8 @@ node_modules/
 .DS_Store
 *.log
 .audit-tools/
+
+# Raw chamber-directory scan (contains owner names and phones); kept local only.
+data/yemeni-companies/fycci-directory-2026-11.json
+data/yemeni-companies/campaign-2026-11/fycci-candidates.json
+data/yemeni-companies/campaign-2026-11/enrich-input-*.json

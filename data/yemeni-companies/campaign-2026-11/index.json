@@ -1,0 +1,617 @@
+[
+ {
+  "slug": "aashab-al-tabea",
+  "name": "مؤسسة أعشاب الطبيعة",
+  "location": "تعز"
+ },
+ {
+  "slug": "abdulhamid-furniture",
+  "name": "شركة عبدالحميد للأثاث والديكور",
+  "location": "تعز"
+ },
+ {
+  "slug": "aden-silos-mills-rowaishan",
+  "name": "شركة صوامع ومطاحن عدن — الرويشان",
+  "location": "عدن"
+ },
+ {
+  "slug": "alakhawain-steel",
+  "name": "شركة الأخوين لتشكيل وتصنيع الحديد",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "alalam-industrial",
+  "name": "شركة العلم الصناعية",
+  "location": "اليمن"
+ },
+ {
+  "slug": "alawael-fibreglass",
+  "name": "الأوائل للفيبر جلاس",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "albaylasan-hair-oils",
+  "name": "معمل البيلسان لزيوت الشعر",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "aldhahi-bags",
+  "name": "مصنع الضحي لصناعة الأكياس",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "aldubai-olive-oil",
+  "name": "معمل الدبعي لتعبئة زيت الزيتون",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "alhamdani-mocha",
+  "name": "الحمداني موكا",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "alhayah-salt",
+  "name": "معمل ملح الحياة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "ali-alwabri-industrial",
+  "name": "شركة علي الوبري وأولاده للتجارة والصناعة الدولية والاستثمار",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "alittihad-cement-factory",
+  "name": "مصنع الاتحاد",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "aljazeera-dyes-chemicals",
+  "name": "معمل الجزيرة للأصباغ والكيماويات",
+  "location": "تعز"
+ },
+ {
+  "slug": "aljazeera-marine-resources",
+  "name": "شركة الجزيرة للموارد البحرية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "alkbous-silos-mills",
+  "name": "شركة صوامع ومطاحن الكبوس",
+  "location": "اليمن"
+ },
+ {
+  "slug": "alkbous-tea-coffee",
+  "name": "مجموعة الكبوس — الشاي والبن",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "all-fruits-yemeni-honey",
+  "name": "كل الثمرات للعسل اليمني",
+  "location": "اليمن"
+ },
+ {
+  "slug": "almaraee-yemen",
+  "name": "شركة المراعي اليمنية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "almarjan-marine-resources",
+  "name": "شركة المرجان للموارد البحرية",
+  "location": "اليمن"
+ },
+ {
+  "slug": "almokbily-trading-industry",
+  "name": "شركة المقبلي للتجارة والصناعة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "almomayaz-plus-carton",
+  "name": "المميز بلاس للصناعات الكرتونية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "alnoor-housewares",
+  "name": "معمل النور لصناعة الأدوات المنزلية",
+  "location": "تعز"
+ },
+ {
+  "slug": "alrawda-agricultural-company",
+  "name": "شركة الروضة للإنتاج الزراعي والحيواني",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "alrayan-fish",
+  "name": "شركة الريان للأسماك",
+  "location": "اليمن"
+ },
+ {
+  "slug": "alsaeed-concrete",
+  "name": "شركة السعيد لتصنيع الخرسانة والمقاولات",
+  "location": "تعز"
+ },
+ {
+  "slug": "alsafaa-water-taiz",
+  "name": "الصفاء للمياه",
+  "location": "تعز"
+ },
+ {
+  "slug": "alsalam-block-factory",
+  "name": "مصنع السلام للبلك",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "alsharq-tiles",
+  "name": "مصنع الشرق للبلاط",
+  "location": "تعز"
+ },
+ {
+  "slug": "alshifaa-yemeni-honey-presses",
+  "name": "معاصر الشفاء ومملكة العسل اليمني",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "altakamul-international",
+  "name": "شركة التكامل الدولية المحدودة",
+  "location": "تعز"
+ },
+ {
+  "slug": "alwahidi-ice",
+  "name": "شركة الواحدي لصناعة الثلج الزجاجي",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "alwanoh-yemeni-honey",
+  "name": "ألوانه للعسل اليمني",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "alwatania-integrated-packaging",
+  "name": "مصنع الوطنية انتيجريتد للتعبئة والتغليف والطباعة",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "alziibaq-fibreglass",
+  "name": "معمل الزئبق للفيبر جلاس",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "arabia-felix-industries",
+  "name": "مصانع العربية السعيدة",
+  "location": "تعز"
+ },
+ {
+  "slug": "arabian-plastic-packaging-ampc",
+  "name": "الشركة العربية لصناعة البلاستيك والتغليف",
+  "location": "اليمن"
+ },
+ {
+  "slug": "arabian-yemen-cement",
+  "name": "الشركة العربية اليمنية للأسمنت",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "arwa-industrial-development",
+  "name": "شركة أروى للتنمية الصناعية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "ashshihr-fish",
+  "name": "شركة أسماك الشحر",
+  "location": "اليمن"
+ },
+ {
+  "slug": "bait-alfaqih-ice",
+  "name": "مصنع ثلوج بيت الفقيه",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "biopharm-yemen",
+  "name": "بيوفارم للصناعات الدوائية",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "burum-fishing",
+  "name": "شركة بروم للصيد البحري",
+  "location": "اليمن"
+ },
+ {
+  "slug": "cartobox-hadramout",
+  "name": "مصنع كارتوبوكس للكرتون والتغليف",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "classic-tissues-detergents",
+  "name": "مصنع كلاسك للمناديل الورقية والمنظفات",
+  "location": "تعز"
+ },
+ {
+  "slug": "dhi-yazan-ice",
+  "name": "مصنع ذي يزن للثلج",
+  "location": "تعز"
+ },
+ {
+  "slug": "durar-coffee",
+  "name": "درر للقهوة اليمنية المختصة",
+  "location": "اليمن"
+ },
+ {
+  "slug": "elko-seven",
+  "name": "شركة الكوسفن للصناعات المتنوعة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "firas-almagharim-beverages",
+  "name": "معمل فراس المغارم للمشروبات",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "genpack",
+  "name": "شركة الصناعات المتنوعة ومواد التعبئة — جينباك",
+  "location": "تعز"
+ },
+ {
+  "slug": "global-pharma-yemen",
+  "name": "جلوبال فارما",
+  "location": "عدن"
+ },
+ {
+  "slug": "golden-line-perfumes",
+  "name": "الخط الذهبي لصناعة العطور",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "hadramout-flour-mills",
+  "name": "شركة حضرموت لمطاحن وصوامع الغلال",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "hadramout-industrial-complex",
+  "name": "مجمع حضرموت الصناعي — هايكو",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "hodeidah-flour-mills",
+  "name": "شركة مطاحن الحديدة لإنتاج الدقيق ومشتقاته",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "industrial-soft-drinks",
+  "name": "الشركة الصناعية للمشروبات الغازية المحدودة",
+  "location": "تعز"
+ },
+ {
+  "slug": "international-carton-manufacturing",
+  "name": "الشركة الدولية لصناعة الكرتون",
+  "location": "اليمن"
+ },
+ {
+  "slug": "international-grain-mills",
+  "name": "الشركة العالمية لمطاحن وصوامع الغلال",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "international-industry-printing-packaging",
+  "name": "الشركة الدولية للصناعة والطباعة والتغليف",
+  "location": "اليمن"
+ },
+ {
+  "slug": "maf-pharma",
+  "name": "ماف فارما للصناعات الدوائية",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "marine-fishing-investment",
+  "name": "شركة استثمار الصيد البحري المحدودة",
+  "location": "اليمن"
+ },
+ {
+  "slug": "mocha-crown-mill",
+  "name": "موكا كراون ميل",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "mocha-hunters",
+  "name": "موكا هنترز — نشاط اليمن",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "mocha-land",
+  "name": "موكا لاند لتصدير البن",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "mocha-mill",
+  "name": "موكا ميل",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "modern-food-products",
+  "name": "الشركة الحديثة للمنتجات الغذائية",
+  "location": "اليمن"
+ },
+ {
+  "slug": "mohammed-abkar-annab",
+  "name": "محمد أبكر حاتم لشراب العناب",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "mukalla-iron-steel-misc",
+  "name": "شركة المكلا للحديد والصلب — حديد مِسك",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "mukiras-apiaries",
+  "name": "مناحل مكيراس",
+  "location": "البيضاء"
+ },
+ {
+  "slug": "muslim-fish-trading",
+  "name": "مؤسسة مسلم التجارية — الأسماك",
+  "location": "اليمن"
+ },
+ {
+  "slug": "nadfood",
+  "name": "شركة الألبان والأغذية الوطنية — نادفوود",
+  "location": "تعز"
+ },
+ {
+  "slug": "nagarco-plastics",
+  "name": "النجار لصناعة البلاستيك",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "nakhlaan-poultry",
+  "name": "شركة نخلان لإنتاج الدواجن",
+  "location": "تعز"
+ },
+ {
+  "slug": "national-arab-plastics",
+  "name": "الشركة الوطنية العربية للصناعات البلاستيكية",
+  "location": "تعز"
+ },
+ {
+  "slug": "national-carton-industries",
+  "name": "الشركة الوطنية لصناعات الكرتون",
+  "location": "اليمن"
+ },
+ {
+  "slug": "national-cement-yemen",
+  "name": "الشركة الوطنية للأسمنت",
+  "location": "لحج"
+ },
+ {
+  "slug": "national-sponge-plastic",
+  "name": "الشركة الوطنية لصناعة الإسفنج والبلاستيك",
+  "location": "تعز"
+ },
+ {
+  "slug": "national-vegetable-oil-ghee",
+  "name": "الشركة الأهلية لصناعة الزيت والسمن — إخوان ثابت",
+  "location": "تعز"
+ },
+ {
+  "slug": "petromaster-industrial-complex",
+  "name": "مجمع بتروماستر الصناعي",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "ras-isa-industrial",
+  "name": "شركة رأس عيسى الصناعية",
+  "location": "اليمن"
+ },
+ {
+  "slug": "red-sea-cement",
+  "name": "شركة البحر الأحمر للأسمنت",
+  "location": "تعز"
+ },
+ {
+  "slug": "red-sea-detergents",
+  "name": "شركة البحر الأحمر للمنظفات المحدودة",
+  "location": "تعز"
+ },
+ {
+  "slug": "rfa-pharma",
+  "name": "رفا فارما للصناعات الدوائية",
+  "location": "حضرموت"
+ },
+ {
+  "slug": "royan-water-beverages",
+  "name": "رويان للتجارة والاستثمار",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "sas-tameer-cement",
+  "name": "شركة ساس تعمير لتجارة وتعبئة وتغليف الأسمنت",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "saudi-yemeni-refreshments",
+  "name": "الشركة السعودية اليمنية للمرطبات",
+  "location": "اليمن"
+ },
+ {
+  "slug": "shamlan-industrial",
+  "name": "شركة شملان للصناعة المحدودة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "shaphaco",
+  "name": "شفاكو للصناعات الدوائية",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "shiba-pharma",
+  "name": "سبأ فارما لصناعة الأدوية والكيماويات",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "steel-structures-hodeidah",
+  "name": "مصنع إنتاج الهياكل والمباني والمنتجات الحديدية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "suhool-tehama-feed",
+  "name": "معمل سهول تهامة لإنتاج المكعبات العلفية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "surdud-mineral-water",
+  "name": "شركة مياه سردود المعدنية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "taiz-ice-factory",
+  "name": "مصنع تعز للثلج",
+  "location": "تعز"
+ },
+ {
+  "slug": "tehama-grain-silos-mills",
+  "name": "شركة تهامة لصوامع الغلال ومطاحن الغلال",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "tehama-light-industries",
+  "name": "تهامة للصناعات الخفيفة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "tehama-pure-water",
+  "name": "تهامة للمياه الصحية النقية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "united-detergent-yemen",
+  "name": "الشركة المتحدة لإنتاج المنظفات",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "united-fish-yemen",
+  "name": "الشركة المتحدة للأسماك",
+  "location": "اليمن"
+ },
+ {
+  "slug": "united-sponge-plastic",
+  "name": "الشركة المتحدة لصناعة الإسفنج والبلاستيك",
+  "location": "تعز"
+ },
+ {
+  "slug": "unity-cement-yemen",
+  "name": "شركة الوحدة للأسمنت",
+  "location": "أبين"
+ },
+ {
+  "slug": "ye-pharma",
+  "name": "الشركة اليمنية المصرية للصناعات الدوائية — واي إي فارما",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "yedco-pharmaceuticals",
+  "name": "الشركة اليمنية لصناعة وتجارة الأدوية — يدكو",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "yemany-dairy-food",
+  "name": "الشركة اليمنية لصناعة الألبان والمواد الغذائية — يماني",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "yemen-desalination",
+  "name": "الشركة اليمنية للتحلية",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-eye-yeasco",
+  "name": "عين اليمن للتصدير والخدمات الاستشارية",
+  "location": "اليمن"
+ },
+ {
+  "slug": "yemen-feed-mills",
+  "name": "شركة يمن فيد لمطاحن الحبوب المتنوعة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "yemen-flour-mills-aden",
+  "name": "الشركة اليمنية للمطاحن وصوامع الغلال — عدن",
+  "location": "عدن"
+ },
+ {
+  "slug": "yemen-flour-mills-hodeidah",
+  "name": "الشركة اليمنية للمطاحن وصوامع الغلال — الحديدة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "yemen-ghee-soap",
+  "name": "الشركة اليمنية لصناعة السمن والصابون",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-ice-refrigeration",
+  "name": "ثلوج اليمن للتجارة والتبريد",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "yemen-industry-commerce",
+  "name": "الشركة اليمنية للصناعة والتجارة",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-italian-leather",
+  "name": "الشركة اليمنية الإيطالية للصناعات الجلدية",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "yemen-marine-investments",
+  "name": "الشركة اليمنية للاستثمارات البحرية",
+  "location": "اليمن"
+ },
+ {
+  "slug": "yemen-nectar",
+  "name": "رحيق اليمن",
+  "location": "صنعاء"
+ },
+ {
+  "slug": "yemen-oils",
+  "name": "الشركة اليمنية لصناعة الزيوت",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-packaging-materials",
+  "name": "الشركة اليمنية لصناعة مواد التعبئة والتغليف",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-packing",
+  "name": "شركة يمن باكنج لصناعة وإنتاج مواد التعبئة",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "yemen-paints-derivatives",
+  "name": "الشركة اليمنية للطلاء ومشتقاته",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-plastic-manufacturing",
+  "name": "الشركة اليمنية لتصنيع المواد البلاستيكية",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-plastic-products",
+  "name": "الشركة اليمنية لصناعة المنتجات البلاستيكية",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-poultry-production",
+  "name": "الشركة اليمنية لإنتاج الدواجن",
+  "location": "تعز"
+ },
+ {
+  "slug": "yemen-sugar-refining",
+  "name": "الشركة اليمنية لتكرير السكر",
+  "location": "الحديدة"
+ },
+ {
+  "slug": "zemauss-irrigation",
+  "name": "مصنع ذي ميس لأنظمة الري والأنابيب البلاستيكية",
+  "location": "صنعاء"
+ }
+]
