@@ -583,3 +583,12 @@
 .report>p{font-size:12px;margin:0 0 10px}
 .genericLesson{padding:8px 0 40px}
 @media(max-width:600px){.report{padding:0;border:0;background:none}}
+
+/* بطاقات الخط في دروس البطاقات (الإصدار الثاني): قواعد الوضع الداكن نفسها التي تطبقها .root على الدروس الأولى. */
+.cardScript{color:inherit}
+:global(:root[data-ed-theme="dark"]) .cardScript :is(.scriptLiveText>strong,.scriptExerciseText>strong,.practiceSample strong,.calligraphyPractice h2){color:var(--c-ink)}
+:global(:root[data-ed-theme="dark"]) .cardScript :is(.scriptCredit,.practiceEyebrow){color:var(--c-accent)}
+:global(:root[data-ed-theme="dark"]) .cardScript :is(.calligraphyPractice p,small,.scriptArchiveCaption){color:var(--c-ink-2)}
+:global(:root[data-ed-theme="dark"]) .cardScript .scriptHistoricalImage{background:#fbf8f2;border-radius:8px}
+:global(:root[data-ed-theme="dark"]) .cardScript .calligraphyPractice{background:var(--c-surface);border-color:var(--c-line)}
+:global(:root[data-ed-theme="dark"]) .cardScript .practiceCanvas{background-color:#f5faf4;border:1px solid #7ea995;background-image:linear-gradient(to bottom,transparent 0,transparent 31%,#b8d1c0 31.5%,transparent 32%,transparent 64%,#b8d1c0 64.5%,transparent 65%,transparent 96%,#b8d1c0 96.5%);color:#153d2f}

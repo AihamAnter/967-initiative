@@ -6,6 +6,9 @@ import {LineChart, BarChart, SupplyDemand, Legend} from './visuals/Charts';
 import {bindShift} from '@/lib/schoolCardVisuals';
 import YemenMapVisual from './visuals/YemenMapVisual';
 import Scene from './visuals/Scenes';
+import CalligraphyExample from '../CalligraphyExample';
+import CalligraphyPracticePad from '../CalligraphyPracticePad';
+import studio from '@/app/school/studio/studio.module.css';
 import styles from './visuals/Visuals.module.css';
 
 const GRAPHIC = new Set(['chart', 'stat', 'map', 'scene', 'image']);
@@ -56,6 +59,9 @@ function Body({visual, task, value}) {
     case 'glyphs': return <div className={styles.glyphs}>
       {visual.letters.map((id, i) => <span key={i} className={styles.glyph}><span lang="und">{musnad[id]?.glyph}</span><small>{musnad[id]?.name}</small></span>)}
     </div>;
+    case 'script': return <div className={styles.scriptBox + ' ' + studio.cardScript}><CalligraphyExample text={visual.text} script={visual.script} label="نموذج الخط"/></div>;
+    // لوح التدريب للكتابة الحرة: لا يُصحَّح ولا يُحفظ، ولا يقلب البطاقة عند السحب عليه.
+    case 'pad': return <div className={styles.scriptBox + ' ' + studio.cardScript} data-noswipe><CalligraphyPracticePad practice={{model: visual.model, focus: visual.focus, instructions: visual.instructions, script: visual.script}} script={visual.script} stageKey={'card-' + visual.script}/></div>;
     // eslint-disable-next-line @next/next/no-img-element -- صور كومنز خارجية بحجمها الأصلي؛ لا حاجة لمحسّن الصور هنا.
     case 'image': return <img className={styles.image} src={visual.src} alt="" loading="lazy" decoding="async" width={visual.width} height={visual.height}/>;
     default: return null;

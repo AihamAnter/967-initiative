@@ -195,27 +195,163 @@ const draw = {
     <Person x={30} y={86} s={.8} tone="blue"/>
     <g><Person x={134} y={90} s={1.1} tone="accent"/><rect className={styles.sun} x="138" y="81" width="5.4" height="7" rx="1"/></g>
   </>,
+  // بقالة من الداخل: رفوف بضاعة ملونة، وأكياس رز وطحين، وميزان على الطاولة، والبائع خلفها.
   shop: () => <>
-    <Sky warm/><Ground y={82}/>
-    <TowerHouse x={34} w={92} floors={2} ground={82}/>
-    <rect className={styles.ink} opacity=".8" x="52" y="62" width="56" height="20" rx="1"/>
-    <path className={styles.red} d="M48 60 h64 l-4 6 h-56 Z"/>
-    <path className={styles.trim} d="M56 60 h8 l-1 6 h-8 Z M72 60 h8 l-.5 6 h-8 Z M88 60 h8 v6 h-8 Z M104 60 h4 l-1 6 h-4 Z" opacity=".85"/>
-    <ellipse className={styles.ground2} cx="60" cy="80" rx="6" ry="4"/><ellipse className={styles.trim} cx="60" cy="77" rx="5" ry="1.4"/>
-    <ellipse className={styles.ground2} cx="72" cy="80" rx="6" ry="4"/><ellipse className={styles.trim} cx="72" cy="77" rx="5" ry="1.4"/>
-    <rect className={styles.wood} x="88" y="73" width="14" height="9"/><circle className={styles.red} cx="91" cy="72" r="2"/><circle className={styles.red} cx="95" cy="71.5" r="2"/><circle className={styles.plant} cx="99" cy="72" r="2"/>
-    <Person x={120} y={88} s={1.1}/>
-  </>,
-  market: () => <>
-    <Sky warm/><Sun x={24}/><Ground y={76}/>
-    {[[10, 'red'], [60, 'blue'], [110, 'accent']].map(([x, tone]) => <g key={x}>
-      <rect className={styles.wood} x={x + 2} y="50" width="2" height="30"/><rect className={styles.wood} x={x + 36} y="50" width="2" height="30"/>
-      <path className={styles[tone]} d={`M${x} 52 L${x + 6} 40 H${x + 34} L${x + 40} 52 Z`}/>
-      <path className={styles.trim} d={`M${x + 8} 40 h6 l-2 12 h-6 Z M${x + 22} 40 h6 l1 12 h-6 Z`} opacity=".8"/>
-      <rect className={styles.wall2} x={x} y="66" width="40" height="10"/>
-      {[6, 12, 18, 24, 30].map(dx => <circle key={dx} className={tone === 'accent' ? styles.plant2 : tone === 'blue' ? styles.sun : styles.red} cx={x + dx + 2} cy="64" r="2.6"/>)}
+    <rect className={styles.plaster} x="0" y="0" width="160" height="100"/>
+    <rect className={styles.concrete2} opacity=".5" x="0" y="0" width="160" height="4"/>
+    <path className={styles.hole} d="M80 4 v8"/><rect className={styles.hole} x="79.6" y="4" width=".8" height="8"/><circle className={styles.sun} cx="80" cy="14" r="2.6"/>
+    {[22, 38, 54].map((y, r) => <g key={y}>
+      <rect className={styles.wood} x="6" y={y} width="104" height="2"/>
+      {Array.from({length: 13}, (_, i) => {
+        const x = 9 + i * 7.8, tone = [styles.red, styles.sun, styles.blue, styles.plant2, styles.trim, styles.accent][(i * 3 + r * 2) % 6], h = 7 + ((i + r) % 3) * 2;
+        return (i + r) % 4 === 1
+          ? <g key={i}><rect className={tone} x={x} y={y - h} width="5.6" height={h} rx="1.4"/><rect className={styles.trim} opacity=".7" x={x} y={y - h + 2} width="5.6" height="1.2"/></g>
+          : <g key={i}><rect className={tone} x={x} y={y - h} width="5.6" height={h} rx=".4"/><rect className={styles.shade} x={x + 4} y={y - h} width="1.6" height={h}/></g>;
+      })}
     </g>)}
-    <Person x={30} y={92} s={1.1}/><Person x={78} y={93} s={1.15} tone="red"/><Person x={136} y={92} s={1.05} tone="blue"/>
+    {[[118, 'trim'], [132, 'ground2'], [146, 'trim'], [125, 'ground2'], [139, 'trim']].map(([x, t], i) => <g key={i}>
+      <path className={styles[t]} d={`M${x - 6} ${i > 2 ? 72 : 86} q0 -12 3 -14 h6 q3 2 3 14 Z`}/>
+      <rect className={styles.wood} x={x - 2} y={i > 2 ? 58.6 : 72.6} width="4" height="1.4"/>
+      <rect className={i % 2 ? styles.red : styles.blue} opacity=".8" x={x - 4} y={i > 2 ? 64 : 78} width="8" height="2.4"/>
+    </g>)}
+    <rect className={styles.ground} x="0" y="86" width="160" height="14"/>
+    <Person x={58} y={66} s={1.15} tone="accent"/><path className={styles.trim} d="M54.6 47.4 a3.4 2.6 0 0 1 6.8 0 Z"/>
+    <rect className={styles.wood} x="18" y="66" width="84" height="22"/><rect className={styles.trim} x="16" y="64.6" width="88" height="2.4"/>
+    <rect className={styles.shade} x="18" y="67" width="84" height="2"/>
+    <g><rect className={styles.hole} x="76" y="60" width="12" height="4.6" rx="1"/><rect className={styles.glass} x="78" y="61" width="5" height="2.4"/>
+      <ellipse className={styles.trim} cx="82" cy="58.6" rx="7" ry="1.6"/><circle className={styles.red} cx="80" cy="56.4" r="2"/><circle className={styles.sun} cx="84" cy="56.6" r="2"/></g>
+    <Person x={128} y={100} s={1.35} tone="blue"/>
+  </>,
+  // سوق قديم: بوابة في العمق، ودكاكين بمظلات على الجانبين، وأكوام بهارات، وناس على مسافات مختلفة.
+  market: () => <>
+    <Sky warm/>
+    <path className={styles.wall2} d="M0 0 H40 L66 26 V66 L0 96 Z"/><path className={styles.wall} d="M160 0 H120 L94 26 V66 L160 96 Z"/>
+    <rect className={styles.wall} x="62" y="22" width="36" height="44"/>
+    {[62, 70, 78, 86, 94].map(x => <rect key={x} className={styles.wall} x={x} y="18.6" width="4" height="3.6"/>)}
+    <path className={styles.hole} opacity=".8" d="M72 66 V42 a8 8 0 0 1 16 0 V66 Z"/>
+    <path className={styles.sky2} opacity=".9" d="M74.6 66 V43 a5.4 5.4 0 0 1 10.8 0 V66 Z"/>
+    <rect className={styles.trim} opacity=".8" x="62" y="30" width="36" height="1.2"/>
+    <path className={styles.ground} d="M66 66 H94 L160 96 V100 H0 V96 Z"/>
+    <path className={styles.ground2} opacity=".5" d="M76 66 H84 L104 100 H56 Z"/>
+    {[[0, 34, 40, 'red'], [22, 45, 33, 'sun'], [44, 55, 28, 'blue']].map(([x0, y0, d, t], i) => <g key={'l' + i}>
+      <path className={styles[t]} d={`M${x0} ${y0} L${x0 + d * .62} ${y0 + d * .24} L${x0 + d * .62} ${y0 + d * .36} L${x0} ${y0 + d * .2} Z`}/>
+      <path className={styles.wood} d={`M${x0} ${y0 + d * .62} L${x0 + d * .6} ${y0 + d * .52} V${y0 + d * .6} L${x0} ${y0 + d * .72} Z`}/>
+      {[.12, .26, .4].map((f, j) => <path key={j} className={[styles.red, styles.sun, styles.plant][(i + j) % 3]} d={`M${x0 + d * f} ${y0 + d * (.6 - f * .17)} l${d * .05} -${d * .1} l${d * .05} ${d * .1} Z`}/>)}
+    </g>)}
+    {[[160, 34, 40, 'accent'], [138, 45, 33, 'red'], [116, 55, 28, 'sun']].map(([x0, y0, d, t], i) => <g key={'r' + i}>
+      <path className={styles[t]} d={`M${x0} ${y0} L${x0 - d * .62} ${y0 + d * .24} L${x0 - d * .62} ${y0 + d * .36} L${x0} ${y0 + d * .2} Z`}/>
+      <path className={styles.wood} d={`M${x0} ${y0 + d * .62} L${x0 - d * .6} ${y0 + d * .52} V${y0 + d * .6} L${x0} ${y0 + d * .72} Z`}/>
+      {[.14, .3, .46].map((f, j) => <rect key={j} className={[styles.trim, styles.ground2, styles.sun][(i + j) % 3]} x={x0 - d * f - d * .06} y={y0 + d * (.5 - f * .17)} width={d * .1} height={d * .1} rx=".6"/>)}
+    </g>)}
+    <Person x={80} y={72} s={.5} tone="blue"/><Person x={86} y={73} s={.48} tone="red"/>
+    <Person x={66} y={84} s={.82} tone="sun"/><Person x={98} y={86} s={.85}/>
+    <Person x={46} y={100} s={1.25} tone="red"/><Person x={118} y={100} s={1.2} tone="blue"/>
+  </>,
+  // الفضاء: الشمس على الطرف، وكواكب على مداراتها، ونجوم. السماء داكنة في الوضعين.
+  space: () => <>
+    <rect className={styles.space} x="0" y="0" width="160" height="100"/>
+    {[[12, 10], [40, 6], [70, 18], [96, 8], [126, 14], [150, 6], [22, 40], [58, 52], [140, 44], [108, 70], [30, 86], [150, 88], [84, 92], [6, 64], [118, 30]].map(([x, y], i) =>
+      <circle key={i} className={styles.star} cx={x} cy={y} r={i % 3 ? .6 : 1}/>)}
+    {[34, 58, 86].map(r => <ellipse key={r} className={styles.orbit} cx="-6" cy="50" rx={r + 20} ry={r}/>)}
+    <circle className={styles.sun} cx="-6" cy="50" r="22"/>
+    <circle className={styles.wall2} cx="45" cy="26" r="3"/>
+    <circle className={styles.blue} cx="77" cy="66" r="6"/><path className={styles.plant} d="M73 63 q3 -1 4 2 q-1 3 -4 2 Z M79 67 q2 -1 3 1 q-1 2 -3 1 Z"/><circle className={styles.trim} cx="86" cy="60" r="1.6"/>
+    <circle className={styles.red} cx="114" cy="84" r="4.4"/>
+    <ellipse className={styles.orbit} style={{strokeWidth: 1.4, opacity: .9}} cx="134" cy="30" rx="16" ry="4"/>
+    <circle className={styles.sun} cx="134" cy="30" r="9"/><rect className={styles.wall} opacity=".5" x="125" y="28" width="18" height="1.6"/>
+    <path className={styles.orbitFront} d="M118 30 a16 4 0 0 0 32 0"/>
+  </>,
+  // بركان ثائر: حمم تسيل وسحابة رماد، وبيوت بعيدة عند السفح.
+  volcano: () => <>
+    <Sky warm/>
+    <g className={styles.concrete2}><circle cx="70" cy="16" r="9"/><circle cx="82" cy="10" r="11"/><circle cx="96" cy="16" r="9"/><circle cx="88" cy="22" r="7"/></g>
+    <path className={styles.ground2} d="M0 80 L46 50 L66 28 H96 L116 50 L160 78 V100 H0 Z"/>
+    <path className={styles.wall2} opacity=".7" d="M66 28 H96 L104 40 Q81 36 58 40 Z"/>
+    <path className={styles.red} d="M74 28 H88 L86 36 Q90 48 84 60 Q80 70 86 82 L78 82 Q72 66 77 54 Q81 44 76 36 Z"/>
+    <path className={styles.sun} d="M78 28 h6 l-1 6 q2 10 -2 18 q-3 8 0 16 h-3 q-3 -8 0 -16 q3 -8 1 -18 Z"/>
+    <path className={styles.red} d="M96 32 q10 8 12 22 l-4 1 q-2 -12 -10 -20 Z"/>
+    {[[78, 24, 1.6], [86, 22, 1.2], [72, 20, 1]].map(([x, y, r], i) => <circle key={i} className={styles.sun} cx={x} cy={y} r={r}/>)}
+    <rect className={styles.ground} x="0" y="88" width="160" height="12"/>
+    {[[14, 9, 6], [26, 7, 8], [140, 8, 7]].map(([x, w, h], i) => <g key={i}><rect className={styles.wall} x={x} y={88 - h} width={w} height={h}/><rect className={styles.trim} x={x - .4} y={87.2 - h} width={w + .8} height=".9"/><rect className={styles.hole} opacity=".7" x={x + w / 2 - 1} y={90 - h} width="2" height="2.4"/></g>)}
+  </>,
+  // بنك: واجهة بأعمدة ودرج، وصراف آلي، وطابور قصير.
+  bank: () => <>
+    <Sky/><rect className={styles.ground} x="0" y="80" width="160" height="20"/>
+    <rect className={styles.concrete} x="22" y="24" width="116" height="56"/>
+    <path className={styles.concrete2} d="M18 24 L80 8 L142 24 Z"/><rect className={styles.trim} x="18" y="23" width="124" height="2"/>
+    <rect className={styles.accent} x="60" y="28" width="40" height="7" rx="1"/><rect className={styles.trim} opacity=".9" x="66" y="30.8" width="28" height="1.4" rx=".6"/>
+    {[30, 44, 104, 118].map(x => <g key={x}><rect className={styles.trim} x={x} y="38" width="6" height="38"/><rect className={styles.shade} x={x + 4.4} y="38" width="1.6" height="38"/><rect className={styles.concrete2} x={x - 1} y="36.6" width="8" height="2"/></g>)}
+    <rect className={styles.glass} x="64" y="44" width="32" height="32"/><rect className={styles.concrete2} x="79.4" y="44" width="1.2" height="32"/>
+    <rect className={styles.concrete2} x="16" y="76" width="128" height="2.4"/><rect className={styles.concrete} x="12" y="78.4" width="136" height="2.4"/>
+    <g><rect className={styles.hole} x="146" y="52" width="12" height="28" rx="1"/><rect className={styles.glass} x="148" y="55" width="8" height="6"/>
+      {[64, 67, 70].map(y => <rect key={y} className={styles.trim} opacity=".7" x="148.6" y={y} width="6.8" height="1.6"/>)}</g>
+    <Person x={140} y={94} s={1.05} tone="blue"/><Person x={128} y={95} s={1.1} tone="red"/><Person x={116} y={95} s={1} tone="sun"/>
+    <Person x={40} y={95} s={1.1} tone="accent"/>
+  </>,
+  // جهاز تلغراف على مكتب: مفتاح الإرسال وشريط ورقي عليه نقاط وشرطات، وأعمدة أسلاك من النافذة.
+  telegraph: () => <>
+    <rect className={styles.plaster} x="0" y="0" width="160" height="100"/>
+    <rect className={styles.wood} x="96" y="8" width="54" height="40"/><rect className={styles.sky} x="99" y="11" width="48" height="34"/>
+    <path className={styles.ground2} d="M99 45 V36 l12 -6 l14 5 l12 -7 l10 6 v11 Z"/>
+    {[106, 126, 144].map((x, i) => <g key={x}><rect className={styles.hole} x={x} y={18 + i * 2} width="1" height="18"/><rect className={styles.hole} x={x - 3} y={19 + i * 2} width="7" height=".8"/></g>)}
+    <path className={styles.wire} d="M99 20 Q116 26 126 21 T147 23"/>
+    <rect className={styles.wood} x="0" y="62" width="160" height="38"/><rect className={styles.trim} opacity=".3" x="0" y="62" width="160" height="1.4"/>
+    <rect className={styles.wood} x="30" y="52" width="40" height="10" rx="1.4"/><rect className={styles.shade} x="30" y="58" width="40" height="4"/>
+    <rect className={styles.sun} x="36" y="47" width="28" height="4" rx="1"/>
+    <path className={styles.hole} d="M38 46 L62 43 L62.6 45 L38.6 48 Z"/><circle className={styles.hole} cx="63" cy="43" r="3.4"/><circle className={styles.trim} cx="63" cy="42.4" r="1.4"/>
+    <rect className={styles.sun} x="40" y="44" width="2.4" height="4"/>
+    <path className={styles.trim} d="M78 72 h70 v8 h-70 Z"/><path className={styles.trim} d="M78 72 q-8 -4 -6 -12 h4 q-1 6 6 8 Z"/>
+    {[[82, 'dot'], [88, 'dash'], [97, 'dot'], [103, 'dot'], [109, 'dash'], [119, 'dash'], [129, 'dot'], [135, 'dash']].map(([x, k], i) =>
+      k === 'dot' ? <circle key={i} className={styles.hole} cx={x + 1.4} cy="76" r="1.4"/> : <rect key={i} className={styles.hole} x={x} y="75" width="7" height="2" rx="1"/>)}
+    <Person x={20} y={74} s={1.2} tone="blue"/>
+  </>,
+  // لوحة دارة: مسارات نحاسية، وشرائح، ومصابيح، وبطارية ومفتاح.
+  circuit: () => <>
+    <rect className={styles.board} x="0" y="0" width="160" height="100"/>
+    <g className={styles.trace}>
+      <path d="M20 20 H60 V40 H90"/><path d="M20 50 H44 V70 H90"/><path d="M110 40 H130 V25"/><path d="M110 70 H136 V84 H20 V70"/><path d="M90 40 V70"/><path d="M60 40 V20"/>
+    </g>
+    {[[20, 20], [20, 50], [60, 40], [90, 40], [90, 70], [130, 25], [136, 84], [20, 84]].map(([x, y], i) => <circle key={i} className={styles.sun} cx={x} cy={y} r="1.8"/>)}
+    <g><rect className={styles.hole} x="88" y="48" width="24" height="16" rx="1"/>
+      {[0, 1, 2, 3].map(i => <g key={i}><rect className={styles.trim} opacity=".8" x={91 + i * 5.4} y="45.6" width="1.4" height="2.4"/><rect className={styles.trim} opacity=".8" x={91 + i * 5.4} y="64" width="1.4" height="2.4"/></g>)}
+      <circle className={styles.trim} opacity=".5" cx="91.4" cy="51" r=".9"/></g>
+    <g><rect className={styles.hole} x="36" y="26" width="16" height="10" rx="1"/><circle className={styles.trim} opacity=".5" cx="38.6" cy="28.4" r=".7"/></g>
+    {[[130, 18, 'red'], [146, 40, 'sun'], [146, 58, 'plant2']].map(([x, y, t], i) => <g key={i}>
+      <circle className={styles[t]} cx={x} cy={y} r="4.4"/><circle className={styles[t]} opacity=".25" cx={x} cy={y} r="7.4"/><circle className={styles.trim} opacity=".7" cx={x - 1.4} cy={y - 1.4} r="1.2"/></g>)}
+    <g><rect className={styles.blue} x="8" y="60" width="10" height="30" rx="1.4"/><rect className={styles.hole} x="11" y="58" width="4" height="2.4"/><rect className={styles.trim} opacity=".8" x="10" y="64" width="6" height="1.2"/></g>
+    <g><rect className={styles.hole} x="56" y="78" width="14" height="10" rx="1.4"/><rect className={styles.trim} x="58.4" y="81" width="5" height="4" rx="1"/></g>
+  </>,
+  // مكتب خطاط: ورقة عليها ضربات حبر، وأقلام قصب، ودواة، ومسطرة.
+  desk: () => <>
+    <rect className={styles.wood} x="0" y="0" width="160" height="100"/>
+    <rect className={styles.shade} x="0" y="0" width="160" height="100" opacity=".08"/>
+    <g transform="rotate(-4 76 52)"><rect className={styles.paperFixed} x="28" y="14" width="96" height="74" rx="1"/>
+      {[30, 46, 62].map(y => <rect key={y} className={styles.trimLine} style={{stroke: 'var(--v-glass)', strokeWidth: .5}} x="36" y={y} width="80" height=".1"/>)}
+      <path className={styles.inkStroke} d="M110 27 q-6 4 -14 1 q-6 -3 -10 2 M84 28 q-4 -8 -10 -3 q-4 5 2 6 M68 29 h-10 q-6 0 -6 -6 M46 28 q-4 3 -8 0"/>
+      <path className={styles.inkStroke} d="M108 44 q-10 -1 -12 -8 M92 43 q-8 6 -16 1 q-4 -3 -2 -8 M70 44 h-14 q-4 0 -6 -5 M48 43 q-6 4 -10 -1"/>
+      {[[100, 24], [78, 22], [92, 39], [60, 38]].map(([x, y], i) => <path key={i} className={styles.hole} d={`M${x} ${y} l1.4 -1.4 l1.4 1.4 l-1.4 1.4 Z`}/>)}
+      <path className={styles.inkStroke} style={{opacity: .35}} d="M110 58 q-8 2 -14 -2 M88 58 q-6 4 -12 0"/>
+    </g>
+    <g><ellipse className={styles.hole} cx="140" cy="30" rx="9" ry="3"/><rect className={styles.hole} x="131" y="30" width="18" height="12"/><ellipse className={styles.hole} cx="140" cy="42" rx="9" ry="3"/><ellipse className={styles.trim} opacity=".25" cx="140" cy="30" rx="6" ry="1.6"/></g>
+    {[0, 1, 2].map(i => <g key={i} transform={`rotate(${-62 + i * 7} 140 70)`}><rect className={[styles.sun, styles.wall, styles.wall2][i]} x="112" y="69" width="44" height="2.6" rx="1"/><path className={styles.hole} d="M112 69 l-4 1.3 l4 1.3 Z"/></g>)}
+    <rect className={styles.trim} opacity=".85" x="10" y="90" width="80" height="4" rx=".6" transform="rotate(-4 50 92)"/>
+  </>,
+  // قاعة محكمة: منصة القاضي، ورمز الميزان على الجدار، ومقاعد الحضور.
+  court: () => <>
+    <rect className={styles.plaster} x="0" y="0" width="160" height="100"/>
+    <rect className={styles.wood} opacity=".35" x="0" y="0" width="160" height="6"/>
+    <g transform="translate(80 18)"><rect className={styles.sun} x="-.7" y="-8" width="1.4" height="14"/><rect className={styles.sun} x="-10" y="-7" width="20" height="1.2"/>
+      <path className={styles.sun} d="M-10 -6 l-4 7 h8 Z M10 -6 l-4 7 h8 Z"/><rect className={styles.sun} x="-4" y="5.4" width="8" height="1.6"/></g>
+    <Person x={80} y={52} s={1.2}/>
+    <rect className={styles.wood} x="40" y="44" width="80" height="22"/><rect className={styles.trim} opacity=".3" x="38" y="42.6" width="84" height="2"/>
+    {[52, 80, 108].map(x => <rect key={x} className={styles.shade} x={x - 8} y="49" width="16" height="12" rx="1"/>)}
+    <rect className={styles.wood} x="8" y="52" width="24" height="14"/><Person x={20} y={56} s={.9} tone="red"/>
+    <rect className={styles.wood} x="128" y="52" width="24" height="14"/><Person x={140} y={56} s={.9} tone="blue"/>
+    <rect className={styles.ground} x="0" y="66" width="160" height="34"/>
+    {[78, 92].map((y, r) => <g key={y}>
+      {[22, 40, 58, 102, 120, 138].map((x, i) => <Person key={x} x={x} y={y - 2} s={.85} tone={['accent', 'blue', 'sun', 'red', 'accent', 'blue'][(i + r) % 6]}/>)}
+      <rect className={styles.wood} x="10" y={y - 3} width="62" height="5"/><rect className={styles.wood} x="88" y={y - 3} width="62" height="5"/>
+    </g>)}
   </>,
   school: () => <>
     <Sky/><Sun x={22}/><Ground/>

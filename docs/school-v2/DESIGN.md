@@ -148,7 +148,9 @@ capstone: 11                                             // آخر محطة مش
 - **chart**: `type` = `line` (`series[{label, points[[x,y]]}]`) أو `bar` (`bars[{label,value}]`, `highlight`) أو `supply-demand` (`demandShift`/`supplyShift` بين −25 و25، و`bind: 'demand'|'supply'` ليتحرك المنحنى مع مؤشر البطاقة). التوازن في (50%، 49%) من الإطار لتسهيل نقاط الضغط.
 - **stat**: `indicator` (معرّف من «اليمن بالأرقام») و`years` اختياري. الخادم يملأ `data` من القيم المنشورة ومصدرها قبل إرسال الدرس (`lib/schoolCardVisualsServer.js`)؛ لا يُقبل `data` من المحرر.
 - **map**: `highlight` (رموز YE11–YE32) أو `values` لخريطة درجات، و`labels:false` لإخفاء الأسماء. الملف `public/data/school-v2/yemen-governorates.json` (18KB) يُبنى بـ `node scripts/build-school-v2-map.mjs` من حدود OCHA، بأسماء المحافظات بإملائها الصحيح.
-- **scene**: `city|street|home|well|shop|market|school|parliament|farm|port|weather-station|lab|mountains|desert`، و`labels[{text,x,y}]` بنسب مئوية.
+- **scene**: `city|street|home|well|shop|market|space|volcano|bank|telegraph|circuit|desk|court|school|parliament|farm|port|weather-station|lab|mountains|desert`
+- **script**: `{text, script}` نموذج خط حقيقي (خطوط ويب متخصصة أو أعمال تاريخية موثقة) من مسار الخطوط العربية. `script` واحد من: `naskh|ruqah|kufi|thuluth|diwani|nastaliq|maghribi`.
+- **pad**: `{model, script, focus, instructions}` لوح كتابة حرة غير مصحَّح ولا محفوظ، يوضع في بطاقة شرح. السحب عليه لا يقلب البطاقة (`data-noswipe`).، و`labels[{text,x,y}]` بنسب مئوية.
 - **timeline** `events[{year,label}]` و`highlight`؛ **layers** `layers[{label,detail}]`؛ **compare** `before/after` و`beforeLabel/afterLabel`؛ **formula** `parts` و`ops` (`plus|minus|times|divide|equals|arrow`)؛ **verse** `sadr/ajuz/meter/feet[{text,pattern,name}]`؛ **glyphs** `letters` (معرّفات `MUSNAD_ALPHABET`)؛ **image** من `upload.wikimedia.org/wikipedia/commons/` فقط مع `credit` و`license`.
 - الرسوم (`chart/stat/map/scene/image`) تُقرأ لقارئ الشاشة بوصفها `alt`؛ العناصر النصية تُقرأ كما هي. `caption` تعليق مرئي اختياري.
 - لا تضع رسمًا يكشف إجابة التفاعل في البطاقة نفسها (مثل خط زمني فوق سؤال ترتيب).
